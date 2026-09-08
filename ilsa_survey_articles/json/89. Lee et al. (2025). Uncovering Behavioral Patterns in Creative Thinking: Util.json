@@ -12,7 +12,8 @@
     "venue": "The Journal of Creative Behavior",
     "publication_type": "journal",
     "open_access": null,
-    "source_category": "review_article"
+    "source_category": "review_article",
+    "abstract": "Examining cognitive dynamics in the creative process is crucial for advancing creative theories and creativity education but has been historically understudied due to the technical challenges in collecting fine-grained data underlying cognitive processes. The PISA 2022 Creative Thinking assessment has the potential to address this limitation by offering rich, technology-based process data that capture cognitive and affective dynamics. To explore this potential, we outlined key topics and theoretical foundations in creativity research related to process data, followed by an illustrative example demonstrating how process data can illuminate creative thinking processes simply using descriptive statistics of released items. Furthermore, we delineated model-based approaches, including data mining techniques and extended item response theory models, to uncover various behavioral patterns in creative thinking through integrating process data and item responses together."
   },
   "data": {
     "survey_design": {
@@ -36,17 +37,17 @@
     "confounders_identified": [],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 Process Data",
-        "target_variable": "how PISA defines engagement/disengagement-related indicators achievement",
+        "dataset_used": "PISA 2022 Creative Thinking process data (publicly released codebook statistics)",
+        "target_variable": "Cognitive and affective dynamics in creative thinking (PISA 2022 CT process data review)",
         "top_predictors": [
           "See outcome_summary (descriptive associations not coded as predictors)"
         ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
-        "standardized_conclusion": "Using PISA 2022 Process Data, the document summarizes how PISA defines engagement/disengagement-related indicators achievement in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This article is a review of how PISA 2022 Creative Thinking process data can be used to study cognitive and affective dynamics in creative problem solving. This indicates that As a result, no ML algorithm is trained/evaluated, and no performance metrics (e.g., accuracy/AUC/R²) are reported for an empirical predictive task."
+        "performance_metrics": "Descriptive statistics for 3 released PISA 2022 CT items (Table 1 / Table A2): Robot Story item 1 (Generating diverse ideas, Written expression): M total time = 337s (SD = 166, P5 = 52, P95 = 760, Med = 321), M time to first action = 23s (SD = 16), M actions = 428 (SD = 307, P95 = 1172, Max = 6091), M visits = 1 (Max = 5); Save the River item 1 (Generating diverse ideas, Scientific problem-solving): M total time = 209s (SD = 93), M actions = 174 (SD = 122, Max = 1893); Save the River item 2 (Evaluating and improving ideas): M total time = 151s (SD = 71), M actions = 120 (SD = 95, Max = 3305). PISA disengagement threshold: responses < 15s treated as missing; rapid responding < 30s. No ML performance metrics (no predictive models estimated).",
+        "standardized_conclusion": "This review maps 5 PISA 2022 CT process metrics onto creativity research constructs (serial order effect, cognitive styles, engagement/disengagement). Descriptive patterns from released items show Robot Story elicits more actions (M = 428) and more revisits (Max = 5) than Save the River items (M actions = 174 and 120 respectively, Max visits = 1), suggesting domain context and ideation facet shape process behavior. The paper recommends theory-grounded analysis approaches (clustering, mixture IRT) for future research but does not provide policy-actionable predictions."
       }
     ],
-    "outcome_summary": "This article is a review of how PISA 2022 Creative Thinking process data can be used to study cognitive and affective dynamics in creative problem solving. It describes five process metrics (total time on item, time to first action, number of actions, number of visits, number of short visits) and explains how PISA defines engagement/disengagement-related indicators. It provides an illustrative example using descriptive statistics for two released items (Robot Story and Save the River) and discusses model-based approaches (data mining and IRT-based frameworks) conceptually rather than estimating predictive models in the paper itself. As a result, no ML algorithm is trained/evaluated, and no performance metrics (e.g., accuracy/AUC/R²) are reported for an empirical predictive task.",
-    "research_design_type": "exploratory",
+    "outcome_summary": "This is a conceptual review and methods paper that describes the 5 PISA 2022 Creative Thinking process data metrics (total time on item, time to first action, number of actions, number of visits, number of short visits) and their theoretical grounding in creativity research. An illustrative example uses publicly available descriptive statistics for 3 released items from 2 units (Robot Story item 1; Save the River items 1 and 2). The paper further outlines model-based approaches (data mining, mixture IRT) suitable for analyzing process data in creativity research, but does not conduct any primary analysis. No ML models are trained; no student-level outcomes are predicted.",
+    "research_design_type": "literature_review",
     "null_fields_interpretation": "The manuscript is a review/survey paper that outlines topics, theoretical foundations, and model-based approaches for analyzing PISA 2022 CT process data. It does not report an original empirical ML pipeline with a defined analytic sample, country-level sample sizes, or trained/evaluated machine learning models; consequently, total_students, countries/n_students, ML techniques, and structured predictive findings are not extractable from the provided text."
   }
 }
