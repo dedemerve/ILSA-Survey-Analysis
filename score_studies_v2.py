@@ -214,12 +214,13 @@ def extract_d1(data: dict, metadata: dict):
             return ('Synthesis',
                     f"Review/synthesis/theoretical: source_category='{metadata.get('source_category')}', "
                     f"all_targets_synthetic={all_targets_synthetic}, is_review_cat={is_review_cat}.")
-        # FIX-C: methodology/framework papers that DO make falsifiable analytical
-        # claims (simulation studies, IRT design papers, adaptive testing methods)
-        # are Correlational so they can reach Score 3/4 when they report
-        # directional or quantified findings.
-        return ('Correlational',
-                f"Methodology/framework paper (no ML technique): analytical claims present "
+        # FIX-J: methodology/framework papers with no ML technique cap at Score 2.
+        # Even when they report analytical metrics (simulation stats, IRT design
+        # comparisons, uncertainty estimates), they produce no student-level
+        # predictive finding that can directly inform policy.  Treating them as
+        # Synthesis routes them to Rule 4 → Score 2, matching manual scores.
+        return ('Synthesis',
+                f"Methodology/framework paper (no ML technique): capped at Score 2 "
                 f"(source_category='{metadata.get('source_category')}', design='{data.get('research_design_type')}').")
 
     # ── Causal detection ─────────────────────────────────────────────────────
@@ -404,6 +405,11 @@ def apply_rule(d1, d2, d3):
         return (4, "Rule 2: D2=Quantified, D3=Bounded → Score 4 (D1 irrelevant).")
     if d1 == 'Correlational' and (d2 == 'Directional' or d3 == 'Global/Unspecified'):
         return (3, "Rule 3: D1=Correlational with D2=Directional or D3=Global/Unspecified → Score 3.")
+    # FIX-K: Review/synthesis papers with no quantified finding AND no bounded population
+    # are purely descriptive/scoping → Score 1.  Requiring D3=Global ensures papers that
+    # synthesise findings within a specific context (D3=Bounded) still reach Score 2.
+    if d1 in ('Synthesis', 'None') and d2 == 'None' and d3 == 'Global/Unspecified':
+        return (1, "Rule 3b: D1=Synthesis/None, D2=None, D3=Global → purely descriptive, Score 1.")
     if d1 in ('Synthesis', 'None') or d2 == 'Directional' or d3 == 'Global/Unspecified':
         return (2, "Rule 4: D1=Synthesis/None or D2=Directional or D3=Global/Unspecified → Score 2.")
     return (1, "Rule 5: D1=None → Score 1.")
