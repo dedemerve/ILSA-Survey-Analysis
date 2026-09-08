@@ -341,6 +341,10 @@ def extract_d3(data: dict):
     combined     = dataset_text + ' ' + summary + ' ' + sfc
 
     if codes:
+        # FIX-G: 4+ countries = international scope → Global (not bounded to specific context)
+        if len(codes) >= 4:
+            return ('Global/Unspecified',
+                    f"Multi-country study ({len(codes)} countries: {codes[:4]}…) = international scope.")
         return ('Bounded', f"Specific countries identified: {codes[:5]}.")
 
     ILSA = re.compile(
@@ -349,7 +353,9 @@ def extract_d3(data: dict):
     )
     m = ILSA.search(combined)
     if m:
-        return ('Bounded', f"Specific ILSA cycle: '{m.group()}'.")
+        # FIX-H: ILSA cycle with no specific country codes → international scope → Global
+        return ('Global/Unspecified',
+                f"ILSA cycle ('{m.group()}') without country restriction = international scope.")
 
     GRADE = re.compile(
         r'\b(grade\s*\d+|\d+th\s*grade|15.year.old|fourth.grade|eighth.grade|year\s*\d+)\b',
@@ -391,7 +397,8 @@ def extract_d3(data: dict):
 def apply_rule(d1, d2, d3):
     if d1 == 'Causal' and d2 == 'Quantified' and d3 == 'Bounded':
         return (5, "Rule 1: D1=Causal, D2=Quantified, D3=Bounded → Score 5.")
-    if d2 == 'Quantified' and d3 == 'Bounded':
+    # FIX-I: Synthesis papers do not qualify for Rule 2 (Score 4) — they cap at Rule 4 (Score 2)
+    if d1 != 'Synthesis' and d2 == 'Quantified' and d3 == 'Bounded':
         return (4, "Rule 2: D2=Quantified, D3=Bounded → Score 4 (D1 irrelevant).")
     if d1 == 'Correlational' and (d2 == 'Directional' or d3 == 'Global/Unspecified'):
         return (3, "Rule 3: D1=Correlational with D2=Directional or D3=Global/Unspecified → Score 3.")
