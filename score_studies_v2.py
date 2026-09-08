@@ -34,6 +34,7 @@ SYNTHESIS_SOURCE_CATS = {
 METHODOLOGY_SOURCE_CATS = {
     "methodology_paper", "framework_paper", "editorial",
     "theoretical_paper", "commentary", "opinion_piece",
+    "technical_report",
 }
 
 _DIRECTIONAL_RE = re.compile(
@@ -50,9 +51,16 @@ _DIRECTIONAL_SYNTH_RE = re.compile(
     r"|synthes|identif|reveal|demonstrat|find|found|indicat)\w*",
     re.IGNORECASE,
 )
-# Markers indicating a paper has no empirical findings (D2=None for Synthesis)
+# Strong markers: paper explicitly disclaims findings — checked BEFORE directional signals
 _NO_EMPIRICAL_RE = re.compile(
-    r"not an empirical|does not train|not a[n]? ml|no predictive|no empirical",
+    r"does not train|not a[n]? ml|no empirical"
+    r"|does not estimate"                      # e.g. "does not estimate predictive or causal effects"
+    r"|is a methodological contribution",      # e.g. "This article is a methodological contribution"
+    re.IGNORECASE,
+)
+# Weak markers: caveats LLM appends even to papers with synthesis findings — checked AFTER directional
+_WEAK_NO_EMPIRICAL_RE = re.compile(
+    r"not an empirical|no predictive",
     re.IGNORECASE,
 )
 _QUANTIFIED_RE = re.compile(
@@ -111,12 +119,19 @@ def _d2_for_synthesis(findings: list, summary: str) -> str:
         if perf and lower_perf not in ("", "not_reported", "n/a", "na", "null", "none"):
             if _QUANTIFIED_RE.search(perf):
                 return "Quantified"
-    # Papers explicitly marked as non-empirical have no findings → D2=None
+    # Strong negation: paper explicitly disclaims any findings → D2=None immediately
     if _NO_EMPIRICAL_RE.search(summary):
         return "None"
-    # Directional: use conservative regex (no "argu", no "report/present/show")
+    # Directional: check summary first, then standardized conclusions as fallback
     if _DIRECTIONAL_SYNTH_RE.search(summary):
         return "Directional"
+    for f in findings:
+        conclusion = (f.get("standardized_conclusion") or "").strip()
+        if _DIRECTIONAL_SYNTH_RE.search(conclusion):
+            return "Directional"
+    # Weak negation: LLM caveat that may appear even in papers with synthesis findings
+    if _WEAK_NO_EMPIRICAL_RE.search(summary):
+        return "None"
     return "None"
 
 
