@@ -205,13 +205,19 @@ def extract_d1(data: dict, metadata: dict):
     )
 
     if not has_technique and (is_non_empirical_cat or all_targets_synthetic):
-        if is_synthesis:
+        if is_synthesis or all_targets_synthetic:
+            # FIX-E: purely theoretical / framework papers whose target_variable
+            # was set to "Literature synthesis outcome (not student-level prediction)"
+            # should be Synthesis, not Correlational, even when source_category is
+            # methodology_paper.  Synthesis correctly routes them to Score ≤ 2 when
+            # they have no quantified policy outcomes (e.g. ISM / conceptual models).
             return ('Synthesis',
-                    f"Non-empirical paper with review-type source_category='{metadata.get('source_category')}'.")
-        # FIX-C: methodology/framework papers still make analytical claims even
-        # without ML techniques (e.g., simulation studies, design papers, IRT work).
-        # Classify as Correlational so they can reach Score 3 via Rule 3
-        # when they have directional findings.
+                    f"Review/synthesis/theoretical: source_category='{metadata.get('source_category')}', "
+                    f"all_targets_synthetic={all_targets_synthetic}, is_review_cat={is_review_cat}.")
+        # FIX-C: methodology/framework papers that DO make falsifiable analytical
+        # claims (simulation studies, IRT design papers, adaptive testing methods)
+        # are Correlational so they can reach Score 3/4 when they report
+        # directional or quantified findings.
         return ('Correlational',
                 f"Methodology/framework paper (no ML technique): analytical claims present "
                 f"(source_category='{metadata.get('source_category')}', design='{data.get('research_design_type')}').")
@@ -293,10 +299,15 @@ def extract_d2(data: dict, d1_hint: str = ''):
         return ('Quantified',
                 f"Numerical finding (decimal/%/count) in study fields: '{outcome_summary[:200]}'")
 
-    # RULE-1b: For synthesis/methodology papers only — any 2+ digit non-year integer
-    # (e.g. count of screened studies, number of experts, attributes) counts as Quantified.
+    # RULE-1b: For synthesis/methodology papers only — non-year integers count as Quantified.
+    # FIX-F: For Synthesis papers, require 3+ digit numbers. Structural counts like
+    # "16 attributes" or "52 experts" (2-digit) must NOT trigger D2=Quantified.
+    # Real outcomes (N=221, M=337) use 3-digit numbers or are caught by _DECIMAL_OR_PCT.
     if d1_hint in ('Synthesis', 'Correlational', 'None'):
-        _ANY_NUM_NONYR = re.compile(r'\b(?!(?:18|19|20)\d{2}\b)\d{2,}\b')
+        if d1_hint == 'Synthesis':
+            _ANY_NUM_NONYR = re.compile(r'\b(?!(?:18|19|20)\d{2}\b)\d{3,}\b')
+        else:
+            _ANY_NUM_NONYR = re.compile(r'\b(?!(?:18|19|20)\d{2}\b)\d{2,}\b')
         if _ANY_NUM_NONYR.search(combined_rule1):
             return ('Quantified',
                     f"Non-year numerical count in study fields: '{outcome_summary[:200]}'")
