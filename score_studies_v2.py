@@ -2,7 +2,7 @@
 Policy Actionability Scorer for ILSA Survey articles.
 Three-dimension rubric: D1 (Inferential Warrant), D2 (Effect Specification), D3 (Population Boundedness).
 
-Rules: FIX-G, FIX-I, FIX-J, FIX-K plus:
+Rules: FIX-I, FIX-J, FIX-K plus:
   FIX-DESIGN-CAUSAL: research_design_type=causal_observational → D1=Causal
   FIX-DESIGN-ML: research_design_type in {predictive, exploratory} → D1=Correlational when ml_techniques is empty
   FIX-METH-ALWAYS: methodology_paper (regardless of has_ml) → D1=Synthesis
@@ -40,6 +40,19 @@ _DIRECTIONAL_RE = re.compile(
     r"\b(increas|decreas|higher|lower|positiv|negativ|improv|reduc|outperform|better|worse"
     r"|predicts?|associat|influen|effect|contribut|significan|argu|suggest"
     r"|synthes|report|present|identif|reveal|show|demonstrat|find|found|indicat)\w*",
+    re.IGNORECASE,
+)
+# Conservative version for Synthesis papers: excludes "argu" (advocacy papers) and "report/present/show"
+# (too common as non-finding nouns). Relies on more unambiguous finding verbs only.
+_DIRECTIONAL_SYNTH_RE = re.compile(
+    r"\b(increas|decreas|higher|lower|positiv|negativ|improv|reduc|outperform|better|worse"
+    r"|predicts?|associat|influen|effect|contribut|significan|suggest"
+    r"|synthes|identif|reveal|demonstrat|find|found|indicat)\w*",
+    re.IGNORECASE,
+)
+# Markers indicating a paper has no empirical findings (D2=None for Synthesis)
+_NO_EMPIRICAL_RE = re.compile(
+    r"not an empirical|does not train|not a[n]? ml|no predictive|no empirical",
     re.IGNORECASE,
 )
 _QUANTIFIED_RE = re.compile(
@@ -98,8 +111,11 @@ def _d2_for_synthesis(findings: list, summary: str) -> str:
         if perf and lower_perf not in ("", "not_reported", "n/a", "na", "null", "none"):
             if _QUANTIFIED_RE.search(perf):
                 return "Quantified"
-    # Directional from outcome_summary only (not Quantified to avoid false positives)
-    if _DIRECTIONAL_RE.search(summary):
+    # Papers explicitly marked as non-empirical have no findings → D2=None
+    if _NO_EMPIRICAL_RE.search(summary):
+        return "None"
+    # Directional: use conservative regex (no "argu", no "report/present/show")
+    if _DIRECTIONAL_SYNTH_RE.search(summary):
         return "Directional"
     return "None"
 
@@ -149,10 +165,11 @@ def _country_count(data: dict) -> int:
 
 
 def _d3(data: dict) -> str:
+    # Any explicitly listed countries = Bounded (even 10+), 0 = Global/Unspecified
     n = _country_count(data)
     if n == 0:
         return "Global/Unspecified"
-    return "Bounded" if n <= 9 else "Global/Unspecified"  # FIX-G: ≥10 → Global
+    return "Bounded"
 
 
 def score(d1: str, d2: str, d3: str) -> int:
@@ -166,11 +183,12 @@ def score(d1: str, d2: str, d3: str) -> int:
     if d1 == "Causal" and d2 == "Quantified" and d3 == "Bounded":
         return 5
     # FIX-I: Synthesis skips Rule 2 → falls to Rule 4
-    # Rule 2 (non-Synthesis)
-    if d1 not in ("Synthesis", "None") and d2 == "Quantified" and d3 == "Bounded":
+    # Rule 2 (non-Synthesis): Quantified results → Score 4 regardless of D3
+    # (Global/multi-country ILSA studies with quantified ML metrics are equally actionable)
+    if d1 not in ("Synthesis", "None") and d2 == "Quantified":
         return 4
-    # Rule 3
-    if d1 == "Correlational" and (d2 == "Directional" or d3 == "Global/Unspecified"):
+    # Rule 3: Directional only (D3 no longer demotes Correlational+Quantified)
+    if d1 == "Correlational" and d2 == "Directional":
         return 3
     # Rule 4
     if d1 in ("Synthesis", "None") or d2 == "Directional" or d3 == "Global/Unspecified":
