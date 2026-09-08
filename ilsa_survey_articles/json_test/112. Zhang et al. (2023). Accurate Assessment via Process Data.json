@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "file_name": "112. Zhang et al. (2023). Accurate Assessment via Process Data.pdf",
+    "title": "ACCURATE ASSESSMENT VIA PROCESS DATA",
+    "authors": [
+      "Susu Zhang",
+      "Zhi Wang",
+      "Jitong Qi",
+      "Jingchen Liu",
+      "Zhiliang Ying"
+    ],
+    "year": 2023,
+    "doi": "10.1007/s11336-022-09880-8",
+    "venue": "Psychometrika",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The empirical component uses OECD PIAAC 2012 PSTRE process and response data from five countries/regions (UK—England and Northern Ireland, Ireland, Japan, the Netherlands, and the USA). The paper describes item calibration (generalized partial credit model) and the construction of process features and regression-based conditional expectations, but it does not report the use of complex survey weights or replicate weights in the estimation of latent proficiency. Because the study’s core procedure is model-based scoring refinement (Rao–Blackwellization with regression/OLS steps) rather than design-based estimation, the manuscript provides no explicit weight variable (e.g., TOTWGT/W_FSTUWT) to apply. The only explicit sample restriction is excluding respondents who omitted any of the 14 PSTRE items; no additional weighting strategy is documented."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variable in the empirical analysis is a latent proficiency estimate for PSTRE derived from item responses and then refined using process features; the paper does not describe plausible values (PV) generation/combining as in cognitive achievement PV frameworks. Instead, it uses IRT-style latent trait estimation (EAP) and a generalized partial credit model for polytomous final scores, and then applies regression-based conditional expectations to refine the latent trait. Missing-data handling is only partially addressed via exclusion of respondents who omitted any of the 14 PSTRE items; the paper does not report a general missing-data imputation/deletion rule for other missingness patterns, so the missing-data strategy is not fully documented.",
+    "sample_details": {
+      "total_students": 2304,
+      "countries": [
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Empirical analysis uses the PIAAC 2012 PSTRE assessment process and response data for respondents assigned to PSTRE in both cognitive item blocks. Each PSTRE block contains 7 items (14 total across both blocks). The study excludes individuals who omitted any of the 14 PSTRE items, yielding an analytic sample of 2304 respondents who responded to all 14 PSTRE items. For evaluation, the 14 items are repeatedly partitioned into scoring and reference sets of 7 items (50 random partitions), and scoring-set item counts are varied from 2 to 7 to study performance under different test lengths."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (process and response data), 5 countries/regions; 14 items (7 scoring + 7 reference)",
+        "target_variable": "PSTRE latent proficiency agreement (MSE vs reference-set estimate)",
+        "top_predictors": [],
+        "performance_metrics": "Process-incorporated estimator consistently smaller MSE than response-based estimator across scoring-set lengths (2–7 items). With 2 items, process-incorporated achieved comparable median MSE to response-based using 5 items; with 4+ items, process-incorporated achieved similar or lower MSE than response-based using all 7 items. Exact numeric MSE values are not reported in the text.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process and response the study leveraged process-derived features (embedded via MDS) together with response-based latent trait estimates to refine PSTRE latent proficiency, finding that the process-incorporated estimator produced consistently lower MSE against an external reference-set latent estimate than the response-only estimator. This indicates that incorporating problem-solving process information can increase measurement reliability and reduce the number of items needed to reach a given agreement level, though the evaluation is based on split-half agreement rather than true latent ability."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (process and response data), 5 countries/regions; 14 items (7 scoring + 7 reference)",
+        "target_variable": "PSTRE latent proficiency agreement (Kendall’s τ vs reference-set estimate)",
+        "top_predictors": [],
+        "performance_metrics": "Kendall’s τ with reference-set performance is consistently larger for the process-incorporated estimator for all test lengths (2–7 items). Absolute τ values are mostly below 0.5 due to attenuation from reference-set measurement error. With 4 items, process-incorporated achieved similar or higher Kendall’s τ than response-based using all 7 items; exact τ values are not fully enumerated in the text.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process and response the study leveraged process-incorporated Rao–Blackwellization refinement to predict latent proficiency rankings, finding that Kendall’s τ between scoring-set estimates and reference-set performance was consistently higher for the process-incorporated estimator than for the response-only estimator across scoring lengths. This indicates that process-aware scoring can improve norm-referenced ranking reliability, particularly when fewer items are used, while also highlighting that the criterion itself is an estimate with measurement error."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (process and response data), 5 countries/regions; 14 items",
+        "target_variable": "Relative performance under response–process discrepancy (MSE by residual deciles)",
+        "top_predictors": [],
+        "performance_metrics": "When the two estimators disagree most (extreme residual deciles from regressing response-based θ on process-incorporated θ), the process-incorporated estimator shows remarkably lower MSE with respect to the reference-set estimate than the response-based estimator. For middle residual deciles (around 4th–6th), MSEs are similar.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process and response the study leveraged process-incorporated refinement to improve latent proficiency estimation specifically for examinees where response-only and process-aware estimates diverge, finding that the process-incorporated estimator substantially reduced MSE in the extreme discrepancy groups. This indicates that process data can correct for random measurement error patterns (e.g., inefficient strategies, partial completion, or careless slips) that distort response-only scoring, though the approach’s validity depends on assumptions about construct-relevant process information."
+      }
+    ],
+    "outcome_summary": "This paper develops and evaluates a Rao–Blackwellization framework for refining latent trait estimates by incorporating item-level problem-solving process information alongside final responses. In simulations, the process-incorporated estimator improves both mean squared error (MSE) and Kendall’s rank correlation (τ) relative to response-only scoring, with larger gains as sample size and test length increase (e.g., τ rising from ~0.45 to >0.60 for N=2000 with three items). In the empirical study, the method is applied to OECD PIAAC 2012 PSTRE process and response data for 2304 respondents who completed all 14 PSTRE items across five countries/regions. Using split-half evaluation (scoring vs reference sets of 7 items), process-incorporated scoring yields consistently lower MSE and higher Kendall’s τ than response-based scoring across scoring-set lengths from 2 to 7 items, achieving comparable agreement with fewer items. Limitations include the absence of documented survey-weight usage and the fact that agreement is evaluated against an estimated reference-set proficiency rather than true θ.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": "The paper is primarily a theoretical and methodological study with simulation and an empirical demonstration, but it does not train a conventional supervised ML classifier/regressor with a named algorithmic pipeline (e.g., Random Forest/XGBoost). Instead, it uses IRT-based latent trait estimation (EAP) and regression-based conditional expectations (generalized linear models/OLS/ridge) within a Rao–Blackwellization scoring framework, so the schema’s ML-technique list is left empty. As a result, fields like ml_techniques.primary are not populated because no standard ML algorithm is reported as the best-performing model."
+  }
+}
