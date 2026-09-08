@@ -41,7 +41,7 @@
         "top_predictors": [
           "See outcome_summary (descriptive associations not coded as predictors)"
         ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
+        "performance_metrics": "N = 81 PISA 2022 Creative Thinking participating countries; 5 process metric types: total time on item, time to first action, number of actions, number of visits, number of short visits; descriptive statistics reported for 2 released items (Robot Story, Save the River); no ML performance metrics (predictive models not estimated).",
         "standardized_conclusion": "Using PISA 2022 Process Data, the document summarizes how PISA defines engagement/disengagement-related indicators achievement in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This article is a review of how PISA 2022 Creative Thinking process data can be used to study cognitive and affective dynamics in creative problem solving. This indicates that As a result, no ML algorithm is trained/evaluated, and no performance metrics (e.g., accuracy/AUC/R²) are reported for an empirical predictive task."
       }
     ],

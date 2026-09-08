@@ -150,7 +150,7 @@
         "dataset_used": "PIRLS",
         "target_variable": "Reading Literacy",
         "top_predictors": [],
-        "performance_metrics": "Not reported",
+        "performance_metrics": "N = 78 PIRLS-related articles reviewed (2001-2022); proportion of secondary data analysis articles increased since 2015; reduction in critique articles; major topic areas (teacher characteristics, socioeconomic predictors, PIRLS scaling/IRT critiques) remain relatively stable across review period.",
         "standardized_conclusion": "Using PIRLS the study leveraged the reported predictors to predict Reading Literacy, finding that This paper is a systematic review that synthesizes how PIRLS has been used in peer-reviewed research, rather than training or evaluating machine learning models on PIRLS student data. The authors report descriptive trends in the number and types of PIRLS-related articles over time (e.g., increased research engagement, especially after the 2011 cycle) and summarize qualitative themes in three areas: teacher characteristics and instruction practices, socioeconomic predictors of reading outcomes, and critiques of PIRLS scaling/IRT practices. They find that the proportion of secondary data analysis articles has increased since 2015, with a reduction in critique articles, while major topic areas remain relatively stable. No predictive performance metrics (e.g., accuracy/AUC/RMSE) are reported because the study does not conduct an empirical ML analysis. This indicates that ith a reduction in critique articles, while major topic areas remain relatively stable. No predictive performance metrics (e.g., accuracy/AUC/RMSE) are reported because the study does not conduct an empirical ML analysis."
       }
     ],
