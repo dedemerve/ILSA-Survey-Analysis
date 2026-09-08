@@ -86,8 +86,21 @@ class MetadataBlock(BaseModel):
         description="True if freely accessible without paywall; null if unknown."
     )
     source_category: Optional[Literal[
-        "technical_report", "review_article", "methodology_paper",
-        "peer_reviewed_research"
+        "technical_report",
+        "peer_reviewed_research",
+        # synthesis subtypes (all → D1=Synthesis in scorer)
+        "review_article",
+        "systematic_review",
+        "scoping_review",
+        "meta_analysis",
+        "literature_review",
+        # methodology/framework subtypes (all → D1=Synthesis in scorer)
+        "methodology_paper",
+        "framework_paper",
+        "editorial",
+        "theoretical_paper",
+        "commentary",
+        "opinion_piece",
     ]] = Field(
         default=None,
         description="Strict research type categorization."

@@ -1712,7 +1712,8 @@ RULE 2 — CRASH-PROOF OFFICIAL IEA/OECD TECHNICAL REPORTS & ASSESSMENT FRAMEWOR
   Pydantic REJECTS any string outside the exact literals below. Never invent labels \
   like "Official Report", "technical report", or prose in enum fields.
   - metadata.publication_type: EXACTLY "report" (never "Official Report" or variants).
-  - metadata.source_category: EXACTLY "technical_report" OR "methodology_paper".
+  - metadata.source_category: EXACTLY "technical_report" OR "methodology_paper" OR \
+    "framework_paper" (choose the narrowest fit from the enum above).
   - data.plausible_values_handling: EXACTLY "not_applicable" (frameworks/manuals; \
     allowed PV literals for empirical papers only: rubin_rules, single_pv, average_pv, \
     all_pv, mitml, wle, irt_theta, not_reported).
@@ -1743,7 +1744,25 @@ CRITICAL EXTRACTION & INFERENCE RULES
    - publication_type MUST be exactly one of:
      ['journal', 'conference', 'book_chapter', 'preprint', 'report', 'thesis'].
    - source_category MUST be exactly one of:
-     ['technical_report', 'review_article', 'methodology_paper', 'peer_reviewed_research'].
+     ['technical_report', 'peer_reviewed_research',
+      'review_article', 'systematic_review', 'scoping_review',
+      'meta_analysis', 'literature_review',
+      'methodology_paper', 'framework_paper', 'editorial',
+      'theoretical_paper', 'commentary', 'opinion_piece'].
+     Mapping guidance:
+       Empirical study with original data → "peer_reviewed_research"
+       OECD/IEA technical manual, user guide, codebook → "technical_report"
+       PRISMA/registered systematic review → "systematic_review"
+       Broad scoping / mapping review → "scoping_review"
+       Quantitative synthesis with effect sizes → "meta_analysis"
+       Traditional narrative literature review → "literature_review"
+       General overview / non-systematic survey → "review_article"
+       Scales/instruments/algorithms paper (methodological contribution) → "methodology_paper"
+       Conceptual/theoretical model, assessment design proposal → "framework_paper"
+       Journal editorial / introduction section → "editorial"
+       Pure theoretical discussion, no data → "theoretical_paper"
+       Response to another paper → "commentary"
+       Expert perspective / viewpoint without new data → "opinion_piece"
    - research_design_type MUST be exactly one of:
      ['predictive', 'causal_observational', 'causal_experimental', 'exploratory'].
      Mapping: prediction/classification/regression → "predictive";
@@ -2299,8 +2318,10 @@ CRITICAL EXTRACTION & INFERENCE RULES
 15) REVIEW / META-ANALYSIS / BIBLIOMETRIC PAPERS:
    - These papers synthesize existing literature rather than analyzing ILSA \
      micro-data directly.
-   - source_category: "review_article" (systematic review, scoping review, \
-     meta-analysis, bibliometric analysis, literature survey).
+   - source_category: use the most specific label from the enum:
+     "systematic_review" (PRISMA/registered), "scoping_review" (broad mapping),
+     "meta_analysis" (pooled effect sizes), "literature_review" (narrative review),
+     or "review_article" (general overview / mixed).
    - research_design_type: "exploratory".
    - total_students: null (no original empirical sample) UNLESS the review \
      reports a pooled sample size from included studies.
@@ -2321,6 +2342,10 @@ CRITICAL EXTRACTION & INFERENCE RULES
    - Examples: ISM-based cognitive model construction, CAT algorithm design, \
      mobile learning app development, scaling methodology papers, simulation \
      studies.
+   - source_category: "framework_paper" (conceptual model / design proposal), \
+     "methodology_paper" (new statistical/ML method contribution), \
+     "theoretical_paper" (pure theory without empirical test), \
+     "editorial" / "commentary" / "opinion_piece" for short non-research pieces.
    - total_students: null (or the expert panel / pilot sample if reported).
    - ml_techniques: extract ONLY if the paper actually trains/evaluates ML \
      models. Framework proposals citing ML concepts do NOT count.

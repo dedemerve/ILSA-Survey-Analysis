@@ -30,7 +30,7 @@ SYNTHESIS_SOURCE_CATS = {
     "literature_review", "scoping_review",
 }
 
-# FIX-J + FIX-METH-ALWAYS: methodology papers → D1=Synthesis regardless of has_ml
+# Methodology/non-empirical papers → D1=Synthesis regardless of has_ml
 METHODOLOGY_SOURCE_CATS = {
     "methodology_paper", "framework_paper", "editorial",
     "theoretical_paper", "commentary", "opinion_piece",
