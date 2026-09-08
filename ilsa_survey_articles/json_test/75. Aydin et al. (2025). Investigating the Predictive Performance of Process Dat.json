@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "file_name": "75. Aydin et al. (2025). Investigating the Predictive Performance of Process Data and Result Data in Complex Problem Solving Using the Conditional Gradient Boosting Algorithm.pdf",
+    "title": "Investigating the Predictive Performance of Process Data and Result Data in Complex Problem Solving Using the Conditional Gradient Boosting Algorithm",
+    "authors": [
+      "F.N. Aydin",
+      "K.A. Kose",
+      "I. Demir"
+    ],
+    "year": 2025,
+    "doi": "10.3390/jintelligence13030029",
+    "venue": "Journal of Intelligence",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2012 Türkiye computer-based problem-solving data and applies student weights during the IRT-based ability estimation step for the CPS score (explicitly stated: “Student weights were included in all estimations”). The analytic sample is restricted to students who answered the first climate control unit item (CP025Q01) and further excludes participants who never clicked the required “apply” button, yielding a final sample of 915. For the machine-learning stage, the authors state that hyperparameter tuning and model building were performed by incorporating student weights, but they do not report a specific weight variable name in the provided text. Replicate-weight methodology (e.g., BRR/jackknife) is not described, so uncertainty estimation at the replicate level cannot be extracted from the manuscript text."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 915,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 915
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2012 Türkiye computer-based problem-solving data from the climate control unit, restricting to individuals who answered the first item (CP025Q01). From an initial sample of 994 participants, excluded respondents during creation of the process variable “number of apply” who never clicked the “apply” button because clicking “apply” is necessary for meaningful exploration in the CPS task. Final analytic sample therefore contains 915 participants."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting",
+      "all_techniques": [
+        "Gradient Boosting"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "votat_strategy_score",
+        "variable_name": "VOTAT strategy score",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "total_time_on_task",
+        "variable_name": "Total time on task",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_reset_events",
+        "variable_name": "Number of reset events",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "non_intervention_observation",
+        "variable_name": "Non-intervention observation",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_apply_clicks",
+        "variable_name": "Number of apply clicks",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "Speed",
+        "variable_name": "Speed (actions per time)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_actions",
+        "variable_name": "Number of actions",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "duration_of_waiting",
+        "variable_name": "Duration of waiting",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "duration_of_last_check",
+        "variable_name": "Duration of last check",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "duration_until_first_intervention",
+        "variable_name": "Duration until first intervention",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_diagram_clicks",
+        "variable_name": "Number of diagram clicks",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "PV1MATH",
+        "variable_name": "Mathematical literacy (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1READ",
+        "variable_name": "Reading literacy (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SCIE",
+        "variable_name": "Science literacy (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PERSEV",
+        "variable_name": "Perseverance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "OPENPS",
+        "variable_name": "Openness to problem solving",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 Türkiye CPS (climate control unit, first item CP025Q01) — process data",
+        "target_variable": "CPS score (predicted from process data)",
+        "top_predictors": [
+          "VOTAT strategy score",
+          "Total time on task",
+          "Number of reset events",
+          "Non-intervention observation"
+        ],
+        "performance_metrics": "Conditional gradient boosting — MAE: 50.369; MAPE: 0.103; BIAS: 1.250; MSE: 3808.385; RMSE: 61.712; R: 0.742; R2: 0.551",
+        "standardized_conclusion": "Using PISA 2012 Türkiye CPS data (climate control unit, first item CP025Q01) with process-data inputs, the study leveraged VOTAT strategy score, total time on task, number of reset events, and non-intervention observation to predict CPS score, finding moderate predictive performance (R2 = 0.551). This indicates that embedding process-derived strategy and timing indicators into CPS scoring/feedback systems may improve the precision of CPS measurement beyond result-only scoring, though the study is predictive (not causal) and uses imputed non-cognitive items."
+      },
+      {
+        "dataset_used": "PISA 2012 Türkiye CPS (climate control unit, first item CP025Q01) — result data",
+        "target_variable": "CPS score (predicted from result data)",
+        "top_predictors": [
+          "Mathematical literacy (PV1)",
+          "Reading literacy (PV1)",
+          "Science literacy (PV1)",
+          "Perseverance"
+        ],
+        "performance_metrics": "Conditional gradient boosting — MAE: 45.845; MAPE: 0.095; BIAS: -0.614; MSE: 3076.156; RMSE: 55.463; R: 0.774; R2: 0.599",
+        "standardized_conclusion": "Using PISA 2012 Türkiye CPS data (climate control unit, first item CP025Q01) with result-data inputs, the study leveraged mathematical literacy (PV1), reading literacy (PV1), science literacy (PV1), and perseverance to predict CPS score, finding moderate-to-good predictive performance (R2 = 0.599). This indicates that CPS performance is strongly aligned with broader cognitive literacy and motivational traits, supporting the use of multi-domain result indicators when designing CPS-related formative feedback, while noting that the model’s predictive importance does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2012 Türkiye CPS (climate control unit, first item CP025Q01) — combined process + result data",
+        "target_variable": "CPS score (predicted from combined process and result data)",
+        "top_predictors": [
+          "Mathematical literacy (PV1)",
+          "VOTAT strategy score",
+          "Reading literacy (PV1)",
+          "Total time on task"
+        ],
+        "performance_metrics": "Conditional gradient boosting — MAE: 39.501; MAPE: 0.082; BIAS: -0.758; MSE: 2278.564; RMSE: 47.734; R: 0.840; R2: 0.705",
+        "standardized_conclusion": "Using PISA 2012 Türkiye CPS data (climate control unit, first item CP025Q01) with combined process and result inputs, the study leveraged mathematical literacy (PV1) and VOTAT strategy score (plus other literacy and timing variables) to predict CPS score, finding good predictive performance (R2 = 0.705). This indicates that integrating process signals (strategy use) with conventional result-based literacy measures can substantially strengthen CPS score estimation and enable more targeted formative feedback, though the evidence remains correlational/predictive and depends on the study’s imputation and single-PV approach."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2012 Türkiye computer-based problem solving (CPS) using the climate control unit’s first item (CP025Q01). The dependent variable is a CPS score estimated via IRT (GPCM/PCM/GRM comparisons) and scaled, with student weights included in ability estimation. For prediction, the authors train a conditional gradient boosting model (mboost/blackboost) on three datasets: process data only, result data only, and a combined set. Predictive performance is moderate for process data (R2 = 0.551; RMSE = 61.712), moderate-to-good for result data (R2 = 0.599; RMSE = 55.463), and good for the combined dataset (R2 = 0.705; RMSE = 47.734). Missingness in perseverance and openness-to-problem-solving is imputed using missForest (with mean/median substitution also tested), and the result-data outcomes use PV1 plausible values (first plausible values). Limitations include the predictive (not causal) interpretation of variable importance and the use of a single PV rather than multiple-PV combining.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}
