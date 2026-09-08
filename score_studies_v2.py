@@ -341,11 +341,13 @@ def extract_d3(data: dict):
     combined     = dataset_text + ' ' + summary + ' ' + sfc
 
     if codes:
-        # FIX-G: 4+ countries = international scope → Global (not bounded to specific context)
-        if len(codes) >= 4:
+        # FIX-G: 10+ countries = international scope → Global (not bounded to specific context)
+        # Studies with 2–9 named countries are still context-specific/bounded.
+        # 10+ threshold captures "all OECD", "all PISA participants" etc.
+        if len(codes) >= 10:
             return ('Global/Unspecified',
                     f"Multi-country study ({len(codes)} countries: {codes[:4]}…) = international scope.")
-        return ('Bounded', f"Specific countries identified: {codes[:5]}.")
+        return ('Bounded', f"Specific countries identified: {codes[:9]}.")
 
     ILSA = re.compile(
         r'\b(PISA|TIMSS|PIRLS|TALIS|ICILS|PIAAC|PASEC|SERCE|LLECE|SACMEQ|NAEP|ICCS)\s*\d{4}\b',

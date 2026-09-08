@@ -1120,7 +1120,13 @@ _DESCRIPTIVE_METRIC_SNIPPET_RE = re.compile(
     r"correlation[s]?\s+(?:is|are|of)?\s*[\d.]+[^.;]{0,40}|"
     r"[\d.]+\s*\([^)]{5,60}\)|"
     r"significantly\s+(?:below|above)\s+[^.;]{10,60}|"
-    r"OECD\s+average[^.;]{0,40})",
+    r"OECD\s+average[^.;]{0,40}|"
+    # Systematic-review scope counts (e.g. "1,349 screened records", "22 eligible studies")
+    r"[\d,]{2,}\s+(?:article|study|studies|record|paper|source)s?\b[^.;]{0,60}|"
+    r"(?:N|n)\s*(?:screened|identified|retrieved|included|eligible|retained)\s*(?:=|:)\s*[\d,]+|"
+    r"(?:from|of)\s+(?:an?\s+)?(?:initial\s+)?[\d,]{2,}\s+(?:article|study|studies|record|paper)s?|"
+    # Methodology/simulation numeric results (e.g. "MSE", "bias", "improved accuracy")
+    r"(?:mse|rmse|bias|accuracy|test\s+information)\s+[^.;]{0,60}(?:compared|relative|vs\.|reduced|improved)[^.;]{0,60})",
     re.IGNORECASE,
 )
 _ASSOCIATED_VARIABLE_RE = re.compile(
@@ -2314,6 +2320,16 @@ CRITICAL EXTRACTION & INFERENCE RULES
      systematic review / meta-analysis / bibliometric study without original \
      ILSA micro-data analysis."
    - student_weights_used: null; replicate_weights_used: null.
+   - *** CRITICAL — performance_metrics in main_findings MUST capture \
+     the review's core quantitative scope statistics. NEVER write \
+     "Not reported" for a systematic review that has screening counts. \
+     Required format: "N screened = X; N included = Y; [key aggregate findings]". \
+     Example: "N screened = 1,349; N included = 22; 3 K-12-relevant studies \
+     met initial criteria; ethics-related issues feature minimally overall." \
+     Also capture any percentage-based summary statistics \
+     (e.g. "68% of included articles were secondary data analyses"). \
+     These counts are the 'performance metrics' for synthesis papers and \
+     are essential for downstream policy actionability scoring.
 
 16) NON-EMPIRICAL / FRAMEWORK / APP-DEVELOPMENT PAPERS:
    - Papers that develop theoretical frameworks, assessment designs, mobile \
@@ -2328,6 +2344,21 @@ CRITICAL EXTRACTION & INFERENCE RULES
    - research_design_type: "exploratory" for theoretical/framework papers; \
      "predictive" if simulations test predictive models.
    - MUST trigger null_fields_interpretation explaining the non-empirical nature.
+   - *** CRITICAL — performance_metrics in main_findings: Do NOT write \
+     "Not reported" when the paper contains quantitative design or simulation \
+     results. Capture ALL key numbers associated with the methodology or \
+     framework, even if they come from a referenced simulation or expert \
+     validation study. Required examples:
+       • Simulation paper: "Bias and MSE: PCA-COV vs PCA-COR (see Fig. 2, \
+         Tables 4–7); improved accuracy relative to PISA 2018 MST design."
+       • Framework with expert validation: "N experts = 52; N attributes = 16; \
+         5-level cognitive model derived from reachability matrix."
+       • Methodology paper referencing a cited simulation: "HAT design \
+         demonstrated improved test information and accuracy versus MST (cited \
+         simulation results from Fink et al.)."
+     These numbers are essential for downstream policy actionability scoring \
+     (a methodology paper with quantitative evidence scores higher than one \
+     with only directional claims).
 
 17) ANTI-LAZINESS ENFORCEMENT — MANDATORY EXTRACTION RULES:
    - *** ZERO-TOLERANCE FOR UNNECESSARY NULLS ***
