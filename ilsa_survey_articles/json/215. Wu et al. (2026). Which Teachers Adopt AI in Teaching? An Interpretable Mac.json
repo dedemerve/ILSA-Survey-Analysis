@@ -1,0 +1,254 @@
+{
+  "metadata": {
+    "file_name": "215. Wu et al. (2026). Which Teachers Adopt AI in Teaching? An Interpretable Machine Learning Analysis of East Asian Data from TALIS 2024.pdf",
+    "title": "Which Teachers Adopt AI in Teaching? An Interpretable Machine Learning Analysis of East Asian Data from TALIS 2024",
+    "authors": [
+      "Jiheng Wu",
+      "Baiwei Liu",
+      "Qian Zhao"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.ijer.2026.103088",
+    "venue": "International Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": true,
+      "weight_variable_name": "TCHWGT",
+      "weight_fields_interpretation": "The study uses TALIS 2024 teacher questionnaire data from four East Asian economies (Singapore, Shanghai (China), Korea, Japan) and defines the dependent variable from the teacher item on AI use in the last 12 months. The analytic sample is restricted to teachers with no missing values on the dependent variable (TT4G36), and predictors are imputed after examining missingness patterns. For the main analyses, the authors apply the final teacher weight (TCHWGT) to account for TALIS’s two-stage stratified probability sampling (schools then teachers) and non-response within each economy. For robustness, they also construct and test an economy-balanced rescaled weight (W_BAL_ECON) and compare with unweighted results; they further use Fay-BRR replicate weights (TRWGT1–TRWGT100) within the initial survey-weighted logit step to estimate uncertainty under the complex design."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "This study’s dependent variable is a binary teacher self-report of whether they used AI in teaching during the last 12 months (TT4G36), not a cognitive achievement score with plausible values. Therefore, plausible values handling is not applicable. Missingness is addressed for predictors using missForest, which is a random-forest-based imputation procedure; the paper does not describe multiple imputation draws and pooling rules, so the exact MI framework is not fully specified, but the imputation is clearly model-based rather than listwise deletion.",
+    "sample_details": {
+      "total_students": 6706,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 1107
+        },
+        {
+          "country_code": "CHN",
+          "n_students": 1339
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 2010
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 2250
+        }
+      ],
+      "sample_filtering_criteria": "The dataset is filtered to include only teachers with no missing values on the dependent variable TT4G36 (Teaching in General/Used artificial intelligence during the last 12 months), then the dependent variable is recoded as binary (1 = used AI; 0 = no AI use). Predictor missingness is examined in the final analytic sample and then imputed using missForest (R package missForest) for all predictors with missing values. The main analyses are conducted on the pooled East Asian sample and on economy-specific subsamples, using the final teacher weight (TCHWGT) for unequal selection probabilities and non-response; AutoML training/test splitting is done at the school level to prevent teachers from the same school appearing in both sets."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting Machine",
+      "all_techniques": [
+        "LASSO",
+        "Gradient Boosting Machine",
+        "Distributed Random Forest",
+        "Extremely Randomized Trees"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "T4TAGEGR",
+        "variable_name": "Age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "T4TYEXPTT",
+        "variable_name": "Teaching experience",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "TT4G09",
+        "variable_name": "Employment status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "TT4G14",
+        "variable_name": "Work hours",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "TT4G15",
+        "variable_name": "Teaching hours",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "T4WLOADT",
+        "variable_name": "Workload stress",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "T4JOYTCH",
+        "variable_name": "Joy of teaching",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "T4MOPU",
+        "variable_name": "Personal utility motivations",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "T4MOSU",
+        "variable_name": "Social utility motivations",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "T4SEINS",
+        "variable_name": "Teaching self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "T4SECLS",
+        "variable_name": "Classroom management self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PU",
+        "variable_name": "Perceived usefulness",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PR",
+        "variable_name": "Perceived risk",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "T4COLES",
+        "variable_name": "Teacher professional collaboration",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4INSTLE",
+        "variable_name": "Instructional leadership",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4TPRATIO",
+        "variable_name": "Pedagogical support personnel ratio",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4SCHLOC",
+        "variable_name": "School location",
+        "category": "school"
+      },
+      {
+        "variable_code": "TC4G21D",
+        "variable_name": "School socioeconomic status",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4NUMSTUD",
+        "variable_name": "School size",
+        "category": "school"
+      },
+      {
+        "variable_code": "TC4G13",
+        "variable_name": "School type (public/private)",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4PAUTB",
+        "variable_name": "School autonomy for budgeting",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4PAUTP",
+        "variable_name": "School autonomy for educational policies",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4PAUTI",
+        "variable_name": "School autonomy for instructional policies",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4PAUTC",
+        "variable_name": "School autonomy for curriculum",
+        "category": "school"
+      },
+      {
+        "variable_code": "TC4G40E",
+        "variable_name": "School digital equipment",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 (Teachers) — East Asia pooled (Singapore, Shanghai (China), Korea, Japan)",
+        "target_variable": "Teachers' AI adoption (TT4G36; binary)",
+        "top_predictors": [
+          "Teaching self-efficacy",
+          "Age",
+          "Perceived risk",
+          "Instructional leadership",
+          "School autonomy for instructional policies"
+        ],
+        "performance_metrics": "AutoML (H2O) leader model: GBM selected by best cross-validated AUC; additional metrics reported in appendices (AUC, AUCPR, accuracy, sensitivity, specificity, F1, log loss). Exact numeric values not included in the provided text.",
+        "standardized_conclusion": "Using TALIS 2024 teacher data from the pooled East Asia sample, the study leveraged teaching self-efficacy, age, perceived risk, instructional leadership, and school autonomy for instructional policies to predict teachers' AI adoption (binary), finding that teaching self-efficacy and age were among the most influential predictors while perceived risk generally shifted predictions toward non-adoption. This indicates that teacher capability beliefs and risk perceptions are key levers for AI uptake, suggesting policy should prioritize self-efficacy-building supports and risk/ethics guidance rather than relying only on school-level autonomy."
+      },
+      {
+        "dataset_used": "TALIS 2024 (Teachers) — Singapore",
+        "target_variable": "Teachers' AI adoption (TT4G36; binary)",
+        "top_predictors": [
+          "Workload stress",
+          "Teaching self-efficacy",
+          "Age",
+          "Work hours"
+        ],
+        "performance_metrics": "AutoML (H2O) leader model: GBM selected by best cross-validated AUC; additional metrics reported in appendices (AUC, AUCPR, accuracy, sensitivity, specificity, F1, log loss). Exact numeric values not included in the provided text.",
+        "standardized_conclusion": "Using TALIS 2024 teacher data from Singapore, the study leveraged workload stress, teaching self-efficacy, age, and work hours to predict teachers' AI adoption (binary), finding that workload stress ranked highest and was associated with higher predicted adoption while age showed a non-monotonic pattern (initial increase then decrease). This indicates that burden-reduction framing and time-saving AI supports may be especially effective in Singapore, alongside targeted training for different career stages."
+      },
+      {
+        "dataset_used": "TALIS 2024 (Teachers) — Shanghai (China)",
+        "target_variable": "Teachers' AI adoption (TT4G36; binary)",
+        "top_predictors": [
+          "Teacher professional collaboration",
+          "Teaching experience",
+          "Joy of teaching",
+          "Social utility motivations to teach",
+          "Perceived risk"
+        ],
+        "performance_metrics": "AutoML (H2O) leader model: GBM selected by best cross-validated AUC; additional metrics reported in appendices (AUC, AUCPR, accuracy, sensitivity, specificity, F1, log loss). Exact numeric values not included in the provided text.",
+        "standardized_conclusion": "Using TALIS 2024 teacher data from Shanghai (China), the study leveraged teacher professional collaboration, teaching experience, joy of teaching, social utility motivations, and perceived risk to predict teachers' AI adoption (binary), finding that teacher professional collaboration ranked first and higher collaboration generally shifted predictions toward adoption while perceived risk showed a negative association. This indicates that strengthening collaborative teacher learning communities and addressing perceived AI risks may be central for scaling AI use in Shanghai classrooms."
+      },
+      {
+        "dataset_used": "TALIS 2024 (Teachers) — Korea",
+        "target_variable": "Teachers' AI adoption (TT4G36; binary)",
+        "top_predictors": [
+          "Teacher professional collaboration",
+          "Age",
+          "Teaching self-efficacy",
+          "Perceived usefulness",
+          "School location"
+        ],
+        "performance_metrics": "AutoML (H2O) leader model: GBM selected by best cross-validated AUC; additional metrics reported in appendices (AUC, AUCPR, accuracy, sensitivity, specificity, F1, log loss). Exact numeric values not included in the provided text.",
+        "standardized_conclusion": "Using TALIS 2024 teacher data from Korea, the study leveraged teacher professional collaboration, age, teaching self-efficacy, perceived usefulness, and school location to predict teachers' AI adoption (binary), finding that collaboration was the top-ranked predictor and that perceived usefulness and self-efficacy supported adoption while age and perceived risk constrained it. This indicates that AI adoption strategies in Korea should combine peer-collaboration structures with evidence-oriented demonstrations of usefulness, especially for older teachers."
+      },
+      {
+        "dataset_used": "TALIS 2024 (Teachers) — Japan",
+        "target_variable": "Teachers' AI adoption (TT4G36; binary)",
+        "top_predictors": [
+          "Age",
+          "Perceived risk",
+          "Teacher professional collaboration",
+          "Teaching self-efficacy"
+        ],
+        "performance_metrics": "AutoML (H2O) leader model: GBM selected by best cross-validated AUC; additional metrics reported in appendices (AUC, AUCPR, accuracy, sensitivity, specificity, F1, log loss). Exact numeric values not included in the provided text.",
+        "standardized_conclusion": "Using TALIS 2024 teacher data from Japan, the study leveraged age, perceived risk, teacher professional collaboration, and teaching self-efficacy to predict teachers' AI adoption (binary), finding that age and perceived risk were the most influential constraints (higher values generally shifting predictions toward non-adoption). This indicates that adoption support in Japan should emphasize trust-building, uncertainty/risk mitigation, and confidence-enhancing training, with differentiated approaches by teacher age."
+      }
+    ],
+    "outcome_summary": "The study analyzes TALIS 2024 teacher data from four East Asian economies (Singapore, Shanghai (China), Korea, Japan) to predict whether teachers used AI in teaching during the last 12 months (TT4G36; binary). After filtering to teachers with no missing dependent-variable values, predictors with missingness were imputed using missForest, and the main models used the TALIS final teacher weight (TCHWGT) with Fay-BRR replicate weights in the initial survey-weighted logit step. For machine learning, the authors sequentially apply LASSO for parsimonious feature selection and then AutoML (H2O) to compare GBM, DRF, and XRT, selecting GBM as the leader model based on cross-validated AUC; interpretability relies on SHAP and partial dependence plots. Exact AUC/accuracy/F1 values are not present in the provided text, but the SHAP rankings consistently highlight teaching self-efficacy and collaboration as key drivers across samples. The paper is cross-sectional and emphasizes associations rather than causal effects; SHAP-based importance is predictive, not causal, and the study’s reliance on a single binary AI-use item limits conclusions about frequency or depth of AI integration.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -19,7 +19,7 @@
       "student_weights_used": true,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses TIMSS 2019 seventh cycle data and restricts the analysis to the Irish eighth-grade subset (n=4118). TIMSS employed a stratified two-stage cluster sampling design with sampling weights; the authors state that the resulting sampling weights were fully accounted for by appropriately weighting the analysis. The manuscript does not report the exact weight variable name, but it explicitly confirms weight application to obtain nationally representative estimates. Because the analysis is based on Bayesian Causal Forests (a model-based ML approach), the authors still incorporate the complex survey design via TIMSS sampling weights rather than treating the data as unweighted."
+      "weight_fields_interpretation": "The study uses TIMSS 2019 seventh cycle microdata and restricts the analysis to the Irish eighth-grade subset (n=4118). TIMSS employed a stratified two-stage cluster sampling design sampling complete classes within schools; the authors state that the resulting sampling weights were fully accounted for by appropriately weighting the analysis. The manuscript does not report the specific weight variable name nor any replicate-weight scheme (e.g., BRR/jackknife), but it explicitly indicates complex survey weighting was applied to obtain nationally representative estimates. For data preparation, the authors also impute missing values (6% missing) using missRanger to retain the representative sample, and they aggregate homework frequency/duration categories to reduce sparsity before fitting the Bayesian Causal Forests model."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "single_imputation",
@@ -32,12 +32,12 @@
           "n_students": 4118
         }
       ],
-      "sample_filtering_criteria": "Used the TIMSS 2019 Irish eighth-grade subset only (students in their second year of secondary school). The analytic sample is the nationally representative Irish eighth-grade students who completed the TIMSS mathematics and science assessment and the student questionnaire items on homework frequency and duration. The authors imputed missing values (6% missing) using missRanger to retain the nationally representative sample; an alternative complete-cases analysis is mentioned but the main results use the imputed dataset."
+      "sample_filtering_criteria": "Used TIMSS 2019 (seventh cycle) microdata and focused exclusively on the Irish eighth-grade subset (second year of secondary school). Homework frequency and duration were taken from the student questionnaire for mathematics and science; later analyses aggregated sparse categories (frequency: up to once/twice per week, three/four times per week, every day; duration: up to 15 min, 16–30 min, >30 min). Missing data (6%) were imputed with missRanger to avoid listwise deletion, and the model included a random intercept to account for the nested student-within-school structure."
     },
     "ml_techniques": {
-      "primary": "BCF",
+      "primary": "Bayesian Causal Forests",
       "all_techniques": [
-        "BCF"
+        "Bayesian Causal Forests"
       ]
     },
     "confounders_identified": [
@@ -48,12 +48,12 @@
       },
       {
         "variable_code": "born_in_ireland",
-        "variable_name": "Immigration/migrant status",
+        "variable_name": "Born in Ireland",
         "category": "demographic"
       },
       {
-        "variable_code": "parent_education",
-        "variable_name": "Parents' education level",
+        "variable_code": "parents_education",
+        "variable_name": "Parents education level",
         "category": "socioeconomic"
       },
       {
@@ -67,12 +67,12 @@
         "category": "socioeconomic"
       },
       {
-        "variable_code": "teacher_gender_math",
+        "variable_code": "mathematics_teacher_gender",
         "variable_name": "Math teacher gender",
         "category": "teacher"
       },
       {
-        "variable_code": "teacher_gender_science",
+        "variable_code": "science_teacher_gender",
         "variable_name": "Science teacher gender",
         "category": "teacher"
       },
@@ -83,7 +83,7 @@
       },
       {
         "variable_code": "school_emphasis_academic_success",
-        "variable_name": "School emphasis on achievement",
+        "variable_name": "School emphasis on success",
         "category": "school"
       },
       {
@@ -92,61 +92,68 @@
         "category": "teacher"
       },
       {
-        "variable_code": "teacher_discipline_perception",
-        "variable_name": "Teacher discipline perception",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "homework_expectation",
-        "variable_name": "Homework time expectations",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "student_unsure",
-        "variable_name": "uncertainty about studying",
+        "variable_code": "motivation",
+        "variable_name": "Motivation",
         "category": "student_attitude"
+      },
+      {
+        "variable_code": "confidence",
+        "variable_name": "confidence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "student_like_subject",
+        "variable_name": "Enjoyment of subject",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "homework_expected_time",
+        "variable_name": "Expected homework time",
+        "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
         "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Ireland)",
-        "target_variable": "Mathematics achievement (Plausible Values)",
+        "target_variable": "Mathematics achievement (PVs)",
         "top_predictors": [
-          "Student gender",
-          "Parents' education level",
-          "Books at home",
-          "School average SES",
-          "Total instructional time"
+          "Total instructional time",
+          "School emphasis on success",
+          "Motivation and confidence",
+          "Parents education level",
+          "Books at home"
         ],
-        "performance_metrics": "Average Treatment Effect (ATE) with 95% credible intervals: Frequency—3 or 4 times/week: 2.88 (−3.61, 10.88); Every day: 7.51 (1.63, 16.57). Duration—16–30 min: −0.98 (−3.85, 1.94); >30 min: 0.12 (−3.37, 3.72).",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics (Ireland) the study leveraged student background and school/context controls (e.g., parents' education, books at home, school average SES) together with homework frequency/duration to predict mathematics achievement (PVs), finding that increasing homework frequency to every day produced a positive causal ATE (7.51 points; 95% CrI 1.63–16.57), while increasing homework duration beyond 15 minutes showed no clear benefit. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Average treatment effects (ATEs) with 95% credible intervals; scaled effects reported as standard-deviation units. Key ATEs: Frequency every day vs up to once/twice per week: 7.51 points (1.63, 16.57), scaled 0.10 (0.02, 0.23). Frequency three/four times per week vs up to once/twice per week: 2.88 points (-3.61, 10.88), scaled 0.04 (-0.05, 0.15). Duration 16–30 min vs up to 15 min: -0.98 points (-3.85, 1.94), scaled -0.01 (-0.05, 0.03). Duration >30 min vs up to 15 min: 0.12 points (-3.37, 3.72), scaled 0.00 (-0.05, 0.05).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics (Ireland) the study leveraged total instructional time, school emphasis on success, motivation and confidence, parents education level, and books at home to estimate causal effects of homework frequency and duration on mathematics achievement, finding that increasing homework frequency to every day produced a positive ATE of 7.51 points (95% credible interval 1.63–16.57) relative to up to once/twice per week. This indicates that policy and classroom practice should prioritize frequent (daily) short homework routines to improve mathematics achievement, while longer-duration homework beyond 15 minutes shows no clear causal benefit."
       },
       {
         "dataset_used": "TIMSS 2019 Grade 8 Science (Ireland)",
-        "target_variable": "Science achievement (Plausible Values)",
+        "target_variable": "Science achievement (PVs)",
         "top_predictors": [
-          "Student gender",
-          "Parents' education level",
-          "Books at home",
-          "School average SES",
-          "Total instructional time"
+          "Total instructional time",
+          "School emphasis on success",
+          "Motivation and confidence",
+          "Parents education level",
+          "Books at home"
         ],
-        "performance_metrics": "Average Treatment Effect (ATE) with 95% credible intervals: Frequency—3 or 4 times/week: 5.34 (2.35, 8.25); Every day: −1.94 (−5.96, 2.28). Duration—16–30 min: 1.80 (−1.37, 5.32); >30 min: 3.27 (−2.20, 9.30).",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science (Ireland) the study leveraged student background and school/context controls (e.g., parents' education, books at home, school average SES) together with homework frequency/duration to predict science achievement (PVs), finding that the optimal homework frequency was 3–4 times per week (ATE 5.34; 95% CrI 2.35–8.25), whereas homework every day showed no clear benefit (ATE −1.94; 95% CrI −5.96–2.28) and longer duration beyond 15 minutes did not yield clear causal gains. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Average treatment effects (ATEs) with 95% credible intervals; scaled effects reported as standard-deviation units. Key ATEs: Frequency three/four times per week vs up to once/twice per week: 5.31 points (2.35, 8.25), scaled 0.07 (0.03, 0.10). Frequency every day vs up to once/twice per week: -1.94 points (-5.96, 2.28), scaled -0.02 (-0.07, 0.03). Duration 16–30 min vs up to 15 min: 1.80 points (-1.37, 5.32), scaled 0.02 (-0.02, 0.06). Duration >30 min vs up to 15 min: 3.27 points (-2.20, 9.30), scaled 0.04 (-0.03, 0.11).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science (Ireland) the study leveraged total instructional time, school emphasis on success, motivation and confidence, parents education level, and books at home to estimate causal effects of homework frequency and duration on science achievement, finding that the optimal homework frequency was three to four times per week with an ATE of 5.31 points (95% credible interval 2.35–8.25) relative to up to once/twice per week. This indicates that homework policy should be subject-specific—encouraging moderately frequent homework in science rather than daily homework—while evidence does not support longer-duration homework beyond 15 minutes as reliably beneficial."
       },
       {
         "dataset_used": "TIMSS 2019 Grade 8 Mathematics & Science (Ireland)",
-        "target_variable": "Moderation by socioeconomic resources (homework effect heterogeneity)",
+        "target_variable": "Socioeconomic moderation of homework effects",
         "top_predictors": [
           "Books at home",
-          "Parents' education level",
-          "School average SES"
+          "Parents education level",
+          "School average SES",
+          "Motivation and confidence",
+          "Total instructional time"
         ],
-        "performance_metrics": "Not reported as a single scalar metric; results are summarized as no clear trend in individual treatment effect estimates by books at home and parental education (Fig. 4).",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics and Science (Ireland) the study leveraged socioeconomic resource indicators (books at home and parental education) to assess heterogeneity in the causal homework effect, finding no clear evidence that advantaged students benefit more from homework than their peers (i.e., treatment-effect estimates show no systematic trend by these socioeconomic proxies). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Moderation results are presented visually (Fig. 4) as individual treatment effect variation by home resources and parental education; the paper reports no clear trend indicating similar predicted benefits across socioeconomic levels.",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics and Science (Ireland) the study leveraged books at home, parents education level, school average SES, motivation and confidence, and total instructional time to assess whether socioeconomic advantage moderates the causal effect of homework frequency/duration. It found no clear trend that advantaged students benefit more than peers, indicating approximately similar predicted homework gains across socioeconomic groups. This indicates that, at least for Irish eighth graders in mathematics and science, well-designed homework frequency policies may improve achievement without widening socioeconomic achievement gaps, though unmeasured confounding and model assumptions remain limitations."
       }
     ],
-    "outcome_summary": "The study analyzes TIMSS 2019 Irish eighth-grade students (n=4118) and uses a multivariate Bayesian Causal Forests (BCF) approach to estimate causal average treatment effects of homework frequency and duration on mathematics and science achievement (TIMSS PV-based outcomes). Using sampling weights from TIMSS’s stratified two-stage cluster design and accounting for the hierarchical student-within-school structure via a random intercept, the authors find that homework frequency matters more than duration. In mathematics, increasing frequency to every day yields an ATE of 7.51 points (95% CrI 1.63–16.57), while duration beyond 15 minutes shows no clear benefit (e.g., 16–30 min: −0.98; 95% CrI −3.85–1.94). In science, the best frequency is 3–4 times per week (ATE 5.34; 95% CrI 2.35–8.25), whereas every day shows no clear benefit (ATE −1.94; 95% CrI −5.96–2.28). The study imputes missing data (6%) with missRanger and reports credible intervals; causal interpretation relies on the BCF causal assumptions and unmeasured confounding may remain.",
+    "outcome_summary": "The study analyzes TIMSS 2019 seventh-cycle data for Ireland, restricting to 4118 eighth-grade students and using homework frequency and duration categories from the student questionnaire for both mathematics and science. Achievement is measured with TIMSS rotated booklets and five plausible values per subject; the authors pool across plausible values and report causal average treatment effects (ATEs) with 95% credible intervals from a multivariate Bayesian Causal Forests model (BCF) that estimates potential outcomes and conditional average treatment effects. Homework frequency shows clear subject-specific benefits: in mathematics, daily homework increases achievement by 7.51 points (1.63–16.57), while in science the best frequency is three to four times per week (5.31 points; 2.35–8.25), with daily homework not showing clear benefit. Homework duration beyond 15 minutes does not show clear causal gains in either subject. The study imputes 6% missing data using missRanger and applies TIMSS sampling weights, but causal interpretation still depends on BCF assumptions and the authors’ ability to control confounding.",
     "research_design_type": "causal_observational",
     "null_fields_interpretation": null
   }

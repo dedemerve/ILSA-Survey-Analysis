@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "file_name": "200. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study.pdf",
+    "title": "Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study",
+    "authors": [
+      "Nitesh Kumar Jha",
+      "Meng-Jung Tsai"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.chbr.2025.100896",
+    "venue": "Computers in Human Behavior Reports",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses ICILS 2023 microdata for Taiwanese eighth graders (ICILS 2023 CT test and student questionnaire) and applies a two-stage sampling design at the school and class levels (stratified random sampling of schools, then cluster sampling of classes). The analytic dataset is further restricted to 8th graders in Taiwan and to 18 derived questionnaire/scale predictors after aggregating correlated items, removing variables with excessive missingness, and screening multicollinearity using VIF. The manuscript does not report applying ICILS sampling weights or replicate weights in the ML training/evaluation pipeline, and it does not name any weight variable (e.g., TOTWGT/W_FSTUWT). Because the models are standard supervised ML classifiers (tree-based ensembles and stacking) trained in scikit-learn, the analysis likely proceeds without complex-survey weighting; therefore, results should be interpreted as predictive associations rather than fully design-weighted population estimates."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper states that variables with excessive missingness were removed during feature selection, but it does not specify the missing-data rule used for the remaining predictors (e.g., listwise deletion vs. imputation) or the proportion of cases excluded. Because the dependent variable is a binary classification derived from CT scores using the first plausible value threshold, missingness handling can affect both the class balance and the learned decision boundaries. This omission is a reporting gap that limits reproducibility and may bias predictive performance if missingness is not handled consistently across features.",
+    "sample_details": {
+      "total_students": 5211,
+      "countries": [
+        {
+          "country_code": "TWN",
+          "n_students": 5211
+        }
+      ],
+      "sample_filtering_criteria": "Analytic sample consists of the 5211 Taiwanese students who participated in ICILS 2023 and were in grade 8. The CT outcome is constructed from ICILS CT test standardized scores (two randomly assigned CT modules per student) that were standardized using Rasch IRT scaling; students are then dichotomized into below-average vs above-average CT using a threshold based on the mean of the first plausible value (PV1) from the international database. Predictors are restricted to 18 derived indices/scale variables (socio-demographic, student-related, and school-related) after (i) aggregating overlapping/highly correlated questionnaire items into derived indices per IEA guidelines, (ii) removing variables with excessive missingness or weak theoretical connection to CT performance, and (iii) screening multicollinearity using VIF."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Logistic Regression",
+        "Random Forest",
+        "AdaBoost",
+        "Gradient Boosting",
+        "LightGBM",
+        "XGBoost",
+        "Stacking"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "S_HISCED",
+        "variable_name": "Parent highest education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "S_HOMLIT",
+        "variable_name": "Home literacy index",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "S_EXCOMP",
+        "variable_name": "Computer experience years",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "S_SEX",
+        "variable_name": "Sex of student",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "S_INTNET",
+        "variable_name": "Internet access at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "CTDS",
+        "variable_name": "CT disposition (CTDS)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "S_ACMULT",
+        "variable_name": "Academic media multitasking",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "S_GENEFF",
+        "variable_name": "ICT self-efficacy (general)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S_SPECEFF",
+        "variable_name": "ICT self-efficacy (specialist)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S_ICTPOSG",
+        "variable_name": "ICT positive attitude (general)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S_ICTPOSS",
+        "variable_name": "ICT positive attitude (specialist)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S_ICTNEG",
+        "variable_name": "ICT negative attitude (general)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S_ICTFUT",
+        "variable_name": "ICT future use expectation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S_LRNINTS",
+        "variable_name": "Learning internet tasks at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "S_CTCLS",
+        "variable_name": "Learning about CT in class",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "S_LRNSAFE",
+        "variable_name": "Learning safe ICT use at school",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "S_GENCLASS",
+        "variable_name": "Learning with general classroom apps",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "S_SPECLASS",
+        "variable_name": "Learning with specialist classroom apps",
+        "category": "curriculum"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "ICILS 2023 Grade 8 Computational Thinking (Taiwan) — CT test dichotomized using PV1 threshold",
+        "target_variable": "Computational thinking performance (below vs above average)",
+        "top_predictors": [
+          "CT disposition (CTDS)",
+          "ICT self-efficacy (specialist)",
+          "Learning with specialist classroom apps",
+          "ICT self-efficacy (general)",
+          "Academic media multitasking"
+        ],
+        "performance_metrics": "Best model (XGBoost): AUC=0.79, Accuracy=0.72, Precision=0.71, Recall=0.74, F1=0.72. Logistic Regression baseline: AUC=0.76, Accuracy=0.69, Precision=0.67, Recall=0.70, F1=0.65. Stacking Ensemble: AUC=0.79, Accuracy=0.72, Precision=0.71, Recall=0.72, F1=0.69.",
+        "standardized_conclusion": "Using ICILS 2023 Grade 8 Computational Thinking (Taiwan) the study leveraged CT disposition (CTDS), ICT self-efficacy (specialist), learning with specialist classroom apps, ICT self-efficacy (general), and academic media multitasking to predict computational thinking performance (below vs above average), finding that XGBoost achieved the highest overall predictive performance (AUC=0.79; Accuracy=0.72) and outperformed Logistic Regression. This indicates that strengthening students’ CT disposition and ICT self-efficacy—along with embedding specialist application use in instruction—may improve the likelihood of achieving above-average CT performance, though the binary thresholding and lack of documented survey-weight/missing-data handling limit causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study analyzes ICILS 2023 Grade 8 computational thinking (CT) for Taiwan (N=5211) and converts CT performance into a binary outcome (below vs above average) using a threshold based on the mean of the first plausible value (PV1) from the international database. Using supervised ML with an 80/20 train-test split and 10-fold cross-validation on the training set, the authors compare Logistic Regression, Random Forest, AdaBoost, Gradient Boosting, LightGBM, XGBoost, and a Stacking Ensemble. XGBoost and the Stacking Ensemble reach the top AUC (0.79) and accuracy (0.72), with XGBoost showing the strongest precision/recall/F1 overall. Feature importance via SHAP on the XGBoost model identifies CTDS, specialist ICT self-efficacy, and specialist classroom application learning as the most influential predictors, while gender and home internet access show limited impact. Limitations include binary simplification of CT, reliance on PV1 for the threshold, and missing-data handling not being fully specified, so results should be treated as predictive associations rather than evidence of causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

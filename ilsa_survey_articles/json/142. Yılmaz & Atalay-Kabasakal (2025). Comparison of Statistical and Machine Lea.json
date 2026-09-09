@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "file_name": "142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye.pdf",
+    "title": "Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye",
+    "authors": [
+      "T. Yılmaz",
+      "K. Atalay Kabasakal"
+    ],
+    "year": 2025,
+    "doi": "10.21031/epod.1782727",
+    "venue": "Journal of Measurement and Evaluation in Education and Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 Türkiye international student microdata (15-year-olds in formal secondary education) and constructs a student-level dependent variable (PVORT) from the ten mathematics plausible values. The authors report that PISA provides student sampling weights, but they explicitly state that design-based weights could not be fully integrated into the predictive models due to PISA’s complex sampling design and the modeling approach. Therefore, the ML and regression models are trained on the filtered analytic sample without fully weight-integrated estimation. Preprocessing includes removing cases with >30% missingness, imputing remaining missing values under MAR using missForest, trimming 5% of outliers, and re-standardizing all predictors and PVORT as z-scores within the Türkiye subsample before fitting models in the same 10-fold cross-validation partitions."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 6427,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 6427
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2022 Türkiye student microdata and restricted to student questionnaire variables only (omitting school and parent questionnaires). Excluded cases with more than 30% missing data, then imputed remaining variable-level missingness (<3%) under MAR using missForest. Performed outlier trimming by testing scenarios and applying 5% trimming to obtain the final analytic sample; then retained 13 standardized predictors for all models and re-standardized predictors and the dependent variable (PVORT) as z-scores within the Türkiye subsample."
+    },
+    "ml_techniques": {
+      "primary": "Stacking",
+      "all_techniques": [
+        "Stacking",
+        "XGBoost",
+        "Random Forest",
+        "Neural Network",
+        "LASSO",
+        "Linear Regression"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MATHEF21",
+        "variable_name": "Mathematics self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "DISCLIM",
+        "variable_name": "Disciplinary climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "ANXMAT",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "COGACRCO",
+        "variable_name": "Cognitive activation in math",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COOPAGR",
+        "variable_name": "Cooperation with peers",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "BULLIED",
+        "variable_name": "Exposure to bullying",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "RELATST",
+        "variable_name": "Sense of belonging at school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMOCOAGR",
+        "variable_name": "Emotional support from peers",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "FEELSAFE",
+        "variable_name": "Sense of safety at school",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Türkiye Mathematics (PVORT; 15-year-olds)",
+        "target_variable": "Mathematical literacy (PVORT; averaged plausible values)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Mathematics self-efficacy",
+          "Disciplinary climate",
+          "Teacher support",
+          "Mathematics anxiety"
+        ],
+        "performance_metrics": "Stacking (GLMNET meta-learner): R²=0.319 (±0.042), RMSE=0.777 (±0.016), MAE=0.633 (±0.000). XGBoost: R²=0.313 (±0.041), RMSE=0.781 (±0.017), MAE=0.636 (±0.019). Random Forest: R²=0.304 (±0.045), RMSE=0.786 (±0.018), MAE=0.641 (±0.001). ANN: R²=0.288 (±0.048), RMSE=0.795 (±0.019), MAE=0.653 (±0.003). LASSO: R²=0.273 (±0.052), RMSE=0.803 (±0.020), MAE=0.658 (±0.000). MLR (OLS): R²=0.270 (±0.053), RMSE=0.803 (±0.021), MAE=0.658 (±0.000). Friedman test: R² χ²(4)=33.04, p<.001; RMSE χ²(4)=30.96, p<.001; MAE χ²(4)=26.40, p<.001.",
+        "standardized_conclusion": "Using PISA 2022 Türkiye Mathematics the study leveraged socioeconomic status (ESCS), mathematics self-efficacy, disciplinary climate, teacher support, and mathematics anxiety to predict mathematical literacy (PVORT; averaged plausible values), finding that ensemble approaches outperformed linear methods, with stacking achieving the highest out-of-fold R² (0.319) and lowest RMSE (0.777). This indicates that combining diverse predictive learners can improve forecasting of mathematical literacy and that socioeconomic inequality remains a dominant correlate, supporting equity-focused and classroom-environment interventions, though causality cannot be inferred from cross-sectional prediction and PV uncertainty was simplified by averaging rather than Rubin’s rules."
+      }
+    ],
+    "outcome_summary": "The study predicts PISA 2022 mathematics mathematical literacy for Turkish 15-year-olds using 13 standardized predictors spanning cognitive, affective, and contextual dimensions, with the dependent variable PVORT created by averaging the ten mathematics plausible values. Using 10-fold cross-validation in R, stacking (GLMNET meta-learner) achieved the best out-of-fold performance (R²=0.319, RMSE=0.777, MAE=0.633), followed by XGBoost (R²=0.313, RMSE=0.781) and random forests (R²=0.304, RMSE=0.786). Linear models were weaker (MLR R²≈0.270; LASSO R²≈0.273) and showed more variable error across folds. Variable-importance rankings were consistent across methods, with ESCS as the strongest predictor, then mathematics self-efficacy and disciplinary climate. Limitations include cross-sectional design (predictive, not causal), simplified PV handling via averaging (not Rubin’s rules), and incomplete integration of PISA sampling weights into predictive models.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

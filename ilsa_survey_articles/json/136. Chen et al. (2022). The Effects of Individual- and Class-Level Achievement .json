@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "file_name": "136. Chen et al. (2022). The Effects of Individual- and Class-Level Achievement on Attitudes Towards Mathematics: An Analysis of Hong Kong Students Using TIMSS 2019.pdf",
+    "title": "The Effects of Individual- and Class-Level Achievement on Attitudes Towards Mathematics: An Analysis of Hong Kong Students Using TIMSS 2019",
+    "authors": null,
+    "year": 2022,
+    "doi": "10.1016/j.stueduc.2021.101113",
+    "venue": "Studies in Educational Evaluation",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS 2019 Hong Kong microdata for fourth and eighth graders, with mathematics achievement represented by five plausible values derived from matrix sampling and IRT scaling. The analytic models are two-level hierarchical linear models (students nested in classrooms) to account for the clustered structure, but the manuscript does not report applying TIMSS sampling weights or any replicate-weight procedure. Because the paper does not mention weight variables (e.g., TOTWGT/W_FSTUWT) or replicate methods (BRR/jackknife), weighting cannot be confirmed from the text. Analysts using TIMSS IDB Analyzer or similar tools should apply the official TIMSS student weights and replicate weights when estimating standard errors, especially given the multistage sampling of schools/classes."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 6212,
+      "countries": [
+        {
+          "country_code": "HKG",
+          "n_students": 6212
+        }
+      ],
+      "sample_filtering_criteria": "Used TIMSS 2019 Hong Kong data for fourth and eighth graders in mathematics classrooms. After deleting missing data (“After deleting null data”), the final analytic sample comprised 2,947 fourth-grade students from 140 classes in 139 schools and 3,265 eighth-grade students from 140 classes in 136 schools. The study also employed listwise deletion at the HLM stage when creating the MDM file for missing observations."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "MALE",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "SES",
+        "variable_name": "Socioeconomic status (SES)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "book_ownership",
+        "variable_name": "Home educational resources (books)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MALE_x_CMA",
+        "variable_name": "Gender × class achievement",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "MA_x_CMA",
+        "variable_name": "Individual × class achievement",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "MA",
+        "variable_name": "Individual math achievement",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "CMA",
+        "variable_name": "Class average math achievement",
+        "category": "peer_effects"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2019 Grade 4 Mathematics (Hong Kong)",
+        "target_variable": "Self-concept (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Individual × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MALE × CMA moderation not significant for self-concept; MA × CMA interaction γ31 = 0.06 (p < .01). Main effects: MA γ30 = 0.44 (p < .001); CMA γ01 = -0.23 (p < .001).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 4 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, and SES (with an individual-by-class interaction) to model self-concept attitudes towards mathematics, finding that individual achievement was positively associated with self-concept (β = 0.44) while higher class-level achievement showed a negative association (β = -0.23). This indicates that the big-fish-little-pond effect extends beyond achievement to students’ perceived competence, suggesting that classroom composition and peer-achievement context should be considered when designing supports for students’ math self-beliefs."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 4 Mathematics (Hong Kong)",
+        "target_variable": "Enjoyment (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Individual × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MA γ30 = 0.35 (p < .001); CMA γ01 = -0.17 (p < .001). Cross-level moderation: MA × CMA interaction γ31 = 0.03 (not significant).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 4 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, and SES (with an individual-by-class interaction) to model enjoyment attitudes towards mathematics, finding that individual achievement predicted higher enjoyment (β = 0.35) but higher class-level achievement predicted lower enjoyment (β = -0.17). This indicates that peer-achievement context can dampen positive affect even when students themselves perform well, implying that teachers should actively protect enjoyment in high-performing classrooms through engagement-oriented instruction."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 4 Mathematics (Hong Kong)",
+        "target_variable": "Boredom (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Individual × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MA γ30 = -0.33 (p < .001); CMA γ01 = 0.15 (p < .001). Cross-level moderation: MA × CMA interaction γ31 = 0.01 (not significant); MALE × CMA moderation not significant.",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 4 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, and SES (with an individual-by-class interaction) to model boredom attitudes towards mathematics, finding that higher individual achievement was associated with less boredom (β = -0.33) while higher class-level achievement was associated with more boredom (β = 0.15). This indicates that the big-fish-little-pond effect manifests as increased boredom in higher-achieving classrooms, suggesting that classroom-level differentiation strategies may require accompanying motivational and cognitive-activation supports."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Hong Kong)",
+        "target_variable": "Self-concept (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Individual × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MA γ30 = 0.58 (p < .001); CMA γ01 = -0.42 (p < .001). Cross-level moderation: MA × CMA interaction γ31 = 0.10 (p < .001); gender moderation not significant for self-concept.",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, and SES (with an individual-by-class interaction) to model self-concept attitudes towards mathematics, finding that individual achievement predicted higher self-concept (β = 0.58) while class-level achievement predicted lower self-concept (β = -0.42). This indicates that the big-fish-little-pond effect is stronger in later grades and that students’ self-beliefs are sensitive to peer-achievement context, implying that high-performing classroom environments should be paired with interventions that sustain competence beliefs for lower-performing students."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Hong Kong)",
+        "target_variable": "Value (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Individual × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MA γ30 = 0.38 (p < .001); CMA γ01 = -0.16 (p < .001). Cross-level moderation: MA × CMA interaction γ31 = 0.01 (not significant); gender moderation not significant for value.",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, and SES (with an individual-by-class interaction) to model perceived value of mathematics, finding that individual achievement predicted higher value (β = 0.38) while higher class-level achievement predicted lower value (β = -0.16). This indicates that peer-achievement context can reduce students’ perceived usefulness/importance of mathematics, suggesting that curriculum and classroom practices in high-achieving settings should explicitly connect math learning to students’ goals to prevent value erosion."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Hong Kong)",
+        "target_variable": "Enjoyment (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Individual × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MA γ30 = 0.57 (p < .001); CMA γ01 = -0.37 (p < .001). Cross-level moderation: MA × CMA interaction γ31 = 0.03 (not significant); gender moderation not significant for enjoyment.",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, and SES (with an individual-by-class interaction) to model enjoyment attitudes towards mathematics, finding that individual achievement predicted higher enjoyment (β = 0.57) while class-level achievement predicted substantially lower enjoyment (β = -0.37). This indicates that the big-fish-little-pond effect extends to positive affect in later grades, implying that teachers should monitor and support enjoyment in high-achieving classrooms to avoid affective declines."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Hong Kong)",
+        "target_variable": "Boredom (ATM; Likert scale)",
+        "top_predictors": [
+          "Individual math achievement",
+          "Class average math achievement",
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Gender × class achievement"
+        ],
+        "performance_metrics": "Two-level HLM coefficients (standardized): MA γ30 = -0.47 (p < .001); CMA γ01 = 0.32 (p < .001). Cross-level moderation: gender moderated the class-achievement → boredom link (MALE × CMA γ11 = -0.08, p < .05); MA × CMA moderation γ31 = -0.05 (p < .001).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics (Hong Kong) the study leveraged individual math achievement, class average math achievement, gender, SES, and cross-level interactions to model boredom attitudes towards mathematics, finding that individual achievement reduced boredom (β = -0.47) while higher class-level achievement increased boredom (β = 0.32). This indicates that the big-fish-little-pond effect on boredom is moderated by both gender and individual performance, suggesting that high-performing classroom strategies should include targeted boredom-prevention supports, especially for girls and lower-performing students."
+      }
+    ],
+    "outcome_summary": "This study analyzes TIMSS 2019 Hong Kong mathematics classrooms for fourth and eighth graders, modeling attitudes towards mathematics (enjoyment, boredom, self-concept, and value) as outcomes in two-level hierarchical linear models with students nested in classrooms. Mathematics achievement is represented using five TIMSS plausible values, and the authors use the mean of the five plausible values as each student’s achievement score (average_pv). Missing data are handled via listwise deletion in the HLM software when creating the MDM file. The results show a consistent pattern: individual math achievement is positively associated with positive attitudes (self-concept/enjoyment/value) and negatively associated with boredom, while class-average achievement shows the opposite direction (negative for self-concept/enjoyment/value and positive for boredom), consistent with the big-fish-little-pond effect. The paper reports standardized HLM coefficients (e.g., Grade 8: CMA → self-concept β = -0.42; CMA → boredom β = 0.32) and finds grade differences and moderation by gender and individual performance. Limitations include reliance on cross-sectional TIMSS data and the use of TIMSS questionnaire items rather than specialized attitude scales.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

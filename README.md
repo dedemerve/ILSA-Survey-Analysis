@@ -1,11 +1,11 @@
 # ILSA Survey Analysis
 
-A comprehensive collection of structured metadata from International Large-Scale Assessment (ILSA) research articles using machine learning methods. This repository contains extracted metadata from 130+ academic papers analyzing PISA, TIMSS, PIRLS, and other ILSA datasets.
+A comprehensive collection of structured metadata from International Large-Scale Assessment (ILSA) research articles using machine learning methods. This repository contains extracted metadata from **219** unique academic papers analyzing PISA, TIMSS, PIRLS, and other ILSA datasets (mean policy-actionability score $3.71$, SD $0.79$).
 
 ## Dataset Overview
 
 The `ilsa_survey_articles` directory contains:
-- **JSON files**: Structured metadata for 130+ research articles (extracted using AI/LLM pipeline)
+- **JSON files**: Structured metadata for 219 research articles (extracted using AI/LLM pipeline)
 - **Database**: SQLite database (`ilsa_knowledge_base.db`) with all metadata
 - **Parquet file**: Tabular dataset (`ilsa_master.parquet`) for analysis
 
@@ -67,6 +67,28 @@ print(tables)
 ### Parquet File
 ```python
 df = pd.read_parquet("ilsa_survey_articles/ilsa_master.parquet")
+```
+
+## Policy Actionability Scoring
+
+`score_studies_v2.py` applies a deterministic D1–D3 rubric to every JSON in `ilsa_survey_articles/json/` and writes `rescored_studies.csv`.
+
+| Dimension | Meaning |
+|-----------|---------|
+| D1 Inferential Warrant | Synthesis / Causal / Correlational / None |
+| D2 Effect Specification | Quantified / Directional / None |
+| D3 Population Boundedness | Bounded / Global/Unspecified |
+
+```bash
+python score_studies_v2.py
+```
+
+Local re-extraction of PDFs (requires OpenAI credentials and a PDF folder):
+
+```bash
+python scripts/reextract_30_studies.py --pdf-dir PATH --dry-run
+python scripts/extract_wos_remaining.py --pdf-dir PATH
+python scripts/extract_gs_remaining.py --pdf-dir PATH
 ```
 
 ## Extraction Pipeline

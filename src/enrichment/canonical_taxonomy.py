@@ -15,6 +15,8 @@ from typing import Any, Iterable
 
 import pandas as pd
 
+from src.schemas.source_categories import NON_EMPIRICAL_SOURCE_CATEGORIES as _SHARED_NON_EMPIRICAL
+
 IGNORE_LABEL = "[IGNORE]"
 UNCATEGORIZED = "Uncategorized_Contextual"
 STUDENT_MOTIVATION = "Student_Motivation"
@@ -832,9 +834,7 @@ _NON_EMPIRICAL_STUDY_FILTERS: frozenset[str] = frozenset({
 })
 
 _NON_EMPIRICAL_SOURCE_CATEGORIES: frozenset[str] = frozenset({
-    "review_article",
-    "methodology_paper",
-    "technical_report",
+    *_SHARED_NON_EMPIRICAL,
     "book_chapter",
 })
 

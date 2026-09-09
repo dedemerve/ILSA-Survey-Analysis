@@ -4,9 +4,12 @@ from __future__ import annotations
 
 import re
 
-_NON_EMPIRICAL_SOURCE_CATEGORIES = frozenset({
-    "review_article", "methodology_paper", "technical_report",
-})
+from src.schemas.source_categories import (
+    NON_EMPIRICAL_SOURCE_CATEGORIES,
+    SOURCE_CATEGORY_VALUES,
+)
+
+_NON_EMPIRICAL_SOURCE_CATEGORIES = NON_EMPIRICAL_SOURCE_CATEGORIES
 
 _REPORT_SCOPE_KEYWORDS = re.compile(
     r"\b(?:framework|user\s+guide|technical\s+report|implementation\s+manual|"
@@ -149,7 +152,7 @@ def is_official_report_document(data: dict, metadata: dict | None = None) -> boo
     is_report_meta = (
         pub == "report"
         or "report" in pub
-        or sc in ("technical_report", "methodology_paper")
+        or sc in ("technical_report", "methodology_paper", "framework_paper")
     )
     fn_report = _filename_signals_official_report(meta)
 
@@ -195,9 +198,7 @@ def article_requires_main_findings(data: dict, metadata: dict | None = None) -> 
 _VALID_PUBLICATION_TYPES = frozenset({
     "journal", "conference", "book_chapter", "preprint", "report", "thesis",
 })
-_VALID_SOURCE_CATEGORIES = frozenset({
-    "technical_report", "review_article", "methodology_paper", "peer_reviewed_research",
-})
+_VALID_SOURCE_CATEGORIES = SOURCE_CATEGORY_VALUES
 _VALID_RESEARCH_DESIGN_TYPES = frozenset({
     "predictive", "causal_observational", "causal_experimental", "exploratory",
 })
@@ -274,7 +275,11 @@ def _coerce_report_literals(data: dict, metadata: dict | None = None) -> None:
     sc = meta.get("source_category")
     if sc not in _VALID_SOURCE_CATEGORIES:
         normed = str(sc or "").lower().replace("-", "_").replace(" ", "_")
-        if "method" in normed or "framework" in normed:
+        if normed in _VALID_SOURCE_CATEGORIES:
+            meta["source_category"] = normed
+        elif "framework" in normed:
+            meta["source_category"] = "framework_paper"
+        elif "method" in normed:
             meta["source_category"] = "methodology_paper"
         else:
             meta["source_category"] = "technical_report"

@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "file_name": "196. Miao et al. (2023). Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools.pdf",
+    "title": "Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools",
+    "authors": [
+      "Xin Miao",
+      "Ali Nadaf",
+      "Zhuotong Zhou"
+    ],
+    "year": 2023,
+    "doi": "10.1007/s11159-023-10026-w",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses publicly available PISA 2018 microdata for UAE students (public and private schools) and models a per-student academic performance output derived from PISA cognitive-test plausible values (PVs). The authors explicitly describe PV aggregation as a weighted average for each PV within subpopulations, then averaging across PVs, which is consistent with PISA’s recommended approach for unbiased statistics. However, the manuscript does not report whether complex survey sampling weights (e.g., student/school weights) or replicate weights were applied in the CatBoost training and SHAP computation. The analysis also excludes questionnaire features with more than 50% missingness, indicating a preprocessing step that changes the effective feature set used for prediction."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper explains how academic performance is constructed from PISA plausible values by taking a weighted average across PVs, but it does not report a specific missing-data strategy for the remaining questionnaire variables beyond excluding features with >50% missingness. This creates a reporting gap: it is unclear whether remaining missing values were imputed, set to defaults, or handled via CatBoost’s internal missing-value handling. Given that PISA questionnaire items typically have non-trivial item nonresponse, the absence of a documented missing-data method limits reproducibility and may affect SHAP-based feature contribution estimates.",
+    "sample_details": {
+      "total_students": 600821,
+      "countries": [
+        {
+          "country_code": "ARE",
+          "n_students": 600821
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 student questionnaire data (80 survey features) for UAE K–12 students (public and private schools) and excluded global competence cognitive-test data because the UAE did not participate in the cognitive test. Excluded any survey features with more than 50% missing data across the whole dataset. Defined the analytic output as a per-student academic performance score computed as the mean of all PVs for reading, mathematics, and science, using a weighted average within each PV before averaging across PVs. Trained a CatBoost boosted-regression-tree model on the resulting dataset of 600,821 student rows."
+    },
+    "ml_techniques": {
+      "primary": "CatBoost",
+      "all_techniques": [
+        "CatBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GCSELFEFF",
+        "variable_name": "Self-efficacy on global issues",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "GCAWARE",
+        "variable_name": "Awareness of global issues",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AWACOM",
+        "variable_name": "Awareness of intercultural communication",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PERSPECT",
+        "variable_name": "Perspective-taking capability",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COGFLEX",
+        "variable_name": "Flexibility with difficult situations",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "RESPECT",
+        "variable_name": "Respect for other cultures",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "public_private",
+        "variable_name": "School type (public/private)",
+        "category": "school"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 (UAE students; questionnaire-based global competence; academic performance from reading, mathematics, science PVs)",
+        "target_variable": "Academic performance score (mean across PVs for reading, mathematics, science)",
+        "top_predictors": [
+          "Awareness of global issues",
+          "Self-efficacy on global issues",
+          "Awareness of intercultural communication",
+          "Perspective-taking capability",
+          "Flexibility with difficult situations"
+        ],
+        "performance_metrics": "CatBoost validation: RMSE 47.74, MAE 37.2, R² 0.75 (70/30 train/validation split; 2,000 estimators; depth 10; learning rate 0.05). SHAP used for feature contribution; no additional predictive metrics reported for SHAP-based subgroup comparisons.",
+        "standardized_conclusion": "Using PISA 2018 UAE student questionnaire the study leveraged awareness of global issues, self-efficacy on global issues, and awareness of intercultural communication (among other global competence indicators) to predict an academic performance score derived from reading, mathematics, and science plausible values, finding that these three indicators contributed positively to academic performance in both the UAE and other OECD-participating countries. This indicates that global-competence-focused interventions targeting these specific skills may support academic achievement and help inform UAE K–12 public-school reform priorities, though the SHAP-based evidence is predictive rather than causal."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2018 microdata and trains a CatBoost boosted-regression-tree model on 80 PISA questionnaire features (excluding any feature with >50% missingness), using a per-student academic performance output constructed as the mean of plausible values (PV-weighted within each PV) across reading, mathematics, and science. The model is validated on a 70/30 split and achieves RMSE 47.74, MAE 37.2, and R² 0.75, which the authors interpret as substantial predictive accuracy. SHAP (TreeExplainer) is then used to quantify feature contributions, showing that three global competence indicators—awareness of global issues (GCAWARE), self-efficacy on global issues (GCSELFEFF), and awareness of intercultural communication (AWACOM)—are the main contributors, while perspective-taking, flexibility, and respect contribute less. Subgroup SHAP patterns suggest different intervention priorities by gender and school type in the UAE. Limitations include the absence of a documented missing-data handling method beyond feature exclusion, and the fact that SHAP explains predictive contribution rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

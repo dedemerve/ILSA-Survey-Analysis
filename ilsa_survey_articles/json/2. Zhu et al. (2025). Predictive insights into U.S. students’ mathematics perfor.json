@@ -20,9 +20,9 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2022 microdata for the United States and merges student and school files using the school identifier (CNTSCHID), assigning school-level predictors to students within the same school. The analytic dataset contains 4552 students in 154 schools, with outcomes defined as the 10 PISA mathematics plausible values (PV1MATH–PV10MATH). For preprocessing, the authors remove predictors with >50% missingness, drop identical and redundant predictors (including removing components used to compute ESCS), and then impute remaining missing predictor values using missForest (RF-based imputation). Although the authors discuss that sampling weights might be less critical for ML, they explicitly state that they did not include sampling weights in their analysis, despite PISA’s complex multistage clustered design."
+      "weight_fields_interpretation": "The study analyzed PISA 2022 mathematics performance for the United States, merging student and school files using the school ID (CNTSCHID) so that school-level predictors were assigned to students within the same school. The analytic sample comprised 4,552 students in 154 schools, with grade information reported (primarily 10th grade). Although the authors followed PISA user guidance for computing estimates for each plausible value, they explicitly did not include sampling weights in the ML analyses, arguing that weighting might be less critical for ML model configuration and citing evidence that ML can still produce reliable results under complex multistage clustered designs. The paper therefore treats the ML training/testing as effectively unweighted with respect to PISA sampling weights, while still using the official PV framework for the outcome."
     },
-    "plausible_values_handling": "rubin_rules",
+    "plausible_values_handling": "all_pv",
     "missing_data_handling": "single_imputation",
     "handling_not_reported_explanation": null,
     "sample_details": {
@@ -33,7 +33,7 @@
           "n_students": 4552
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2022 data for 15-year-old students in the United States; merged student and school files via CNTSCHID so that school-level predictors were assigned to students within the same school. Outcomes were the 10 mathematics plausible values (PV1MATH–PV10MATH), and all 10 PVs were included as separate outcome variables with results averaged across PVs. Predictors were filtered by removing variables with >50% missing values, dropping identical predictors (same values for all students), and removing redundant predictors (e.g., retaining ESCS while excluding the three component DVs used to compute ESCS). Remaining missing predictor values were imputed using missForest, and the dataset was split into training (80%, N=3644) and test (20%, N=908) sets."
+      "sample_filtering_criteria": "Used PISA 2022 microdata for 15-year-old students in the United States. Merged student and school questionnaires using CNTSCHID so that school-level predictors were attached to students in the same school. The analytic dataset was then reduced via preprocessing: removed predictors with >50% missing values; removed identical predictors (same values for all students); removed redundant predictors (e.g., retained ESCS and excluded the component DVs used to compute it); and imputed remaining missing predictor values using missForest (RF-based imputation). The final modeling dataset was split into training (80%, N=3644) and test (20%, N=908), and models were trained separately for each of the 10 PVs (PV1MATH–PV10MATH) with results averaged."
     },
     "ml_techniques": {
       "primary": "XGBoost",
@@ -97,20 +97,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 Mathematics (U.S. students, age 15; PV1MATH–PV10MATH)",
+        "dataset_used": "PISA 2022 Mathematics (U.S. students, 15-year-olds; PV1MATH–PV10MATH)",
         "target_variable": "Mathematics achievement (PVs)",
         "top_predictors": [
           "Mathematics self-efficacy",
           "Socioeconomic status (ESCS)",
-          "Expected occupation status",
           "Familiarity with math concepts",
-          "Family support for self-directed learning"
+          "Expected occupation status",
+          "Family support for self-learning"
         ],
-        "performance_metrics": "Model comparison (full vs reduced predictors): XGBoost reduced model rMSE=66.39 (full model rMSE=60.47) with 10 selected predictors; training time=4.14 s. Best overall by accuracy+efficiency: XGBoost (rMSE=66.39 vs LightGBM 66.36 and RF 69.82; training time 4.14 s vs LightGBM 22.93 s and RF 129.27 s).",
-        "standardized_conclusion": "Using PISA 2022 Mathematics data for U.S. students, the study leveraged mathematics self-efficacy, ESCS, expected occupation status, familiarity with math concepts, and family support for self-directed learning to predict mathematics achievement (PVs), finding that these predictors were consistently among the most influential across ensemble tree models and that XGBoost provided the best accuracy–efficiency tradeoff. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Model comparison using reduced predictor sets: Random Forest (selected 5 predictors) rMSE full=63.69 vs reduced=69.82; training time full=1098.72 vs reduced=129.27. XGBoost (selected 10 predictors) rMSE full=60.47 vs reduced=66.39; training time full=8.23 vs reduced=4.14. LightGBM (selected 10 predictors) rMSE full=60.43 vs reduced=66.36; training time full=44.28 vs reduced=22.93. Best model by accuracy+efficiency: XGBoost with reduced-model rMSE=66.39 and ARE≈9.79%.",
+        "standardized_conclusion": "Using PISA 2022 Mathematics data for U.S. students, the study leveraged mathematics self-efficacy, ESCS, familiarity with math concepts, expected occupation status, and family support for self-learning to predict mathematics achievement (across PV1MATH–PV10MATH), finding that all three ensemble tree models achieved high accuracy with substantially reduced predictor sets and that XGBoost performed best (lowest reduced-model rMSE among the compared models and fastest training time). This indicates that focusing instructional and support efforts on a small set of high-yield factors—especially self-efficacy and foundational math familiarity—may be a more efficient strategy for improving math outcomes, though the study is predictive (not causal) and does not incorporate PISA sampling weights in the ML training."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2022 mathematics performance for U.S. students (N=4552) using the 10 mathematics plausible values (PV1MATH–PV10MATH) as outcomes. After filtering predictors (>50% missingness removal, dropping identical/redundant variables) and imputing remaining missing values with missForest, the authors trained three ensemble tree models (Random Forest, XGBoost, LightGBM) with 5-fold cross-validation and repeated analyses across PVs, averaging results. All three models achieved high predictive accuracy using only a reduced set of ML-selected predictors rather than all predictors; for the reduced models, rMSE was 69.82 (RF, 5 predictors), 66.39 (XGBoost, 10 predictors), and 66.36 (LightGBM, 10 predictors). Considering both accuracy and efficiency, XGBoost was selected as best (training time 4.14 s vs 22.93 s for LightGBM and 129.27 s for RF). The analysis explicitly omitted sampling weights, which may limit generalizability under PISA’s complex clustered design.",
+    "outcome_summary": "The study used PISA 2022 mathematics plausible values (PV1MATH–PV10MATH) for U.S. 15-year-olds (N=4,552 in 154 schools) and trained three ensemble tree-based ML models—Random Forest, XGBoost, and LightGBM—to predict mathematics achievement. After cleaning predictors (dropping >50% missing predictors, removing identical/redundant variables) and imputing remaining missing values with missForest, the authors split data into training (80%) and test (20%) and performed five-fold cross-validation within training. For each PV, they fitted each model with all predictors, then used forward selection with an absolute relative error (ARE) criterion of 0.1 to obtain reduced predictor sets; results were averaged across the 10 PVs. Reduced-model performance showed high accuracy for all models, with XGBoost identified as best by both accuracy and efficiency (reduced-model rMSE=66.39; training time=4.14s), slightly outperforming LightGBM (rMSE=66.36; 22.93s) and RF (rMSE=69.82; 129.27s). The study uses ALE plots for interpretation and does not apply sampling weights in ML, so findings should be treated as associations rather than causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

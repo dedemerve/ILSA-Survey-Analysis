@@ -1,0 +1,240 @@
+{
+  "metadata": {
+    "file_name": "139. Ishizaka et sl. (2021). Best-Worst PROMETHEE method for evaluating school performance in the OECD’s PISA project.pdf",
+    "title": "Best-Worst PROMETHEE method for evaluating school performance in the OECD's PISA project",
+    "authors": [
+      "A. Ishizaka",
+      "G. Resce"
+    ],
+    "year": 2021,
+    "doi": "10.1016/j.seps.2020.100799",
+    "venue": "Socio-Economic Planning Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 school-level data derived from student performance on three domains (mathematics, reading/language, and scientific literacy). The authors report that they use the first plausible value as student performance indicators, then aggregate to school-level outcomes and construct a Best-Worst PROMETHEE net-flow index for ranking schools. The manuscript does not report whether PISA sampling weights or replicate weights were applied in the aggregation or in the PROMETHEE computations; therefore, weighting strategy is not documented at the analysis stage. For replication, analysts should use the OECD PISA sampling design weights (and replicate weights if variance estimation is required) when estimating domain means and when producing any uncertainty measures, while noting that PROMETHEE ranking itself is a deterministic multi-criteria procedure applied to the aggregated criterion values."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "PISA generates plausible values for cognitive achievement scales, and this paper explicitly states that it uses the first plausible value as the student performance indicator. However, the paper does not describe any missing-data procedure for students/schools (e.g., exclusions, complete-case rules, or imputation) beyond general PISA exclusion guidance. This is a reporting gap because missingness handling can affect school-level criterion means and thus the resulting PROMETHEE net flows.",
+    "sample_details": {
+      "total_students": 540000,
+      "countries": [
+        {
+          "country_code": "ALB",
+          "n_students": null
+        },
+        {
+          "country_code": "ARG",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "AUT",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "BRA",
+          "n_students": null
+        },
+        {
+          "country_code": "CHN",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "CZE",
+          "n_students": null
+        },
+        {
+          "country_code": "DEU",
+          "n_students": null
+        },
+        {
+          "country_code": "DNK",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "IDN",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "ISL",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "LUX",
+          "n_students": null
+        },
+        {
+          "country_code": "LVA",
+          "n_students": null
+        },
+        {
+          "country_code": "MAR",
+          "n_students": null
+        },
+        {
+          "country_code": "MEX",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "NZL",
+          "n_students": null
+        },
+        {
+          "country_code": "PER",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "QAT",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "RUS",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "SVK",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "TUN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The analysis uses PISA 2015 school-level data for the most recent wave (2015). The underlying PISA student sample targets 15-year-olds enrolled in educational institutions; exclusions are allowed but should not exceed 5% of the target population (e.g., remoteness/inaccessibility, intellectual/physical disability, lack of proficiency in the test language, or lack of test material in the language of instruction). The paper constructs three school-level criteria as average student attainment in mathematics, language/reading, and scientific literacy. For plausible values, the authors use the first plausible value as the student performance indicator before aggregating to school-level criterion values. The paper reports an analytic school sample of 16,500 schools from 66 countries/economies."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 (15-year-olds) School-level performance — Mathematics, Reading/Language, Science",
+        "target_variable": "School performance index (Best-Worst PROMETHEE net flow)",
+        "top_predictors": [
+          "Mathematics attainment (school mean)",
+          "Reading/Language attainment (school mean)",
+          "Science attainment (school mean)"
+        ],
+        "performance_metrics": "Not reported (ranking outputs via PROMETHEE net flows; descriptive statistics: n=16500 schools per criterion; min/max/percentiles reported for criterion scales, not model fit).",
+        "standardized_conclusion": "Using PISA 2015 school-level the study leveraged school mean mathematics, reading/language, and science attainment (each derived from the first plausible value) to compute a single school performance index via Best-Worst PROMETHEE net flows, finding that many European and Asian systems occupy the upper half of the school ranking while many North African, Middle Eastern, and South American systems occupy the bottom half. This indicates that multi-criteria, partially compensatory school evaluation can produce stable cross-country rankings without PROMETHEE rank-reversal, supporting policy discussions that compare schools across multiple achievement domains rather than relying on a single fully compensatory aggregate."
+      },
+      {
+        "dataset_used": "PISA 2015 (15-year-olds) School-level performance — Mathematics, Reading/Language, Science",
+        "target_variable": "Equity–efficiency relationship (country-level average vs inequality of school net flows)",
+        "top_predictors": [
+          "Country average Best-Worst PROMETHEE net flow",
+          "Country dispersion (standard deviation) of school net flows"
+        ],
+        "performance_metrics": "Quadrant analysis: no strong association; all four quadrants well populated (no quantitative correlation reported).",
+        "standardized_conclusion": "Using PISA 2015 school-level the study leveraged country-level average Best-Worst PROMETHEE net flows and the standard deviation of school net flows within each country to assess the equity–efficiency relationship, finding that the two measures are not strongly linked and that there is no strong trade-off between inequality between schools and country-level performance. This indicates that education policies aimed at improving average achievement may not automatically worsen or improve within-country equity, suggesting that equity-focused interventions can be designed independently of efficiency targets, while still using a multi-criteria school performance framework."
+      }
+    ],
+    "outcome_summary": "The paper applies a Best-Worst PROMETHEE multi-criteria decision-making method to rank schools using PISA 2015 school-level data. PISA 2015 covers about 540,000 students (representing about 29 million 15-year-olds) across 72 participating countries/economies, and the authors report an analytic sample of 16,500 schools from 66 countries. The three criteria are school-average attainment in mathematics, reading/language, and scientific literacy, and the authors explicitly use the first plausible value as the student performance indicator before aggregating to schools. The method compares each school to two fixed benchmarks (virtual ideal and virtual anti-ideal) using a linear preference function with equal weights across the three criteria, producing a single net-flow index per school. Results are presented as country-level rankings and a quadrant analysis using country mean net flows versus the standard deviation of school net flows, with the key limitation that no model-based predictive metrics are reported and the paper does not document missing-data or sampling-weight handling at the analysis stage.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

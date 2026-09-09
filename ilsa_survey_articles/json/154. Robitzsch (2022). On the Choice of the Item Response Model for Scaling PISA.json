@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "file_name": "154. Robitzsch (2022). On the Choice of the Item Response Model for Scaling PISA Data: Model Selection Based on Information Criteria and Quantifying Model Uncertainty.pdf",
+    "title": "On the Choice of the Item Response Model for Scaling PISA Data: Model Selection Based on Information Criteria and Quantifying Model Uncertainty",
+    "authors": [
+      "Ralf Robitzsch"
+    ],
+    "year": 2022,
+    "doi": "10.3390/e24060760",
+    "venue": "Entropy",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": false,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2009 microdata and performs country-level scaling analyses for three cognitive domains (mathematics, reading, science). For all country-level analyses, student weights are taken into account; within each country, weights are normalized to contribute equally across countries (normalized to a sum of 5000). For uncertainty quantification of the plausible-value-based country estimates, the paper draws plausible values for each country using sampling weights and then computes standard errors using balanced half sampling (instead of balanced repeated replication). The manuscript does not report a specific weight variable name (e.g., W_FSTUWT), but it explicitly states that student weights are used in both the country scaling step and the plausible-value drawing step."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper does not describe a missing-data strategy for student covariates or item responses (e.g., listwise deletion, multiple imputation, or explicit handling of missing item responses). This is likely because the analysis is based on PISA 2009 scaling and plausible-value drawing procedures, where missingness is handled implicitly by the IRT estimation/scaling workflow rather than by a separately documented imputation rule in the manuscript. However, the absence of an explicit missing-data handling description is a reporting gap for reproducibility.",
+    "sample_details": {
+      "total_students": 13000,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": 13000
+        },
+        {
+          "country_code": "AUT",
+          "n_students": 13000
+        },
+        {
+          "country_code": "BEL",
+          "n_students": 13000
+        },
+        {
+          "country_code": "CAN",
+          "n_students": 13000
+        },
+        {
+          "country_code": "CHE",
+          "n_students": 13000
+        },
+        {
+          "country_code": "CZE",
+          "n_students": 13000
+        },
+        {
+          "country_code": "DEU",
+          "n_students": 13000
+        },
+        {
+          "country_code": "DNK",
+          "n_students": 13000
+        },
+        {
+          "country_code": "ESP",
+          "n_students": 13000
+        },
+        {
+          "country_code": "EST",
+          "n_students": 13000
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 13000
+        },
+        {
+          "country_code": "FRA",
+          "n_students": 13000
+        },
+        {
+          "country_code": "GBR",
+          "n_students": 13000
+        },
+        {
+          "country_code": "GRC",
+          "n_students": 13000
+        },
+        {
+          "country_code": "HUN",
+          "n_students": 13000
+        },
+        {
+          "country_code": "IRL",
+          "n_students": 13000
+        },
+        {
+          "country_code": "ISL",
+          "n_students": 13000
+        },
+        {
+          "country_code": "ITA",
+          "n_students": 13000
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 13000
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 13000
+        },
+        {
+          "country_code": "LUX",
+          "n_students": 13000
+        },
+        {
+          "country_code": "NLD",
+          "n_students": 13000
+        },
+        {
+          "country_code": "NOR",
+          "n_students": 13000
+        },
+        {
+          "country_code": "POL",
+          "n_students": 13000
+        },
+        {
+          "country_code": "PRT",
+          "n_students": 13000
+        },
+        {
+          "country_code": "SWE",
+          "n_students": 13000
+        }
+      ],
+      "sample_filtering_criteria": "The empirical calibration and scaling procedure uses PISA 2009 data for 26 countries and three cognitive domains (mathematics, reading, science). For model fitting and information-criterion comparisons, the authors draw an international calibration sample by randomly sampling 500 students from each of the 26 countries for each domain, yielding 13,000 students per domain for the model-comparison step. All polytomous items are dichotomously recoded (only the highest category treated as correct). In the subsequent country-specific scaling step, item parameters are fixed from the international calibration sample and country-specific plausible values for the latent ability distribution are drawn; the paper states that no student covariates are included when drawing plausible values."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2009 Mathematics (country-level scaling)",
+        "target_variable": "Country means and standard deviations under alternative IRT scaling models",
+        "top_predictors": [],
+        "performance_metrics": "Model comparisons via AIC, BIC, and ∆GHP across 11 IRT models (1PL, 1PCL, 1PLL, 1PGL, 2PL, 3PL, 3PLQ, 3PLRH, 4PGL, 4PL, 4PLQ). Model uncertainty quantified using model error (ME), bias-corrected model error (MEbc), error ratio (ER=MEbc/SE), and total error (TE=√(SE^2+MEbc^2)). For mathematics, the error ratio for country means was on average 0.24 (max 0.66) and for country standard deviations on average 0.77 (max 1.58).",
+        "standardized_conclusion": "Using PISA 2009 mathematics the study compared 11 unidimensional IRT scaling models to obtain country means and standard deviations, finding that model choice had limited impact on country means on average (error ratio ER≈0.24) but substantial impact on country standard deviations (ER≈0.77, with some countries showing model error exceeding sampling error). This indicates that reporting uncertainty for dispersion parameters should incorporate model-uncertainty measures rather than relying on sampling standard errors alone."
+      },
+      {
+        "dataset_used": "PISA 2009 Reading (country-level scaling)",
+        "target_variable": "Country means, standard deviations, and percentiles under alternative IRT scaling models",
+        "top_predictors": [],
+        "performance_metrics": "Information-criteria results: overall, 3PLQ or 3PLRH preferred over 2PL for model fit (AIC/∆GHP); BIC selected 3PLQ or 3PLRH across models. Model uncertainty: for reading, unadjusted model error averaged M=0.66 and bias-corrected MEbc averaged M=0.62 for country means; error ratio ER averaged 0.24 (sampling error dominates). For country standard deviations, MEbc averaged 0.96 and ER averaged 0.60 (model error more important); maximum ER=2.05 for Finland. For percentiles, ER averaged 0.60 for Q10 and 0.84 for Q90, indicating sensitivity of quantile comparisons to model choice.",
+        "standardized_conclusion": "Using PISA 2009 reading the study compared 11 unidimensional IRT scaling models and quantified model uncertainty for country means, standard deviations, and percentiles, finding that model error was non-negligible for dispersion and quantiles (e.g., ER≈0.60 for standard deviations and ER≈0.84 for the 90th percentile). This indicates that policy-relevant comparisons (especially top/bottom quantiles and variability) should report model-uncertainty-aware intervals, because standard sampling-based intervals can be overly narrow when model error dominates."
+      },
+      {
+        "dataset_used": "PISA 2009 Science (country-level scaling)",
+        "target_variable": "Country means, standard deviations, and percentiles under alternative IRT scaling models",
+        "top_predictors": [],
+        "performance_metrics": "Information-criteria results: overall, 3PLQ or 3PLRH preferred over 2PL for model fit (AIC/∆GHP); BIC selected 3PLQ or 3PLRH across models. Model uncertainty: for science, model error importance for country means was relatively small (average ER≈0.27), but for country standard deviations ER was larger (average ER≈0.53, max 1.50). For percentiles, average ER was M=0.44 (Q10) and M=0.57 (Q90), with maximum ER up to 1.53 (Q10) and 2.04 (Q90), showing cases where model error exceeded sampling error.",
+        "standardized_conclusion": "Using PISA 2009 science the study compared 11 IRT scaling models and found that model choice affected country dispersion and tail quantiles more than country means (ER≈0.27 for means vs. ER≈0.53 for standard deviations; ER up to >2 for some tails). This indicates that international comparisons of variability and extremes should incorporate model-uncertainty components to avoid overstating precision."
+      }
+    ],
+    "outcome_summary": "This paper empirically evaluates how the choice of unidimensional IRT scaling model affects PISA 2009 country-level distribution parameters. Using PISA 2009 mathematics, reading, and science, the author compares 11 functional forms (1PL through 4PL variants, including 3PLQ and 3PLRH) with information criteria (AIC, BIC, and ∆GHP) and then quantifies model uncertainty via model error (ME), bias-corrected model error (MEbc), and error ratios ER=MEbc/SE, plus total error TE. For reading, model error is small for country means (ER≈0.24) but substantial for standard deviations (ER≈0.60, max 2.05) and for percentiles (ER≈0.60 for Q10 and 0.84 for Q90). The study uses student weights and plausible-value drawing with Rubin rules, but it does not provide an explicit missing-data handling strategy, and the results are descriptive about scaling-model sensitivity rather than causal effects of model choice.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

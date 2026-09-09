@@ -26,11 +26,11 @@
       "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 data (15-year-old students) and aggregates pre-exam anxiety percentages at the country level, stratified by physical activity status (low vs high/moderate-vigorous). The manuscript does not report whether PISA sampling weights or replicate weights were applied when computing country-level anxiety percentages, nor does it name any weight variables (e.g., W_FSTUWT, TOTWGT) or replicate design methods (e.g., BRR/jackknife). Because the analysis is an unsupervised hierarchical clustering of country-level mean percentages (56 countries) rather than a student-level predictive model, the paper’s weighting strategy is unclear; the safest interpretation is that weights were not explicitly incorporated in the clustering inputs. The only described preprocessing is the construction of two country-level datasets (low-activity and high-activity groups) and the clustering validation steps (dendrogram cut at 20% height, silhouette score, WCSS/BCSS/BCSS-WCSS ratio)."
+      "weight_fields_interpretation": "The study uses PISA 2018 data (56 countries) but does not report applying PISA sampling weights or replicate-weight procedures in the clustering workflow. The authors state they did not have access to the raw dataset and instead relied on OECD-published chi-square outputs and country-level mean percentage anxiety values, which implies the analysis is conducted on aggregated country summaries rather than student-level weighted estimates. Because hierarchical clustering is applied to country-level anxiety percentages (and not to PV-based achievement scores), the manuscript does not specify any complex-survey variance estimation or weight variable usage. As a result, readers should treat the clustering outputs as descriptive patterns across countries rather than population-representative inference unless the authors’ weighting approach is clarified."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The dependent variable is country-level pre-exam anxiety percentages derived from PISA 2018, and the paper does not describe any plausible-values (PV) generation/combining procedure (e.g., Rubin’s rules) or whether PV-based anxiety scores were used. Missing-data handling is also not reported: the authors state they used publicly available PISA-derived anxiety and physical activity classifications, but they do not document any imputation, deletion rule, or PV-related missingness procedure. This is a reporting gap because PISA microdata typically require explicit handling of missing responses and PVs for cognitive/psychometric constructs.",
+    "handling_not_reported_explanation": "The dependent variable is country-level pre-exam anxiety percentages by physical activity status (low vs high), derived from PISA 2018 rather than modeled using PV-based cognitive achievement scores. The manuscript does not describe any missing-data strategy for the underlying student responses used to compute these country percentages, representing a reporting gap for transparency. Because the analysis is performed on aggregated country means and the authors do not provide the raw-data processing steps, the missing-data handling cannot be verified from the text.",
     "sample_details": {
       "total_students": 600000,
       "countries": [
@@ -259,50 +259,38 @@
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 data for 15-year-old students from 56 countries. The analysis constructs two country-level datasets based on PISA’s physical activity classification: (1) low physical activity (no regular physical activity) and (2) high physical activity (regular moderate-to-vigorous activity). For each physical-activity group, the dependent variable is the country’s mean pre-exam anxiety percentage among students who reported feeling well-prepared for their exams (to avoid exam-preparation confounding). The clustering inputs are therefore country-level anxiety percentages (one observation per country) rather than individual student records."
+      "sample_filtering_criteria": "Used PISA 2018 country-level pre-exam anxiety percentages for 15-year-old students, restricted to countries with available anxiety and physical activity classification. Students were grouped into two physical activity statuses using PISA’s operational definition: low physical activity (no regular physical activity) vs high physical activity (moderate to vigorous regular physical activity). The clustering was performed separately for each physical activity group using country-level mean anxiety percentages; the authors also note that PISA included anxiety and physical activity only for students who reported feeling well-prepared for their exams, to reduce confounding from academic preparation."
     },
     "ml_techniques": {
       "primary": null,
       "all_techniques": []
     },
-    "confounders_identified": [
-      {
-        "variable_code": "physical_activity_status",
-        "variable_name": "Physical activity status",
-        "category": "student_behavior"
-      }
-    ],
+    "confounders_identified": [],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (15-year-olds) — pre-exam anxiety (country-level), low physical activity group",
-        "target_variable": "Pre-exam anxiety percentage (country-level)",
-        "top_predictors": [
-          "Physical activity status"
-        ],
-        "performance_metrics": "Hierarchical clustering validation: best silhouette score = 0.60; WCSS = 309.27; average square distance (WCSS) = 5.52; percentual average square distance = 2.35%; BCSS = 1,367.33; explained variability = 96%; BCSS/WCSS ratio = 22.10. Cluster solution chosen by dendrogram cut at 20% height; sensitivity cutoffs 15% and 25% gave similar compositions.",
-        "standardized_conclusion": "Using PISA 2018 the study leveraged physical activity status (low activity subgroup) to cluster countries by pre-exam anxiety percentage, finding that the most anxious countries formed two high-anxiety clusters (H-1: 67%, H-2: 78%) while three lower-anxiety clusters (L-1: 41%, L-2: 52%, L-3: 60%) emerged, with Brazil and the Dominican Republic among the highest-anxiety cluster members. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "dataset_used": "PISA 2018 (15-year-olds) pre-exam anxiety by physical activity status — low physical activity group (country-level means)",
+        "target_variable": "Pre-exam anxiety percentage (low physical activity students)",
+        "top_predictors": [],
+        "performance_metrics": "Hierarchical clustering (Euclidean distance; dendrogram cut at 20% y-axis). Best silhouette score: 0.60 (5 clusters). WCSS: 309.27; average square distance: 5.52; percentual average square distance: 2.35%. BCSS: 1,367.33; 96% variability explained; BCSS/WCSS ratio: 22.10.",
+        "standardized_conclusion": "Using PISA 2018 the study applied hierarchical clustering to country-level pre-exam anxiety percentages for students with low physical activity, finding two high-anxiety clusters (H-1: 67%, H-2: 78%) and three lower-anxiety clusters (L-1: 41%, L-2: 52%, L-3: 60%), with Brazil and the Dominican Republic among the most anxious countries. This indicates that countries can be grouped into distinct anxiety-risk profiles among physically inactive adolescents, suggesting that mental-health and physical-activity promotion policies should be prioritized and tailored to the most anxious country clusters rather than applied uniformly."
       },
       {
-        "dataset_used": "PISA 2018 (15-year-olds) — pre-exam anxiety (country-level), high physical activity group",
-        "target_variable": "Pre-exam anxiety percentage (country-level)",
-        "top_predictors": [
-          "Physical activity status"
-        ],
-        "performance_metrics": "Hierarchical clustering validation: best silhouette score = 0.56; WCSS = 632.80; average square distance (WCSS) = 5.52; percentual average square distance = 11.3%; BCSS = 7,079.18; explained variability = 92%; BCSS/WCSS ratio = 11.18. Cluster solution chosen by dendrogram cut at 20% height; sensitivity cutoffs 15% and 25% gave similar compositions.",
-        "standardized_conclusion": "Using PISA 2018 the study leveraged physical activity status (high activity subgroup) to cluster countries by pre-exam anxiety percentage, finding that two high-anxiety clusters (H-1: 77%, H-2: 64%) and two low-anxiety clusters (L-1: 53%, L-2: 43%) were identified, with Malaysia, Brazil, and Costa Rica among the highest-anxiety cluster members and Switzerland among the lowest-anxiety cluster members. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "dataset_used": "PISA 2018 (15-year-olds) pre-exam anxiety by physical activity status — high physical activity group (country-level means)",
+        "target_variable": "Pre-exam anxiety percentage (high physical activity students)",
+        "top_predictors": [],
+        "performance_metrics": "Hierarchical clustering (Euclidean distance; dendrogram cut at 20% y-axis). Best silhouette score: 0.56 (4 clusters). WCSS: 632.80; average square distance: 5.52; percentual average square distance: 11.3%. BCSS: 7,079.18; 92% variability explained; BCSS/WCSS ratio: 11.18.",
+        "standardized_conclusion": "Using PISA 2018 the study applied hierarchical clustering to country-level pre-exam anxiety percentages for students with high physical activity, finding two low-anxiety clusters (L-1: 53%, L-2: 43%) and two higher-anxiety clusters (H-1: 77%, H-2: 64%), with Malaysia, Brazil, and Costa Rica among the most anxious. This indicates that physical activity does not uniformly eliminate pre-exam anxiety across countries, implying that country-specific academic-stress contexts and support systems should be integrated with physical-activity interventions."
       },
       {
-        "dataset_used": "PISA 2018 (15-year-olds) — pre-exam anxiety (country-level), comparison across physical activity groups",
-        "target_variable": "Difference in pre-exam anxiety percentage (low vs high activity)",
-        "top_predictors": [
-          "Physical activity status"
-        ],
-        "performance_metrics": "Country-level group comparisons reported via chi-square and Z-tests with 95% CI thresholds: significant reductions for many countries (p < 0.05) including Austria (−7), Belgium (−8), Chile (−8), France (−5), Germany (−2), Greece (−7), Hungary (−7), Israel (−9), Korea (−5), Mexico (−7), Turkey (−5), United States (−9). Exceptions: Russia (+11) and United Arab Emirates (+4) increased anxiety under high physical activity. Overall mean change across countries: −3% (p < 0.01).",
-        "standardized_conclusion": "Using PISA 2018 the study leveraged physical activity status to compare country-level pre-exam anxiety between low and high activity groups, finding an overall average reduction of about 3% in pre-exam anxiety for high-activity students, with Russia and the UAE as notable exceptions where anxiety increased. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "dataset_used": "PISA 2018 (15-year-olds) pre-exam anxiety by physical activity status — cross-group country differences",
+        "target_variable": "Difference in pre-exam anxiety percentage between low vs high physical activity groups",
+        "top_predictors": [],
+        "performance_metrics": "Country-level chi-square comparisons using a 95% CI threshold (Z ≥ 1.96). Statistically significant reductions (p < 0.05) for many countries (e.g., Austria −7, Belgium −8, Chile −8, France −5, Germany −2, Greece −7, Hungary −7, Israel −9, Korea −5, Mexico −7, Turkey −5, United States −9). Exceptions: Russia +11% and United Arab Emirates +4%. Overall mean change across countries: −3% (p < 0.01).",
+        "standardized_conclusion": "Using PISA 2018 the study compared country-level pre-exam anxiety percentages between low and high physical activity groups and found an overall average reduction of −3% (p < 0.01), with most countries showing statistically significant decreases. This indicates that promoting regular moderate-to-vigorous physical activity may reduce pre-exam anxiety for many adolescents, but the presence of exceptions (e.g., Russia and the UAE) suggests that interventions must account for local academic and cultural stressors, and causality cannot be inferred from this observational clustering approach."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 country-level pre-exam anxiety percentages for 15-year-olds who reported feeling well-prepared, stratified by physical activity status (low vs high/moderate-vigorous). Using hierarchical clustering with Euclidean distance and a dendrogram cut at 20% height, the low-activity subgroup yielded five clusters with a best silhouette score of 0.60 and 96% explained variability (BCSS/WCSS = 22.10), separating two high-anxiety clusters (67% and 78%) from three lower-anxiety clusters (41%, 52%, 60%). The high-activity subgroup produced four clusters with a best silhouette score of 0.56 and 92% explained variability (BCSS/WCSS = 11.18), again distinguishing two high-anxiety clusters (77% and 64%) from two lower-anxiety clusters (53% and 43%). Across countries, the average anxiety percentage decreased by about 3% for high-activity students (p < 0.01), though Russia and the UAE showed increases. The paper does not report PV handling or missing-data procedures, and it does not clarify whether PISA sampling/replicate weights were applied when computing country-level percentages.",
+    "outcome_summary": "The study uses PISA 2018 country-level pre-exam anxiety percentages for 15-year-old students, stratified by physical activity status (low/no regular activity vs high/moderate-vigorous regular activity). It performs hierarchical clustering using Euclidean distance and selects the number of clusters via dendrogram cut at 20% plus silhouette score and dispersion metrics. For low physical activity students, the best solution used 5 clusters with silhouette = 0.60, WCSS = 309.27, 96% variability explained (BCSS), and BCSS/WCSS = 22.10; Brazil (82%) and the Dominican Republic (81%) were among the most anxious. For high physical activity students, the best solution used 4 clusters with silhouette = 0.56, WCSS = 632.80, 92% variability explained, and BCSS/WCSS = 11.18; Malaysia (82%), Brazil (81%), and Costa Rica (81%) were most anxious. Across countries, the average anxiety difference between low vs high physical activity was −3% (p < 0.01), with Russia (+11%) and the UAE (+4%) as exceptions. Limitations include reliance on aggregated country means (no student-level PV modeling), lack of reported missing-data handling, and no explicit survey-weighted inference.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": null
+    "null_fields_interpretation": "The paper is an observational clustering study using hierarchical clustering on country-level anxiety percentages rather than a supervised predictive ML model. As a result, no predictive algorithm is evaluated for accuracy/AUC/RMSE, and the schema’s ML technique fields are left empty (primary = null, all_techniques = []). The study still reports clustering quality metrics (silhouette, WCSS/BCSS), which are appropriate for exploratory clustering but do not map to the schema’s predictive-model algorithm list."
   }
 }
