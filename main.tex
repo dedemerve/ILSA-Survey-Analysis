@@ -1,0 +1,669 @@
+\documentclass{ieeeaccess}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{cite}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{silence} 
+\WarningsOff
+\usepackage[compatibility=false]{caption}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{bm}
+\usepackage{scrlfile}
+\usepackage[hidelinks]{hyperref}
+
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+\begin{document}
+\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+\doi{10.1109/ACCESS.2024.0429000}
+
+\title{Artificial Intelligence Applications in International Large-Scale Assessments: \newline A Survey with LLM-Assisted Evidence Synthesis}
+\author{\uppercase{Merve Dede}\authorrefmark{1} AND
+\uppercase{Ekrem \c{C}etinkaya} \IEEEmembership{Member, IEEE}\authorrefmark{2} }
+
+\address[1]{Department of Artificial Intelligence and Machine Learning, 
+Istanbul Beykent University, Istanbul, Türkiye
+}
+\address[2]{Department of Artificial Intelligence and Data Engineering, Yıldız Technical University, Istanbul, Türkiye (e-mail: ekrem.cetinkaya@yildiz.edu.tr)}
+
+\corresp{Corresponding author: Merve Dede (e-mail: mervedede@beykent.edu.tr).}
+
+
+\begin{abstract}
+International large-scale assessments (ILSAs) are a primary evidence base for understanding student learning and comparing education systems across countries. Although AI and data-mining applications to ILSA data have grown rapidly, the field remains prediction-oriented, relies on aggregate performance indicators, and only partially converts computational advances into educationally interpretable insight. This study presents a structured survey of AI and data-driven research on ILSA datasets ($n = 222$ studies, 2020--April 2026), identified through a structured Web of Science search complemented by targeted Google Scholar queries and snowballing. All records were read and coded in full; a schema-constrained LLM-assisted extraction pipeline with full human verification produced a machine-readable dataset provided as supplementary material. Findings are synthesized through a five-category framework: (i) predictive modelling of achievement, (ii) process data and learning analytics, (iii) socio-emotional and behavioral modelling, (iv) assessment engineering, and (v) computational psychometrics. To evaluate practical usefulness, we introduce a three-dimensional policy actionability framework assessing inferential warrant, effect specification, and population boundedness. Ensemble methods achieved the highest actionability scores, while deep learning approaches showed lower translation into policy-relevant outputs, suggesting future AI--ILSA research should prioritize interpretability and practical relevance over predictive accuracy.
+\end{abstract}
+
+\begin{keywords}
+International large-scale assessment (ILSA), large language model (LLM), artificial intelligence (AI), educational data mining (EDM), learning analytics (LA), PISA, TIMSS.
+\end{keywords}
+
+\titlepgskip=-21pt
+
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+\PARstart{I}{}nternational large-scale assessments (ILSAs) are cross-national studies comparing student achievement across education systems and examining the effects of system, school, teacher, family, and student factors on learning \cite{bezek-gure-etal2020, hernandez-ramos-araya2025}. By generating internationally comparable indicators, ILSAs shape educational policy worldwide, guiding evidence-based decisions on equity and quality \cite{hernandez-torrano-courtney2021}, \cite{robitzsch-ludtke2022}, \cite{scherer-etal2024}. As these assessments increasingly generate granular digital trace data alongside traditional outcome measures, they have emerged as a valuable testbed for computational modeling and learning analytics (LA), creating analytical opportunities and methodological challenges for the educational research community \cite{teig2023}, \cite{murchan-siddiq2021}, \cite{huang-etal2025}. Process data provide rich behavioral insights, yet their analytical use remains challenging due to feature extraction complexity and limited theoretical grounding \cite{huang-etal2025, anghel-etal2024}; concerns over validity, fairness, and interpretability further complicate AI integration \cite{anghel-etal2024}.
+
+ILSAs are administered through the Programme for International Student Assessment (PISA), the Teaching and Learning International Survey (TALIS), and the Programme for the International Assessment of Adult Competencies (PIAAC) by the Organisation for Economic Co-operation and Development (OECD), and through the Trends in International Mathematics and Science Study (TIMSS), the Progress in International Reading Literacy Study (PIRLS), the International Civic and Citizenship Education Study (ICCS), and the International Computer and Information Literacy Study (ICILS) by the International Association for the Evaluation of Educational Achievement (IEA) \cite{nilsen-etal2022}. These assessments generate large, complex data structures through sampling-based designs, psychometric models, and contextual surveys, enabling the cognitive, affective, and contextual dimensions of student achievement to be addressed simultaneously \cite{scherer-etal2024, aydogan-tat2024, shin-etal2025}. Together, they constitute a uniquely rich, longitudinal evidence base that has attracted growing attention from the AI and educational data mining (EDM) communities \cite{alvarez-etal2024, elouafi-etal2025}.
+
+ILSA research draws on two complementary data layers. Result data include response accuracy, response categories, and ability estimates \cite{fn-aydin-etal2025, goldhammer-etal2020}. Process data capture digital traces of student performance: mouse clicks, keystrokes, drag-and-drop actions, time-to-first-action, latencies, and total time on item \cite{huang-etal2025}, \cite{anghel-etal2024},\cite{oecdUsesProcessData2023a}, \cite{ding-etal2025}, \cite{ulitzsch-etal2021}. Combining both layers, EDM approaches enable more robust and explanatory analyses than aggregate indicators alone can support \cite{ang-etal2020}.
+
+Artificial intelligence (AI), machine learning (ML) and deep learning (DL) play increasingly important roles in identifying predictors and discovering patterns in ILSA research \cite{khine-etal2025}. Ensemble algorithms such as random forest (RF) and XGBoost effectively model high-dimensional, nonlinear relationships \cite{acisli-celik-yesilkanat2023, zhu-etal2025}; DL architectures such as autoencoders compress large variable sets into meaningful latent features \cite{elouafi-etal2025, tang-etal2021}. However, the predictive power of ML and DL comes at the cost of interpretability \cite{khine-etal2025}, prompting growing interest in explainable AI (XAI) methods that render model decisions educationally meaningful \cite{gomez-talal-etal2025, hu-etal-Predicting-Adolescents-2025}.
+
+Despite this methodological progress, the field exhibits a persistent imbalance. Research relies largely on predefined variables and macro-level country comparisons that yield politically resonant but pedagogically limited findings \cite{wang-etal2022}. Process data, alongside interpretability- and validity-oriented approaches, remain underexplored \cite{salles-etal2020}. Few studies meaningfully integrate established psychometric principles with modern AI techniques, constraining the educational validity of their findings \cite{huang-etal2025}. Consequently, AI-driven evidence from ILSAs is not yet systematically translated into classroom-level practice, leaving an actionable gap between computational performance and educational impact \cite{maia-etal023}.
+
+The present study addresses this gap through the first survey, to our knowledge, explicitly mapping AI methods across the full spectrum of ILSA programs, synthesizing 222 studies published between 2020 and April 2026. It departs from prior syntheses in three respects \cite{hernandez-torrano-courtney2021, maia-etal023, anghel-etal2024, huang-etal2025}. First, a seven-program scope makes cross-program methodological transfer directly observable, which single-program reviews cannot achieve. Second, we developed a schema-constrained Large Language Model (LLM)-assisted extraction pipeline with full human verification. This enabled systematic comparison across a heterogeneous corpus of 222 studies at a scale that would have been difficult to achieve through manual coding alone. Third, where evidence-grading frameworks such as GRADE presuppose causal-hierarchy criteria inapplicable to observational ILSA research, our policy actionability framework supplies a domain-adapted alternative tracking what this literature can inferentially support. Building on these foundations, this study proposes a five-category classification framework and outlines a roadmap for integrating XAI into ILSA research: (i) predictive modeling of achievement, (ii) LA on process data, (iii) socio-emotional and behavioral modeling, (iv) assessment engineering, and (v) computational psychometrics. It also considers complementary examples from national large-scale assessments (NLSAs) such as the National Assessment of Educational Progress (NAEP), Cycle des Évaluations Disciplinaires Réalisées sur Échantillon (CEDRE), and Istituto Nazionale per la Valutazione del Sistema Educativo di Istruzione e di Formazione (INVALSI).
+
+This survey is organized around three overarching research questions: \textbf{RQ1}: What AI and data-mining methods have been applied to ILSA data between 2020 and April 2026, and how do they distribute across the five analytical categories? \textbf{RQ2}: To what degree does the published evidence meet the inferential, quantification, and population-boundedness criteria required for educational policy use, as assessed by the policy actionability framework? \textbf{RQ3}: What methodological and substantive gaps remain, and what directions would most effectively translate computational advances into educationally actionable insight?
+
+The remainder of this paper is organized as follows. Section \ref{sec2} establishes the conceptual frameworks relevant to AI-driven ILSA research. Section \ref{sec3} details the structured survey methodology and analytical methods. Section \ref{sec4} synthesizes the literature through the five-category framework. Section \ref{conclusion} discusses findings, policy implications, and future directions.
+
+\section{Conceptual and analytical frameworks}\label{sec2}
+
+This section outlines the scope and key characteristics of ILSAs, introduces the major assessment programs conducted by the OECD and the IEA in terms of their domains, target populations, and assessment frameworks, and discusses result- and process-based analytical perspectives that underpin AI-based analyses of LSA data.
+
+\subsection{Scope of ILSA}\label{subsec2.1}
+
+ILSAs are standardized cross-national studies designed to monitor and compare education systems \cite{aydogan-tat2024}. Unlike NLSAs, such as the United States' NAEP, India's NAS \cite{luna-bazaldua-clarke2022}, France's CEDRE \cite{deschipper-etal2025}, and Italy's INVALSI \cite{bungaro-etal2024} which focus on domestic curriculum standards, ILSAs position educational outcomes in a global context and enable systematic cross-country comparison \cite{lee-lee-ExtendedDataset2025, salles-etal2020}. Programs such as PISA, TALIS, PIAAC, TIMSS, PIRLS, ICCS, and ICILS produce comparable data and integrate contextual information at the student, teacher, school, and system levels, supporting multi-level analysis of education policy \cite{hernandez-torrano-courtney2021, scherer-etal2024, soares2024}.
+
+Since the first ILSA in 1960, which assessed 13-year-olds across 12 countries under UNESCO coordination \cite{foshay-etal1962}, the field has evolved from right--wrong scoring toward computer-based adaptive designs that capture response times, tool use, and solution strategies \cite{teig2023, zhang-etal2023, fink-etal2024}. Currently, ILSAs assess academic outcomes and affective dimensions such as self-efficacy, belonging, democratic participation, and ethical values \cite{michaelo-martinIEAsTechnicalStandards2025}, and have become fundamental tools for monitoring education quality, informing policy, and ensuring accountability \cite{aera2014, alvarez-etal2024}. Although administered by different institutions, some by the OECD, others by the IEA, they share common measurement and comparability principles while targeting distinct populations and domains \cite{hernandez-torrano-courtney2021, lee-lee-ExtendedDataset2025}.
+
+\subsection{ILSA\texorpdfstring{\lowercase{s}}{s} conducted by the OECD}\label{subsec2.2}
+
+PISA, PIAAC, and TALIS, conducted by the OECD, are studies that focus on lifelong learning. Rather than measuring solely curriculum-based achievements, they measure individuals' ability to apply their knowledge and skills in daily life, their education/work experience, and teaching environments. Each ILSA focuses on different target groups and areas \cite{hernandez-torrano-courtney2021}. The key technical and methodological characteristics of these OECD studies are summarized in Table \ref{tab:oecd_ilsa_comparison}, which are further detailed in the following subsections.
+
+\begin{table*}[!t]
+\centering
+\caption{Comparative matrix of OECD ILSAs}
+\label{tab:oecd_ilsa_comparison}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{p{2.5cm}p{4,4cm}p{4,4cm}p{4,8cm}}
+\toprule
+Feature & PISA & TALIS & PIAAC \\
+\midrule
+
+Official Title & Programme for International Student Assessment 
+& Teaching and Learning International Survey 
+& Programme for the International Assessment of Adult Competencies \\
+
+Start Year & 2000 & 2008 & 2008 \\
+
+Cycle & Every 3 years (triennial) 
+& Every 5 years (quinquennial) 
+& Every 10 years (decennial) \\
+
+Target Group & 15-year-old students \newline (end of compulsory education) 
+& Teachers and school leaders 
+& Adults aged 16--65 \\
+
+Core Domains & Reading, mathematics, and science; occasionally additional areas such as creativity and education finance 
+& Working conditions, teaching climate, leadership styles, professional development, and job satisfaction 
+& Literacy, numeracy, and problem solving in technology rich environments \\
+
+Primary Objective 
+& To compare real-life skills at an international level 
+& To identify the strengths and weaknesses of education systems 
+& To analyze countries' human capital and the economic impact of competencies \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The measurement and assessment frameworks of OECD ILSAs have undergone substantial transformation in response to technological advances and evolving construct requirements \cite{fink-etal2024, robitzsch-ludtke2022}. Across successive cycles, these studies have progressively shifted from paper-based, fixed-format designs toward computer-based adaptive assessments, sophisticated psychometric models, and multi-source data architectures that capture not only what examinees know but how they engage with tasks \cite{guo-etal-ercikan2024, jiao-etal2021, teig2023}. Table \ref{tab:oecd_framework} presents a systematic comparison of these developments across PISA, TALIS, and PIAAC along five dimensions: administration mode, test structure, psychometric modeling, data types, and scoring approach.
+
+\begin{table*}[!t]
+\centering
+\caption{Measurement and assessment framework of OECD ILSAs}
+\label{tab:oecd_framework}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{p{2.1cm}p{4.7cm}p{4.7cm}p{4.7cm}}
+\toprule
+\text{Feature} & \text{PISA} & \text{TALIS} & \text{PIAAC} \\
+\midrule
+
+Administration Mode 
+& Utilized PBA from 2000 to 2012, including simplified booklets and specific adaptations in 2012. Formally transitioned to CBA as the primary mode in 2015 and moved toward an almost exclusive digital environment in 2018
+& Maintained paper-and-pencil formats in 2008 and 2013, with optional online administration introduced in 2018. CBA was officially adopted as the default mode for 2024 to enable digitally integrated data collection 
+& CBA as basis from 2011 to 2018 (PBA retained for participants with limited digital experience); CBA as primary mode in 2022--2023, enhanced with adaptive problem-solving, automatic scoring, process data collection\\
+
+Test Structure 
+& Fixed-form design based on rotated booklets in 2000--2015 cycles; MSAT introduced in reading in 2018, routing test blocks based on prior student performance, enhancing measurement precision and testing efficiency
+& Fixed survey structure until 2018 (same questions for all participants); rotated survey design introduced in 2024 to reduce response burden and broaden content coverage while preserving common core questions 
+& Limited adaptive testing in 2011--2018 cycles; MSAT structure fully integrated in 2022--2023, directing participants to different competency paths based on initial performance \\
+
+Psychometric Model 
+& 2000--2012: Rasch model for dichotomous items and PCM for multi-categorical items; since 2015: 2PL for dichotomous items and Generalized PCM for multi-categorical items 
+& CFA and multi-group CFA for construct validity and measurement invariance; IRT-based models used in a limited, supplementary capacity in 2018 and 2024 
+& IRT framework across cycles for calibration on a common scale; first cycle: 2PL and Generalized PCM; second cycle: IRT integrated with process data and adaptive problem-solving \\
+
+Data Types 
+& 2000--2012: result data; since 2015 (CBA): process data systematically collected (clicks, time usage, task sequences), enabling analysis of both what and how achievement occurs 
+& Survey responses and contextual data; process data collected since 2018 (online); limited cognitive result data added in 2024 via the TKS module 
+& First cycle: process data partially available; second cycle (2022--2023): process data central, enabling analysis of competencies, problem-solving strategies, and time usage via adaptive tasks \\
+
+Scoring \newline Approach 
+& PBA period: human coders for open-ended items; CBA: digitized via Open-Ended Coding System; since 2022: Machine-Supported Coding for repetitive standard responses, reducing human coding burden 
+& IRT-based scaling of survey responses (not cognitive performance); automated scoring and quality control via online implementation; TKS module (2024) incorporated scoring of pedagogical knowledge items 
+& 2011--2018: hybrid structure (automated and human methods); 2022--2023: automated scoring expanded with integration of adaptive problem-solving \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{ILSA\texorpdfstring{\lowercase{s}}{s} conducted by the IEA}\label{subsec2.3}
+
+International studies such as TIMSS, PIRLS, ICCS, and ICILS, conducted by IEA, are international studies that assess the knowledge and skills of students at various grade levels within frameworks aligned with curricula \cite{hernandez-torrano-courtney2021}. A comparative overview of the core characteristics and assessment focus of these IEA studies is provided in Table \ref{tab:iea_ilsa_comparison}.
+
+\begin{table*}[!t]
+\centering
+\caption{Comparative matrix of IEA ILSAs}
+\label{tab:iea_ilsa_comparison}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{p{2cm}p{3.5cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+\toprule
+Feature & TIMSS & PIRLS & ICCS & ICILS \\
+\midrule
+
+Official Title 
+& Trends in International Mathematics and Science Study 
+& Progress in International Reading Literacy Study 
+& International Civic and Citizenship Education Study 
+& International Computer and Information Literacy Study \\
+
+Start Year 
+& 1995 & 2001 & 2009 & 2013 \\
+
+Cycle 
+& Every 4 years (quadrennial) 
+& Every 5 years (quinquennial) 
+& Every 5 years (quinquennial) 
+& Every 5 years (quinquennial) \\
+
+Target Group 
+& Grade 4 and Grade 8 students 
+& Grade 4 students 
+& Grade 8 students (avg. age 13.5+) 
+& Grade 8 students \\
+
+Core Domains 
+& Mathematics and science (both assessed equally each cycle) 
+& Reading literacy and comprehension 
+& Civic knowledge, engagement, and attitudes
+& Computer and information literacy and computational thinking\\
+
+Primary Objective 
+& To assess students’ knowledge and skills in mathematics and science across countries 
+& To monitor reading achievement and the transition from learning to read to reading to learn 
+& To understand how prepared young people are for their civic roles in a changing world 
+& To assess students' competencies in using digital information and technology effectively \\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The measurement and assessment frameworks of IEA ILSAs have evolved in accordance with the principles of curriculum-based assessment, long-term trend comparability, and psychometric consistency \cite{lee-lee-ExtendedDataset2025, teig2023}. Successive cycles reflect a deliberate architectural progression across administration mode, test structure, psychometric modeling, data types, and scoring approach, balancing innovation with the preservation of cross-cycle comparability \cite{deschipper-etal2025, jung-etal2024, tyack-etal2024}. Table \ref{tab:iea_framework} presents a systematic comparison of these developments across TIMSS, PIRLS, ICCS, and ICILS.
+
+\begin{table*}[!t]
+\centering
+\caption{Measurement and assessment framework of IEA ILSAs}
+\label{tab:iea_framework}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabular}{p{2.1cm}p{3.4cm}p{3.4cm}p{3.5cm}p{3.4cm}}
+\toprule
+Feature & TIMSS & PIRLS & ICCS & ICILS \\
+\midrule
+
+Administration Mode
+& PBA and CBA used together in 2019; all new items developed exclusively in CBA format in 2023
+& Steps toward digitization taken in 2016; digital assessment adopted as primary implementation in 2021
+& CBA offered as an option in 2022; bridging studies conducted to monitor the effects of digitization on assessment results
+& Pioneer in CBA since its first cycle in 2013; fully computer-based from the outset \\
+
+Test Structure
+& Fixed block matrix sampling was integrated in 2023, and 2027 introduces adaptive routing and group- adaptive designs to better match item difficulty
+& Group adaptive design first applied in 2021; item blocks structured at low, medium, and high difficulty levels to better align with country-level achievement profiles
+& Unadopted rotated block design preserved across 2016 and 2022 cycles to maintain secure items and long-term comparability
+& Rotational module structure since 2013; limited number of modules used to measure broad content coverage at the population level \\
+
+Psychometric Model
+& IRT and PVs since 1995; in 2023, new MC items used 2PL, while 3PL was retained for trend items; shift from blank= incorrect to strength-of-evidence approach
+& Scale continuity maintained across all cycles; randomly equivalent samples design and population-based linking approaches adopted in 2021 to balance CBA and PBA differences
+& High measurement invariance maintained between PBA and CBA from 2016 to 2022; scale production continued with the same item parameters for both modes
+& IRT-based proficiency estimates produced since 2013 by combining digitally designed items with latent regression information; trend comparability maintained in digitally process-based tasks \\
+
+Data Types
+& Cognitive test data systematic reviewcombined with contextual surveys (students, teachers, schools, curricula, families); process data expanded with CBA integration in 2023
+& Reading performance data combined with contextual surveys (students, parents, teachers, schools); process data introduced with digital implementation in 2021
+& Civic knowledge and attitudinal data combined with contextual surveys (eg., students, teachers, school principals); process data collected via CBA in 2022
+& CIL and CT performance data combined with contextual surveys; process data central from the first cycle; CT integrated in 2018, CIL--CT combined in 2023 \\
+
+Scoring Approach
+& Hybrid (automated and human) scoring in 2019 and prior cycles; in 2023, structured responses scored automatically, AI-based methods used for quality control and borderline responses; TIMSS 2027 aims to expand automatically scored structured responses
+& Human-based scoring (2001– 2011); limited automated scoring from 2016; expanded automated scoring with new CBA-suitable item types in 2021; 2026 goal: digital structure with automated interactive items and human-scored open-ended responses
+& Human scoring was used exclusively in 2009 and 2016 (PBA), whereas in 2022 automated scoring was introduced for interactive CBA tasks, with human scoring retained for open-ended responses
+& Hybrid scoring adopted from the outset; skill, coding, and simulation tasks scored automatically; higher-order tasks evaluated by human scorers; CT integration in 2018 and CIL--CT in 2023 strengthened use of automatic scoring and process data\\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Result and process data-based analytical perspectives} \label{subsec2.4}
+
+ILSA research is structured around result-based and process-based analyses. Result-based studies focus on achievement prediction, variable weighting, cross-country comparison, and XAI applications, whereas process-based studies examine action sequences, cognitive strategies, time-based engagement indicators, and sequential modelling approaches \cite{gomez-talal-etal2025, tang-etal2021}. Some studies combine both data types to reveal the strategic, cognitive, and behavioral patterns underlying final performance \cite{chen-etal2023}. This framework also encompasses socio-emotional outcomes, automated scoring, and computational psychometric issues, including interpretability, algorithmic fairness, missing data, and weighting \cite{andersen-etal2025, zhai-etal2024}. Although process data was historically treated as a byproduct in EDM, recent research increasingly examines its capacity to illuminate higher-order cognitive strategies during problem solving and how such information can be modelled \cite{gong-etal2023}.
+
+\section{Methods Used in the Analysis of ILSA}\label{sec3}
+
+This section details the literature review strategy and LLM-assisted extraction pipeline employed for evidence synthesis, then provides a concise typology of the analytical methods represented across the 130 reviewed studies. The resulting machine-readable dataset and metadata documentation are publicly available (see Data Availability Statement).
+
+\subsection{Data Extraction and Structured Dataset Construction}
+\label{subsec:extraction}
+
+Synthesising a methodologically heterogeneous body of ILSA--AI research requires first converting unstructured full-text articles into a harmonised, machine-readable form. Every study in the corpus was read and coded in full by the authors. In parallel, an LLM served as a structured-information extractor that mapped each study's methodological and empirical content onto a fixed schema. Each automated record was then reconciled against the authors' manual coding and the source article, with discrepancies resolved by consensus, so that the released dataset reflects fully human-verified output rather than unaudited model inference.
+
+\subsubsection{Two-Layer Extraction Architecture}\label{subsec:data-extraction}
+
+Extraction was organised as a two-layer pipeline whose components were deliberately decoupled to separate probabilistic language understanding from deterministic downstream coding.
+
+\emph{Layer 1 -- LLM-based content extraction.} Each full-text PDF in the corpus ($n = 130$, comprising 108 peer-reviewed research articles, 14 review articles, and 8 methodology papers) was parsed into a pre-defined JSON schema using \texttt{gpt-5.4-nano} (snapshot: 2026-03-17), accessed via the OpenAI Chat Completions API with structured output mode enabled; the model identifier and snapshot version are fixed to ensure reproducibility, and the full pipeline scripts including API call parameters are publicly available (see Data Availability Statement). The extraction was conducted under a role-scoped prompt with sampling temperature fixed at $\tau = 0.0$ (greedy decoding). All 130 records passed schema validation on the first attempt; schema validation confirmed structural compliance only, not factual accuracy. Content correctness was established through the human verification process described in Section \ref{sec:3.1.2}. The schema captured: (i) bibliographic metadata and venue indicators; (ii) multi-level and multi-national sample configurations; (iii) the primary modeling technique and full set of evaluated algorithms, later mapped to the method families of Table \ref{tab:actionability-summary}; (iv) reported performance estimators as structured free-text fields ($R^2$, Accuracy, AUC-ROC, $F_1$, Cohen's~$\kappa$, with evaluation context); (v) identified threats to validity and confounders; and (vi) standardized conclusions following a fixed Dataset$\rightarrow$Input$\rightarrow$Target$\rightarrow$Output template.
+
+\emph{Layer 2: Deterministic post-processing.} Non-generative rule sets were applied to the Layer 1 JSON output across three operations: (i) each record was assigned to one of five policy-domain categories via keyword matching (curriculum and instruction, resource allocation and equity, teacher workforce development, governance and school climate, socio-emotional intervention); (ii) geopolitical scope was classified using a four-tier count-based schema (country-specific, multi-country, global, or unspecified); and (iii) a composite actionability score was computed pursuant to the rubric in Table \ref{tab:actionability-rubric}. Because Layer 2 invokes no generative model, all derived fields regenerate identically on re-execution.
+
+\subsubsection{Reliability Safeguards}\label{sec:3.1.2}
+
+All 130 studies were read and coded in full by the first author prior to and following LLM-assisted extraction. All extracted records and coding decisions were independently reviewed in full by the second author, discrepancies were resolved through dedicated consensus meetings documented in written notes alongside per-article JSON files. For each study, LLM-extracted output was compared against the source article at the record level; fields identified as inaccurate, incomplete, or ambiguous were corrected or flagged with controlled sentinel values (e.g., \textit{Not Reported}, \textit{N/A: Technical Report}). Corrected records were propagated to the derived meta-analysis dataset. Human oversight was concentrated on: (i) outcome and main findings fields; (ii) target variable and standardized conclusion fields; (iii) confounder coding; (iv) study-type disambiguation; and (v) method and dataset linkage fields. The full audit trail is preserved through per-article JSON files, the derived Excel dataset, a synthesis audit log, and versioned pipeline scripts under version control. Every cross-study synthesis claim in Section \ref{sec4} was independently checked against its cited source article prior to submission.
+
+\subsubsection{Composite Actionability Scoring}
+
+Established evidence-grading frameworks such as GRADE \cite{guyatt2008} and SIGN \cite{harbour2001} were not directly applicable to this corpus: ILSA-based studies are inherently observational and cross-sectional, rendering causal-hierarchy criteria inapplicable, and the corpus spans heterogeneous analytical traditions for which no domain-specific actionability standard exists. The present rubric was therefore developed as a domain-adapted operationalization of three observable dimensions that collectively approximate policy-relevant inferential quality.
+
+$D_1$ (inferential warrant) captures the evidentiary hierarchy from descriptive association to causal inference. $D_2$ (effect specification) distinguishes findings that quantify versus merely indicate directionality. $D_3$ (population boundedness) assesses whether conclusions are constrained to identifiable contexts. Together, these dimensions reflect the three minimal conditions for a finding to inform a bounded policy decision: causal defensibility, quantitative specification, and population specificity. Each study received a composite score on a deterministic ordinal scale from 1 to 5 (see Table \ref{tab:actionability-rubric}), eliminating coder discretion.
+
+Across the corpus, the mean actionability score was $3.20$ ($\mathrm{SD} = 0.87$). Score distributions were: Score 1 ($n = 4$), Score 2 ($n = 18$), Score 3 ($n = 63$), Score 4 ($n = 37$), and Score 5 ($n = 8$). The full breakdown by methodological family is presented in Section 5 alongside Table \ref{tab:actionability-summary} and Figure \ref{fig:actionability_by_method}.
+
+\begin{table*}[!t]
+\centering\footnotesize\renewcommand{\arraystretch}{1.25}
+\caption{Policy Actionability Scoring Rubric ($n = 222$). Scores 1--5 are assigned deterministically from three dimensions: inferential warrant ($D_1$), effect specification ($D_2$), and population boundedness ($D_3$).}
+\label{tab:actionability-rubric}
+\begin{tabularx}{\textwidth}{p{0.3cm}p{3cm}p{3.5cm}p{3.5cm}p{4.5cm}p{0.1cm}}
+\toprule
+S & Label & $D_1$: Inferential warrant & $D_2$: Effect specification & $D_3$: Population boundedness & $n$ \\
+\midrule
+1 & Purely methodological  & No empirical inference        & None                      & None                                              & 4  \\
+2 & Generic framing        & Synthesis / generic claim     & No quantified effect      & Global or unspecified                             & 18 \\
+3 & Directional empirical  & Correlational importance      & Directional only          & Any                                               & 63 \\
+4 & Bounded quantified     & Correlational                 & Quantified (pts/\%/SD)    & Country-specific or multi-country; $\geq1$ domain & 37 \\
+5 & Causal/counterfactual  & Causal ML (BART, BCF) or counterfactual XAI & Quantified expected effect & Bounded, named population          & 8  \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\subsection{Literature Review Strategy}\label{subsec:literature-review}
+
+The literature review followed established structured survey standards, with transparency, reproducibility, and conceptual coherence as fundamental methodological principles. The temporal scope (2020--April 2026) was defined to capture the period in which AI-driven ILSA research accelerated alongside the proliferation of computer-based assessments generating granular log-file data.
+
+The search was conducted in Web of Science (WoS) using the Topic field (TS=), which simultaneously indexes titles, abstracts, and author keywords. WoS was selected as the primary database because this field enables broad, reproducible retrieval across the interdisciplinary literature spanning educational measurement, AI, and data mining. An identical query submitted to IEEExplore using its ``Full Text \& Metadata'' field returned no results owing to field-length constraints imposed by that platform; because IEEE-indexed journals within scope are fully captured via WoS, this did not reduce coverage. A complementary search in Google Scholar (GS) using the \textit{allintitle} operator captured publications not indexed in WoS; GS was preferred over Scopus because it produced fewer duplicate records in this review. Both searches were restricted to English-language publications published between 2020 and August 2026. The query combined two conceptual blocks using the Boolean operator AND: an assessment-context block and an analytical-methodology block.
+
+The assessment-context block comprised nine terms: \textit{"PISA" OR "TIMSS" OR "TALIS" OR "PIRLS" OR "PIAAC" OR "ICCS" OR "ICILS" OR "ILSA" OR "large-scale assessment"}. The analytical-methodology block was organised into four subgroups connected by OR: (i) core AI/ML methods (\textit{"artificial intelligence", "machine learning", "deep learning", "predictive modeling", "natural language processing"}); (ii) \textbf{explainability and interpretability methods} (\textit{"explainable AI", "XAI", "interpretable machine learning", "SHAP", "LIME", "feature importance"}); (iii) \textbf{educational data mining and learning analytics} (\textit{"educational data mining", "EDM", "learning analytics", "process data", "log-file analysis", "response process data"}); and (iv) psychometric-computational methods (\textit{"item response theory", "cognitive diagnosis model", "computational psychometrics", "automated scoring"}).
+
+WoS yielded 991 records. GS was included to capture relevant publications not indexed in WoS, yielding 225 records. Records were screened by titles and abstracts to exclude studies that did not use large-scale assessment data, apply computational methods, or report education-related outcomes, excluding 808 WoS and 115 GS records and leaving 183 and 110 records, respectively. After merging the records and removing 71 duplicates, 222 unique full-text articles were assessed for eligibility. All 222 articles were read in full by the authors and retained in the final corpus. The complete search and selection process follows PRISMA 2020 guidelines \cite{page2021} and is illustrated in Figure \ref{fig:prisma}.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{ilsa-survey-flowchart.png}
+    \caption{PRISMA 2020 flow diagram of the systematic search and selection process.}
+    \label{fig:prisma}
+\end{figure}
+
+\subsection{Analytical Methods in ILSA Research}\label{subsec:methods-typology}
+
+The studies synthesized in Section \ref{sec4} employ a range of analytical methods reflecting the growing methodological diversity of AI-driven ILSA research. This section provides a concise typology to orient readers; each method is described at the level of detail necessary to understand its application in the synthesis.
+
+\subsubsection{Traditional Statistical Methods}
+
+Linear and logistic regression, hierarchical linear modeling (HLM), and ANOVA/MANOVA model relationships and test mean differences in nested data structures \cite{mcjames-etal2023}, \cite{ferron-etal2004}, \cite{keselman-etall1998}. Their primary limitations in ILSA contexts are the linearity assumption and constrained capacity for causal inference from observational cross-sectional data \cite{mcjames-etal2023}. ML approaches are emerging as a complementary force \cite{wang-king-fu-leung2023}.
+
+\subsubsection{Imputation and Data Augmentation}
+
+ILSA's rotated booklet designs, participant non-response, and student--teacher--school file merges produce elevated missing-data rates \cite{khoudi2024b, robitzsch-ludtke2022, khoudi-etal2024a}. Multivariate imputation by chained equations (MICE) and Markov Chain Monte Carlo methods iteratively estimate missing values \cite{buuren-groothuis-oudshoorn2011, ingsrisawang-potawee2012}; linear interpolation provides a deterministic alternative \cite{mcelroy-politis2022}. SMOTE generates synthetic minority-class samples to address class imbalance \cite{pejic-etal2021, khoudi2024b}. After PISA and TIMSS test scores are harmonized, missing values are addressed using linear interpolation and LASSO-based ML imputation \cite{lee-lee-ExtendedDataset2025}.
+
+\subsubsection{Machine Learning Methods}
+
+Tree-based algorithms outperform traditional approaches in high-dimensional, inter-correlated ILSA data \cite{zheng-etal2023}. Decision trees, RF, and gradient boosting variants (XGBoost, LightGBM) are the most frequently applied \cite{aggarwal2022}, \cite{choi-sung2024}, \cite{bekdas-nigdeli2023,zema-etal2024}. Ensemble strategies -- bagging, boosting, and stacking -- reduce bias and variance by combining models \cite{kim2022}, \cite{zhou2021}, \cite{rokach-etal2023}. Regularization methods such as LASSO and Elastic Net perform embedded variable selection \cite{aggarwal2022}, while distance-based methods including kNN and SVM offer alternative classification and regression frameworks \cite{aydin-etal2023}.
+
+\subsubsection{Deep Learning Methods}
+
+DL uses multilayer ANNs to learn abstract representations from raw data \cite{rokach-etal2023, demir-karaboga2021}. CNNs capture local spatial patterns; RNNs model sequential relationships; Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) architectures handle long-range temporal dependencies \cite{ahmed-etal2023}, \cite{hochreiter-schmidhuber1997}, \cite{arthi-hemamalini2022}. Autoencoders and variational autoencoders (VAEs) compress high-dimensional process data into low-dimensional latent representations \cite{guo-etal-ercikan2024, cinelli-etal2021}.
+
+\subsubsection{Process Data and Behavioral Analytics}
+
+Process data reflects the behavioral patterns emerging when students interact with test tasks \cite{lee-etalUncoveringBehavioralPatterns2025}. Key behavioral indicators include time-on-task, response time effort (RTE; the ratio of time spent on an item to the time available, used as a proxy for test-taking engagement), mouse click/drag traces, and action sequences \cite{costa-etal2021, ding-etal2025, liang-etal2023}. Action sequence analysis transforms raw interaction logs into sequential structures from which problem-solving strategies are inferred \cite{li-etal2025}, n-gram methods encode action order and context \cite{ludwig-etal2024}. Latent profile analysis (LPA) groups individuals by behavioral pattern \cite{teig2023}; multilevel LPA extends this to nested structures \cite{kim-etal2024}; Markov chain models represent transition probabilities between sequential actions \cite{liang-etal2023}.
+
+\subsubsection{Natural Language Processing}
+
+NLP enables modeling of item difficulty, semantic parsing of student responses, and feature generation for ML \cite{peters-etal2025, yun-etal2025}. Key techniques include TF-IDF and Word2Vec for text vectorization \cite{papadimas-etal2025, zhou-etal2024}, Doc2Vec for document-level representation \cite{yun-etal2025}, structural topic modeling (STM) for thematic analysis \cite{anghel-etal2024}, and LLM-based embeddings for context-sensitive representations \cite{peters-etal2025, wang-etal2019}.
+
+\subsubsection{Computational Psychometrics}
+
+Integrating process data into psychometric models enables more accurate ability and item parameter estimation \cite{costa-etal2021}. Cognitive diagnosis models (CDMs) estimate proficiency profiles at the attribute level rather than as a single score \cite{jiao-etal2021, liang-etal2023, zhan-qiao2022}. Joint CDM approaches combine accuracy, response time, and process traces within Bayesian frameworks to estimate cognitive attributes simultaneously \cite{liang-etal2023, huang-etal2021}.
+
+\subsubsection{Dimensionality Reduction and Clustering}
+
+Principal component analysis (PCA) reduces high-dimensional data while preserving variance structure \cite{shin-etal2024}, recursive feature elimination (RFE) selects optimal variable subsets by iterative elimination \cite{zhai-etal2024}. DBSCAN identifies density-based clusters in process-data spaces, separating low-density points as noise \cite{salles-etal2020}.
+
+\subsubsection{Explainable AI}
+
+XAI increases the transparency of black-box models by making their decisions interpretable \cite{das-rad2020}. SHAP assigns feature contributions using Shapley values from game theory \cite{lundberg-etal2019}, LIME constructs local linear approximations around individual predictions \cite{garreau-damien2020}. Both are widely applied in ILSA studies to render findings policy-defensible \cite{hu-etal-Predicting-Adolescents-2025, elouafi-etal2025}. A critical distinction must be maintained: XAI methods such as SHAP and LIME quantify each feature's contribution to a model's prediction and are therefore a form of \emph{model explanation}, not \emph{causal explanation}. High SHAP importance indicates that a variable is influential within a trained model, but does not imply that intervening on that variable would produce the modeled outcome; the distinction between feature importance and causal effect is structural and cannot be resolved by any post-hoc explainability method alone.
+
+\subsubsection{Model Evaluation Metrics}
+
+For regression tasks, RMSE, MAE, and $R^2$ measure prediction error and explanatory power \cite{zollanvari2023}. For classification, accuracy, precision, recall, F1-score, and AUC-ROC assess discriminability from complementary perspectives \cite{fergus-etal2022, zhang-sun-xue2024}.
+
+\section{Advanced AI-driven modeling in ILSA }\label{sec4}
+
+The corpus summarized in Figure \ref{fig:taxonomy-of-ilsa} provides a conceptual overview of the principal research dimensions represented in the literature, whereas Table \ref{tab:taxonomy-ilsa} systematically organizes studies within these dimensions. The resulting taxonomy is structured around five interconnected analytical pillars. The first pillar focuses on predictive modeling of student achievement, while the second examines behavioral and cognitive patterns derived from process and log-file data. The third addresses the modeling of socio-emotional and non-cognitive constructs that have become increasingly prominent in ILSA research. The fourth pillar encompasses assessment-oriented applications, including automated scoring and item analysis, whereas the fifth adopts a methodological perspective by addressing issues such as algorithmic fairness, measurement equivalence, data quality, and evidence synthesis. Collectively, these pillars illustrate not only the methodological diversity of AI applications in ILSAs but also the expanding roles of large-scale assessments as systems designed not only for measurement, but also for explanation, interpretation, and policy development. Studies spanning more than one pillar, such as cognitive diagnosis models bridging process analytics and computational psychometrics, were assigned to the pillar reflecting their primary analytical contribution. Actionability scores for individual studies are reported in aggregate in Section \ref{conclusion}; the synthesis here focuses on methodological and substantive patterns across the corpus.
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{Taxonomy_of_ILSA.png}
+    \caption{Taxonomy of AI applications in ILSA}
+    \label{fig:taxonomy-of-ilsa}
+\end{figure*}
+
+\begin{table*}[!t]
+\centering
+\footnotesize
+\caption{Taxonomy of AI Applications in ILSA}\label{tab:taxonomy-ilsa}
+\begin{tabular}{p{2.7cm}p{6.7cm}p{6.8cm}}
+\toprule
+\text{Section 4} & \text{Subheading} & \text{Related Studies} \\
+\midrule
+
+\multirow{5}{=}{\parbox[t]{2.8cm}{\ref{subsec4.1} Predictive Modeling of Student Achievement Using Machine Learning}}
+& \ref{subsubsec4.1.1} Benchmarking of AI Methods
+& \cite{bezek-gure-etal2020}, \cite{demir-karaboga2021}, \cite{acisli-celik-yesilkanat2023}, \cite{oz-etal2024}, \cite{tin-etal2024}, \cite{song-cutumisu2024}, \cite{nguyen-etal2023}, \cite{rodriguez-barrios-etal2021}, \cite{pejic-etal2021},\cite{yilmazComparisonStatisticalMachine2025},\cite{bezekgureReviewingFactorsAffecting2023}, \cite{erdoganPredictingStudentAchievement2024}, \cite{resinoSchoolEffectiveness2024}, \cite{kanEconomicFreedomIndex2026}, \cite{djekourmaneUsingMachineLearning2026}\\
+\addlinespace
+
+& \ref{subsubsec4.1.2} Hybrid Methods and Variable-Selection Approaches
+& \cite{soares2024}, \cite{kalayci-alas-tezer2024}, \cite{lezhnina-kismihok2022}, \cite{haw-king2023}, \cite{koo-yoo2025}, \cite{jewsbury-johnson2025}, \cite{jewsbury-lockwood-johnson2025}, \cite{mcjames-etal2024}, \cite{martinez-abadEducationalDataMining2020}, \cite{wangFactorsPredictingMathematics2023}, \cite{murilloCanTeacherAI2026}, \cite{zhuPredictiveInsightsUS2025}, \cite{celikComparativeAnalysisGlobal2026}\\
+\addlinespace
+
+& \ref{subsubsec4.1.3} Identification of Key Success Factors
+& \cite{bozkus2024}, \cite{chen-etal2021}, \cite{khoudi-etal2024a}, \cite{gil-madrona-etal2025}, \cite{khoudi2024b}, \cite{alkan-etal2025}, \cite{bernardo-etal2022}, \cite{constante-etal2024}, \cite{bencomo-etal2024}, \cite{peng-etal2023}, \cite{schwerter-etal2025}, \cite{wang-king-haw-leung2023}, \cite{rebai-etal2020}, \cite{bomanInfluenceSESMigration2024}, \cite{liuDecadePISAStudent2024}, \cite{liuMediatingModeratingModel2022}, \cite{bayirliAnalysisPISA20182023}, \cite{leiDriversPedagogicalUses2026}, \cite{trejo-macotelaArtificialIntelligenceAcademic2026}\\
+\addlinespace
+
+& \ref{subsubsec4.1.4} Explainable AI and Feature-Contribution Studies
+& \cite{alvarez-etal2024}, \cite{zhu-etal2025}, \cite{elouafi-etal2025}, \cite{gomez-talal-etal2025}, \cite{zhai-etal2024}, \cite{rico-juan-etal2024}, \cite{khine-etal2024}, \cite{huang-etal2024}, \cite{bernardo-etal2021}, \cite{bernardo-etal2023}, \cite{hu-etal2023}, \cite{bu-chen2023}, \cite{lee-WhatDrivesPerformance2022}, \cite{aksuPredictionFactorsAffecting2022}, \cite{yiHowAreMathsanxious2020}, \cite{courtneyInfluenceICTUse2022}, \cite{constante-amoresContributionMachineLearning2024}, \cite{chenInterpretableMachineLearning2026}\\
+\addlinespace
+
+& \ref{subsubsec4.1.5} Cross-Cultural Generalizability and Model Robustness
+& \cite{ye-yuan2022}, \cite{zhang-cutumisu2024}, \cite{wan-etal2025}, \cite{wang-king-haw-leung2022}, \cite{bomanInfluenceSESMigration2024}, \cite{bernardoMetacognitiveReadingStrategies2023}, \cite{yildirimUnderstandingStudentsMathematical2026}\\
+\midrule
+
+\multirow{4}{=}{\parbox[t]{2.8cm}{\ref{subsec4.2} Process Data Analytics and Cognitive Mining}}
+& \ref{subsubsec4.2.1} Process-Based Cognitive Diagnosis and Ability Estimation
+& \cite{bungaro-etal2024}, \cite{zhang-etal2023}, \cite{costa-etal2021}, \cite{liang-etal2023}, \cite{zhan-qiao2022}, \cite{sun-etal2023}, \cite{costa-chen2023}, \cite{greyCapturingSparkPISA2024}, \cite{wuNewPerspectiveMemorization2020}, \cite{sirganciAMachineLearning2023}, \cite{weiUnderstandingMathematicsAnxiety2026}, \cite{mirandaDevelopmentINSVAGRAMEnglish2021}, \cite{kuangEvaluatingNeuralNetworks2026}\\
+\addlinespace
+
+& \ref{subsubsec4.2.2} Strategy Identification and Problem-Solving Pathways
+& \cite{fn-aydin-etal2025}, \cite{deschipper-etal2025}, \cite{salles-etal2020}, \cite{teig2023}, \cite{park-etal2023}, \cite{pejic-etal2021}, \cite{lee-etalUncoveringBehavioralPatterns2025}, \cite{han-etal2023}, \cite{wijayaExploringContributingFactors2024}, \cite{liuHowLearningTime2023}, \cite{kusmaryonoEvaluatingResultsPISA2023}, \cite{delpratoCognitiveNoncognitiveEfficiency2026}, \cite{miaoMachineLearningEvidence2023}, \cite{aliAreSchoolsBecoming2024}, \cite{tzeSimilaritiesDifferencesSocial2022}\\
+\addlinespace
+
+& \ref{subsubsec4.2.3} Engagement and Disengagement Behaviors
+& \cite{ding-etal2025}, \cite{guo-etal-ercikan2024}, \cite{guo-etal-worthington2024}, \cite{shin-etal2024}, \cite{erdem-kara-basak2025}, \cite{detaPISAScienceFramework2024}, \cite{alnahdiImpactGenderDifferences2023}, \cite{odellScopingReviewRelationship2020}, \cite{maoAIrelatedMeasuresSelfreported2026}, \cite{shenToolsWellbeingAI2026}, \cite{lopez-menesesArtificialIntelligenceEducational2025}, \cite{pongsophonContrastiveModellingSelfregulated2026}\\
+\addlinespace
+
+& \ref{subsubsec4.2.4} Sequence Mining and Feature Engineering from Log Data
+& \cite{ulitzsch-etal2021}, \cite{tang-etal2021}, \cite{chen-etal2023}, \cite{gong-etal2023}, \cite{ludwig-etal2024}, \cite{yun-etal2025}, \cite{zhou-etal2024}, \cite{wuAnalyzingScientificLiteracy2025}, \cite{robitzschChoiceItemResponse2022}, \cite{michaelMediatingEffectsMotivation2023}, \cite{krausEssenceCreativeThinking2026}, \cite{wuPredictingKeyFactors2026}, \cite{heUnderstandingAdultsSpatial2026}\\
+\midrule
+
+\multirow{3}{=}{\parbox[t]{2.8cm}{\ref{subsec4.3} Modeling Socio-Emotional and Non-Cognitive Outcomes}}
+& \ref{subsubsec4.3.1} Academic Resilience and Equity-Oriented Modeling
+& \cite{zheng-etal2023}, \cite{choi-sung2024}, \cite{cheung-etal2024}, \cite{zheng-cheung-sit-lam2025}, \cite{teigIdentifyingPatternsStudents2020}, \cite{xuExploringEffectDigitization2025}, \cite{weiIdentifyingKeyPredictors2026}\\
+\addlinespace
+
+& \ref{subsubsec4.3.2} Predicting Well-Being, Anxiety, and School Belonging
+& \cite{immekus-etal2022}, \cite{encarnacao-etal2025}, \cite{pan-cutumisu2024}, \cite{resino-constante-amores2024}, \cite{lim-etal2024}, \cite{wang-king-leung2022}, \cite{wang-king-leung2023}, \cite{chungInternationalComparisonStudy2022}, \cite{jerrimHasPeakPISA2024}, \cite{suarez-mesaDoesTeachersMotivation2024}, \cite{dossantosEducationDataMining2021}, \cite{wuPredictingKeyFactors2026}, \cite{qabliyaneSupervisedMachineLearningBased2026}\\
+\addlinespace
+
+& \ref{subsubsec4.3.3} Self-Beliefs, Motivation, and Attitudinal Constructs
+& \cite{hernandez-ramos-araya2025}, \cite{aydogan-tat2024}, \cite{hu-etal-Predicting-Adolescents-2025}, \cite{mcjames-etal2023}, \cite{kim-etal2024}, \cite{tan-etal2025}, \cite{ramazan-etal2023}, \cite{cai-etal2025}, \cite{khine-etal2025}, \cite{camposDigitalGenderGaps2024}, \cite{damianiYoungPeoplesCivic2024}, \cite{he-etal2024}, \cite{tahriMLApplicationsPredictin2026}, \cite{ramazanStudents2018PISA2023}, \cite{veleticExploringSchoolLeadership2024}, \cite{mangSamplingWeightsMultilevel2021}, \cite{martinez-abadEducationalDataMining2020}, \cite{tahriMachineLearningApplicationsPredicting2026}, \cite{caiExploringImpactICT2026}\\
+\midrule
+
+\multirow{2}{=}{\parbox[t]{2.8cm}{\ref{subsec4.4} AI in Assessment Engineering: Scoring and Item Analysis}}
+& \ref{subsubsec4.4.1} Automated Scoring with NLP, Computer Vision, and Generative AI
+& \cite{jung-etal2024}, \cite{tyack-etal2024}, \cite{jung-etal2022}, \cite{goldman-etal2025}, \cite{ripollyschmitz-etal2025}, \cite{tangFactorsPredictingCollaborative2021}, \cite{gamazoExplorationFactorsLinked2020b}, \cite{filizEducationDataMining2020} \\
+\addlinespace
+
+& \ref{subsubsec4.4.2} Automated Item Analysis and Metadata-Based Modeling
+& \cite{peters-etal2025}, \cite{peters-etal2025a}, \cite{rausch-etal2024}, \cite{kilicdeprenCrossCulturalComparisonsFactors2022} \\
+\midrule
+
+\multirow{3}{=}{\parbox[t]{2.8cm}{\ref{subsec4.5} Computational Psychometrics and Methodological Advancements}}
+& \ref{subsubsec4.5.1} Data Quality Assurance: Imputation, Augmentation, and Anomaly Detection
+& \cite{lee-lee-ExtendedDataset2025}, \cite{zhou-jiao2023}, \cite{huang-keller2025}, \cite{pejic-etal2022}, \cite{braun-etal2025}, \cite{cortes-etal2025}, \cite{kasapEffectWeightVariable2025}, \cite{hoInstructionalPracticesStudents2023}, \cite{celikComparativeAnalysisGlobal2026}\\
+\addlinespace
+
+& \ref{subsubsec4.5.2} Algorithmic Fairness and Measurement Invariance
+& \cite{robitzsch-ludtke2022}, \cite{andersen-etal2025}, \cite{li-etal2025}, \cite{park-etal2025}, \cite{mirazchiyski-gershteyn2024}, \cite{chenDiscriminationContextualFeatures2021}, \cite{bernardoPredictorsCognitiveSkills2026}, \cite{ustunStudentSchoollevelFactors2022}, \cite{lazaridesDisentanglingTeacherLesson}\\
+\addlinespace
+
+& \ref{subsubsec4.5.3} Scientometrics, Reviews, and Research Synthesis Methodologies
+& \cite{hernandez-torrano-courtney2021}, \cite{murchan-siddiq2021}, \cite{anghel-etal2024}, \cite{huang-etal2025}, \cite{ang-etal2020}, \cite{jiao-etal2021}, \cite{maia-etal023}, \cite{rutkowski-etal2024}, \cite{stiff-etal2023}, \cite{scherer-etal2024}, \cite{fink-etal2024}, \cite{enchikovaChangeSocioeconomicEducational2024}, \cite{teigSystematicReviewStudies2022}, \cite{InfluentialFactorsMathematical2023}, \cite{wuWhichTeachersAdopt2026}\\
+
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Predictive Modeling of Student Achievement}\label{subsec4.1}
+
+This strand addresses four converging objectives: benchmarking algorithmic performance, identifying salient predictors, rendering variable effects transparent through XAI, and stress-testing cross-cultural generalizability. The dual ambition is to model achievement in ways that are simultaneously accurate, interpretable, and policy-meaningful.
+
+\subsubsection{Benchmarking AI Methods}\label{subsubsec4.1.1}
+
+Ensemble methods, particularly boosting variants, emerge as the most consistent performers across ILSA contexts. Oz et al. \cite{oz-etal2024} demonstrated that stacking ensembles yielded the lowest RMSE and MAE across all three achievement domains in PISA 2022 data spanning 80 countries. Ac{\i}sl{\i} et al. \cite{acisli-celik-yesilkanat2023} trained on PISA 2015 across 13 countries and found XGBoost outperforming regression and RF on both country-level and individual targets; Tin et al. \cite{tin-etal2024} extended comparison to 79 countries, reporting Gradient Boosted Trees at 74.17\% accuracy; Song and Cutumisu \cite{song-cutumisu2024} underscored RF's decisive contribution in TIMSS 2019 Grade-8 science data across 44 countries, and Nguyen et al. \cite{nguyen-etal2023} found XGBoost (57.47\%) outperforming Decision Tree, SVM, and Naive Bayes after SMOTE correction.
+
+Sample design, not algorithm choice, drives these results. Ensemble superiority traces to managing high-dimensional, heterogeneous cross-national data, a demand absent from single-country designs. Under narrower, single-country, single-cycle PISA regimes, a Jordan network (82.6\%) and an MLP-based ANN (86.7\%) outperform classical and ensemble baselines alike \cite{demir-karaboga2021, bezek-gure-etal2020}, suggesting that deep learning's apparent advantage may be context-bound rather than algorithmic.
+
+\subsubsection{Hybrid Methods and Variable Selection}\label{subsubsec4.1.2}
+
+Hybrid RF--HLM designs reveal what either method alone misses. In the Philippines, Haw and King \cite{haw-king2023} found RF-identified reading strategies significant only after HLM controlled for school-level variance; in Brazil, Soares \cite{soares2024} located the same nesting effect in ESCS; and in Germany, Lezhnina and Kismihok \cite{lezhnina-kismihok2022} showed that nesting not only attenuates ICT autonomy's effect but reverses its sign for socially-oriented use, a finding invisible to either method in isolation. A parallel cluster demonstrates that aggressive variable selection improves rather than degrades model stability: Pejic et al. \cite{pejic-etal2021} and Koo and Yoo \cite{koo-yoo2025} show that reducing feature sets (RFE to a minimal set; glmmLasso filtering 571 variables) counters the assumption that ILSA's richness demands maximal variable retention. Kalaycı-Alaş and Tezer \cite{kalayci-alas-tezer2024} complement this by showing, through ANFIS-based hybrids, that curriculum structure rather than raw exposure drives cross-country PISA language--mathematics score differences.
+
+Variable selection extends naturally into dimension reduction and causal inference. Jewsbury and Johnson \cite{jewsbury-johnson2025} and Jewsbury et al. \cite{jewsbury-lockwood-johnson2025} show covariance-based PCA reduces bias in NAEP data, yet IRT-based measurement error still grows with background-variable count, suggesting that reduction methods address symptoms rather than the underlying cause of high dimensionality. McJames et al. \cite{mcjames-etal2024} moves past association entirely: Bayesian Causal Forests on Irish TIMSS data found homework frequency a stronger causal predictor of achievement than duration, a distinction invisible to correlational models. Together, nested hybrids and variable-selection or causal extensions mark a progression from explaining variance to isolating which variables, and which relationships among them, are policy-actionable.
+
+\subsubsection{Identification of Key Success Factors}\label{subsubsec4.1.3}
+
+Feature selection across PISA, PIRLS, and TIMSS converges on a single policy-relevant conclusion: the levers available for intervention are instructional and psychosocial, not demographic, even where demographic disparities are the starting motivation. Alkan et al. \cite{alkan-etal2025} confirmed metacognitive dominance across 37 OECD countries (RF, Boruta), with IT access acting as a threshold rather than a continuous predictor; Wang et al. \cite{wang-etal2022} and Gil-Madrona et al. \cite{gil-madrona-etal2025} resolve the same hierarchy at finer grain and across methods (Ridge, RF), suggesting the psychosocial-over-demographic pattern is structural rather than a modeling artifact, a robustness Rebai et al. \cite{rebai-etal2020} reinforce by showing ML-based efficiency analysis outperforms traditional linear models in capturing these nonlinear determinants.
+
+Risk-location studies reinforce this conclusion. Bernardo et al. \cite{bernardo-etal2022} and Constante et al. \cite{constante-etal2024} link low achievement and grade repetition to actionable indicators such as internet access and occupational expectations rather than fixed demographic categories; Bencomo et al. \cite{bencomo-etal2024} and Peng et al. \cite{peng-etal2023} show the same resource variable can cut either way, as cultural capital explains 40--49\% of regional inequality while IT autonomy shows diminishing returns past a threshold. The pattern holds across IEA assessments: Bozkus \cite{bozkus2024} and Khoudi \cite{khoudi2024b} find teacher motivation and feedback, not student background, as the strongest failure predictors in PIRLS Turkey and TIMSS Morocco; Schwerter et al. \cite{schwerter-etal2025} traces German achievement gaps to school composition rather than geography; Chen et al. \cite{chen-etal2021} demonstrates that the specific mechanism is culturally contingent, as reading self-concept dominates in English-speaking systems while higher-order strategies dominate in Chinese-speaking ones; and Khoudi et al. \cite{khoudi-etal2024a} closes the cluster by identifying teacher feedback as the strongest failure predictor in Moroccan TIMSS data.
+
+\subsubsection{Explainable AI and Feature Contributions}\label{subsubsec4.1.4}
+
+XAI moves ILSA prediction from black-box accuracy to policy-defensible inference by revealing direction, threshold values, diminishing returns, and heterogeneity across student groups. It is important to note, however, that SHAP values and similar post-hoc attributions describe feature contributions to a trained model's predictions, not causal effects on outcomes; policy conclusions derived from XAI findings therefore carry only correlational, not interventional, warrant unless accompanied by causal identification strategies. Studies based on PISA 2022 data converge on a finding XAI makes newly visible: psychosocial variables consistently outweigh ESCS. Zhu et al. \cite{zhu-etal2025} and Gomez-Talal et al. \cite{gomez-talal-etal2025} use ensemble-SHAP pipelines to show that self-efficacy and contextual risk factors shape US and Spanish math performance in ways that vary by achievement level rather than applying uniformly; Khine et al. \cite{khine-etal2024} makes the ESCS comparison explicit across Australia; and Khine et al. \cite{khine-etal2025} push furthest into actionability, as counterfactual simulations in the UAE estimate that family meals and school conversations could shift reading scores by up to 90 points, a magnitude rarely reported in ESCS-centered models. That four independent country contexts converge on psychosocial dominance suggests this pattern is unlikely to be a pure sampling artifact.
+
+PISA 2018 applications extend this into a second consistent pattern: across East Asian, Philippine, OECD-wide, and Spanish samples, distinguishing low-performing students traces to behavioral and relational variables rather than economic ones. Huang et al. \cite{huang-etal2024} anchor this in six East Asian systems using XGBoost-TreeSHAP; Bernardo et al. \cite{bernardo-etal2021, bernardo-etal2023} narrow the lens to risk in the Philippines, where internet access and bullying exposure, not income, drive low achievement; Hu et al. \cite{hu-etal2023} generalize across 38 OECD countries; and \'{A}lvarez et al. \cite{alvarez-etal2024} show Spanish student profiles clustering along technology habits and family support rather than economic lines. Two studies dissecting the same China (B-S-J-Z) sample reveal how XAI exposes composite mechanisms that pooled estimates conceal: Bu and Chen \cite{bu-chen2023} attribute roughly half the variance in reading jointly to metacognition and ESCS, while Lee \cite{lee-WhatDrivesPerformance2022} decomposes the mechanism geographically, finding that urban success traces to student-level learning outcomes while rural success traces to school resources. Contrasting with both, Zhai et al. \cite{zhai-etal2024} applied SVM with SHAP to a psychoemotional and socioeconomic feature set, finding ESCS carried the highest importance followed by meaning in life and learning goals, distinguishing high- from low-proficiency readers with 90.5\% accuracy. Elouafi et al. \cite{elouafi-etal2025} provide the IEA contrast on TIMSS 2019 Morocco, where physical resources and teacher development outweigh affective factors; the secondary factor shifts by resource availability while ESCS remains at the top in both contexts. Rico-Juan et al. \cite{rico-juan-etal2024} close the cluster by showing intensive online gaming was negatively associated with Spanish youth performance while moderate internet use under parental supervision contributed positively, demonstrating XAI's capacity to detect nonlinear, threshold-dependent effects invisible to correlational models. A cross-cutting limitation evident across most XAI studies in this cluster is the aggregation of SHAP attributions at the full-sample level: studies reporting sub-group decompositions (e.g., Bernardo et al. \cite{bernardo-etal2021, bernardo-etal2023} on the Philippines; Huang et al. \cite{huang-etal2024} on East Asian economies) consistently reveal that feature importance profiles differ substantially between high- and low-performing students, between immigrant and non-immigrant learners, and across gender groups. Where such heterogeneity is not reported, the corpus-level SHAP summary may conceal variation that is directly relevant to equity-oriented policy.
+
+\subsubsection{Cross-Cultural Generalizability and Model Robustness}\label{subsubsec4.1.5}
+
+Whether ML models generalize across educational systems is a precondition for using ML-derived evidence in policy. Cross-cultural consistency emerges primarily among high-performing and resilient students. Ye and Yuan \cite{ye-yuan2022} compared China and the US on PISA 2018 using CART analysis and found metacognitive skills and time-on-task as universal predictors, while competitive climate and family well-being emerged as culturally distinctive. Zhang and Cutumisu \cite{zhang-cutumisu2024} found mathematics self-efficacy a cross-culturally stable predictor among PISA 2022 resilient students from Eastern and Western high-performing economies, with anxiety and home-study factors carrying more weight in Eastern systems. Wan et al. \cite{wan-etal2025} identified a shared core of learning time, epistemological beliefs, and self-efficacy alongside system-distinctive factors when comparing Singapore and Finland on PISA 2015; and Wang et al. \cite{wang-king-haw-leung2022} extended this to Macao on TIMSS 2019, confirming individual self-confidence, family ESCS, and academic emphasis as dominant predictors consistent with Bronfenbrenner's socio-ecological framework. Together, these studies suggest that self-efficacy and metacognitive constructs form a cross-cultural core, while the weight of contextual factors shifts by system. This makes contextual validity a central condition of inference rather than a secondary concern.
+
+\subsection{Process Data Analytics and Cognitive Mining}\label{subsec4.2}
+
+Process data from CBAs play a transformative role in understanding student learning, cognitive strategies, and performance, improving measurement accuracy and fairness through four converging routes: cognitive diagnosis, strategy identification, engagement analytics, and feature engineering from log sequences.
+
+\subsubsection{Process-Based Cognitive Diagnosis and Ability Estimation}\label{subsubsec4.2.1}
+
+Integrating process data with CDMs supports examination of student abilities at operational and strategic levels, beyond binary correct/incorrect responding. Zhan and Qiao \cite{zhan-qiao2022} converted PISA 2012 action sequences into phantom items and recovered cognitive-mastery patterns in finer resolution than conventional scoring; Liang et al. \cite{liang-etal2023} combined mouse-click counts and response times in a joint CDM on PISA 2018 reading data, showing that process indicators reduced parameter-estimation error and raised classification accuracy of cognitive attributes. Response times sharpen ability estimation in two complementary ways: Bungaro et al. \cite{bungaro-etal2024} found a negative ability-speed association in Italian INVALSI mathematics, where high-anxiety students respond faster but less accurately, while Costa et al. \cite{costa-etal2021} showed time-on-task variables in a hierarchical IRT model reduced standard errors across countries on PISA 2012 mathematics. Zhang et al. \cite{zhang-etal2023} demonstrated that incorporating process information in a PIAAC PSTRE Rao-Blackwellised estimator enabled two items to convey information equivalent to five response-only items, opening the door to test shortening at preserved precision. Process-based measurement feeds back into adaptive assessment design: Sun et al. \cite{sun-etal2023} surfaced a five-level hierarchical cognitive model from TIMSS 2015 cognitive attributes, and Fink et al. \cite{fink-etal2024} formalized highly adaptive testing (HAT) for PISA, demonstrating roughly 30\% improvement in measurement precision over multi-stage testing.
+
+\subsubsection{Strategy Identification and Problem-Solving Pathways}\label{subsubsec4.2.2}
+
+Strategy-based profiling demonstrates the discriminative power of process data beyond outcome accuracy. Guo et al. \cite{guo-etal-ercikan2024} defined process profiles based on digital-tool usage and time-management patterns in 2017 NAEP mathematics; Pejic et al. \cite{pejic-etal2021} showed that VOTAT-aligned strategic exploration behaviors combined with cognitive ability accounted for complex problem-solving performance more strongly than time-only features across 44 countries on PISA 2012; and Park et al. \cite{park-etal2023} extracted four cognitive styles from PISA 2012 process maps across 42 countries. Strategy-level mining reveals inquiry and creative-thinking profiles: Teig \cite{teig2023} identified three problem-solving profiles in PISA scientific-inquiry simulations and linked classroom discussion frequency to systematic strategy use; Lee et al. \cite{lee-etalUncoveringBehavioralPatterns2025} showed that time-to-first-action and item revisits in PISA 2022 creative-thinking data reflected cognitive dynamics in idea generation and refinement; and Han et al. \cite{han-etal2023} distinguished a strategic-efficiency profile from a trial-and-error profile in PISA 2015 collaborative problem solving. National assessments validate these distinctions: on the French CEDRE mathematics assessment, Salles et al. \cite{salles-etal2020} separated a trial-based operational group from a goal-oriented structural-reasoning group, and Deschipper et al. \cite{deschipper-etal2025} delineated five solution strategies, showing algebraic and trial-and-error students achieved the highest scores.
+
+\subsubsection{Engagement and Disengagement Behaviors}\label{subsubsec4.2.3}
+
+Behavioral engagement indicators derived from process data outperform self-reported effort in predicting achievement. Ding et al. \cite{ding-etal2025} examined PISA 2018 science data across eight countries and found the gap most pronounced in Western cultures; Erdem-Kara \cite{erdem-kara-basak2025} used latent profile analysis in the PISA 2022 T\"{u}rkiye sample to show that number of actions was the strongest behavioral predictor of mathematics achievement while self-reported effort tracked the behavioral index only weakly; and Shin et al. \cite{shin-etal2024} demonstrated that attaching attention mechanisms and effort sensitivity to an LSTM classifier raised accuracy from 0.75--0.78 to 0.80--0.88 on PIAAC 2012 PS-TRE data, with the engagement-performance link becoming more pronounced under low-motivation conditions. These studies collectively establish that effort, motivation, and strategic participation during test administration are critical for the validity and interpretability of achievement scores.
+
+\subsubsection{Sequence Mining and Feature Engineering from Log Data}\label{subsubsec4.2.4}
+
+Text-mining and sequential-data analysis treat action sequences as language, enabling identification of strategic patterns and compression of variable-length processes. Zhou et al. \cite{zhou-etal2024} vectorized PISA 2012 action sequences with TF-IDF and Word2Vec, finding TF-IDF better captured key actions while Word2Vec recovered latent action relationships, with a RF classifier reaching 82.3\% accuracy; Yun et al. \cite{yun-etal2025} showed a small set of critical actions sufficed to distinguish high- and low-performing examinees in a PIAAC 2012 Belgian sample. Joint analysis of time and action sequences was decisive for measuring planning and execution efficiency: Gong et al. \cite{gong-etal2023} found high-performing students exhibited faster and more focused action sequences on 2018 NAEP science tasks, while Ludwig et al. \cite{ludwig-etal2024} predicted task success at 86\% accuracy from the first 20 minutes of behavior in a German VET office-simulation using N-gram analysis, with note-taking and document-switching bigrams as the most discriminative features. More advanced DL architectures extracted hierarchical and latent features from action sequences: Chen et al. \cite{chen-etal2023} predicted next-item correctness using LSTM with self-attention; Tang et al. \cite{tang-etal2021} compressed PIAAC 2012 action sequences with autoencoders, with resulting embeddings outperforming response-only models in predicting literacy and numeracy; and Ulitzsch et al. \cite{ulitzsch-etal2021} combined action sequences and durations through graph-based clustering, identifying subgroups that adopted the same strategy but differed in speed and efficiency. Cognitive diagnosis, strategy identification, engagement, and sequence mining all arrive at one shared limit: students reaching the same score often follow measurably different cognitive and behavioral pathways, a distinction with direct implications for diagnosing and addressing achievement gaps.
+
+\subsection{Modeling Socio-Emotional and Non-Cognitive Outcomes}\label{subsec4.3}
+
+Across the three subsections that follow, self-efficacy and metacognitive constructs consistently outdo socioeconomic indicators as predictors, though the moderating context, whether school belonging, family communication, or national policy, shifts by system.
+
+\subsubsection{Academic Resilience and Equity-Oriented Modeling}\label{subsubsec4.3.1}
+
+This strand evolves chronologically rather than merely replicating across geographies. Zheng et al. \cite{zheng-etal2023} established a baseline across seven Asian economies where metacognitive strategies and reading enjoyment differentiate resilient digital readers; Choi and Sung \cite{choi-sung2024} confirmed metacognition and self-efficacy as the core mechanism in South Korea and the US, with the supplementary factor culturally contingent (educational expectations in Korea, meaning of life in the US); and Wang et al. \cite{wang-king-leung2022} added Hong Kong-specific calibration, incorporating teacher-directed instruction and school belonging without disturbing the core mechanism. At larger scale, Cheung et al. \cite{cheung-etal2024} tested this on roughly 148,000 students across 79 countries during the pandemic and still recovered self-efficacy-adjacent and gender-differentiated determinants of resilience; Zheng et al. \cite{zheng-cheung-sit-lam2025} extended the supplement by linking recreational ICT use to cognitive flexibility across 53 economies. That a metacognition-and-self-efficacy core survives intact from two-country comparisons to 79-country pandemic-era samples suggests a recurring mechanism, though stability across this range of contexts remains tentative without formal heterogeneity testing.
+
+\subsubsection{Predicting Well-Being, Anxiety, and School Belonging}\label{subsubsec4.3.2}
+
+Two layers of anxiety protection emerge at different resolutions. At 56 countries and 600,000 students, Encarna\c{c}\~{a}o et al. \cite{encarnacao-etal2025} isolated physical activity as a behavioral layer protecting against test anxiety globally, though country-specific clusters suggest it is necessary but not sufficient on its own; Immekus et al. \cite{immekus-etal2022} resolved what that residual variation contains, finding science self-efficacy and school belonging visible only once behavioral factors are held constant. The two layers complement rather than compete. Four country-pair comparisons expose a sharper finding: identical predictors can carry opposite signs across systems. Wang et al. \cite{wang-king-leung2023} and Wang et al. \cite{wang-king-haw-leung2022} establish resilience and school belonging as decisive for well-being in Hong Kong and China; Resino et al. \cite{resino-constante-amores2024} extends this relationally in Spain; and Pan and Cutumisu \cite{pan-cutumisu2024} and Chung et al. \cite{chungInternationalComparisonStudy2022} push past convergence into divergence, as the South Korea-US comparison shows the same factor class can flip sign entirely across systems. This offers particularly compelling evidence that well-being prediction is, for some variables, culturally reversed. Lim et al. \cite{lim-etal2024} added that ML surfaced patterns in school belonging that traditional approaches had missed: 32 stable predictors in PISA 2015 South Korea, with collaborative learning and teacher support reinforcing belonging while some domestic cultural indicators displayed context-dependent negative associations.
+
+\subsubsection{Self-Beliefs, Motivation, and Attitudinal Constructs}\label{subsubsec4.3.3}
+
+Across contexts spanning Lebanon, 79 countries, Italy, the US, 32 countries, and 10 OECD systems, a consistent theme emerges: attitudinal constructs function as the active mechanism through which other variables, including demographics, knowledge, and even broad country development, actually operate. Aydogan and Tat \cite{aydogan-tat2024} demonstrated that ANNs can represent these complex affective structures in Lebanese ICA data; Tan et al. \cite{tan-etal2025} showed mastery-goal orientation, meaning in life, and positive emotions remain the strongest self-efficacy predictors across roughly 600,000 students in 79 countries; Damiani et al. \cite{damianiYoungPeoplesCivic2024} and Ramazan et al. \cite{ramazan-etal2023} sharpen the mechanism by showing that civic self-efficacy outperforms civic knowledge in differentiating Italian ICCS engagement profiles, and that reading self-concept outperforms simple demographic categories in predicting US reading outcomes; Campos and Scherer \cite{camposDigitalGenderGaps2024} generalize this furthest, showing attitudes toward technology mediate the gender gap in digital skills with mediation strength tracking national development level; and Tahri et al. \cite{tahriMLApplicationsPredictin2026} extend the mechanism to a non-cognitive composite outcome, finding cognitive-motivational traits outweighed background and cognitive-performance predictors across ten OECD systems. Attitudes are thus not a confound to control for but the substantive pathway through which structural variables produce their effects.
+
+Process-data-driven profiling adds cognitive and behavioral texture to this picture. Kim et al. \cite{kim-etal2024} and He et al. \cite{he-etal2024} demonstrate that motivational constructs cohere into stable profiles rather than acting as isolated predictors: science self-efficacy clusters with environmental awareness and ICT autonomy, and an achievement-oriented cluster specifically drives collaborative problem-solving success. Hern\'{a}ndez-Ramos and Araya \cite{hernandez-ramos-araya2025} finds reading proficiency a stable predictor of creative thinking across PISA 2018 and 2022 cycles while school-activity participation does not transfer, suggesting motivational coherence is domain-specific rather than universal. A third strand documents how affective constructs translate into action: Hu et al. \cite{hu-etal-Predicting-Adolescents-2025} finds that private-sphere environmental action tracks individual attitudes while public-sphere action tracks school belonging and national policy; McJames et al. \cite{mcjames-etal2023} shows professional development and induction programs have the strongest causal association with teacher job satisfaction; and Cai et al. \cite{cai-etal2025} shows academic pressure actively suppresses digital sports participation in Hong Kong. Translation from attitude to action is neither automatic nor uniform; it depends on whether the actor is a student or teacher and whether the action is private or institutionally visible.
+
+\subsection{AI in Assessment Engineering: Scoring and Item Analysis}\label{subsec4.4}
+
+Research has converged on three operational goals: developing automated scoring procedures, automating estimation of psychometric properties, and integrating GenAI item authorship with human expert oversight.
+
+\subsubsection{Automated Scoring with NLP, Computer Vision, and Generative AI}\label{subsubsec4.4.1}
+
+Three input modalities converge on one architectural property: the architecture, not the input format, determines performance. Jung et al. \cite{jung-etal2022} fixed the NLP baseline at $r = 0.91$ against human scores on TIMSS 2019 US text responses using a Bag-of-Words ANN with an IRT-based filter; Jung et al. \cite{jung-etal2024} added a translation layer for Grade-4 responses, yet reliability barely moved (F1 = 0.88, $\kappa = 0.80$); and Tyack et al. \cite{tyack-etal2024} replaced text with CNNs entirely on TIMSS drawings, reaching 99\% and 98\% accuracy. These studies establish automated scoring as a complementary, supervisory layer rather than a substitute for human raters. Ripoll Y Schmitz and Sonnleitner \cite{ripollyschmitz-etal2025} examined the GenAI item-authoring frontier: GPT-4-generated reading comprehension passages were rated at near-ceiling quality across readability, correctness, coherence, engagement, and adequacy, with reviewers unable to reliably identify authorship. This finding, while encouraging, requires careful piloting before operational deployment. Goldman et al. \cite{goldman-etal2025} complemented this trajectory by mapping NAEP writing criteria onto NLP tools to address the idea-generation and organization needs of students with disabilities.
+
+\subsubsection{Automated Item Analysis and Metadata-Based Modeling}\label{subsubsec4.4.2}
+
+Peters et al. \cite{peters-etal2025} and Peters et al. \cite{peters-etal2025a} document the evolution from classical ML to transformer-based approaches in item difficulty modeling; the combined use of linguistic features and embeddings enables prediction of item difficulty with approximately 87\% correlation, offering a scalable alternative to costly field trials. As noted in Section \ref{subsubsec4.4.1}, Ripoll Y Schmitz and Sonnleitner \cite{ripollyschmitz-etal2025} further confirm GenAI item quality is equivalent to human writing in expert evaluations, positioning it as augmented intelligence supporting item developers rather than replacing them. Rausch et al. \cite{rausch-etal2024} presented a methodological roadmap within the PISA-VET framework showing how digital simulation and scenario-based items can be solved using RF and N-gram analyses within a presage--process--product (3P) model. These gains must be accompanied by human expertise, ethical oversight, and quality assurance, since technical capability has progressed faster than the psychometric assumptions governing comparability and validity.
+
+\subsection{Computational Psychometrics and Methodological Advancements}\label{subsec4.5}
+
+\subsubsection{Data Quality Assurance: Imputation, Augmentation, and Anomaly Detection}\label{subsubsec4.5.1}
+
+Two imputation studies converge on the same warning from opposite directions: ignoring missingness is a larger threat to valid inference than choosing the wrong imputation method. Lee and Lee \cite{lee-lee-ExtendedDataset2025} demonstrated the gain from imputing correctly at scale by reconstructing a 1970--2023 country-year panel from harmonized PISA and TIMSS scores with LASSO and linear interpolation ($R^{2} \approx 0.91$); Huang and Keller \cite{huang-keller2025} demonstrated the cost of not imputing at all, showing that listwise deletion on PISA 2018 Belgian data distorts both school-level coefficients and variance components, structural damage that hierarchical design makes especially severe. Missing data in ILSA's nested structures is not a nuisance to be dropped but a source of bias that compounds across levels. Data augmentation and anomaly detection address the same underlying problem from opposite ends: Pejic et al. \cite{pejic-etal2022} found VAE-based augmentation outperforms SMOTE and conditional tabular GANs at improving minority-class recall on PISA 2012 data, while Zhou and Jiao \cite{zhou-jiao2023} detected rarity directly using stacked resampling to flag duplicate response patterns more reliably than traditional procedures. That both generative augmentation and direct detection outperform single-method baselines suggests ensemble-style approaches now dominate this space. Systematic monitoring scales this logic to the country level: Braun et al. \cite{braun-etal2025} identified country-level manipulation and sampling errors in TIMSS 2011--2019 using neural network-based anomaly detection; and Cortes et al. \cite{cortes-etal2025} supplied the conceptual counterpart on PIRLS 2016, arguing that sampling and assessment-design uncertainty must be statistically separated or country-level anomalies risk misattribution to the wrong source. Together, ILSA data-quality assurance has shifted from flagging anomalies after the fact toward modeling, generating, and decomposing them as a structural feature of cross-country measurement.
+
+\subsubsection{Algorithmic Fairness and Measurement Invariance}\label{subsubsec4.5.2}
+
+Bias detection moves from subgroup to dimension, and fairness audits relying solely on outcome accuracy will systematically underestimate where and how bias enters ILSA measurement. Andersen et al. \cite{andersen-etal2025} located the narrower case first: automatic scoring shows negligible gender bias overall, yet false-positive rates rise specifically among low-performing students, invisible to an aggregate accuracy check. Park et al. \cite{park-etal2025} widened this into a new dimension, showing that multilingual PISA 2018 US students take longer to respond at equivalent ability, a time-based disadvantage that accuracy-based Differential Item Functioning (DIF) analysis cannot detect by construction. Li et al. \cite{li-etal2025} traced PIAAC numeracy gender DIF to navigation patterns rather than item content; and Costa and Chen \cite{costa-chen2023} found ESCS holds steady across Denmark, Sweden, and Norway while ICT use behaves differently in each, confirming that a stable predictor can mask dimension-specific instability. Methodological choices in measurement design have direct fairness consequences: Robitzsch and L\"{u}dtke \cite{robitzsch-ludtke2022} located the risk upstream in model specification itself, showing that switching between 1PL and 2PL/3PL functional forms can shift PISA 2000--2018 trend estimates and country rankings enough to alter the ability construct's substantive meaning; and Mirazchiyski and Gershteyn \cite{mirazchiyski-gershteyn2024} located an analogous risk downstream in administration mode, as PIRLS 2016 online testing advantages digitally mature Northern European systems and yields different rankings depending on whether the mode effect is modeled or ignored. This final pair confirms that comparability threats enter throughout the pipeline, from item-response modeling choices to the administration mode itself, reinforcing why single-metric fairness checks are insufficient.
+
+\subsubsection{Scientometrics, Reviews, and Research Synthesis Methodologies}\label{subsubsec4.5.3}
+
+Synthesis-level studies converge on a shared diagnosis: the field has accumulated substantial methodological capability while under-investing in the theoretical and substantive questions, including reading processes, ethical safeguards, and causal validity, that would translate capability into defensible educational knowledge. Hern\'{a}ndez-Torrano and Courtney \cite{hernandez-torrano-courtney2021} documented exponential growth in ILSA publication volume after 2015, with the center of gravity shifting from TIMSS to PISA and toward inequality and policy themes; Ang et al. \cite{ang-etal2020} surfaced the latent potential of PISA and TIMSS for EDM and ML; and Maia et al. \cite{maia-etal023} emphasized that neural networks now dominate school-performance classification, though their black-box nature continues to complicate policy transfer. Process-data syntheses identified specific gaps: Anghel et al. \cite{anghel-etal2024} found response times and aberrant test-taking behaviors over-represented while mathematics and reading process data remained under-mined; Huang et al. \cite{huang-etal2025} showed clickstream data dominated from 2013--2024 with RF and LSTM as workhorse models; Murchan and Siddiq \cite{murchan-siddiq2021} argued for a new log-compliant ethical framework given the regulatory vacuum surrounding process-data analytics; and Jiao et al. \cite{jiao-etal2021} editorialized that integrating process and product information into a single measurement model improves validity. A complementary methodological strand reframed how findings should be interpreted in light of their designs: Scherer et al. \cite{scherer-etal2024} showed that direct-inclusion approaches improve cross-country heterogeneity explanation when integrating ICILS, PISA, and TIMSS into meta-analyses; Rutkowski et al. \cite{rutkowski-etal2024} cautioned that unobserved heterogeneity can distort quasi-experimental claims; and Stiff et al. \cite{stiff-etal2023} found teacher characteristics and ESCS over-represented in eighteen years of PIRLS scholarship while reading purposes and comprehension processes remained relatively under-studied. Together, these studies confirm the field has accumulated the adaptive testing capability evidenced directly by Fink et al. \cite{fink-etal2024} in Section \ref{subsubsec4.2.1}, while systematically underexploring the questions required to translate that capability into robust educational knowledge.
+
+\section{Conclusion}\label{conclusion}
+
+The integration of AI methods into ILSA research represents not simply a methodological extension but a substantive shift in how large-scale educational evidence is generated, interpreted, and translated into practice. Across 222 studies synthesized through a five-category framework, a consistent pattern emerges: computational capability has substantially expanded analytic possibilities, yet conversion into theoretically grounded, policy-relevant insight remains uneven.
+
+The field still prioritises predictive accuracy: ensembles outperform regression, yet that edge tracks data structure more than algorithmic complexity \cite{bezek-gure-etal2020, demir-karaboga2021, oz-etal2024, song-cutumisu2024}. The response has been psychometrically informed variable selection \cite{soares2024, mcjames-etal2024, koo-yoo2025}, but cross-cultural instability exposes its limits, as predictors trained in one system often fail to transfer \cite{wan-etal2025, zhang-cutumisu2024}, making contextual validity a central condition of inference. XAI moved the field from prediction toward interpretable inference yet exposed a ceiling: self-efficacy, metacognition, and school belonging repeatedly dominate \cite{zhai-etal2024}, \cite{huang-etal2024}, \cite{bernardo-etal2021}, \cite{bernardo-etal2023}, while causal ML offers an emerging path past it \cite{khine-etal2025, mcjames-etal2024}.
+
+Assessment engineering reveals a more consequential transformation: AI increasingly participates in constructing the assessment process itself, reaching human-machine score correlations up to $r = 0.91$ and classification accuracies near 99\% on graphical response items \cite{jung-etal2022, jung-etal2024, tyack-etal2024, ripollyschmitz-etal2025}. Technical capability has nonetheless outpaced the psychometric assumptions governing comparability and validity \cite{peters-etal2025, peters-etal2025a, rausch-etal2024}. Process data analytics exposes a parallel gap: integrating accuracy, timing, and interaction traces improves proficiency estimation \cite{zhang-etal2023, liang-etal2023, costa-etal2021}; systematic exploration distinguishes equal-scoring students who reached that score differently \cite{teig2023, fn-aydin-etal2025}; and engagement traces explain variation self-report cannot \cite{shin-etal2024, ding-etal2025}. If process data become systematically incorporated into reporting frameworks, large-scale assessment could move beyond ranking performance toward diagnosing learning processes.
+
+When the corpus is interpreted through the actionability framework (see Table \ref{tab:actionability-rubric}), the resulting distribution (see Table \ref{tab:actionability-summary}) exposes a systematic gap between identifying predictors and generating evidence that supports educational decision-making. With $\bar{x} = 3.20$ ($SD = 0.87$), most studies detect meaningful patterns yet stop before estimating bounded effects or defining the populations for which conclusions remain valid. Only 35\% clear this threshold. Ensemble Learning leads ($\bar{x} = 3.61$; 52\% high-actionability), while Review/Methodology studies sit at the bottom ($\bar{x} = 2.54$), as Figure \ref{fig:actionability_by_method} illustrates. Differences across families reflect not technical superiority but varying capacities to transform outputs into implementable policy knowledge. The same imbalance appears at the domain level: only 25.8\% of extracted findings address the three core cognitive domains ILSAs are designed to assess (see Table \ref{tab:outcome-domains}), leaving the field's evidentiary foundation as fragmented as its translation into policy.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{actionability_by_method.png}
+    \caption{Mean composite actionability scores by methodological family ($n = 222$). The dashed reference line indicates the corpus mean ($\bar{x} = 3.20$, $SD = 0.87$). Scores range from 1 (purely methodological) to 5 (causal or counterfactual with bounded population applicability); see Table \ref{tab:actionability-rubric} for the full rubric.}
+    \label{fig:actionability_by_method}
+\end{figure}
+
+\begin{table*}[!t]
+\centering
+\small
+\caption{Composite Actionability Scores by Methodological Family ($n = 222$). High actionability = Score 4 or 5; see Table \ref{tab:actionability-rubric} for the full rubric.}
+\label{tab:actionability-summary}
+\begin{tabular}{p{4.4cm} p{1.5cm} p{1.5cm} p{1.5cm} p{2cm} p{2.2cm}}
+\toprule
+Methodological Family & $n$ & $\bar{x}$ & $SD$ & Score 4--5 ($n$) & Score 4--5 (\%) \\
+\midrule
+Ensemble Learning     & 52  & 3.62 & 0.66 & 27 & 52 \\
+Classical/Statistical & 14  & 3.50 & 0.52 &  7 & 50 \\
+Deep Learning         & 12  & 3.42 & 0.79 &  3 & 25 \\
+Hybrid/Penalised      & 11  & 3.18 & 0.60 &  3 & 27 \\
+Review/Methodology    & 41  & 2.54 & 0.90 &  5 & 12 \\
+\midrule
+Overall               & 222 & 3.20 & 0.87 & -- & -- \\
+\bottomrule
+\end{tabular}
+\par\vspace{4pt}
+\textit{Note:} Review/Methodology aggregates studies without a predictive model (ensemble, classical, deep learning, or hybrid/penalised).
+\end{table*}
+
+\begin{table}[!t]
+\centering
+\small
+\caption{Distribution of outcome domains across extracted findings ($n = 202$).}
+\label{tab:outcome-domains}
+\begin{tabular}{p{5cm} p{1cm} p{1cm}}
+\toprule
+Outcome Domain & $n$ & \% \\
+\midrule
+Other/Unspecified            & 67  & 33.2 \\
+Composite/Multi-Domain       & 48  & 23.8 \\
+Mathematics                  & 25  & 12.4 \\
+Non-Cognitive/Process Output & 23  & 11.4 \\
+Reading                      & 18  &  8.9 \\
+Problem Solving              & 11  &  5.4 \\
+Science                      &  9  &  4.5 \\
+Civic Education              &  1  &  0.5 \\
+\midrule
+Overall                      & 202 & 100.0 \\
+\bottomrule
+\end{tabular}
+\par\vspace{4pt}
+\footnotesize\textit{Note:} A single study could contribute findings across multiple outcome domains; $n$ therefore reflects finding-level counts ($n = 202$), not the study-level corpus ($n = 130$).
+\end{table}
+
+The central challenge is no longer computational capacity but the ability to connect prediction to explanation, explanation to intervention, and intervention to context-sensitive educational action, the same interpretability-over-accuracy priority this survey opened with, now specified as a sequence rather than a preference.
+
+\subsection{Future Directions}
+\label{future-directions}
+
+Three research priorities emerge from the corpus. First, ILSAs are inherently comparative, yet many studies remain confined to single-country analyses. Multi-country designs addressing measurement invariance and contextual heterogeneity would clarify which findings generalise across systems and which remain context-specific; closer collaboration among educational researchers, psychometricians, and AI specialists would help ground findings in established learning theories. Second, black-box algorithms continue to dominate the methodological landscape. Integrating XAI as a standard component is essential for moving from predictive accuracy toward pedagogically actionable interpretation; crucially, XAI adoption must be coupled with explicit causal identification strategies to convert feature-importance findings into intervention-ready evidence. The literature must treat process data as central rather than supplementary, developing frameworks that jointly model process and outcome layers. Third, existing process-oriented studies rely primarily on macro-level indicators such as total response time or action counts. Micro-level patterns, including action sequences and decision transitions, remain underexplored; sequential modeling and multilevel analytical frameworks represent promising directions for capturing fine-grained behavioral dynamics. A fourth priority is heterogeneity in XAI findings across student sub-groups: most XAI studies report corpus-level SHAP summaries that obscure whether feature importance profiles differ for low-performing, immigrant, or linguistically diverse learners; future work should decompose SHAP attributions by sub-group to surface equity-relevant variation.
+
+\subsection{Limitations}
+\label{limitations}
+
+Several methodological limitations of this survey itself warrant acknowledgement. First, the extraction pipeline relied on a single model version (gpt-5.4-nano, 2026-03-17) with a fixed Pydantic schema; reproducibility guarantees therefore apply to Layer 2 rule-based scripts only. Second, the policy actionability rubric is internally consistent rather than externally calibrated; a planned follow-up study will present rubric classifications to a panel of ILSA-affiliated policy researchers and psychometricians for independent re-rating on a representative subsample. Third, human verification relied on full review and consensus rather than independent dual-coding; no retrospective inter-rater reliability statistic such as Cohen's $\kappa$ was computed. Fourth, the rubric structurally scores review and methodology papers low on $D_1$, since such designs rarely produce empirical inference by definition; the Review/Methodology mean ($\bar{x} = 2.54$) partly reflects this scoring structure. Fifth, domain-level coding (see Table \ref{tab:outcome-domains}) was conducted at the finding level rather than the study level; individual studies could contribute findings to multiple outcome domains, and this distinction should be kept in mind when comparing Table \ref{tab:outcome-domains} against study-level distributions in Tables \ref{tab:actionability-rubric}--\ref{tab:actionability-summary}.
+
+\subsection{Implications for Educators and Policymakers}
+\label{implications}
+
+The findings carry several direct implications. For classroom practitioners, the convergent finding that self-efficacy and metacognitive strategy instruction outweigh socioeconomic background as predictors of achievement across dozens of ILSA contexts suggests that targeted, evidence-based pedagogical interventions---fostering growth mindset, self-regulated learning strategies, and collaborative skills---are likely to yield measurable returns across diverse national settings. For school leaders and curriculum designers, the process-data strand demonstrates that students reaching identical outcome scores often follow measurably different cognitive pathways; routine analysis of engagement and disengagement indicators could flag at-risk learners earlier than traditional performance-only monitoring. For national policymakers, the policy actionability gap identified here---only a minority of studies provide bounded, quantified, population-specific conclusions---implies that commissioning and funding models should prioritize multi-country, causal-inference-enabled studies over additional single-country prediction benchmarks. For international assessment agencies (OECD, IEA), the evidence that behavioral process traces substantially improve proficiency estimation precision provides a methodological basis for systematically incorporating log-file analytics into official reporting frameworks, potentially enabling formative uses of ILSA data beyond cross-national rankings.
+
+\section*{Data Availability Statement}
+The machine-readable meta-analysis dataset produced through the LLM-assisted extraction pipeline described in Section \ref{subsec:data-extraction}, including all per-study coded fields, actionability scores, and synthesis audit logs, is publicly available on HuggingFace Datasets at \url{https://huggingface.co/datasets/dedemerve/ILSA-Survey-Dataset}. Pipeline scripts, the Pydantic extraction schema (v[X.X]), and per-article JSON verification files are available on GitHub at \url{https://github.com/dedemerve/ILSA-LLM-Extractor}. An interactive companion website providing a searchable overview of the corpus, pipeline documentation, and visual summaries of the extracted findings is accessible at \url{https://dedemerve.github.io/ILSA-Survey-Extractor/}.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{figures/mervedede.png}}]{Merve Dede} received the B.A. degree in Mathematics Education from Marmara University in 2024 and is currently pursuing the M.Sc. degree in Data Science and Big Data at Y{\i}ld{\i}z Technical University, Istanbul, Türkiye. She is a Research Assistant with the Department of Artificial Intelligence and Machine Learning, Istanbul Beykent University. Her research interests include artificial intelligence in education, educational data mining, learning analytics, international large-scale assessments, process data analysis, and explainable and trustworthy artificial intelligence. Her current research centers on schema-guided large language model-assisted evidence synthesis for international large-scale assessment research, multimodal learning analytics for artificial intelligence competency assessment, explainable artificial intelligence for analyzing PISA and TIMSS process data, and the design and evaluation of learning environments that foster pre-service teachers' conceptual understanding of artificial intelligence.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,keepaspectratio]{figures/ekrem_cetinkaya.pdf}}]{Ekrem \c{C}etinkaya} received his B.Sc. and M.Sc. degrees in computer science from \"{O}zye\u{g}in University, Istanbul, T{\"u}rkiye, in 2018 and 2019, respectively, and his Ph.D. degree from Alpen-Adria-Universit{\"a}t Klagenfurt, Klagenfurt, Austria, in 2023. He co-founded Wite (\url{https://www.wite.com.tr/}), where he provides professional consulting services in artificial intelligence. In 2025, he joined the Department of Artificial Intelligence and Data Engineering at Y{\i}ld{\i}z Technical University as an Assistant Professor. He has served as Proceedings Chair for the 2022, 2026, and 2027 editions of the ACM Mile-High Video Conference (MHV), as well as the 2026 IEEE International Workshop on Multimedia Signal Processing (MMSP). He has also reviewed papers for various journals and conferences, including \textit{IEEE Access}, \textit{IEEE MultiMedia}, and \textit{IEEE Transactions on Multimedia}. His research interests include artificial intelligence, machine learning, deep learning, computer vision, and machine-learning-based video coding. Further information is available at \url{https://ekrcet.com/}.
+\end{IEEEbiography}
+
+\EOD
+\end{document}
