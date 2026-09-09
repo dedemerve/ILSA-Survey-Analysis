@@ -198,7 +198,7 @@
           "Perceived teacher interest (Micro6)"
         ],
         "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=19.15%, RMSE=0.81 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged sense of belonging to school and resilience (plus additional microsystem/mesosystem factors) to predict positive affect, finding that school belonging was the most salient predictor and resilience was the second most influential factor (best model achieved R²=19.15% with RMSE=0.81 under 10-fold CV). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged sense of belonging to school and resilience (plus additional microsystem/mesosystem factors) to predict positive affect, finding that school belonging was the most salient predictor and resilience was the second most influential factor (best model achieved R²=19.15% with RMSE=0.81 under 10-fold CV)."
       },
       {
         "dataset_used": "PISA 2018 Hong Kong (HKG) — subjective well-being (negative affect)",
@@ -211,7 +211,7 @@
           "Teacher-directed instruction (Micro2)"
         ],
         "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=14.47%, RMSE=0.86 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged general fear of failure and school belonging (along with other selected mesosystem factors) to predict negative affect, finding that fear of failure was the top predictor and school belonging was the second most influential factor (best model achieved R²=14.47% with RMSE=0.86 under 10-fold CV). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged general fear of failure and school belonging (along with other selected mesosystem factors) to predict negative affect, finding that fear of failure was the top predictor and school belonging was the second most influential factor (best model achieved R²=14.47% with RMSE=0.86 under 10-fold CV)."
       },
       {
         "dataset_used": "PISA 2018 Hong Kong (HKG) — subjective well-being (life satisfaction)",
@@ -224,7 +224,7 @@
           "Perceived teacher interest (Micro6)"
         ],
         "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=19.83%, RMSE=0.80 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged school belonging and parental emotional support (plus resilience and teacher-related factors) to predict life satisfaction, finding that school belonging and parental support were among the most influential predictors (best model achieved R²=19.83% with RMSE=0.80 under 10-fold CV). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged school belonging and parental emotional support (plus resilience and teacher-related factors) to predict life satisfaction, finding that school belonging and parental support were among the most influential predictors (best model achieved R²=19.83% with RMSE=0.80 under 10-fold CV)."
       },
       {
         "dataset_used": "PISA 2018 Hong Kong (HKG) — eudaimonic well-being (meaning in life)",
@@ -237,7 +237,7 @@
           "Attitude toward school learning activities (INDI13)"
         ],
         "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=25.12%, RMSE=0.75 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged resilience and mastery-related motivational factors (plus school belonging) to predict eudaimonic well-being (meaning in life), finding that resilience was the most influential predictor and mastery goal orientation and work mastery were also key contributors (best model achieved R²=25.12% with RMSE=0.75 under 10-fold CV). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged resilience and mastery-related motivational factors (plus school belonging) to predict eudaimonic well-being (meaning in life), finding that resilience was the most influential predictor and mastery goal orientation and work mastery were also key contributors (best model achieved R²=25.12% with RMSE=0.75 under 10-fold CV)."
       }
     ],
     "outcome_summary": "The study analyzed PISA 2018 Hong Kong student data (n=6,037) to predict four well-being outcomes using a random forest regression approach followed by HLM to interpret effects while accounting for the nested student-within-school structure. For positive affect, the best random-forest model (7 predictors) reached R²=19.15% with RMSE=0.81, with school belonging and resilience as the most important factors. For negative affect, the best model reached R²=14.47% with RMSE=0.86, with general fear of failure and school belonging as top predictors. For life satisfaction, the best model reached R²=19.83% with RMSE=0.80, with school belonging and parental emotional support among the strongest predictors. For eudaimonic well-being (meaning in life), the best model reached R²=25.12% with RMSE=0.75, with resilience and mastery goal orientation/work mastery as key predictors. The paper is cross-sectional (no causal claims) and does not report the use of PISA sampling weights in the ML step.",

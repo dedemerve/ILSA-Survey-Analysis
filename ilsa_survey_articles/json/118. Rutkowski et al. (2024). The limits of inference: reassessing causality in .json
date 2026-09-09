@@ -35,7 +35,15 @@
       "all_techniques": []
     },
     "confounders_identified": [],
-    "main_findings": [],
+    "main_findings": [
+      {
+        "dataset_used": "ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset)",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset) the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper does not train or evaluate machine learning models on ILSA microdata. Instead, it argues that causal inferences drawn from ILSA data are often tenuous due to challenges in meeting quasi-experimental assumptions, including issues related to cross-country heterogeneity, standardization, treatment definition, and the difficulty of establishing equivalence in expectation. The authors contrast RCTs (gold standard) with quasi-experimental designs and use published examples to illustrate where causal claims may fail. The paper concludes by proposing a framework for critically evaluating quasi-experimental designs using ILSAs and recommends caution in using ILSA data for causal policy claims."
+      }
+    ],
     "outcome_summary": "This paper does not train or evaluate machine learning models on ILSA microdata. Instead, it argues that causal inferences drawn from ILSA data are often tenuous due to challenges in meeting quasi-experimental assumptions, including issues related to cross-country heterogeneity, standardization, treatment definition, and the difficulty of establishing equivalence in expectation. The authors contrast RCTs (gold standard) with quasi-experimental designs and use published examples to illustrate where causal claims may fail. The paper concludes by proposing a framework for critically evaluating quasi-experimental designs using ILSAs and recommends caution in using ILSA data for causal policy claims.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": "The manuscript is a methodological review/critical reassessment rather than an empirical ILSA analysis. It does not report an original analytic sample (total N), does not estimate PV-based achievement models, and does not evaluate any ML algorithms. Therefore, fields such as countries-by-sample-size, ML techniques, and structured predictive findings are not applicable to the authors’ own study."

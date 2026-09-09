@@ -34,7 +34,15 @@
       "all_techniques": []
     },
     "confounders_identified": [],
-    "main_findings": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper provides a comprehensive survey of big educational data and analytics, covering data sources (e.g., LMS, MOOC, OER, social media, linked data), data collection/mining/database topics, big-data platforms/architectures (e.g., Hadoop, Spark, Samza), and analytics approaches (predictive analytics, learning analytics, recommendation systems, graph analytics, visual/immersive analytics). It does not conduct an original ML prediction study on an ILSA-style student dataset with a defined outcome, training/validation protocol, or reported performance metrics for a single unified model. Instead, it synthesizes findings from prior works and highlights technological and social challenges (privacy/ethics, interoperability, scalability). As a result, there are no extractable PV-handling, missing-data-handling, or model-performance results for the review itself."
+      }
+    ],
     "outcome_summary": "This paper provides a comprehensive survey of big educational data and analytics, covering data sources (e.g., LMS, MOOC, OER, social media, linked data), data collection/mining/database topics, big-data platforms/architectures (e.g., Hadoop, Spark, Samza), and analytics approaches (predictive analytics, learning analytics, recommendation systems, graph analytics, visual/immersive analytics). It does not conduct an original ML prediction study on an ILSA-style student dataset with a defined outcome, training/validation protocol, or reported performance metrics for a single unified model. Instead, it synthesizes findings from prior works and highlights technological and social challenges (privacy/ethics, interoperability, scalability). As a result, there are no extractable PV-handling, missing-data-handling, or model-performance results for the review itself.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": "The record is a systematic-style literature review/survey (IEEE Access) rather than an empirical large-scale assessment analysis. Consequently, there is no original student-level dataset with a defined analytic sample size, no PV-based cognitive outcome, no missing-data strategy for an estimation model, and no single ML model trained/evaluated by the authors. The ML-related content is discussed at the level of reviewed approaches and illustrative scenarios, so fields like total_students, countries with per-country Ns, and main_findings for a predictive pipeline are not applicable."

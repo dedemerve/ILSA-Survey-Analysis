@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "file_name": "132. Tahri et al. (2026). Machine-Learning Applications in Predicting Students' Non-Cognitive Skills.pdf",
+    "title": "Machine-Learning Applications in Predicting Students' Non-Cognitive Skills: Evidence from PISA 2022",
+    "authors": [
+      "Tahri, D.",
+      "Liu, J.",
+      "Aziku, M."
+    ],
+    "year": 2026,
+    "doi": "10.1007/s40647-026-00459-6",
+    "venue": "Fudan Journal of the Humanities and Social Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 student microdata from 10 OECD countries and partner economies (N=75,217). The manuscript does not report applying PISA student final weights (e.g., W_FSTUWT) or replicate weights (BRR). Missing data are handled by listwise deletion based on OECD standards for recoding invalid/skipped responses; no complex survey weighting procedure is described for any of the models (OLS, LASSO, GBM, RF). Accordingly, the analysis is treated as unweighted."
+    },
+    "plausible_values_handling": "not_reported",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": "The outcome variable is a composite non-cognitive skills index (not a cognitive PISA plausible value), so PV combination rules are not applicable to the dependent variable. However, several cognitive performance predictors (AVGMATH, AVGREAD, AVGSCIE, and mathematics subscale averages) appear to be derived from PISA cognitive plausible values. The paper does not report whether these average scores were computed by properly pooling across the 10 plausible values using Rubin's combining rules. The handling of PVs in predictor construction is not discussed, and the paper does not mention the number of PVs used or any imputation-based combination procedure.",
+    "sample_details": {
+      "total_students": 75217,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Students who participated in Module 8 (non-cognitive skills) of PISA 2022. Exclusion criteria applied sequentially: (1) students with more than 10% missing data excluded; (2) students missing on the dependent variable (non-cognitive composite) excluded; (3) students missing on any predictor within the three groups (background characteristics, cognitive-motivational traits, cognitive performance) excluded. Invalid, skipped, and not-applicable responses were recoded as system missing before deletion. Final analytic sample: N=75,217 across 10 OECD countries and partner economies (Australia, Spain, Estonia, Hong Kong-China, Ireland, Korea, Macao-China, Singapore, Chinese Taipei, Turkey)."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting Machine",
+      "all_techniques": [
+        "Ordinary Least Squares",
+        "LASSO",
+        "Random Forest",
+        "Gradient Boosting Machine"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "AGE",
+        "variable_name": "Student Age",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Student gender",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Index of Economic, Social and Cultural Status",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging to school",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Duration of early childhood education",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "EXPECEDU",
+        "variable_name": "Expected educational level",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother's level of education",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT resources at home",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration background",
+        "category": "student_background"
+      },
+      {
+        "variable_code": "MATHEF21",
+        "variable_name": "21st century mathematics efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXMAT",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPERS",
+        "variable_name": "Mathematics proactive behavior",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Mathematics self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEASE",
+        "variable_name": "Perception of mathematics as easier",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPREF",
+        "variable_name": "Mathematics preference",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHMOT",
+        "variable_name": "Mathematics motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPSUP",
+        "variable_name": "Mathematics perceived support",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AVGMATH",
+        "variable_name": "Average score in mathematics",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGREAD",
+        "variable_name": "Average score in reading",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGSCIE",
+        "variable_name": "Average score in science",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGMCCR",
+        "variable_name": "Average score in change and relationships",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGMCQN",
+        "variable_name": "Average score in quantity",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGMCSS",
+        "variable_name": "Average score in space and shape",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGMCUD",
+        "variable_name": "Average score in uncertainty and data",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGMPEM",
+        "variable_name": "Average score in employing concepts",
+        "category": "cognitive_performance"
+      },
+      {
+        "variable_code": "AVGMPFS",
+        "variable_name": "Average score in formulating situations",
+        "category": "cognitive_performance"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 (10 OECD countries and partner economies)",
+        "target_variable": "Non-cognitive skills composite index (equal-weighted, 5 OECD domains: Task performance, Emotional regulation, Collaboration, Open-mindedness, Engaging with others)",
+        "top_predictors": [
+          "Mathematics proactive behavior (MATHPERS)",
+          "21st century mathematics efficacy (MATHEF21)",
+          "Mathematics self-efficacy (MATHEFF)",
+          "Mathematics anxiety (ANXMATH)",
+          "Sense of belonging (BELONG)",
+          "Expected educational level (EXPECEDU)",
+          "Family support (FAMSUP)",
+          "Average score in science (AVGSCIE)"
+        ],
+        "performance_metrics": "GBM (best model): MSE=0.239 (test), R²=0.30; RF: MSE=0.244, R²=0.29; OLS: R²=0.27 (MSE=0.253); LASSO: R²=0.27 (MSE=0.253). Nested 5-fold cross-validation with GridSearchCV hyperparameter tuning.",
+        "standardized_conclusion": "Using PISA 2022 data from 10 countries (N=75,217), supervised machine learning models (GBM, RF, LASSO) outperformed conventional OLS regression in predicting students' non-cognitive skills. GBM achieved the highest predictive accuracy (test MSE=0.239; R²=0.30). SHAP analysis identified cognitive-motivational traits as the most influential predictor group, with mathematics proactive behavior, 21st century mathematics efficacy, and mathematics self-efficacy as top predictors. Among background characteristics, sense of belonging, expected educational level, and family support were most important. Cognitive performance indicators (especially average science and mathematics scores) showed a modest but positive contribution."
+      }
+    ],
+    "outcome_summary": "The study applies OLS, LASSO, Random Forest, and Gradient Boosting Machine to PISA 2022 data from 75,217 students across 10 OECD countries/partner economies to predict a composite non-cognitive skills index built from the five OECD social-emotional domains (perseverance, stress resistance, empathy, curiosity, assertiveness). A nested 5-fold cross-validation with GridSearchCV hyperparameter optimization was used. GBM outperformed all models (test MSE=0.239; R²=0.30). SHAP analysis revealed that cognitive-motivational traits (especially mathematics proactive behavior, 21st century math efficacy, and self-efficacy) constitute the most influential predictor group, followed by background characteristics (sense of belonging, expected education level, family support) and cognitive performance indicators (science and mathematics scores). The study does not apply PISA sampling weights or document PV handling for the cognitive predictor scores.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null,
+    "paper_section": "4.3.3",
+    "paper_section_label": "Self-Beliefs, Motivation, and Attitudinal Constructs",
+    "actionability_score": 4,
+    "ml_family": "Ensemble Learning"
+  }
+}

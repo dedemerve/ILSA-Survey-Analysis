@@ -223,7 +223,7 @@
           "Mastery goal orientation"
         ],
         "performance_metrics": "Random Forest regression — R²: 21.41% (MSE: 0.79) for the optimal model; best model selected via 10-fold cross-validation repeated 5 times; reported %IncMSE variable-importance ranking.",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged sense of school belonging, resilience, self-concept of competence, work mastery, and mastery goal orientation to predict positive affect, finding that school belonging and resilience were the most important predictors (highest %IncMSE) and that the optimal random-forest model achieved R² = 21.41% (MSE = 0.79). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged sense of school belonging, resilience, self-concept of competence, work mastery, and mastery goal orientation to predict positive affect, finding that school belonging and resilience were the most important predictors (highest %IncMSE) and that the optimal random-forest model achieved R² = 21.41% (MSE = 0.79)."
       },
       {
         "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
@@ -236,7 +236,7 @@
           "Reading enjoyment"
         ],
         "performance_metrics": "Random Forest regression — R²: 18.13% (MSE: 0.82) for the selected top-9 predictor model; variable importance assessed via %IncMSE; 10-fold cross-validation repeated 5 times.",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged sense of school belonging, general fear of failure, socioeconomic status (ESCS), resilience, and reading enjoyment to predict negative affect, finding that fear of failure and school belonging were the top predictors (highest %IncMSE) and that the best random-forest model achieved R² = 18.13% (MSE = 0.82). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged sense of school belonging, general fear of failure, socioeconomic status (ESCS), resilience, and reading enjoyment to predict negative affect, finding that fear of failure and school belonging were the top predictors (highest %IncMSE) and that the best random-forest model achieved R² = 18.13% (MSE = 0.82)."
       },
       {
         "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
@@ -249,7 +249,7 @@
           "Parents’ emotional support"
         ],
         "performance_metrics": "Random Forest regression — R²: 24.14% (MSE: 0.76) for the selected top-9 predictor model; resilience and school belonging/parental emotional support contributed the largest mean decreases in accuracy (%IncMSE).",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged resilience, fear of failure, work mastery, sense of school belonging, and parents’ emotional support to predict life satisfaction, finding that school belonging and resilience were the most important predictors and that the optimal random-forest model achieved R² = 24.14% (MSE = 0.76). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged resilience, fear of failure, work mastery, sense of school belonging, and parents’ emotional support to predict life satisfaction, finding that school belonging and resilience were the most important predictors and that the optimal random-forest model achieved R² = 24.14% (MSE = 0.76)."
       },
       {
         "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
@@ -262,7 +262,7 @@
           "Sense of school belonging"
         ],
         "performance_metrics": "Random Forest regression — R²: 32.47% (MSE: 0.78) for the selected top-9 predictor model; resilience and work mastery accounted for the largest accuracy decreases (%IncMSE).",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged resilience, work mastery, perceived cooperation at school, parents’ emotional support, and sense of school belonging to predict eudaimonic well-being (meaning in life), finding that resilience and work mastery were the dominant predictors and that the best random-forest model achieved R² = 32.47% (MSE = 0.78). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged resilience, work mastery, perceived cooperation at school, parents’ emotional support, and sense of school belonging to predict eudaimonic well-being (meaning in life), finding that resilience and work mastery were the dominant predictors and that the best random-forest model achieved R² = 32.47% (MSE = 0.78)."
       }
     ],
     "outcome_summary": "The study analyzed PISA 2018 China well-being questionnaire data for 12,058 15-year-olds from Beijing, Shanghai, Jiangsu, and Zhejiang. Using random forest regression with missing responses imputed via MCMC multiple imputation and variables standardized, the authors predicted four well-being dimensions: positive affect, negative affect, life satisfaction, and meaning in life (eudaimonic well-being). Model fit ranged from R² = 18.13% (negative affect) to R² = 32.47% (eudaimonic well-being), with MSE values between 0.76 and 0.82 for the selected top-9 models. Across outcomes, school belonging and resilience were consistently among the most important predictors; fear of failure was especially important for negative affect and life satisfaction, while work mastery was dominant for eudaimonic well-being. The paper does not report using PISA sampling/replicate weights, and the design is cross-sectional, so results are predictive rather than causal.",

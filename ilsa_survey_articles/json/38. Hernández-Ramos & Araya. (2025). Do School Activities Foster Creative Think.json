@@ -139,7 +139,7 @@
           "Weekly programming activity participation"
         ],
         "performance_metrics": "Pearson correlations: Var 1 vs mean score R=−0.852, adjusted R²=0.721; Model with Var 1+Var 2: R=0.881, adjusted R²=0.768. Programming excluded as non-significant (p=0.604 in Model 1; p=0.448 in Model 2).",
-        "standardized_conclusion": "Using PISA 2022 Creative Thinking country/economy mean scores, the study leveraged the verbal/critical activities composite (Var 1) and the art/music activities composite (Var 2) to predict creative thinking mean score, finding that Var 1 had a strong negative association while Var 2 had a smaller positive association; programming activity participation was not statistically significant. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 Creative Thinking country/economy mean scores, the study leveraged the verbal/critical activities composite (Var 1) and the art/music activities composite (Var 2) to predict creative thinking mean score, finding that Var 1 had a strong negative association while Var 2 had a smaller positive association; programming activity participation was not statistically significant."
       },
       {
         "dataset_used": "PISA 2022 Creative Thinking (country/economy means; 2022)",
@@ -148,7 +148,7 @@
           "Reading score (PISA 2022)"
         ],
         "performance_metrics": "Model (Reading 2022 only): R=0.884, adjusted R²=0.777. Mathematics and science (2022) were not significant and excluded.",
-        "standardized_conclusion": "Using PISA 2022 scientific problem-solving domain mean scores, the study leveraged reading score (PISA 2022) to predict performance, finding a strong positive association (adjusted R²=0.777) while mathematics and science (2022) did not add statistical significance. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 scientific problem-solving domain mean scores, the study leveraged reading score (PISA 2022) to predict performance, finding a strong positive association (adjusted R²=0.777) while mathematics and science (2022) did not add statistical significance."
       },
       {
         "dataset_used": "PISA 2022 Creative Thinking (domain means; 2022)",
@@ -158,7 +158,7 @@
           "Weekly programming activity participation"
         ],
         "performance_metrics": "Pearson correlations: science club vs scientific problem solving R=−0.666 (p<0.001); programming vs scientific problem solving R=−0.438 (p=0.001).",
-        "standardized_conclusion": "Using PISA 2022 Creative Thinking scientific problem-solving domain mean scores, the study leveraged weekly science club participation and weekly programming activity participation to predict the domain score, finding both associations were negative and statistically significant. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 Creative Thinking scientific problem-solving domain mean scores, the study leveraged weekly science club participation and weekly programming activity participation to predict the domain score, finding both associations were negative and statistically significant."
       },
       {
         "dataset_used": "PISA 2018 & PISA 2022 (country/economy means; 2018/2022)",
@@ -168,7 +168,7 @@
           "Verbal/critical activities composite"
         ],
         "performance_metrics": "Model 1 (Reading 2018 only): R=0.912, adjusted R²=0.829. Model 2 (Reading 2018 + Var 1): R=0.929, adjusted R²=0.857. Mathematics and science (2018) were not significant and excluded.",
-        "standardized_conclusion": "Using PISA 2018 and PISA 2022 country/economy mean scores, the study leveraged reading score (PISA 2018) and the verbal/critical activities composite (Var 1) to predict PISA 2022 creative thinking mean score, finding reading was the strongest positive predictor while mathematics and science (2018) were not significant. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 and PISA 2022 country/economy mean scores, the study leveraged reading score (PISA 2018) and the verbal/critical activities composite (Var 1) to predict PISA 2022 creative thinking mean score, finding reading was the strongest positive predictor while mathematics and science (2018) were not significant."
       }
     ],
     "outcome_summary": "This paper analyzes country/economy-level relationships between PISA 2022 Creative Thinking mean scores (and domain means) and students’ reported weekly participation in school activities (art, music, programming, creative writing, science clubs, drama/theatre, debate, publications), using correlations, PCA-derived composites (Var 1 and Var 2), and linear regression. Across the overall creative thinking score, Var 1 (verbal/critical activities composite) shows a strong negative association (Model 1 adjusted R²=0.721; Model 2 adjusted R²=0.768), while Var 2 has a smaller positive contribution; programming activity participation is not statistically significant. For the scientific problem-solving domain, both science club participation and programming participation are negatively and significantly correlated with the domain score. Across PISA 2018/2022, reading scores emerge as the most consistent positive predictor of creative thinking and scientific problem-solving, whereas mathematics and science scores are generally not significant. The study does not report ML methods, survey-weight usage, or PV combining rules, and it relies on aggregated country/economy records rather than student-level PV modeling.",

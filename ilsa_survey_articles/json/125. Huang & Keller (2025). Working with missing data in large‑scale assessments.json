@@ -20,9 +20,9 @@
       "weight_variable_name": "w_fstuwt; w_schgrnrabwt",
       "weight_fields_interpretation": "The tutorial uses Belgian PISA 2018 student and school datasets, focusing on a two-level (students nested in schools) random-intercept multilevel model. The analytic example uses a reduced merged dataset with 8,475 student observations from 288 schools, and it creates an additional version with extra missingness introduced in the escs index (missingness made related to the first mathematics plausible value). In the imputation and analysis workflow, the authors fit weighted multilevel models using both student-level weights (w_fstuwt) and school-level weights (w_schgrnrabwt), and they use robust standard errors. The manuscript emphasizes that weights are often ignored during imputation for simplicity, but this tutorial demonstrates a congenial approach that includes weights in the imputation model and then uses Rubin-style pooling across multiple imputations and plausible values."
     },
-    "plausible_values_handling": "not_applicable",
-    "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "This document is an official IEA/OECD technical report or assessment framework. It describes sampling, scaling, and instrument design rather than student-level predictive modeling. Plausible values are therefore not applicable to the document's primary analytic purpose; any missing-data discussion refers to fieldwork or scaling procedures, not a single ML imputation strategy.",
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
     "sample_details": {
       "total_students": 8475,
       "countries": [
@@ -37,52 +37,51 @@
       "primary": null,
       "all_techniques": []
     },
-    "confounders_identified": [],
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "escs",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "immigration_status",
+        "variable_name": "Immigration status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "stubeha",
+        "variable_name": "behavior hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "lack_of_teaching_staff",
+        "variable_name": "Lack of teaching staff",
+        "category": "school"
+      },
+      {
+        "variable_code": "cntschid",
+        "variable_name": "School identifier (cluster)",
+        "category": "school"
+      }
+    ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 student and school datasets merged into a",
-        "target_variable": "288 schools) achievement",
+        "dataset_used": "PISA 2018 (Belgium) mathematics (pv1math–pv10math), two-level student-in-school model",
+        "target_variable": "Student math achievement (Plausible Values)",
         "top_predictors": [
-          "See outcome_summary (descriptive associations not coded as predictors)"
+          "Gender",
+          "Socioeconomic status (ESCS)",
+          "Immigration status",
+          "Student behavior hindering learning",
+          "Lack of teaching staff"
         ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
-        "standardized_conclusion": "Using PISA 2018 student and school datasets merged into a data, the document summarizes 288 schools) achievement in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. This indicates that The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputatio."
-      },
-      {
-        "dataset_used": "PISA 2018 student and school datasets merged into a",
-        "target_variable": "predicts mathematics achievement measured by pv1math–pv10math from gender",
-        "top_predictors": [
-          "See outcome_summary (descriptive associations not coded as predictors)"
-        ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
-        "standardized_conclusion": "Using PISA 2018 student and school datasets merged into a data, the document summarizes predicts mathematics achievement measured by pv1math–pv10math from gender in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. This indicates that The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputatio."
-      },
-      {
-        "dataset_used": "PISA 2018 student and school datasets merged into a",
-        "target_variable": "ESCS achievement",
-        "top_predictors": [
-          "See outcome_summary (descriptive associations not coded as predictors)"
-        ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
-        "standardized_conclusion": "Using PISA 2018 student and school datasets merged into a data, the document summarizes ESCS achievement in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. This indicates that The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputatio."
-      },
-      {
-        "dataset_used": "PISA 2018 student and school datasets merged into a",
-        "target_variable": "immigration status achievement",
-        "top_predictors": [
-          "See outcome_summary (descriptive associations not coded as predictors)"
-        ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
-        "standardized_conclusion": "Using PISA 2018 student and school datasets merged into a data, the document summarizes immigration status achievement in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. This indicates that The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputatio."
-      },
-      {
-        "dataset_used": "PISA 2018 student and school datasets merged into a",
-        "target_variable": "student behavior hindering learning achievement",
-        "top_predictors": [
-          "See outcome_summary (descriptive associations not coded as predictors)"
-        ],
-        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
-        "standardized_conclusion": "Using PISA 2018 student and school datasets merged into a data, the document summarizes student behavior hindering learning achievement in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. This indicates that The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputatio."
+        "performance_metrics": "Not reported as ML metrics (tutorial reports fixed-effect estimates with robust SEs; Table 2 shows coefficient estimates and significance; Table 3 reports ICCs).",
+        "standardized_conclusion": "Using PISA 2018 (Belgium) mathematics plausible values the study leveraged Gender, socioeconomic status (ESCS), immigration status, student behavior hindering learning, and lack of teaching staff to model student math achievement in a two-level weighted random-intercept framework, finding that the fixed-effect estimates from the multiply imputed results (and the 90% complete condition) were closest, while the 82% complete condition showed larger deviations—especially for level-2 coefficients."
       }
     ],
     "outcome_summary": "This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. The applied example uses Belgian PISA 2018 student and school data (8,475 students in 288 schools) and predicts mathematics achievement measured by pv1math–pv10math from gender, ESCS, immigration status, student behavior hindering learning, and lack of teaching staff. The authors compare results across (A) 90% complete data, (B) 82% complete data created by inducing additional missingness in ESCS, and (C) multiply imputed results using Blimp/rblimp with 20 imputations per plausible value (200 imputed datasets total). They report that the imputed (A vs. C) results are most similar, whereas the 82% complete condition (B) yields larger differences, particularly for school-level (level-2) coefficients, and shows lower ICCs. The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputations and plausible values.",

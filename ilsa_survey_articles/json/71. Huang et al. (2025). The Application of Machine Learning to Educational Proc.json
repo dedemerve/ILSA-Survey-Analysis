@@ -34,7 +34,15 @@
       "all_techniques": []
     },
     "confounders_identified": [],
-    "main_findings": [],
+    "main_findings": [
+      {
+        "dataset_used": "ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset)",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset) the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper is a systematic review rather than an empirical ML study on a single dataset. It synthesizes 38 peer-reviewed publications (2013–2024) and reports descriptive findings about the types of educational process data used (clickstream most prevalent) and how ML is applied (procedural feature coding/representation learning vs. instrumental latent-trait/measurement estimation). The review also highlights recurring challenges such as feature extraction/selection and interpretability for practical educational use, and discusses issues like scalability and replicability. No model performance metrics (e.g., accuracy/AUC/RMSE) are computed by the authors in this review because they do not train or evaluate ML models on a pooled dataset."
+      }
+    ],
     "outcome_summary": "This paper is a systematic review rather than an empirical ML study on a single dataset. It synthesizes 38 peer-reviewed publications (2013–2024) and reports descriptive findings about the types of educational process data used (clickstream most prevalent) and how ML is applied (procedural feature coding/representation learning vs. instrumental latent-trait/measurement estimation). The review also highlights recurring challenges such as feature extraction/selection and interpretability for practical educational use, and discusses issues like scalability and replicability. No model performance metrics (e.g., accuracy/AUC/RMSE) are computed by the authors in this review because they do not train or evaluate ML models on a pooled dataset.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": "The record is a systematic review without original student-level microdata analysis. Consequently, there is no total student count, no country-level sample breakdown, no PV handling or missing-data imputation performed by the authors, and no primary ML model trained/evaluated in this paper. The extracted ML-related content pertains to the included studies’ methods, not to an ML pipeline implemented by the review itself."

@@ -96,7 +96,7 @@
           "Mouse actions (trace count)"
         ],
         "performance_metrics": "Average attribute reliabilities: MHO-RDINA = 0.437, JRT-DINA = 0.454, JCDM-RRT = 0.494; JCDM-RRT closer to 0.5 in posterior predictive p-values for response and RT (PPMC_RA: 0.551; PPMC_RT: 0.551).",
-        "standardized_conclusion": "Using PISA 2018 computer-based reading the study leveraged item response accuracy together with response times and mouse-action traces to predict attribute mastery/classification reliability, finding that the joint model (JCDM-RRT) produced higher attribute classification reliability (0.494) than models using no process data (0.437) or only RTs (0.454). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 computer-based reading the study leveraged item response accuracy together with response times and mouse-action traces to predict attribute mastery/classification reliability, finding that the joint model (JCDM-RRT) produced higher attribute classification reliability (0.494) than models using no process data (0.437) or only RTs (0.454)."
       },
       {
         "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries; process data: RTs + mouse actions)",
@@ -107,7 +107,7 @@
           "Mouse actions (trace count)"
         ],
         "performance_metrics": "In simulation based on empirical structure: PCCR = 0.5193 (JCDM-RRT) vs 0.4977 (JRT-DINA) vs 0.4860 (MHO-RDINA).",
-        "standardized_conclusion": "Using PISA 2018 computer-based reading data (simulation based on the empirical parameter estimates), the study leveraged item response accuracy plus response times and mouse-action traces to predict person attribute patterns, finding that the joint model improved pattern correct classification rate (PCCR 0.5193) relative to RT-only and response-only CDMs. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 computer-based reading data (simulation based on the empirical parameter estimates), the study leveraged item response accuracy plus response times and mouse-action traces to predict person attribute patterns, finding that the joint model improved pattern correct classification rate (PCCR 0.5193) relative to RT-only and response-only CDMs."
       },
       {
         "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries; process data: RTs + mouse actions)",
@@ -118,7 +118,7 @@
           "Mouse actions (trace count)"
         ],
         "performance_metrics": "In simulation based on empirical structure: ACCR mean = 0.8335 (JCDM-RRT) vs 0.8230 (JRT-DINA) vs 0.8179 (MHO-RDINA); attribute-wise ACCR higher for all attributes under JCDM-RRT.",
-        "standardized_conclusion": "Using PISA 2018 computer-based reading data (simulation based on the empirical parameter estimates), the study leveraged item response accuracy together with response times and mouse-action traces to predict attribute mastery, finding that the joint model increased attribute correct classification rate (ACCR mean 0.8335) compared with RT-only and response-only CDMs. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 computer-based reading data (simulation based on the empirical parameter estimates), the study leveraged item response accuracy together with response times and mouse-action traces to predict attribute mastery, finding that the joint model increased attribute correct classification rate (ACCR mean 0.8335) compared with RT-only and response-only CDMs."
       }
     ],
     "outcome_summary": "The paper proposes a joint cognitive diagnosis model (JCDM-RRT) that integrates two process-data sources—response times (RTs) and mouse click/drag traces operationalized as the number of actions—into a DINA-family cognitive diagnosis framework. In the empirical PISA 2018 computer-based reading example (12 items; 2,003 students from 79 countries/districts), the joint model achieved better posterior predictive model checking for response and RT (PPMC_RA = 0.551; PPMC_RT = 0.551) and higher attribute classification reliability (average attribute reliability 0.494 vs 0.437 for response-only and 0.454 for RT-only). In simulation studies, the joint model improved person and attribute classification: PCCR = 0.5193 and ACCR mean = 0.8335, outperforming the two baselines. The study is Bayesian (MCMC via JAGS) and does not report a missing-data handling strategy or any survey-weighting approach, so results should be interpreted as model-based rather than explicitly population-representative.",

@@ -68,7 +68,7 @@
           "Self-reported effort (SRE)"
         ],
         "performance_metrics": "Not reported (LPA fit indices reported: 3-profile solution selected; AIC=51750.54, BIC=51845.58, aBIC=51801.09, entropy=0.883; LMR p<.05).",
-        "standardized_conclusion": "Using PISA 2022 (Turkey) mathematics the study leveraged response time (RT), number of actions (NA), and self-reported effort (SRE) to classify students into engagement profiles, finding three distinct groups: Moderately Engaged (Profile 1, 82.79%), Highly Engaged (Profile 2, 7.20%), and Disengaged (Profile 3, 10.01%). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 (Turkey) mathematics the study leveraged response time (RT), number of actions (NA), and self-reported effort (SRE) to classify students into engagement profiles, finding three distinct groups: Moderately Engaged (Profile 1, 82.79%), Highly Engaged (Profile 2, 7.20%), and Disengaged (Profile 3, 10.01%)."
       },
       {
         "dataset_used": "PISA 2022 (Turkey) Mathematics — process data and effort thermometer",
@@ -79,7 +79,7 @@
           "Self-reported effort (SRE)"
         ],
         "performance_metrics": "Profile means: Highly Engaged=536.453; Disengaged=421.74; Moderately Engaged=452.689. Statistical significance reported (differences significant at p<.05).",
-        "standardized_conclusion": "Using PISA 2022 (Turkey) mathematics the study leveraged RT, NA, and SRE-derived engagement profiles to explain mathematics achievement differences, finding that the Disengaged profile had the lowest achievement (421.74) while the Highly Engaged profile had the highest (536.453), with Moderately Engaged in between (452.689). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 (Turkey) mathematics the study leveraged RT, NA, and SRE-derived engagement profiles to explain mathematics achievement differences, finding that the Disengaged profile had the lowest achievement (421.74) while the Highly Engaged profile had the highest (536.453), with Moderately Engaged in between (452.689)."
       }
     ],
     "outcome_summary": "The study analyzes PISA 2022 process data for the Turkish sample (N=6,560 after listwise deletion) to examine test-taking disengagement using three indicators: response time (RT), number of actions (NA), and self-reported effort (SRE). Using latent profile analysis (LPA), the authors selected a three-profile solution (entropy=0.883; AIC/BIC/aBIC improved; LMR p<.05), yielding Moderately Engaged (82.79%), Highly Engaged (7.20%), and Disengaged (10.01%) groups. Disengagement was characterized by low SRE, minimal interactions, and rapid responses, and it was associated with lower mathematics achievement (Disengaged mean=421.74 vs. Highly Engaged mean=536.453; Moderately Engaged mean=452.689; p<.05). The manuscript does not report any machine-learning predictive model performance metrics (e.g., accuracy/AUC) and does not document plausible value (PV) handling, limiting direct comparability to PV-based ILSA achievement modeling.",

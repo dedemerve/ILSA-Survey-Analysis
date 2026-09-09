@@ -239,21 +239,21 @@
         "target_variable": "Mathematics achievement (PVs)",
         "top_predictors": [],
         "performance_metrics": "Stacking produced the lowest mean MAPE for 72/80 countries (90.00%), lowest mean MAE for 74/80 (92.50%), and lowest mean MSE for 75/80 (93.75%). Robust linear mixed-effects models indicated significantly lower MAPE, MAE, and MSE for Stacking than XGBoost/HGB/LightGBM/Blending (MAPE: β=0.10 for Stacking intercept; other algorithms significant increases vs Stacking; MAE and MSE similarly significant).",
-        "standardized_conclusion": "Using PISA 2022 mathematics PV the study leveraged stacking (with ridge regression as the level-1 meta-learner) to predict mathematics achievement, finding that stacking achieved the lowest error metrics (MAPE/MAE/MSE) for the vast majority of countries compared with XGBoost, HGB, LightGBM, and blending. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 mathematics PV the study leveraged stacking (with ridge regression as the level-1 meta-learner) to predict mathematics achievement, finding that stacking achieved the lowest error metrics (MAPE/MAE/MSE) for the vast majority of countries compared with XGBoost, HGB, LightGBM, and blending."
       },
       {
         "dataset_used": "PISA 2022 Reading (Plausible Values)",
         "target_variable": "Reading achievement (PVs)",
         "top_predictors": [],
         "performance_metrics": "Stacking produced the lowest mean MAPE for 64/80 countries (80.00%), lowest mean MAE for 69/80 (86.25%), and lowest mean MSE for 70/80 (87.50%). Robust linear mixed-effects models showed significantly lower MAPE/MAE/MSE for Stacking than the other algorithms (with country random effects).",
-        "standardized_conclusion": "Using PISA 2022 reading PV the study leveraged stacking to predict reading achievement, finding that stacking again delivered the lowest mean MAPE/MAE/MSE across most countries relative to the boosting and blending alternatives. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 reading PV the study leveraged stacking to predict reading achievement, finding that stacking again delivered the lowest mean MAPE/MAE/MSE across most countries relative to the boosting and blending alternatives."
       },
       {
         "dataset_used": "PISA 2022 Science (Plausible Values)",
         "target_variable": "Science achievement (PVs)",
         "top_predictors": [],
         "performance_metrics": "Stacking produced the lowest mean MAPE for 65/80 countries (81.25%), lowest mean MAE for 71/80 (88.75%), and lowest mean MSE for 71/80 (88.75%). Robust linear mixed-effects models indicated significantly lower MAPE/MAE/MSE for stacking compared with XGBoost, HGB, LightGBM, and blending.",
-        "standardized_conclusion": "Using PISA 2022 science PV the study leveraged stacking to predict science achievement, finding that stacking produced the lowest error metrics for most countries and significantly outperformed the boosting and blending methods in the mixed-effects comparisons. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2022 science PV the study leveraged stacking to predict science achievement, finding that stacking produced the lowest error metrics for most countries and significantly outperformed the boosting and blending methods in the mixed-effects comparisons."
       }
     ],
     "outcome_summary": "The study used PISA 2022 microdata for 80 countries to predict student achievement in mathematics, reading, and science on a continuous scale using ten plausible values per subject. For each country and subject, the authors trained stacking (level-0 base learners: XGBoost, HGB, LightGBM; level-1 meta-learner: ridge regression with alpha=1.0) and compared it with three boosting algorithms (XGBoost, HGB, LightGBM) and blending. Across countries, stacking most frequently achieved the lowest mean error metrics: for mathematics it was lowest in MAPE/MAE/MSE for 72/74/75 countries, for reading for 64/69/70, and for science for 65/71/71. Robust linear mixed-effects models with countries as random effects confirmed significantly lower MAPE, MAE, and MSE for stacking versus the other ensembles. Methodologically, the paper does not report a detailed missing-data handling protocol beyond converting multiple response codes to NaN and not imputing, and it does not discuss survey-weight application, which may affect generalizability under PISA’s complex sampling design.",

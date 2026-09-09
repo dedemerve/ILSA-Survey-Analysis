@@ -315,7 +315,7 @@
           "HISEI"
         ],
         "performance_metrics": "Random Forest + Boruta feature selection; model performance metrics not reported (importance coefficients reported).",
-        "standardized_conclusion": "Using PISA 2018 data for OECD countries, the study leveraged total weekly teaching load (CPERWEEK), foreign-language weekly lessons (CPERFORLAN), ICT resources (ICTRES), ESCS, and highest parental occupational status (HISEI) to predict country success in reading, finding that CPERWEEK and CPERFORLAN were among the strongest predictors while metacognition credibility (METASPAM) had the lowest coefficient among the selected set. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 data for OECD countries, the study leveraged total weekly teaching load (CPERWEEK), foreign-language weekly lessons (CPERFORLAN), ICT resources (ICTRES), ESCS, and highest parental occupational status (HISEI) to predict country success in reading, finding that CPERWEEK and CPERFORLAN were among the strongest predictors while metacognition credibility (METASPAM) had the lowest coefficient among the selected set."
       },
       {
         "dataset_used": "PISA 2018 (OECD countries) — Mathematics performance classification",
@@ -328,7 +328,7 @@
           "ICTRES"
         ],
         "performance_metrics": "Random Forest + Boruta feature selection; model performance metrics not reported (importance coefficients reported).",
-        "standardized_conclusion": "Using PISA 2018 data for OECD countries, the study leveraged academic competitiveness (COMPETE), highest parental occupational status (HISEI), metacognition credibility (METASPAM), ESCS, and ICT resources (ICTRES) to predict country success in mathematics, finding that COMPETE had the highest estimation coefficient among the selected predictors while CPERWEEK had the lowest estimation coefficient. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 data for OECD countries, the study leveraged academic competitiveness (COMPETE), highest parental occupational status (HISEI), metacognition credibility (METASPAM), ESCS, and ICT resources (ICTRES) to predict country success in mathematics, finding that COMPETE had the highest estimation coefficient among the selected predictors while CPERWEEK had the lowest estimation coefficient."
       },
       {
         "dataset_used": "PISA 2018 (OECD countries) — Science performance classification",
@@ -341,7 +341,7 @@
           "COMPETE"
         ],
         "performance_metrics": "Random Forest + Boruta feature selection; model performance metrics not reported (importance coefficients reported).",
-        "standardized_conclusion": "Using PISA 2018 data for OECD countries, the study leveraged metacognition credibility (METASPAM), ICT resources (ICTRES), total weekly teaching load (CPERWEEK), perceived difficulty of PISA (PISADIFF), and academic competitiveness (COMPETE) to predict country success in science, finding that METASPAM and ICTRES were the most influential while COMPETE had the smallest estimation coefficient. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "standardized_conclusion": "Using PISA 2018 data for OECD countries, the study leveraged metacognition credibility (METASPAM), ICT resources (ICTRES), total weekly teaching load (CPERWEEK), perceived difficulty of PISA (PISADIFF), and academic competitiveness (COMPETE) to predict country success in science, finding that METASPAM and ICTRES were the most influential while COMPETE had the smallest estimation coefficient."
       }
     ],
     "outcome_summary": "The study uses PISA 2018 data from 37 OECD countries and applies Random Forest with Boruta-based feature selection to identify predictors of country success (high vs low) in reading, mathematics, and science relative to OECD-average thresholds. Across domains, ICT resources (ICTRES) and weekly instructional time (captured via CPERWEEK and domain-specific lesson variables) emerge as consistently important, alongside socioeconomic/cultural status (ESCS) and parents’ occupational status (HISEI). Metacognition credibility (METASPAM) is a key predictor in all three domains, while domain-specific factors include foreign-language weekly lessons for reading, competitiveness (COMPETE) for mathematics (and also science), and perceived difficulty of PISA (PISADIFF) plus reading enjoyment (JOYREAD) for science. The paper reports variable importance and coefficient estimates but does not provide standard predictive performance metrics (e.g., accuracy/AUC/R²). It also cautions that Random Forest does not establish causal relationships, and the manuscript does not report any survey-weighting or PV-combining procedures for achievement outcomes.",
