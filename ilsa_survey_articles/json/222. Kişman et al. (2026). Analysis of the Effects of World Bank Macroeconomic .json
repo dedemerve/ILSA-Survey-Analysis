@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "file_name": "222. Kişman et al. (2026). Analysis of the Effects of World Bank Macroeconomic and Management Indicators on Sustainable Education Quality on PISA Scores Using the SHAP Explainable Artificial Intelligence Method.pdf",
+    "title": "Analysis of the Effects of World Bank Macroeconomic and Management Indicators on Sustainable Education Quality on PISA Scores Using the SHAP Explainable Artificial Intelligence Method",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/su18031415",
+    "venue": "Sustainability",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study constructs country-level datasets by combining PISA domain scale scores (PISAM, PISAR, PISAS) with World Bank governance/economic indicators, Economist Intelligence Unit democracy, and regional category dummies, then trains ML classifiers to assign each country-year observation to Low/Medium/High achievement classes. The manuscript does not report the use of PISA sampling/survey weights or any complex survey design adjustments; instead, it treats the analysis as an aggregate country/region-level modeling exercise. Because the models are tree-based (Random Forest and XGBoost) and the paper does not mention any weight variables (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures, the most consistent interpretation is that the analysis is unweighted. Preprocessing includes two-stage feature elimination (correlation thresholding and VIF filtering), scaling of numerical variables, and trend-based interpolation to impute missing PISA scores before model training."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "The dependent variables are PISA scale scores that are used to create fixed Low/Medium/High classes via domain-specific cutoffs, rather than modeling PV-based achievement scores with standard PV combining rules. Missingness is addressed through trend-based interpolation of PISA scores across years, which is not described using a standard PV framework; therefore PV handling is not applicable and the missing-data strategy is treated as a model-based interpolation/imputation approach rather than a documented PV multiple-imputation protocol.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "The paper does not report a student-level analytic sample or any grade/school subsampling; it instead builds three country-year datasets (one per target: PISAM, PISAR, PISAS) using the same explanatory features. Inclusion is effectively restricted to country-year observations for which PISA domain scale scores are available (then imputed via trend-based interpolation when missing) and for which the governance/economic/democracy/regional indicators are available; the manuscript does not provide explicit country coverage or per-country counts."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Random Forest",
+        "XGBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "CoC",
+        "variable_name": "Control of corruption",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "GE",
+        "variable_name": "Government effectiveness",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "PS",
+        "variable_name": "Political stability",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "RQ",
+        "variable_name": "Regulatory quality",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "RL",
+        "variable_name": "Rule of law",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "voice",
+        "variable_name": "Voice",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "accountability",
+        "variable_name": "accountability",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "DEM",
+        "variable_name": "Democracy index",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "RCAT",
+        "variable_name": "Regional category (bloc)",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "ECAT",
+        "variable_name": "Economic category",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "GDP",
+        "variable_name": "Gross domestic product",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "GDPPC",
+        "variable_name": "GDP per capita",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "Yearc_C",
+        "variable_name": "Centered observation year",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA Mathematics (PISAM) scale scores (country-year), Low/Medium/High classes",
+        "target_variable": "PISAM achievement class (Low/Medium/High)",
+        "top_predictors": [
+          "Voice and accountability",
+          "Control of corruption",
+          "Political stability",
+          "Regional category (bloc)",
+          "GDP per capita"
+        ],
+        "performance_metrics": "XGBoost (best model). Class-based metrics (Precision/Recall/F1): Low 0.97/0.97/0.97 (Support 110); Medium 0.91/0.93/0.92 (Support 107); High 0.96/0.94/0.95 (Support 111). General metrics: Train Accuracy 1.0; Test Accuracy 0.93–0.95; ROC-AUC 0.98–1.00; Macro Avg and Weighted Avg ≈0.93–0.95.",
+        "standardized_conclusion": "Using PISA Mathematics (PISAM) scale scores the study leveraged Voice and accountability, Control of corruption, Political stability, Regional category (bloc), and GDP per capita to predict PISAM achievement class (Low/Medium/High), finding that governance indicators (especially Voice and accountability and Control of corruption) form the most salient institutional core, with Political stability and regional location differentiating the high-achieving class. This indicates that strengthening transparency/accountability and anti-corruption capacity may be a cross-cutting lever for improving sustainable education performance profiles, though the results are predictive associations at the country level rather than causal effects."
+      },
+      {
+        "dataset_used": "PISA Reading (PISAR) scale scores (country-year), Low/Medium/High classes",
+        "target_variable": "PISAR achievement class (Low/Medium/High)",
+        "top_predictors": [
+          "Voice and accountability",
+          "Control of corruption",
+          "GDP",
+          "GDP per capita",
+          "Regional category (bloc)"
+        ],
+        "performance_metrics": "XGBoost (best model). Class-based metrics (Precision/Recall/F1): Low 0.95/0.97/0.96 (Support 108); Medium 0.94/0.84/0.89 (Support 112); High 0.90/0.97/0.93 (Support 108). General metrics: Train Accuracy 1.0; Test Accuracy 0.93–0.95; ROC-AUC 0.98–1.00; Macro Avg and Weighted Avg ≈0.93–0.95.",
+        "standardized_conclusion": "Using PISA Reading (PISAR) scale scores the study leveraged Voice and accountability, Control of corruption, GDP, GDP per capita, and Regional category (bloc) to predict PISAR achievement class (Low/Medium/High), finding that the institutional core (governance) is complemented more strongly by economic capacity for distinguishing classes, with high classes associated with stronger governance plus higher income and stability. This indicates that sustainable literacy improvements may require pairing governance reforms with targeted investment capacity, while SHAP-based explanations should not be interpreted as causal impacts of specific policy interventions."
+      },
+      {
+        "dataset_used": "PISA Science (PISAS) scale scores (country-year), Low/Medium/High classes",
+        "target_variable": "PISAS achievement class (Low/Medium/High)",
+        "top_predictors": [
+          "Voice and accountability",
+          "Control of corruption",
+          "Political stability",
+          "Regional category (bloc)",
+          "GDP"
+        ],
+        "performance_metrics": "XGBoost (best model). Class-based metrics (Precision/Recall/F1): Low 0.95/1.00/0.97 (Support 107); Medium 0.95/0.90/0.92 (Support 116); High 0.94/0.95/0.95 (Support 105). General metrics: Train Accuracy 1.0; Test Accuracy 0.93–0.95; ROC-AUC 0.98–1.00; Macro Avg and Weighted Avg ≈0.93–0.95.",
+        "standardized_conclusion": "Using PISA Science (PISAS) scale scores the study leveraged Voice and accountability, Control of corruption, Political stability, Regional category (bloc), and GDP to predict PISAS achievement class (Low/Medium/High), finding that governance signals jointly operate with regional bloc differentiation and large-scale economic capacity to distinguish the high-achieving class. This indicates that STEM-oriented sustainable education strategies may benefit from regional peer-learning and institutional diffusion mechanisms alongside governance and capacity building, while the study remains a predictive/explanatory profile mapping rather than a causal evaluation."
+      }
+    ],
+    "outcome_summary": "The study builds three country-year classification datasets using PISA Mathematics (PISAM), Reading (PISAR), and Science (PISAS) scale scores, each converted into Low/Medium/High classes using fixed domain-specific cutoffs. After two-stage feature selection (correlation elimination at |r|≥0.90 and VIF filtering with VIF>7.0) and scaling, the authors train Random Forest and XGBoost models and select XGBoost as the best-performing approach for all three targets. Classification performance is high: class-wise Precision/Recall/F1 are mostly above 0.90, with Train Accuracy reported as 1.0 and Test Accuracy around 0.93–0.95; ROC-AUC is reported in the 0.98–1.00 band. Explanations are produced with SHAP and evaluated using Fidelity and Faithfulness, yielding 0.95/0.85 (PISAM), 0.89/0.92 (PISAR), and 0.89/0.89 (PISAS). Limitations include the aggregate country-level unit of analysis, unweighted modeling (no survey weights reported), and the fact that SHAP indicates predictive associations rather than causal effects of interventions.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "file_name": "221. Tahri et al. (2026). Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022.pdf",
+    "title": "Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022",
+    "authors": [
+      "Dahman Tahri",
+      "Ji Liu",
+      "Millicent Aziku"
+    ],
+    "year": 2026,
+    "doi": "10.1007/s40647-026-00459-6",
+    "venue": "Fudan Journal of the Humanities and Social Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the publicly available PISA 2022 student dataset and restricts the analytic sample to students who took Module 8 (non-cognitive skills) and meet missingness thresholds. The manuscript describes missing-data handling by recoding invalid/skipped/not applicable responses as system missing and then dropping records with missing values across the dependent variable and all predictor groups, but it does not report applying PISA sampling weights or replicate weights. Because the analysis is implemented in Stata/Python with supervised ML regression models (LASSO, Random Forest, Gradient Boosting) and the paper does not mention any weight-aware estimation, it is unclear whether complex survey design weights were used; the safest interpretation is that weights were not incorporated or not reported. Analysts should therefore treat the results as conditional on the selected analytic sample and the reported complete-case rule, and should verify in the original PISA microdata documentation whether weights were applied in the ML pipeline."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because the dependent variable is an equally weighted composite index of non-cognitive skills (NCS) constructed from Likert-scale items, rather than a PV-based cognitive achievement score. Since the outcome is not a PV-based ILSA achievement scale, the paper does not require PV generation/combining rules. Missing data handling is reported as dropping observations with missing values across the dependent variable and predictor groups (complete-case approach), so the PV-related transparency issue does not apply here.",
+    "sample_details": {
+      "total_students": 75217,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Analytic sample is restricted to students who participated in PISA 2022 Module 8 (non-cognitive skills). The paper applies a complete-case inclusion rule: invalid, skipped, and not applicable responses are recoded as system missing; observations with missing data are dropped. Additional inclusion criteria specify that students are included if they have less than 10% missing data overall, and they are excluded if the dependent variable (non-cognitive skills composite) is missing or if any predictor factor within the three independent groups (background characteristics, cognitive-motivational traits, cognitive performance indicators) has missing values."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting",
+      "all_techniques": [
+        "LASSO",
+        "Gradient Boosting",
+        "Random Forest",
+        "Linear Regression"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "AGE",
+        "variable_name": "age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "GENDER",
+        "variable_name": "gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Early childhood education",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "EXPECEDU",
+        "variable_name": "Expected educational level",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother’s level of education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration background",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "MATHPERS",
+        "variable_name": "Mathematics proactive behavior",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MATHEF21",
+        "variable_name": "21st century mathematics efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Mathematics self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXMATH",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPSUP",
+        "variable_name": "Mathematics perceived support",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPREF",
+        "variable_name": "Mathematics preference",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHMOT",
+        "variable_name": "Mathematics motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEASE",
+        "variable_name": "Perception of math as easier",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AVGMATH",
+        "variable_name": "Average score in mathematics",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "AVGREAD",
+        "variable_name": "Average score in reading",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "AVGSCIE",
+        "variable_name": "Average score in science",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "average_score_in_change",
+        "variable_name": "Average score in change",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "relationships",
+        "variable_name": "relationships",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "AVGMCQN",
+        "variable_name": "Average score of quantity",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "average_score_of_space",
+        "variable_name": "Average score of space",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "shape",
+        "variable_name": "shape",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "average_score_of_uncertainty",
+        "variable_name": "Average score of uncertainty",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "data",
+        "variable_name": "data",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "AVGMPEM",
+        "variable_name": "Average score employing concepts",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "AVGMPFS",
+        "variable_name": "Average score formulating situations",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Module 8 (Non-cognitive skills composite; age 15, OECD countries/partner economies)",
+        "target_variable": "Non-cognitive skills (NCS) composite index",
+        "top_predictors": [
+          "Mathematics proactive behavior",
+          "Sense of belonging",
+          "Expected educational level",
+          "Family support",
+          "Average score in science"
+        ],
+        "performance_metrics": "Nested cross-validation with RMSE/MSE/MAE and R². Best model: Gradient Boosting — test MSE=0.2399, RMSE=0.4897, MAE=0.3575, R²=0.3038 (mean across outer folds). Random Forest: test MSE=0.2447, RMSE=0.4946, MAE=0.3609, R²=0.2898. LASSO: test MSE=0.2529, RMSE=0.5031, MAE=0.3689, R²=0.2663. OLS: test R²≈0.2664 with higher MSE/RMSE than GBM.",
+        "standardized_conclusion": "Using PISA 2022 Module 8 the study leveraged mathematics proactive behavior, sense of belonging, expected educational level, family support, and average score in science to predict students’ non-cognitive skills composite (NCS), finding that Gradient Boosting Machine outperformed OLS, LASSO, and Random Forest on test RMSE/MSE/MAE and achieved the highest explained variance (R²≈0.304). This indicates that strengthening cognitive-motivational supports (e.g., proactive behaviors, self-beliefs, and reduced math anxiety) alongside belonging- and aspiration-focused school-family practices may improve students’ non-cognitive development, though the cross-sectional design and complete-case ML pipeline limit causal interpretation and generalizability."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2022 student microdata (age 15) from ten OECD countries/partner economies and focuses on Module 8 non-cognitive skills. The dependent variable is an equally weighted composite index (NCS) built from Likert-scale items across five OECD non-cognitive domains/facets, with reported composite reliability (CR=0.74). After recoding invalid/skipped/not applicable responses as missing, the authors apply a complete-case rule (dropping observations with missing values in the dependent variable and any predictor factor) and evaluate models using nested cross-validation (5-fold outer, 5-fold inner hyperparameter tuning). Gradient Boosting Machine is the best-performing model, with test MSE≈0.2399, RMSE≈0.4897, MAE≈0.3575, and R²≈0.3038, outperforming Random Forest and LASSO/OLS. The paper uses SHAP for interpretation, but because the design is cross-sectional and weights/hierarchical survey design handling are not reported, the results should be treated as predictive associations rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

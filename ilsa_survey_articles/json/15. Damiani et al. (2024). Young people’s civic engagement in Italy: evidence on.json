@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "file_name": "15. Damiani et al. (2024). Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016.pdf",
+    "title": "Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016",
+    "authors": [
+      "Damiani",
+      "et al."
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00229-4",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "total student weight (normalized)",
+      "weight_fields_interpretation": "The study uses ICCS 2016 microdata for Italy (grade 8) and applies student/sampling weights in all analyses, as stated in the Data analysis section. The authors normalize the total student weight so that the sum of weights equals the student sample size, and then run descriptive/correlational analyses in IDB Analyzer 5.0. For the latent profile analysis (LPA) and the subsequent logistic regressions, the manuscript indicates the analyses were conducted using the student weights, but it does not report replicate-weight methodology (e.g., BRR/jackknife). The analytic sample is restricted to students with complete data on explanatory variables (missing values excluded), with an overall exclusion rate of 3%, and all participating schools in Italy are included."
+    },
+    "plausible_values_handling": "all_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 3329,
+      "countries": [
+        {
+          "country_code": "ITA",
+          "n_students": 3329
+        }
+      ],
+      "sample_filtering_criteria": "Used ICCS 2016 Italy grade 8 student data. All participating schools in Italy were included (170 schools). Students with missing values for one or more explanatory variables were excluded from the analysis (overall exclusion rate 3%). The final analytic sample consists of 3329 eighth-grade students aged 12.3–17.1 years."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "CITEFF",
+        "variable_name": "Citizenship self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SOCMED",
+        "variable_name": "Engagement with social media",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "INTRUST",
+        "variable_name": "Trust in civic institutions",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CIVLRN",
+        "variable_name": "Civic learning at school",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "OPDISC",
+        "variable_name": "Open classroom discussion",
+        "category": "school"
+      },
+      {
+        "variable_code": "CIVKNOW",
+        "variable_name": "Civic knowledge",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "ICCS 2016 Grade 8 (Italy) civic engagement profiles",
+        "target_variable": "Civic engagement profile membership (disengaged/moderately engaged/engaged)",
+        "top_predictors": [
+          "Citizenship self-efficacy",
+          "Trust in civic institutions",
+          "Engagement with social media",
+          "Open classroom discussion",
+          "Civic learning at school"
+        ],
+        "performance_metrics": "Latent profile analysis fit: 3-profile solution (AIC/BIC/ABIC decreased; entropy 0.79). Logistic regression: odds ratios (OR) reported; effect sizes mostly weak; no overall classification accuracy reported. Additional analysis (Civic knowledge differences across engagement profiles (PVs)): Logistic regression results for civic knowledge: OR=1.00 (SE=0.01) for Group 1 vs Group 2 and OR=1.00 (SE=0.01) for Group 3 vs Group 2; no statistically significant associations reported.",
+        "standardized_conclusion": "Using ICCS 2016 Grade 8 (Italy) the study leveraged citizenship self-efficacy, trust in civic institutions, engagement with social media, open classroom discussion, and civic learning at school to model civic engagement profile membership, finding that students in the engaged profile were characterized by higher citizenship self-efficacy (Group 3 vs Group 2 OR=1.5) and generally higher levels of the other school-context and attitude/behavior variables, while civic knowledge showed no statistically significant association. This indicates that strengthening students’ perceived capability to act civically—supported by open classroom discussion and school learning opportunities—may be more actionable for improving civic engagement than focusing primarily on civic knowledge alone, though the cross-sectional design limits causal claims."
+      }
+    ],
+    "outcome_summary": "The study analyzes ICCS 2016 Italy grade 8 data to identify distinct civic engagement profiles and test how school-context and student-attitude/behavior factors relate to profile membership. Using latent profile analysis, the authors select a three-profile solution (disengaged 7%, moderately engaged 61%, engaged 32%) with entropy reported as 0.79 and fit indices (AIC/BIC/ABIC) supporting the three-class interpretability. In follow-up logistic regressions comparing disengaged and engaged groups to the moderately engaged reference, citizenship self-efficacy emerges as the most relevant differentiator (Group 3 vs Group 2 OR=1.5), while trust in civic institutions, social media engagement, open classroom discussion, and civic learning at school also show positive associations with the engaged profile. Civic knowledge is modeled as the dependent outcome using all five plausible values, but no statistically significant differences are found across profiles. The analysis excludes students with missing explanatory variables (3% overall exclusion) and is cross-sectional, so results describe associations rather than causal effects.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

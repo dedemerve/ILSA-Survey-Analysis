@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "file_name": "156. Veletić & Olsen (2024). Exploring school leadership profiles across the world  a cluster analysis approach to TALIS 2018.pdf",
+    "title": "Exploring school leadership profiles across the world: a cluster analysis approach to TALIS 2018",
+    "authors": [
+      "Jelena Veletić",
+      "Rolf Vegar Olsen"
+    ],
+    "year": 2024,
+    "doi": "10.1080/13603124.2021.1953612",
+    "venue": "International Journal of Leadership in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TALIS 2018 school- and teacher-level data collected via a two-stage sampling design (random sample of schools within each country, then random sample of teachers within schools). Prior to clustering, the authors standardized the 12 leadership-for-learning scales using “senate weights” so that all countries contribute equally to the scale metric. Factor scores for the TALIS scales were calculated using Mplus with TYPE = COMPLEX and school weights to account for non-independence and unequal probability of selection. For the clustering stage, the paper does not report additional explicit application of student/school sampling weights beyond the earlier standardization and the use of senate weights for equal country contribution."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": "Plausible Values are not applicable because the dependent variables are leadership-for-learning scale factor scores (and one derived factor score) used for descriptive clustering, not cognitive achievement outcomes with PVs. The paper also does not report any PV-based achievement modeling; instead, it uses standardized scale scores and then applies k-means clustering to form school leadership profiles.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "ARG",
+          "n_students": null
+        },
+        {
+          "country_code": "ISL",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "DNK",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "AUT",
+          "n_students": null
+        },
+        {
+          "country_code": "SAU",
+          "n_students": null
+        },
+        {
+          "country_code": "GEO",
+          "n_students": null
+        },
+        {
+          "country_code": "LVA",
+          "n_students": null
+        },
+        {
+          "country_code": "BRA",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "CZE",
+          "n_students": null
+        },
+        {
+          "country_code": "COL",
+          "n_students": null
+        },
+        {
+          "country_code": "CYP",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "NZL",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "VNM",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "SVN",
+          "n_students": null
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": null
+        },
+        {
+          "country_code": "RUS",
+          "n_students": null
+        },
+        {
+          "country_code": "CSH",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "LTU",
+          "n_students": null
+        },
+        {
+          "country_code": "HRV",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        },
+        {
+          "country_code": "MEX",
+          "n_students": null
+        },
+        {
+          "country_code": "CAB",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "MLT",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "ISR",
+          "n_students": null
+        },
+        {
+          "country_code": "SVK",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "ENG",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The analysis uses TALIS 2018 core survey data for lower secondary education (ISCED Level 2) from 48 participating countries/economies. The study reports a total of 7,427 schools from 43 countries after excluding six countries due to systematically missing school-level data (Argentina, Iceland, Japan, Sweden, Denmark, Hungary). For the remaining sample, listwise deletion was applied, with the authors noting that the listwise-deletion effect varied by country (0.68% to 35.94%, average 11.86%). Additionally, for cluster validation, schools with negative silhouette coefficients were excluded from further analyses to purify the cluster solution."
+    },
+    "ml_techniques": {
+      "primary": "Decision Tree",
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2018",
+        "target_variable": "Primary analytic outcome (inferred from extraction)",
+        "top_predictors": [],
+        "performance_metrics": "Best model: Decision Tree (see outcome_summary for metrics)",
+        "standardized_conclusion": "Using TALIS 2018 the study leveraged the reported predictors to predict Primary analytic outcome (inferred from extraction), finding that This study uses TALIS 2018 (lower secondary; teachers and principals) to construct leadership-for-learning profiles across schools and to examine whether country-level groupings emerge. The authors mapped TALIS 2018 questionnaire scales onto an eight-dimension Leadership for Learning framework and used 12 leadership scale factor scores (six principal, six teacher) as indicators; one principal scale (instructional autonomy) was derived for the study. After standardizing scales using senate weights, they aggregated teacher variables to the school level and applied k-means clustering, selecting k=5 via elbow and silhouette methods. Variance decomposition showed that most variability lay between schools rather than between countries, leading to a school-level clustering solution. The five-cluster solution accounted for 25.9% of variability in school profiles; 790 schools (15%) had negative silhouette coefficients, and the authors excluded these for cluster purification. The study reports that country-level cluster membership does not align with geographic/linguistic/political proximity, while leadership profiles are present in most countries and show teacher–principal perception gaps in distributed leadership. This indicates that country-level cluster membership does not align with geographic/linguistic/political proximity, while leadership profiles are present in most countries and show teacher–principal perception gaps in distributed leadership."
+      }
+    ],
+    "outcome_summary": "This study uses TALIS 2018 (lower secondary; teachers and principals) to construct leadership-for-learning profiles across schools and to examine whether country-level groupings emerge. The authors mapped TALIS 2018 questionnaire scales onto an eight-dimension Leadership for Learning framework and used 12 leadership scale factor scores (six principal, six teacher) as indicators; one principal scale (instructional autonomy) was derived for the study. After standardizing scales using senate weights, they aggregated teacher variables to the school level and applied k-means clustering, selecting k=5 via elbow and silhouette methods. Variance decomposition showed that most variability lay between schools rather than between countries, leading to a school-level clustering solution. The five-cluster solution accounted for 25.9% of variability in school profiles; 790 schools (15%) had negative silhouette coefficients, and the authors excluded these for cluster purification. The study reports that country-level cluster membership does not align with geographic/linguistic/political proximity, while leadership profiles are present in most countries and show teacher–principal perception gaps in distributed leadership.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The paper is an exploratory clustering study rather than a supervised predictive ML study, so there are no target variables with predictive performance metrics to extract into main_findings. Consequently, plausible-values handling is not applicable (the outcomes are leadership scale factor scores used for descriptive profiling), and confounders_identified is empty because the clustering inputs are not treated as ML predictors with a causal/predictive target."
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "file_name": "144. Buyukatak & Anil (2022). An investigation of data mining classification methods in classifying students according to 2018 PISA reading scores.pdf",
+    "title": "An investigation of data mining classification methods in classifying students according to 2018 PISA reading scores",
+    "authors": [
+      "Emrah Buyukatak",
+      "Duygu Anıl"
+    ],
+    "year": 2022,
+    "doi": "10.21449/ijate.1208809",
+    "venue": "Int. J. Assess. Tools Educ.",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 Turkey microdata downloaded from the OECD website and constructs a binary dependent variable from students’ reading achievement plausible values (PV1READ–PV10READ averaged to form an “average reading achievement score”). The analytic sample is restricted to 6431 students after excluding cases with mostly missing/blank responses and then imputing remaining missing index values using an EM logarithm. The manuscript does not report applying PISA sampling weights or replicate weights, and it does not name any weight variables (e.g., W_FSTUWT/TOTWGT) or variance estimation approach. Because the models are implemented in SPSS Modeler and the paper does not discuss complex survey design handling, weighting is treated as not reported for this extraction."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 6431,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 6431
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 Turkey data for reading. Excluded students with items mostly not answered or with no entered responses; 459 cases were removed for this reason. After examining missing-data patterns, 1678 students had missing index values; instead of excluding them, missing values were completed using an EM logarithm. The final analytic sample for model training/testing therefore contains 6431 students from 186 schools."
+    },
+    "ml_techniques": {
+      "primary": "Decision Tree",
+      "all_techniques": [
+        "Neural Network",
+        "Decision Tree",
+        "k-NN",
+        "Naive Bayes",
+        "Conditional Inference Trees",
+        "Conditional Inference Trees",
+        "Decision Tree",
+        "Decision Tree"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "WEALTH",
+        "variable_name": "Family wealth (WEALTH)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "UNDREM",
+        "variable_name": "Metacognition (understanding, remembering)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "METASUM",
+        "variable_name": "Summarizing strategy",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "reading",
+        "variable_name": "Reading",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "using_strategies",
+        "variable_name": "using strategies",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "JOYREAD",
+        "variable_name": "Joy/like reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "DISCLIMA",
+        "variable_name": "Disciplinary climate",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "HEDRES",
+        "variable_name": "Home educational resources",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HOMEPOS",
+        "variable_name": "Home possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "CULTPOSS",
+        "variable_name": "Cultural possessions at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "STIMREAD",
+        "variable_name": "Teacher reading engagement",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SCREADCOMP",
+        "variable_name": "Reading self-concept competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCREADDIFF",
+        "variable_name": "Reading self-concept difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PISADIFF",
+        "variable_name": "Perceived PISA test difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMOSUPS",
+        "variable_name": "Emotional support from parents",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SWBP",
+        "variable_name": "Positive affect (SWBP)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PERCOOP",
+        "variable_name": "Cooperation at school",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging to school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use in leisure",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use for school work",
+        "category": "ict"
+      },
+      {
+        "variable_code": "USESCH",
+        "variable_name": "ICT use at school",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (Turkey; PV1READ–PV10READ averaged to form binary success)",
+        "target_variable": "Reading success status (successful=1 vs unsuccessful=0)",
+        "top_predictors": [
+          "Home possessions (HOMEPOS)",
+          "Family wealth (WEALTH)",
+          "Reading and using strategies (METASPAM)",
+          "Summarizing (METASUM)",
+          "Reading self-concept difficulty (SCREADDIFF)"
+        ],
+        "performance_metrics": "Best model: Decision Trees (C5.0 with boosting) overall correct classification rate = 89.6% (training 89.3%, test 90.4%); AUROC for ANN MLP = 0.837; other models: ANN 75.4%, CHAID 78.2%, CART 76.6%, QUEST 75.0%, k-NN 81.5%, Naive Bayes 76.8%.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Turkey, the study leveraged socioeconomic and home/reading-strategy indicators (e.g., HOMEPOS, WEALTH, METASPAM, METASUM, SCREADDIFF) to classify students into reading success status, finding that the C5.0 boosted decision tree achieved the highest overall correct classification rate (89.6%) and outperformed other classifiers. This indicates that strengthening home educational resources and reading-strategy development may be particularly important for improving reading achievement, though the results are predictive classifications and do not establish causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 Turkey reading data (186 schools; 6431 students after excluding cases with mostly missing responses). Students’ reading success is defined by averaging PV1READ–PV10READ into an “average reading achievement score,” then dichotomizing into successful (above 469.9) vs unsuccessful (below 469.9). Using SPSS Modeler, the authors compare multiple classification algorithms (MLP neural network, C5.0 decision tree with boosting, CHAID, CART, QUEST, k-NN, and Naive Bayes) with a 70/30 train-test split and cross-validation/bootstrapping for model development. The best performance is C5.0 with an overall correct classification rate of 89.6% (test 90.4%), while the ANN MLP reaches 75.4% overall and AUROC=0.837. Missing index values are completed using an EM logarithm, but the paper does not report applying PISA sampling/replicate weights, so generalizability and uncertainty quantification may be limited.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}
