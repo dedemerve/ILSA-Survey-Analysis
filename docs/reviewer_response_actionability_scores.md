@@ -7,27 +7,6 @@ duplicate names already present in `json/`).
 
 ## Corrected Results paragraph (replace the n = 130 text)
 
-Across the corpus, the mean actionability score was $3.71$
-($\mathrm{SD} = 0.79$). Score distributions were: Score~1 ($n = 7$),
-Score~2 ($n = 18$), Score~3 ($n = 1$), Score~4 ($n = 187$), and
-Score~5 ($n = 2$), yielding
-$\bar{x} = (1{\times}7 + 2{\times}22 + 3{\times}1 + 4{\times}187 + 5{\times}2)
-\div 219 = 812 \div 219 = 3.71$.
-Each study receives exactly one integer score (1--5) from a hierarchical
-rule set over the $(D_1, D_2, D_3)$ triple (e.g.\ Score~5 requires
-Causal\,+\,Quantified\,+\,Bounded; Score~4 requires Correlational\,+\,Quantified
-regardless of $D_3$). Score assignment was applied programmatically in
-Layer~2; the scoring function is included in the publicly available
-pipeline scripts (see Data Availability Statement).
-
-**Typo fix vs. prior draft:** Score~2 is $n = 22$ (not 18). The arithmetic
-line above uses $n_2 = 22$.
-
-Corrected Score~2 wording for the prose list:
-
-Score distributions were: Score~1 ($n = 7$), Score~2 ($n = 22$),
-Score~3 ($n = 1$), Score~4 ($n = 187$), and Score~5 ($n = 2$).
-
 ## Final LaTeX-ready paragraph
 
 ```latex
