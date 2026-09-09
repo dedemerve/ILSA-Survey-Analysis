@@ -1,12 +1,12 @@
 {
   "metadata": {
     "file_name": "6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Explainable Deep Learning Approach Using TIMSS 2019 Data.pdf",
-    "title": "Uncovering Key Factors of Student Performance in Math: An Explainable Deep Learning Approach Using TIMSS2019 Data",
+    "title": "Uncovering Key Factors of Student Performance in Math: An Explainable Deep Learning Approach Using TIMSS 2019 Data",
     "authors": [
-      "S. Elouafi",
-      "A. Elouafi",
-      "I. T.",
-      "R. T."
+      "S.E. Elouafi",
+      "A.E.",
+      "I.T.",
+      "R.T."
     ],
     "year": 2025,
     "doi": "10.3390/info16060480",
@@ -17,14 +17,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses TIMSS 2019 international database data and restricts the analysis to Moroccan eighth-grade students. The authors report removing technical variables (including identifiers, weights, and metadata) from the predictive modeling phase, and they do not describe applying TIMSS sampling weights or replicate weights in the ML training/evaluation. Because the modeling pipeline is based on autoencoders followed by supervised classifiers (SVM, XGBoost, Random Forest, Decision Tree) and the manuscript does not state any weight-aware estimation procedure, the analysis is treated as unweighted. The main preprocessing described is variable filtering (removing technical variables, high-missingness variables, redundant score variables, and PV reference variables) and constructing a binary target from PV tiers."
+      "weight_fields_interpretation": "The study uses TIMSS 2019 international database data and restricts the analytic sample to Moroccan eighth-grade students. The authors describe stratified random sampling at the TIMSS design level and construct a binary target from TIMSS plausible values (PVs), but they do not report applying any student/sampling weights or replicate weights in the machine-learning training/evaluation. They explicitly remove technical variables (including identifiers, weights, and metadata) from the predictive modeling phase, which suggests weights were not used as model inputs; however, the manuscript does not state whether survey weights were used for weighted estimation or evaluation. Because the models are standard classifiers trained on latent features (autoencoder + RF/XGBoost/SVM/DT), the paper does not document a complex-survey-weighted ML procedure, so results should be interpreted as unweighted (or at least not transparently weighted) estimates for the Moroccan eighth-grade population."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper does not report a specific missing-data handling method (e.g., listwise/pairwise deletion rules, multiple imputation, or an imputation model). Instead, it describes excluding variables with 100% missingness and removing variables with >50% missingness, but it does not clarify how remaining item-level missingness within the retained variables was handled for model training. This is a reporting gap because missingness handling can affect both the learned latent representations and the downstream classifier performance.",
+    "handling_not_reported_explanation": "The paper constructs a binary target by grouping TIMSS PV tiers (Low vs Intermediate/High/Very High) but does not document how the five PVs were combined into a single classification target (e.g., whether PVs were averaged, treated as multiple observations, or combined via a specific rule). It also does not report any explicit missing-data handling strategy for questionnaire variables after the described variable-exclusion steps (e.g., whether remaining missing values were imputed or cases were removed). Given that TIMSS questionnaire data typically contain item nonresponse, this omission is a reporting gap that limits reproducibility and may affect model calibration and feature importance stability.",
     "sample_details": {
       "total_students": 8458,
       "countries": [
@@ -33,7 +33,7 @@
           "n_students": 8458
         }
       ],
-      "sample_filtering_criteria": "The dataset was extracted from the TIMSS 2019 international database and restricted exclusively to Moroccan students enrolled in eighth grade (collège; ages typically 13–14). From an initial set of ~700 questionnaire variables, the authors removed technical variables (including identifiers, weights, metadata, and duplicates), excluded variables with 100% missingness (including items not administered in the Moroccan version), removed additional variables with >50% missingness, discarded redundant numerical score variables, and excluded PV reference variables to avoid bias in predictive modeling. The final modeling dataset contained 400 variables. The target was constructed from TIMSS PVs by merging PV tiers (Intermediate, High, Very High) into one “higher performance” class versus “Low” performance."
+      "sample_filtering_criteria": "Used TIMSS 2019 international database and restricted to Morocco (eighth grade / collège; ages ~13–14). Built the modeling dataset from student, teacher, and school questionnaires, starting with 700 variables and removing 41 technical variables (identifiers/weights/metadata/duplicates), excluding 61 variables with 100% missingness (not administered in Morocco), excluding 74 variables with >50% missingness (rarely implemented school policies), discarding 29 redundant variables already captured in alternative formats, and excluding 95 reference variables including plausible values (PVs) from the predictive modeling inputs. Created the binary target from PV tiers by merging Intermediate/High/Very High into one class and keeping Low as the other class to address class imbalance."
     },
     "ml_techniques": {
       "primary": "SVM",
@@ -42,8 +42,7 @@
         "Random Forest",
         "XGBoost",
         "SVM",
-        "Decision Tree",
-        "SHAP"
+        "Decision Tree"
       ]
     },
     "confounders_identified": [
@@ -64,7 +63,7 @@
       },
       {
         "variable_code": "BTBG12B",
-        "variable_name": "Teachers ask to explain answers",
+        "variable_name": "Teachers ask for explanations",
         "category": "teacher"
       },
       {
@@ -79,7 +78,7 @@
       },
       {
         "variable_code": "BCBG10A",
-        "variable_name": "Availability of a school library",
+        "variable_name": "Availability of school library",
         "category": "school"
       },
       {
@@ -89,17 +88,7 @@
       },
       {
         "variable_code": "BCBG07",
-        "variable_name": "Total number of computers",
-        "category": "school"
-      },
-      {
-        "variable_code": "STUDENT_SEX",
-        "variable_name": "sex",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "urban_rural",
-        "variable_name": "School location (urban/rural)",
+        "variable_name": "Total computers available",
         "category": "school"
       },
       {
@@ -108,28 +97,18 @@
         "category": "teacher"
       },
       {
-        "variable_code": "BTBM20C",
-        "variable_name": "Use of digital tools in math",
-        "category": "ict"
+        "variable_code": "BTBM22AG",
+        "variable_name": "PD focus on addressing student needs",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BTBM22AF",
+        "variable_name": "PD focus on math assessment",
+        "category": "teacher"
       },
       {
         "variable_code": "BTBG12C",
         "variable_name": "Teachers give challenging exercises",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "BCBG13CA",
-        "variable_name": "Shortage of specialized teachers",
-        "category": "school"
-      },
-      {
-        "variable_code": "BTBG08A",
-        "variable_name": "Teacher participation in PD (math)",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "BTBM22AG",
-        "variable_name": "PD focus: addressing student needs",
         "category": "teacher"
       },
       {
@@ -138,13 +117,58 @@
         "category": "teacher"
       },
       {
-        "variable_code": "BCBG10A",
-        "variable_name": "School has functioning library",
+        "variable_code": "BTBM15E",
+        "variable_name": "Teachers ask to apply learned math",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BTBM18DF",
+        "variable_name": "Curriculum coverage of probability",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BTBG12E",
+        "variable_name": "Link new knowledge to prior knowledge",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BTBG13G",
+        "variable_name": "Teacher agreement on student motivation",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BCBG15H",
+        "variable_name": "need extra time to complete tasks",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BCBG15D",
+        "variable_name": "Class size (students taught)",
         "category": "school"
       },
       {
-        "variable_code": "BTBM15E",
-        "variable_name": "Teachers ask to apply learned math",
+        "variable_code": "BTDGLSN",
+        "variable_name": "Teaching limited by student needs",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "share_taught_data",
+        "variable_name": "Share taught data",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "probability_topics",
+        "variable_name": "probability topics",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BTBM20C",
+        "variable_name": "Use of computers/tablets for ideas",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BTBM18BF",
+        "variable_name": "Teacher PD recent focus (student needs)",
         "category": "teacher"
       },
       {
@@ -153,87 +177,52 @@
         "category": "teacher"
       },
       {
-        "variable_code": "BTBM18DF",
-        "variable_name": "Curriculum coverage: probability compound events",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "BTBG12E",
-        "variable_name": "Link new knowledge with prior knowledge",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "BTBG13G",
-        "variable_name": "not motivated to do well",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "BCBG15H",
-        "variable_name": "need extra time to complete tasks",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "BCBG15D",
-        "variable_name": "Total students taught in math class",
-        "category": "school"
-      },
-      {
-        "variable_code": "BTDGLSN",
-        "variable_name": "Teaching limited by student abilities",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "percent_taught_data",
-        "variable_name": "Percent taught data",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "probability",
-        "variable_name": "probability",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "BTBM19CB",
-        "variable_name": "asked to correct homework",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "BTBM18BF",
-        "variable_name": "PD focus: addressing student needs (alt)",
-        "category": "teacher"
-      },
-      {
         "variable_code": "BTBM18CB",
-        "variable_name": "PD focus: assessment (alt)",
+        "variable_name": "Teacher PD recent focus (assessment)",
         "category": "teacher"
       },
       {
         "variable_code": "BTBM22AF",
-        "variable_name": "Professional development focused on assessment",
+        "variable_name": "Professional development focused on mathematics assessment",
         "category": "teacher"
       },
       {
-        "variable_code": "BTBM22AG",
-        "variable_name": "Professional development focus: student needs",
-        "category": "teacher"
+        "variable_code": "BCBG13CA",
+        "variable_name": "Shortage of specialized science teachers",
+        "category": "school"
+      },
+      {
+        "variable_code": "BCBG10A",
+        "variable_name": "School has a functioning library",
+        "category": "school"
+      },
+      {
+        "variable_code": "BCBG07",
+        "variable_name": "Total number of computers available",
+        "category": "school"
+      },
+      {
+        "variable_code": "BTBM19CB",
+        "variable_name": "correct their own homework",
+        "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Morocco subset)",
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (Morocco)",
         "target_variable": "Mathematics performance (binary from PV tiers)",
         "top_predictors": [
-          "Teachers ask to explain answers",
-          "Use of digital tools in math",
-          "Teachers give challenging exercises",
-          "Availability of a school library",
+          "Teachers ask for explanations",
+          "Link new knowledge to prior knowledge",
+          "Technology integration in math lessons",
+          "Availability of school library",
           "Teacher professional development frequency"
         ],
         "performance_metrics": "SVM (best): Accuracy=0.74, F1=0.73, AUC=0.79. XGBoost: Accuracy=0.73, F1=0.71, AUC=0.76. Random Forest: Accuracy=0.71, F1=0.69, AUC=0.75. Decision Tree: Accuracy=0.65, F1=0.64, AUC=0.68.",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics data (Morocco subset), the study leveraged teacher instructional practices, ICT/digital tool use, and school resource indicators to predict binary mathematics performance derived from PV tiers, finding that an SVM trained on autoencoder latent features achieved the highest classification performance (Accuracy=0.74, F1=0.73, AUC=0.79). The authors used SHAP for interpretability, but this does not establish causality, and the manuscript does not report a missing-data handling strategy beyond variable exclusion. This indicates that ormance (Accuracy=0.74, F1=0.73, AUC=0.79). The authors used SHAP for interpretability, but this does not establish causality, and the manuscript does not report a missing-data handling strategy beyond variable exclusion."
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics data for Morocco, the study leveraged teacher instructional practices, teacher professional development, and school resource indicators (e.g., explanations, linking to prior knowledge, PD, and library/computers) to predict students’ binary mathematics performance derived from PV tiers, finding that SVM achieved the highest discrimination (AUC=0.79) and balanced classification (F1=0.73). This indicates that strengthening interactive pedagogy and targeted teacher development—alongside improving access to learning resources—may improve the identification of at-risk students and guide more actionable classroom and school interventions, though causality cannot be inferred from predictive SHAP-based feature attribution."
       }
     ],
-    "outcome_summary": "The study analyzes TIMSS 2019 Grade 8 mathematics data for Morocco (N=8,458) and constructs a binary target from PV tiers by contrasting “Low” performance against “Intermediate/High/Very High.” After cleaning the questionnaire variables (removing technical variables, high-missingness variables, redundant score variables, and PV reference variables), the authors train an autoencoder to compress 400 variables into 20 latent dimensions and then fit four classifiers. The best model is SVM, with Accuracy=0.74 and F1=0.73, and AUC=0.79; XGBoost is close (Accuracy=0.73, F1=0.71, AUC=0.76), while Random Forest and Decision Tree perform worse. Interpretability is provided via SHAP projected back to original variables, but SHAP-based importance is not causal. The paper also does not clearly report how remaining missing values were handled at the observation level.",
+    "outcome_summary": "The study analyzes TIMSS 2019 Grade 8 Mathematics data restricted to Morocco (n=8458 students) and constructs a binary target by grouping PV tiers: Low vs Intermediate/High/Very High. After cleaning the questionnaire-derived feature set from 700 variables down to 400 (excluding technical variables, high-missingness items, redundant scores, and PV reference variables), the authors train an autoencoder to compress the 400 inputs into 20 latent dimensions. They then train four classifiers (Random Forest, XGBoost, SVM, Decision Tree) on the latent features and evaluate using accuracy, F1-score, and ROC-AUC. SVM performs best with Accuracy=0.74, F1=0.73, and AUC=0.79, followed by XGBoost (0.73/0.71/AUC=0.76). Interpretability is provided via SHAP on latent dimensions and projection back to original variables, but the paper does not report a transparent PV-combination rule for the binary target nor a missing-data handling method, and SHAP-based importance should not be interpreted as causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

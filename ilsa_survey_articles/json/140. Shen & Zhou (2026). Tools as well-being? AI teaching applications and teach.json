@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "file_name": "140. Shen & Zhou (2026). Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024.pdf",
+    "title": "Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024",
+    "authors": [
+      "Huayu Shen",
+      "Tong Zhou"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tate.2026.105735",
+    "venue": "Teaching and Teacher Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": true,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TALIS 2024 teacher survey microdata across 55 participating countries/regions, then constructs an analytic sample via four sequential exclusions (missing AI use, missing work stress components, missing non-gender controls, and missing gender), resulting in 31,573 observations across 18 countries/regions. For robustness, the authors report BRR-weighted estimation that incorporates teacher-level sampling weights and BRR replicate weights to account for TALIS’s complex survey design; however, the main baseline regression is presented with school fixed effects and clustered standard errors, with weighted estimates reported separately as robustness checks. Because the models are regression-based (OLS/HLM/PSM) rather than ML algorithms, the paper explicitly distinguishes population-weighted inference from school fixed-effects specifications, implying that weights are not used in the fixed-effects baseline but are used in the BRR robustness specification. No explicit weight variable name (e.g., W_FSTUWT) is provided in the excerpt, so the exact variable identifier cannot be extracted."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": "plausible_values_handling is 'not_applicable' — the study likely does not analyze cognitive achievement PVs (e.g., it may focus on affective/attitudinal outcomes, curriculum data, or non-ILSA micro-data).",
+    "sample_details": {
+      "total_students": 31573,
+      "countries": [
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "ISR",
+          "n_students": null
+        },
+        {
+          "country_code": "POL",
+          "n_students": null
+        },
+        {
+          "country_code": "SVK",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "CHN",
+          "n_students": 1318
+        }
+      ],
+      "sample_filtering_criteria": "Analytic sample is derived from the TALIS 2024 teacher database (278,383 observations across 55 countries/regions) through four sequential exclusion steps: (1) exclude missing values on the independent variable (AI teaching applications), (2) exclude missing values on dependent variables (work stress composite and sub-dimensions), (3) exclude missing values on non-gender control variables, and (4) exclude missing values on the gender variable. This yields 31,573 valid observations across 18 countries/regions (about 11% of the original observations and 33% of participating countries/regions). The paper also constructs a composite work stress factor from three Likert-scale sub-dimensions using exploratory factor analysis, and it uses the Frequency of AI Teaching Applications only for teachers who reported using AI."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "age_group",
+        "variable_name": "Age group",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "teaching_experience_years",
+        "variable_name": "Teaching experience (years)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "educational_attainment",
+        "variable_name": "Educational attainment",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "employment_type",
+        "variable_name": "Employment type",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "part_time_other_institutions",
+        "variable_name": "Part-time at other institutions",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "school_fixed_effects",
+        "variable_name": "School fixed effects",
+        "category": "school"
+      },
+      {
+        "variable_code": "national_development_context",
+        "variable_name": "National development context",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Work stress (composite factor score)",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Educational attainment",
+          "National development context",
+          "Teaching enjoyment",
+          "Professional development barriers"
+        ],
+        "performance_metrics": "OLS baseline: β = −0.074, 95% CI [−0.101, −0.047] (regression-adjusted); Cohen’s d before covariates: 0.082 (small). Robustness: BRR-weighted β = −0.082***; HLM β = −0.086***. PSM ATT: −0.078 to −0.097 (p < 0.001).",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications (and controls including educational attainment and national development context) to predict teachers’ work stress (composite factor score), finding that AI users report significantly lower work stress (β ≈ −0.074 SD; robustness checks remain negative). This indicates that integrating AI teaching applications can function as a stress-reducing job resource for many teachers, though the study also shows effects depend on teacher education and national development context and causality cannot be inferred from cross-sectional mediation."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Workplace stress (sub-dimension)",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Educational attainment",
+          "National development context",
+          "Teaching enjoyment",
+          "Professional development barriers"
+        ],
+        "performance_metrics": "Baseline regression: β = −0.123*** (workplace stress). Robustness: alternative dependent variable (self-reported stress item) β = −0.067***.",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications to predict workplace stress, finding a significant reduction for AI users (β = −0.123*** in the baseline specification). This indicates that AI integration may reduce broader role-related demands (e.g., keeping up with changes, addressing parent concerns), suggesting that policy should prioritize AI tools that demonstrably reduce administrative and coordination burdens."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Workload stress (sub-dimension)",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Educational attainment",
+          "National development context",
+          "Teaching enjoyment",
+          "Professional development barriers"
+        ],
+        "performance_metrics": "Baseline regression: β = −0.078** (workload stress). Robustness: BRR-weighted β = −0.086***; alternative independent variable (frequency measure) β = −0.041***.",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications to predict workload stress, finding that AI use is associated with lower workload stress (β = −0.078**). This indicates that AI tools may help teachers manage time-intensive tasks (planning, grading, administration), supporting the design of AI systems that target workload substitution rather than adding documentation overhead."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Student behavioral stress (sub-dimension)",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Educational attainment",
+          "National development context",
+          "Teaching enjoyment",
+          "Professional development barriers"
+        ],
+        "performance_metrics": "Baseline regression: β = −0.160*** (student behavioral stress).",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications to predict student behavioral stress, finding a sizable and significant reduction for AI users (β = −0.160***). This indicates that AI-enabled analytics and early-warning/management supports may reduce teachers’ psychological burden related to discipline and student conduct, implying that AI adoption strategies should include classroom-management and student-support functionalities."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Work stress heterogeneity by educational attainment",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Educational attainment (non-postgraduate vs postgraduate)",
+          "School fixed effects",
+          "Gender",
+          "Teaching experience (years)"
+        ],
+        "performance_metrics": "Non-postgraduate: β = −0.094*** (95% CI [−0.129, −0.059]); Postgraduate: β = −0.030 (95% CI [−0.069, 0.009]); interaction effect: β = −0.090*** (interaction term reported as −0.090*** in Table 5 column (3) with interaction effect β = −0.090***).",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications and educational attainment to predict work stress, finding that the stress-reducing association is significant for non-postgraduate teachers but not for postgraduate teachers (β = −0.094*** vs β = −0.030). This indicates that AI integration policies should be targeted: provide modular burden-reduction supports for less-credentialed teachers while carefully managing role boundaries and workload compensation for more highly educated teachers."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Work stress heterogeneity by national development context",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "National development context (developing vs developed)",
+          "School fixed effects",
+          "Educational attainment",
+          "Gender"
+        ],
+        "performance_metrics": "Developing countries: β = −0.097***; Developed countries: β = 0.066**; Shanghai: β = −0.102 (not significant). Interaction effect: β = −0.098*** (Table 6 column (4)).",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications and national development context to predict work stress, finding a context-dependent reversal: AI use is associated with lower stress in developing countries (β = −0.097***) but higher stress in developed countries (β = 0.066**), with Shanghai not significant. This indicates that one-size-fits-all AI integration policies may backfire in resource-abundant, accountability-driven contexts, so governments should tailor AI governance and implementation to local demand-resource conditions."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Mediation via teaching enjoyment",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Teaching enjoyment",
+          "School fixed effects",
+          "Gender",
+          "Educational attainment"
+        ],
+        "performance_metrics": "Step 1: AI → teaching enjoyment β = 0.422***. Step 2: teaching enjoyment → work stress β = −0.123*** (in the mediation model). In the full model, AI coefficient approaches zero and becomes non-significant (β = 0.009).",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications to predict work stress through teaching enjoyment, finding that AI use increases teaching enjoyment (β = 0.422***) and that teaching enjoyment is associated with lower work stress (β = −0.123***), with the direct AI effect shrinking to near zero (β = 0.009). This indicates that AI integration should be evaluated not only for efficiency gains but also for its ability to enhance teachers’ affective experience of teaching, which may be the primary pathway to stress reduction."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher survey), cross-national (18 countries/regions retained)",
+        "target_variable": "Mediation via professional development barriers",
+        "top_predictors": [
+          "AI teaching applications (Yes/No)",
+          "Professional development barriers",
+          "School fixed effects",
+          "Teaching experience (years)",
+          "Employment type"
+        ],
+        "performance_metrics": "Step 1: AI → professional development barriers β = −0.282***. Step 2: barriers → work stress β = 0.158*** (and β = 0.141*** in the mediation model). In the full model, AI coefficient becomes non-significant (β = 0.009).",
+        "standardized_conclusion": "Using TALIS 2024 teacher survey the study leveraged AI teaching applications to predict work stress through professional development barriers, finding that AI use is associated with lower barriers (β = −0.282***) and that higher barriers predict higher work stress (β = 0.158***), with the direct AI effect becoming non-significant when mediators are included. This indicates that AI tools can reduce teachers’ perceived obstacles to professional growth, suggesting policy should invest in AI-supported professional development that lowers time/skill acquisition barriers."
+      }
+    ],
+    "outcome_summary": "This study uses TALIS 2024 teacher survey data (31,573 valid observations after sequential exclusions across 18 countries/regions) to examine whether teachers’ use of AI teaching applications is associated with work stress. In baseline OLS models with school fixed effects and school-clustered standard errors, AI use is associated with lower overall work stress (β = −0.074, 95% CI [−0.101, −0.047]), and the association persists in robustness checks including BRR-weighted estimation (β = −0.082***) and HLM (β = −0.086***), as well as propensity score matching (ATT −0.078 to −0.097, p < 0.001). Heterogeneity shows a reversal by context: stress decreases in developing countries (β = −0.097***) but increases in developed countries (β = 0.066**), while Shanghai is not significant. Mediation analyses indicate two statistical pathways—higher teaching enjoyment and lower professional development barriers—with the enjoyment pathway predominating. Limitations include cross-sectional design (no temporal ordering), self-report measures, and statistical mediation rather than causal mediation.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The paper is an observational regression/mediation study using OLS, BRR-weighted robustness, HLM, and propensity score matching rather than machine-learning predictive modeling. Consequently, no ML algorithms are evaluated, so ml_techniques.primary is left null and all_techniques is empty; the extracted findings reflect statistical associations and mediation rather than ML performance."
+  }
+}

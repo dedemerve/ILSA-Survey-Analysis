@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "file_name": "212. Cai et al. (2026). Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective.pdf",
+    "title": "Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective",
+    "authors": [
+      "Cai X",
+      "Bi Y",
+      "Feng Y"
+    ],
+    "year": 2026,
+    "doi": "10.3389/fpsyg.2025.1655731",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata for five East Asian economies (Singapore, Hong Kong-China, Macao-China, Chinese Taipei, and Korea) and constructs a multiclass target from the OECD creative thinking score distribution (CRT_AVG_10) aggregated into three bands. The analytic dataset is further restricted by preprocessing of ICT questionnaire features (masking values 95–100 as missing) and then applying listwise deletion for missing values, yielding 17,327 samples. The manuscript does not report the use of PISA complex survey weights or replicate weights in the ML training/evaluation pipeline, and it does not name any weight variable (e.g., W_FSTUWT/TOTWGT). Because the models are tree-based classifiers (Random Forest, LightGBM, XGBoost) and the paper does not describe weight-aware estimation, the safest interpretation is that analyses were conducted without explicit survey-weight incorporation."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 28342,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Data are drawn from the PISA 2022 database and restricted to five East Asian economies (Singapore, Hong Kong-China, Macao-China, Chinese Taipei, and Korea). The dependent variable is constructed from the OECD creative thinking score field CRT_AVG_10, which is then regrouped into three classes (bottom 21.7% = Class 0, middle 51.3% = Class 1, top 27% = Class 2) using smoothed thresholds. Predictor variables are ICT interaction questionnaire items IC170–IC183. During preprocessing, responses coded 95–100 (treated as non-informative) are masked and converted to missing (NaN), and then any sample containing missing values is removed (listwise deletion). After multistage filtering, the final modeling dataset contains 17,327 samples."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Random Forest",
+        "LightGBM",
+        "XGBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "IC179Q03JA",
+        "variable_name": "Co-develop device-use rules",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC180Q08JA",
+        "variable_name": "Share made-up info",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC183Q01JA",
+        "variable_name": "Online information-search self-efficacy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC171Q02JA",
+        "variable_name": "Smartphone use outside school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC173Q04JA",
+        "variable_name": "Use digital resources in CS/IT class",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC184Q03JA",
+        "variable_name": "Use digital resources for real-world issues",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC174Q02JA",
+        "variable_name": "Digital writing frequency (Word/Docs)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC183Q14JA",
+        "variable_name": "Programming self-efficacy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC183Q04JA",
+        "variable_name": "Collaboration self-efficacy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC177Q07JA",
+        "variable_name": "Time spent on digital creation",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC182Q02JA",
+        "variable_name": "Interest in learning programming",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC180Q04JA",
+        "variable_name": "Discuss online information accuracy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC180Q01JA",
+        "variable_name": "Trust in online information",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC181Q02JA",
+        "variable_name": "Emotional distress at discriminatory content",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC179Q02JA",
+        "variable_name": "Support banning BYOD",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC176Q01JA",
+        "variable_name": "Check grades with digital tools",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC181Q04JA",
+        "variable_name": "Emotional response to privacy violations",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC179Q04JA",
+        "variable_name": "Support restrictive device policies",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC174Q03JA",
+        "variable_name": "Use digital resources for real-world issues",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC177Q01JA",
+        "variable_name": "Time spent on digital gaming",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Creative thinking (ICT questionnaire; 15-year-olds)",
+        "target_variable": "Creative thinking level (3-class: low/medium/high; from CRT_AVG_10 PV average)",
+        "top_predictors": [
+          "Online information-search self-efficacy (IC183Q01JA)",
+          "Smartphone use outside school (IC171Q02JA)",
+          "Share made-up info (IC180Q08JA)",
+          "Digital writing frequency (Word/Docs) (IC174Q02JA)",
+          "Programming self-efficacy (IC183Q14JA)"
+        ],
+        "performance_metrics": "XGBoost (ADASYN-balanced training; external validation): Accuracy 0.6763; macro F1 not reported in table; per-class precision/recall/F1 reported (Low: Precision 0.3810, Recall 0.1798, F1 0.2443; Middle: Precision 0.6477, Recall 0.6959, F1 0.7231; High: Precision 0.6709, Recall 0.7256, F1 0.7243).",
+        "standardized_conclusion": "Using PISA 2022 creative thinking the study leveraged ICT interaction questionnaire items (notably online information-search self-efficacy, smartphone use outside school, and sharing made-up information) to predict students’ creative thinking level (low/medium/high), finding that XGBoost achieved the best overall multiclass performance and that SHAP-identified ICT behaviors differentiate all three creativity bands. This indicates that ICT policies and classroom practices should prioritize goal-aligned, information-literate, and production-oriented digital activities (rather than frequency alone) to support students at lower creative-thinking levels, though the SHAP-based evidence is predictive/associational rather than causal."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2022 microdata from five East Asian economies (Singapore, Hong Kong-China, Macao-China, Chinese Taipei, and Korea) and predicts a three-class creative thinking level (low/medium/high) derived from the OECD creative thinking score CRT_AVG_10 using the average of plausible values. ICT interaction questionnaire items IC170–IC183 serve as predictors, after preprocessing that masks non-informative responses (95–100) as missing and applies listwise deletion, resulting in 17,327 samples. For multiclass classification, the authors compare Random Forest, LightGBM, and XGBoost under 10-fold cross-validation and internal/external validation; XGBoost is selected as best-performing, with external-validation accuracy around 0.676 (and notably improved low-class recall under ADASYN). Model interpretation relies on SHAP (TreeExplainer/TreeExplainer), but the authors explicitly treat SHAP attributions as non-causal. The manuscript does not report survey-weight usage, so results may not fully reflect population-representative estimates under PISA’s complex design.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

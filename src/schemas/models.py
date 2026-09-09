@@ -3,6 +3,12 @@ from typing import List, Optional, Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from src.schemas.findings_validation import article_requires_main_findings
+from src.schemas.source_categories import (  # noqa: F401 — re-export
+    METHODOLOGY_SOURCE_CATEGORIES,
+    NON_EMPIRICAL_SOURCE_CATEGORIES,
+    SOURCE_CATEGORY_VALUES,
+    SYNTHESIS_SOURCE_CATEGORIES,
+)
 
 _NA_VARIABLE_CODES = frozenset({"n/a", "na", "null", "none", ""})
 
@@ -86,8 +92,21 @@ class MetadataBlock(BaseModel):
         description="True if freely accessible without paywall; null if unknown."
     )
     source_category: Optional[Literal[
-        "technical_report", "review_article", "methodology_paper",
-        "peer_reviewed_research"
+        "technical_report",
+        "peer_reviewed_research",
+        # synthesis subtypes (all → D1=Synthesis in scorer)
+        "review_article",
+        "systematic_review",
+        "scoping_review",
+        "meta_analysis",
+        "literature_review",
+        # methodology/framework subtypes (all → D1=Synthesis in scorer)
+        "methodology_paper",
+        "framework_paper",
+        "editorial",
+        "theoretical_paper",
+        "commentary",
+        "opinion_piece",
     ]] = Field(
         default=None,
         description="Strict research type categorization."

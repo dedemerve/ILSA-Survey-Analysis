@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "file_name": "146. Teig et al. (2022).  A systematic review of studies investigating science teaching and learning  over two decades of TIMSS and PISA.pdf",
+    "title": "A systematic review of studies investigating science teaching and learning: over two decades of TIMSS and PISA",
+    "authors": [
+      "Nani Teig",
+      "Ronny Scherer",
+      "Rolf Vegar Olsen"
+    ],
+    "year": 2022,
+    "doi": "10.1080/09500693.2022.2109075",
+    "venue": "International Journal of Science Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article is a systematic review of secondary analyses using TIMSS and PISA rather than an original empirical analysis of student microdata. As such, it does not estimate model parameters from a pooled dataset and therefore does not report the application of TIMSS/PISA sampling weights or replicate-weight procedures in its own analyses. The authors instead evaluate, across included studies, whether sampling weights and plausible values (PVs) were used appropriately, noting that only about half of the reviewed studies provided information about sampling weights and that many misused PVs (e.g., selecting only one PV, averaging PVs, or failing to report PV incorporation). For researchers conducting primary analyses with TIMSS/PISA microdata, the review emphasizes using the correct sampling weights for valid population-representative estimates and integrating all PVs when analyzing achievement outcomes."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This is a systematic review that does not conduct its own student-level statistical modeling on TIMSS/PISA microdata. Therefore, plausible values handling is not applicable to the review’s methodology because the dependent variables and PV integration steps belong to the primary studies being synthesized, not to this review’s analysis. The paper also does not specify a missing-data handling protocol for the review itself because it does not re-analyze microdata; it codes and narratively synthesizes characteristics and reported findings from included publications.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No original TIMSS/PISA student sample is analyzed in this review. The unit of selection is peer-reviewed journal articles (English-language, peer-reviewed, empirical secondary analyses of TIMSS and/or PISA) about science teaching and/or learning with quantitative or qualitative measures. The review identified 5268 records, screened 3323 by title/abstract, assessed 311 full texts for eligibility, excluded 235 at full-text stage, and included 82 articles in the final synthesis."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS",
+        "target_variable": "science achievement",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using TIMSS the study leveraged the reported predictors to predict science achievement, finding that This systematic review synthesizes 82 peer-reviewed empirical studies that used TIMSS and/or PISA data to investigate science teaching and learning (STL) over roughly two decades, with searches conducted up to 31 January 2022. The review does not estimate effects itself; instead, it maps study characteristics (aims, data sources, STL measures, and research approaches) and summarizes patterns of reported findings across three categories: STL–student outcome relationships, factors explaining STL variation, and patterns of STL across contexts. Across included studies, most examined inquiry-related STL activities and reported largely inconsistent relationships with science achievement, while showing more consistent positive associations with non-cognitive outcomes (e.g., enjoyment and attitudes). Methodological cautions highlighted include frequent under-reporting or inappropriate use of sampling weights and plausible values, and the cross-sectional nature of TIMSS/PISA limiting causal inference. The review also notes that STL measures in large-scale assessments are often crude indicators of classroom practice quality. This indicates that ts and plausible values, and the cross-sectional nature of TIMSS/PISA limiting causal inference. The review also notes that STL measures in large-scale assessments are often crude indicators of classroom practice quality."
+      }
+    ],
+    "outcome_summary": "This systematic review synthesizes 82 peer-reviewed empirical studies that used TIMSS and/or PISA data to investigate science teaching and learning (STL) over roughly two decades, with searches conducted up to 31 January 2022. The review does not estimate effects itself; instead, it maps study characteristics (aims, data sources, STL measures, and research approaches) and summarizes patterns of reported findings across three categories: STL–student outcome relationships, factors explaining STL variation, and patterns of STL across contexts. Across included studies, most examined inquiry-related STL activities and reported largely inconsistent relationships with science achievement, while showing more consistent positive associations with non-cognitive outcomes (e.g., enjoyment and attitudes). Methodological cautions highlighted include frequent under-reporting or inappropriate use of sampling weights and plausible values, and the cross-sectional nature of TIMSS/PISA limiting causal inference. The review also notes that STL measures in large-scale assessments are often crude indicators of classroom practice quality.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This record is a systematic review rather than an empirical ML/predictive study. Consequently, there is no single analytic dataset, no student-level target variable, no ML model training/evaluation, and no review-level sampling-weight or PV integration procedure to extract. The review’s results are qualitative/narrative syntheses of patterns reported in 82 included studies, so fields like total_students, per-country n_students, and ML techniques are not meaningful for this paper’s own analysis."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "file_name": "180. Ustun et al. (2022). Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015  Finland and Singapore.pdf",
+    "title": "Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015 Finland and Singapore",
+    "authors": [
+      "Ulas Ustun",
+      "Mustafa Cansiz",
+      "Ertugrul Ozdemir",
+      "Nurcan Cansiz"
+    ],
+    "year": 2022,
+    "doi": "10.1080/09500693.2022.2037167",
+    "venue": "International Journal of Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata for Finland and Singapore, with students nested within schools, and applies a multilevel modeling strategy (HLM) to account for hierarchical clustering. The manuscript describes PISA’s two-stage stratified random sampling at the country level (schools then students), but it does not report the use of PISA sampling weights or any replicate-weight scheme. Because the analysis is model-based (HLM) rather than PV-based ML, the paper does not specify a weight variable (e.g., W_FSTUWT/TOTWGT) for complex-survey variance estimation. Analysts using the PISA international database should apply the provided student sampling weights and replicate weights when estimating standard errors and variance components, especially given the school-level nesting and cross-country comparisons."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variable (science literacy) is estimated using 10 plausible values in PISA 2015, but the manuscript does not describe the exact combining procedure across plausible values (e.g., Rubin’s rules) or any explicit missing-data strategy for questionnaire/index variables. This is a reporting gap because PISA typically involves nontrivial item nonresponse and missingness in background indices, which can affect multilevel estimates if not handled consistently. The paper therefore provides insufficient transparency to verify how missingness and PV combining were implemented in the final HLM models.",
+    "sample_details": {
+      "total_students": 11997,
+      "countries": [
+        {
+          "country_code": "FIN",
+          "n_students": 5882
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6115
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2015 student sample for the two specified countries (Finland and Singapore). The analytic sample consists of 15-year-old students participating in the science major domain assessment, with students clustered within schools. The paper does not report additional task/module restrictions beyond the PISA 2015 science literacy outcome and the inclusion of the listed student- and school-level indices; it also describes trimming outliers based on standardized residuals (>3) and Mahalanobis distance after fitting HLM."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ANXTEST",
+        "variable_name": "Test anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupational status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CPSVALUE",
+        "variable_name": "Value cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ENVOPT",
+        "variable_name": "Environmental optimism",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EPIST",
+        "variable_name": "Epistemological beliefs",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Economic social cultural status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "INTBRSCI",
+        "variable_name": "Interest in broad science topics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "JOYSCIE",
+        "variable_name": "Enjoyment of science",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "LMINS",
+        "variable_name": "Learning time (science)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "OUTHOURS",
+        "variable_name": "Out-of-school study time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Learning time (science classes)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "UNFAIRTE",
+        "variable_name": "Teacher fairness",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "REPEAT",
+        "variable_name": "Grade repetition",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "PROAT6",
+        "variable_name": "Teachers with ISCED 6",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SCHESCS",
+        "variable_name": "School ESCS (mean)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School size",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Science literacy (Finland; 15-year-olds; science major domain)",
+        "target_variable": "Science literacy (10 plausible values)",
+        "top_predictors": [
+          "Interest in broad science topics (INTBRSCI)",
+          "Epistemological beliefs (EPIST)",
+          "Learning time (minutes per week) – science (SMINS)",
+          "Expected occupational status (BSMJ)",
+          "Economic social cultural status (ESCS)"
+        ],
+        "performance_metrics": "HLM variance explained: 43% of within-school variance; between-school variance explained reported via ICC and variance components (between-school variance proportion ICC = 0.13).",
+        "standardized_conclusion": "Using PISA 2015 science literacy data for Finland, the study leveraged interest in broad science topics, epistemological beliefs, science learning time, expected occupational status, and ESCS to predict students’ science literacy (10 plausible values), finding that affective engagement and epistemic beliefs were among the strongest student-level predictors while school ESCS dominated school-level differences. This indicates that policies aiming to strengthen students’ science interest/enjoyment and epistemological understanding—alongside reducing socioeconomic stratification across schools—may support both achievement and equity in high-performing systems, though causality cannot be inferred from cross-sectional PISA data."
+      },
+      {
+        "dataset_used": "PISA 2015 Science literacy (Singapore; 15-year-olds; science major domain)",
+        "target_variable": "Science literacy (10 plausible values)",
+        "top_predictors": [
+          "Enjoyment of science (JOYSCIE)",
+          "Learning time (minutes per week) – science (SMINS)",
+          "Environmental optimism (ENVOPT)",
+          "Teacher fairness (UNFAIRTE)",
+          "Economic social cultural status (ESCS)"
+        ],
+        "performance_metrics": "HLM variance explained: 40% of within-school variance; between-school variance proportion ICC = 0.38; school-level model variance explained up to 63.7% of between-school variance.",
+        "standardized_conclusion": "Using PISA 2015 science literacy data for Singapore, the study leveraged enjoyment of science, science learning time, environmental optimism, teacher fairness, and ESCS to predict students’ science literacy (10 plausible values), finding that affective enjoyment and socioeconomic status were key drivers at the student level while school ESCS was the strongest school-level predictor. This indicates that improving students’ science enjoyment and perceived fairness in classrooms, while addressing between-school socioeconomic inequality, may help sustain high performance and reduce equity concerns, though the study’s cross-sectional design limits causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2015 science literacy for two top-performing countries—Finland and Singapore—using a multilevel (HLM) framework to model students nested within schools. Science literacy is estimated using 10 plausible values, and the models explain about 43% (Finland) and 40% (Singapore) of within-school variance, while between-school variance is substantial in Singapore (ICC = 0.38) compared with Finland (ICC = 0.13). At the student level, affective variables are most influential: interest in broad science topics for Finland and enjoyment of science for Singapore, alongside epistemological beliefs and ESCS. At the school level, the average school ESCS is the strongest predictor in both countries, explaining 61.5% (Finland) and 63.7% (Singapore) of between-school variance. Limitations include the cross-sectional nature of PISA (no causal claims) and incomplete reporting of missing-data handling and the exact plausible-value combining procedure.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This paper uses hierarchical linear modeling (HLM) rather than machine-learning algorithms from the schema’s ML list, so ml_techniques.all_techniques is empty and primary is left null. The extraction therefore focuses on multilevel predictive modeling results (variance explained and significant predictors) without treating HLM as an ML technique under the provided constraints."
+  }
+}

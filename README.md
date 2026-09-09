@@ -69,6 +69,28 @@ print(tables)
 df = pd.read_parquet("ilsa_survey_articles/ilsa_master.parquet")
 ```
 
+## Policy Actionability Scoring
+
+`score_studies_v2.py` applies a deterministic D1–D3 rubric to every JSON in `ilsa_survey_articles/json/` and writes `rescored_studies.csv`.
+
+| Dimension | Meaning |
+|-----------|---------|
+| D1 Inferential Warrant | Synthesis / Causal / Correlational / None |
+| D2 Effect Specification | Quantified / Directional / None |
+| D3 Population Boundedness | Bounded / Global/Unspecified |
+
+```bash
+python score_studies_v2.py
+```
+
+Local re-extraction of PDFs (requires OpenAI credentials and a PDF folder):
+
+```bash
+python scripts/reextract_30_studies.py --pdf-dir PATH --dry-run
+python scripts/extract_wos_remaining.py --pdf-dir PATH
+python scripts/extract_gs_remaining.py --pdf-dir PATH
+```
+
 ## Extraction Pipeline
 
 The metadata was extracted using a custom pipeline:

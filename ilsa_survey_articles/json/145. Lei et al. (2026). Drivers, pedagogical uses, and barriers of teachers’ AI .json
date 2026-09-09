@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "file_name": "145. Lei et al. (2026). Drivers, pedagogical uses, and barriers of teachers’ AI adoption: Cross-national evidence from TALIS 2024.pdf",
+    "title": "Drivers, pedagogical uses, and barriers of teachers’ AI adoption: Cross-national evidence from TALIS 2024",
+    "authors": [
+      "Yaxian Lei",
+      "Zhenjie Lu",
+      "Yunkai Deng"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tate.2026.105595",
+    "venue": "Teaching and Teacher Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses OECD TALIS 2024 teacher questionnaire data for four countries (Singapore, United Arab Emirates, France, Japan). After cleaning and screening based on variables required for the analyses, the authors retain an analytic sample of 8,026 teachers for descriptive statistics and regression models, and smaller subsamples for AI users (n = 4,238) and AI non-users (n = 3,788). The manuscript states that teacher sampling weights were applied in both descriptive statistics and regression analyses to produce population-representative estimates, and that standard errors were adjusted for clustering at the school level. No replicate-weight method (e.g., BRR/jackknife) is reported, and the models are logistic regressions rather than ML algorithms, so the weighting is used for survey-representative inference rather than for ML training."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This study’s dependent variables are teacher self-reports and binary indicators of AI use and specific AI application modes/reasons for non-use, not cognitive achievement scores with TALIS plausible values. TALIS does not provide PVs in the same way as PISA/TIMSS; therefore PV handling is not applicable to the modeled outcomes. The manuscript reports excluding missing and “not administered” responses for descriptive percentages, but it does not provide a complete, explicit missing-data handling strategy for the regression analyses (e.g., listwise vs. multiple imputation), which is a reporting gap.",
+    "sample_details": {
+      "total_students": 8026,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 1034
+        },
+        {
+          "country_code": "ARE",
+          "n_students": 3861
+        },
+        {
+          "country_code": "FRA",
+          "n_students": 1260
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 1871
+        }
+      ],
+      "sample_filtering_criteria": "Teacher-level samples were extracted from the main TALIS 2024 dataset for Singapore, the UAE, France, and Japan. After data cleaning and screening based on variables required for the analyses, the final analytic sample contains 8,026 teachers. For descriptive statistics, percentages are based on valid responses within each country, excluding missing and “not administered” responses; additionally, the AI application-mode item was administered only to teachers who reported using AI in the past 12 months, and the non-use reasons item was administered only to teachers who reported not using AI in the past 12 months."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "SE",
+        "variable_name": "Self-efficacy (SE)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PU",
+        "variable_name": "Perceived usefulness (PU)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PR",
+        "variable_name": "Perceived risks (PR)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "country_group",
+        "variable_name": "Country group (high vs low)",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 (teacher questionnaire), cross-national (Singapore, UAE, France, Japan)",
+        "target_variable": "Instructional use of AI (past 12 months; yes/no)",
+        "top_predictors": [
+          "Self-efficacy (SE)",
+          "Perceived usefulness (PU)",
+          "Perceived risks (PR)"
+        ],
+        "performance_metrics": "Survey-weighted binary logistic regression (N = 8026). SE: B = 0.513, p < .001 (OR = 1.670, 95% CI [1.359, 2.053]); PU: B = 0.891, p < .001 (OR = 2.438, 95% CI [2.120, 2.804]); PR: B = −0.057, p = .491 (OR = 0.945, 95% CI [0.803, 1.111]). Model pseudo R2 (deviance-based) = 0.215.",
+        "standardized_conclusion": "Using TALIS 2024 teacher questionnaire the study leveraged self-efficacy (SE), perceived usefulness (PU), and perceived risks (PR) to predict instructional use of AI (past 12 months; yes/no), finding that SE and PU were positively associated with AI adoption while PR was not statistically significant. This indicates that strengthening teachers’ confidence and perceived instructional value of AI may be more actionable than focusing solely on risk messaging, though the cross-sectional design limits causal claims."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher questionnaire), cross-national moderation (Singapore, UAE, France, Japan)",
+        "target_variable": "Instructional use of AI (past 12 months; yes/no) — moderation by country group",
+        "top_predictors": [
+          "Self-efficacy (SE)",
+          "Perceived usefulness (PU)",
+          "Perceived risks (PR)",
+          "Country group (high vs low)"
+        ],
+        "performance_metrics": "Survey-weighted logistic regression with interaction terms (N = 8026). SE × country group: B = −0.346, p = .048 (OR = 0.707, 95% CI [0.502, 0.997]); PU × country group: B = 0.189, p = .102; PR × country group: B = −0.137, p = .286. Pseudo R2 (deviance-based) = 0.215.",
+        "standardized_conclusion": "Using TALIS 2024 teacher questionnaire the study leveraged self-efficacy (SE), perceived usefulness (PU), perceived risks (PR), and country group (high vs low adoption) to predict instructional use of AI, finding that only the SE × country-group interaction was significant (SE’s association with adoption is stronger in low-adoption countries). This indicates that capacity-building and confidence-enhancing supports may be especially important for accelerating AI uptake in lower-adoption education systems, while effects of PU and PR appear more stable across contexts."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher questionnaire), AI user subsample (Singapore, UAE, France, Japan)",
+        "target_variable": "Specific AI instructional application modes (8 binary outcomes; yes/no)",
+        "top_predictors": [
+          "Country group (high vs low)",
+          "Self-efficacy (SE)",
+          "Perceived usefulness (PU)",
+          "Perceived risks (PR)"
+        ],
+        "performance_metrics": "Eight separate survey-weighted binary logistic regressions for AI users (n = 4238), with FDR correction across applications. High-adoption countries show significant advantages (p_FDR): summarising topic content (p_FDR = 0.000), generating lesson plans/activities (p_FDR = 0.000), generating text for student feedback/parent communication (p_FDR = 0.000), helping students practise complex skills in real-life scenarios (p_FDR = 0.023). No application shows a robust advantage for low-adoption countries after FDR correction.",
+        "standardized_conclusion": "Using TALIS 2024 teacher questionnaire data restricted to AI users, the study leveraged country group (high vs low adoption) with SE, PU, and PR as controls to predict eight specific AI application modes, finding that high-adoption countries were significantly more likely to use AI for content summarisation, lesson planning, feedback/communication text, and real-life complex-skill practice after FDR correction. This indicates that policy and training should target not only adoption rates but also the instructional functions where AI is integrated, especially in high-adoption contexts."
+      },
+      {
+        "dataset_used": "TALIS 2024 (teacher questionnaire), AI non-user subsample (Singapore, UAE, France, Japan)",
+        "target_variable": "Reasons for non-use of AI (5 binary outcomes; yes/no)",
+        "top_predictors": [
+          "Country group (high vs low)",
+          "Self-efficacy (SE)",
+          "Perceived usefulness (PU)",
+          "Perceived risks (PR)"
+        ],
+        "performance_metrics": "Five separate survey-weighted binary logistic regressions for AI non-users (n = 3788), with FDR correction. Low-adoption countries are more likely to report: lack of digital tools/resources (p_FDR = 0.000), insufficient knowledge/skills (p_FDR = 0.000), belief that AI should not be used in teaching (p_FDR = 0.005), school prohibits AI use (p_FDR = 0.046), and feeling overwhelmed by new technologies (p_FDR = 0.005). Pseudo R2 values are reported per model in Table 7 (not consolidated).",
+        "standardized_conclusion": "Using TALIS 2024 teacher questionnaire data restricted to AI non-users, the study leveraged country group (high vs low adoption) with SE, PU, and PR as controls to predict five reasons for non-use, finding that low-adoption countries report higher prevalence of resource constraints, capability gaps, normative reservations, institutional restrictions, and technology-related overwhelm after FDR correction. This indicates that accelerating AI adoption in lower-adoption systems likely requires coordinated interventions spanning infrastructure, skills training, and addressing teachers’ affective and value-based concerns, not just providing access."
+      }
+    ],
+    "outcome_summary": "This cross-national study uses TALIS 2024 teacher questionnaire data from Singapore, the UAE, France, and Japan to examine whether teachers used AI in teaching or supporting student learning in the past 12 months. After cleaning and screening, the analytic sample includes 8,026 teachers, with AI users (n = 4,238) and AI non-users (n = 3,788) analyzed in subsamples for application modes and non-use reasons. The authors apply teacher sampling weights and adjust standard errors for school-level clustering, then estimate survey-weighted binary logistic regressions. Across countries, self-efficacy (B = 0.513, p < .001) and perceived usefulness (B = 0.891, p < .001) are positively associated with AI adoption, while perceived risks are not significant (B = −0.057, p = .491); the deviance-based pseudo R2 is 0.215. The study further finds that self-efficacy’s association is stronger in low-adoption countries (SE × country group p = .048), and that high-adoption countries show robust advantages in several instructional functions after FDR correction. Limitations include cross-sectional self-report measurement and the absence of a detailed missing-data strategy for regression models.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

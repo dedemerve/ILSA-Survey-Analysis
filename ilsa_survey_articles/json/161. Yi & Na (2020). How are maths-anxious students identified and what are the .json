@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "file_name": "161. Yi & Na (2020). How are maths-anxious students identified and what are the key predictors of maths anxiety  Insights gained from PISA results for Korean adolescents.pdf",
+    "title": "How are maths-anxious students identified and what are the key predictors of maths anxiety? Insights gained from PISA results for Korean adolescents",
+    "authors": [
+      "Hyun Sook Yi",
+      "Wooyoul Na"
+    ],
+    "year": 2020,
+    "doi": "10.1080/02188791.2019.1692782",
+    "venue": "Asia Pacific Journal of Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2012 student questionnaire data for South Korea and constructs an analytic dataset of 3,355 students from 156 schools, then further splits it into 70% training (2,351) and 30% test (1,004). The paper does not report applying PISA sampling weights or replicate weights in the ML training/evaluation; therefore, the analysis appears to rely on unweighted model fitting and standard train/test partitioning. Because the dependent variable is a binary classification of “maths-anxious” status derived from a maths anxiety score, the authors’ main data preparation steps are (i) selecting 194 questionnaire variables as predictors, (ii) defining the anxiety group using a one-standard-deviation-below-mean threshold, and (iii) performing multiple imputation for missing predictor values. The hierarchical nature of students nested in schools is addressed via a hierarchical generalized linear model (HGLM) baseline, but the manuscript does not specify survey-weight adjustments for the random forest or logistic regression."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is students’ maths anxiety classification (a questionnaire-based affective construct), not a cognitive achievement score for which PISA provides plausible values. Missing data handling is reported as multiple imputation with 10 replications using the R “mice” package, so the main transparency issue is not PVs but whether imputation was performed within the training folds versus on the full dataset (the paper does not explicitly state this). This omission matters because imputation performed before splitting can introduce leakage into the test set.",
+    "sample_details": {
+      "total_students": 3355,
+      "countries": [
+        {
+          "country_code": "KOR",
+          "n_students": 3355
+        }
+      ],
+      "sample_filtering_criteria": "Used the PISA 2012 South Korea student questionnaire dataset. The analytic sample includes 3,355 students from 156 schools. Maths-anxious students were operationally defined by categorizing students whose maths anxiety score was one standard deviation below the mean; this yields 634 (18.9%) students classified as “potential maths anxiety” and 2,721 as “without maths anxiety.” Predictors were restricted to 194 selected questionnaire variables spanning learning experiences/strategies, attitudes, perceived teacher and school/classroom climate, ICT use, and student background/demographics; item-level responses were used as predictors."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest",
+        "Logistic Regression",
+        "Hierarchical General Linear Model"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "enjoy_math",
+        "variable_name": "Enjoying maths",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "math_self_concept_negative",
+        "variable_name": "Negative maths self-concept",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "attributions_to_failure_lack_ability",
+        "variable_name": "Attributions to failure: lack ability",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "attributions_to_failure_bad_luck",
+        "variable_name": "Attributions to failure: bad luck",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "attributions_to_failure_task_difficulty",
+        "variable_name": "Attributions to failure: task difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "trial",
+        "variable_name": "Trial-",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "error_without_systematic_thinking",
+        "variable_name": "-error without systematic thinking",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "intentions_study_maths",
+        "variable_name": "Intentions for studying maths",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "guided_homework_out_of_school",
+        "variable_name": "Guided homework out of school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "extracurricular_math_activity",
+        "variable_name": "Math extracurricular activity",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "homework_completed_in_time",
+        "variable_name": "Homework completed in time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "teacher_support_work_hard",
+        "variable_name": "Teacher support to work hard",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "openness_link_facts",
+        "variable_name": "Openness for problem solving: link facts",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "perseverance_give_up_easily",
+        "variable_name": "Perseverance: give up easily",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "parents_emphasize_importance_maths",
+        "variable_name": "Parents emphasize maths importance",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "maths_work_ethic_prepared_exams",
+        "variable_name": "Prepared for maths exams",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "interest_learning_maths",
+        "variable_name": "Interest in learning maths",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "instrumental_motivation_study_maths",
+        "variable_name": "Instrumental motivation for studying maths",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "perceived_control_perform_poor",
+        "variable_name": "Perceived control: perform poorly",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "maths_study_time",
+        "variable_name": "Maths study time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "economic",
+        "variable_name": "Economic",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "social",
+        "variable_name": "social",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "cultural_status",
+        "variable_name": "cultural status",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ict_entertainment_use",
+        "variable_name": "ICT entertainment use",
+        "category": "ict"
+      },
+      {
+        "variable_code": "familiarity_with_maths_concepts",
+        "variable_name": "Familiarity with maths concepts",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ict_use_at_home_school_tasks",
+        "variable_name": "ICT use at home for school tasks",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 South Korea (15-year-olds) — student questionnaire",
+        "target_variable": "Maths anxiety (binary: potential maths anxiety vs not)",
+        "top_predictors": [
+          "Negative maths self-concept",
+          "Attributions to failure: lack ability",
+          "Attributions to failure: task difficulty",
+          "Enjoying maths",
+          "Attributions to failure: bad luck"
+        ],
+        "performance_metrics": "HGLM: Proportion accurate=0.839, Sensitivity=0.628, Specificity=0.888, AUC=0.854. Logistic regression: Proportion accurate=0.836, Sensitivity=0.628, Specificity=0.884, AUC=0.854. Random forest: Proportion accurate=0.823, Sensitivity=0.681, Specificity=0.856, AUC=0.851.",
+        "standardized_conclusion": "Using PISA 2012 South Korea student questionnaire the study leveraged negative maths self-concept, attributions to failure (lack of ability/task difficulty/bad luck), and enjoying maths to predict whether students were classified as potential maths-anxious. It found that self-concept and attributions to failure were the most influential predictors across models, with the random forest achieving the highest sensitivity (0.681) while HGLM/logistic regression had slightly higher overall accuracy and AUC (~0.854). This indicates that interventions targeting maladaptive self-beliefs and failure attributions may be more effective for identifying and supporting maths-anxious students than relying on performance-only or single-factor screening, though the study’s binary thresholding and potential imputation/splitting leakage limit causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2012 South Korea student questionnaire data (3,355 students from 156 schools) and defines a binary outcome for “potential maths anxiety” using a threshold of one standard deviation below the mean on a maths anxiety score (634 students; 18.9%). It trains and compares three supervised prediction models—random forest, logistic regression, and a two-level hierarchical generalized linear model (HGLM)—using 194 questionnaire predictors, with a 70/30 train/test split (2,351/1,004). Model discrimination is high across approaches: AUC is 0.854 for HGLM and logistic regression and 0.851 for random forest; overall accuracy is 0.839 (HGLM), 0.836 (logistic), and 0.823 (random forest). The random forest shows the highest sensitivity (0.681), while sensitivity for HGLM/logistic is 0.628, indicating better identification of at-risk students at the cost of lower specificity. Missing predictor data are handled via multiple imputation (10 replications, mice), but the paper does not clarify whether imputation was nested within training folds, which could affect generalization estimates.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

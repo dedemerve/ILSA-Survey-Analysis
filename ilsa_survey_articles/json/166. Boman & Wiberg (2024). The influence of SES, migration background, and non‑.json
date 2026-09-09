@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "file_name": "166. Boman & Wiberg (2024). The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden.pdf",
+    "title": "The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden",
+    "authors": [
+      "Björn Boman",
+      "Marie Wiberg"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s10212-024-00805-w",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Sweden and applies a two-level multilevel modeling approach to account for the nested sampling of students within schools. The authors state that level-1 models (student background factors) were weighted with student weights and that level-2 models (school-level aggregated factors) were weighted with school weights, but they do not report the exact weight variable names in the provided text. Plausible values are handled by using all ten plausible values for reading (PVREAD) and mathematics (PVMATH) and combining estimates across plausible values using Rubin’s (1987) method implemented in Mplus. Missing data are handled in Mplus using Maximum Likelihood Robust (MLR) estimation, which is consistent with model-based handling rather than listwise deletion for the multilevel analyses."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 3525,
+      "countries": [
+        {
+          "country_code": "SWE",
+          "n_students": 3525
+        }
+      ],
+      "sample_filtering_criteria": "Used Sweden’s PISA 2018 student sample (students aged 15 years 3 months to 16 years 2 months) from the OECD PISA microdata. Analyses were restricted to students with available PISA reading and mathematics plausible values (PVREAD and PVMATH) and the included questionnaire variables for SES indicators (books at home, mother’s education), migration background, and non-cognitive measures (growth mindset, reading self-concept, reading motivation, master the content, perseverance, self-concept of competence), plus gender. The multilevel models were estimated separately for reading and mathematics and then combined across the ten plausible values using Rubin’s method; missingness was addressed via Mplus MLR estimation."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "books_at_home",
+        "variable_name": "Books at home (SES)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST005Q01TA",
+        "variable_name": "Mother’s education (SES)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST019AQ01T",
+        "variable_name": "Migration background",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST188Q01_06",
+        "variable_name": "Self-concept of competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST182Q03HA_ST182Q06HA",
+        "variable_name": "Perseverance",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST208Q01_03",
+        "variable_name": "Master the content",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST161Q01_03",
+        "variable_name": "Reading self-concept",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST184Q01",
+        "variable_name": "Growth mindset",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST160Q01_ST160Q05A",
+        "variable_name": "Reading motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "PROATCE",
+        "variable_name": "Proportion fully certified teachers",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "STUBEHA",
+        "variable_name": "behavior hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "TEACHBEHA",
+        "variable_name": "Teacher behavior hindering learning",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Sweden (15-year-olds) Reading achievement (PVREAD)",
+        "target_variable": "Reading achievement (PVs)",
+        "top_predictors": [
+          "Reading self-concept",
+          "Books at home (SES)",
+          "Migration background",
+          "Gender",
+          "Growth mindset"
+        ],
+        "performance_metrics": "Multilevel fixed-effects model using all ten plausible values; within-school R2 (reading): 0.263; between-school R2 (reading): 0.575. Intraclass correlation (reading): 0.075. Table 1 linear regression (single-model illustration): R2 = 0.245; N = 3289.",
+        "standardized_conclusion": "Using PISA 2018 Sweden the study leveraged Reading self-concept, Books at home (SES), Migration background, Gender, and Growth mindset to predict Reading achievement (PVs), finding that SES, migration background, and multiple non-cognitive factors were statistically significant predictors while perseverance and self-concept of competence showed smaller effects. This indicates that strengthening students’ reading self-concept and growth-mindset-oriented supports, alongside addressing socioeconomic disadvantage, may improve reading outcomes and reduce between-school disparities, though the cross-sectional design limits causal claims."
+      },
+      {
+        "dataset_used": "PISA 2018 Sweden (15-year-olds) Mathematics achievement (PVMATH)",
+        "target_variable": "Mathematics achievement (PVs)",
+        "top_predictors": [
+          "Books at home (SES)",
+          "Migration background",
+          "Reading self-concept",
+          "Master the content",
+          "Growth mindset"
+        ],
+        "performance_metrics": "Multilevel fixed-effects model using all ten plausible values; within-school R2 (mathematics): 0.214; between-school R2 (mathematics): 0.483. Intraclass correlation (mathematics): 0.105. Table 2 reports fixed-effect estimates for within and between levels; N = 3525.",
+        "standardized_conclusion": "Using PISA 2018 Sweden the study leveraged Books at home (SES), Migration background, Reading self-concept, Master the content, and Growth mindset to predict Mathematics achievement (PVs), finding that SES and migration background were significant at the within-school level with large effect sizes and that non-cognitive factors (especially growth mindset and reading self-concept) also significantly predicted mathematics performance. This indicates that mathematics improvement strategies should not be limited to math instruction but should also target students’ domain-relevant self-beliefs and content mastery beliefs, while school-level reading motivation and teacher/student learning hindrance conditions may shape between-school differences."
+      }
+    ],
+    "outcome_summary": "The study analyzes Sweden’s PISA 2018 microdata to explain within-school and between-school differences in reading and mathematics achievement using multilevel models with all ten plausible values (PVREAD and PVMATH) combined via Rubin’s method in Mplus. For reading, the intraclass correlation is 0.075 and the multilevel model yields within-school R2 = 0.263 and between-school R2 = 0.575, with reading self-concept, SES (books at home and mother’s education), migration background, gender, and growth mindset emerging as significant predictors. For mathematics, the intraclass correlation is 0.105 and the model yields within-school R2 = 0.214 and between-school R2 = 0.483, with SES and migration background showing large effects and non-cognitive factors (notably growth mindset and reading self-concept) also significant. The authors report no meaningful interaction effects for SES×migration background or SES×growth mindset, and they emphasize that cross-sectional PISA data cannot establish causality. Missing data are handled using MLR estimation in Mplus, and the study does not present any machine-learning predictive modeling or accuracy-type metrics.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is an empirical multilevel regression study using PISA plausible values and Rubin’s combining rules, not a machine-learning predictive modeling paper. Consequently, no ML algorithms are trained or evaluated, so ml_techniques.primary is intentionally null and all_techniques is empty. The extraction still reports substantive multilevel regression findings for reading and mathematics achievement."
+  }
+}

@@ -18,6 +18,10 @@ from src.schemas.findings_validation import (
     substantive_outcome_summary,
 )
 from src.schemas.models import Confounder, StructuredFinding, coerce_optional_bool
+from src.schemas.source_categories import (
+    NON_EMPIRICAL_SOURCE_CATEGORIES as _NON_EMPIRICAL_SOURCE_CATEGORIES,
+    SOURCE_CATEGORY_VALUES,
+)
 
 if TYPE_CHECKING:
     from src.extractors.pdf_processor import ProcessedPDF
@@ -955,9 +959,6 @@ _METRICS_SNIPPET_RE = re.compile(
     r"(?:\d{1,3}(?:\.\d+)?)\s*%\s+accuracy)",
     re.IGNORECASE,
 )
-_NON_EMPIRICAL_SOURCE_CATEGORIES = frozenset({
-    "review_article", "methodology_paper", "technical_report",
-})
 
 
 def _is_legacy_migration_finding(finding: dict) -> bool:  # noqa: D103
@@ -1712,7 +1713,8 @@ RULE 2 — CRASH-PROOF OFFICIAL IEA/OECD TECHNICAL REPORTS & ASSESSMENT FRAMEWOR
   Pydantic REJECTS any string outside the exact literals below. Never invent labels \
   like "Official Report", "technical report", or prose in enum fields.
   - metadata.publication_type: EXACTLY "report" (never "Official Report" or variants).
-  - metadata.source_category: EXACTLY "technical_report" OR "methodology_paper".
+  - metadata.source_category: EXACTLY "technical_report" OR "methodology_paper" OR \
+    "framework_paper" (choose the narrowest fit from the enum above).
   - data.plausible_values_handling: EXACTLY "not_applicable" (frameworks/manuals; \
     allowed PV literals for empirical papers only: rubin_rules, single_pv, average_pv, \
     all_pv, mitml, wle, irt_theta, not_reported).
@@ -1743,7 +1745,25 @@ CRITICAL EXTRACTION & INFERENCE RULES
    - publication_type MUST be exactly one of:
      ['journal', 'conference', 'book_chapter', 'preprint', 'report', 'thesis'].
    - source_category MUST be exactly one of:
-     ['technical_report', 'review_article', 'methodology_paper', 'peer_reviewed_research'].
+     ['technical_report', 'peer_reviewed_research',
+      'review_article', 'systematic_review', 'scoping_review',
+      'meta_analysis', 'literature_review',
+      'methodology_paper', 'framework_paper', 'editorial',
+      'theoretical_paper', 'commentary', 'opinion_piece'].
+     Mapping guidance:
+       Empirical study with original data → "peer_reviewed_research"
+       OECD/IEA technical manual, user guide, codebook → "technical_report"
+       PRISMA/registered systematic review → "systematic_review"
+       Broad scoping / mapping review → "scoping_review"
+       Quantitative synthesis with effect sizes → "meta_analysis"
+       Traditional narrative literature review → "literature_review"
+       General overview / non-systematic survey → "review_article"
+       Scales/instruments/algorithms paper (methodological contribution) → "methodology_paper"
+       Conceptual/theoretical model, assessment design proposal → "framework_paper"
+       Journal editorial / introduction section → "editorial"
+       Pure theoretical discussion, no data → "theoretical_paper"
+       Response to another paper → "commentary"
+       Expert perspective / viewpoint without new data → "opinion_piece"
    - research_design_type MUST be exactly one of:
      ['predictive', 'causal_observational', 'causal_experimental', 'exploratory'].
      Mapping: prediction/classification/regression → "predictive";
@@ -2299,8 +2319,10 @@ CRITICAL EXTRACTION & INFERENCE RULES
 15) REVIEW / META-ANALYSIS / BIBLIOMETRIC PAPERS:
    - These papers synthesize existing literature rather than analyzing ILSA \
      micro-data directly.
-   - source_category: "review_article" (systematic review, scoping review, \
-     meta-analysis, bibliometric analysis, literature survey).
+   - source_category: use the most specific label from the enum:
+     "systematic_review" (PRISMA/registered), "scoping_review" (broad mapping),
+     "meta_analysis" (pooled effect sizes), "literature_review" (narrative review),
+     or "review_article" (general overview / mixed).
    - research_design_type: "exploratory".
    - total_students: null (no original empirical sample) UNLESS the review \
      reports a pooled sample size from included studies.
@@ -2321,6 +2343,10 @@ CRITICAL EXTRACTION & INFERENCE RULES
    - Examples: ISM-based cognitive model construction, CAT algorithm design, \
      mobile learning app development, scaling methodology papers, simulation \
      studies.
+   - source_category: "framework_paper" (conceptual model / design proposal), \
+     "methodology_paper" (new statistical/ML method contribution), \
+     "theoretical_paper" (pure theory without empirical test), \
+     "editorial" / "commentary" / "opinion_piece" for short non-research pieces.
    - total_students: null (or the expert panel / pilot sample if reported).
    - ml_techniques: extract ONLY if the paper actually trains/evaluates ML \
      models. Framework proposals citing ML concepts do NOT count.
@@ -2971,7 +2997,8 @@ class GPTExtractor:
             "with category='process_data'.\n\n"
 
             "M) REVIEW / META-ANALYSIS / BIBLIOMETRIC PAPERS (system rule 14):\n"
-            "  - source_category → 'review_article'.\n"
+            "  - source_category → most specific of: systematic_review, scoping_review,\n"
+            "    meta_analysis, literature_review, review_article.\n"
             "  - research_design_type → 'exploratory'.\n"
             "  - total_students → null (no original sample).\n"
             "  - ml_techniques.primary → null; all_techniques → [] UNLESS the "
@@ -2986,7 +3013,9 @@ class GPTExtractor:
             "harmonize datasets without ILSA micro-data analysis.\n"
             "  - publication_type: 'journal' for data papers published in journals "
             "(e.g., 'Data' journal); 'report' for technical data documentation.\n"
-            "  - source_category: 'methodology_paper' for data papers and frameworks.\n"
+            "  - source_category: 'framework_paper' (conceptual model), "
+            "'methodology_paper' (method contribution), 'theoretical_paper' "
+            "(pure theory), or editorial/commentary/opinion_piece as appropriate.\n"
             "  - total_students → null (or expert panel size if applicable).\n"
             "  - plausible_values_handling → 'not_applicable'.\n"
             "  - research_design_type → 'exploratory' for data description / "
@@ -3472,10 +3501,7 @@ class GPTExtractor:
         VALID_PUB_TYPES = frozenset({
             "journal", "conference", "book_chapter", "preprint", "report", "thesis",
         })
-        VALID_SOURCE_CATS = frozenset({
-            "technical_report", "review_article", "methodology_paper",
-            "peer_reviewed_research",
-        })
+        VALID_SOURCE_CATS = SOURCE_CATEGORY_VALUES
         VALID_DESIGN_TYPES = frozenset({
             "predictive", "causal_observational", "causal_experimental", "exploratory",
         })
@@ -3556,15 +3582,31 @@ class GPTExtractor:
                     meta["source_category"] = normed
                 else:
                     matched = None
-                    if (
-                        "review" in normed or "systematic" in normed
-                        or "scoping" in normed or "bibliometric" in normed
-                        or "meta_analysis" in normed or "meta_analytic" in normed
+                    if "systematic" in normed:
+                        matched = "systematic_review"
+                    elif "scoping" in normed:
+                        matched = "scoping_review"
+                    elif "meta_analysis" in normed or "meta_analytic" in normed or "metaanalysis" in normed:
+                        matched = "meta_analysis"
+                    elif "literature_review" in normed or "narrative_review" in normed:
+                        matched = "literature_review"
+                    elif (
+                        "review" in normed or "bibliometric" in normed
                         or "literature_survey" in normed
                     ):
                         matched = "review_article"
+                    elif "framework" in normed:
+                        matched = "framework_paper"
+                    elif "editorial" in normed:
+                        matched = "editorial"
+                    elif "comment" in normed:
+                        matched = "commentary"
+                    elif "opinion" in normed or "viewpoint" in normed:
+                        matched = "opinion_piece"
+                    elif "theor" in normed:
+                        matched = "theoretical_paper"
                     elif (
-                        "method" in normed or "framework" in normed
+                        "method" in normed
                         or "simulation" in normed or "scaling" in normed
                         or "psychometric" in normed or "measurement" in normed
                         or "data_paper" in normed or "dataset" in normed

@@ -15,12 +15,12 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2015 science microdata for Singapore and Finland and models science performance using the 10 PISA science plausible values (PVs). The authors describe that PISA derived WLEs for questionnaire-derived scales and that PVs were standardized, but they do not report applying PISA sampling weights or replicate-weight procedures in the machine-learning estimation. The analysis is implemented in SPSS and R using the randomForest package with 500 trees and 10-fold cross-validation with five repeats, and missing data are handled via MCMC multiple imputation in SPSS (five imputed datasets). Because the manuscript does not mention complex survey weighting (e.g., W_FSTUWT/TOTWGT) or BRR/jackknife, the ML models are treated as effectively unweighted; this is a common limitation when applying standard ML algorithms to complex survey designs."
+      "weight_fields_interpretation": "The study uses PISA 2015 science microdata for 15-year-olds from Singapore and Finland and models science performance using ten plausible values (PVs) as the dependent variable. The authors state that PISA-derived scales were transformed using weighted likelihood estimates (WLEs) and standardized with equal weighting for each country/economy, but they do not report applying PISA sampling weights (e.g., student/school weights) or replicate weights in the machine-learning estimation. Because the analysis is implemented with Random Forest regression in SPSS/R, the manuscript does not specify a complex-survey-weighted ML procedure; therefore, it is unclear whether population-representative weighting was incorporated beyond PISA’s internal scaling (WLE). The analytic sample is restricted to the two specified countries and to the set of 39 questionnaire-derived predictors used in the RF models, with missing data handled via MCMC multiple imputation."
     },
-    "plausible_values_handling": "rubin_rules",
+    "plausible_values_handling": "all_pv",
     "missing_data_handling": "multiple_imputation",
     "handling_not_reported_explanation": null,
     "sample_details": {
@@ -35,7 +35,7 @@
           "n_students": 5882
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2015 science-focused dataset for 15-year-olds in Singapore and Finland. The analytic sample corresponds to the reported country samples (Singapore: 6,115; Finland: 5,882) and includes students with the selected 39 questionnaire-derived variables. Missing values were addressed via MCMC multiple imputation (five imputed datasets) before fitting random forest regression models; no additional grade/school-type restrictions are reported."
+      "sample_filtering_criteria": "Used PISA 2015 science-focused dataset for 15-year-olds from Singapore and Finland. The dependent variable is science performance represented by all 10 PISA science plausible values (PVs). The predictor set is restricted to 39 variables derived from the PISA 2015 student questionnaire (contextual, family, and individual-level factors) as listed in Table S1, and missing values among these variables were handled via MCMC multiple imputation (five imputed datasets) before fitting Random Forest regression."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -51,17 +51,17 @@
       },
       {
         "variable_code": "DISCLISCI",
-        "variable_name": "Disciplinary climate in science",
-        "category": "school"
+        "variable_name": "Disciplinary climate (science)",
+        "category": "peer_effects"
       },
       {
         "variable_code": "TEACHSUP",
-        "variable_name": "Teacher support in science",
+        "variable_name": "Teacher support (science)",
         "category": "teacher"
       },
       {
         "variable_code": "TDTEACH",
-        "variable_name": "Teacher-directed science instruction",
+        "variable_name": "Teacher-directed instruction",
         "category": "teacher"
       },
       {
@@ -116,8 +116,8 @@
       },
       {
         "variable_code": "DURECEC",
-        "variable_name": "Duration in early childhood education",
-        "category": "student_behavior"
+        "variable_name": "Duration in early education",
+        "category": "demographic"
       },
       {
         "variable_code": "SMINS",
@@ -176,7 +176,7 @@
       },
       {
         "variable_code": "COMPICT",
-        "variable_name": "perceived ICT competence",
+        "variable_name": "Perceived ICT competence",
         "category": "ict"
       },
       {
@@ -242,20 +242,46 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2015 Science (15-year-olds), Singapore and Finland",
-        "target_variable": "Science performance (10 plausible values)",
+        "dataset_used": "PISA 2015 Science (15-year-olds) — Singapore and Finland",
+        "target_variable": "Science performance (all 10 plausible values)",
         "top_predictors": [
-          "SMINS",
-          "OBJBLF",
-          "JOYSCIE",
-          "SCIEEFF",
-          "ICTHOME"
+          "Science learning time (minutes/week)",
+          "Justification in epistemological beliefs",
+          "Enjoyment of science",
+          "Science self-efficacy",
+          "ICT use or availability (ICTHOME/ICTSCH/USESCH)"
         ],
-        "performance_metrics": "Random Forest regression explained variance: Singapore R²=0.538 (RMSE=27.710); Finland R²=0.511 (RMSE=25.902). Sparse RF (top-variable subset) explained variance: Singapore R²=0.482 (RMSE=32.268); Finland R²=0.463 (RMSE=29.604). Model importance ranked via %IncMSE with 10-fold cross-validation repeated five times; minimum CV error at 26 factors; CV error stabilized with the top 10 factors.",
-        "standardized_conclusion": "Using PISA 2015 Science data for Singapore and Finland, the study leveraged science learning time (SMINS), justification in epistemological beliefs (OBJBLF), enjoyment of science (JOYSCIE), science self-efficacy (SCIEEFF), and ICT-related resources/use to predict science performance (PVs), finding that these motivational and ICT-related factors were among the top predictors in both countries, while additional top factors differed by country (e.g., teacher fairness and disciplinary climate at the school level). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random Forest regression (500 trees) with 10-fold cross-validation (five repeats): explained variance R² = 0.538 (Singapore; RMSE = 27.710) and R² = 0.511 (Finland; RMSE = 25.902). Sparse RF with top-10 variables: R² = 0.482 (Singapore; RMSE = 32.268) and R² = 0.463 (Finland; RMSE = 29.604). Variable importance ranked by %IncMSE; cross-validation error stabilized when using the 10 most important factors.",
+        "standardized_conclusion": "Using PISA 2015 Science data for Singapore and Finland, the study leveraged science learning time, justification in epistemological beliefs, enjoyment of science, science self-efficacy, and ICT use/availability to predict students’ science performance (all 10 plausible values), finding that these motivational and ICT-related factors were the shared top drivers in both countries. This indicates that strengthening science motivation (self-efficacy, enjoyment, and epistemic justification) alongside expanding effective ICT-supported learning opportunities may be a cross-cultural strategy for improving science achievement, though the study is correlational and does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2015 Science (15-year-olds) — Finland",
+        "target_variable": "Science performance (all 10 plausible values)",
+        "top_predictors": [
+          "Expected occupational status",
+          "Test anxiety",
+          "Value cooperation",
+          "Science learning time (minutes/week)",
+          "Justification in epistemological beliefs"
+        ],
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (five repeats): explained variance R² = 0.511 (Finland; RMSE = 25.902). Top-10 factor selection based on %IncMSE and stabilized cross-validation error; minimum cross-validation error occurred with 26 factors, and the curve stabilized with the 10 most important factors.",
+        "standardized_conclusion": "Using PISA 2015 Science data for Finland, the study leveraged expected occupational status, test anxiety, value cooperation, science learning time, and justification in epistemological beliefs to predict science performance (all 10 plausible values), finding that additional individual factors beyond the shared motivational/ICT set were among the most important for Finnish students. This indicates that Finnish science improvement efforts may benefit from addressing career-related expectations and reducing test anxiety while supporting cooperative learning dispositions, though causality cannot be inferred from the correlational ML results."
+      },
+      {
+        "dataset_used": "PISA 2015 Science (15-year-olds) — Singapore",
+        "target_variable": "Science performance (all 10 plausible values)",
+        "top_predictors": [
+          "Family wealth",
+          "Highest parental occupational status",
+          "Home educational resources",
+          "Science learning time (minutes/week)",
+          "Disciplinary climate in science classes"
+        ],
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (five repeats): explained variance R² = 0.538 (Singapore; RMSE = 27.710). Top-10 factor selection based on %IncMSE and stabilized cross-validation error; minimum cross-validation error occurred with 26 factors, and the curve stabilized with the 10 most important factors.",
+        "standardized_conclusion": "Using PISA 2015 Science data for Singapore, the study leveraged family wealth, highest parental occupational status, home educational resources, science learning time, and disciplinary climate in science classes to predict science performance (all 10 plausible values), finding that family resources were prominent among the top drivers for Singaporean students and that disciplinary climate was the key school-level factor. This indicates that Singapore’s science policy and practice may need to pair motivational/ICT initiatives with measures that mitigate home-resource disparities and improve classroom discipline to sustain high achievement, while recognizing the study’s correlational design limits causal claims."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2015 science performance for 15-year-olds in Singapore (N=6,115) and Finland (N=5,882) using random forest regression with 10-fold cross-validation repeated five times. Using the 10 PISA science plausible values as the dependent variable, the full RF models explained 53.76% of variance in Singapore (R²=0.538; RMSE=27.710) and 51.14% in Finland (R²=0.511; RMSE=25.902). Variable importance was assessed via %IncMSE, and the cross-validation error stabilized when the top 10 factors were included. Shared top predictors across both countries included science learning time, science self-efficacy, enjoyment of science, and justification in epistemological beliefs, alongside ICT use/availability. Country-specific differences included family wealth/parental occupational status/home educational resources for Singapore and teacher fairness (Finland) versus disciplinary climate (Singapore). The paper is correlational (no causal identification) and does not report applying PISA sampling/replicate weights in the ML estimation, which may affect generalizability under the complex survey design.",
+    "outcome_summary": "The study analyzes PISA 2015 science performance for 15-year-olds in Singapore (n=6115) and Finland (n=5882) using Random Forest regression with 500 trees and 10-fold cross-validation repeated five times. Science achievement is modeled using all 10 PISA science plausible values as the dependent variable, while 39 questionnaire-derived predictors spanning individual, family, and school contexts are used as inputs. Model fit is moderate: R² is 0.538 (Singapore; RMSE=27.710) and 0.511 (Finland; RMSE=25.902), and a sparse top-10-variable model yields R² of 0.482 (Singapore; RMSE=32.268) and 0.463 (Finland; RMSE=29.604). Variable importance is ranked via %IncMSE, and cross-validation error stabilizes when the 10 most important factors are included. The authors handle missing data with MCMC multiple imputation (five datasets) but do not report applying PISA sampling/replicate weights in the ML estimation; additionally, the correlational design means the results identify predictive associations rather than causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }
