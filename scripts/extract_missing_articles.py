@@ -31,19 +31,20 @@ from src.extractors.pdf_processor import process_pdf
 ARTICLES_DIR = Path.home() / "Desktop" / "articles"
 OUTPUT_DIR = PROJECT_ROOT / "outputs" / "articles" / "json"
 DEFAULT_MISSING = ("1", "2", "4", "7", "9")
+DEFAULT_ILSA_OUTPUT = PROJECT_ROOT / "ilsa_survey_articles" / "json"
 
 
 def _article_num(pdf_path: Path) -> str:
     return pdf_path.name.split(".")[0].strip()
 
 
-def _json_output_path(pdf_path: Path) -> Path:
+def _json_output_path(pdf_path: Path, output_dir: Path = OUTPUT_DIR) -> Path:
     safe_name = pdf_path.stem[:80].replace("/", "_").replace("\\", "_")
-    return OUTPUT_DIR / f"{safe_name}.json"
+    return output_dir / f"{safe_name}.json"
 
 
-def _already_done(pdf_path: Path) -> bool:
-    return _json_output_path(pdf_path).exists()
+def _already_done(pdf_path: Path, output_dir: Path = OUTPUT_DIR) -> bool:
+    return _json_output_path(pdf_path, output_dir).exists()
 
 
 def main() -> None:
@@ -55,6 +56,18 @@ def main() -> None:
         help=f"Article number prefixes to extract (default: {' '.join(DEFAULT_MISSING)})",
     )
     parser.add_argument(
+        "--articles-dir",
+        type=Path,
+        default=None,
+        help="Directory containing PDFs (default: ~/Desktop/articles)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Output directory for JSON files (default: ilsa_survey_articles/json/)",
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="Re-extract even if JSON output already exists",
@@ -62,23 +75,25 @@ def main() -> None:
     args = parser.parse_args()
     target_nums = {n.strip() for n in args.nums}
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    articles_dir = args.articles_dir if args.articles_dir else ARTICLES_DIR
+    output_dir = args.output_dir if args.output_dir else DEFAULT_ILSA_OUTPUT
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     pdfs = sorted(
-        p for p in ARTICLES_DIR.glob("*.pdf")
+        p for p in articles_dir.glob("*.pdf")
         if _article_num(p) in target_nums
     )
     if not pdfs:
-        print(f"No PDFs for articles {sorted(target_nums)} in {ARTICLES_DIR}")
+        print(f"No PDFs for articles {sorted(target_nums)} in {articles_dir}")
         return
 
-    print(f"Extracting up to {len(pdfs)} PDFs → {OUTPUT_DIR}\n")
+    print(f"Extracting up to {len(pdfs)} PDFs → {output_dir}\n")
     extractor = GPTExtractor()
     total_cost = 0.0
     ok = 0
 
     for i, pdf_path in enumerate(pdfs, 1):
-        out_path = _json_output_path(pdf_path)
+        out_path = _json_output_path(pdf_path, output_dir)
         if out_path.exists() and not args.force:
             print(f"[{i}/{len(pdfs)}] SKIP (exists): {out_path.name}")
             ok += 1
@@ -118,7 +133,7 @@ def main() -> None:
 
     print(f"\n{'=' * 70}")
     print(f"DONE — {ok}/{len(pdfs)} OK | Total cost: ${total_cost:.4f}")
-    print(f"Output: {OUTPUT_DIR}")
+    print(f"Output: {output_dir}")
     print("=" * 70)
 
 
