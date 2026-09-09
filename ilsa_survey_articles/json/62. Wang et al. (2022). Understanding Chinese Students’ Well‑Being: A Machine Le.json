@@ -1,7 +1,7 @@
 {
   "metadata": {
     "file_name": "62. Wang et al. (2022). Understanding Chinese Students’ Well‑Being: A Machine Learning Study.pdf",
-    "title": "Understanding Chinese Students' Well‑Being: A Machine Learning Study",
+    "title": "Understanding Chinese Students’ Well‑Being: A Machine Learning Study",
     "authors": [
       "Y. Wang",
       "Ronnel King"
@@ -15,14 +15,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 Chinese data (15-year-olds) from four regions (Beijing, Shanghai, Jiangsu, Zhejiang). The analytic sample is described as 12,058 students, with variables standardized and missing data imputed using MCMC multiple imputation. The manuscript does not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), and it does not name any weight variable (such as W_FSTUWT/TOTWGT). Because the primary models are random forest regressions, the paper appears to treat the data as unweighted for ML prediction; this omission is not explicitly justified in the text."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Mainland China, focusing on 15-year-old students from Beijing, Shanghai, Jiangsu, and Zhejiang. The manuscript does not report applying PISA sampling weights or replicate weights in the random forest regression analyses, nor does it name any weight variables (e.g., W_FSTUWT/TOTWGT) or replicate design (e.g., BRR/jackknife). Because the primary learner is random forest regression, the authors may have omitted complex-survey weighting; however, this is not explicitly justified. The analytic sample is restricted to the specified Chinese regions and further uses standardized predictors and MCMC-based multiple imputation for missing questionnaire variables."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "multiple_imputation",
-    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are subjective well-being dimensions (positive affect, negative affect, life satisfaction, and meaning in life) measured via Likert-type questionnaire items, not PV-based cognitive achievement scores. The paper instead imputes missing questionnaire responses using MCMC multiple imputation, and then fits random forest regression models to predict these well-being outcomes.",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are well-being dimensions measured via questionnaire Likert items (positive affect, negative affect, life satisfaction, and meaning in life), not PV-based cognitive achievement scores. The paper therefore does not require PV generation/combination procedures typical of PISA achievement domains. Missing data handling is reported via MCMC multiple imputation, so the main transparency issue concerns survey-weight usage rather than PV handling.",
     "sample_details": {
       "total_students": 12058,
       "countries": [
@@ -31,7 +31,7 @@
           "n_students": 12058
         }
       ],
-      "sample_filtering_criteria": "Used the PISA 2018 Chinese dataset publicly available from OECD, restricted to 15-year-old students from Mainland China’s four core regions: Beijing, Shanghai, Jiangsu, and Zhejiang (B-S-J-Z). The dependent variables are the four well-being dimensions (positive affect, negative affect, life satisfaction, and meaning in life) and the predictors are the 35 PISA 2018 questionnaire variables listed in Table 1. Missing data were imputed (MCMC multiple imputation) and all variables were standardized prior to the primary random forest regression analysis."
+      "sample_filtering_criteria": "Used PISA 2018 Mainland China dataset publicly available from OECD, restricted to 15-year-old students from Beijing, Shanghai, Jiangsu, and Zhejiang (B-S-J-Z). Dependent variables were the four well-being dimensions operationalized from PISA 2018 questionnaire items (positive affect, negative affect, life satisfaction, meaning in life). Predictors were selected from the PISA 2018 questionnaire constructs (background, schooling, non-cognitive/metacognitive) as listed in Table 1 (35 variables). Missing values across the investigated variables were imputed using MCMC multiple imputation before model training; predictors were standardized to zero mean and unit SD."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -41,231 +41,251 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "Gender",
-        "variable_name": "Gender",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "AGE",
-        "variable_name": "age",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "IMMIG",
-        "variable_name": "Immigration status",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "DURECEC",
-        "variable_name": "Early childhood education duration",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "REPEAT",
-        "variable_name": "Grade repetition",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "ESCS",
-        "variable_name": "Socioeconomic status (ESCS)",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "BELONG",
+        "variable_code": "S1",
         "variable_name": "Sense of school belonging",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "DISCLIMA",
-        "variable_name": "Disciplinary climate",
-        "category": "peer_effects"
-      },
-      {
-        "variable_code": "TEACHSUP",
-        "variable_name": "Teacher support",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "DIRINS",
-        "variable_name": "Teacher-directed instruction",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "PERFEED",
-        "variable_name": "Perceived feedback",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "EMOSUPS",
-        "variable_name": "Parents’ emotional support",
-        "category": "parent_home"
-      },
-      {
-        "variable_code": "STIMREAD",
-        "variable_name": "Teacher reading engagement",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "ADAPTIVITY",
-        "variable_name": "Adaptation of instruction",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "TEACHINT",
-        "variable_name": "Perceived teacher interest",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "ATTLNACT",
-        "variable_name": "Attitude toward school learning",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "BEINGBULLIED",
-        "variable_name": "Experience of being bullied",
         "category": "school"
       },
       {
-        "variable_code": "PERCOMP",
-        "variable_name": "Perceived competitiveness",
-        "category": "peer_effects"
-      },
-      {
-        "variable_code": "PERCOOP",
-        "variable_name": "Perceived cooperation",
-        "category": "school"
-      },
-      {
-        "variable_code": "TMINS",
-        "variable_name": "Learning time per week",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "BSMJ",
-        "variable_name": "Expected occupational status",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "EFFORT2",
-        "variable_name": "Effort invested",
+        "variable_code": "N12",
+        "variable_name": "Resilience",
         "category": "student_behavior"
       },
       {
-        "variable_code": "UNDREM",
-        "variable_name": "Metacognition (understanding, remembering)",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "METASUM",
-        "variable_name": "Meta-cognition: summarising",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "METASPAM",
-        "variable_name": "Meta-cognition: assess credibility",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "JOYREAD",
-        "variable_name": "Reading enjoyment",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "SCREADCOMP",
-        "variable_name": "Reading self-concept: competence",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "SCREADDIFF",
-        "variable_name": "Reading self-concept: difficulty",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "PISADIFF",
-        "variable_name": "Perceived difficulty of PISA test",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "COMPETE",
-        "variable_name": "Competitiveness",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "WORKMAST",
+        "variable_code": "N10",
         "variable_name": "Work mastery",
-        "category": "student_attitude"
+        "category": "student_behavior"
       },
       {
-        "variable_code": "GFOFAIL",
+        "variable_code": "N11",
         "variable_name": "General fear of failure",
         "category": "student_attitude"
       },
       {
-        "variable_code": "RESILIENCE",
-        "variable_name": "Resilience",
+        "variable_code": "N13",
+        "variable_name": "Mastery goal orientation",
         "category": "student_attitude"
       },
       {
-        "variable_code": "MASTGOAL",
-        "variable_name": "Mastery goal orientation",
+        "variable_code": "N6",
+        "variable_name": "Self-concept of reading competence",
         "category": "student_attitude"
+      },
+      {
+        "variable_code": "N5",
+        "variable_name": "Reading for enjoyment",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "N9",
+        "variable_name": "Competitiveness",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S13",
+        "variable_name": "Perception of cooperation at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "S12",
+        "variable_name": "Perception of competitiveness at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "S11",
+        "variable_name": "Experience of being bullied",
+        "category": "school"
+      },
+      {
+        "variable_code": "S6",
+        "variable_name": "Parents’ emotional support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "S9",
+        "variable_name": "Perceived teacher’s interest",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "S7",
+        "variable_name": "Teacher stimulation of reading engagement",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "S5",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "S4",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "S8",
+        "variable_name": "Adaptation of instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "B6",
+        "variable_name": "Index of economic social cultural status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "B1",
+        "variable_name": "Grade compared to modal grade",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "B2",
+        "variable_name": "age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "B3",
+        "variable_name": "Index immigration status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "duration_in_early_childhood_education",
+        "variable_name": "Duration in early childhood education",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "care",
+        "variable_name": "care",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "B5",
+        "variable_name": "Grade repetition",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "B7",
+        "variable_name": "gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "N1",
+        "variable_name": "Effort",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "metacognition_understanding",
+        "variable_name": "Metacognition: understanding",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "remembering",
+        "variable_name": "remembering",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "N3",
+        "variable_name": "Metacognition: summarising",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "N4",
+        "variable_name": "Metacognition: assess credibility",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "N7",
+        "variable_name": "Self-concept of reading difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "N8",
+        "variable_name": "Perception of difficulty of the PISA test",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "N14",
+        "variable_name": "Attitude towards school: learning activities",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S2",
+        "variable_name": "Disciplinary climate in test language lessons",
+        "category": "school"
+      },
+      {
+        "variable_code": "S3",
+        "variable_name": "Teacher support in test language lessons",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "S10",
+        "variable_name": "Attitude towards school: learning activities",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "S14",
+        "variable_name": "Learning time in total (minutes per week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "S15",
+        "variable_name": "expected occupational status (SEI)",
+        "category": "socioeconomic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
-        "target_variable": "Positive affect (well-being dimension)",
+        "dataset_used": "PISA 2018 (China) 15-year-olds well-being questionnaire — Positive affect",
+        "target_variable": "Positive affect (subjective well-being)",
         "top_predictors": [
           "Sense of school belonging",
           "Resilience",
-          "Self-concept of reading: competence",
           "Work mastery",
-          "Mastery goal orientation"
-        ],
-        "performance_metrics": "Random Forest regression — R²: 21.41% (MSE: 0.79) for the optimal model; best model selected via 10-fold cross-validation repeated 5 times; reported %IncMSE variable-importance ranking.",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged sense of school belonging, resilience, self-concept of competence, work mastery, and mastery goal orientation to predict positive affect, finding that school belonging and resilience were the most important predictors (highest %IncMSE) and that the optimal random-forest model achieved R² = 21.41% (MSE = 0.79)."
-      },
-      {
-        "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
-        "target_variable": "Negative affect (well-being dimension)",
-        "top_predictors": [
-          "Sense of school belonging",
-          "General fear of failure",
-          "Socioeconomic status (ESCS)",
-          "Resilience",
-          "Reading enjoyment"
-        ],
-        "performance_metrics": "Random Forest regression — R²: 18.13% (MSE: 0.82) for the selected top-9 predictor model; variable importance assessed via %IncMSE; 10-fold cross-validation repeated 5 times.",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged sense of school belonging, general fear of failure, socioeconomic status (ESCS), resilience, and reading enjoyment to predict negative affect, finding that fear of failure and school belonging were the top predictors (highest %IncMSE) and that the best random-forest model achieved R² = 18.13% (MSE = 0.82)."
-      },
-      {
-        "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
-        "target_variable": "Life satisfaction (well-being dimension)",
-        "top_predictors": [
-          "Resilience",
-          "Fear of failure",
-          "Work mastery",
-          "Sense of school belonging",
+          "Mastery goal orientation",
           "Parents’ emotional support"
         ],
-        "performance_metrics": "Random Forest regression — R²: 24.14% (MSE: 0.76) for the selected top-9 predictor model; resilience and school belonging/parental emotional support contributed the largest mean decreases in accuracy (%IncMSE).",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged resilience, fear of failure, work mastery, sense of school belonging, and parents’ emotional support to predict life satisfaction, finding that school belonging and resilience were the most important predictors and that the optimal random-forest model achieved R² = 24.14% (MSE = 0.76)."
+        "performance_metrics": "Random Forest regression — R²: 21.41%, MSE: 0.79 (baseline with 35 predictors); optimal model with top 9 predictors R²: 21.41%, MSE: 0.79; importance via %IncMSE (higher = more important).",
+        "standardized_conclusion": "Using PISA 2018 (China) 15-year-olds well-being questionnaire the study leveraged sense of school belonging, resilience, work mastery, mastery goal orientation, and parents’ emotional support to predict positive affect, finding that school belonging and resilience were the most important predictors (top-ranked and second-ranked within the selected set). This indicates that strengthening school belonging and resilience-building supports may be effective targets for interventions aimed at improving students’ positive emotions, though the cross-sectional design prevents causal claims."
       },
       {
-        "dataset_used": "PISA 2018 (China) well-being questionnaire, ages 15 (Beijing, Shanghai, Jiangsu, Zhejiang)",
+        "dataset_used": "PISA 2018 (China) 15-year-olds well-being questionnaire — Negative affect",
+        "target_variable": "Negative affect (subjective well-being)",
+        "top_predictors": [
+          "Fear of failure (general fear of failure)",
+          "Sense of school belonging",
+          "Resilience",
+          "Index of economic social cultural status (ESCS)",
+          "Reading for enjoyment"
+        ],
+        "performance_metrics": "Random Forest regression — R²: 19.21%, MSE: 0.81 (initial model with 35 predictors); optimal model with top 9 predictors R²: 18.13%, MSE: 0.82; importance via %IncMSE.",
+        "standardized_conclusion": "Using PISA 2018 (China) 15-year-olds well-being questionnaire the study leveraged general fear of failure, sense of school belonging, resilience, ESCS, and reading for enjoyment to predict negative affect, finding that fear of failure and school belonging were the most important predictors (fear of failure ranked first). This indicates that reducing students’ fear of failure through supportive assessment and feedback practices, alongside improving belonging, may help lower negative emotions, while causality cannot be inferred from predictive modeling."
+      },
+      {
+        "dataset_used": "PISA 2018 (China) 15-year-olds well-being questionnaire — Life satisfaction",
+        "target_variable": "Life satisfaction (subjective well-being)",
+        "top_predictors": [
+          "Resilience",
+          "Sense of school belonging",
+          "Parents’ emotional support",
+          "Fear of failure (general fear of failure)",
+          "Work mastery"
+        ],
+        "performance_metrics": "Random Forest regression — R²: 26.44%, MSE: 0.74 (initial model with 35 predictors); optimal model with top 9 predictors R²: 24.14%, MSE: 0.76; importance via %IncMSE (resilience and belonging contributed large mean decreases in accuracy).",
+        "standardized_conclusion": "Using PISA 2018 (China) 15-year-olds well-being questionnaire the study leveraged resilience, sense of school belonging, parents’ emotional support, general fear of failure, and work mastery to predict life satisfaction, finding that school belonging and resilience were the leading predictors (ranked first and second in the selected set). This indicates that family emotional support and belonging-enhancing school environments, together with resilience development, may improve students’ life satisfaction, though the study’s cross-sectional ML approach does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2018 (China) 15-year-olds well-being questionnaire — Eudaimonic well-being",
         "target_variable": "Eudaimonic well-being (meaning in life)",
         "top_predictors": [
           "Resilience",
           "Work mastery",
-          "Perceived cooperation at school",
+          "Sense of school belonging",
           "Parents’ emotional support",
-          "Sense of school belonging"
+          "Cooperation at school"
         ],
-        "performance_metrics": "Random Forest regression — R²: 32.47% (MSE: 0.78) for the selected top-9 predictor model; resilience and work mastery accounted for the largest accuracy decreases (%IncMSE).",
-        "standardized_conclusion": "Using PISA 2018 China the study leveraged resilience, work mastery, perceived cooperation at school, parents’ emotional support, and sense of school belonging to predict eudaimonic well-being (meaning in life), finding that resilience and work mastery were the dominant predictors and that the best random-forest model achieved R² = 32.47% (MSE = 0.78)."
+        "performance_metrics": "Random Forest regression — R²: 32.47%, MSE: 0.68 (initial model with 35 predictors); optimal model with top 9 predictors R²: 32.47%, MSE: 0.78; importance via %IncMSE (resilience and work mastery accounted for >62% decrease in accuracy).",
+        "standardized_conclusion": "Using PISA 2018 (China) 15-year-olds well-being questionnaire the study leveraged resilience, work mastery, sense of school belonging, parents’ emotional support, and perceived cooperation at school to predict eudaimonic well-being (meaning in life), finding that resilience and work mastery were the top predictors. This indicates that interventions promoting students’ mastery-oriented engagement and resilience may strengthen students’ sense of purpose, while the predictive nature of the evidence limits causal interpretation."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 China well-being questionnaire data for 12,058 15-year-olds from Beijing, Shanghai, Jiangsu, and Zhejiang. Using random forest regression with missing responses imputed via MCMC multiple imputation and variables standardized, the authors predicted four well-being dimensions: positive affect, negative affect, life satisfaction, and meaning in life (eudaimonic well-being). Model fit ranged from R² = 18.13% (negative affect) to R² = 32.47% (eudaimonic well-being), with MSE values between 0.76 and 0.82 for the selected top-9 models. Across outcomes, school belonging and resilience were consistently among the most important predictors; fear of failure was especially important for negative affect and life satisfaction, while work mastery was dominant for eudaimonic well-being. The paper does not report using PISA sampling/replicate weights, and the design is cross-sectional, so results are predictive rather than causal.",
+    "outcome_summary": "The study analyzes PISA 2018 questionnaire data for 12,058 Chinese 15-year-olds from Beijing, Shanghai, Jiangsu, and Zhejiang, predicting four well-being dimensions: positive affect, negative affect, life satisfaction, and meaning in life (eudaimonic well-being). The authors use random forest regression and report model fit using MSE and explained variance (R²), along with variable importance measured by %IncMSE. Across outcomes, school belonging and resilience dominate positive affect and life satisfaction, fear of failure is the top predictor for negative affect, and resilience plus work mastery are the strongest predictors for meaning in life. Missing questionnaire data are handled via MCMC multiple imputation, and predictors are standardized. The paper emphasizes predictive importance rather than causal mechanisms; additionally, it does not report the use of PISA sampling/replicate weights, which may affect generalizability under complex survey design.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

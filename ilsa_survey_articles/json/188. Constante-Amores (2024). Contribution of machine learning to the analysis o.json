@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "file_name": "188. Constante-Amores (2024). Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data.pdf",
+    "title": "Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data",
+    "authors": [
+      "A. Constante-Amores",
+      "D. Arroyo-Resino",
+      "M. Sánchez-Munilla",
+      "I. Asensio-Muñoz"
+    ],
+    "year": 2024,
+    "doi": "10.22550/2174-0909.4014",
+    "venue": "Revista Española de Pedagogía",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Spain and applies a two-stage sampling design as described in the PISA technical documentation. In the reported descriptive tables, both unweighted and weighted percentages are shown, but the methods section does not specify which PISA weight variable (e.g., student sampling weight) was used in the machine-learning training and multilevel logistic regression estimation. The authors preprocess predictors by multiple imputation by chained equations for missing values, then randomly split cases into training (70%) and validation (30%) sets, and center/scale continuous predictors. Because the manuscript does not explicitly state the application of complex-survey weights during model fitting, weighting should be treated as unclear for the ML stage, while the multilevel modeling is used to account for the student–school hierarchy."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because the dependent variables are self-reported grade repetition indicators (binary: repeated at least once in primary/secondary), not PV-based cognitive achievement scores. The paper instead models grade repetition using background, school, and non-cognitive/metacognitive constructs from PISA background questionnaires and indices. Missing data handling is reported via multiple imputation by chained equations, so the missing-data strategy is not a reporting gap.",
+    "sample_details": {
+      "total_students": 35943,
+      "countries": [
+        {
+          "country_code": "ESP",
+          "n_students": 35943
+        }
+      ],
+      "sample_filtering_criteria": "Secondary analysis of PISA 2018 for Spain using the two-stage sampling sample of 15-year-olds (coverage 92% of the national population). For the multilevel logistic regression stage, the authors exclude schools with fewer than 20 subjects (removing 133 centres and 1532 subjects), yielding a final analytic sample of 34,411 students for the multilevel models. The ML stage uses the full available Spanish sample for the specified grade-repetition outcomes, after preprocessing (multiple imputation, centering/scaling) and a random split into training (70%) and validation (30%) sets."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting",
+      "all_techniques": [
+        "Decision Tree",
+        "Random Forest",
+        "Gradient Boosting"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HOMEPOS",
+        "variable_name": "Home possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "SCCHANGE",
+        "variable_name": "Number of school changes",
+        "category": "school"
+      },
+      {
+        "variable_code": "HISEI",
+        "variable_name": "Parents’ highest occupational status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother’s education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration background",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "Home ICT resources",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HEDRES",
+        "variable_name": "Home educational resources",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Early childhood education duration",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SC048Q03NA",
+        "variable_name": "Disadvantaged home percentage",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BMMJ1",
+        "variable_name": "Mother’s ISEI",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "WEALTH",
+        "variable_name": "Family wealth",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MMINS",
+        "variable_name": "Learning time for mathematics",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "LMINS",
+        "variable_name": "Learning time for language",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Learning time for sciences",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TMINS",
+        "variable_name": "Total learning time",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "INFOCAR",
+        "variable_name": "Career information (outside school)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "DIRINS",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Perceived teacher feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "DISCLIMA",
+        "variable_name": "Disciplinary climate (language)",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "BEINGBULLIED",
+        "variable_name": "Experience of being bullied",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupational status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PISADIFF",
+        "variable_name": "Perception of PISA test difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "METASUM",
+        "variable_name": "Metacognition: summarising",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "STUBMI",
+        "variable_name": "body mass index",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "GCSELFEFF",
+        "variable_name": "Self-efficacy regarding global competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging at school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCREADDIFF",
+        "variable_name": "Self-concept of reading difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "GCAWARE",
+        "variable_name": "Awareness of global issues",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COGFLEX",
+        "variable_name": "Cognitive flexibility/adaptability",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "CHANGE",
+        "variable_name": "Number of changes in educational biography",
+        "category": "school"
+      },
+      {
+        "variable_code": "STUBEHA",
+        "variable_name": "behaviour hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "Use of ICT at home for school work",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUTSIDE",
+        "variable_name": "Subject-related ICT use outside school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use outside school for leisure",
+        "category": "ict"
+      },
+      {
+        "variable_code": "INFOJOB2",
+        "variable_name": "Labour market information outside school",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "INFOJOB1",
+        "variable_name": "Labour market information provided by school",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "DISCRIM",
+        "variable_name": "Discriminatory school climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "MASTGOAL",
+        "variable_name": "Learning goals",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "RESILIENCE",
+        "variable_name": "resilience",
+        "category": "student_behavior"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Spain (compulsory primary stage; grade repetition self-report)",
+        "target_variable": "Grade repetition in primary education (repeated at least once)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Expected occupational status",
+          "Learning time for mathematics",
+          "Number of school changes",
+          "Teacher-directed instruction"
+        ],
+        "performance_metrics": "Stochastic Gradient Boosting (best ML algorithm by AUC; Friedman test on training sample). Multilevel binary logistic regression (best overall model M4): PEV 61.0%, AIC 18072.87, BIC 18309.368; variance reduction vs model 1 (R2 reduction 9%).",
+        "standardized_conclusion": "Using PISA 2018 Spain data for grade repetition in primary education, the study leveraged socioeconomic status (ESCS), expected occupational status, learning time for mathematics, number of school changes, and teacher-directed instruction to predict whether students repeated a grade, finding that ESCS and learning-time/curriculum-related factors were among the most influential predictors and that the full multilevel model explained about 61% of the variance (PEV). This indicates that equity-oriented supports combining socioeconomic compensation with learning-time management and classroom/teaching practices may be key levers to reduce primary-grade repetition, though the study is correlational and does not establish causality."
+      },
+      {
+        "dataset_used": "PISA 2018 Spain (compulsory secondary stage; grade repetition self-report)",
+        "target_variable": "Grade repetition in secondary education (repeated at least once)",
+        "top_predictors": [
+          "Expected occupational status",
+          "Learning time for sciences",
+          "Socioeconomic status (ESCS)",
+          "Student behaviour hindering learning",
+          "Teacher-directed instruction"
+        ],
+        "performance_metrics": "Stochastic Gradient Boosting and Random Forest were most accurate ML algorithms for secondary education (AUC; Friedman test). Multilevel binary logistic regression (best overall model M4): PEV 55.69%, AIC 26708.20, BIC 26961.58; variance reduction vs model 1 (R2 reduction 10.298%).",
+        "standardized_conclusion": "Using PISA 2018 Spain data for grade repetition in secondary education, the study leveraged expected occupational status, learning time for sciences, socioeconomic status (ESCS), student behaviour hindering learning, and teacher-directed instruction to predict whether students repeated a grade, finding that the strongest effects combined student background with school-related and non-cognitive/metacognitive factors and that the global multilevel model achieved about 55.69% explained variance (PEV). This indicates that secondary-grade repetition may be more sensitive to behavioural learning supports and instructional practices alongside expectation- and motivation-related factors, though the results remain non-causal due to the observational design."
+      }
+    ],
+    "outcome_summary": "The study conducts a secondary analysis of PISA 2018 for Spain (N=35,943 15-year-olds; two-stage sampling) to model grade repetition separately for primary and secondary compulsory stages using machine learning and multilevel logistic regression. For algorithm selection, the authors compare CART/C5.0, Random Forest, and stochastic gradient boosting, using AUC with 10-fold cross-validation and a 70/30 train–validation split; stochastic gradient boosting is selected as the most accurate algorithm (with Random Forest also among the top performers for secondary). Missing predictors are handled via multiple imputation by chained equations, and continuous predictors are centered and scaled. The multilevel models account for the student–school hierarchy and report explained variance (PEV) and fit indices: in primary, the best model reaches PEV=62.38% (M1) and PEV=61.0% (M4) with AIC=18072.87 and BIC=18309.368; in secondary, the best model reaches PEV=55.69% (M4) with AIC=26708.20 and BIC=26961.58. Limitations include the correlational nature (no causality), self-report measurement error in PISA background questionnaires, and unclear application of complex-survey weights in the ML stage.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

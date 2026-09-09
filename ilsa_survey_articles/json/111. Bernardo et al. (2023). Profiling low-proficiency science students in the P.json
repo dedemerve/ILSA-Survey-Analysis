@@ -2,10 +2,7 @@
   "metadata": {
     "file_name": "111. Bernardo et al. (2023). Profiling low-proficiency science students in the Philippines using machine learning.pdf",
     "title": "Profiling low-proficiency science students in the Philippines using machine learning",
-    "authors": [
-      "Bernardo",
-      "et al."
-    ],
+    "authors": null,
     "year": 2023,
     "doi": "10.1057/s41599-023-01705-y",
     "venue": "Humanities and Social Sciences Communications",
@@ -15,10 +12,10 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses the Philippines sample from PISA 2018, which is obtained via a two-stage stratified sampling design (random selection of 187 schools from 17 regions, then random selection of students within schools). The analytic sample is further restricted by dropping students with >50% missingness across the candidate predictor variables, removing variables with 100% missingness, imputing remaining missing values, and then creating a train/test split with an 80–20 split. The manuscript does not report applying PISA sampling weights or replicate weights (e.g., BRR/jackknife) in the machine-learning training/evaluation. Because the models are standard ML classifiers (Random Forest, plus other algorithms in grid search) and the paper does not mention weight-aware estimation, the analysis is treated as unweighted for population-representativeness."
+      "weight_fields_interpretation": "The study uses the Philippines sample from PISA 2018, where student performance in science is scaled and reported using 10 plausible values; the authors explicitly use PV1SCIE (the first plausible value) as the science proficiency input for modeling. A two-stage stratified sampling design is described (random selection of 187 schools proportional to regional distribution, then random selection of students within schools), and the final analytic sample is 7233 students. The manuscript does not report applying PISA student/sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures; instead, it focuses on ML preprocessing (dropping variables with 100% missingness, kNN imputation, scaling, correlation-based variable removal) and train/test splitting with oversampling/undersampling. Because the paper does not state weight usage, readers should treat the ML results as potentially not fully accounting for the complex survey design when estimating population-representative effects."
     },
     "plausible_values_handling": "single_pv",
     "missing_data_handling": "knn_imputation",
@@ -31,13 +28,13 @@
           "n_students": 7233
         }
       ],
-      "sample_filtering_criteria": "Used the Philippines PISA 2018 student sample (nationally representative; 7233 15-year-olds). For model training, the target was defined using PV1SCIE: poor-performing students were those at science proficiency Level 1b and below, and better-performing students were those at Levels 1a and above. Data preparation trimmed the dataset by dropping students with >50% missing values across the 85 candidate questionnaire variables; variables with 100% missingness were removed; remaining missing entries were imputed using k-nearest neighbors with k=7. The final feature set comprised 72 questionnaire variables plus PV1SCIE. The dataset was then split into training and test sets using an 80–20 random split, and class imbalance was addressed in training via SMOTE oversampling for the poor class and Tomek Links undersampling for the better class (final training size per class: 3214)."
+      "sample_filtering_criteria": "Used the Philippines PISA 2018 student sample (15-year-olds). Defined the binary target by science proficiency levels: poor-performing students are those at Level 1b and below; better-performing students are those at Levels 1a, 2, and above. Data preparation trimmed the dataset by dropping predictor variables with 100% missingness, dropping students with more than 50% missingness across the candidate predictors, and imputing remaining missing entries using k-nearest neighbors with k=7. The final predictor set was further reduced by removing variables with high correlation (|r| > 0.75) to reduce negative suppressors, then scaling/normalizing per variable. For model training, the authors used an 80/20 train/test split and applied class balancing via SMOTE oversampling for the poor class and Tomek Links undersampling for the better class; the final training set contained 3214 samples per class."
     },
     "ml_techniques": {
       "primary": "Random Forest",
       "all_techniques": [
         "Random Forest",
-        "SVM",
+        "Support Vector Machines",
         "Logistic Regression",
         "Neural Network",
         "Decision Tree"
@@ -66,7 +63,7 @@
       },
       {
         "variable_code": "ST164Q03IA",
-        "variable_name": "Discuss text with other people",
+        "variable_name": "Discuss text content with others",
         "category": "student_behavior"
       },
       {
@@ -81,7 +78,7 @@
       },
       {
         "variable_code": "BEINGBULLIED",
-        "variable_name": "Experienced bullying",
+        "variable_name": "Bullying experience",
         "category": "student_behavior"
       },
       {
@@ -106,36 +103,36 @@
       },
       {
         "variable_code": "ST012Q05NA",
-        "variable_name": "Smartphones with internet at home",
+        "variable_name": "Smartphone with internet at home",
         "category": "ict"
       },
       {
         "variable_code": "ST005Q01TA",
-        "variable_name": "Mother's education level",
-        "category": "parent_home"
+        "variable_name": "Mother education level",
+        "category": "socioeconomic"
       },
       {
         "variable_code": "HISEI",
-        "variable_name": "Parents' occupational status",
+        "variable_name": "Parents occupational status",
         "category": "socioeconomic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (Philippines) Science proficiency (PV1SCIE), 15-year-olds",
+        "dataset_used": "PISA 2018 Science (Philippines, 15-year-olds)",
         "target_variable": "Poor vs better science proficiency (Level ≤1b vs ≥1a)",
         "top_predictors": [
-          "Sense of belonging (BELONG)",
-          "Perceived student cooperation (PERCOOP)",
-          "Experienced bullying (BEINGBULLIED)",
-          "Work mastery motivation (WORKMAST)",
-          "Smartphones with internet at home (ST012Q05NA)"
+          "Sense of belonging",
+          "Perceived student cooperation",
+          "Bullying experience",
+          "Work mastery motivation",
+          "Smartphone with internet at home"
         ],
-        "performance_metrics": "Random Forest (best model): Training precision 0.74, recall 0.79; Test precision 0.73, recall 0.66, accuracy 0.74; AUC = 0.83. Other models were evaluated via grid search (SVM, logistic regression, MLP, decision tree), but RF achieved the highest accuracy.",
-        "standardized_conclusion": "Using PISA 2018 Philippines science the study leveraged sense of belonging, perceived student cooperation, experienced bullying, work mastery motivation, and access to smartphones with internet at home to predict poor science proficiency (Level ≤1b vs ≥1a), finding that the Random Forest classifier achieved test accuracy of 0.74 and AUC of 0.83; SHAP was used to interpret the top 15 predictors, but the approach is predictive rather than causal and the manuscript does not report applying PISA sampling weights."
+        "performance_metrics": "Random Forest (500 trees; max depth 20; max features=7). Training precision=0.74, recall=0.79. Test precision=0.73, recall=0.66, accuracy=0.74. AUC=0.83.",
+        "standardized_conclusion": "Using PISA 2018 Science data for the Philippines, the study leveraged sense of belonging, perceived student cooperation, bullying experience, work mastery motivation, and access to smartphones with internet at home to predict whether students were poor performers (Level ≤1b) versus better performers (Level ≥1a), finding that the Random Forest classifier achieved test accuracy of 0.74 with AUC=0.83. This indicates that non-instructional factors—especially reading-strategy metacognition, school social experiences, and ICT access—can be used to identify students most at risk of very low science literacy, though the results are predictive and not causal and may not fully reflect complex survey weighting."
       }
     ],
-    "outcome_summary": "The study used PISA 2018 Philippines science proficiency (PV1SCIE) to train a binary classifier distinguishing poor performers (Level 1b and below) from better performers (Level 1a and above) among 7233 15-year-olds. After trimming students with >50% missingness, imputing remaining missing values with k=7 nearest neighbors, and balancing the training set using SMOTE (poor class) and Tomek Links (better class), the Random Forest model was selected as best via grid search. On the held-out test set, it achieved accuracy 0.74 with precision 0.73 and recall 0.66, and AUC of 0.83. SHAP interpretation highlighted 15 key variables, including reading metacognitive strategies, social experiences (belonging, cooperation, bullying), motivation (work mastery), and ICT access (smartphones with internet). Limitations include the predictive (not causal) nature of ML and the absence of reported survey-weight application.",
+    "outcome_summary": "The study uses the Philippines PISA 2018 science domain for 15-year-olds (N=7233) and constructs a binary target: poor performers are those at science proficiency Level 1b and below, while better performers are Level 1a and above. Because PISA reports science using plausible values, the authors model the outcome using PV1SCIE (first plausible value) and train an 80/20 train/test split. After dropping predictors with 100% missingness, removing students with >50% missingness, imputing remaining missing values via kNN (k=7), scaling variables, and reducing highly correlated predictors (|r|>0.75), they train multiple ML classifiers and select a Random Forest as best. The Random Forest reaches test accuracy 0.74 with precision 0.73, recall 0.66, and AUC 0.83. Interpretation relies on SHAP feature importance (predictive relevance, not causality), and the manuscript does not report applying PISA sampling/replicate weights, which may limit population-representativeness.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

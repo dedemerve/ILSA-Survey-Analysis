@@ -3,8 +3,8 @@
     "file_name": "50. Rico-Juan et al. (2024). Holistic exploration of reading comprehension skills, technology and socioeconomic factors in Spanish teenagers.pdf",
     "title": "Holistic exploration of reading comprehension skills, technology and socioeconomic factors in Spanish teenagers",
     "authors": [
-      "Juan Ramón Rico-Juan",
-      "Beatriz Peña-Acuña",
+      "J.R. Rico-Juan",
+      "Beatriz Pe\u001fna-Acu\u001fna",
       "Oscar Navarro-Martinez"
     ],
     "year": 2024,
@@ -16,12 +16,12 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": null,
+      "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 Spain microdata (publicly accessible) and restricts the analytic sample to cases with complete information needed for the selected variables, reporting that 22,400 of about 36,000 records (67%) contain all information required. The reading outcome is the PISA PVREAD (mean reading test per student) and several predictors are WLE-based perceived ICT competence and autonomy, indicating that PISA’s scaling (weighted likelihood estimation) was used for those constructs. The manuscript does not report applying PISA sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight methods (e.g., BRR/jackknife) in the ML training/evaluation stage. Because the authors run standard ML models with one-hot encoding and 10-fold cross-validation, and do not describe complex-survey weight incorporation, weighting is not clearly implemented for the predictive modeling; the paper mainly relies on PISA’s internal scaling for the numeric constructs."
+      "weight_fields_interpretation": "The study uses PISA 2018 Spain microdata and restricts the analytic sample to cases with complete information for the selected variables (22,400 of about 36,000). The authors state that the numerical variables are already scaled using weighted likelihood estimation (WLE), implying that the achievement-related scale inputs are on a WLE metric rather than requiring additional PV recombination. However, the manuscript does not report applying PISA sampling weights (e.g., student/school weights) during the ML training/evaluation; instead, it describes ML preprocessing (one-hot encoding) and model selection via 10-fold cross-validation with RMSE. Because the paper uses tree-based and neural/linear ML models (e.g., CatBoost, XGBoost, LightGBM, Random Forest), it is plausible that complex survey weights were not incorporated into the learning objective, and the paper does not document any weight variable used for estimation."
     },
-    "plausible_values_handling": "average_pv",
+    "plausible_values_handling": "wle",
     "missing_data_handling": "listwise_deletion",
     "handling_not_reported_explanation": null,
     "sample_details": {
@@ -32,7 +32,7 @@
           "n_students": 22400
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 Spain microdata and selected only Spain as the country of analysis. The analytic sample was restricted to students aged between 15 years and 3 full months and 16 years and 2 full months at the start of the assessment period (with country cut-offs allowed to vary by up to one month). From the available microdata (about 36,000 student records), only cases containing all information needed to conduct the study were retained, yielding 22,400 students (67%). Annual household income (PA042Q01TA) was excluded because it was not completed in Spain."
+      "sample_filtering_criteria": "Used PISA 2018 microdata for Spain only. Included students aged 15 years and 3 full months to 16 years and 2 full months at the start of the assessment period (with country-specific cut-offs allowed). From the available microdata (about 36,000), the analytic sample was restricted to the subset containing all information needed to conduct the study for the selected variables (22,400; 67%)."
     },
     "ml_techniques": {
       "primary": "CatBoost",
@@ -48,19 +48,19 @@
         "CatBoost",
         "LightGBM",
         "Histogram GBR",
-        "Multilayer Perceptron",
+        "Neural Network",
         "k-NN"
       ]
     },
     "confounders_identified": [
       {
         "variable_code": "ST005Q01TA",
-        "variable_name": "Mother’s education level",
+        "variable_name": "Mother\u001fs education level",
         "category": "socioeconomic"
       },
       {
         "variable_code": "ST007Q01TA",
-        "variable_name": "Father’s education level",
+        "variable_name": "Father\u001fs education level",
         "category": "socioeconomic"
       },
       {
@@ -95,12 +95,12 @@
       },
       {
         "variable_code": "COMPICT",
-        "variable_name": "Perceived ICT competence (WLE)",
-        "category": "ict"
+        "variable_name": "Perceived ICT competence",
+        "category": "student_attitude"
       },
       {
         "variable_code": "AUTICT",
-        "variable_name": "Perceived ICT autonomy (WLE)",
+        "variable_name": "Perceived ICT autonomy",
         "category": "ict"
       },
       {
@@ -121,20 +121,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Spain (15-year-olds) — Reading comprehension",
+        "dataset_used": "PISA 2018 Spain (15-year-olds) Reading comprehension (PVREAD mean)",
         "target_variable": "Reading comprehension skills (PVREAD mean)",
         "top_predictors": [
           "Playing online games",
           "Daily internet use (weekdays)",
-          "Perceived ICT competence (WLE)",
-          "Perceived ICT autonomy (WLE)",
-          "Mother’s education level"
+          "Perceived ICT competence",
+          "Perceived ICT autonomy",
+          "Mother\u001fs education level"
         ],
-        "performance_metrics": "10-fold cross-validation with RMSE; CatBoost selected as best model (exact RMSE values not reported in text). Wilcoxon paired test used to compare algorithms; SHAP used for variable importance and impact plots.",
-        "standardized_conclusion": "Using PISA 2018 Spain reading comprehension the study leveraged playing online games, daily internet use (weekdays), perceived ICT competence, perceived ICT autonomy, and mother’s education level to predict reading comprehension skills, finding that online gaming is the strongest negative factor while moderate weekday internet use and positive ICT perceptions are associated with higher reading scores; CatBoost provided the best predictive performance under RMSE-based 10-fold cross-validation."
+        "performance_metrics": "Model selection via 10-fold cross-validation using RMSE; CatBoost selected as best algorithm. Exact RMSE values are not reported in the provided text; baseline comparisons are shown in figures but not numerically extracted.",
+        "standardized_conclusion": "Using PISA 2018 Spain the study leveraged Playing online games, Daily internet use (weekdays), Perceived ICT competence, Perceived ICT autonomy, and Mother\u001fs education level to predict Reading comprehension skills (PVREAD mean), finding that online gaming frequency has the largest negative association while moderate weekday internet use and positive ICT perceptions are associated with higher reading scores. This indicates that education policy and school-family guidance should prioritize balanced, learning-oriented technology use and digital-literacy/autonomy support, while setting limits on frequent online gaming; however, the results are predictive associations and do not establish causality."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 Spain microdata for 15-year-olds (analytic sample: 22,400) to predict reading comprehension skills (PVREAD mean) using multiple ML regressors and post-hoc explainability. Model selection was based on 10-fold cross-validation using RMSE, with CatBoost identified as significantly better than the other tested algorithms; exact RMSE values are not reported in the provided text. SHAP (Shapley values) was used to rank predictors and to describe how variable categories relate to predicted reading scores. The strongest negative association was playing online games (increasing frequency corresponds to lower reading scores), while daily internet use shows a beneficial “bell-shaped” pattern (positive between roughly 1–4 hours/day and negative at extremes). Perceived ICT competence and autonomy, parental education, earlier first device use, and being female were also associated with higher reading scores; the paper does not report applying PISA sampling/replicate weights in the ML stage, and SHAP is used for predictive explanation rather than causal inference.",
+    "outcome_summary": "The study analyzes PISA 2018 microdata for Spain (15-year-olds), using a regression-based ML pipeline to predict reading comprehension skills measured on the PISA reading scale (PVREAD mean, 0–1000). After restricting the analytic sample to cases with complete information for the selected variables (22,400 students), the authors one-hot encode categorical predictors and evaluate multiple algorithms with 10-fold cross-validation using RMSE. CatBoost is selected as the best-performing model, and SHAP-based Shapley values are used to rank variable importance and visualize conditional impacts. The largest negative effect comes from Playing online games (e.g., students who never play score up to ~20 points higher than frequent players), while Daily internet use (weekdays) shows a bell-shaped pattern with positive effects in the 1–4 h/day range. Methodologically, the paper does not report applying PISA sampling weights in the ML training/evaluation, and SHAP explanations are used for interpretability rather than causal identification.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

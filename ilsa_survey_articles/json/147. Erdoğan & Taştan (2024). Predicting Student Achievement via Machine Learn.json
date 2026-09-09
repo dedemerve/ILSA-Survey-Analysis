@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "file_name": "147. Erdoğan & Taştan (2024). Predicting Student Achievement via Machine Learning: Evidence from Turkish Subset of PISA.pdf",
+    "title": "Predicting Student Achievement via Machine Learning: Evidence from Turkish Subset of PISA",
+    "authors": [
+      "Selin ERDOĞAN",
+      "Hüseyin TAŞTAN"
+    ],
+    "year": 2024,
+    "doi": "10.51803/yssr.1461030",
+    "venue": "Yıldız Social Science Review",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the Turkish subset of PISA 2018, with outcomes defined as first plausible values (PV1MATH, PV1SCIENCE, PV1READ) and predictors drawn from student and school questionnaires. The analytic sample is explicitly reduced from 6890 students in 186 schools to 3876 observations from 160 schools after data cleaning, but the manuscript does not report the use of PISA sampling weights or replicate weights. Because the paper focuses on supervised ensemble decision-tree regression (bagging, random forest, BRT) and does not mention complex survey design adjustments, it is unclear whether weights were applied; the safest interpretation is that weights were not incorporated into the ML training/evaluation. Analysts should therefore treat the reported predictive performance as potentially sensitive to the omission of survey-weighted estimation and clustering-aware inference."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper reports using only the first plausible values (PV1MATH, PV1SCIENCE, PV1READ) as outcomes, but it does not describe how missing questionnaire or school variables were handled beyond stating that data cleaning was performed. This is a reporting gap because PISA datasets typically contain non-trivial missingness in background variables, and the choice between complete-case deletion, imputation, or model-based handling can affect both variable importance rankings and predictive accuracy.",
+    "sample_details": {
+      "total_students": 3876,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 3876
+        }
+      ],
+      "sample_filtering_criteria": "Used the Turkish subset of PISA 2018 with initial coverage of 6890 students in 186 schools. After data cleaning, the analysis is conducted on 3876 observations from 160 schools. The study then splits these 3876 observations into an 80% training set and a 20% test set, and performs 10-fold cross-validation on the training set for hyperparameter tuning."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Random Forest",
+        "Gradient Boosting"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISEI",
+        "variable_name": "Parental occupational status (HISEI)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PARED",
+        "variable_name": "Parental education (years)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "WEALTH",
+        "variable_name": "Family wealth index (WEALTH)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "STRATIO",
+        "variable_name": "Student-teacher ratio (STRATIO)",
+        "category": "school"
+      },
+      {
+        "variable_code": "MMINS",
+        "variable_name": "Math study time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Science study time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "RMINS",
+        "variable_name": "Reading study time (minutes/week)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "student_gender",
+        "variable_name": "gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "school_program_type",
+        "variable_name": "School program type (VAT vs general)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "highschool_type",
+        "variable_name": "High school type",
+        "category": "school"
+      },
+      {
+        "variable_code": "student_behavior_hindering_learning",
+        "variable_name": "Behavior hindering learning",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "grade_repetition_past",
+        "variable_name": "Past grade repetition",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "school_dropout_rate",
+        "variable_name": "School dropout percentage",
+        "category": "school"
+      },
+      {
+        "variable_code": "ict_availability",
+        "variable_name": "ICT availability",
+        "category": "ict"
+      },
+      {
+        "variable_code": "usage",
+        "variable_name": "usage",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ict_use_home_school",
+        "variable_name": "ICT use at home/school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_use_subject_lessons",
+        "variable_name": "Subject-related ICT in lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "home_possessions",
+        "variable_name": "Home possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "books_at_home",
+        "variable_name": "Number of books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "expected_occupational_status",
+        "variable_name": "Expected occupational status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "parental_occupation",
+        "variable_name": "Parental occupation status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "student_occupational_aspiration",
+        "variable_name": "occupational aspiration",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "school_size",
+        "variable_name": "School size",
+        "category": "school"
+      },
+      {
+        "variable_code": "class_size",
+        "variable_name": "Class size",
+        "category": "school"
+      },
+      {
+        "variable_code": "disciplinary_climate",
+        "variable_name": "Disciplinary climate in lessons",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "creative_extracurricular_activities",
+        "variable_name": "Creative extracurricular activities",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "teachers_isc_level_6_share",
+        "variable_name": "Teachers ISCED level 6 share",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_isc_level_5_master_share",
+        "variable_name": "Teachers ISCED 5-Master share",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_isc_level_5_bachelor_share",
+        "variable_name": "Teachers ISCED 5A-Bachelor share",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "fully_certified_teachers_share",
+        "variable_name": "Fully certified teachers share",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "certified_teachers_share",
+        "variable_name": "Certified teachers share",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_prof_dev_program_share",
+        "variable_name": "Teachers professional development share",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "total_number_of_teachers",
+        "variable_name": "Total number of teachers",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "shortage_educational_staff",
+        "variable_name": "Shortage of educational staff",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_funding_share",
+        "variable_name": "School funding percentage",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_digital_devices_capacity",
+        "variable_name": "School digital devices capacity",
+        "category": "ict"
+      },
+      {
+        "variable_code": "available_computers_per_student",
+        "variable_name": "Available computers per student",
+        "category": "ict"
+      },
+      {
+        "variable_code": "number_of_girls_in_school",
+        "variable_name": "Number of girls in school",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "number_of_boys_in_school",
+        "variable_name": "Number of boys in school",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "school_location",
+        "variable_name": "School location",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 (Turkey subset), Mathematics (PV1MATH)",
+        "target_variable": "Mathematics achievement (PV1MATH)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School program type (VAT vs general)",
+          "Science study time (minutes/week)",
+          "High school type",
+          "Behavior hindering learning"
+        ],
+        "performance_metrics": "Test-set MSE: Bagging 3805.494; Random Forest 3038.675; BRT 2745.782. 10-fold CV used on training set for BRT hyperparameter tuning; evaluation on test set via mean squared error.",
+        "standardized_conclusion": "Using PISA 2018 (Turkey subset) data for Mathematics (PV1MATH), the study leveraged socioeconomic status (ESCS), school program type (VAT vs general), science study time, high school type, and behavior hindering learning to predict mathematics achievement, finding that Boosted Regression Tree (BRT) produced the lowest test-set MSE (2745.782) and outperformed bagging and random forest. This indicates that strengthening general secondary education pathways and addressing student learning behaviors alongside socioeconomic supports may improve mathematics performance, though the study is predictive (not causal) and uses only PV1."
+      },
+      {
+        "dataset_used": "PISA 2018 (Turkey subset), Science (PV1SCIENCE)",
+        "target_variable": "Science achievement (PV1SCIENCE)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School program type (VAT vs general)",
+          "Science study time (minutes/week)",
+          "Expected occupational status",
+          "ICT availability and usage"
+        ],
+        "performance_metrics": "Test-set MSE: Bagging 3474.429; Random Forest 2595.649; BRT 2421.81. 10-fold CV used on training set for BRT hyperparameter tuning; evaluation on test set via mean squared error.",
+        "standardized_conclusion": "Using PISA 2018 (Turkey subset) data for Science (PV1SCIENCE), the study leveraged socioeconomic status, school program type, science study time, expected occupational status, and ICT availability and usage to predict science achievement, finding that BRT achieved the lowest test-set MSE (2421.81) and outperformed bagging and random forest. This indicates that policies combining general-secondary program access with sustained study time and effective ICT use may raise science outcomes, while the predictive nature of the model and the use of only PV1 limit causal interpretation."
+      },
+      {
+        "dataset_used": "PISA 2018 (Turkey subset), Reading (PV1READING)",
+        "target_variable": "Reading achievement (PV1READING)",
+        "top_predictors": [
+          "High school type",
+          "Home possessions",
+          "Expected occupational status",
+          "Student-teacher ratio (STRATIO)",
+          "ICT availability and usage"
+        ],
+        "performance_metrics": "Test-set MSE: Bagging 3731.695; Random Forest 3040.552; BRT 3033.227. 10-fold CV used on training set for BRT hyperparameter tuning; evaluation on test set via mean squared error.",
+        "standardized_conclusion": "Using PISA 2018 (Turkey subset) data for Reading (PV1READING), the study leveraged high school type, home possessions, expected occupational status, student-teacher ratio, and ICT availability and usage to predict reading achievement, finding that BRT produced the lowest test-set MSE (3033.227) among the compared ensemble tree methods. This indicates that improving school learning environments (including staffing ratios and ICT conditions) and supporting students’ home learning resources may help reading performance, though the results remain correlational and rely on PV1."
+      }
+    ],
+    "outcome_summary": "The study analyzes the Turkish subset of PISA 2018, using first plausible values (PV1MATH, PV1SCIENCE, PV1READ) as outcomes for mathematics, science, and reading. From an initial 6890 students in 186 schools, the authors report a cleaned analytic sample of 3876 observations from 160 schools, then use an 80/20 train-test split with 10-fold cross-validation on the training set for hyperparameter tuning. Across all three subjects, Boosted Regression Tree (BRT) is selected as the best-performing model, achieving the lowest test-set mean squared error (MSE) for mathematics (2745.782), science (2421.81), and reading (3033.227) compared with bagging and random forest. The most influential predictors include socioeconomic status (ESCS), school program/high school type, study time, ICT availability/usage, and student behavior hindering learning. Limitations include the use of only PV1, lack of reported missing-data handling strategy, and the fact that predictive feature importance does not establish causality.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

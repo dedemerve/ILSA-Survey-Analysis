@@ -4,9 +4,10 @@
     "title": "Improving the Precision of Ability Estimates Using Time-On-Task Variables: Insights From the PISA 2012 Computer-Based Assessment of Mathematics",
     "authors": [
       "Reis Costa",
-      "M. B. (MB)",
-      "J. T. (JT)",
-      "B. A. (BA)"
+      "D. Reis Costa",
+      "M. B. (not specified in provided text)",
+      "J. T. (not specified in provided text)",
+      "B. A. (not specified in provided text)"
     ],
     "year": 2021,
     "doi": "10.3389/fpsyg.2021.579128",
@@ -17,143 +18,143 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2012 computer-based mathematics log-file data for 31 participating countries/economies, excluding Chile due to unavailable log data for two analyzed items and excluding students with invalid information (no final scores or incomplete timing information). The analytic sample is therefore restricted to students with valid response accuracy and complete timing information for the 10 released log-file items. The manuscript does not report applying PISA sampling weights or any complex-survey weighting variables (e.g., W_FSTUWT/TOTWGT) in the estimation procedure. Because the analysis is based on latent-variable measurement models fitted in Mplus (restricted maximum likelihood) rather than ML prediction pipelines, the paper’s weighting strategy is not documented; the extraction therefore treats the analysis as unweighted with respect to student sampling weights."
+      "weight_fields_interpretation": "The study uses PISA 2012 computer-based mathematics log-file data for 10 released items and combines them with the corresponding item-response data to estimate latent proficiency. The analytic sample is restricted to students with valid final scores and complete timing information, and additionally excludes countries where log-file data were unavailable for two analyzed items (Chile). The manuscript does not report the use of PISA sampling weights or replicate weights; therefore, it is unclear whether complex survey design features were incorporated via weight variables in estimation. The authors instead rely on model-based estimation (Mplus) with full information maximum likelihood (FIML) under a missing-at-random assumption for missing responses within the modeling framework."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "multiple_imputation",
-    "handling_not_reported_explanation": "The study does not use PISA plausible values (PVs) for achievement; instead, it estimates latent proficiency (θ) and latent speed (τ) via graded response and hierarchical latent-variable measurement models, with student abilities computed using the Expected a Posteriori (EAP) approach. Missing responses in the log-file items are handled using Full Information Maximum Likelihood (FIML) in Mplus under a missing-at-random (MAR) assumption, which is a likelihood-based approach rather than PV-based multiple imputation. The schema maps FIML to multiple_imputation, but the paper does not describe an explicit imputation model or number of imputations, so the exact imputation mechanics are not directly reported.",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because the study estimates latent proficiency directly via an IRT-style graded response model and reports EAP reliability and standard errors, rather than using PISA achievement plausible values. Missing responses are handled using full information maximum likelihood (FIML) in Mplus under a missing-at-random (MAR) assumption, which is not a standard PV-multiple-imputation workflow; the schema maps this to multiple_imputation for missing-data handling. The paper provides sufficient detail on the MAR/FIML approach, but it does not explicitly describe any PV-based combining rules because PVs are not the target representation in this analysis.",
     "sample_details": {
       "total_students": 18970,
       "countries": [
         {
           "country_code": "SGP",
-          "n_students": 453
+          "n_students": 2873
         },
         {
-          "country_code": "CHN",
-          "n_students": 393
+          "country_code": "QCN",
+          "n_students": 2409
         },
         {
           "country_code": "KOR",
-          "n_students": 433
+          "n_students": 2675
         },
         {
           "country_code": "HKG",
-          "n_students": 421
+          "n_students": 2714
         },
         {
           "country_code": "MAC",
-          "n_students": 522
+          "n_students": 3147
         },
         {
           "country_code": "JPN",
-          "n_students": 982
+          "n_students": 6351
         },
         {
           "country_code": "TAP",
-          "n_students": 513
+          "n_students": 3063
         },
         {
           "country_code": "CAN",
-          "n_students": 1527
+          "n_students": 10817
         },
         {
           "country_code": "EST",
-          "n_students": 460
+          "n_students": 2837
         },
         {
           "country_code": "BEL",
-          "n_students": 707
+          "n_students": 4617
         },
         {
           "country_code": "DEU",
-          "n_students": 441
+          "n_students": 2881
         },
         {
           "country_code": "FRA",
-          "n_students": 440
+          "n_students": 3012
         },
         {
           "country_code": "AUS",
-          "n_students": 1833
+          "n_students": 11834
         },
         {
           "country_code": "AUT",
-          "n_students": 436
+          "n_students": 2731
         },
         {
           "country_code": "ITA",
-          "n_students": 440
+          "n_students": 3089
         },
         {
           "country_code": "USA",
-          "n_students": 402
+          "n_students": 2572
         },
         {
           "country_code": "NOR",
-          "n_students": 413
+          "n_students": 2924
         },
         {
           "country_code": "SVK",
-          "n_students": 505
+          "n_students": 3145
         },
         {
           "country_code": "DNK",
-          "n_students": 629
+          "n_students": 4149
         },
         {
           "country_code": "IRL",
-          "n_students": 389
+          "n_students": 2613
         },
         {
           "country_code": "SWE",
-          "n_students": 423
+          "n_students": 2671
         },
         {
           "country_code": "RUS",
-          "n_students": 531
+          "n_students": 3186
         },
         {
           "country_code": "POL",
-          "n_students": 428
+          "n_students": 2567
         },
         {
           "country_code": "PRT",
-          "n_students": 487
+          "n_students": 3272
         },
         {
           "country_code": "SVN",
-          "n_students": 678
+          "n_students": 4385
         },
         {
           "country_code": "ESP",
-          "n_students": 933
+          "n_students": 5751
         },
         {
           "country_code": "HUN",
-          "n_students": 445
+          "n_students": 2746
         },
         {
           "country_code": "ISR",
-          "n_students": 387
+          "n_students": 2677
         },
         {
           "country_code": "ARE",
-          "n_students": 1057
+          "n_students": 6732
         },
         {
           "country_code": "BRA",
-          "n_students": 480
+          "n_students": 3172
         },
         {
           "country_code": "COL",
-          "n_students": 782
+          "n_students": 5173
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2012 computer-based mathematics log-file data for 10 released and valid digital math items (out of 41 total computer-based math items). Excluded Chile because log-file data were unavailable for two analyzed items (I20Q1 and I20Q3). Excluded students with invalid information, including those who did not receive final scores or had incomplete timing information. For missing responses within the analyzed log-file items, the models used Full Information Maximum Likelihood (FIML) under a missing-at-random (MAR) assumption, incorporating all available data."
+      "sample_filtering_criteria": "Used PISA 2012 computer-based mathematics log-file data for 10 released and valid items (cluster-based administration) and excluded Chile because log-file data were unavailable for two analyzed items (I20Q1 and I20Q3). Further excluded students with invalid information, including those who did not receive final scores or had incomplete timing information. The remaining analytic sample comprises 18,970 students across 31 countries/economies, with country-level sample sizes reported in Table 1 for the full computer-based mathematics clusters (41 items) and for the subsample with valid log-file data (10 items)."
     },
     "ml_techniques": {
       "primary": null,
@@ -161,19 +162,14 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "time_on_task_total",
-        "variable_name": "Total time on task",
-        "category": "process_data"
-      },
-      {
         "variable_code": "response_accuracy",
-        "variable_name": "Response accuracy",
-        "category": "process_data"
+        "variable_name": "Response accuracy (graded responses)",
+        "category": "prior_achievement"
       },
       {
-        "variable_code": "item_type",
-        "variable_name": "Item format (MC/CR)",
-        "category": "curriculum"
+        "variable_code": "time_on_task",
+        "variable_name": "Time-on-task (response times)",
+        "category": "process_data"
       },
       {
         "variable_code": "country",
@@ -183,19 +179,40 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2012 Computer-Based Mathematics (digital math log-file items; 31 countries/economies; 10 released items)",
-        "target_variable": "Student math proficiency (EAP ability estimates)",
+        "dataset_used": "PISA 2012 Computer-Based Mathematics (digital math items; 10 released log-file items)",
+        "target_variable": "Student ability estimates precision (EAP reliability; average SE)",
         "top_predictors": [
-          "Total time on task",
-          "Response accuracy",
+          "Response accuracy (graded responses)",
+          "Time-on-task (response times)",
           "Country/economy"
         ],
-        "performance_metrics": "Model fit for GRM baseline: SRMR=0.036, RMSEA=0.050. Measurement precision: EAP reliability increased for M2 and M3 vs M1; average standard errors decreased when response times were included. Reported notable gains: many countries showed EAP reliability increases at or above 0.05 for M2 vs M1; additional gains for M3 vs M2 generally 0.02–0.03.",
-        "standardized_conclusion": "Using PISA 2012 Computer-Based Mathematics the study leveraged response accuracy and time-on-task information (modeled via hierarchical latent-variable speed factors) to estimate student math proficiency, finding that including response times increased measurement precision (higher EAP reliability and lower average standard errors) for nearly all countries, with the largest gain already achieved by the simple-structure hierarchical model (M2) and only modest additional improvement from cross-loadings (M3)."
+        "performance_metrics": "Model fit: GRM SRMR=0.036; RMSEA=0.050. EAP reliability: M1=0.73, M2=0.77, M3=0.80. Average SE: M1=0.51, M2=0.49, M3=0.45. Reported precision gains: many countries show increases in EAP reliability at or above 0.05 for M2 vs M1; additional gains for M3 vs M2 generally 0.02–0.03.",
+        "standardized_conclusion": "Using PISA 2012 Computer-Based Mathematics the study leveraged response accuracy, time-on-task (response times), and country-level heterogeneity to estimate student ability precision, finding that adding response-time information increased EAP reliability and reduced average standard errors versus response-accuracy-only modeling. This indicates that incorporating time-on-task variables into the measurement model can improve the precision of operational proficiency estimates, though the study is measurement-model based (not causal) and does not report survey-weighted estimation."
+      },
+      {
+        "dataset_used": "PISA 2012 Computer-Based Mathematics (time-on-task measurement model across items and countries)",
+        "target_variable": "Time-on-task parameter invariance across countries (measurement invariance level)",
+        "top_predictors": [
+          "Time-on-task (response times)",
+          "Country/economy"
+        ],
+        "performance_metrics": "Model selection via BIC across countries: weak measurement invariance (M2_Weak and M3_Weak) was preferred in most cases. The paper reports that full or strong measurement invariance did not hold for most countries.",
+        "standardized_conclusion": "Using PISA 2012 Computer-Based Mathematics the study leveraged time-on-task response-time parameters and country/economy to assess measurement invariance, finding that only weak measurement invariance was generally supported across countries. This indicates that response-time processes differ meaningfully by country, so time-on-task-enhanced scoring models may require country-specific parameter flexibility rather than assuming uniform timing behavior."
+      },
+      {
+        "dataset_used": "PISA 2012 Computer-Based Mathematics (country-level performance under alternative measurement models)",
+        "target_variable": "Country-level proficiency means and their stability across models",
+        "top_predictors": [
+          "Response accuracy (graded responses)",
+          "Time-on-task (response times)",
+          "Country/economy"
+        ],
+        "performance_metrics": "Estimated country means showed no substantial discrepancies across models (M1 vs M2 vs M3). Correlations between EAP ability estimates from M1 and models including time-on-task deviated from 1 for many countries; differences were most notable between M1 and M3 (lowest correlations).",
+        "standardized_conclusion": "Using PISA 2012 Computer-Based Mathematics the study leveraged response accuracy, time-on-task response times, and country/economy to estimate country-level proficiency means under alternative measurement models, finding that mean proficiency estimates were broadly stable while individual ability estimates shifted (lower correlations, especially for the cross-loading model). This indicates that time-on-task inclusion may improve measurement precision without strongly changing country rankings/means, but it can still alter the latent construct captured by the model, so operational reporting should consider construct alignment."
       }
     ],
-    "outcome_summary": "The study analyzes PISA 2012 computer-based mathematics log-file data for 31 countries/economies (n=18,970 students after exclusions) using three hierarchical measurement models: M1 (response accuracy only), M2 (simple-structure hierarchical model with latent speed), and M3 (extended model with cross-loadings linking response times directly to proficiency). The graded response model fit was acceptable (SRMR=0.036; RMSEA=0.050). Across countries, measurement precision improved when response times were included: EAP reliability increased and average standard errors decreased, with many countries showing EAP reliability gains at or above 0.05 for M2 vs M1 and additional (modest) gains of about 0.02–0.03 for M3 vs M2. Time-on-task parameters were not fully invariant across countries; weak measurement invariance was preferred in most cases. Country mean proficiency estimates remained broadly similar across models, but correlations between ability estimates across models were below 1, particularly for M1 vs M3. Missing responses were handled via FIML under MAR, and the paper does not report PV-based procedures because it estimates latent proficiency directly via the measurement models.",
+    "outcome_summary": "The study analyzes PISA 2012 computer-based mathematics log-file data for 10 released digital math items, estimating latent proficiency using three hierarchical measurement models: M1 (response accuracy only), M2 (response accuracy plus response times via a simple-structure speed factor), and M3 (adds cross-loadings linking response times directly to proficiency). Across 31 participating countries/economies (18,970 students after exclusions), the baseline GRM fit was acceptable (SRMR=0.036; RMSEA=0.050). Measurement precision improved when response times were included: EAP reliability increased from 0.73 (M1) to 0.77 (M2) and 0.80 (M3), while average standard errors decreased from 0.51 to 0.49 and 0.45. Country-level mean proficiency estimates were largely stable across models, but correlations between ability estimates differed, especially between M1 and M3. The paper uses FIML under MAR for missing responses and does not report survey-weighted estimation, so results reflect measurement-model assumptions rather than causal effects.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": "This paper is not an ML prediction/classification study: it compares latent-variable measurement models (IRT/SEM-style hierarchical models) to improve measurement precision using response-time information. Consequently, no ML algorithms (e.g., Random Forest, XGBoost) are evaluated, so ml_techniques.primary is left null and all_techniques is empty. The study’s core contribution is methodological/measurement-model comparison rather than supervised ML modeling."
+    "null_fields_interpretation": "No machine-learning algorithms were trained or evaluated; the paper compares statistical measurement models (hierarchical IRT-style models estimated in Mplus) to study changes in measurement precision and invariance. Therefore, ml_techniques.primary is left null and all_techniques is empty, consistent with the study’s focus on psychometric measurement modeling rather than predictive ML."
   }
 }

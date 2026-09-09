@@ -15,14 +15,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses Turkey’s PISA 2018 survey data and builds a binary classification of mathematics achievement (successful vs unsuccessful) using PV1MATH as the outcome. The manuscript does not report applying PISA sampling weights or any complex survey design adjustments (e.g., design/analysis weights or BRR/jackknife replicate weights). Because the models are deep neural networks (Elman/Jordan), multilayer perceptron, and logistic regression trained as classifiers, the authors do not describe any weight-aware estimation; thus the analysis is treated as unweighted. The analytic subset is further restricted to the most successful 30% and most unsuccessful 30% of students, but no additional preprocessing steps (e.g., missing-data imputation) are described."
+      "weight_fields_interpretation": "The study uses PISA 2018 Turkey survey data and constructs an analytic dataset by selecting the most successful 30% and the most unsuccessful 30% of students for mathematics achievement classification. The manuscript does not report whether PISA complex survey weights (student/sampling weights) or replicate weights were applied in model training or evaluation, so weight usage cannot be confirmed. Because the models are deep learning neural networks (Elman/Jordan) and other classifiers (MLP, logistic regression), the authors do not describe any weight-aware estimation procedure; this suggests weights may have been omitted, but this is not explicitly stated. The paper also does not document additional preprocessing such as missing-data handling, feature scaling, or outlier removal, beyond the success/failure subsampling."
     },
     "plausible_values_handling": "single_pv",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The dependent variable is PV1MATH (a single plausible value) for mathematics achievement, but the paper does not describe how missing values in predictors or the PV outcome were handled (e.g., complete-case deletion vs imputation). This is a reporting gap because PISA microdata typically contain missingness in questionnaire variables and PV-related fields, and the choice of missing-data strategy can affect model training and performance. The manuscript also does not state whether missingness was addressed before splitting into train/test sets.",
+    "handling_not_reported_explanation": "The dependent variable is PV1MATH (Mathematical Achievement), indicating that a single plausible value draw was used as the target for classification. However, the manuscript does not report how missing questionnaire/test inputs were handled when building the feature set, which is a reporting gap because PISA datasets typically contain item nonresponse. Without documentation of missing-data treatment, model performance and generalizability may be sensitive to the implicit exclusion or imputation strategy used.",
     "sample_details": {
       "total_students": null,
       "countries": [
@@ -31,13 +31,13 @@
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Uses PISA 2018 Turkey data and constructs the outcome as mathematics achievement (PV1MATH). The analytic sample is restricted to the most successful 30% and the most unsuccessful 30% of students (binary classes for classification). No further grade-level, school-type, or item-level inclusion/exclusion rules are reported."
+      "sample_filtering_criteria": "Used PISA 2018 Turkey data and selected the most successful 30% and the most unsuccessful 30% of students to form a two-class dataset for mathematics achievement (success vs. unsuccessful). The target variable is PV1MATH, and the feature set includes the listed student background and ICT-related variables from Table 1."
     },
     "ml_techniques": {
       "primary": "Jordan Neural Network",
       "all_techniques": [
-        "Jordan Neural Network",
         "Elman Neural Network",
+        "Jordan Neural Network",
         "Neural Network",
         "Logistic Regression"
       ]
@@ -60,7 +60,7 @@
       },
       {
         "variable_code": "BELONG",
-        "variable_name": "Sense of school belonging",
+        "variable_name": "Sense of belonging",
         "category": "student_attitude"
       },
       {
@@ -75,7 +75,7 @@
       },
       {
         "variable_code": "ESCS",
-        "variable_name": "Socioeconomic status (ESCS)",
+        "variable_name": "ESCS socioeconomic index",
         "category": "socioeconomic"
       },
       {
@@ -101,20 +101,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Turkey (Mathematics achievement; PV1MATH), binary success vs failure subset (top 30% vs bottom 30%)",
-        "target_variable": "Mathematics achievement class (successful vs unsuccessful)",
+        "dataset_used": "PISA 2018 Turkey (Mathematics) — PV1MATH success vs. unsuccessful classification",
+        "target_variable": "Mathematical achievement class (PV1MATH)",
         "top_predictors": [
           "Gender",
-          "Sense of school belonging",
-          "Socioeconomic status (ESCS)",
+          "Sense of belonging",
+          "ESCS socioeconomic index",
           "Home possessions",
           "Parents’ emotional support"
         ],
-        "performance_metrics": "Best model (Jordan Neural Network) on test set: Accuracy = 0.826, AUC = 0.739. Other test accuracies: Elman NN = 0.711, MLP = 0.705, Logistic regression = 0.671. Test F1-score for Jordan NN = 0.826; Sensitivity = 0.826; Specificity = 0.869.",
-        "standardized_conclusion": "Using PISA 2018 Turkey the study leveraged Gender, sense of school belonging, socioeconomic status (ESCS), home possessions, and parents’ emotional support (plus ICT-related variables) to predict mathematics achievement class (successful vs unsuccessful), finding that the Jordan neural network achieved the highest test performance (Accuracy 0.826, AUC 0.739). The manuscript does not report missing-data handling and does not discuss whether the ML models accounted for the PISA complex survey design, which may affect generalizability."
+        "performance_metrics": "Best model (Jordan neural network) — Test accuracy: 0.826; Test AUC: 0.739. Other test metrics: Elman NN accuracy 0.711 (AUC not reported), MLP accuracy 0.705 (AUC not reported), Logistic regression accuracy 0.671 (AUC not reported). Reported additional test metrics for Jordan: Sensitivity 0.826, Specificity 0.869, False Positive Rate 0.131, F1-score 0.826.",
+        "standardized_conclusion": "Using PISA 2018 Turkey the study leveraged Gender, Sense of belonging, ESCS socioeconomic index, Home possessions, and Parents’ emotional support (plus ICT-related variables) to classify students into successful vs. unsuccessful mathematics achievement using PV1MATH, finding that the Jordan neural network achieved the highest test accuracy (0.826) and AUC (0.739) among compared models. This indicates that deep learning models can improve the prediction of mathematics achievement status from student background and ICT context, suggesting that education authorities could use such models to target support for students with low belonging, weaker socioeconomic resources, and limited home/digital learning access, while noting that the paper does not document survey-weight use or missing-data handling."
       }
     ],
-    "outcome_summary": "The study uses PISA 2018 Turkey data and predicts a binary mathematics achievement outcome (successful vs unsuccessful) using PV1MATH, restricting the sample to the most successful 30% and most unsuccessful 30% of students. Among compared classifiers—Elman neural network, Jordan neural network, multilayer perceptron, and logistic regression—the Jordan neural network performed best on the test set, with Accuracy = 0.826 and AUC = 0.739 (also showing Sensitivity = 0.826 and Specificity = 0.869). The authors report that gender, sense of belonging to school, socioeconomic status, household items/home possessions, parents’ emotional support, ICT availability at home, and digital device use in lessons were effective predictors. Limitations include lack of reported missing-data handling and no stated use of PISA sampling/replicate weights or explicit hierarchical/survey-design adjustments for ML training.",
+    "outcome_summary": "The study uses PISA 2018 Turkey mathematics data and builds a binary classification task for mathematics achievement using PV1MATH, selecting the most successful 30% and most unsuccessful 30% of students. It compares deep learning models (Elman neural network and Jordan neural network) against a multilayer perceptron and logistic regression. On the test set, the Jordan neural network performs best with accuracy 0.826 and AUC 0.739, with sensitivity 0.826, specificity 0.869, and F1-score 0.826. The paper reports that gender, sense of belonging, ESCS, home possessions, parents’ emotional support, ICT available at home, and digital device use in lessons are effective for predicting success. Limitations include lack of reported survey-weight application and missing-data handling, and the use of PV1MATH as a single plausible value for the target.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

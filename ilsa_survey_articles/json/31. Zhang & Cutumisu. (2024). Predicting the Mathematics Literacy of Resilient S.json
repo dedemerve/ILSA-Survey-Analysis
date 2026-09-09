@@ -18,10 +18,10 @@
       "student_weights_used": true,
       "replicate_weights_used": null,
       "weight_variable_name": "W_FSTUWT",
-      "weight_fields_interpretation": "The study uses PISA 2022 microdata and restricts the analytic sample to resilient students defined by OECD criteria (bottom quarter of ESCS within economy and top quarter of mathematics literacy within economy), then further splits/combines them into Eastern vs Western culture groups. The authors explicitly incorporate final student weights (W_FSTUWT) into the ML model development and validation to adjust for PISA’s complex survey design features (stratification, clustering, and unequal selection probabilities), aiming for representativeness of the target student population. Missing values are imputed prior to modeling using missForest (RF-based imputation) in R, and the resulting datasets are used within nested cross-validation. The manuscript does not report replicate-weight methods (e.g., BRR/jackknife), so uncertainty estimation via replicate weights is not described."
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata for selected high-performing mathematics economies and defines resilient students via within-country ESCS bottom-quarter status and mathematics literacy top-quarter status. The analytic sample is then split into two culture-group datasets (Eastern vs Western) and modeled separately. The authors explicitly incorporate final student weights (W_FSTUWT) into the ML training and validation process to adjust for PISA’s complex survey design (stratification, clustering, and unequal selection probabilities), aiming for representativeness of the target student population. Missing values are imputed prior to modeling using missForest, and the paper does not report replicate-weight methods (e.g., BRR/jackknife), so uncertainty quantification is not described via replicate designs."
     },
-    "plausible_values_handling": "all_pv",
-    "missing_data_handling": "multiple_imputation",
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "single_imputation",
     "handling_not_reported_explanation": null,
     "sample_details": {
       "total_students": 4654,
@@ -119,7 +119,7 @@
           "n_students": 161
         }
       ],
-      "sample_filtering_criteria": "Resilient students were selected following OECD PISA 2022 guidelines: (1) within each economy, students in the bottom quarter of ESCS were identified; (2) within that ESCS-disadvantaged group, students whose mathematics literacy was in the top quarter within the same economy were retained. To determine the top quarter of mathematics literacy, the authors computed an average of 10 mathematics plausible values (PV) per student, ranked students by this PV average, and selected the top 25% (while also meeting the bottom-ESCS criterion). The final resilient-student sample was then split into Eastern vs Western culture datasets based on Triandis (1995) and analyzed with nested cross-validation; Western cultures combined Australia, Austria, Belgium, Canada, Czech Republic, Denmark, Estonia, Finland, Ireland, Latvia, Netherlands, New Zealand, Poland, Slovenia, Sweden, Switzerland, and the UK, while Eastern cultures combined Chinese Taipei, Hong Kong, Japan, Korea, Macao, and Singapore."
+      "sample_filtering_criteria": "Resilient students are selected following OECD guidance: (1) within each economy, students in the bottom quarter of ESCS are identified; (2) within that ESCS-disadvantaged group, students whose mathematics literacy is in the top quarter within the same economy are selected. To define the top quarter of mathematics literacy, the authors compute an average of 10 mathematics plausible values (PVs), rank students by the average PVs, and select the top 25% (and bottom 25% for ESCS) within each economy. The final analytic sample is restricted to high-performing mathematics economies (average mathematics literacy exceeding 472) and then split into Eastern-culture and Western-culture datasets based on Triandis’ cultural classification."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -131,7 +131,7 @@
     "confounders_identified": [
       {
         "variable_code": "EXERPRAC",
-        "variable_name": "Sport practice before/after school",
+        "variable_name": "Exercise/practice before or after school",
         "category": "student_behavior"
       },
       {
@@ -161,7 +161,7 @@
       },
       {
         "variable_code": "EXPOFA",
-        "variable_name": "Exposure to applied math tasks",
+        "variable_name": "Exposure to formal/app math tasks",
         "category": "curriculum"
       },
       {
@@ -181,7 +181,7 @@
       },
       {
         "variable_code": "MATHMOT",
-        "variable_name": "Motivation for math compared",
+        "variable_name": "Motivation relative to other subjects",
         "category": "student_attitude"
       },
       {
@@ -232,33 +232,46 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 Mathematics literacy (resilient students; Eastern cultures)",
+        "dataset_used": "PISA 2022 Mathematics literacy (PVs), resilient students in Eastern cultures (Triandis grouping)",
         "target_variable": "Mathematics literacy (Plausible Values 1–10)",
         "top_predictors": [
-          "Mathematics self-efficacy (21st-century)",
-          "Mathematics self-efficacy (formal/applied)",
-          "Mathematics anxiety",
-          "Effort and persistence in math",
-          "Working in household"
+          "MATHEF21",
+          "MATHEFF",
+          "ANXMAT",
+          "MATHPERS",
+          "WORKHOME"
         ],
-        "performance_metrics": "Random Forest (Eastern): RMSE (Average across PVs): 44.47 (Validation/Test details by PV reported in Table 5); R² (Average across PVs): 0.01; MAE (Average across PVs): 35.40. Lasso (Eastern): RMSE (Average across PVs): 45.96; R² (Average across PVs): 0.00; MAE (Average across PVs): 36.44. Model comparison across cultures via Kruskal-Wallis/Dunn indicates both RF and LR perform better in Western than Eastern cultures (lower RMSE/MAE, higher R²).",
-        "standardized_conclusion": "Using PISA 2022 Mathematics literacy data for resilient students in Eastern cultures, the study leveraged mathematics self-efficacy (21st-century and formal/applied), mathematics anxiety, effort/persistence, and working-in-household indicators to predict mathematics literacy (PVs 1–10) with Random Forest and Lasso; Random Forest achieved lower RMSE/MAE than Lasso and the most important predictors in Eastern cultures included MATHEF21, MATHEFF, and ANXMAT."
+        "performance_metrics": "Random Forest (Eastern): Validation RMSE avg 47.06, Test RMSE avg 44.47; Validation R² avg 0.01, Test R² avg 0.01; Validation MAE avg 36.26, Test MAE avg 35.40. Lasso (Eastern): Validation RMSE avg 45.96, Test RMSE avg 45.96; Validation R² avg 0.00, Test R² avg 0.00; Validation MAE avg 36.44, Test MAE avg 36.44. Cross-model comparison (Kruskal-Wallis across four models): RMSE H(3)=61.54, p<.001; R² H(3)=41.25, p<.001; MAE H(3)=59.32, p<.001.",
+        "standardized_conclusion": "Using PISA 2022 mathematics literacy PVs for resilient students in Eastern cultures, the study leveraged MATHEF21, MATHEFF, ANXMAT, MATHPERS, and WORKHOME to predict mathematics literacy, finding that both Random Forest and Lasso achieved lower predictive performance in Eastern cultures than in Western cultures (e.g., higher RMSE and lower R² in Eastern). This indicates that culturally tailored supports—especially those targeting mathematics self-efficacy and anxiety management—may be more important for improving resilient students’ mathematics literacy in Eastern contexts, though the results are predictive rather than causal."
       },
       {
-        "dataset_used": "PISA 2022 Mathematics literacy (resilient students; Western cultures)",
+        "dataset_used": "PISA 2022 Mathematics literacy (PVs), resilient students in Western cultures (Triandis grouping)",
         "target_variable": "Mathematics literacy (Plausible Values 1–10)",
         "top_predictors": [
-          "Mathematics self-efficacy (formal/applied)",
-          "Family support",
-          "Mathematics anxiety",
-          "Home possessions",
-          "Cognitive activation: encourage thinking"
+          "MATHEFF",
+          "FAMSUP",
+          "HOMEPOS",
+          "COGACMCO",
+          "ANXMAT"
         ],
-        "performance_metrics": "Random Forest (Western): RMSE (Average across PVs): 42.27; R² (Average across PVs): 0.06; MAE (Average across PVs): 32.65. Lasso (Western): RMSE (Average across PVs): 40.25; R² (Average across PVs): 0.11; MAE (Average across PVs): 31.76. Across cultures, both RF and LR show better performance in Western than Eastern cultures (lower RMSE/MAE and higher R²).",
-        "standardized_conclusion": "Using PISA 2022 Mathematics literacy data for resilient students in Western cultures, the study leveraged mathematics self-efficacy (formal/applied), family support, mathematics anxiety, home possessions, and cognitive activation to predict mathematics literacy (PVs 1–10) with Random Forest and Lasso; the most important feature in Western cultures was MATHEFF, and overall predictive performance was stronger in Western than Eastern cultures."
+        "performance_metrics": "Random Forest (Western): Validation RMSE avg 41.95, Test RMSE avg 42.27; Validation R² avg 0.06, Test R² avg 0.06; Validation MAE avg 33.21, Test MAE avg 32.65. Lasso (Western): Validation RMSE avg 41.76, Test RMSE avg 40.25; Validation R² avg 0.08, Test R² avg 0.11; Validation MAE avg 33.19, Test MAE avg 31.76. Cross-model comparison (Kruskal-Wallis across four models): RMSE H(3)=61.54, p<.001; R² H(3)=41.25, p<.001; MAE H(3)=59.32, p<.001.",
+        "standardized_conclusion": "Using PISA 2022 mathematics literacy PVs for resilient students in Western cultures, the study leveraged MATHEFF, FAMSUP, HOMEPOS, COGACMCO, and ANXMAT to predict mathematics literacy, finding that both Random Forest and Lasso performed better in Western cultures than in Eastern cultures (lower RMSE and higher R²/MAE advantage). This indicates that strengthening mathematics self-efficacy and leveraging supportive home resources and classroom cognitive activation may improve resilient students’ mathematics literacy in Western contexts, though causality cannot be inferred from the predictive ML models."
+      },
+      {
+        "dataset_used": "PISA 2022 Mathematics literacy (PVs), resilient students across Eastern vs Western cultures",
+        "target_variable": "Key-feature importance for predicting mathematics literacy (Random Forest feature importance)",
+        "top_predictors": [
+          "MATHEF21",
+          "MATHEFF",
+          "ANXMAT",
+          "WORKHOME",
+          "COGACMCO"
+        ],
+        "performance_metrics": "Eastern RF feature importance (avg across 10 RF models): MATHEF21 91.03, MATHEFF 90.85, ANXMAT 83.18, MATHPERS 78.07, WORKHOME 77.99. Western RF feature importance (avg across 10 RF models): MATHEFF 100, MATHEFF21 63.84, FAMSUP 58.88, ANXMAT 56.61, HOMEPOS 56.39. Cultural difference tests: Kruskal-Wallis across model performance metrics showed significant differences across the four model/culture combinations (RMSE, R², MAE all p<.001).",
+        "standardized_conclusion": "Using PISA 2022 mathematics literacy PVs, the study compared Random Forest feature importance across Eastern and Western culture groups and found that the most important predictors differed by culture (e.g., mathematics anxiety and 21st-century self-efficacy were top in Eastern cultures, while mathematics self-efficacy was predominant in Western cultures). This indicates that interventions for resilient students should be culturally differentiated—prioritizing anxiety reduction and 21st-century self-efficacy supports in Eastern contexts, and boosting mathematics self-efficacy alongside supportive home/classroom practices in Western contexts—while recognizing that feature importance reflects prediction utility, not causal effects."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2022 resilient students (N=4654) across 23 economies, defining resilience as bottom-quarter ESCS and top-quarter mathematics literacy within each economy. Mathematics literacy was modeled using the 10 mathematics plausible values (PVs 1–10) as response variables, with Random Forest and Lasso trained using nested 5-fold cross-validation and incorporating final student weights (W_FSTUWT). Missing questionnaire data were imputed using missForest (RF-based imputation). Predictive performance was consistently better for Western cultures than Eastern cultures: both models showed lower RMSE and MAE and higher R² in Western contexts. Feature importance differed by culture: Eastern cultures emphasized mathematics self-efficacy (21st-century) and mathematics anxiety, whereas Western cultures highlighted mathematics self-efficacy (formal/applied) as the predominant predictor. The paper focuses on prediction rather than causal pathways, and feature importance should not be interpreted as causal effects.",
+    "outcome_summary": "The study uses PISA 2022 mathematics literacy plausible values (10 PVs) to predict mathematics literacy among resilient students defined within each economy as ESCS bottom-quarter and mathematics literacy top-quarter. It trains two supervised ML models—Random Forest and Lasso regression—separately for Eastern vs Western culture groupings (Triandis), using 19 questionnaire/well-being features and imputing missing values with missForest (0–26% missingness). The authors incorporate final student weights (W_FSTUWT) during ML training/validation and evaluate performance with nested cross-validation, reporting RMSE, MAE, and R². Across cultures, both models show better predictive performance in Western cultures than Eastern cultures (significant differences in RMSE, R², and MAE via Kruskal–Wallis, all p<.001). Key predictors also differ by culture: Eastern models emphasize mathematics self-efficacy for 21st-century skills and mathematics anxiety, whereas Western models emphasize mathematics self-efficacy for formal/applied mathematics. Limitations include predictive (not causal) interpretation and reliance on imputed inputs prior to modeling.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "file_name": "204. Lazarides et al. (2026). Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior.pdf",
+    "title": "Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior",
+    "authors": [
+      "Lazarides",
+      "et al."
+    ],
+    "year": 2026,
+    "doi": "10.17616/R3M30D",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses secondary data from the German TALIS video study (national substudy of the international TALIS video study). The analytic sample is constructed from video-recorded mathematics lessons on quadratic equations, with additional inclusion criteria for usable camera views and teacher visibility, and with a teacher-level split for training/validation of the computer-vision NVI model. The manuscript does not report applying TALIS sampling weights (e.g., student/school weights) in the multilevel modeling or in the ML-based NVI scoring, and the ML pipeline is described as using human ratings and computer-vision features rather than survey-weighted estimation. Given the absence of explicit weight-variable names and the ML-focused workflow, the analysis should be treated as unweighted with respect to complex survey design; readers should be cautious when generalizing beyond the participating German schools."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "The study does not use plausible values (PV) because the dependent variables are teacher nonverbal immediacy scores derived from computer vision and observer/teacher/student questionnaire scales, not ILSA cognitive achievement PVs. Missingness is handled via full information maximum likelihood (FIML) for the third video/lesson when four teachers lacked data; this is a model-based approach rather than PV-based imputation. Therefore, PV handling is not applicable, while missing-data handling is addressed through FIML under the multilevel path modeling framework.",
+    "sample_details": {
+      "total_students": 1140,
+      "countries": [
+        {
+          "country_code": "DEU",
+          "n_students": 1140
+        }
+      ],
+      "sample_filtering_criteria": "Used the German TALIS video study data. Included 50 teachers (46% women) and their 1,140 students from Grades 8–10 across 38 schools, but for the ML NVI model development only 46 teachers were included because 4 had unavailable or low-quality video material. For the main analyses, only videos 1–2 were used for RQ2 because posttest support measures referred to the first two recorded lessons; video 3 was excluded from RQ2 due to timing of recording relative to posttest. For NVI scoring, segments were included only when they were suitable for computer vision analysis: no excessive camera movement, teacher delivered frontal presentations, teacher remained fully visible, and the teacher did not leave the frame; 30-s segments were temporally matched to 16-min observer-rated segments. For the ML model training/validation, video segments were partitioned at the teacher level (no teacher overlap between training and validation), and body-pose (relaxation) was excluded from subsequent analysis due to low interrater reliability."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "teacher_gender",
+        "variable_name": "Teacher gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "teaching_experience",
+        "variable_name": "Teaching experience",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "school_type",
+        "variable_name": "School type (academic vs nonacademic)",
+        "category": "school"
+      },
+      {
+        "variable_code": "autonomy_support_teacher",
+        "variable_name": "Autonomy support (teacher-rated)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "autonomy_support_student",
+        "variable_name": "Autonomy support (student-rated)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "relationships_teacher",
+        "variable_name": "Positive student–teacher relationships (teacher-rated)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "relationships_student",
+        "variable_name": "Positive student–teacher relationships (student-rated)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "emotional_support_observer",
+        "variable_name": "Socioemotional support (observer-rated)",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "German TALIS video study (2016–2020 international; German national substudy) — Grades 8–10, Mathematics lessons on quadratic equations (videos 1–2; 30-s segments for NVI)",
+        "target_variable": "Teacher nonverbal immediacy (NVI) — variance decomposition across teacher, lesson, and situation",
+        "top_predictors": [
+          "Teacher gender",
+          "Teaching experience",
+          "School type (academic vs nonacademic)",
+          "Socioemotional support (observer-rated)"
+        ],
+        "performance_metrics": "ICCteacher = 0.225 (22.5% teacher-level variance), ICClesson = 0.056 (5.6% lesson-level variance), ICCsituation = 0.717 (≈71.7% situation-level variance).",
+        "standardized_conclusion": "Using German TALIS video study the study leveraged teacher-level covariates (gender, teaching experience, school type) and observer-rated socioemotional support to analyze how machine learning-assessed NVI varied across teachers, lessons, and 30-s teaching situations, finding that 22.5% of NVI variance was between teachers while most variance (≈71.7%) was at the situation level. This indicates that teacher nonverbal immediacy is not purely trait-like and that teacher training and feedback should target situationally adaptive nonverbal behaviors rather than only stable personal characteristics."
+      },
+      {
+        "dataset_used": "German TALIS video study (2016–2020 international; German national substudy) — Grades 8–10, Mathematics lessons on quadratic equations (videos 1–2; 30-s segments for NVI)",
+        "target_variable": "Socioemotional support (encouragement and warmth; observer-rated) predicted by NVI",
+        "top_predictors": [
+          "Socioemotional support (observer-rated)",
+          "Teacher gender",
+          "Autonomy support (teacher-rated)",
+          "Autonomy support (student-rated)"
+        ],
+        "performance_metrics": "Three-level path model (Model 1): NVI (ML) → observer socioemotional support across levels, β = .14 (Level 1), β = .35 (Level 2), p = .019 and p < .001 respectively; model fit: CFI = 1.00, RMSEA = .000, SRMRwithin = .000, SRMRbetweenLevel2 = .000, SRMRbetweenLevel3 = .007.",
+        "standardized_conclusion": "Using German TALIS video study the study leveraged machine learning-assessed NVI alongside observer-rated socioemotional support and teacher/student support constructs to predict encouragement-and-warmth support, finding that higher NVI was positively and significantly associated with observer-rated socioemotional support at both the situation and lesson levels. This indicates that incorporating nonverbal immediacy signals into classroom climate monitoring could help identify and support teachers’ warmth/encouragement behaviors, though the study is correlational and does not establish causal effects."
+      },
+      {
+        "dataset_used": "German TALIS video study (2016–2020 international; German national substudy) — Grades 8–10, Mathematics lessons on quadratic equations (videos 1–2; 30-s segments for NVI)",
+        "target_variable": "Autonomy support (teacher-rated and student-rated) predicted by NVI",
+        "top_predictors": [
+          "Autonomy support (teacher-rated)",
+          "Autonomy support (student-rated)",
+          "Teacher gender",
+          "Teaching experience"
+        ],
+        "performance_metrics": "Model 1: NVI (ML) → teacher-rated autonomy support at Level 3, β = .43, SE = .10, p = .001; NVI (ML) → student-rated autonomy support at Level 3, β = .36, SE = .10, p = .001. Model fit: CFI = 1.00, RMSEA = .000, SRMRwithin = .000.",
+        "standardized_conclusion": "Using German TALIS video study the study leveraged machine learning-assessed NVI to predict autonomy support measured after the lessons, finding that NVI was significantly and positively related to both teacher-reported and student-reported autonomy support (focused on the specific teaching unit). This indicates that teacher nonverbal immediacy may be a meaningful component of need-supportive teaching, suggesting that teacher education and coaching should include nonverbal immediacy feedback alongside autonomy-supportive instructional practices, while noting that the design cannot infer causality."
+      },
+      {
+        "dataset_used": "German TALIS video study (2016–2020 international; German national substudy) — Grades 8–10, Mathematics lessons on quadratic equations (videos 1–2; 30-s segments for NVI)",
+        "target_variable": "Positive student–teacher relationships (teacher-rated and student-rated) predicted by NVI",
+        "top_predictors": [
+          "Positive student–teacher relationships (teacher-rated)",
+          "Positive student–teacher relationships (student-rated)",
+          "Socioemotional support (observer-rated)"
+        ],
+        "performance_metrics": "Model 2: NVI (ML) → teacher-rated relationships at Level 3, β = −.17, SE = .14, p = .239 (n.s.); NVI (ML) → student-rated relationships at Level 3, β = .12, SE = .14, p = .371 (n.s.). Model fit: CFI = 1.00, RMSEA = .000, SRMRbetweenLevel3 = .012.",
+        "standardized_conclusion": "Using German TALIS video study the study leveraged machine learning-assessed NVI and observer-rated socioemotional support to predict positive student–teacher relationships, finding that NVI was not significantly related to either teacher- or student-reported relationship quality after the lessons. This indicates that nonverbal immediacy may support autonomy and warmth more directly than broader relationship quality, implying that relationship-building interventions likely require additional verbal and relational behaviors beyond nonverbal cues."
+      }
+    ],
+    "outcome_summary": "The study uses the German TALIS video study (Grades 8–10; mathematics lessons on quadratic equations) and develops a computer-vision model to score teacher nonverbal immediacy (NVI) from classroom video segments. Human raters provided continuous slider ratings for gesture intensity, body pose, and perceived distance; body pose was dropped due to low interrater reliability, and the final NVI scores were derived from a multimodal NVI model combining human-rated assessments with computer-vision features. The analytic design is hierarchical (situations within lessons within teachers) and uses three-level manifest modeling and path models in Mplus. Key results show that NVI variance is mostly situation-specific (≈71.7%), while NVI is positively associated with observer-rated encouragement/warmth (β = .14 at Level 1; β = .35 at Level 2) and with autonomy support (teacher- and student-rated at Level 3, both β ≈ .36–.43). NVI is not significantly related to positive student–teacher relationships. Limitations include correlational inference (no causal identification), unreported ML algorithm details in the provided text, and missing-data handling via FIML for video 3 only.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": "The extraction is dense for sampling, measures, and multilevel results, but the provided text does not specify the exact machine learning algorithm(s) used to train the computer-vision NVI model (e.g., CNN architecture, regression/classification method). As a result, ml_techniques.primary and all_techniques cannot be populated without inventing model names; the study still qualifies as predictive because it uses ML to generate NVI scores from video inputs."
+  }
+}

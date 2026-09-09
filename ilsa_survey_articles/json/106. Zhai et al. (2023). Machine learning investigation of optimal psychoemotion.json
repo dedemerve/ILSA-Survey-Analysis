@@ -2,7 +2,7 @@
   "metadata": {
     "file_name": "106. Zhai et al. (2023). Machine learning investigation of optimal psychoemotional well-being factors for students’ reading literacy.pdf",
     "title": "Machine learning investigation of optimal psychoemotional well-being factors for students’ reading literacy",
-    "authors": [],
+    "authors": null,
     "year": 2024,
     "doi": "10.1007/s10639-024-12580-8",
     "venue": "Education and Information Technologies",
@@ -15,7 +15,7 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 public microdata for the B-S-J-Z (China) regions and constructs a binary target for reading literacy (high vs low) based on PISA reading cut-offs. The analytic sample is restricted to 3497 students after excluding rows with missing values/invalid data. The manuscript does not report applying PISA sampling weights or replicate-weight procedures (e.g., BRR/jackknife), and it instead describes preprocessing and ML training/testing splits. Because the models are standard SVM-based classifiers with feature selection and SHAP interpretation, the paper appears to proceed without complex-survey weighting; this omission is not justified in the text."
+      "weight_fields_interpretation": "The study uses the publicly available PISA 2018 student questionnaire dataset for the B-S-J-Z (China) regions and constructs an analytic sample of 3497 students after excluding missing/invalid records. The dependent variable is a binary indicator of reading literacy (high vs low) derived from PISA reading cut scores, while the predictors are psychoemotional well-being factors operationalized from PISA questionnaire items and scales. The manuscript does not report applying PISA sampling weights or replicate weights (e.g., BRR/jackknife) in the ML training/evaluation pipeline; instead, it describes preprocessing (one-hot encoding, Min-Max scaling), a train/test split, and SVM-RFE-CV with accuracy as the optimization metric. Because the analysis is implemented with standard scikit-learn-style ML workflows and does not mention complex survey design adjustments, the results should be interpreted as predictive classification performance on the selected sample rather than fully population-representative estimates."
     },
     "plausible_values_handling": "single_pv",
     "missing_data_handling": "listwise_deletion",
@@ -28,13 +28,12 @@
           "n_students": 3497
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 public dataset and restricted to the B-S-J-Z (Beijing, Shanghai, Jiangsu, Zhejiang) regions in China. Reading literacy was operationalized using PISA reading plausible values, but the authors selected the first plausible value (PV1) for each student. The dependent variable was then dichotomized using PISA cut-offs: scores at or above 625.61 (Level 5+) coded as high (1) and scores below 407.47 (Level 2 or below) coded as low (0). The final analytic sample (3497) was obtained after excluding rows with missing values/invalid data using Stata 17.0 (drop if missing())."
+      "sample_filtering_criteria": "Used the PISA 2018 public dataset and restricted to the B-S-J-Z (Beijing, Shanghai, Jiangsu, Zhejiang) regions within China. The analytic sample includes 3497 students after excluding rows with missing values or invalid data. Reading literacy was dichotomized using PISA cut scores: high-level corresponds to scores at or above 625.61 (Level 5+), and low-level corresponds to scores below 407.47 (Level 2 or below)."
     },
     "ml_techniques": {
       "primary": "SVM",
       "all_techniques": [
         "Logistic Regression",
-        "Neural Network",
         "Decision Tree",
         "Random Forest",
         "Gradient Boosting",
@@ -60,7 +59,7 @@
       {
         "variable_code": "SBHL",
         "variable_name": "behavior hindering learning",
-        "category": "school"
+        "category": "student_behavior"
       },
       {
         "variable_code": "TEACHSUP",
@@ -114,26 +113,26 @@
       },
       {
         "variable_code": "EMOSUPS",
-        "variable_name": "Parents’ emotional support",
+        "variable_name": "Parents emotional support",
         "category": "parent_home"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (B-S-J-Z, China; PV1; dichotomized Level 5+ vs Level 2-)",
-        "target_variable": "High vs low reading literacy (binary)",
+        "dataset_used": "PISA 2018 Reading (B-S-J-Z, China; 15-year-olds)",
+        "target_variable": "Reading literacy level (high vs low; binary)",
         "top_predictors": [
-          "Socioeconomic status (ESCS)",
-          "Learning goals",
-          "Disciplinary climate",
-          "Reading engagement stimulation",
-          "Parents’ emotional support"
+          "ESCS",
+          "EUDMO",
+          "MASTGOAL",
+          "DISCLIMA",
+          "TEACHSUP"
         ],
-        "performance_metrics": "SVM (RBF kernel) — Accuracy: 0.905 (optimal 15-feature set on training/cross-validation), 0.871 on test set; best cross-validation folds: 10 or 13 with peak CV accuracy 0.891.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for B-S-J-Z (China) students, the study leveraged socioeconomic status (ESCS), learning goals, disciplinary climate, reading engagement stimulation, and parents’ emotional support to predict high vs low reading literacy, finding that the SVM model achieved high classification accuracy (≈0.905 with the optimal 15-feature set; 0.871 on the test set) and that ESCS was the most important feature according to SHAP. The interpretation is based on SHAP feature importance (predictive contribution, not causal effects), and the paper does not report applying PISA sampling weights."
+        "performance_metrics": "Model comparison: SVM achieved accuracy 0.90 (training) and 0.871 (test). Feature selection: best SVM-RFE-CV accuracy peaked at 0.905 with 15 selected features (cross-validation).",
+        "standardized_conclusion": "Using PISA 2018 Reading data from the B-S-J-Z regions in China, the study leveraged socioeconomic status (ESCS), meaning in life (EUDMO), learning goals (MASTGOAL), disciplinary climate (DISCLIMA), and teacher support (TEACHSUP) to predict a binary reading literacy outcome (high Level 5+ vs low Level 2 or below), finding that an SVM model with an RFE-CV-selected set of 15 psychoemotional well-being factors achieved high classification accuracy (test accuracy 0.871; peak CV accuracy 0.905). This indicates that strengthening psychoemotional well-being components—especially family socioeconomic resources, students’ life meaning, and learning goals—may be a practical pathway for improving reading literacy among higher-performing students, though the study’s SHAP-based interpretation is predictive rather than causal and the analysis does not report survey-weighted population inference."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 reading literacy for students in B-S-J-Z (Beijing, Shanghai, Jiangsu, Zhejiang), restricting to 3497 students after excluding missing/invalid rows. Reading literacy was dichotomized using PISA cut-offs (Level 5+ vs Level 2 or below) and the authors used PV1 as the reading score representation. Across several classifiers, the SVM with an RBF kernel was selected as the best model, reaching about 0.905 accuracy with an optimal 15-feature set (and peak cross-validation accuracy 0.891), with test accuracy reported as 0.871. SHAP was used to rank feature importance, with ESCS the highest-importance predictor, followed by EUDMO and MASTGOAL. Limitations include listwise deletion for missing data, lack of reported complex-survey weighting, and SHAP being an interpretability tool rather than causal evidence.",
+    "outcome_summary": "The study analyzes PISA 2018 reading literacy for students in Beijing, Shanghai, Jiangsu, and Zhejiang (B-S-J-Z), restricting to 3497 students after excluding missing/invalid records. Reading literacy is dichotomized using PISA cut scores (Level 5+ as high; Level 2 or below as low) and the authors use a single plausible value (PV1) to represent reading. They train and compare six ML classifiers (Logistic Regression, Perceptron, CART, Random Forest, GBM, and SVM) and then apply SVM-RFE-CV with an expanded fold search (5–15) to select an optimal feature subset, achieving peak cross-validation accuracy of 0.905 with 15 features and test accuracy of 0.871 for the SVM. Feature interpretation is provided via SHAP values, identifying ESCS as the most important factor. Limitations include the lack of reported complex-survey weighting/replicate-weight handling and the fact that SHAP explains predictive contribution rather than causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

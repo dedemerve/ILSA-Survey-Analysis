@@ -1,0 +1,206 @@
+{
+  "metadata": {
+    "file_name": "174. Courtney et al. (2022). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys.pdf",
+    "title": "The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys",
+    "authors": [
+      "Matthew Courtney",
+      "Mehmet Karakus",
+      "Ersozlu",
+      "Nurumov"
+    ],
+    "year": 2022,
+    "doi": "10.1186/s40536-022-00128-6",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "SENWGT_STU (PISA 2012); W_FSTUWT (PISA 2009); SENWT (PISA 2015 and 2018)",
+      "weight_fields_interpretation": "The study merges student and school data from PISA 2009, 2012, 2015, and 2018 for countries that administered the ICT questionnaire modules. Analytic samples exclude schools with fewer than ten students and account for missing ICT-related data, yielding cycle-specific totals of students and schools. To make countries contribute equally, the authors use “senate weights” and then rescale them within each country so the sum of student senate weights equals 5000 per country (constant computed using the number of students in the final analyses after missing-data accounting). The manuscript reports using normalized weights in all multilevel models; replicate-weight methodology (e.g., BRR/jackknife) is not described, and the analysis is implemented in R using lme4 maximum-likelihood estimation."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 247352,
+      "countries": [],
+      "sample_filtering_criteria": "Used merged PISA 2009, 2012, 2015, and 2018 student and school datasets for countries that opted into the ICT survey modules. For each cycle, schools with fewer than ten students were removed. The authors also account for missing ICT-related data (and other variables used in the models), and the senate weights are rescaled using the number of students included in the final analyses after accounting for missing data. Analyses are run separately by year and subject (math/science) using all available plausible values for that cycle."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gdp_per_capita",
+        "variable_name": "Country GDP per capita",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "school_escs_mean",
+        "variable_name": "School ESCS (mean)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "SCHLTYPE",
+        "variable_name": "School type (public/private)",
+        "category": "school"
+      },
+      {
+        "variable_code": "CREACTIV",
+        "variable_name": "Creative extra-curricular activities",
+        "category": "school"
+      },
+      {
+        "variable_code": "STAFFSHORT",
+        "variable_name": "Shortage of educational staff",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCMATEDU",
+        "variable_name": "Quality of educational resources",
+        "category": "school"
+      },
+      {
+        "variable_code": "EDUSHORT",
+        "variable_name": "Shortage of educational material",
+        "category": "school"
+      },
+      {
+        "variable_code": "RATCMP1",
+        "variable_name": "Computers per student (ratio)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "RATCMP2",
+        "variable_name": "Computers connected to internet",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "ESCS",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT availability at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use outside school (leisure)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use outside school (schoolwork)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SOIAICT",
+        "variable_name": "ICT as topic in social interaction",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUTSIDE",
+        "variable_name": "Subject-related ICT use outside lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT availability at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "USESCH",
+        "variable_name": "ICT use at school in general",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTCLASS",
+        "variable_name": "Subject-related ICT use during lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HIGHCONF",
+        "variable_name": "Self-confidence in ICT high-level tasks",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ATTCOMP",
+        "variable_name": "Attitude toward computers",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ICTATTNEG",
+        "variable_name": "Limitations of computer for learning",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ICTATTPOS",
+        "variable_name": "Computer as tool for learning",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "INTICT",
+        "variable_name": "Interest in ICT",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COMPICT",
+        "variable_name": "Perceived ICT competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AUTICT",
+        "variable_name": "Perceived autonomy related to ICT use",
+        "category": "ict"
+      },
+      {
+        "variable_code": "EXCURACT",
+        "variable_name": "Creative extra-curricular activities (2009)",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2009/2012/2015/2018 (15-year-olds) — Mathematics achievement (Plausible Values)",
+        "target_variable": "Mathematics achievement (Plausible Values)",
+        "top_predictors": [
+          "Student ESCS",
+          "Gender",
+          "Perceived autonomy related to ICT use (AUTICT)",
+          "Interest in ICT (INTICT)",
+          "Perceived ICT competence (COMPICT)"
+        ],
+        "performance_metrics": "Three-level linear mixed-effects models (maximum likelihood) using all available plausible values per cycle; reported as mean unstandardized coefficients (b) with t values and p values. Substantive effects threshold: p<0.001 and b>2 scale-score points at student/school levels; country-level interest p<0.05.",
+        "standardized_conclusion": "Using PISA 2009/2012/2015/2018 the study leveraged student ESCS, gender, and ICT-related attitudes (especially perceived autonomy related to ICT use, plus ICT interest and perceived ICT competence) to model mathematics achievement (Plausible Values), finding that ICT availability and ICT use inside/outside school were generally neutral or negatively associated with math performance, while positive ICT attitudes and beliefs showed substantive positive associations across cycles. This indicates that policies should prioritize strengthening students’ ICT-related motivation, competence beliefs, and autonomy (quality and purposeful use) rather than increasing raw ICT access or frequency of use, while recognizing the study is cross-sectional and estimates associations rather than causal effects."
+      },
+      {
+        "dataset_used": "PISA 2009/2012/2015/2018 (15-year-olds) — Science achievement (Plausible Values)",
+        "target_variable": "Science achievement (Plausible Values)",
+        "top_predictors": [
+          "Student ESCS",
+          "Gender",
+          "Perceived autonomy related to ICT use (AUTICT)",
+          "Interest in ICT (INTICT)",
+          "Perceived ICT competence (COMPICT)"
+        ],
+        "performance_metrics": "Three-level linear mixed-effects models (maximum likelihood) using all available plausible values per cycle; reported as mean unstandardized coefficients (b) with t values and p values. Substantive effects threshold: p<0.001 and b>2 scale-score points at student/school levels; country-level interest p<0.05.",
+        "standardized_conclusion": "Using PISA 2009/2012/2015/2018 the study leveraged student ESCS, gender, and ICT-related attitudes (especially perceived autonomy related to ICT use, plus ICT interest and perceived ICT competence) to model science achievement (Plausible Values), finding that ICT availability and ICT use inside/outside school were mostly neutral or negatively associated with science performance, whereas positive ICT attitudes and beliefs were substantively and consistently positively associated with science achievement across cycles. This indicates that educational practice should focus on cultivating students’ self-confidence, competence beliefs, and autonomy in ICT use as part of learning design, rather than assuming that greater ICT access or more frequent ICT use will automatically improve science outcomes."
+      }
+    ],
+    "outcome_summary": "The study analyzes four PISA cycles (2009, 2012, 2015, 2018) using merged student and school data to examine how ICT availability, ICT use (inside and outside school), and ICT-related attitudes relate to mathematics and science achievement. Achievement is modeled using PISA plausible values, and the authors fit three-level linear mixed-effects models with students nested in schools and schools nested in countries, using maximum likelihood estimation. They report that ICT availability and ICT use are generally neutral or negatively associated with math and science performance, while ICT attitudes and beliefs—particularly perceived autonomy related to ICT use—show the strongest positive associations (e.g., autonomy coefficients around b≈8.93–9.43 for math and b≈10.20–11.90 for science in 2015/2018). The models explain up to about 9.5% of student-level residual variance, and country-level GDP per capita shows inconsistent associations (significant mainly in 2012). Because PISA is cross-sectional and ICT questionnaire items vary across cycles, the results support associations rather than causal claims.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The paper does not train or evaluate machine-learning predictive models; it uses three-level linear mixed-effects modeling with plausible values. Therefore, ML technique fields are intentionally empty (no ML algorithms to extract), while the study still provides substantive multilevel association results across PISA cycles."
+  }
+}

@@ -16,14 +16,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 microdata (OECD, 2019a) merged from the Student Questionnaire and Principal Questionnaire. The analytic sample was created by listwise deletion for missingness on the five self-efficacy items (reducing the dataset from 612,004 to 527,825) and then median imputation for missing predictor values. The manuscript does not report applying PISA sampling weights or replicate-weight procedures (e.g., BRR/jackknife) in the ML training/evaluation pipeline. Because the models are implemented with XGBoost and scikit-learn Lasso, the authors do not describe any weight-aware estimation; therefore, the analysis is treated as unweighted with respect to complex survey design."
+      "weight_fields_interpretation": "The study uses the publicly available PISA 2018 microdata and merges Student Questionnaire and Principal Questionnaire responses at the student–principal level. The analytic sample is created by (i) listwise deletion of cases missing any of the five self-efficacy items and (ii) median imputation for missing predictor values, followed by IRT-based transformation of the five self-efficacy items into a continuous self-efficacy score. The manuscript does not report applying PISA complex survey weights or replicate weights in the ML training/evaluation stage, so it is unclear whether population-representative weighting was used. Because the models are XGBoost and Lasso implemented in Python/scikit-learn, the analysis may have proceeded without explicit survey-weight incorporation, which can affect generalizability under clustered sampling."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "listwise_deletion",
-    "handling_not_reported_explanation": "The dependent variable is a continuous self-efficacy score derived from five Likert items using an IRT generalized partial credit model and then linearly transformed for interpretability; the paper does not use PISA achievement plausible values (PV) for the outcome. Missing data handling is explicitly described: listwise deletion for missingness on the five self-efficacy items, followed by median imputation for missing predictor values. Therefore, PV handling is not applicable to this study’s outcome construction.",
+    "handling_not_reported_explanation": "The dependent variable is a continuous self-efficacy score derived from five Likert items using an IRT generalized partial credit model and then linearly transformed for interpretability; the paper does not use PISA achievement plausible values for the outcome. Missingness is handled in two stages: listwise deletion for missing self-efficacy items (84,179 records removed) and median substitution for missing predictor values. Because the paper does not describe any PV-based procedure for the outcome, PV handling is not applicable in this analysis.",
     "sample_details": {
       "total_students": 527825,
       "countries": [
@@ -48,7 +48,7 @@
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 Student Questionnaire and Principal Questionnaire variables merged at the student–principal level. The response variable (general self-efficacy) was measured with five Likert items; rows with missing data on any of these five items were removed via listwise deletion (84,179 records removed), yielding 527,825 students. For predictors, missing values were imputed by substituting median values. The final preprocessed dataset contained 256 predictors (including dummy variables) and one continuous self-efficacy outcome."
+      "sample_filtering_criteria": "Start from the publicly available PISA 2018 dataset (Student Questionnaire + Principal Questionnaire merged by linking students to their corresponding principals). Exclude any record with missing data on any of the five self-efficacy items, using listwise deletion (reducing the dataset from 612,004 to 527,825). For the remaining cases, impute missing predictor values by substituting median values. Transform the five self-efficacy item responses into IRT-based item response scores using a polytomous generalized partial credit model, then linearly transform the resulting IRT scores (multiply by 15 and add 100) to obtain a positive continuous self-efficacy outcome. Create dummy variables for categorical predictors and reverse-code negatively worded items before computing relevant scale totals."
     },
     "ml_techniques": {
       "primary": "XGBoost",
@@ -84,29 +84,29 @@
         "category": "student_attitude"
       },
       {
+        "variable_code": "performance_approach_goal_orientation",
+        "variable_name": "Performance-approach goal orientation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "reading_self_concept",
+        "variable_name": "Reading self-concept",
+        "category": "student_attitude"
+      },
+      {
         "variable_code": "parents_emotional_support",
         "variable_name": "Parents’ emotional support",
         "category": "parent_home"
       },
       {
-        "variable_code": "teacher_instruction_strategies",
-        "variable_name": "Teacher instruction strategies",
-        "category": "teacher"
+        "variable_code": "empathy",
+        "variable_name": "Empathy",
+        "category": "student_attitude"
       },
       {
-        "variable_code": "study_possessions",
-        "variable_name": "Study possessions",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "home_possessions",
-        "variable_name": "Home possessions",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "UNDREM",
-        "variable_name": "Metacognition (understanding, remembering)",
-        "category": "student_behavior"
+        "variable_code": "scary_emotion",
+        "variable_name": "Scared emotion",
+        "category": "student_attitude"
       },
       {
         "variable_code": "cooperation_climate",
@@ -119,33 +119,53 @@
         "category": "peer_effects"
       },
       {
-        "variable_code": "teacher_evaluation",
-        "variable_name": "Teacher evaluation",
-        "category": "school"
+        "variable_code": "teacher_instruction_strategies",
+        "variable_name": "Teacher instruction strategies",
+        "category": "teacher"
       },
       {
-        "variable_code": "differentiated_classroom_practice",
-        "variable_name": "Differentiated classroom practice",
+        "variable_code": "teacher_understanding",
+        "variable_name": "Teacher understanding",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "study_possessions",
+        "variable_name": "Study possessions",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "home_possessions",
+        "variable_name": "Home possessions",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "teacher_evaluation",
+        "variable_name": "Teacher evaluation",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "differentiated_classrooms",
+        "variable_name": "Differentiated classrooms",
         "category": "school"
       },
       {
         "variable_code": "admission_criteria_feeder_schools",
-        "variable_name": "Admission criteria: feeder schools",
+        "variable_name": "Admission criteria (feeder schools)",
         "category": "system_level"
       },
       {
         "variable_code": "admission_criteria_residence_area",
-        "variable_name": "Admission criteria: residence area",
+        "variable_name": "Admission criteria (residence area)",
         "category": "system_level"
       },
       {
         "variable_code": "funding_source_student_fees",
-        "variable_name": "Funding source: student fees",
+        "variable_name": "Funding source (student fees)",
         "category": "system_level"
       },
       {
-        "variable_code": "funding_source_governments",
-        "variable_name": "Funding source: governments",
+        "variable_code": "funding_source_government",
+        "variable_name": "Funding source (government)",
         "category": "system_level"
       },
       {
@@ -174,27 +194,40 @@
         "category": "system_level"
       },
       {
-        "variable_code": "b_s_j_z_china_country_of_origin",
+        "variable_code": "BSJZ",
         "variable_name": "B.S.J.Z. China (country of origin)",
         "category": "system_level"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (Student Questionnaire + Principal Questionnaire), general self-efficacy (IRT score)",
-        "target_variable": "General self-efficacy (continuous IRT score)",
+        "dataset_used": "PISA 2018 (Student Questionnaire + Principal Questionnaire), self-efficacy items (general self-efficacy)",
+        "target_variable": "General self-efficacy (IRT-based continuous score)",
         "top_predictors": [
-          "mastery goal orientation",
-          "meaning of life",
-          "proud",
-          "positive emotions",
-          "learning aspiration"
+          "Mastery goal orientation",
+          "Meaning of life",
+          "Proud emotion",
+          "Positive emotions",
+          "Learning aspiration"
         ],
-        "performance_metrics": "XGBoost (test set): R² = 0.467, RMSE = 9.699, MAE = 7.219. Lasso (test set): R² = 0.417, RMSE = 10.137, MAE = 7.683. Nested 4-fold CV with grid search (outer and inner folds = 4).",
-        "standardized_conclusion": "Using PISA 2018 the study leveraged mastery goal orientation, meaning of life, proud, positive emotions, and learning aspiration to predict students’ general self-efficacy (continuous IRT score), finding that XGBoost outperformed Lasso and achieved test-set R² ≈ 0.467 with low error (RMSE ≈ 9.70, MAE ≈ 7.22). The authors report predictive performance and feature-importance rankings rather than causal pathways, and the cross-sectional design limits causal interpretation."
+        "performance_metrics": "XGBoost (test set): R2 = 0.467; RMSE = 9.699; MAE = 7.219. Lasso (test set): R2 = 0.417; RMSE = 10.137; MAE = 7.683. Best model: XGBoost. Top-14 predictors (XGBoost) cumulative relative importance = 48.99%; reduced model R2 = 0.436 vs full model R2 = 0.467; exclusion model R2 = 0.328.",
+        "standardized_conclusion": "Using PISA 2018 the study leveraged mastery goal orientation, meaning of life, proud emotion, positive emotions, and learning aspiration to predict general self-efficacy (IRT-based continuous score), finding that XGBoost outperformed Lasso and achieved test-set R2 ≈ 0.467 (RMSE ≈ 9.699). This indicates that students’ affective and motivational profiles—along with a small subset of high-importance contextual variables—can support scalable monitoring of self-efficacy, though the cross-sectional design prevents causal pathway claims."
+      },
+      {
+        "dataset_used": "PISA 2018 (socio-ecological levels of contextual predictors)",
+        "target_variable": "General self-efficacy (IRT-based continuous score) — top predictors by socio-ecological level",
+        "top_predictors": [
+          "Parents’ emotional support",
+          "Teacher instruction strategies",
+          "Study possessions",
+          "Cooperation climate",
+          "Admission criteria (feeder schools)"
+        ],
+        "performance_metrics": "Top predictors by level (relative importance ranking within XGBoost): Microsystem—parents’ emotional support, teacher instruction strategies, study possessions; Mesosystem—cooperation climate, competition climate, teacher evaluation, differentiated classrooms; Exosystem—admission criteria (feeder schools/residence area) and funding sources; Macrosystem—Malaysia, Japan, Kazakhstan, Indonesia, B.S.J.Z. China. Individual-level predictors ranked highest overall; exosystem ranked lowest (based on available predictors).",
+        "standardized_conclusion": "Using PISA 2018 the study leveraged parents’ emotional support, teacher instruction strategies, study possessions, cooperation climate, and admission criteria (feeder schools) to predict general self-efficacy, finding that the most influential predictors cluster in proximal socio-ecological layers (especially the individual and microsystem) while exosystem predictors show weaker direct predictive importance. This indicates that interventions aiming to strengthen self-efficacy should prioritize emotional support, instructional practices, and learning-related motivation, while using higher-level policy levers more indirectly through these proximal mechanisms."
       }
     ],
-    "outcome_summary": "The study used PISA 2018 Student and Principal Questionnaire data (merged at the student–principal level) to predict students’ general self-efficacy, operationalized as a continuous IRT-based score from five Likert items. After listwise deletion for missing self-efficacy items and median imputation for missing predictors, the analytic sample comprised 527,825 students across 79 countries/regions. Two ML models were trained with nested 4-fold cross-validation and grid search: XGBoost and Lasso. On the test set, XGBoost achieved R² = 0.467 (RMSE = 9.699; MAE = 7.219), outperforming Lasso (R² = 0.417; RMSE = 10.137; MAE = 7.683). The most important predictors in the XGBoost model included mastery goal orientation, meaning of life, proud, positive emotions, and learning aspiration, with additional socio-ecological predictors (e.g., parents’ emotional support and country of origin). The paper does not claim causal effects and does not report applying PISA sampling weights in the ML pipeline.",
+    "outcome_summary": "The study uses PISA 2018 microdata merged from the Student Questionnaire and Principal Questionnaire to predict students’ general self-efficacy. Self-efficacy is constructed from five Likert items using a polytomous IRT generalized partial credit model and then linearly transformed to a positive continuous scale. The authors train two ML regressors—XGBoost and Lasso—using nested cross-validation (4 folds in both inner and outer loops) and evaluate performance with MAE, RMSE, and R². On the test set, XGBoost achieves R² = 0.467 (RMSE = 9.699; MAE = 7.219), outperforming Lasso (R² = 0.417; RMSE = 10.137; MAE = 7.683). The top 14 predictors explain 48.99% of cumulative relative importance, and a reduced model using only these predictors retains substantial explanatory power (R² = 0.436), while an exclusion model drops to R² = 0.328. Limitations include cross-sectional data (no causal claims) and unclear use of PISA survey weights in the ML stage.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

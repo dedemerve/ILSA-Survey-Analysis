@@ -1,7 +1,7 @@
 {
   "metadata": {
     "file_name": "30. Wang et al. (2023). Understanding Students’ Subjective and Eudaimonic Well‑Being: Combining both Machine Learning and Classical Statistics.pdf",
-    "title": "Understanding Students’ Subjective and Eudaimonic Well-Being: Combining both Machine Learning and Classical Statistics",
+    "title": "Understanding Students’ Subjective and Eudaimonic Well‑Being: Combining both Machine Learning and Classical Statistics",
     "authors": [
       "Y. Wang",
       "Ronnel B. King"
@@ -15,14 +15,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 Hong Kong microdata (n=6,037) and applies a two-step analytic strategy: random forest regression to rank predictors and then hierarchical linear modelling (HLM) to estimate coefficients while accounting for students nested within schools. The manuscript does not report the use of PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), nor does it name any weight variable (such as W_FSTUWT/TOTWGT). Because the primary predictive step is a random forest model, the authors do not describe any survey-weight incorporation; the HLM step addresses clustering structurally but does not substitute for complex-survey weighting. Data preparation included MCMC-based imputation for missing values and standardization of variables (mean 0, SD 1) prior to model fitting."
+      "weight_fields_interpretation": "The study uses publicly available PISA 2018 microdata for Hong Kong (China) and analyzes student-level questionnaire composite scores and scale scores. The manuscript reports a sample size of 6,037 students and describes standardization of variables, MCMC-based missing-data imputation, and then two-stage modeling (random forest followed by hierarchical linear modeling). However, it does not report whether PISA sampling weights or replicate weights were applied (e.g., no mention of W_FSTUWT/TOTWGT or BRR/jackknife). Because the primary predictive step uses random forest regression and the secondary step uses HLM, the paper’s weighting strategy is unclear; analysts should verify in the original PISA data documentation whether weights were used and, if not, interpret results as conditional on an unweighted analytic sample."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "multiple_imputation",
-    "handling_not_reported_explanation": "Plausible values (PVs) are not applicable because the dependent variables are well-being constructs measured via Likert-type items and a life-satisfaction item, and the paper does not describe PV-based cognitive achievement outcomes. Missing data handling is reported: the authors imputed missing values using Markov Chain Monte Carlo (MCMC), which corresponds to multiple imputation.",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are well-being constructs measured via Likert-type questionnaire scales (positive affect, negative affect, life satisfaction, and meaning in life) rather than PISA cognitive achievement scores that are typically reported using PVs. The paper therefore does not require PV-based scaling/combining rules. Missing data handling is reported via MCMC-based imputation, so the main transparency issue is not PVs but whether survey weights were applied.",
     "sample_details": {
       "total_students": 6037,
       "countries": [
@@ -31,7 +31,7 @@
           "n_students": 6037
         }
       ],
-      "sample_filtering_criteria": "Used the publicly available PISA 2018 Hong Kong dataset and analyzed the full available Hong Kong student sample (n=6,037). The study selected 29 questionnaire-based composite/background variables and constructed four well-being outcomes (positive affect, negative affect, life satisfaction, and meaning in life). Missing values were imputed via MCMC; no additional grade- or school-type restriction is reported beyond the PISA sample composition."
+      "sample_filtering_criteria": "Used the PISA 2018 Hong Kong (China) dataset and analyzed 6,037 adolescents (mean age 15.73). The study selected 29 questionnaire-based background/composite variables and modeled four well-being outcomes (positive affect, negative affect, life satisfaction, meaning in life). Missing values were imputed using MCMC before analysis, and all variables were standardized (mean 0, SD 1). No additional grade- or school-type restriction is described beyond the reported grade distribution in the sample."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -47,7 +47,7 @@
       },
       {
         "variable_code": "INDI2",
-        "variable_name": "Immigration status index",
+        "variable_name": "Index immigration status",
         "category": "demographic"
       },
       {
@@ -57,22 +57,22 @@
       },
       {
         "variable_code": "INDI4",
-        "variable_name": "Effort invested in learning",
+        "variable_name": "Effort in learning",
         "category": "student_behavior"
       },
       {
         "variable_code": "INDI5",
-        "variable_name": "Joy/Like reading",
+        "variable_name": "Joy/like reading",
         "category": "student_behavior"
       },
       {
         "variable_code": "INDI6",
-        "variable_name": "Self-concept of reading competence",
+        "variable_name": "Reading competence self-concept",
         "category": "student_behavior"
       },
       {
         "variable_code": "INDI7",
-        "variable_name": "Self-concept of reading difficulty",
+        "variable_name": "Reading difficulty self-concept",
         "category": "student_behavior"
       },
       {
@@ -103,7 +103,7 @@
       {
         "variable_code": "INDI13",
         "variable_name": "Attitude toward school learning",
-        "category": "student_attitude"
+        "category": "curriculum"
       },
       {
         "variable_code": "INDI14",
@@ -117,7 +117,7 @@
       },
       {
         "variable_code": "Micro1",
-        "variable_name": "Teacher support",
+        "variable_name": "Teacher support in test language",
         "category": "teacher"
       },
       {
@@ -132,7 +132,7 @@
       },
       {
         "variable_code": "Micro4",
-        "variable_name": "Parents’ emotional support",
+        "variable_name": "Parents emotional support",
         "category": "parent_home"
       },
       {
@@ -181,66 +181,66 @@
         "category": "school"
       },
       {
-        "variable_code": "TMINS",
+        "variable_code": "Meso7",
         "variable_name": "Learning time (minutes per week)",
         "category": "curriculum"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Hong Kong (HKG) — subjective well-being (positive affect)",
-        "target_variable": "Positive affect (SWBP)",
+        "dataset_used": "PISA 2018 Hong Kong (China) questionnaire well-being (student-level)",
+        "target_variable": "Positive affect (subjective well-being)",
         "top_predictors": [
-          "Sense of belonging to school (Meso1)",
-          "Resilience (INDI11)",
-          "Parents’ emotional support (Micro4)",
-          "Teacher support (Micro1)",
-          "Perceived teacher interest (Micro6)"
+          "Sense of belonging to school",
+          "Resilience",
+          "Perception of cooperation at school",
+          "Teacher support in test language",
+          "Parents emotional support"
         ],
-        "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=19.15%, RMSE=0.81 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged sense of belonging to school and resilience (plus additional microsystem/mesosystem factors) to predict positive affect, finding that school belonging was the most salient predictor and resilience was the second most influential factor (best model achieved R²=19.15% with RMSE=0.81 under 10-fold CV)."
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (5 repeats). Full 29 predictors explained 22.35% variance (MSE=0.78); final 7 predictors selected after cross-validation. Final model: school belonging contributed 84.97% mean decrease in %IncMSE; resilience contributed 48.74%IncMSE. HLM (top 7 predictors) RMSE=0.878; total variance explained=0.231; ICC=0.014.",
+        "standardized_conclusion": "Using PISA 2018 Hong Kong (China) the study leveraged sense of belonging to school and resilience (plus additional school/teacher factors) to predict positive affect, finding that school belonging was the most salient predictor and resilience was the second most influential. This indicates that interventions strengthening students’ school connectedness and resilience may be effective levers for improving students’ day-to-day positive emotions, though the cross-sectional design prevents causal claims."
       },
       {
-        "dataset_used": "PISA 2018 Hong Kong (HKG) — subjective well-being (negative affect)",
-        "target_variable": "Negative affect (SWBN)",
+        "dataset_used": "PISA 2018 Hong Kong (China) questionnaire well-being (student-level)",
+        "target_variable": "Negative affect (subjective well-being)",
         "top_predictors": [
-          "General fear of failure (INDI10)",
-          "Sense of belonging to school (Meso1)",
-          "Resilience (INDI11)",
-          "Perception of cooperation at school (Meso5)",
-          "Teacher-directed instruction (Micro2)"
+          "General fear of failure",
+          "Sense of belonging to school",
+          "Resilience",
+          "Being bullied",
+          "Perception of competitiveness at school"
         ],
-        "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=14.47%, RMSE=0.86 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged general fear of failure and school belonging (along with other selected mesosystem factors) to predict negative affect, finding that fear of failure was the top predictor and school belonging was the second most influential factor (best model achieved R²=14.47% with RMSE=0.86 under 10-fold CV)."
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (5 repeats). Full 29 predictors explained 17.64% variance (MSE=0.82); final 7 predictors selected. Final model: general fear of failure contributed 57.13%IncMSE; school belonging contributed 31.38%IncMSE; other top variables contributed 5.42% to 21.33%. HLM (top 7 predictors) RMSE=0.893; total variance explained=0.205; ICC=0.025.",
+        "standardized_conclusion": "Using PISA 2018 Hong Kong (China) the study leveraged general fear of failure and school belonging (along with resilience and school climate/bullying factors) to predict negative affect, finding that fear of failure was the top predictor and bullying-related and school-competition perceptions also mattered. This indicates that reducing evaluative pressure and fear of failure—while also addressing bullying and improving belonging—may help mitigate students’ negative emotions, though causality cannot be inferred from cross-sectional associations."
       },
       {
-        "dataset_used": "PISA 2018 Hong Kong (HKG) — subjective well-being (life satisfaction)",
-        "target_variable": "Life satisfaction (SWBL)",
+        "dataset_used": "PISA 2018 Hong Kong (China) questionnaire well-being (student-level)",
+        "target_variable": "Life satisfaction (subjective well-being)",
         "top_predictors": [
-          "Sense of belonging to school (Meso1)",
-          "Parents’ emotional support (Micro4)",
-          "Resilience (INDI11)",
-          "Teacher support (Micro1)",
-          "Perceived teacher interest (Micro6)"
+          "Sense of belonging to school",
+          "Parents emotional support",
+          "Resilience",
+          "Teacher support in test language",
+          "Perceived teacher interest"
         ],
-        "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=19.83%, RMSE=0.80 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged school belonging and parental emotional support (plus resilience and teacher-related factors) to predict life satisfaction, finding that school belonging and parental support were among the most influential predictors (best model achieved R²=19.83% with RMSE=0.80 under 10-fold CV)."
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (5 repeats). Full 29 predictors explained 22.96% variance (MSE=0.77); final 7 predictors selected. HLM (top 7 predictors) RMSE=0.884; total variance explained=0.219; ICC=0.013. The paper reports that school belonging, parental support, resilience, teachers’ support, and interest were five salient predictors with %IncMSE ranging from 34.19 to 54.35; overall life satisfaction model R2=19.83% (RMSE=0.80) in the cross-validation step.",
+        "standardized_conclusion": "Using PISA 2018 Hong Kong (China) the study leveraged school belonging, parental emotional support, and resilience (plus teacher support and teacher interest) to predict life satisfaction, finding that these family–school–individual factors jointly explained a substantial share of variance and that belonging and parental support were among the strongest contributors. This indicates that policies and school programs that enhance supportive parent–student relationships and students’ sense of belonging may improve global life satisfaction, while recognizing that the study’s cross-sectional design limits causal interpretation."
       },
       {
-        "dataset_used": "PISA 2018 Hong Kong (HKG) — eudaimonic well-being (meaning in life)",
-        "target_variable": "Eudaimonic well-being (EUDA; meaning in life)",
+        "dataset_used": "PISA 2018 Hong Kong (China) questionnaire well-being (student-level)",
+        "target_variable": "Eudaimonic well-being (meaning in life)",
         "top_predictors": [
-          "Resilience (INDI11)",
-          "Mastery goal orientation (INDI12)",
-          "Work mastery (INDI9)",
-          "Sense of belonging to school (Meso1)",
-          "Attitude toward school learning activities (INDI13)"
+          "Resilience",
+          "Mastery goal orientation",
+          "Work mastery",
+          "Sense of belonging to school",
+          "Perception of cooperation at school"
         ],
-        "performance_metrics": "Random Forest (10-fold CV, 5 repeats): R²=25.12%, RMSE=0.75 for the final model with 7 predictors; %IncMSE used for variable importance.",
-        "standardized_conclusion": "Using PISA 2018 Hong Kong the study leveraged resilience and mastery-related motivational factors (plus school belonging) to predict eudaimonic well-being (meaning in life), finding that resilience was the most influential predictor and mastery goal orientation and work mastery were also key contributors (best model achieved R²=25.12% with RMSE=0.75 under 10-fold CV)."
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (5 repeats). Full 29 predictors explained 27.05% variance (MSE=0.73); final 7 predictors selected. For eudaimonic well-being, top influential factors included resilience (ranked 1st) and work mastery (ranked 2nd) in the RF importance results; the paper reports %IncMSE ranges from 36.30 to 92.42 for selected factors. HLM (top 7 predictors) RMSE=0.846; total variance explained=0.287; ICC=0.012.",
+        "standardized_conclusion": "Using PISA 2018 Hong Kong (China) the study leveraged resilience and mastery-related motivational factors (mastery goal orientation and work mastery) together with school belonging to predict meaning in life, finding that resilience was the most influential predictor and that mastery-oriented motivation strongly supported eudaimonic well-being. This indicates that educational interventions fostering adaptive coping and mastery goals—alongside strengthening belonging—may promote students’ sense of purpose, though the analysis cannot establish causal effects."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 Hong Kong student data (n=6,037) to predict four well-being outcomes using a random forest regression approach followed by HLM to interpret effects while accounting for the nested student-within-school structure. For positive affect, the best random-forest model (7 predictors) reached R²=19.15% with RMSE=0.81, with school belonging and resilience as the most important factors. For negative affect, the best model reached R²=14.47% with RMSE=0.86, with general fear of failure and school belonging as top predictors. For life satisfaction, the best model reached R²=19.83% with RMSE=0.80, with school belonging and parental emotional support among the strongest predictors. For eudaimonic well-being (meaning in life), the best model reached R²=25.12% with RMSE=0.75, with resilience and mastery goal orientation/work mastery as key predictors. The paper is cross-sectional (no causal claims) and does not report the use of PISA sampling weights in the ML step.",
+    "outcome_summary": "The study analyzes PISA 2018 Hong Kong (China) student questionnaire data (N=6,037) to predict four well-being outcomes: positive affect, negative affect, life satisfaction, and meaning in life (eudaimonic well-being). It first trains random forest regression models (10-fold cross-validation with 5 repeats) using 29 questionnaire-based composite predictors, selecting the top seven variables per outcome based on %IncMSE and RMSE. It then fits hierarchical linear models to estimate standardized effects while accounting for the nested student-within-school structure, reporting RMSE values around 0.846–0.893 and ICCs from 0.012 to 0.025. Key predictors differ by outcome: school belonging and resilience dominate positive affect and meaning in life, while fear of failure and bullying-related factors dominate negative affect. The paper imputes missing data via MCMC and standardizes variables, but it does not report whether PISA sampling/replicate weights were applied; additionally, cross-sectional PISA data prevent causal conclusions.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

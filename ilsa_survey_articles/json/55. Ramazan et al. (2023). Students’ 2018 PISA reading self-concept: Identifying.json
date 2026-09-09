@@ -18,11 +18,11 @@
       "student_weights_used": true,
       "replicate_weights_used": true,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses the 2018 PISA reading assessment data for the United States, focusing on students’ reading self-concept measured via three questionnaire items. The analytic sample includes 4,838 students nested within 164 schools, with teacher and school contextual variables aggregated to the school level because student–teacher linkages are not available. For the multilevel modeling (MLM) stage, the authors explicitly state that student sampling weights (scaled) were included, and replication weights were included to account for between-cluster variance (e.g., schools) as recommended by PISA guidance. The manuscript does not report the exact weight variable name(s), but it does describe the use of sampling weights and replication weights; therefore, weighting was applied rather than omitted."
+      "weight_fields_interpretation": "The study uses the 2018 PISA reading assessment for the United States and analyzes students nested within schools using multilevel modeling. The authors state that student sampling weights (scaled) were included in each analysis, and that replication weights were included in the multilevel models to account for between-cluster variance (e.g., schools) as recommended by the PISA manual and analytical framework. For the analytic samples, they further restrict the dataset by applying a missing-data variable cutoff (excluding variables with >20% missingness) and then imputing missing values for the remaining variables before running Elastic Net and the subsequent multilevel models. Because the paper does not report the exact weight variable name(s), the weighting strategy is described at the level of PISA’s standard sampling-weight and replicate-weight approach rather than a specific variable code."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "multiple_imputation",
-    "handling_not_reported_explanation": "plausible_values_handling is 'not_applicable' — the study likely does not analyze cognitive achievement PVs (e.g., it may focus on affective/attitudinal outcomes, curriculum data, or non-ILSA micro-data).",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is students’ reading self-concept measured via a questionnaire scale (three items) rather than a cognitive achievement score for which PISA generates PVs. Missing data handling is reported: the authors used predictive mean matching (PMM) within the Elastic Net variable set after a >20% missingness variable exclusion, and then applied a two-level fully conditional specification (FCS) imputation for the multilevel analyses. Therefore, PV handling is not part of the analysis pipeline, while missingness is addressed through reported multiple imputation procedures.",
     "sample_details": {
       "total_students": 4838,
       "countries": [
@@ -31,7 +31,7 @@
           "n_students": 4838
         }
       ],
-      "sample_filtering_criteria": "Used the 2018 PISA reading assessment data for the United States. The outcome is students’ reading self-concept from the three self-concept items; the authors then applied a multi-step variable selection pipeline: (1) retained variables with missing-data rate ≤20%, (2) performed Elastic Net variable selection separately at the student, teacher, and school levels, and (3) constructed composite predictors (via PISA composites, plus CFA/PCA-derived factor scores) to avoid over-parameterization and multicollinearity in MLM. For MLM, teacher-level variables were aggregated to the school level due to lack of student–teacher linkage in PISA."
+      "sample_filtering_criteria": "Used the 2018 PISA reading assessment data for the United States. The analytic sample includes 4,838 students (with teacher and school participation) and is further restricted at the variable level by excluding any candidate predictor variables with missing-data rates beyond 20% before Elastic Net selection. After this variable screening, missing values for the remaining predictors were imputed using predictive mean matching (PMM) for the Elastic Net step, and then a two-level fully conditional specification imputation was applied for the multilevel modeling. Teacher-level variables were aggregated to the school level because PISA does not provide student–teacher linkages, and the final multilevel models used composite variables constructed from selected items to reduce over-parameterization and multicollinearity."
     },
     "ml_techniques": {
       "primary": "Elastic Net",
@@ -67,7 +67,7 @@
       },
       {
         "variable_code": "IC008Q02TA",
-        "variable_name": "Internet use for online games",
+        "variable_name": "Online games outside school",
         "category": "ict"
       },
       {
@@ -142,37 +142,32 @@
       },
       {
         "variable_code": "TC172Q01HA",
-        "variable_name": "Teachers’ description of reading books",
+        "variable_name": "How teachers read books",
         "category": "teacher"
       },
       {
-        "variable_code": "overlap_teacher_education",
-        "variable_name": "Overlap: teacher education",
+        "variable_code": "STTMG6",
+        "variable_name": "Overlap with teaching modern foreign languages",
         "category": "teacher"
-      },
-      {
-        "variable_code": "MFL",
-        "variable_name": "MFL",
-        "category": "student_behavior"
       },
       {
         "variable_code": "SC150Q02IA",
-        "variable_name": "Preparatory program before regular class",
+        "variable_name": "Preparatory English skills program",
         "category": "curriculum"
       },
       {
         "variable_code": "SC048Q03NA",
-        "variable_name": "Share disadvantaged homes at school",
+        "variable_name": "Share disadvantaged homes",
         "category": "school"
       },
       {
         "variable_code": "SC048Q02NA",
-        "variable_name": "Share special needs at school",
+        "variable_name": "Share students with special needs",
         "category": "school"
       },
       {
         "variable_code": "SC159Q01HA",
-        "variable_name": "Hosting visiting teachers from abroad",
+        "variable_name": "Visiting teachers from other countries",
         "category": "school"
       },
       {
@@ -212,84 +207,40 @@
       },
       {
         "variable_code": "SC150Q01IA",
-        "variable_name": "Equity-oriented policies for language skills",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "perception_of_reading_difficulty",
-        "variable_name": "Perception of reading difficulty",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "availability",
-        "variable_name": "Availability",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "ict_use",
-        "variable_name": "ICT use",
-        "category": "ict"
-      },
-      {
-        "variable_code": "attitude_towards_school",
-        "variable_name": "Attitude towards school",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "subjective_well_being",
-        "variable_name": "Subjective well-being",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "reading_habits_composite",
-        "variable_name": "Reading habits composite",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "activities_offered_by_school",
-        "variable_name": "Activities offered by school",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "learning_hindering_factors",
-        "variable_name": "Learning hindering factors",
-        "category": "school"
-      },
-      {
-        "variable_code": "school_equity_oriented_policies",
-        "variable_name": "School equity-oriented policies",
+        "variable_name": "Equity-oriented preparatory instruction",
         "category": "curriculum"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (United States) — student/teacher/school context",
-        "target_variable": "Reading self-concept (composite scale)",
+        "dataset_used": "PISA 2018 Reading (United States, student/teacher/school context)",
+        "target_variable": "Reading self-concept (questionnaire scale)",
         "top_predictors": [
           "Reading habits",
           "Perceived ICT competence",
           "Work mastery",
           "Teacher understanding",
-          "Father’s education level"
+          "Availability and usage of ICT"
         ],
-        "performance_metrics": "Elastic Net variable selection (coefficients reported as standardized); MLM fixed-effect estimates reported in Table 5 (e.g., reading habits β=0.204, perceived ICT competence β=0.153, work mastery β=0.102, teacher understanding β=0.089; availability/usage of ICT β=-0.081; subjective well-being β=-0.050).",
-        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged reading habits, perceived ICT competence, work mastery, teacher understanding, and father’s education to predict students’ reading self-concept, finding that reading habits and mastery/competence beliefs were strong positive predictors while ICT availability/use and subjective well-being were negative predictors; teacher-level predictors were not significant in the full MLM."
+        "performance_metrics": "Elastic Net variable selection (standardized coefficients); multilevel modeling parameter estimates (β, SE, p). No predictive accuracy metrics reported.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged reading habits, perceived ICT competence, work mastery, teacher understanding, and availability/usage of ICT to predict students’ reading self-concept, finding that reading habits, ICT competence, work mastery, and teacher understanding were positive predictors while ICT availability/usage was a negative predictor. This indicates that strengthening students’ reading engagement and building perceived ICT competence through supportive instruction may improve emergent bilinguals’ reading self-concept, though the results are correlational and not causal."
       },
       {
-        "dataset_used": "PISA 2018 Reading (United States) — emergent bilinguals subset",
-        "target_variable": "Reading self-concept (composite scale)",
+        "dataset_used": "PISA 2018 Reading (United States, emergent bilinguals subset)",
+        "target_variable": "Reading self-concept (questionnaire scale)",
         "top_predictors": [
-          "Perceived ICT competence",
           "Work mastery",
           "Reading habits",
-          "Teacher understanding"
+          "Perceived ICT competence",
+          "Teacher understanding",
+          "Physical education in teacher training"
         ],
-        "performance_metrics": "MLM fixed-effect estimates reported in Table 6 (emergent bilinguals N=736): perceived ICT competence β=0.150 (p<0.001), work mastery β=0.102 (p=0.004), reading habits β=0.072 (p=0.049), teacher understanding β=0.087 (p=0.020). Most other student/school predictors were non-significant.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for emergent bilinguals in the United States, the study leveraged perceived ICT competence, work mastery, reading habits, and teacher understanding to predict reading self-concept, finding positive and statistically significant effects for these four predictors while most other student- and school-level variables did not significantly contribute."
+        "performance_metrics": "Multilevel modeling parameter estimates (β, SE, p); no predictive accuracy metrics reported.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged work mastery, reading habits, perceived ICT competence, teacher understanding, and physical education in teacher training to predict emergent bilinguals’ reading self-concept, finding that work mastery, reading habits, perceived ICT competence, and teacher understanding were positive predictors while physical education in teacher training was a negative predictor. This indicates that teacher understanding and mastery-oriented supports, alongside ICT competence development, may be particularly important for improving emergent bilinguals’ reading self-concept, though causality cannot be inferred from the cross-sectional associations."
       },
       {
-        "dataset_used": "PISA 2018 Reading (United States) — native English speakers subset",
-        "target_variable": "Reading self-concept (composite scale)",
+        "dataset_used": "PISA 2018 Reading (United States, native English speakers subset)",
+        "target_variable": "Reading self-concept (questionnaire scale)",
         "top_predictors": [
           "Reading habits",
           "Perceived ICT competence",
@@ -297,11 +248,11 @@
           "Teacher understanding",
           "Government funding share"
         ],
-        "performance_metrics": "MLM fixed-effect estimates reported in Table 6 (native English speakers N=4054): reading habits β=0.235 (p<0.001), perceived ICT competence β=0.150 (p<0.001), work mastery β=0.102 (p<0.001), teacher understanding β=0.087 (p<0.001). School-level: government funding share β=0.002 (p=0.014) positive; hosting visiting teachers from other countries β=-0.088 (p=0.032) negative; activities offered by school β=-0.041 (p=0.026) negative.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for native English speakers in the United States, the study leveraged reading habits, perceived ICT competence, work mastery, teacher understanding, and school resource indicators to predict reading self-concept, finding strong positive effects for student-level motivational/competence constructs and additional school-level effects (government funding positive; some school activities/visiting-teacher context negative)."
+        "performance_metrics": "Multilevel modeling parameter estimates (β, SE, p); no predictive accuracy metrics reported.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged reading habits, perceived ICT competence, work mastery, teacher understanding, and government funding share to predict native English speakers’ reading self-concept, finding that reading habits, ICT competence, work mastery, and teacher understanding were positive predictors while ICT availability/usage was negative and government funding and equity-oriented policies were positive at the school level. This indicates that school resource allocation and supportive instructional factors may align more strongly with native English speakers’ reading self-concept than with emergent bilinguals’, suggesting the need for subgroup-tailored supports."
       }
     ],
-    "outcome_summary": "The study analyzes PISA 2018 Reading data from the United States (N=4,838 students; 164 schools) to explain students’ reading self-concept using an Elastic Net variable-selection step followed by two-level multilevel modeling. In the full sample, reading habits (β≈0.204), perceived ICT competence (β≈0.153), work mastery (β≈0.102), and teacher understanding (β≈0.089) were significant positive predictors, while availability/usage of ICT (β≈−0.081) and subjective well-being (β≈−0.050) were significant negative predictors (Table 5). For emergent bilinguals (N=736), significant positive predictors were perceived ICT competence, work mastery, reading habits, and teacher understanding (Table 6). For native English speakers (N=4,054), the same student-level constructs were significant and additional school-level effects emerged (e.g., government funding positive; some school activity/visiting-teacher indicators negative). The authors note the results are mainly correlational (not causal) and rely on composite-variable construction (CFA/PCA) and multiple imputation for missing data.",
+    "outcome_summary": "The study analyzes PISA 2018 Reading questionnaire data for the United States (N=4,838 students; 164 schools) to model students’ reading self-concept using a two-stage approach: Elastic Net for variable selection followed by two-level multilevel modeling. Reading self-concept is measured with three items (“I am a good reader”, “I am able to understand difficult texts”, “I read fluently”), and the authors construct composite predictors to reduce over-parameterization. Missing data are handled via predictive mean matching after excluding predictors with >20% missingness, then two-level fully conditional specification imputation for multilevel models. The multilevel results show that student-level factors—especially reading habits, perceived ICT competence, work mastery, and teacher understanding—are key correlates of reading self-concept, with ICT availability/usage negatively associated. Teacher-level predictors were largely non-significant overall, and school-level effects differed by subgroup. Limitations include correlational (non-causal) interpretation and the fact that predictive performance metrics (e.g., accuracy/AUC) are not reported because the focus is on variable selection and regression-style parameter estimates.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

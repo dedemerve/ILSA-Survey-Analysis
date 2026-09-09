@@ -1,7 +1,7 @@
 {
   "metadata": {
     "file_name": "123. Jewsbury & Johnson (2025). Principal component analysis on the covariance matrix for data reduction in large‑scale assessments.pdf",
-    "title": "Principal component analysis on the covariance matrix for data reduction in large-scale assessments",
+    "title": "Principal component analysis on the covariance matrix for data reduction in large‑scale assessments",
     "authors": [
       "Paul A. Jewsbury",
       "Matthew S. Johnson"
@@ -18,11 +18,11 @@
       "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The paper uses NAEP 2022 data as a real-data case study and also runs a simulation study that treats the 2019 NAEP mathematics grade 8 dataset as a population from which samples are drawn. The methodology describes NAEP’s operational two-step IRT-latent regression and plausible value generation, but it does not report applying NAEP sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures (e.g., BRR/jackknife) in the estimation of the latent regression coefficients or in the PCA data-reduction step. In the simulation, the authors generate data and then evaluate PCA-COR vs PCA-COV (and hybrid variants) using fixed item parameters and PVs drawn from approximated posterior distributions; no survey-weight variable is mentioned. Because the study is methodological (PCA on covariance vs correlation for contextual-variable reduction) and does not document complex-survey weighting in the analysis pipeline, weighting is treated as not reported for the NAEP case study and not applicable/unspecified for the simulation."
+      "weight_fields_interpretation": "The study uses NAEP 2022 data within an IRT-latent regression framework with plausible values (PV) for proficiency estimation, and it applies a data-reduction step to contextual predictors (PCA on correlation vs covariance matrices). The paper does not report the use of NAEP complex survey sampling weights (e.g., student/school weights) or replicate-weight procedures; instead, it focuses on how PCA-COR vs PCA-COV changes the latent regression predictor set and thus PV-based group mean/variance estimation. In the simulation, the authors treat a real NAEP dataset as a population and draw with replacement samples, which is not the same as NAEP’s operational complex sampling design. Therefore, readers should not assume population-representative weighted estimation unless the operational NAEP weighting variables are explicitly applied in the analysis code (not described in the provided text)."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper describes plausible values (PVs) as multiple imputations drawn from an approximation to the conditional posterior distribution and states that PV-based estimators follow Rubin’s rules (averaging estimates across M PV sets). However, it does not explicitly describe how missing data in the contextual variables (beyond NAEP’s contrast-coding and SWEEP operator removing near-zero variance/near-perfect multicollinearity variables) is handled for the NAEP case study, nor does it specify a missing-data imputation/deletion rule for contextual predictors in the real-data analysis. In the simulation, item responses are generated with missing completely at random (MCAR), but the paper does not map that to a specific missing-data handling category for the contextual-variable analysis stage in the schema.",
+    "handling_not_reported_explanation": "The paper describes plausible values as multiple imputations drawn from an approximation to the conditional posterior distribution and states that PV-based estimators follow Rubin’s rules, but it does not explicitly document how missing contextual or item-response data were handled in the empirical NAEP 2022 analysis beyond NAEP’s standard contrast-coding and SWEEP operator steps. In the simulation, item responses are generated with missing completely at random (MCAR), but the paper does not provide a corresponding explicit missing-data handling procedure for the empirical NAEP analysis (e.g., whether missingness indicators are used, whether cases are excluded, or whether any imputation is performed beyond PV generation). This is a reporting gap for missing-data handling at the empirical-data stage.",
     "sample_details": {
       "total_students": null,
       "countries": [
@@ -31,7 +31,7 @@
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Real-data case study uses NAEP 2022 reading and mathematics grade 8 data and follows operational NAEP procedures: contextual variables are converted to contrast-coded dummy variables and a SWEEP operator is applied to remove variables with near perfect multicollinearity and near-zero variances. For the COR procedure, PCA is fit to the correlation matrix of the remaining dummy variables with a component-selection rule (80% variance explained capped to keep the predictor-to-sample-size ratio at least 8). For the COV-H procedure, five congressionally mandated main constructs (gender, race/ethnicity, English learner status, disability status, and FRPL-based socioeconomic status) are included directly, and PCA is fit to the covariance matrix of residuals from regressing the remaining contextual variables on these main constructs; the number of components is selected to explain 90% of residual variance. In the simulation, the 2019 NAEP mathematics grade 8 dataset (treated as a population) is used to draw with-replacement samples of size 1000, and contextual variables are contrast-coded dichotomous variables including missing indicators; SWEEP is applied to remove zero-count/very small-variance variables, yielding 1584 contrast-coded dichotomous contextual variables."
+      "sample_filtering_criteria": "Empirical case study uses NAEP 2022 reading and mathematics grade 8 data and follows operational NAEP procedures: contextual variables are converted to contrast-coded dummy variables, then a SWEEP operator removes variables with near-perfect multicollinearity or near-zero variance. For the real-data comparison, the IRT-latent regression is fit separately for each state sample, generating PVs for students within each state and combining PVs across states. The PCA-COR procedure applies PCA to the correlation matrix of remaining dummy variables with a minimum number of components explaining 80% variance, capped by a predictor-to-sample-size ratio threshold (capped at 8). The PCA-COV-Hybrid procedure directly includes five main constructs (gender, race/ethnicity, English learner status, disability status, and FRPL-based socioeconomic status) as predictors, regresses remaining contextual variables on these main constructs, then applies PCA to the covariance matrix of residuals and selects components explaining 90% of residual variance."
     },
     "ml_techniques": {
       "primary": null,
@@ -40,12 +40,12 @@
     "confounders_identified": [
       {
         "variable_code": "gender",
-        "variable_name": "Gender group indicators",
+        "variable_name": "Gender (main construct)",
         "category": "demographic"
       },
       {
         "variable_code": "race_ethnicity",
-        "variable_name": "Race/ethnicity group indicators",
+        "variable_name": "Race/ethnicity (main construct)",
         "category": "demographic"
       },
       {
@@ -60,32 +60,53 @@
       },
       {
         "variable_code": "frpl_eligibility",
-        "variable_name": "FRPL socioeconomic eligibility",
+        "variable_name": "FRPL eligibility (SES)",
         "category": "socioeconomic"
-      },
-      {
-        "variable_code": "IEP",
-        "variable_name": "Individualized Education Plan (IEP)",
-        "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "Simulation study based on 2019 NAEP Mathematics Grade 8 (population draw; univariate latent proficiency; 40-item 3PL item pool; MCAR item missingness)",
-        "target_variable": "Proficiency group mean estimates (PVs) bias and MSE",
+        "dataset_used": "NAEP 2022 Grade 8 Reading (PV-based group means/variances via IRT-latent regression)",
+        "target_variable": "Group mean estimates (PV-based)",
         "top_predictors": [
-          "Gender group indicators",
-          "Race/ethnicity group indicators",
+          "Gender (main construct)",
+          "Race/ethnicity (main construct)",
           "English learner status",
           "Disability status",
-          "FRPL socioeconomic eligibility"
+          "FRPL eligibility (SES)"
         ],
-        "performance_metrics": "PCA-COV substantially reduces estimation bias and mean squared error (MSE) relative to PCA-COR; PCA-COV-Hybrid shows the best mean-bias performance for small groups (Asian, AI/AN, NH/PI). Exact numeric metrics are shown in simulation tables/figures (e.g., bias and MSE panels in Fig. 2; detailed values in Tables 4–7). Additional analysis (Proficiency group variance estimates bias and MSE): PCA-COV methods clearly and dramatically outperform PCA-COR methods for variance bias and variance MSE; outperformance is greatest for the smallest groups. PCA-COV-Hybrid slightly underperforms PCA-COV for variance MSE (more notable for smaller groups).",
-        "standardized_conclusion": "Using the simulation design based on 2019 NAEP Mathematics Grade 8 the study leveraged variance-weighted PCA-COV (and hybrid variants including main reporting-group dummies) to predict PV-based proficiency group means, finding that PCA-COV greatly reduces bias and MSE compared with PCA-COR, with PCA-COV-Hybrid achieving the lowest mean bias for small reporting groups."
+        "performance_metrics": "Real-data comparison: differences in composite means between COR and COV-H are <0.5 points for all categories; trend significance vs 2019 is the same in all but one test (ELL in mathematics: p=0.049 COR vs p=0.070 COV-H).",
+        "standardized_conclusion": "Using NAEP 2022 Grade 8 Reading the study leveraged a hybrid PCA-COV approach that directly includes main constructs (gender, race/ethnicity, English learner status, disability status, and FRPL-based SES) while applying PCA-COV to the remaining contextual variables to predict PV-based group mean estimates, finding that primary trend inferences were largely unaffected when transitioning from PCA-COR to PCA-COV-H. This indicates that NAEP can broaden contextual reporting scope and improve estimation robustness without materially changing headline trend conclusions, though one borderline ELL mathematics trend test changed significance."
+      },
+      {
+        "dataset_used": "NAEP 2022 Grade 8 Mathematics (PV-based group means/variances via IRT-latent regression)",
+        "target_variable": "Group mean estimates (PV-based)",
+        "top_predictors": [
+          "Gender (main construct)",
+          "Race/ethnicity (main construct)",
+          "English learner status",
+          "Disability status",
+          "FRPL eligibility (SES)"
+        ],
+        "performance_metrics": "Real-data comparison: differences in composite means between COR and COV-H are <0.5 points for all categories; trend significance vs 2019 is the same in all but one test (ELL in mathematics: p=0.049 COR vs p=0.070 COV-H).",
+        "standardized_conclusion": "Using NAEP 2022 Grade 8 Mathematics the study leveraged the hybrid PCA-COV method (direct main-construct predictors plus PCA-COV on residual contextual variance) to predict PV-based group mean estimates, finding that differences between COR and COV-H were small (<0.5 points) and that trend significance against 2019 was preserved except for the ELL group where significance shifted from barely significant to non-significant. This indicates that adopting PCA-COV can improve contextual variance explanation while maintaining comparability of most subgroup trend inferences, but analysts should monitor borderline cases for groups with smaller effective sample sizes."
+      },
+      {
+        "dataset_used": "Simulation based on NAEP 2019 Mathematics Grade 8 contextual structure (IRT-latent regression with PV generation)",
+        "target_variable": "Mean estimation bias and MSE (PV-based group means)",
+        "top_predictors": [
+          "Gender (main construct)",
+          "Race/ethnicity (main construct)",
+          "English learner status",
+          "Disability status",
+          "FRPL eligibility (SES)"
+        ],
+        "performance_metrics": "Simulation: PCA-COV substantially reduces estimation bias and mean squared error (MSE) for group mean estimators; PCA-COV-Hybrid shows best bias performance for small groups (Asian, AI/AN, NH/PI). Additional analysis (Variance estimation bias and MSE (PV-based group variances)): Simulation: PCA-COV methods clearly and dramatically outperform PCA-COR for MSE on variance estimates; bias on variances is less problematic under PCA-COV than PCA-COR, with the greatest outperformance again for the smallest groups.",
+        "standardized_conclusion": "Using simulation data generated from NAEP 2019 Grade 8 mathematics contextual-variable structure and PV-based IRT-latent regression, the study leveraged PCA-COV (and PCA-COV-Hybrid) data reduction to predict PV-based group mean estimates, finding that PCA-COV substantially reduces estimation bias and mean squared error relative to PCA-COR, with PCA-COV-Hybrid achieving the least mean bias for small primary groups. This indicates that weighting contextual variables by variance (PCA-COV) can improve robustness of subgroup mean estimation when test reliability is low and many contextual predictors are included, supporting methodological upgrades that reduce estimation instability."
       }
     ],
-    "outcome_summary": "This paper proposes PCA-COV (PCA on the covariance matrix) as a data-reduction method for contextual variables in NAEP-style IRT-latent regression models that generate plausible values (PVs). In a simulation study using contextual information drawn from 2019 NAEP Mathematics Grade 8, PCA-COV substantially reduces bias and MSE for PV-based group mean and variance estimates compared with the conventional PCA-COR (PCA on the correlation matrix), with the largest gains for small reporting groups; PCA-COV-Hybrid further improves mean bias for small groups. In the NAEP 2022 Grade 8 real-data comparison (COR vs COV-H), PV-based mean differences between procedures are under half a point and trend significance tests versus 2019 are almost always consistent, with one reported exception for ELL in mathematics. The study is methodological and does not train predictive ML models; it relies on PCA-based variable reduction within the latent regression/PV framework, and it does not document complex-survey weighting variables in the analysis pipeline.",
+    "outcome_summary": "This paper proposes PCA on the covariance matrix (PCA-COV) as a data-reduction method for contextual variables used in NAEP-style IRT-latent regression models that generate plausible values (PVs). In a simulation study built from NAEP 2019 Grade 8 mathematics contextual-variable structure (with low test reliability for a subset), PCA-COV substantially reduces estimation bias and mean squared error for PV-based group means and dramatically improves MSE for PV-based group variances relative to the conventional PCA-COR approach that uses a correlation matrix. The authors also evaluate a hybrid variant that directly includes main reporting constructs (gender, race/ethnicity, English learner status, disability status, and FRPL-based SES) before applying PCA-COV to remaining contextual variance. In the empirical NAEP 2022 Grade 8 reading and mathematics comparison, the transition to PCA-COV-H shows small differences in subgroup means (<0.5 points) and largely preserves trend significance versus 2019, with only one borderline case (ELL in mathematics) changing from barely significant to non-significant. Limitations include lack of explicit documentation of missing-data handling for the empirical NAEP analysis beyond PV generation and NAEP’s contrast-coding/SWEEP steps, and the fact that the method is methodological rather than ML predictive modeling.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": null
+    "null_fields_interpretation": "This is a methodological paper focused on statistical data reduction for NAEP-style PV generation and latent regression, not on training predictive ML models. Consequently, there are no ML algorithms to extract (ml_techniques.all_techniques is empty and primary is null), and the main results are reported as estimation bias/MSE improvements and trend-comparability checks rather than ML accuracy/AUC metrics. The paper’s empirical component uses NAEP 2022 operational procedures (IRT-latent regression with PVs) and compares PCA-COR vs PCA-COV-H, so the extraction emphasizes assessment methodology and estimation quality outcomes rather than ML model performance."
   }
 }

@@ -17,18 +17,18 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PIAAC 2012 PSTRE process data (11,464 respondents across 14 items) and constructs action-sequence representations for each respondent–item pair. The manuscript describes feature extraction via an action sequence autoencoder and subsequent prediction using (generalized) linear models, but it does not report applying PIAAC complex survey weights or any replicate-weight procedure. Because the analysis is ML-based (autoencoder feature learning followed by logistic/linear regression), the paper does not discuss weight incorporation; thus weights are treated as not applied. The analytic sample is restricted to respondents who completed the PSTRE items and, for the multi-item prediction experiment, further restricted to the 3,645 respondents who answered all 14 items; outcomes are also simplified from polytomous to binary for the case study."
+      "weight_fields_interpretation": "The study uses PIAAC 2012 PSTRE process-log data (14 items) and constructs an analytic dataset at the respondent–item level with both action sequences and final outcomes. The manuscript does not report applying PIAAC sampling weights or replicate-weight procedures, nor does it name any weight variables (e.g., TOTWGT/W_FSTUWT) or variance estimation approach. Because the analysis relies on neural-network-based feature extraction (autoencoders) followed by generalized linear/logistic/linear models, the paper does not describe any complex-survey design correction; this is a potential limitation for population-representativeness and standard error calibration. The main preprocessing described is (i) converting polytomous outcomes to binary (fully corrected=1, otherwise=0) and (ii) simplifying process data into action-sequence representations with variable lengths handled by the autoencoder architecture."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper does not analyze PV-based cognitive achievement outcomes using PIAAC-generated plausible values. Instead, it focuses on process-data feature extraction from PSTRE action sequences and evaluates reconstruction/prediction of derived binary indicators, plus prediction of literacy and numeracy scores and background variables using features. The manuscript does not document a missing-data strategy for the process sequences or derived variables (e.g., how incomplete sequences or missing covariates were handled), representing a methodological reporting gap for reproducibility.",
+    "handling_not_reported_explanation": "The dependent variables in the case study are derived from process logs (binary item outcomes created from fully corrected responses) and from PIAAC literacy/numeracy scores used as continuous outcomes; the paper does not describe whether these scores are PV-based achievement estimates or alternative scaled scores. The manuscript also does not report a missing-data strategy (e.g., how respondents/items with incomplete process sequences or missing background variables were handled), beyond reporting counts of respondents who answered 7 vs 14 items. Given the absence of explicit documentation, the missing-data handling is treated as a reporting gap that prevents assessing bias from nonresponse or item noncompletion.",
     "sample_details": {
       "total_students": 11464,
       "countries": [],
-      "sample_filtering_criteria": "Used PIAAC 2012 PSTRE process data for 14 PSTRE items. The dataset includes 11,464 respondents’ response processes for the PSTRE items; for the multi-item prediction experiment, the authors further restrict to the 3,645 respondents who answered all 14 PSTRE items. For each respondent–item pair, both the action sequence and the final response outcome are recorded; polytomous final outcomes are simplified into binary outcomes (fully corrected = 1, all others = 0). No additional country-level filtering is described in the provided text."
+      "sample_filtering_criteria": "Used PIAAC 2012 PSTRE process-log data for 14 PSTRE items. The analytic dataset includes 11,464 respondents’ response processes across the 14 items; 7,620 respondents answered 7 items and 3,645 respondents answered all 14 items. For each respondent–item pair, both the action sequence and the final response outcome were recorded. Final outcomes that were originally polytomous were simplified into binary outcomes: fully corrected responses labeled 1 and all others labeled 0. For feature extraction and downstream prediction, the paper further restricts to derived variables/actions/pairs that meet frequency thresholds in simulations (rare actions/pairs appearing fewer than 0.05n times excluded) and uses training/validation/test splits within the available respondent–item data."
     },
     "ml_techniques": {
       "primary": "Autoencoder",
@@ -42,13 +42,23 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "age",
-        "variable_name": "Age",
-        "category": "demographic"
+        "variable_code": "process_sequence_length",
+        "variable_name": "Sequence length (log)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "attentiveness_feature",
+        "variable_name": "Attentiveness feature",
+        "category": "process_data"
       },
       {
         "variable_code": "gender",
         "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "age",
+        "variable_name": "Age",
         "category": "demographic"
       },
       {
@@ -60,37 +70,61 @@
         "variable_code": "numeracy_score",
         "variable_name": "Numeracy score",
         "category": "prior_achievement"
-      },
-      {
-        "variable_code": "sequence_length",
-        "variable_name": "Sequence length",
-        "category": "process_data"
-      },
-      {
-        "variable_code": "attentiveness_feature",
-        "variable_name": "Attentiveness (process)",
-        "category": "process_data"
-      },
-      {
-        "variable_code": "interface_environment",
-        "variable_name": "Interface environment type",
-        "category": "process_data"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PIAAC 2012 PSTRE process data (14 items; respondent–item action sequences)",
-        "target_variable": "Derived binary variables (including item outcomes)",
+        "dataset_used": "PIAAC 2012 PSTRE process data (14 items; respondent–item level)",
+        "target_variable": "Binary item outcome (fully corrected vs not)",
         "top_predictors": [
-          "Sequence length",
-          "Attentiveness (process)",
-          "Interface environment type"
+          "Attentiveness feature",
+          "Sequence length (log)"
         ],
-        "performance_metrics": "Logistic regression using principal features from the action sequence autoencoder; prediction accuracy > 0.80 for all 93 derived variables, > 0.90 for 75 variables, and > 0.975 for 35 variables.",
-        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data, the study leveraged autoencoder-derived process features—capturing sequence length/attentiveness and interface-related behavior—to predict derived binary indicators (including item outcomes), finding that the extracted features achieved high out-of-sample prediction accuracy (all >0.80; 35 nearly perfect)."
+        "performance_metrics": "Derived-variable reconstruction: prediction accuracy > 0.80 for all 93 derived variables; 75/93 variables accuracy > 0.90; 35 variables accuracy > 0.975. Cross-item outcome prediction: process-model improves prediction accuracy over baseline model for many item pairs (exact aggregate metric not reported).",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data (14 items) the study leveraged autoencoder-derived process features—especially attentiveness-related and sequence-length-related features—to predict binary item outcomes and other derived process indicators, finding that process features reconstruct derived variables with high accuracy (all >0.80; 75 >0.90; 35 >0.975). This indicates that response-process information can substantially improve the prediction of item correctness beyond using final outcomes alone, suggesting that assessment analytics and scoring models could incorporate process-derived latent features to better diagnose performance and error patterns, though the paper does not report survey-weighted inference or a missing-data strategy."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE process data (14 items; respondent–item level)",
+        "target_variable": "Literacy score prediction (continuous)",
+        "top_predictors": [
+          "Attentiveness feature",
+          "Sequence length (log)"
+        ],
+        "performance_metrics": "Out-of-sample R2 (OSR2): process model produces higher OSR2 than baseline for literacy across item-pairing experiments; exact OSR2 values not numerically tabulated in the excerpt. Process model based on fewer items can match baseline performance: number of items needed for similar OSR2 to baseline with all 14 items is 5 for literacy.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data the study leveraged autoencoder-derived process features to predict literacy scores, finding that the process model yields consistently higher out-of-sample R2 than the baseline model using only final outcomes and that only 5 items’ process features are needed to reach roughly the baseline OSR2 achieved with all 14 items. This indicates that process-aware feature extraction can improve efficiency and predictive validity when estimating broader competencies from limited item information, though the study’s predictive gains may be sensitive to unreported PV/score scaling details and the lack of documented complex-survey weighting."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE process data (14 items; respondent–item level)",
+        "target_variable": "Numeracy score prediction (continuous)",
+        "top_predictors": [
+          "Attentiveness feature",
+          "Sequence length (log)"
+        ],
+        "performance_metrics": "Out-of-sample R2 (OSR2): process model produces higher OSR2 than baseline for numeracy across item-pairing experiments; exact OSR2 values not numerically tabulated in the excerpt. Number of items needed for similar OSR2 to baseline with all 14 items is 8 for numeracy.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data the study leveraged autoencoder-derived process features to predict numeracy scores, finding that process features improve out-of-sample R2 relative to baseline models and that approximately 8 items’ process information can achieve OSR2 comparable to the baseline using all 14 items. This indicates that incorporating latent process representations can strengthen competency estimation from interactive tasks, supporting the use of process data in adaptive reporting or diagnostic analytics, while causality cannot be inferred and the paper does not document how missingness in background/score variables was handled."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE process data (14 items; subset with all 14 items)",
+        "target_variable": "Gender prediction (binary classification)",
+        "top_predictors": [
+          "Attentiveness feature",
+          "Sequence length (log)"
+        ],
+        "performance_metrics": "Baseline gender prediction accuracy: 0.55 (only 0.02 above female proportion in test set). Process model accuracy: up to 0.63 (almost always higher than baseline).",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data restricted to respondents who answered all 14 items, the study leveraged autoencoder-derived process features to predict gender, finding that baseline accuracy was 0.55 while the process model achieved up to 0.63 and was consistently higher than baseline. This indicates that final outcomes may mask systematic differences in how groups interact with technology-rich tasks, suggesting that process-informed analytics could support fairness monitoring and targeted instructional support, though the study does not report survey-weighted estimation and uses predictive performance rather than causal identification."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE process data (14 items; subset with all 14 items)",
+        "target_variable": "Age prediction (continuous)",
+        "top_predictors": [
+          "Attentiveness feature",
+          "Sequence length (log)"
+        ],
+        "performance_metrics": "Out-of-sample R2 (OSR2): baseline model OSR2 barely improves with more items; process model OSR2 increases with more items and is about twice as high as baseline when all 14 items are included. Exact OSR2 values not numerically tabulated in the excerpt.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data restricted to respondents who answered all 14 items, the study leveraged autoencoder-derived process features to predict age, finding that process-based models substantially outperform outcome-only baselines (about twice the OSR2 when all 14 items are included). This indicates that response-process representations capture age-related differences in interaction strategies (e.g., menu navigation vs drag-and-drop), implying that assessment interpretation and accessibility design could benefit from process-aware diagnostics, while the paper does not provide a documented missing-data and weighting strategy."
       }
     ],
-    "outcome_summary": "This paper proposes an action sequence autoencoder to extract latent features from PIAAC 2012 PSTRE action sequences (11,464 respondents; 14 items). The autoencoder (with RNN components using LSTM or GRU) compresses variable-length categorical action sequences into fixed-dimensional features, followed by logistic/linear regression for prediction tasks. In the case study, the extracted features reconstructed 93 derived binary variables with prediction accuracy >0.80 for all variables, >0.90 for 75, and >0.975 for 35. Cross-item prediction showed that process features improved out-of-sample outcome prediction, especially for incorrect-response processes. For competency-related targets, process models outperformed baseline models for literacy and numeracy (higher OSR2) and improved gender prediction accuracy (up to ~0.63) and age prediction (about 2× baseline OSR2 with all 14 items). The manuscript does not report a missing-data strategy and does not document the use of PIAAC survey weights; additionally, the study is predictive rather than causal.",
+    "outcome_summary": "This paper proposes an action-sequence autoencoder to extract fixed-length latent features from PIAAC 2012 PSTRE process logs, where each respondent–item interaction is represented as a variable-length sequence of categorical actions. The authors train the autoencoder (using LSTM or GRU recurrent units) with validation-based early stopping, then apply principal component analysis to obtain interpretable feature dimensions. In simulations, the extracted features preserve information and recover latent group structure with high reconstruction and classification accuracy (e.g., group accuracy near 1.00 in scenario I). In the PIAAC case study (14 PSTRE items; 11,464 respondents’ response processes), derived variables—including binary item outcomes—are reconstructed with prediction accuracy >0.80 for all 93 derived variables and >0.975 for 35 variables. For competency and background variables, process-feature models improve out-of-sample R2 for literacy and numeracy and increase gender prediction accuracy from 0.55 (baseline) to up to 0.63, with age OSR2 about doubling versus baseline. Limitations include lack of reported complex-survey weighting and missing-data handling, and the study is predictive rather than causal.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": null
   }

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "file_name": "129. Campos & Scherer. (2024). Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries.pdf",
-    "title": "Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries",
+    "title": "Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries",
     "authors": [
       "Diego G. Campos",
       "Ronny Scherer"
@@ -18,7 +18,7 @@
       "student_weights_used": true,
       "replicate_weights_used": true,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses ICILS 2013 and ICILS 2018 student microdata (grade 8) and explicitly models the complex sampling survey structure in the stage-1 multigroup SEMs. The authors state that the models incorporate sampling weights and jackknife/balanced repeated replication (BRR) procedures, together with plausible values. Missing data in the effect-size generation step were handled via two-level predictive mean matching with passive imputation, producing multiple imputed datasets per plausible value and combining parameters using Rubin’s rules. The paper does not report a specific weight variable name (e.g., W_FSTUWT), but it clearly indicates that complex survey weights and replicate-weight methods were applied in the primary estimation stage."
+      "weight_fields_interpretation": "The study uses ICILS 2013 and ICILS 2018 grade-8 student microdata under a stratified two-stage cluster sampling design (schools sampled with PPS, then 20 students sampled within schools). In stage 1, the authors estimate multigroup SEMs with complex sampling survey characteristics, explicitly incorporating sampling weights and jackknife/balanced repeated replication procedures, and they also incorporate plausible values for the digital skills outcomes. Missing data are handled via multiple imputation within each country and plausible-value-specific complete datasets, with parameter pooling using Rubin’s rules. In stage 2, the authors meta-analyze the resulting country-level direct and indirect effects using random- and mixed-effects models; the weighting logic is therefore embedded in the primary (country) effect-size generation rather than in a single pooled student-level ML model."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
@@ -99,10 +99,6 @@
           "n_students": null
         },
         {
-          "country_code": "NAL",
-          "n_students": null
-        },
-        {
           "country_code": "SVN",
           "n_students": null
         },
@@ -119,7 +115,7 @@
           "n_students": null
         },
         {
-          "country_code": "URY",
+          "country_code": "URU",
           "n_students": null
         },
         {
@@ -151,23 +147,11 @@
           "n_students": null
         },
         {
-          "country_code": "CZE",
+          "country_code": "NWDDEU",
           "n_students": null
         },
         {
-          "country_code": "HKG",
-          "n_students": null
-        },
-        {
-          "country_code": "AUS",
-          "n_students": null
-        },
-        {
-          "country_code": "NLD",
-          "n_students": null
-        },
-        {
-          "country_code": "SVN",
+          "country_code": "NALC",
           "n_students": null
         },
         {
@@ -175,11 +159,11 @@
           "n_students": null
         },
         {
-          "country_code": "NOR",
+          "country_code": "NWD",
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "The analytic sample consists of ICILS 2013 and ICILS 2018 grade-8 students from 32 participating countries (effective sample size 105,981 students). The study uses the full available country samples from the two ICILS cycles and reports that no countries or students were excluded from the final analyses. ICILS itself follows a stratified two-stage cluster sample design (schools selected with probability proportional to size; 20 students randomly sampled per selected school), and the authors incorporate this design in the stage-1 estimation. For the effect-size generation, missing data were imputed within each country independently using two-level predictive mean matching with passive imputation, and analyses were conducted across 20 imputations per plausible value (100 complete datasets per cycle), with parameters combined using Rubin’s rules."
+      "sample_filtering_criteria": "Used ICILS 2013 and ICILS 2018 grade-8 student data from 32 independent country samples that met eligibility criteria: K-12 student populations, gender information, at least one ICT-attitude measure, at least one performance-based digital competence measure, ICT access measure, representative random student samples, and coverage across multiple countries. The authors report that no countries or students were excluded from the final analyses; the analytic sample therefore includes all available students within the included ICILS country samples, with missing item/scale data handled via multiple imputation within each country."
     },
     "ml_techniques": {
       "primary": null,
@@ -192,7 +176,7 @@
         "category": "demographic"
       },
       {
-        "variable_code": "ICT_availability_index",
+        "variable_code": "ict_availability_index",
         "variable_name": "ICT availability at home",
         "category": "ict"
       },
@@ -202,28 +186,28 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "ICT_belief_positive",
-        "variable_name": "ICT beliefs: positive attitudes",
+        "variable_code": "ICT_beliefs_positive",
+        "variable_name": "Positive ICT attitudes",
         "category": "student_attitude"
       },
       {
-        "variable_code": "ICT_belief_negative",
-        "variable_name": "ICT beliefs: negative attitudes",
+        "variable_code": "ICT_beliefs_negative",
+        "variable_name": "Negative ICT attitudes",
         "category": "student_attitude"
       },
       {
         "variable_code": "ICT_future_expectations",
-        "variable_name": "Future expectations for ICT",
+        "variable_name": "Future ICT expectations",
         "category": "student_attitude"
       },
       {
         "variable_code": "ICT_self_efficacy_basic",
-        "variable_name": "ICT self-efficacy: basic",
+        "variable_name": "ICT self-efficacy (basic)",
         "category": "student_attitude"
       },
       {
         "variable_code": "ICT_self_efficacy_advanced",
-        "variable_name": "ICT self-efficacy: advanced",
+        "variable_name": "ICT self-efficacy (advanced)",
         "category": "student_attitude"
       },
       {
@@ -238,7 +222,7 @@
       },
       {
         "variable_code": "global_innovation_index",
-        "variable_name": "Country innovation potential",
+        "variable_name": "Country innovation (GIIv)",
         "category": "system_level"
       },
       {
@@ -250,23 +234,35 @@
         "variable_code": "world_region",
         "variable_name": "World region (UNESCO)",
         "category": "system_level"
+      },
+      {
+        "variable_code": "digital_skill_type",
+        "variable_name": "Digital skill type (CIL vs CT)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "assessment_cycle",
+        "variable_name": "Assessment cycle (2013 vs 2018)",
+        "category": "curriculum"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "ICILS 2013 & 2018 Grade 8 Computer and Information Literacy (CIL) (Plausible Values)",
-        "target_variable": "Digital skills (CIL) via ICT affect mediation",
+        "dataset_used": "ICILS 2013 & 2018 Grade 8 Computer and Information Literacy (CIL) and Computational Thinking (CT)",
+        "target_variable": "Digital skills (CIL/CT) gender gap",
         "top_predictors": [
-          "Gender (girls vs boys)",
+          "ICT affect (interest/enjoyment)",
           "ICT availability at home",
-          "ICT affect (interest/enjoyment)"
+          "Positive ICT attitudes",
+          "Negative ICT attitudes",
+          "ICT self-efficacy (basic)"
         ],
-        "performance_metrics": "Multivariate random-effects meta-analysis: direct effect c′ps = -0.29 (95% CI [-0.35, -0.23]); indirect effect abps = 0.04 (95% CI [0.03, 0.06]).",
-        "standardized_conclusion": "Using ICILS 2013 & 2018 Grade 8 CIL the study leveraged Gender, ICT availability at home, and ICT affect to estimate direct and indirect effects on digital skills, finding that girls outperformed boys (negative direct effect) and that ICT affect partially mediated the gender gap (positive indirect effect)."
+        "performance_metrics": "Integrative data analysis via multigroup SEMs + random/multilevel meta-analysis. For ICT affect: direct effect (partially standardized) c′ps = -0.29 (95% CI [-0.35, -0.23]); indirect effect abps = 0.04 (95% CI [0.03, 0.06]). For ICT beliefs: positive attitudes direct effect c′ps = -0.13 (95% CI [-0.20, -0.07]); negative attitudes c′ps = -0.11 (95% CI [-0.16, -0.05]); future expectations c′ps = -0.12 (95% CI [-0.19, -0.04]); indirect effects near zero except positive attitudes abps = 0.04 (95% CI [0.02, 0.05]). For ICT self-efficacy: basic direct effect c′ps = -0.11 (95% CI [-0.15, -0.06]); advanced direct effect c′ps = -0.17 (95% CI [-0.22, -0.12]); indirect effects near zero (basic abps = -0.05, 95% CI [-0.07, -0.03]; advanced abps = 0.00, 95% CI [-0.02, 0.01]).",
+        "standardized_conclusion": "Using ICILS 2013 & 2018 Grade 8 the study leveraged ICT availability at home and students’ ICT attitudes (ICT affect, ICT beliefs, and ICT self-efficacy) to estimate direct and indirect gender effects on digital skills (CIL/CT), finding that girls outperform boys in digital skills with moderate negative direct effects (e.g., c′ps = -0.29 via ICT affect) and that attitudes toward technology partially mediate the gender gap (e.g., positive indirect effect via ICT affect; indirect effects near zero for several belief/self-efficacy subdimensions). This indicates that gender-equity interventions should target students’ technology attitudes—especially affect/interest and positive attitudes—rather than focusing only on access to ICT."
       }
     ],
-    "outcome_summary": "This integrative data analysis synthesizes ICILS 2013 and ICILS 2018 grade-8 student data across 32 countries (N=105,981) to study how attitudes toward technology mediate gender gaps in digital skills. The stage-1 estimation uses multigroup SEMs with complex survey sampling weights, jackknife/BRR replicate procedures, and plausible values; missing data were imputed via two-level predictive mean matching with passive imputation and combined using Rubin’s rules. Across models, girls outperform boys in digital skills with moderate direct effects (e.g., CIL via ICT affect: c′ps = -0.29), while mediation is strongest for ICT affect and partially for positive ICT beliefs; mediation via self-efficacy is near zero. Heterogeneity analyses show that country socioeconomic development and gender inequality moderate the gender gap, and the direction can reverse for computational thinking (CT) versus computer and information literacy (CIL). No machine-learning predictive algorithms were evaluated; results are based on SEM-based effect sizes and meta-analytic synthesis rather than ML model training.",
+    "outcome_summary": "This integrative data analysis synthesizes individual participant data from ICILS 2013 and ICILS 2018 for grade-8 students across 32 country samples (total N = 105,981). The authors generate country-specific direct and indirect effects of gender on digital skills (CIL in both cycles; CT in 2018) using multigroup SEMs with complex survey design features, plausible values, and multiple imputation, then combine effect sizes via multivariate random- and multilevel meta-analysis. Across attitude dimensions, girls show moderate advantages in digital skills after controlling for ICT access and attitudes (e.g., direct effect via ICT affect c′ps = -0.29, 95% CI [-0.35, -0.23]). Mediation is strongest for ICT affect (indirect effect abps = 0.04, 95% CI [0.03, 0.06]) and weaker/near zero for several belief and self-efficacy subdimensions. Limitations include reliance on cross-sectional ICILS measures and the fact that the analysis estimates associations/mediation within a modeling framework rather than causal effects.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": "The study does not train or evaluate machine-learning predictive models. Instead, it generates direct and indirect effects using multigroup structural equation models with complex survey design and plausible values, then synthesizes effect sizes via random-/mixed-effects meta-analysis and meta-regression. Therefore, ML technique fields are intentionally empty and the research design is classified as exploratory (integrative synthesis of effect sizes rather than ML prediction)."
+    "null_fields_interpretation": null
   }
 }

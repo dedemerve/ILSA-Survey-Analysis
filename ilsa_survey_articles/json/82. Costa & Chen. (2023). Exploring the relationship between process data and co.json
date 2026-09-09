@@ -18,11 +18,11 @@
       "student_weights_used": true,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2012 computer-based mathematics assessment (CBAM) log-file data for three publicly released items (CM015Q01, CM015Q02D, CM015Q03D) administered to 15-year-old students in Denmark, Sweden, and Norway. The analytic sample is restricted to students with available log-file data for the three items and then further reduced by excluding 188 students with missing values on the analysis variables, yielding 1426 students. For estimation, the authors incorporate PISA’s two-stage sampling unequal probabilities by applying sampling weights in CFA/latent regression using the R package lavaan.survey, which is designed for survey-weighted estimation. The manuscript does not report replicate-weight methods (e.g., BRR/jackknife), and the modeling is latent-variable CFA/latent regression rather than ML algorithms that would typically omit weights."
+      "weight_fields_interpretation": "The study uses PISA 2012 computer-based mathematics assessment data for Denmark, Sweden, and Norway, restricting to students with available log files for three selected CBAM items (CM015Q01, CM015Q02D, CM015Q03D). Because PISA employs a two-stage sampling design with unequal selection probabilities, the authors incorporate sampling weights to obtain unbiased estimations in the CFA/latent regression analyses. They implement this in R using lavaan.survey, which applies the complex survey design during estimation. The manuscript does not report a specific weight variable name (e.g., W_FSTUWT), but it explicitly states that sampling weights were used; replicate weights are not mentioned."
     },
     "plausible_values_handling": "not_applicable",
-    "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The dependent variables in this study are item-level response accuracy (binary/ordinal) and process indicators (response time and frequency of actions) modeled via CFA/latent regression; the paper does not use PISA achievement plausible values (PV) for the outcomes. Missingness is discussed for contextual questionnaire variables (2–34.7%) and the authors state they use full-information maximum likelihood (FIML) in parameter estimation rather than multiple imputation, but they do not provide a schema-level missing-data handling label for the analysis variables in a way that maps cleanly to the allowed categories. Therefore, missing-data handling is treated as not_reported in the extraction schema.",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are item-level response accuracy (binary/ordinal), response time, and frequency of actions derived from CBAM log files, and the contextual covariates are questionnaire scales/indices rather than PV-based achievement scores. Missing contextual data are handled via full-information maximum likelihood (FIML) in parameter estimation, which is treated here as multiple-imputation-style handling because it uses all available data under a likelihood-based framework rather than listwise deletion.",
     "sample_details": {
       "total_students": 1426,
       "countries": [
@@ -39,18 +39,13 @@
           "n_students": 403
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2012 computer-based mathematics assessment (CBAM) log-file data for three CD production items (CM015Q01, CM015Q02D, CM015Q03D) administered as a bundle with shared stimuli/interface. Restricted to Scandinavian countries: Denmark, Sweden, and Norway. Included only students with available log-file data for the three analyzed tasks, then removed 188 students with missing values, resulting in a final analytic sample of 1426 students."
+      "sample_filtering_criteria": "Used PISA 2012 CBAM mathematics data for Scandinavian countries (Denmark, Sweden, Norway) and restricted to students with available log file data for three selected interactive math items from the CD production unit (CM015Q01, CM015Q02D, CM015Q03D). From the 1614 students with available log files, 188 students were removed due to missing values in the analysis dataset, yielding a final analytic sample of 1426 students. No additional grade/school-type restrictions are reported beyond the PISA age-15 target population and the item/log availability requirement."
     },
     "ml_techniques": {
       "primary": null,
       "all_techniques": []
     },
     "confounders_identified": [
-      {
-        "variable_code": "ST04Q01",
-        "variable_name": "Gender",
-        "category": "demographic"
-      },
       {
         "variable_code": "economic",
         "variable_name": "Economic",
@@ -67,6 +62,11 @@
         "category": "student_behavior"
       },
       {
+        "variable_code": "ST04Q01",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
         "variable_code": "ST25Q01",
         "variable_name": "Language at home",
         "category": "demographic"
@@ -75,6 +75,16 @@
         "variable_code": "IMMIG",
         "variable_name": "Immigration background",
         "category": "demographic"
+      },
+      {
+        "variable_code": "ict_resources",
+        "variable_name": "ICT resources",
+        "category": "ict"
+      },
+      {
+        "variable_code": "use_latent",
+        "variable_name": "use (latent)",
+        "category": "student_behavior"
       },
       {
         "variable_code": "ICTHOME",
@@ -88,81 +98,45 @@
       },
       {
         "variable_code": "HOMSCH",
-        "variable_name": "ICT use at home for school tasks",
+        "variable_name": "ICT use at home (school tasks)",
         "category": "ict"
       },
       {
         "variable_code": "USEMATH",
-        "variable_name": "Use of ICT in mathematics lessons",
+        "variable_name": "ICT use in math lessons",
         "category": "ict"
       },
       {
         "variable_code": "USESCH",
-        "variable_name": "Use of ICT at school",
+        "variable_name": "ICT use at school",
         "category": "ict"
       },
       {
         "variable_code": "EXAPPLM",
-        "variable_name": "Experience with applied math tasks",
+        "variable_name": "Experience with applied math",
         "category": "curriculum"
       },
       {
         "variable_code": "EXPUREM",
-        "variable_name": "Experience with pure math tasks",
+        "variable_name": "Experience with pure math",
         "category": "curriculum"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2012 Computer-Based Mathematics (CBAM) — items CM015Q01, CM015Q02D, CM015Q03D (Scandinavia: DNK, SWE, NOR)",
-        "target_variable": "Latent math performance (response accuracy)",
+        "dataset_used": "PISA 2012 CBAM mathematics (Grade 15) — items CM015Q01, CM015Q02D, CM015Q03D (Denmark, Sweden, Norway)",
+        "target_variable": "Measurement invariance level for the three-factor process model",
         "top_predictors": [
-          "Economic, social, and cultural status",
-          "Gender",
-          "Language at home",
-          "Immigration background",
-          "ICT (latent ICT construct)"
+          "Economic, social, cultural status",
+          "ICT resources and use (latent)",
+          "Experience with pure math",
+          "Gender"
         ],
-        "performance_metrics": "Latent regression coefficients (directional effects): ESCS positive across all three countries; gender significant for Denmark and Sweden but not Norway; ExPureM positive for Sweden and Norway but not Denmark; ICT negative for Denmark only. Model fit for multigroup latent regression: CFI=0.926, TLI=0.904, RMSEA=0.048, SRMR=0.058. CFA fit for three-factor model: CFI=0.982, TLI=0.957, RMSEA=0.052, SRMR=0.028.",
-        "standardized_conclusion": "Using PISA 2012 CBAM data for CM015Q01/CM015Q02D/CM015Q03D, the study leveraged ESCS, gender, language at home, immigration background, and contextual ICT/OTL variables to explain latent math performance (response accuracy), finding that ESCS consistently increased math proficiency across Denmark, Sweden, and Norway, while gender effects were country-specific (present in Denmark and Sweden only), ExPureM improved performance in Sweden and Norway only, and ICT showed a negative association with math performance in Denmark."
-      },
-      {
-        "dataset_used": "PISA 2012 Computer-Based Mathematics (CBAM) — items CM015Q01, CM015Q02D, CM015Q03D (Scandinavia: DNK, SWE, NOR)",
-        "target_variable": "Latent speed (log response time)",
-        "top_predictors": [
-          "Economic, social, and cultural status",
-          "Gender",
-          "Language at home",
-          "Immigration background",
-          "ICT (latent ICT construct)"
-        ],
-        "performance_metrics": "Latent regression coefficients (directional effects): ESCS positive across all three countries; ExPureM positive for Norway only; ExApplM not consistently significant; ICT not significant for speed in any country. Model fit for multigroup latent regression: CFI=0.926, TLI=0.904, RMSEA=0.048, SRMR=0.058.",
-        "standardized_conclusion": "Using PISA 2012 CBAM data for CM015Q01/CM015Q02D/CM015Q03D, the study leveraged ESCS, gender, language at home, immigration background, and contextual ICT/OTL variables to explain latent speed (log response time), finding that higher ESCS was associated with longer response times in all three countries, while ExPureM increased speed only in Norway and ICT did not show a significant effect on speed."
-      },
-      {
-        "dataset_used": "PISA 2012 Computer-Based Mathematics (CBAM) — items CM015Q01, CM015Q02D, CM015Q03D (Scandinavia: DNK, SWE, NOR)",
-        "target_variable": "Latent exploration behaviour (log frequency of actions)",
-        "top_predictors": [
-          "Economic, social, and cultural status",
-          "Gender",
-          "Language at home",
-          "Immigration background",
-          "ICT (latent ICT construct)"
-        ],
-        "performance_metrics": "Latent regression coefficients (directional effects): ESCS positive for Denmark and Norway (not Sweden); gender significant for Sweden only (negative coefficient); ExPureM positive for Sweden and Norway; ExApplM positive for Denmark only; ICT negative for all three countries (largest magnitude in Denmark). Model fit for multigroup latent regression: CFI=0.926, TLI=0.904, RMSEA=0.048, SRMR=0.058.",
-        "standardized_conclusion": "Using PISA 2012 CBAM data for CM015Q01/CM015Q02D/CM015Q03D, the study leveraged ESCS, gender, language at home, immigration background, and contextual ICT/OTL variables to explain latent exploration behaviour (log frequency of actions), finding that ESCS increased exploration in Denmark and Norway, gender differences appeared only in Sweden, ExPureM increased exploration in Sweden and Norway, ExApplM increased exploration in Denmark, and ICT was negatively associated with exploration behaviour across the three countries."
-      },
-      {
-        "dataset_used": "PISA 2012 Computer-Based Mathematics (CBAM) — items CM015Q01, CM015Q02D, CM015Q03D (Scandinavia: DNK, SWE, NOR)",
-        "target_variable": "Measurement invariance of the three-factor process model",
-        "top_predictors": [
-          "Not applicable (invariance constraints across countries)"
-        ],
-        "performance_metrics": "Measurement invariance comparison: weak invariance model preferred over configural/strong/strict based on fit and nested comparisons; weak invariance had CFI=0.968, RMSEA=0.075, SRMR=0.042, and was selected because it fit best among invariance levels. The weak invariance model allowed meaningful comparisons of factor covariance across Denmark, Sweden, and Norway.",
-        "standardized_conclusion": "Using PISA 2012 CBAM data for CM015Q01/CM015Q02D/CM015Q03D, the study evaluated measurement invariance of the latent process model across Denmark, Sweden, and Norway and found that weak measurement invariance (invariant factor loadings) performed best, enabling cross-country comparisons of the relationships among latent math performance, speed, and exploration behaviour."
+        "performance_metrics": "Measurement invariance comparison: weak invariance preferred over configural (CFI=0.968, RMSEA=0.075, SRMR=0.042; Δχ2 p=0.18) and strong invariance (CFI=0.958, RMSEA=0.078, SRMR=0.049; Δχ2 p=0.000). Additional analysis (Latent math proficiency (response accuracy factor)): Latent regression (multi-group) — model fit: CFI=0.926, TLI=0.904, RMSEA=0.048, SRMR=0.058. Factor loadings in CFA: Accuracy 1 loading=0.507; Accuracy 2 loading=0.444; Accuracy 3 loading=0.751 (all positive and significant). Additional analysis (Latent speed (response time factor)): Latent regression (multi-group) — model fit: CFI=0.926, TLI=0.904, RMSEA=0.048, SRMR=0.058. CFA factor loadings for speed (log response time): Tm1 loading=0.513; Tm2 loading=0.787; Tm3 loading=0.773 (all positive and significant). Additional analysis (Latent exploration behaviour (frequency of actions factor)): Latent regression (multi-group) — model fit: CFI=0.926, TLI=0.904, RMSEA=0.048, SRMR=0.058. CFA factor loadings for exploration behaviour (log frequency of actions): Fq1 loading=0.697; Fq2 loading=0.656; Fq3 loading=0.881 (all positive and significant).",
+        "standardized_conclusion": "Using PISA 2012 CBAM mathematics the study leveraged contextual variables conceptually to interpret cross-country comparisons while evaluating measurement invariance for the latent process model, finding that weak measurement invariance best fit the data across Denmark, Sweden, and Norway. This indicates that factor loadings were consistent across countries, enabling meaningful comparisons of factor covariances and subsequent contextual regression effects, which supports the use of standardized latent process modeling for cross-national CBAM research."
       }
     ],
-    "outcome_summary": "This study analyzes PISA 2012 computer-based mathematics (CBAM) log-file process indicators and questionnaire context for three items (CM015Q01, CM015Q02D, CM015Q03D) from Denmark, Sweden, and Norway (final N=1426). A three-factor CFA model linking response accuracy, log response time, and log frequency of actions fit well (CFI=0.982, TLI=0.957, RMSEA=0.052, SRMR=0.028), and weak measurement invariance across countries was preferred, supporting meaningful cross-country comparisons. In the multigroup latent regression, ESCS showed a consistent positive association with math proficiency across all three countries, while ICT related negatively to math performance in Denmark and showed no effect on the latent factors in Sweden and Norway for some outcomes. Experience with pure mathematics tasks at school predicted higher achievement and more interaction with the platform in Sweden and Norway, and Norway showed no gender differences in proficiency, speed, or exploration. The paper is cross-sectional, so causal claims are not warranted; additionally, the extraction schema does not treat PVs as applicable because the outcomes are item-level accuracy and process indicators rather than PV-based achievement scores.",
+    "outcome_summary": "This study analyzes PISA 2012 computer-based mathematics assessment (CBAM) log files for Denmark, Sweden, and Norway, focusing on three interactive items (CM015Q01, CM015Q02D, CM015Q03D) administered to age-15 students. From log files, the authors extract response accuracy (binary/ordinal), response time (log-transformed), and frequency of actions (log-transformed) and fit a three-factor CFA model representing math proficiency, speed, and exploration behaviour. They incorporate PISA sampling weights via lavaan.survey and handle missing contextual data using full-information maximum likelihood (FIML). Measurement invariance results show weak invariance fits best (CFI≈0.968; RMSEA≈0.075; SRMR≈0.042), allowing multi-group latent regression with contextual covariates. Key substantive findings include consistent positive ESCS effects on math proficiency and country-specific associations for ICT and mathematics-experience variables; causality is not inferred because PISA is cross-sectional.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": null
   }

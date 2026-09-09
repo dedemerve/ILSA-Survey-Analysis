@@ -1,0 +1,328 @@
+{
+  "metadata": {
+    "file_name": "190. Filiz & Öz (2020). Educational Data Mining Methods for TIMSS 2015 Mathematics Success: Turkey Case.pdf",
+    "title": "Educational Data Mining Methods for TIMSS 2015 Mathematics Success: Turkey Case",
+    "authors": [
+      "Enes Filiz",
+      "Ersoy Öz"
+    ],
+    "year": 2020,
+    "doi": null,
+    "venue": "Sigma Journal of Engineering and Natural Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS 2015 Grade 8 mathematics data for Turkey and constructs an analytic dataset by removing missing/inaccurate values and excluding one variable (“age”) due to lack of variability. The authors describe TIMSS as a two-stage random sample design (schools, then classes), but they do not report applying any complex survey weights or replicate-weight procedures in the EDM pipeline. Because the analysis is implemented in Weka with standard ML classifiers and the manuscript does not mention weight variables (e.g., TOTWGT/W_FSTUWT) or replicate methods (BRR/jackknife), weighting is treated as not applied or not documented. The dependent variable is derived from the TIMSS “1st plausible value mathematics” (BSMMAT01) and then binarized using the TIMSS international mean (500), while feature selection and model evaluation are performed via k-fold cross-validation."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 4577,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 4577
+        }
+      ],
+      "sample_filtering_criteria": "Used TIMSS 2015 Grade 8 mathematics data for Turkey. The dataset was cleaned by removing missing and inaccurate values, resulting in 4577 students (2303 females, 2274 males) from an initial 6079 students. The “age” variable was removed due to lack of variability. The final modeling dataset includes 36 features (35 independent variables plus the dependent variable), and the dependent variable is the TIMSS “1st Plausible Value Mathematics” (BSMMAT01) binarized relative to 500."
+    },
+    "ml_techniques": {
+      "primary": "Logistic Regression",
+      "all_techniques": [
+        "k-NN",
+        "Naive Bayes",
+        "Decision Tree",
+        "Random Forest",
+        "Neural Network",
+        "SVM",
+        "Logistic Regression"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ITSEX",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "BSBG03",
+        "variable_name": "Speak at home frequency",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "BSBG08",
+        "variable_name": "Educational expectations",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSBG11",
+        "variable_name": "Absenteeism frequency",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSBG12",
+        "variable_name": "Breakfast on school days",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSBGSCM",
+        "variable_name": "Confidence in mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSBGSVM",
+        "variable_name": "Value of mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSBGSLM",
+        "variable_name": "Enjoyment of learning math",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSBGHER",
+        "variable_name": "Home educational resources",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSDMLOWP",
+        "variable_name": "Math too low for estimation",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "BSDMWKHW",
+        "variable_name": "Weekly math homework time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSBGSB",
+        "variable_name": "Sense of school belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSBGSB",
+        "variable_name": "bullying",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSBGEML",
+        "variable_name": "Engaging teaching in math",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BSBG06A",
+        "variable_name": "Access textbooks",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06B",
+        "variable_name": "Access assignments",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06C",
+        "variable_name": "Study desk availability",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06D",
+        "variable_name": "Own room availability",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06E",
+        "variable_name": "Internet connection at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06F",
+        "variable_name": "Own mobile phone",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06G",
+        "variable_name": "Gaming system at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06H",
+        "variable_name": "Heating systems at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06I",
+        "variable_name": "Cooling systems at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06J",
+        "variable_name": "Washing machine at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06K",
+        "variable_name": "Dishwasher at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG14A",
+        "variable_name": "Access textbooks (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG14B",
+        "variable_name": "Access assignments (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG14C",
+        "variable_name": "Collaborate with classmates",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSBG14D",
+        "variable_name": "Communicate with teacher",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BSBG14E",
+        "variable_name": "Find info to aid in math",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSBG14F",
+        "variable_name": "Own room (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG14G",
+        "variable_name": "Internet connection (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG14B",
+        "variable_name": "Access assignments (school)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG14C",
+        "variable_name": "Collaborate with classmates (school)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG14D",
+        "variable_name": "Communicate with teacher (school)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG14E",
+        "variable_name": "Find info to aid in math (school)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG13A",
+        "variable_name": "Computer tablet use (home)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BSBG13B",
+        "variable_name": "Computer tablet use (school)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BSBG13C",
+        "variable_name": "Computer tablet use frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BSBM38AA",
+        "variable_name": "Extra lessons last 12 months",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBM39AA",
+        "variable_name": "Extra lessons duration (months)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG06F",
+        "variable_name": "Own mobile phone (home)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BSBG06G",
+        "variable_name": "Gaming system (home)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BSBG06A",
+        "variable_name": "Access textbooks (home)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG06B",
+        "variable_name": "Access assignments (home)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSBG06C",
+        "variable_name": "Study desk (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06D",
+        "variable_name": "Own room (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06E",
+        "variable_name": "Internet connection (home)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BSBG06H",
+        "variable_name": "Heating systems (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06I",
+        "variable_name": "Cooling systems (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06J",
+        "variable_name": "Washing machine (home)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSBG06K",
+        "variable_name": "Dishwasher (home)",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2015 Grade 8 Mathematics (Turkey) — Plausible Value Mathematics (BSMMAT01) binarized at 500",
+        "target_variable": "Mathematics success (binary: PV > 500)",
+        "top_predictors": [
+          "Home educational resources (BSBGHER)",
+          "Confidence in mathematics (BSBGSCM)",
+          "Mathematics achievement too low for estimation (BSDMLOWP)",
+          "Educational expectations (BSBG08)"
+        ],
+        "performance_metrics": "Best-performing model across phases: Logistic Regression. Phase 1 (all 35 features): Precision 0.802, F-Measure 0.802, κ 0.581, RMSE 0.368, TP Rate 0.803. Phase 2 (Info gain top 4 features): TP Rate 0.790, Precision 0.789, F-Measure 0.787, κ 0.548, RMSE 0.386. Phase 3 (correlation top 15 features): TP Rate 0.798, Precision 0.797, F-Measure 0.795, κ 0.566, RMSE 0.378. Phase 4 (scales top 9 features): TP Rate 0.790, Precision 0.788, F-Measure 0.786, κ 0.546, RMSE 0.385. Phase 5 (sensitivity top 4 features): TP Rate 0.793, Precision 0.792, F-Measure 0.790, κ 0.554, RMSE 0.387.",
+        "standardized_conclusion": "Using TIMSS 2015 Grade 8 Mathematics (Turkey) the study leveraged Home educational resources (BSBGHER), confidence in mathematics (BSBGSCM), mathematics achievement too low for estimation (BSDMLOWP), and educational expectations (BSBG08) to predict mathematics success (binary PV > 500), finding that Logistic Regression achieved the most successful classification results across all feature-selection phases. This indicates that strengthening students’ access to educational resources and building mathematics confidence may improve the likelihood of achieving above-average mathematics performance, though the study is predictive and does not establish causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes TIMSS 2015 Grade 8 mathematics data for Turkey (initial 6079 students; final analytic sample 4577 after removing missing/inaccurate values and excluding “age”). The dependent variable is derived from the TIMSS “1st plausible value mathematics” (BSMMAT01) and then binarized using the TIMSS international mean of 500 (success = PV > 500). Using Weka and 10-fold cross-validation, the authors compare multiple classifiers (k-NN, Naive Bayes, decision trees including C4.5/RepTree/RF, ANN, SVM with polynomial/RBF/Pearson VII universal kernels, and logistic regression) under five feature-selection phases. Across phases, Logistic Regression is selected as the best-performing algorithm by multiple criteria (e.g., Phase 1 TP Rate 0.803; Phase 2 TP Rate 0.790; Phase 4 TP Rate 0.790). The most common effective features across feature-selection methods include Home educational resources, Student confident in mathematics, and Mathematics achievement too low for estimation. A key limitation is that the manuscript does not document the use of TIMSS complex survey weights, and the binary outcome is based on a single PV, so results should be interpreted as predictive rather than causal.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

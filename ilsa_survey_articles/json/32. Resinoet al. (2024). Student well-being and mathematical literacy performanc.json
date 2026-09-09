@@ -17,10 +17,10 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study conducts a secondary analysis of PISA 2018 microdata for Spain, using the OECD-provided student well-being questionnaire items (83 items) as predictors and PISA mathematical literacy as the outcome. The analytic sample is described as the Spanish student body participating in PISA 2018 (35,943 students), with preprocessing that includes multiple imputation by chained equations for missing values, random splitting into training (70%) and validation sets, and centering/scaling of continuous predictors. The manuscript does not report the use of PISA sampling/survey weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures (e.g., BRR/jackknife), and the ML models (decision trees, random forest, and hierarchical linear models) are implemented in R using packages (mice, randomForest, caret, nlm4) without any stated weight-aware estimation. Given the absence of explicit weighting discussion, the analysis is treated as unweighted; this may affect generalizability and standard error calibration under PISA’s complex sampling design."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Spain (secondary analysis of the OECD database) and models mathematical literacy using ten plausible values, selecting plausible value 8 for the tree-based models. The authors report preprocessing steps (multiple imputation by chained equations for missing values, centering/scaling of continuous predictors, and removal checks for near-zero variance) and then fit models that account for the nested student–school structure via hierarchical linear models (random-intercept at school level). However, the manuscript does not report whether PISA sampling weights or replicate weights were applied, nor does it name any PISA weight variables (e.g., student-level design weights). Because the analysis combines ML algorithms (decision tree, random forest) with multilevel regression, the weighting strategy should be clarified for population-representative inference; without explicit weight use, results may reflect an unweighted analytic sample."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
@@ -33,14 +33,13 @@
           "n_students": 35943
         }
       ],
-      "sample_filtering_criteria": "Used the Spanish student body that participated in PISA 2018 (ages 15–16), with predictors drawn from the PISA 2018 student well-being questionnaire (83 items). Missing values were handled via multiple imputation by chained equations (MICE) prior to model training. The dataset was then randomly split into training (70%) and validation sets; for the decision-tree and random-forest objectives, the procedure was repeated across the ten plausible values for mathematical literacy, selecting plausible value 8 based on lowest RMSE."
+      "sample_filtering_criteria": "Used the Spanish student body that participated in PISA 2018 (ages 15–16). The analytic sample is described as the full Spanish PISA 2018 participant set (35,943 students), with preprocessing that includes multiple imputation for missing values and subsequent random split into training (70%) and validation sets for the ML models. No additional grade/school-type restriction is reported beyond the PISA 2018 target population; school-type composition is described (state, state-funded, private)."
     },
     "ml_techniques": {
       "primary": "Random Forest",
       "all_techniques": [
         "Decision Tree",
-        "Random Forest",
-        "glmmLasso"
+        "Random Forest"
       ]
     },
     "confounders_identified": [
@@ -50,8 +49,8 @@
         "category": "socioeconomic"
       },
       {
-        "variable_code": "average_ESCS",
-        "variable_name": "School average ESCS",
+        "variable_code": "average_escs",
+        "variable_name": "Average ESCS (school)",
         "category": "socioeconomic"
       },
       {
@@ -66,17 +65,17 @@
       },
       {
         "variable_code": "friends_days_after_school",
-        "variable_name": "Days with friends after school",
+        "variable_name": "Friends days after school",
         "category": "student_behavior"
       },
       {
-        "variable_code": "moderate_physical_activity_days",
-        "variable_name": "Moderate physical activity days",
+        "variable_code": "moderate_physical_activity",
+        "variable_name": "Moderate physical activity",
         "category": "student_behavior"
       },
       {
         "variable_code": "all_things_you_have",
-        "variable_name": "Satisfaction with material resources",
+        "variable_name": "Satisfaction with possessions",
         "category": "socioeconomic"
       },
       {
@@ -86,12 +85,12 @@
       },
       {
         "variable_code": "talk_to_teacher",
-        "variable_name": "Talk to teacher when bothered",
+        "variable_name": "Talk to teacher",
         "category": "teacher"
       },
       {
         "variable_code": "parental_control",
-        "variable_name": "Parental/guardian control",
+        "variable_name": "Parental or guardian control",
         "category": "parent_home"
       },
       {
@@ -105,8 +104,8 @@
         "category": "student_behavior"
       },
       {
-        "variable_code": "happy_with_friends_outside_home",
-        "variable_name": "Happiness with friends outside home",
+        "variable_code": "happy_with_friends_outside",
+        "variable_name": "Happy with friends outside",
         "category": "student_attitude"
       },
       {
@@ -115,50 +114,50 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "time_use_satisfaction",
-        "variable_name": "Satisfaction with time use",
+        "variable_code": "use_of_time_satisfaction",
+        "variable_name": "Satisfaction with use of time",
         "category": "student_attitude"
       },
       {
-        "variable_code": "body_image",
-        "variable_name": "Satisfaction with the way I look",
+        "variable_code": "appearance_self_acceptance",
+        "variable_name": "Like my look",
         "category": "student_attitude"
       },
       {
-        "variable_code": "physical_education_classes_days",
-        "variable_name": "Days attending physical education",
+        "variable_code": "physical_education_classes",
+        "variable_name": "Physical education class days",
         "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (Spain) Mathematical literacy (plausible values)",
-        "target_variable": "Mathematical literacy achievement (PVs)",
+        "dataset_used": "PISA 2018 Mathematics (Spain, ages 15–16; mathematical literacy; plausible values)",
+        "target_variable": "Mathematical literacy performance (Plausible Value 8 selected)",
         "top_predictors": [
-          "Talk to mother’s partner when bothered",
-          "Talk to father’s partner when bothered",
-          "Days with friends after school",
-          "Moderate physical activity days",
-          "Satisfaction with material resources"
+          "Talk to mother’s partner",
+          "Talk to father’s partner",
+          "Friends days after school",
+          "Moderate physical activity",
+          "Satisfaction with possessions"
         ],
-        "performance_metrics": "Decision tree (profile objective): plausible value 8 selected by lowest RMSE (RMSE = 82.985; max depth = 3; min observations at terminal node = 100; min observations at each node = 25). Random forest (importance objective): plausible value 8 selected by lowest RMSE (RMSE = 75.579; 401 trees; max depth = 25).",
-        "standardized_conclusion": "Using PISA 2018 (Spain) mathematical literacy plausible values the study leveraged social well-being variables (talking to parents’ partners and time with friends) together with physical and material well-being indicators to predict mathematical literacy, finding that social well-being—especially communication with parents’ partners and peer time—was among the most influential predictors and that the best-performing models were selected via lowest RMSE across plausible values."
+        "performance_metrics": "Decision Tree (regression tree): selected PV8 with RMSE = 82.985 (max depth = 3; min obs/node = 25; min obs/terminal = 100). Random Forest: selected PV8 with RMSE = 75.579 (401 trees; max depth = 25; 10 variables).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for Spain, the study leveraged well-being questionnaire domains—especially social well-being indicators such as communication with parents’ partners and time with friends—along with physical and material well-being variables to predict mathematical literacy, finding that social well-being variables were the most influential and that Random Forest achieved lower prediction error than regression trees (RMSE 75.579 vs 82.985). This indicates that strengthening students’ supportive social relationships (with teachers, peers, and family contexts) may be a practical lever for improving mathematics outcomes, though the study’s cross-sectional design and PV-based modeling limit causal interpretation."
       },
       {
-        "dataset_used": "PISA 2018 (Spain) Mathematical literacy (multilevel random-intercept models)",
-        "target_variable": "Mathematical literacy achievement (PVs)",
+        "dataset_used": "PISA 2018 Mathematics (Spain; multilevel random-intercept models with PV-based outcome)",
+        "target_variable": "Mathematical literacy performance (multilevel regression; Model 2 with 15 well-being predictors)",
         "top_predictors": [
           "Student ESCS",
-          "School average ESCS",
+          "Average ESCS (school)",
           "Talk to mother’s partner",
-          "Talk to teacher when bothered",
-          "Days with friends after school"
+          "Talk to teacher",
+          "Physical education class days"
         ],
-        "performance_metrics": "Multilevel model 1 (+socio-economic context): ESCS and school average ESCS significantly predicted performance; explained 61.004% of variability (AIC 409,264.300; BIC 409,306.630; ICC 12.675%). Multilevel model 2 (+15 well-being predictors): total variance explained increased to 66.912% (AIC 368,311.980; BIC 404,903.030; ICC 5.656%); deviance reduction from null model was significant (X² = 2668.188; gl = 17; p = .000).",
-        "standardized_conclusion": "Using PISA 2018 (Spain) mathematical literacy the study leveraged socioeconomic context (student and school ESCS) and the top 15 well-being predictors in a multilevel random-intercept framework to predict mathematical literacy, finding that socioeconomic status remained significant while several social well-being indicators (e.g., talking to parents’ partners when bothered) were associated with lower scores, whereas talking to teachers and some physical/health/material satisfaction indicators were associated with higher mathematical literacy; overall model fit improved from model 1 to model 2 with a reduction in between-school variance (ICC from 12.675% to 5.656%)."
+        "performance_metrics": "Multilevel models: Model 1 (with ESCS controls) explained 61.004% of variance; Model 2 (adds 15 well-being variables) increased explained variance to 66.912% and reduced deviance from 204589.486 to 202344.578 (X² = 2668.188; gl = 17; p = .000). ICC decreased from 12.675% (Model 1) to 5.656% (Model 2). Significant coefficients included: ESCS +23.101; average ESCS +25.122; talk to mother’s partner −16.102; talk to teacher +20.757; friends days after school −20.494; physical education class days (0 or 3+ days) −31.573.",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for Spain, the study leveraged socioeconomic context controls (student and school ESCS) and the top well-being predictors from the ML step within multilevel random-intercept models to explain mathematical literacy, finding that adding student well-being variables increased explained variance from 61.004% to 66.912% and reduced between-school variance (ICC from 12.675% to 5.656%). This indicates that well-being—particularly social well-being and supportive communication with teachers—may meaningfully co-vary with mathematics performance beyond socioeconomic status, suggesting that school climate and relational supports could be prioritized in interventions, while causality cannot be inferred from non-experimental data."
       }
     ],
-    "outcome_summary": "The study uses PISA 2018 microdata for Spain (N=35,943) to predict mathematical literacy from 83 student well-being questionnaire items grouped into physical, psychological, material, cognitive, and social domains. Missing values were imputed using multiple imputation by chained equations, and the mathematical literacy outcome was modeled using plausible values; plausible value 8 was selected as the best-performing PV based on lowest RMSE. For predictive modeling, random forest outperformed regression trees (lowest RMSE: 75.579 vs. 82.985) and permutation importance identified the strongest predictors as social well-being variables related to communication with parents’ partners and time with friends. In multilevel random-intercept models (student level 1, school level 2), socioeconomic context (ESCS) significantly predicted performance, and adding the top 15 well-being variables increased explained variance from 61.004% to 66.912% while reducing between-school variance (ICC from 12.675% to 5.656%). The authors emphasize that results are non-causal due to the cross-sectional design; additionally, the manuscript does not report the use of PISA sampling weights, which may affect generalizability and uncertainty estimates under the complex survey design.",
+    "outcome_summary": "The study conducts a secondary analysis of PISA 2018 for Spain (N=35,943; ages 15–16) to examine how student well-being questionnaire variables relate to mathematical literacy. The dependent variable is mathematical literacy based on ten plausible values; the authors select plausible value 8 for the ML models and then estimate multilevel random-intercept regression models (student level 1, school level 2) to quantify effects while monitoring ESCS. For prediction, Random Forest outperforms regression trees, achieving lower RMSE on the selected plausible value (75.579 vs 82.985) and identifying social well-being variables (communication with parents’ partners and time with friends) as the most important predictors. In the multilevel models, adding 15 well-being predictors increases explained variance from 61.004% to 66.912% and reduces ICC to 5.656%. Limitations include the cross-sectional design (no causal claims) and incomplete reporting of survey-weight usage for population-representative inference.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

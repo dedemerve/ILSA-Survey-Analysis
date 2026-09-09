@@ -2,7 +2,7 @@
   "metadata": {
     "file_name": "27. Cai et al. (2025). A study on factors influencing digital sports participation among Chinese secondary school students based on explainable machine learning.pdf",
     "title": "A study on factors influencing digital sports participation among Chinese secondary school students based on explainable machine learning",
-    "authors": [],
+    "authors": null,
     "year": 2025,
     "doi": "10.1038/s41598-025-00769-x",
     "venue": "Scientific Reports",
@@ -15,20 +15,32 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Hong Kong, China (digital sport module in 2018). The analytic sample was created by removing 549 cases with missing outcome variables and removing 26 cases with >20% missingness in independent variables, then imputing remaining missing continuous variables with the median and categorical variables with the plurality, yielding 4,925 valid cases. The manuscript does not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), and it instead focuses on ML classifiers (Gaussian Naive Bayes, GBDT, KNN, Logistic Regression) and a stacking ensemble. Given the ML workflow and the absence of any stated complex-survey weighting, the analysis is treated as unweighted for population-representative inference."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Hong Kong, China, and constructs a student-level binary outcome from two ICT familiarity items about digital device time during and outside sports participation. The manuscript reports data cleaning (dropping cases with missing outcome variables and excluding cases with >20% missing independent variables) and imputing remaining missing values using median (continuous) and plurality (categorical), but it does not report applying PISA sampling weights or any replicate-weight procedure. Because the predictive models are implemented in Python/Stata using standard ML classifiers (e.g., logistic regression, KNN, Gaussian Naive Bayes, gradient boosting, and stacking), the paper does not describe any complex-survey-weighted estimation; this suggests an unweighted analysis. Analysts should therefore treat the results as conditional on the analytic sample rather than explicitly population-representative estimates for PISA 2018 Hong Kong."
     },
-    "plausible_values_handling": "rubin_rules",
+    "plausible_values_handling": "not_applicable",
     "missing_data_handling": "mean_imputation",
-    "handling_not_reported_explanation": null,
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is a binary indicator of digital sports participation derived from two ICT familiarity questionnaire items (time spent using digital devices for sports inside/outside class), not a PV-based cognitive achievement score. Missing-data handling is implemented via median imputation for continuous variables and plurality for categorical variables; however, the paper does not map these procedures to a standard PV framework, and the schema only allows a single missing-data category. This indicates a methodological reporting/labeling mismatch for the missing-data handling category rather than a missing-data transparency gap.",
     "sample_details": {
       "total_students": 4925,
       "countries": [
         {
+          "country_code": "CHN",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
           "country_code": "HKG",
-          "n_students": 4925
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 data for Hong Kong, China only (excluded B-S-J-Z, Macao, and Taipei due to significant missingness in ICT, well-being, and parent questionnaires). Removed 549 participants with missing outcome variables (digital sports participation items IC151Q07HA and IC150Q07HA). Removed 26 participants with >20% missingness in independent variables. Imputed remaining missing continuous predictors using the median and categorical predictors using the plurality. Final analytic sample comprised 4,925 valid cases; train/test split was 85% (n=4,186) and 15% (n=739) after standardization."
+      "sample_filtering_criteria": "The dataset is PISA 2018 for regions participating in China (mainland China B-S-J-Z, Taipei, Hong Kong, and Macao), but the authors state that B-S-J-Z, Macao, and Taipei were excluded from analysis due to significant missingness in ICT, well-being, and parent questionnaires; the Hong Kong sample was used as suitable. For cleaning, 549 cases with missing outcome variables were removed, and 26 cases with >20% missing independent variables were removed (resulting in 4925 valid samples). Remaining missing values for continuous predictors were filled using the median and for categorical predictors using the plurality. A fixed random seed (175) was set for reproducibility, and the final dataset was standardized and split into training (85%) and test (15%) sets."
     },
     "ml_techniques": {
       "primary": "Logistic Regression",
@@ -47,19 +59,19 @@
         "category": "demographic"
       },
       {
-        "variable_code": "STAGE",
+        "variable_code": "ISCEDL",
         "variable_name": "Stage of secondary school",
         "category": "demographic"
       },
       {
         "variable_code": "GRADE",
-        "variable_name": "Academic performance (PV-based)",
+        "variable_name": "Academic performance (grade PVs)",
         "category": "prior_achievement"
       },
       {
         "variable_code": "BMI",
         "variable_name": "BMI",
-        "category": "student_behavior"
+        "category": "demographic"
       },
       {
         "variable_code": "HEALTH",
@@ -69,7 +81,7 @@
       {
         "variable_code": "BODYIMA",
         "variable_name": "Body image",
-        "category": "student_behavior"
+        "category": "student_attitude"
       },
       {
         "variable_code": "INTICT",
@@ -148,7 +160,7 @@
       },
       {
         "variable_code": "SC156Q04HA",
-        "variable_name": "School discusses digital education",
+        "variable_name": "School digital teaching discussions",
         "category": "curriculum"
       },
       {
@@ -174,20 +186,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (Hong Kong, China) digital sport module",
+        "dataset_used": "PISA 2018 ICT familiarity (Hong Kong, China) — student-level digital sports participation",
         "target_variable": "Digital Sports participation (binary)",
         "top_predictors": [
-          "Academic performance (PV-based)",
+          "Academic performance (grade PVs)",
           "Weekly number of PE days",
           "ICT available at home",
           "ICT available at school",
           "ICT social perception"
         ],
-        "performance_metrics": "Test set AUC: Logistic Regression = 0.717 (Accuracy=0.813, Precision=0.727, Recall=0.056, F1=0.104). Stacking ensemble AUC=0.723 (Accuracy=0.809, F1=0.166).",
-        "standardized_conclusion": "Using PISA 2018 (Hong Kong, China) the study leveraged academic performance, weekly PE days, household ICT resources, school ICT resources, and ICT social perception to predict students’ digital sports participation, finding that weekly PE days, household ICT resources, school ICT resources, and ICT social perception were positively associated with participation, while academic performance showed a negative association. The best single-model discrimination was achieved by Logistic Regression (AUC=0.717), and the stacking ensemble slightly improved AUC (0.723) with higher F1, while SHAP was used for feature attribution (predictive importance, not causal effects)."
+        "performance_metrics": "Test set AUC: GNB 0.700, GBDT 0.641, KNN 0.707, LR 0.717; stacking (LR+GNB+KNN) AUC 0.723 with F1 0.166 (accuracy 0.809, precision 0.538, recall 0.098).",
+        "standardized_conclusion": "Using PISA 2018 ICT familiarity data for Hong Kong, China, the study leveraged academic performance, weekly PE days, household ICT resources, school ICT resources, and ICT social perception to predict students’ digital sports participation, finding that weekly PE days and ICT resources were positively associated with participation while academic performance showed a negative association. This indicates that digital sports promotion may benefit from combining PE scheduling (at least two PE sessions per week) with improving household and school ICT access, while recognizing that high-achieving students may need targeted engagement strategies; however, the evidence is predictive (SHAP-based explanations) and the paper does not report survey-weighted estimation."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 Hong Kong, China data to predict whether secondary students participate in digital sports (binary: 0 min vs ≥1 min per week inside/outside class). After excluding Hong Kong regions with substantial missingness and applying missing-data rules (median for continuous, plurality for categorical) plus removal of cases with missing outcomes or >20% missing predictors, 4,925 students remained. The authors trained Gaussian Naive Bayes, Gradient Boosting (GBDT), k-NN, and Logistic Regression models with GridSearchCV (5-fold CV) and evaluated on a held-out test set. Discrimination was moderate: AUC ranged from 0.641 to 0.717, with Logistic Regression best among primary models (AUC=0.717; F1=0.104). A stacking ensemble (LR meta-model with GNB and KNN base models) achieved AUC=0.723 and improved F1 to 0.166. SHAP indicated the most influential predictors were academic performance (negative), weekly PE days (positive), household ICT resources (positive), school ICT resources (positive), and ICT social perception (positive), but the paper does not report survey-weighted estimation and SHAP is used for interpretability rather than causal identification.",
+    "outcome_summary": "The study uses PISA 2018 ICT familiarity questionnaire data for Hong Kong, China (final analytic sample n=4925 after excluding cases with missing outcomes and >20% missing predictors). The dependent variable is a binary indicator of whether students use digital technology during sports participation, constructed from two ICT items (time spent on digital devices for sports inside and outside class). After median/plurality imputation and an 85/15 train-test split, the authors compare Gaussian Naive Bayes, gradient boosting (GBDT), k-NN, and logistic regression, and then build a stacking ensemble (LR as meta-model with GNB and KNN as base models). On the test set, AUC ranges from 0.641 to 0.717 for single models, while the stacking model reaches AUC=0.723 and improves F1 relative to logistic regression (F1=0.166 vs 0.104). SHAP is used for global and dependency explanations, but the paper does not apply or report PISA sampling weights, and SHAP should not be interpreted as causal evidence.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

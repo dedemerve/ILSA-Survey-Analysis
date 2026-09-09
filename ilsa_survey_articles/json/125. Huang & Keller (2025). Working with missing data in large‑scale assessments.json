@@ -3,8 +3,8 @@
     "file_name": "125. Huang & Keller (2025). Working with missing data in large‑scale assessments.pdf",
     "title": "Working with missing data in large-scale assessments",
     "authors": [
-      "Huang, F.",
-      "Keller, B."
+      "Huang",
+      "Keller"
     ],
     "year": 2025,
     "doi": "10.1186/s40536-025-00248-9",
@@ -17,8 +17,8 @@
     "survey_design": {
       "student_weights_used": true,
       "replicate_weights_used": null,
-      "weight_variable_name": "w_fstuwt; w_schgrnrabwt",
-      "weight_fields_interpretation": "The tutorial uses Belgian PISA 2018 student and school datasets, focusing on a two-level (students nested in schools) random-intercept multilevel model. The analytic example uses a reduced merged dataset with 8,475 student observations from 288 schools, and it creates an additional version with extra missingness introduced in the escs index (missingness made related to the first mathematics plausible value). In the imputation and analysis workflow, the authors fit weighted multilevel models using both student-level weights (w_fstuwt) and school-level weights (w_schgrnrabwt), and they use robust standard errors. The manuscript emphasizes that weights are often ignored during imputation for simplicity, but this tutorial demonstrates a congenial approach that includes weights in the imputation model and then uses Rubin-style pooling across multiple imputations and plausible values."
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The tutorial’s applied example uses Belgian PISA 2018 student and school datasets and fits two-level random-intercept multilevel models. In the imputation and analysis workflow, the authors explicitly incorporate complex survey weights at both levels by specifying student weights (w_fstuwt) and school-level weights (w_schgrnrabwt) in the rblimp/Blimp imputation model and again in the WeMix model-fitting stage. The weights are treated as covariates/inputs to the imputation model (congenial imputation) and are also used in the substantive multilevel model with robust standard errors. Replicate-weight methodology (e.g., BRR/jackknife) is not described in the excerpt, so replicate-weight usage cannot be confirmed from the provided text."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
@@ -31,7 +31,7 @@
           "n_students": 8475
         }
       ],
-      "sample_filtering_criteria": "The applied tutorial example uses the Belgian PISA 2018 student and school datasets merged into a reduced dataset. The analytic sample is restricted to students with the required variables for the two-level model (gender, escs, immig2, stubeha, lackstaff) and the mathematics outcome measured via pv1math–pv10math. The authors then create three analysis conditions: (A) 90% complete data (original combined dataset), (B) 82% complete data by additionally removing 10% of escs values with missingness induced to be related to the first mathematics plausible value (MAR), and (C) the final multiply imputed dataset(s) based on the 82% complete version. The final reported analytic sample size for the imputation/analysis step is 8,475 students across 288 schools."
+      "sample_filtering_criteria": "The applied tutorial example uses the Belgian PISA 2018 student and school datasets (merged, reduced dataset). The analytic focus is on predicting student mathematics abilities using 10 mathematics plausible values (pv1math–pv10math) and a multilevel structure with students nested in schools (cntschid). To demonstrate missing-data handling, the authors create an additional missingness scenario by selecting a variable with minimal missingness (escs, 2% missing) and then removing an additional 10% of escs values such that missingness is related to the first mathematics plausible value (missing at random). They then fit models on the original dataset (90% complete), the additional-missing dataset (82% complete), and the final multiply imputed datasets (200 multiply imputed datasets across 10 plausible values)."
     },
     "ml_techniques": {
       "primary": null,
@@ -49,7 +49,7 @@
         "category": "socioeconomic"
       },
       {
-        "variable_code": "immigration_status",
+        "variable_code": "immig2",
         "variable_name": "Immigration status",
         "category": "demographic"
       },
@@ -59,7 +59,7 @@
         "category": "school"
       },
       {
-        "variable_code": "lack_of_teaching_staff",
+        "variable_code": "lackstaff",
         "variable_name": "Lack of teaching staff",
         "category": "school"
       },
@@ -71,8 +71,8 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (Belgium) mathematics (pv1math–pv10math), two-level student-in-school model",
-        "target_variable": "Student math achievement (Plausible Values)",
+        "dataset_used": "PISA 2018 Mathematics (Belgium) — multilevel student (level 1) and school (level 2) model with plausible values",
+        "target_variable": "Math achievement (Plausible Values; pv1math–pv10math)",
         "top_predictors": [
           "Gender",
           "Socioeconomic status (ESCS)",
@@ -80,12 +80,23 @@
           "Student behavior hindering learning",
           "Lack of teaching staff"
         ],
-        "performance_metrics": "Not reported as ML metrics (tutorial reports fixed-effect estimates with robust SEs; Table 2 shows coefficient estimates and significance; Table 3 reports ICCs).",
-        "standardized_conclusion": "Using PISA 2018 (Belgium) mathematics plausible values the study leveraged Gender, socioeconomic status (ESCS), immigration status, student behavior hindering learning, and lack of teaching staff to model student math achievement in a two-level weighted random-intercept framework, finding that the fixed-effect estimates from the multiply imputed results (and the 90% complete condition) were closest, while the 82% complete condition showed larger deviations—especially for level-2 coefficients."
+        "performance_metrics": "Fixed-effect estimates compared across three conditions: 90% complete data (results C), 82% complete data (results B), and multiply imputed datasets (results A) using 200 multiply imputed datasets (20 imputations per plausible value across 10 plausible values). No predictive accuracy metrics reported; differences assessed via coefficient similarity and random-effects ICCs.",
+        "standardized_conclusion": "Using PISA 2018 Mathematics (Belgium) the study leveraged Gender, ESCS, immigration status, student behavior hindering learning, and lack of teaching staff to model math achievement from plausible values, finding that results from the multiply imputed analysis (A) were closest to the 90% complete analysis (C), while the 82% complete analysis (B) showed larger discrepancies, especially for level-2 coefficients and the intercept. This indicates that multiple imputation in a multilevel, weighted plausible-values setting can reduce bias introduced by listwise deletion/complete-case reductions, supporting more transparent and less error-prone missing-data practice in LSA analyses."
+      },
+      {
+        "dataset_used": "PISA 2018 Mathematics (Belgium) — multilevel random-effects model with plausible values",
+        "target_variable": "School-level variance (random effects) and ICC",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Student behavior hindering learning",
+          "Lack of teaching staff"
+        ],
+        "performance_metrics": "Random-effects comparison across conditions: School intercept variance (τ00) 2675.176 (90% complete), 2099.088 (82% complete), 3282.989 (imputed); residual variance (σ²) 4397.184 (90% complete), 3895.583 (82% complete), 4150.606 (imputed). ICC values: 0.38 (90% complete), 0.35 (82% complete), 0.44 (imputed).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics (Belgium) the study leveraged school and student predictors in a two-level random-intercept model and compared random-effects estimates across complete-case reductions versus multiply imputed datasets, finding that ICC was lower under the 82% complete condition (ICC=0.35) and higher under multiple imputation (ICC=0.44) relative to the 90% complete baseline (ICC=0.38). This indicates that missing-data handling can materially affect inferred between-school variability, implying that analysts should prefer multilevel multiple imputation over listwise deletion to avoid distorting conclusions about school-level differences."
       }
     ],
-    "outcome_summary": "This open-access tutorial demonstrates how to handle missing data in large-scale assessments using multiple imputation in a multilevel setting with plausible values. The applied example uses Belgian PISA 2018 student and school data (8,475 students in 288 schools) and predicts mathematics achievement measured by pv1math–pv10math from gender, ESCS, immigration status, student behavior hindering learning, and lack of teaching staff. The authors compare results across (A) 90% complete data, (B) 82% complete data created by inducing additional missingness in ESCS, and (C) multiply imputed results using Blimp/rblimp with 20 imputations per plausible value (200 imputed datasets total). They report that the imputed (A vs. C) results are most similar, whereas the 82% complete condition (B) yields larger differences, particularly for school-level (level-2) coefficients, and shows lower ICCs. The paper is a methodology tutorial rather than an ML prediction study, so it does not report standard ML performance metrics; it also focuses on congenial imputation with weights and Rubin-style pooling across imputations and plausible values.",
+    "outcome_summary": "This article is a software tutorial focused on missing-data handling in large-scale assessments, using an applied example with Belgian PISA 2018 mathematics. The authors demonstrate how to impute missing predictors in a multilevel (students nested in schools) and weighted setting while accounting for plausible values (10 mathematics PVs). They compare three analytic conditions: the original dataset with 90% complete cases, a reduced dataset with 82% complete cases created by additional missingness in ESCS, and a multiply imputed dataset created via Blimp/rblimp with 20 imputations per plausible value (200 total imputed datasets). Rather than reporting predictive accuracy, they evaluate how fixed-effect estimates and random-effects components (including ICC) change across conditions, finding that multiply imputation yields results closest to the 90% complete baseline and alters between-school variance when compared with the 82% complete case. The tutorial emphasizes that listwise deletion can bias estimates when missingness is not MCAR and that congenial imputation should reflect the substantive model structure, including weights and plausible values.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": "This is a software/methodology tutorial focused on multiple imputation for missing data in large-scale assessments rather than training/evaluating machine-learning predictive models. Although the tutorial fits multilevel models to imputed plausible-value outcomes, it does not evaluate ML algorithms (e.g., Random Forest, XGBoost) and therefore no ML technique list or ML performance metrics are applicable."
+    "null_fields_interpretation": null
   }
 }

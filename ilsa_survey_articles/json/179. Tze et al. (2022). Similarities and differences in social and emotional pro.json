@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "file_name": "179. Tze et al. (2022). Similarities and differences in social and emotional profiles among students in Canada  USA  China  and Singapore PISA 2015.pdf",
+    "title": "Similarities and differences in social and emotional profiles among students in Canada, USA, China, and Singapore",
+    "authors": [
+      "Virginia M. C. Tze",
+      "Johnson C.-H. Li",
+      "Lia M. Daniels"
+    ],
+    "year": 2022,
+    "doi": "10.1080/02671522.2020.1864760",
+    "venue": "Research Papers in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata from four countries (Canada, United States, China, Singapore) and focuses on students in the computer-based assessment mode who completed the Collaborative Problem-Solving (CPS) assessment. For achievement outcomes (reading, mathematics, CPS), the authors use OECD-provided plausible values and explicitly compute composite scores as the mean of the 10 plausible values per domain. The paper does not report the use of PISA sampling weights or replicate weights in the latent profile estimation or BCH comparisons; therefore, the weighting strategy for population-representativeness is not documented. Analysts using the same PISA extracts should apply PISA complex survey weights when estimating country-level means or uncertainty, but this manuscript’s latent-profile/BCH workflow is primarily described in terms of PV averaging and Mplus estimation rather than explicit weight variables."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 31626,
+      "countries": [
+        {
+          "country_code": "CAN",
+          "n_students": 20058
+        },
+        {
+          "country_code": "USA",
+          "n_students": 5712
+        },
+        {
+          "country_code": "CHN",
+          "n_students": 9841
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6115
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2015 data restricted to two OECD countries (Canada, United States) and two partner countries (China, Singapore) and further restricted to students participating in the computer-based assessment mode (CBA) who completed the Collaborative Problem-Solving (CPS) assessment. The analytic sample comprises 15-year-old students (born 1999–2000) from these four countries; all selected students completed the student background questionnaire. For achievement outcomes, the authors used OECD-provided plausible values for reading, mathematics, and CPS and then derived student-level composite scores by averaging the 10 plausible values per domain. Missing data in the latent-variable estimation was handled using Mplus default estimation with Full Information Maximum Likelihood (FIML)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "self_awareness",
+        "variable_name": "Self-awareness (PISA proxies)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "self_management",
+        "variable_name": "Self-management (PISA proxies)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "social_awareness",
+        "variable_name": "Social awareness (PISA proxies)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "relationship_skills",
+        "variable_name": "Relationship skills (PISA proxies)",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 (CBA) Reading achievement (10 PVs averaged), ages 15, Canada/USA/China/Singapore",
+        "target_variable": "Reading achievement (profile-specific means via BCH)",
+        "top_predictors": [
+          "Self-awareness (PISA proxies)",
+          "Self-management (PISA proxies)",
+          "Social awareness (PISA proxies)",
+          "Relationship skills (PISA proxies)"
+        ],
+        "performance_metrics": "BCH/Wald tests of mean differences among latent profiles (p-values reported). Canada/USA/Singapore: Sociable > Reserved and Sociable > Withdrawn (ps < .01); Reserved > Withdrawn on reading and maths in Western countries. Singapore: no significant Sociable vs Reserved difference on CPS (not reading); reading differences follow the Western pattern. China: Solitary > Team-oriented and Solitary > Reserved on reading (Wald X2 (1) = 15.398, p < .0001; Reserved vs Solitary: Wald X2 (1) = 59.485, p < .0001).",
+        "standardized_conclusion": "Using PISA 2015 (CBA) the study leveraged latent social-emotional profiles derived from self-awareness, self-management, social awareness, and relationship skills to compare reading achievement across profiles via the BCH approach. It found that in Canada, the United States, and Singapore the Sociable profile consistently obtained higher reading scores than the Reserved and Withdrawn profiles, with Reserved also outperforming Withdrawn on reading. This indicates that aligning social-emotional learning messages with culturally appropriate expectations may support reading achievement, though the direction of profile–achievement associations differs in China (Solitary outperforms Team-oriented and Reserved), limiting simple “more is better” policy generalizations."
+      },
+      {
+        "dataset_used": "PISA 2015 (CBA) Mathematics achievement (10 PVs averaged), ages 15, Canada/USA/China/Singapore",
+        "target_variable": "Mathematics achievement (profile-specific means via BCH)",
+        "top_predictors": [
+          "Self-awareness (PISA proxies)",
+          "Self-management (PISA proxies)",
+          "Social awareness (PISA proxies)",
+          "Relationship skills (PISA proxies)"
+        ],
+        "performance_metrics": "BCH/Wald tests of mean differences among latent profiles (p-values reported). Canada/USA/Singapore: Sociable > Reserved and Sociable > Withdrawn on maths (ps < .01); Reserved > Withdrawn on maths in Western countries. China: Team-oriented outperformed Reserved on maths (Wald X2 (1) = 41.495, p < .0001); Team-oriented vs Solitary not significant on maths (Wald X2 (1) = 3.727, p = .054).",
+        "standardized_conclusion": "Using PISA 2015 (CBA) the study leveraged latent social-emotional profiles derived from self-awareness, self-management, social awareness, and relationship skills to compare mathematics achievement across profiles via BCH. It found that in Canada, the United States, and Singapore the Sociable profile had the highest mathematics scores, followed by Reserved, with Withdrawn lowest, while in China the Team-oriented profile outperformed Reserved and showed no statistically significant difference from Solitary on maths. This indicates that interventions emphasizing culturally “fit” social-emotional competencies may improve mathematics outcomes, but the specific profile associated with advantage is country-dependent, so policy should avoid assuming uniform effects of social-emotional skill combinations."
+      },
+      {
+        "dataset_used": "PISA 2015 (CBA) Collaborative Problem Solving (CPS) achievement (10 PVs averaged), ages 15, Canada/USA/China/Singapore",
+        "target_variable": "Collaborative problem-solving achievement (profile-specific means via BCH)",
+        "top_predictors": [
+          "Self-awareness (PISA proxies)",
+          "Self-management (PISA proxies)",
+          "Social awareness (PISA proxies)",
+          "Relationship skills (PISA proxies)"
+        ],
+        "performance_metrics": "BCH/Wald tests of mean differences among latent profiles (p-values reported). Canada/USA: Sociable > Reserved and Sociable > Withdrawn on CPS (ps < .01); Reserved > Withdrawn on CPS. Singapore: Sociable vs Reserved not significant on CPS (Wald X2 (1) = 3.621, p = .057), but Sociable > Withdrawn (Wald X2 (1) = 28.161, p < .0001) and Reserved > Withdrawn (Wald X2 (1) = 21.698, p < .0001). China: Team-oriented > Reserved on CPS (Wald X2 (1) = 48.032, p < .0001); Team-oriented vs Solitary not significant on CPS (Wald X2 (1) = 3.121, p = .077); Solitary > Reserved on CPS (Wald X2 (1) = 29.338, p < .0001).",
+        "standardized_conclusion": "Using PISA 2015 (CBA) the study leveraged latent social-emotional profiles derived from self-awareness, self-management, social awareness, and relationship skills to compare collaborative problem-solving achievement across profiles via BCH. It found that in Western countries (Canada and the United States) the Sociable profile achieved higher CPS scores than Reserved and Withdrawn, with Reserved also higher than Withdrawn, while in Singapore the advantage over Withdrawn remained but Sociable and Reserved did not differ significantly. In China, the Team-oriented profile outperformed Reserved on CPS, but the Solitary profile also showed higher CPS than Reserved, indicating a different cultural pattern of which social-emotional combinations align with collaborative problem-solving. This indicates that CPS-focused social-emotional learning should be tailored to cultural expectations about collaboration and social engagement rather than assuming the same “best” profile across countries."
+      }
+    ],
+    "outcome_summary": "This study uses PISA 2015 microdata from four countries (Canada, United States, China, Singapore) restricted to students in the computer-based assessment mode who completed the Collaborative Problem-Solving (CPS) assessment. The authors operationalize four CASEL social-emotional competencies using selected PISA Likert items (self-awareness, self-management, social awareness, relationship skills), test a four-factor measurement model with multigroup CFA, and then estimate latent social-emotional profiles using latent profile analysis (LPA). For achievement outcomes (reading, mathematics, CPS), they use OECD-provided plausible values (10 per domain) and compute student-level composite scores as the mean of the plausible values; profile differences are evaluated using the BCH approach with Wald tests. Across Canada/US/Singapore, the Sociable profile generally shows the highest reading and maths scores and higher CPS than Reserved and Withdrawn, while China shows a different pattern where Solitary and Team-oriented profiles can outperform Reserved depending on the domain. Limitations include reliance on PISA proxies for social-emotional skills (few items per factor) and the absence of explicit reporting of PISA sampling-weight usage in the latent-profile/BCH estimation.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

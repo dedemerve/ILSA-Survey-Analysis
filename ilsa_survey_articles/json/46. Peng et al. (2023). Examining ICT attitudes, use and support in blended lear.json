@@ -18,7 +18,7 @@
       "student_weights_used": true,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 microdata (student, school, and ICT familiarity questionnaires) and merges it with a World Bank GDP-per-capita dataset. The analytic sample includes students from 32 OECD countries who completed the optional ICT familiarity questionnaires and who were in blended test language classes, defined using questionnaire item IC152Q01HA (including categories where teachers alone, students alone, or both used ICT). For the multilevel (HLM) stage, the authors explicitly implemented student weights to account for the design effects of PISA. The RF stage is described as a 10-fold cross-validated regression model, but the manuscript does not state that PISA student weights were applied in RF; the weighting discussion is tied to the HLM stage. The data cleaning included deletion of repeated values and outliers and multiple imputation for missing variables before modeling."
+      "weight_fields_interpretation": "The study uses PISA 2018 reading literacy microdata for 15-year-olds from 32 OECD countries, restricted to students in blended test language classes based on questionnaire item IC152Q01HA (including cases where teachers and/or students used ICT). For the multilevel (HLM) stage, the authors explicitly implemented student weights to account for the complex design effects of PISA. The manuscript does not report a specific weight variable name, but it states that student weights were used in HLM to reflect PISA’s sampling design. For the RF feature-selection stage, the paper does not describe weight application; the reported RF performance is based on 10-fold cross-validation, while the HLM stage is the one that explicitly incorporates PISA weights."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
@@ -155,7 +155,7 @@
           "n_students": 3907
         }
       ],
-      "sample_filtering_criteria": "Students from 32 OECD countries who completed the optional ICT familiarity questionnaires in PISA 2018 were selected. The dependent reading scores (PISA 2018 reading plausible values) were used for students in blended test language classes, defined using questionnaire item IC152Q01HA that classifies the test language learning environment into four ICT-use configurations. Students selecting categories 1) teachers alone used ICT, 2) students alone used ICT, and 3) both teachers and students used ICT were included; category 4 (neither used ICT) was excluded. The final analytic sample comprises 152,218 adolescents from 9,087 schools."
+      "sample_filtering_criteria": "Students from 32 OECD countries who completed the optional ICT familiarity questionnaires in PISA 2018 were selected. The analytic sample includes students in blended test language classes, operationalized using questionnaire item IC152Q01HA: students selecting ICT use by teachers alone (1), students alone (2), or both teachers and students (3) were included; cases where neither teachers nor students used ICT (4) were excluded. The dependent variable uses the 10 plausible values for PISA 2018 reading performance, and missing questionnaire variables were imputed using multiple imputation (m=10) before modeling."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -191,7 +191,7 @@
       },
       {
         "variable_code": "lnGDP",
-        "variable_name": "Country GDP per capita",
+        "variable_name": "Log GDP per capita",
         "category": "system_level"
       },
       {
@@ -206,12 +206,12 @@
       },
       {
         "variable_code": "AUTICT",
-        "variable_name": "ICT autonomy",
+        "variable_name": "Perceived ICT autonomy",
         "category": "ict"
       },
       {
         "variable_code": "SOIAICT",
-        "variable_name": "ICT topic in social interaction",
+        "variable_name": "ICT as social interaction topic",
         "category": "ict"
       },
       {
@@ -237,12 +237,12 @@
       {
         "variable_code": "ICTOUTSIDE",
         "variable_name": "Subject ICT use outside lessons",
-        "category": "student_behavior"
+        "category": "ict"
       },
       {
         "variable_code": "ICTCLASS",
         "variable_name": "Subject ICT use during lessons",
-        "category": "student_behavior"
+        "category": "ict"
       },
       {
         "variable_code": "ENTUSE",
@@ -267,12 +267,12 @@
       {
         "variable_code": "ICTSCH",
         "variable_name": "ICT available at school",
-        "category": "school"
+        "category": "ict"
       },
       {
         "variable_code": "RATCMP1",
         "variable_name": "Computers per student",
-        "category": "school"
+        "category": "ict"
       },
       {
         "variable_code": "RATCMP2",
@@ -291,7 +291,7 @@
       },
       {
         "variable_code": "TEACHICT",
-        "variable_name": "Teacher ICT support from school",
+        "variable_name": "Teacher ICT use support",
         "category": "teacher"
       },
       {
@@ -300,15 +300,15 @@
         "category": "ict"
       },
       {
-        "variable_code": "policy",
-        "variable_name": "policy",
+        "variable_code": "regulation",
+        "variable_name": "regulation",
         "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (15-year-olds; blended test language classes; 32 OECD countries)",
-        "target_variable": "Reading achievement (Plausible Values)",
+        "dataset_used": "PISA 2018 Reading (15-year-olds, 32 OECD countries; blended test language classes; PV_1–PV_10)",
+        "target_variable": "Reading performance (PISA 2018 plausible values)",
         "top_predictors": [
           "Socioeconomic status (ESCS)",
           "ICT use at school",
@@ -316,24 +316,11 @@
           "ICT use outside for schoolwork",
           "ICT use outside for entertainment"
         ],
-        "performance_metrics": "Random Forest regression — 10-fold cross-validation: MSE = 6319.33, MAE = 63.19, R² = 0.38; optimal RF feature set retained 27 factors.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for 15-year-olds in blended test language classes, the study leveraged socioeconomic status (ESCS), ICT use at school, interest in ICT, ICT use outside for schoolwork, and ICT use outside for entertainment to predict reading achievement (Plausible Values), finding that the retained ICT-related feature set collectively predicted reading performance with moderate fit (R² = 0.38) and that student-level ICT-related factors were most important in the RF feature-importance ranking."
-      },
-      {
-        "dataset_used": "PISA 2018 Reading (15-year-olds; blended test language classes; 32 OECD countries)",
-        "target_variable": "Reading achievement (Plausible Values) — multilevel effects",
-        "top_predictors": [
-          "Gender",
-          "Socioeconomic status (ESCS)",
-          "Perceived ICT competence",
-          "ICT topic in social interaction",
-          "Quality of school ICT resources"
-        ],
-        "performance_metrics": "Hierarchical linear modeling (HLM 8) with 10 plausible values and student weights; model fit indices not reported in the excerpt; significant fixed effects reported in Table 4 (e.g., positive effects for COMPICT and AUTICT; negative effect for SOIAICT; positive effects for SCHICTQUA and SCHICTPO; negative effects for ICTSKIT and TEACHICT).",
-        "standardized_conclusion": "Using PISA 2018 Reading data for 15-year-olds in blended test language classes, the study leveraged gender, socioeconomic status (ESCS), perceived ICT competence, ICT topic in social interaction, and quality of school ICT resources to predict reading achievement (Plausible Values) in a multilevel framework, finding that autonomy and competence related to ICT and reading-format preferences were positively associated with reading performance, while ICT as a topic in social interaction was negatively associated; additionally, quality of school ICT resources and school ICT promotion/policy were positive predictors, whereas teacher ICT support from school and teaching ICT skills were negative."
+        "performance_metrics": "Random Forest (10-fold cross-validation): MSE=6319.33, MAE=63.19, R²=0.38; optimal feature set retained 27 ICT-related factors; feature importance via Gini; HLM used f² effect sizes (small/medium/large thresholds).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for 15-year-olds in blended test language classes, the study leveraged ESCS, ICT use at school, interest in ICT, ICT use outside for schoolwork, and ICT use outside for entertainment to predict reading performance, finding that the combined ICT-related feature set collectively predicted reading outcomes with moderate explanatory power (RF R²=0.38) and that student-level ICT factors were most important in the feature ranking. This indicates that blended-reading improvement strategies should prioritize student ICT attitudes and appropriate ICT use patterns (not only access), while also accounting for socioeconomic differences, though the cross-sectional design limits causal interpretation."
       }
     ],
-    "outcome_summary": "The study analyzes PISA 2018 reading performance for 15-year-olds in blended test language classes across 32 OECD countries (N=152,218). In Stage 1, a Random Forest regression with 10-fold cross-validation retained an optimal set of 27 ICT-related features and achieved MSE=6319.33, MAE=63.19, and R²=0.38, with student-level ICT-related factors showing the highest relative importance (e.g., ESCS, USESCH, INTICT, HOMESCH, ENTUSE). In Stage 2, hierarchical linear modeling using 10 plausible values and student weights estimated direct, curvilinear, and cross-level moderation effects: COMPICT and AUTICT were positively related to reading, while SOIAICT was negatively related; reading-format preferences (PAPERPRE, DIGIPRE, EQUAFORM) were positive. At the school level, ICTSCH showed an inverted-U pattern, and SCHICTQUA and SCHICTPO were positive, whereas ICTSKIT and TEACHICT were negative. The authors note limitations including cross-sectional PISA data and that the AI stage cannot fully address nested structure without the multilevel stage; they also use MI for missing variables (m=10) and apply plausible-value pooling as recommended.",
+    "outcome_summary": "The study analyzes PISA 2018 reading literacy for 15-year-olds from 32 OECD countries, restricted to blended test language classes based on IC152Q01HA and using the 10 plausible values for reading performance (PV_1–PV_10). In Stage 1, a Random Forest regression with 10-fold cross-validation (100 trees; 27 retained ICT-related factors) achieved MSE=6319.33, MAE=63.19, and R²=0.38, and produced a relative importance ranking (Gini importance). In Stage 2, hierarchical linear modeling (HLM 8) incorporated the nested student–school–country structure and used student weights plus multiple imputation (m=10) for missing variables; the authors report ICCs and f² effect sizes to support multilevel modeling. Key results show positive associations for perceived ICT competence/autonomy and reading-format preferences, negative associations for ICT as a social-interaction topic, and curvilinear (inverted U / diminishing returns) effects for several ICT attitudes, uses, and resources. Limitations include cross-sectional inference and the fact that RF feature importance is predictive rather than causal.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

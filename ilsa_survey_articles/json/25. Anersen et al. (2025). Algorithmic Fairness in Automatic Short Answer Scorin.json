@@ -17,14 +17,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study analyzes German PISA 2015 reading-literacy constructed-response items with dichotomous human scoring (correct/incorrect) and trains ML classifiers to reproduce these labels. The analytic sample is restricted to non-blank responses on 37 selected dichotomously scored items, yielding 4,060 students with available gender and (partly missing) language-at-home information. The manuscript does not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), and the ML training/evaluation is described as cross-fold validation per item in R using standard classifiers. Given the absence of any stated complex-survey weighting and the use of conventional ML pipelines, the analysis is treated as unweighted; the paper also does not discuss how the nested sampling design (students within booklets/schools) was accounted for beyond stratified splitting by score distribution."
+      "weight_fields_interpretation": "The study uses PISA 2015 German reading literacy constructed-response items with dichotomous human scoring (correct/incorrect) and builds item-level training/test sets via 5-fold cross-validation stratified by the score distribution. The analytic sample is restricted to 37 dichotomously scored reading items and excludes blank responses; language-at-home is missing for a subset of students and is handled by restricting the language subgroup analyses to students with non-missing language information. The manuscript does not report applying PISA complex survey weights or any specific weight variable (e.g., student sampling weights) in the ML training/evaluation pipeline. Because the models are standard ML classifiers (SVM, random forests, decision trees) trained on response-level features, the paper provides no explicit weighting strategy for the complex sampling design, so results should be interpreted as model-based fairness diagnostics rather than population-representative estimates."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is not a PV-based cognitive achievement score; instead, the models predict dichotomous item-level correctness (correct/incorrect) of short reading-comprehension responses. Missing-data handling is not fully documented: the paper reports missingness for language spoken at home (11% missing) and describes that language availability depends on gender, but it does not specify whether missing language cases were excluded, imputed, or handled via a specific missingness strategy in the fairness analyses.",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is dichotomous item scoring (correct/incorrect) derived from human ratings of short constructed responses, not PV-based achievement scores. Missing data handling is not fully documented for the ML pipeline: language-at-home has missing values (about 11.8% overall), but the paper mainly reports subgroup counts and does not specify whether missing language values were excluded, imputed, or otherwise handled within the fairness computations. This is a reporting gap because fairness metrics can be sensitive to how missing subgroup membership is treated.",
     "sample_details": {
       "total_students": 4060,
       "countries": [
@@ -33,16 +33,14 @@
           "n_students": 4060
         }
       ],
-      "sample_filtering_criteria": "Used German PISA 2015 reading literacy constructed-response data. From 43 reading-literacy items, selected 37 items with dichotomous scoring (correct/incorrect) suitable for binary classification; excluded blank responses. Because of booklet design, each student answered between 1 and 15 of the included items. For subgroup analyses, gender was available for all 4,060 students, while language spoken at home was missing for 11% of students; the paper reports the missingness pattern but does not fully specify the missing-data handling rule for language in the model/fairness computations."
+      "sample_filtering_criteria": "Used PISA 2015 Germany reading literacy constructed-response items; selected 37 reading comprehension items with dichotomous scoring (correct/incorrect) suitable for binary classification. Excluded blank responses. For subgroup fairness, gender is available for all 4,060 students, while language-at-home analyses are based on the subset with non-missing language information (3,610 students). Each student answered between 1 and 15 of the selected items due to PISA booklet design with randomized item assignment."
     },
     "ml_techniques": {
       "primary": "SVM",
       "all_techniques": [
         "Decision Tree",
         "Random Forest",
-        "SVM",
-        "Word2Vec",
-        "RoBERTa"
+        "SVM"
       ]
     },
     "confounders_identified": [
@@ -55,52 +53,21 @@
         "variable_code": "language_spoken_at_home",
         "variable_name": "Language spoken at home",
         "category": "demographic"
-      },
-      {
-        "variable_code": "item_difficulty",
-        "variable_name": "Psychometric item difficulty",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "student_performance",
-        "variable_name": "performance level",
-        "category": "prior_achievement"
-      },
-      {
-        "variable_code": "linguistic_variance",
-        "variable_name": "Linguistic variance of responses",
-        "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2015 (Germany) Reading literacy — 37 dichotomously scored constructed-response items",
-        "target_variable": "Item correctness (correct vs incorrect) predicted from text",
+        "dataset_used": "PISA 2015 Germany Reading literacy (constructed-response items), 37 dichotomous items",
+        "target_variable": "Automatic scoring correctness (correct/incorrect) fairness vs human scoring",
         "top_predictors": [
           "Gender",
-          "Language spoken at home",
-          "Student performance level",
-          "Psychometric item difficulty",
-          "Linguistic variance of responses"
+          "Language spoken at home"
         ],
-        "performance_metrics": "Best model: SVM with RoBERTa sentence embeddings — Cohen's κ = 0.82, Accuracy (ACC) = 0.93, TPR = 0.96, FPR = 0.16; compared with Random Forest (unigrams) κ = 0.78, ACC = 0.91, and SVM with word embeddings κ = 0.76, ACC = 0.90.",
-        "standardized_conclusion": "Using PISA 2015 (Germany) reading-literacy item the study leveraged gender, language spoken at home, student performance level, psychometric item difficulty, and linguistic variance of responses to predict item correctness from short text responses, finding that the SVM with RoBERTa sentence embeddings achieved the highest overall agreement with human scoring (κ = 0.82) and that higher scoring accuracy generally corresponded to lower demographic disparity."
-      },
-      {
-        "dataset_used": "PISA 2015 (Germany) Reading literacy — fairness analysis using RoBERTa-SVM on 37 dichotomously scored items",
-        "target_variable": "Automatic-vs-human scoring bias (demographic disparity) for gender and language groups",
-        "top_predictors": [
-          "Gender",
-          "Language spoken at home",
-          "Student performance level",
-          "Psychometric item difficulty",
-          "Linguistic variance of responses"
-        ],
-        "performance_metrics": "Gender: demographic disparity DD = 0.000 (no significant group-specific bias). Language spoken at home: demographic disparity DD = −0.011 (p < .025), driven by higher false-positive rate for foreign-language speakers (FPR 0.16 native vs 0.13 foreign in aggregate table; item-level shows higher FPR for specific items, e.g., FPR ≈ 0.81 for R219Q02 and R453Q06).",
-        "standardized_conclusion": "Using PISA 2015 (Germany) reading-literacy the study leveraged gender and language spoken at home (along with performance-related and item-related factors) to quantify automatic-vs-human scoring bias, finding no discernible gender bias at the aggregate level but a minor yet significant bias for language-at-home groups: students speaking mainly a foreign language at home received about 1% more false-positive correct scores than warranted, with the effect concentrated at the item level."
+        "performance_metrics": "Best model (RoBERTa sentence embeddings + SVM): Cohen’s κ = 0.82; Accuracy (ACC) = 0.93; TPR = 0.96; FPR = 0.16. Fairness (demographic disparity DD): for gender DD = −0.000 (no discernible gender disparity); for language spoken at home DD = −0.011 (minor significant bias). Automatic scoring bias D (machine minus human prevalence of correct): D = 0.02 for native speakers and D = 0.03 for foreign-language speakers, implying ~1% more false-positive correct scores for foreign-language speakers.",
+        "standardized_conclusion": "Using PISA 2015 Germany Reading literacy the study leveraged Gender and Language spoken at home to evaluate fairness of automatic short-answer scoring (correct/incorrect) against human ratings, finding that the RoBERTa+SVM classifier showed no discernible gender differences but a minor significant bias for language background. This indicates that deploying automatic scoring may be broadly equitable across gender, while requiring additional bias checks and mitigation for students whose home language differs from the assessment language, especially because the bias manifests as a higher false-positive rate for foreign-language speakers."
       }
     ],
-    "outcome_summary": "The study analyzed German PISA 2015 reading-literacy short constructed responses with dichotomous human scoring (correct/incorrect) and trained ML classifiers to reproduce these labels. Across four representation/model combinations, the SVM using RoBERTa sentence embeddings performed best (κ = 0.82; ACC = 0.93; TPR = 0.96; FPR = 0.16). Fairness results showed no aggregate gender disparity (DD = 0.000), but a small significant demographic disparity for language spoken at home (DD = −0.011, p < .025), where foreign-language speakers were more likely to receive false-positive correct scores. The authors attribute the bias to the interaction of scoring accuracy, linguistic variance, unequal group performance (prevalence of incorrect responses), and item difficulty, with effects especially evident for certain items. Methodologically, the paper does not report PV handling (not applicable because the DV is item correctness) and does not clearly document missing-data handling for language-at-home missingness or whether PISA sampling weights were applied.",
+    "outcome_summary": "The study analyzed 38,722 PISA 2015 Germany reading comprehension short constructed responses, restricting the empirical ML task to 37 dichotomously scored items (correct/incorrect) and excluding blank responses. Using 5-fold cross-validation stratified by score distribution, the authors compared feature representations (unigrams, word embeddings, RoBERTa sentence embeddings) and classifiers (decision tree, random forest, SVM), finding the best agreement between machine and human scoring for RoBERTa sentence embeddings with SVM (κ = 0.82; ACC = 0.93; TPR = 0.96; FPR = 0.16). Fairness diagnostics based on automatic scoring bias (D) and demographic disparity (DD) showed no meaningful gender disparity, but a small yet significant language-background bias: foreign-language speakers received about 1% more false-positive correct scores than native speakers (DD = −0.011). The paper does not report applying PISA complex survey weights and provides limited detail on missing-data handling for language-at-home, so fairness conclusions should be treated as evidence of potential systematic scoring effects rather than fully population-weighted estimates.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

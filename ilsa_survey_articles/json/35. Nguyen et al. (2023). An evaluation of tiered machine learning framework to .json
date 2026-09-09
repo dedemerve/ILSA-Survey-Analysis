@@ -18,14 +18,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses TIMSS 2019 assessment data for Singapore students (grade 8 science) and reports an analytic sample of 4,853 students (2,487 boys and 2,366 girls). The methodology describes model training/evaluation partitions and the use of SMOTE for class imbalance, but it does not mention applying TIMSS sampling weights or any complex survey design adjustments. No weight variable name (e.g., W_FSTUWT/TOTWGT) or replicate-weight approach (e.g., BRR/jackknife) is reported. Because the paper focuses on ML classifiers (XGBoost, decision trees, SVM, logistic regression, Naive Bayes) and does not discuss survey-weight incorporation, the analysis is treated as unweighted/weight-omitted for the reported results."
+      "weight_fields_interpretation": "The study uses TIMSS assessment data for Singapore students (eighth grade science) and constructs a labeled dataset by mapping continuous science achievement scores into five ordered achievement classes using percentile cut points. The analytic sample is explicitly described as 2,487 boys and 2,366 girls (total 4,853) participating in TIMSS, but the paper does not report any complex survey design variables or whether TIMSS sampling weights were applied in model training/evaluation. Because the models are standard scikit-learn classifiers and the manuscript does not mention TIMSS student/sampling weights or replicate-weight procedures, weighting is treated as not reported for this extraction. The main preprocessing steps described are class-imbalance handling via SMOTE on the training partition and feature selection via a majority-vote feature selection council selecting the top three features."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The dependent variable is science achievement discretized into five ordinal classes using percentile cutoffs (e.g., ≥90th percentile as 'excellent'), rather than an achievement score represented via TIMSS plausible values (PV-based continuous outcomes). As a result, the paper does not describe any PV generation/combining strategy, making PV handling not applicable to the reported classification target. The manuscript also does not report a missing-data strategy (e.g., complete-case deletion or imputation), which is a reporting gap given that TIMSS datasets typically contain missing questionnaire responses.",
+    "handling_not_reported_explanation": "The dependent variable is not modeled as TIMSS plausible values; instead, the paper assigns each student to one of five achievement classes using percentile thresholds on a continuous science achievement score. The manuscript does not describe any missing-data strategy (e.g., complete-case filtering or imputation), so the handling of missing questionnaire or achievement inputs is a reporting gap. Given that the study relies on five non-cognitive predictors, missingness could affect the effective training/evaluation sample, but the paper does not document the rule used.",
     "sample_details": {
       "total_students": 4853,
       "countries": [
@@ -34,7 +34,7 @@
           "n_students": 4853
         }
       ],
-      "sample_filtering_criteria": "Used TIMSS 2019 data for Singapore eighth-grade students who participated in the science assessment; the paper reports the full Singapore grade-8 sample as 2,487 boys and 2,366 girls (total 4,853). Science achievement was then converted into five classes using percentile thresholds (≥90, 80–90, 70–80, 60–70, ≤60). No additional inclusion/exclusion criteria (e.g., item nonresponse handling, grade restrictions beyond grade 8, or subsampling) are explicitly described."
+      "sample_filtering_criteria": "Uses TIMSS assessment data for Singapore eighth-grade students. The paper reports the participating sample as 2,487 boys and 2,366 girls (total 4,853) and then converts continuous science achievement scores into five classes using percentile cut points (≥90th: excellent; 80th–90th: very good; 70th–80th: average; 60th–70th: below average; ≤60th: unsatisfactory). For modeling, the framework partitions the data into training and evaluation partitions and applies SMOTE balancing to the training data to address class imbalance; feature selection council then selects the top three voted predictors for training."
     },
     "ml_techniques": {
       "primary": "XGBoost",
@@ -48,8 +48,8 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "socioeconomic_status_parents",
-        "variable_name": "Socioeconomic status (parents)",
+        "variable_code": "socioeconomic_status",
+        "variable_name": "Socioeconomic status of parents",
         "category": "socioeconomic"
       },
       {
@@ -78,15 +78,15 @@
         "dataset_used": "TIMSS 2019 Grade 8 Science (Singapore)",
         "target_variable": "Science achievement class (5 categories)",
         "top_predictors": [
-          "Socioeconomic status (parents)",
+          "Socioeconomic status of parents",
           "Confidence in science",
           "Valuing science"
         ],
-        "performance_metrics": "Best model (XGBoost): Accuracy 57.47%, Precision 29%, Recall 27%, F1-score 27%. Other models: Decision tree Accuracy 50.88%, Logistic regression Accuracy 50.57% (Recall 33%), SVM Accuracy 47.99%, Naive Bayes Accuracy 46.14%. Framework also reports lowest MAE for XGBoost: 0.99 (vs. Naive Bayes MAE 1.25).",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science data for Singapore, the study leveraged socioeconomic status (parents), confidence in science, and valuing science to predict science achievement class membership, finding that the tiered framework selected XGBoost as the best-performing classifier (highest accuracy and precision) with MAE as low as 0.99, despite only moderate correlation between predictors and the achievement target."
+        "performance_metrics": "Model comparison on evaluation partition (confusion matrices; metrics reported in Table II): XGBoost Accuracy 57.47%, Precision 29%, Recall 27%, F1 27%; Decision tree Accuracy 50.88%, Precision 28%, Recall 27%, F1 27%; Logistic regression Accuracy 50.57%, Precision 29%, Recall 33%, F1 30%; SVM Accuracy 47.99%, Precision 28%, Recall 30%, F1 27%; Naive Bayes Accuracy 46.14%, Precision 29%, Recall 32%, F1 28%. MAE in class prediction (Figure 6): XGBoost MAE 0.99 (lowest), Naive Bayes MAE 1.25 (highest).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science (Singapore) the study leveraged socioeconomic status of parents, confidence in science, and valuing science to predict science achievement class (excellent to unsatisfactory), finding that XGBoost achieved the highest accuracy (57.47%) and precision among the compared classifiers and the lowest MAE (0.99). This indicates that targeting these non-cognitive factors—especially family socioeconomic resources and students’ science confidence/values—may improve the likelihood of students reaching higher science achievement bands, though the results are predictive and do not establish causal effects."
       }
     ],
-    "outcome_summary": "The paper evaluates a tiered ML framework on TIMSS 2019 science data for Singapore eighth-grade students (N=4,853), converting continuous science achievement into five percentile-based classes ('excellent' to 'unsatisfactory'). The framework addresses class imbalance using SMOTE, selects the top three predictors via a feature-selection council, and then trains five classifiers (XGBoost, decision tree, logistic regression, SVM, Naive Bayes) with a combiner that uses accuracy/precision/recall/F1 and user preference. XGBoost achieved the highest accuracy (57.47%) and precision (29%) and the lowest mean absolute error (MAE=0.99), while Naive Bayes performed worst (accuracy 46.14%, MAE=1.25). The study does not report any missing-data handling strategy and does not describe survey-weight or complex-sampling adjustments, which may affect generalizability and uncertainty quantification.",
+    "outcome_summary": "The study evaluates a tiered machine learning framework on TIMSS 2019 science data for Singapore eighth graders, converting continuous science achievement into five ordered categories using percentile thresholds. The framework addresses class imbalance with SMOTE on the training partition, selects the top three predictors via a majority-vote feature selection council, and then trains five classifiers (XGBoost, decision tree, logistic regression, SVM, Naive Bayes). Model choice is further guided by a combiner that uses accuracy, precision, recall, and F1-score together with user preference (minimize false positives vs. false negatives) and an accuracy threshold of 50%. XGBoost performs best overall (Accuracy 57.47%, Precision 29%, Recall 27%, F1 27%) and also yields the lowest mean absolute error (MAE 0.99), while Naive Bayes is weakest (Accuracy 46.14%, MAE 1.25). The paper does not report a missing-data strategy or any TIMSS sampling-weight usage, and the classification approach is predictive rather than causal.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }
