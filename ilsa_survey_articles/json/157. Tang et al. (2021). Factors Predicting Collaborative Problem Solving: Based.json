@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "file_name": "157. Tang et al. (2021). Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015.pdf",
+    "title": "Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015",
+    "authors": null,
+    "year": 2021,
+    "doi": "10.3389/feduc.2021.619450",
+    "venue": "Frontiers in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "W_FSTUWT",
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata for CPS from Beijing, Shanghai, Jiangsu, and Guangdong, with a probability proportionate to size (PPS) school sampling design. It states that a student-level sampling weight (W_FSTUWT) and a school-level sampling weight (W_FSCHWT, computed as the sum of student weights within each school) were employed to reduce unequal selection probabilities and non-response bias. The CPS outcome is based on 10 plausible values, and the authors follow OECD guidance by estimating models separately for each plausible value and then averaging the resulting statistics. For the hierarchical linear modeling (HLM) approach, the manuscript does not report replicate-weight methods (e.g., BRR/jackknife), so replicate-weight handling is not documented."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 9328,
+      "countries": [
+        {
+          "country_code": "CHN",
+          "n_students": 9328
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2015 CPS assessment data for 15-year-olds from Beijing, Shanghai, Jiangsu, and Guangdong. The initial sample comprised 9841 students from 268 schools, but cases with missing data were deleted automatically by HLM, leaving 9328 students from 259 schools for analysis."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "GRADE",
+        "variable_name": "Grade level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "COOPERAT",
+        "variable_name": "Enjoyment of cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CPSVALUE",
+        "variable_name": "Value of cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "UNFAIRTE",
+        "variable_name": "Teacher unfair treatment",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SPORTSTIME",
+        "variable_name": "Sports time per week",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SCHLOCATION",
+        "variable_name": "School location",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCHLTYPE",
+        "variable_name": "School type",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCHESCS",
+        "variable_name": "School ESCS",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PROATCE",
+        "variable_name": "Proportion fully certified teachers",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SCHAUT",
+        "variable_name": "School autonomy",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Collaborative Problem Solving (CPS), China (Beijing/Shanghai/Jiangsu/Guangdong), 15-year-olds",
+        "target_variable": "CPS achievement (10 plausible values, averaged)",
+        "top_predictors": [
+          "Gender",
+          "Grade level",
+          "Socioeconomic status (ESCS)",
+          "ICT resources",
+          "Teacher unfair treatment"
+        ],
+        "performance_metrics": "Hierarchical linear models (HLM); variance explained at student level: 5.98% (Model 2 with gender/grade/ESCS), 2.21% (Model 3 with cooperation attitudes), 1.74% (Model 4 with teacher unfairness), 1.18% (Model 5 with ICT resources), 0.51% (Model 6 with sports time). Coefficients (selected): gender β=-20.32 (p<0.001), grade β=28.64 (p<0.001), ESCS β=9.21 (p<0.001), enjoyment of cooperation β=11.44 (p<0.001), value of cooperation β=-4.16 (p<0.05), teacher unfairness β=-1.34 (p<0.01), ICT resources β=8.65 (p<0.001), sports time β=1.74 (ns).",
+        "standardized_conclusion": "Using PISA 2015 CPS data for 15-year-olds in Beijing/Shanghai/Jiangsu/Guangdong, the study leveraged gender, grade level, ESCS, cooperation attitudes, teacher unfair treatment, and ICT resources to predict CPS achievement (averaging across 10 plausible values). It found that higher grade and higher ESCS were associated with higher CPS scores, ICT resources and enjoyment of cooperation were positive predictors, while teacher unfair treatment and the “value of cooperation” scale were negative (and sports time was not significant). This indicates that improving learning conditions—especially ICT access and fair teacher-student relationships—alongside grade-appropriate CPS instruction may strengthen collaborative problem-solving performance, though the study is correlational and does not establish causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2015 Collaborative Problem Solving (CPS) for 15-year-olds in Beijing, Shanghai, Jiangsu, and Guangdong, using hierarchical linear models to account for students nested within schools. CPS is measured via a computer-based CPS test and summarized using 10 plausible values; the authors estimate models for each plausible value and average the resulting statistics. Missing data reduced the sample from 9841 students (268 schools) to 9328 students (259 schools). At the student level, gender, grade, ESCS, enjoyment of cooperation, teacher unfair treatment, and ICT resources significantly predicted CPS, with grade and ESCS showing positive associations and teacher unfairness showing a negative association; sports time was not significant. At the school level, school location, school ESCS, and the proportion of fully certified teachers were significant predictors, with the largest incremental variance explained at the school level coming from teacher certification. The paper does not report any machine-learning algorithms; therefore, results should be interpreted as correlational model-based associations rather than ML predictive performance.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This paper uses hierarchical linear modeling (HLM) with plausible values and does not train or evaluate any machine-learning predictive algorithms (no RF/XGBoost/SVM/NN, etc.). Consequently, the ML technique fields are intentionally empty, and main_findings summarize the statistical associations rather than ML model performance."
+  }
+}
