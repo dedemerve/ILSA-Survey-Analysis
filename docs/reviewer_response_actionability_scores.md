@@ -5,9 +5,7 @@ rescoring with `score_studies_v2.py`: **219 unique studies** in
 `ilsa_survey_articles/json/` (not 222 — three files under `json_test/`
 duplicate names already present in `json/`).
 
-## Corrected Results paragraph (replace the n = 130 text)
-
-## Final LaTeX-ready paragraph
+## Final LaTeX-ready paragraph (replace the n = 130 text)
 
 ```latex
 Across the corpus, the mean actionability score was $3.71$
