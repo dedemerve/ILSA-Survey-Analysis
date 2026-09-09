@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "file_name": "209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction.pdf",
+    "title": "Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/info17040377",
+    "venue": "Information",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the PISA 2022 optional teacher questionnaire for Morocco, with teachers sampled from the same 178 schools as the student survey and with up to 25 teachers per school. The analytic file contains 2998 complete teacher records and 254 predictor variables after excluding satisfaction outcomes and school identifiers/replication weights. Although the PISA teacher file provides final teacher weights (W_FTCHRWT*) and multiple replication weights (W_FTCHRWT77–W_FTCHRWT80), the authors state that school identifiers and replication weights were excluded from the final predictor set and do not report applying complex survey weights in the ML training/evaluation. Because the models are standard supervised ML classifiers (e.g., XGBoost, random forest, SVM, ANN) that do not natively incorporate PISA complex-survey weights, the analysis appears effectively unweighted; this may affect generalisability and uncertainty quantification under clustered sampling. Preprocessing included replacing PISA missing-value codes with NaN, dropping features with ≥300 missing entries, and applying mode imputation to remaining missing values."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "mean_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are derived satisfaction indices (SATJOB and SATTEACH) recoded into three classes using explicit thresholds on standardized IRT-based scores, rather than using PV-based achievement outcomes. Missing data handling is reported: missing-value codes were converted to NaN, high-missing features were removed, and remaining missing entries were imputed using mode (SimpleImputer). Therefore, PV handling is not part of the analysis pipeline, while missing-data strategy is documented.",
+    "sample_details": {
+      "total_students": 2998,
+      "countries": [
+        {
+          "country_code": "MAR",
+          "n_students": 2998
+        }
+      ],
+      "sample_filtering_criteria": "Used the PISA 2022 Morocco teacher questionnaire optional module for lower-secondary (modal grade for 15-year-olds), yielding 2998 complete teacher records. Preprocessing replaced PISA missing-value codes (e.g., 9, 99, 95, 97, 98, 998, 999, 9999, 99,999) with NaN; features with 300 or more missing entries (≈10% of 2998) were excluded. Remaining missing values were imputed using mode (SimpleImputer). For modelling, satisfaction outcome variables (SATJOB, SATTEACH) and school identifiers/replication weights were removed from the predictor set, leaving 254 predictor variables."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Logistic Regression",
+        "k-NN",
+        "Naive Bayes",
+        "SVM",
+        "Decision Tree",
+        "Random Forest",
+        "XGBoost",
+        "AdaBoost",
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "TCWKLOAD",
+        "variable_name": "Weekly workload index",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC215Q01JA",
+        "variable_name": "Hours worked last week",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC253Q07JA",
+        "variable_name": "Leadership makes work easier",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "leadership_trust",
+        "variable_name": "Leadership trust",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "support",
+        "variable_name": "support",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "TC241Q01JA",
+        "variable_name": "Leadership reliability for support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC260Q05JA",
+        "variable_name": "Work feels meaningless",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "cheerful",
+        "variable_name": "Cheerful",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "in_good_spirits",
+        "variable_name": "in good spirits",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "TC251Q04JA",
+        "variable_name": "Likelihood to leave teaching",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC250Q01JA",
+        "variable_name": "Considered giving up teaching",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC198Q08HA",
+        "variable_name": "Teaching valued in society",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "TC249Q01JA",
+        "variable_name": "Years of teaching experience",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC045Q02NA",
+        "variable_name": "Pedagogical competence",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC045Q09NB",
+        "variable_name": "Preparedness for special needs",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC256Q04JA",
+        "variable_name": "Exchanging materials with colleagues",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC002Q01NA",
+        "variable_name": "Employment/contract status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "STTMG7",
+        "variable_name": "Teacher gender",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Teacher Questionnaire (Morocco, lower-secondary) — SATJOB",
+        "target_variable": "SATJOB_class (low/medium/high job satisfaction)",
+        "top_predictors": [
+          "TCWKLOAD",
+          "TC253Q07JA",
+          "TC241Q01JA",
+          "TC260Q05JA",
+          "TC238Q01JA"
+        ],
+        "performance_metrics": "Best model: XGBoost — Accuracy: 0.61, Macro F1: 0.61, Precision: 0.62, Recall: 0.61 (AUC: 0.63/0.60/0.61 for Low/Med/High). Random Forest: Accuracy 0.59, Macro F1 0.59. Logistic Regression: Accuracy 0.59. AdaBoost: Accuracy 0.59. ANN: Accuracy 0.56. SVM: Accuracy 0.36 (Macro F1 0.22).",
+        "standardized_conclusion": "Using PISA 2022 Teacher Questionnaire data for Morocco (lower-secondary) and leveraging workload (TCWKLOAD), school leadership support (TC253Q07JA, TC241Q01JA), and psychological perceptions (TC260Q05JA, TC238Q01JA) to predict SATJOB_class, the study found that XGBoost achieved the highest multiclass performance (Accuracy ≈ 0.61; Macro F1 ≈ 0.61). This indicates that combining workload-management and leadership-support interventions with attention to teachers’ perceived meaningfulness and emotional well-being may improve job satisfaction classification in Morocco, though the results are correlational and not causal due to the cross-sectional design and the use of predictive feature importance/SHAP rather than causal identification."
+      },
+      {
+        "dataset_used": "PISA 2022 Teacher Questionnaire (Morocco, lower-secondary) — SATTEACH",
+        "target_variable": "SATTEACH_class (low/medium/high satisfaction with teaching profession)",
+        "top_predictors": [
+          "TC251Q04JA",
+          "TCWKLOAD",
+          "TC253Q07JA",
+          "TC241Q01JA",
+          "TC198Q08HA"
+        ],
+        "performance_metrics": "Best model: Random Forest — Accuracy: 0.59, Macro F1: 0.59, Precision: 0.59, Recall: 0.59 (AUC: 0.61/0.58/0.59 for Low/Med/High). XGBoost: Accuracy 0.58 (Macro F1 0.58). ANN: Accuracy 0.57. AdaBoost: Accuracy 0.56. Logistic Regression: Accuracy 0.55. Chance level in three classes ≈ 0.33.",
+        "standardized_conclusion": "Using PISA 2022 Teacher Questionnaire data for Morocco (lower-secondary) and leveraging retention-related intentions (TC251Q04JA), workload (TCWKLOAD), school leadership support (TC253Q07JA, TC241Q01JA), and perceived societal valuation (TC198Q08HA) to predict SATTEACH_class, the study found that Random Forest achieved the highest performance (Accuracy ≈ 0.59; Macro F1 ≈ 0.59). This indicates that policy efforts targeting workload conditions and strengthening trustworthy, supportive school leadership—alongside recognition of teaching’s societal value—may help identify teachers at risk of low satisfaction, though causality cannot be inferred from cross-sectional predictive modelling."
+      }
+    ],
+    "outcome_summary": "The study applies supervised multiclass ML to the PISA 2022 optional teacher questionnaire in Morocco, using 2998 lower-secondary teachers and 254 cleaned predictor variables. Two standardized satisfaction indices (SATJOB and SATTEACH) were recoded into three balanced classes (low < −0.5, medium −0.5 to 0.5, high > 0.5) and modelled with nine classifiers using identical 80/20 stratified train–test splits and hyperparameter tuning. For SATJOB_class, XGBoost performed best with Accuracy 0.61 and Macro F1 0.61; for SATTEACH_class, Random Forest led with Accuracy 0.59 and Macro F1 0.59, both substantially above chance (~0.33). Feature importance (tree-based gain and permutation) and SHAP were used to identify workload, leadership support, and psychological perceptions/retention intentions as key predictors. Limitations include moderate predictive accuracy, cross-sectional self-report data (correlational, not causal), and an apparent lack of complex-survey weight incorporation in ML training/evaluation.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}
