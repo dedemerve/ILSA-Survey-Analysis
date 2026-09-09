@@ -1,0 +1,413 @@
+{
+  "metadata": {
+    "file_name": "163. Jerrim (2024). Has Peak PISA passed? An investigation of interest in International Large-Scale Assessments across countries and over time.pdf",
+    "title": "Has Peak PISA passed? An investigation of interest in International Large-Scale Assessments across countries and over time",
+    "authors": [
+      "John Jerrim"
+    ],
+    "year": 2024,
+    "doi": "10.1177/14749041231151793",
+    "venue": "European Educational Research Journal",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This study does not use ILSA student microdata (e.g., PISA/TIMSS/PIRLS sampling frames) and therefore does not apply ILSA sampling or replicate weights. The analysis is based on Google Trends topic popularity scores (0–100) extracted via Pytrends, which are already normalized by Google within each query (country/time horizon/topic). Because the outcome is an external attention proxy rather than an ILSA achievement score, there is no plausible weight variable (e.g., W_FSTUWT/TOTWGT) to apply. The main data preparation step is defining consistent query parameters (education category, topic codes for PISA/TIMSS/PIRLS, and time windows such as 2006–2020 or narrower release windows) and restricting comparisons to within-ILSA scales where Google’s normalization permits interpretation."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible Values are not applicable because the dependent variable is Google Trends search popularity (an attention proxy) rather than cognitive achievement scores from ILSA instruments that are typically scaled using PVs. The paper also does not describe any missing-data imputation or deletion strategy because it is not conducting student-level survey estimation; instead it uses Google’s aggregated topic popularity outputs for specified query windows.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "URY",
+          "n_students": null
+        },
+        {
+          "country_code": "CRI",
+          "n_students": null
+        },
+        {
+          "country_code": "GRC",
+          "n_students": null
+        },
+        {
+          "country_code": "PER",
+          "n_students": null
+        },
+        {
+          "country_code": "DOM",
+          "n_students": null
+        },
+        {
+          "country_code": "VEN",
+          "n_students": null
+        },
+        {
+          "country_code": "ECU",
+          "n_students": null
+        },
+        {
+          "country_code": "PAN",
+          "n_students": null
+        },
+        {
+          "country_code": "BRA",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "MEX",
+          "n_students": null
+        },
+        {
+          "country_code": "ARG",
+          "n_students": null
+        },
+        {
+          "country_code": "THA",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "IND",
+          "n_students": null
+        },
+        {
+          "country_code": "CHE",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "COL",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "POL",
+          "n_students": null
+        },
+        {
+          "country_code": "UKR",
+          "n_students": null
+        },
+        {
+          "country_code": "SRB",
+          "n_students": null
+        },
+        {
+          "country_code": "HRV",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "CHN",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "DEU",
+          "n_students": null
+        },
+        {
+          "country_code": "AUT",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "RUS",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "CZE",
+          "n_students": null
+        },
+        {
+          "country_code": "MLT",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "UZB",
+          "n_students": null
+        },
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "SVK",
+          "n_students": null
+        },
+        {
+          "country_code": "IDN",
+          "n_students": null
+        },
+        {
+          "country_code": "ISR",
+          "n_students": null
+        },
+        {
+          "country_code": "PAK",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "SVN",
+          "n_students": null
+        },
+        {
+          "country_code": "MYS",
+          "n_students": null
+        },
+        {
+          "country_code": "PHL",
+          "n_students": null
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": null
+        },
+        {
+          "country_code": "MAR",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        },
+        {
+          "country_code": "SAU",
+          "n_students": null
+        },
+        {
+          "country_code": "BOL",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "OMN",
+          "n_students": null
+        },
+        {
+          "country_code": "MCO",
+          "n_students": null
+        },
+        {
+          "country_code": "QAT",
+          "n_students": null
+        },
+        {
+          "country_code": "JOR",
+          "n_students": null
+        },
+        {
+          "country_code": "ARM",
+          "n_students": null
+        },
+        {
+          "country_code": "CYP",
+          "n_students": null
+        },
+        {
+          "country_code": "LBN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUN",
+          "n_students": null
+        },
+        {
+          "country_code": "GEO",
+          "n_students": null
+        },
+        {
+          "country_code": "AZE",
+          "n_students": null
+        },
+        {
+          "country_code": "KWT",
+          "n_students": null
+        },
+        {
+          "country_code": "BHR",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "LUX",
+          "n_students": null
+        },
+        {
+          "country_code": "ISL",
+          "n_students": null
+        },
+        {
+          "country_code": "ECU",
+          "n_students": null
+        },
+        {
+          "country_code": "IDN",
+          "n_students": null
+        },
+        {
+          "country_code": "EGY",
+          "n_students": null
+        },
+        {
+          "country_code": "IRN",
+          "n_students": null
+        },
+        {
+          "country_code": "NGA",
+          "n_students": null
+        },
+        {
+          "country_code": "GHA",
+          "n_students": null
+        },
+        {
+          "country_code": "BGD",
+          "n_students": null
+        },
+        {
+          "country_code": "UKR",
+          "n_students": null
+        },
+        {
+          "country_code": "UZB",
+          "n_students": null
+        },
+        {
+          "country_code": "KWT",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The study uses Google Trends topic popularity scores for PISA, TIMSS, and PIRLS rather than student-level ILSA microdata. Analytic samples are defined by (i) query time windows (e.g., narrow release windows around 2015 TIMSS vs 2015 PISA; 2011 TIMSS vs 2011 PIRLS; and broader windows from January 2006 to December 2020 for cross-country comparisons), (ii) Google’s education category filter for cross-country ranking (2006–2018), and (iii) inclusion of countries with non-zero Google Trends scores for specific analyses (e.g., Spearman correlations restricted to countries with non-zero scores). For country-by-country trend plots, the paper focuses on OECD countries in the main text and provides non-OECD analogues in an appendix; it further restricts detailed discussion to six large OECD countries selected for robustness due to larger populations (and thus less noisy search volumes)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2015 vs PISA 2015",
+        "target_variable": "Primary study outcome (heuristic migration)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using TIMSS 2015 vs PISA 2015 the study leveraged the reported predictors to predict Primary study outcome (heuristic migration), finding that This paper does not estimate effects on student achievement; instead it quantifies public attention to three major ILSAs (PISA, TIMSS, PIRLS) using Google Trends topic popularity scores (0–100) extracted with the Python Pytrends package. It compares attention (a) globally during narrow release windows when results were released close together (e.g., TIMSS 2015 vs PISA 2015; TIMSS 2011 vs PIRLS 2011), (b) across countries over broader periods (e.g., January 2006–December 2018/2020), and (c) over time from 2006–2022, including country-specific trend plots for OECD members. The main quantitative results show that PISA receives substantially more attention than TIMSS and PIRLS (globally, about 10-to-1 vs TIMSS for the 2015 release comparison; and on average across countries, 84% of ILSA-related searches are for PISA, 12% for TIMSS, and 4% for PIRLS). It also finds that global interest peaks around the PISA 2012 release and declines thereafter, with cross-country heterogeneity (e.g., increases in Sweden and Turkey offset declines in Germany and Japan). Limitations include that Google Trends measures relative search interest, not who searches or what stakeholders access, and that Google’s market share varies across countries (notably lower in China). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This paper does not estimate effects on student achievement; instead it quantifies public attention to three major ILSAs (PISA, TIMSS, PIRLS) using Google Trends topic popularity scores (0–100) extracted with the Python Pytrends package. It compares attention (a) globally during narrow release windows when results were released close together (e.g., TIMSS 2015 vs PISA 2015; TIMSS 2011 vs PIRLS 2011), (b) across countries over broader periods (e.g., January 2006–December 2018/2020), and (c) over time from 2006–2022, including country-specific trend plots for OECD members. The main quantitative results show that PISA receives substantially more attention than TIMSS and PIRLS (globally, about 10-to-1 vs TIMSS for the 2015 release comparison; and on average across countries, 84% of ILSA-related searches are for PISA, 12% for TIMSS, and 4% for PIRLS). It also finds that global interest peaks around the PISA 2012 release and declines thereafter, with cross-country heterogeneity (e.g., increases in Sweden and Turkey offset declines in Germany and Japan). Limitations include that Google Trends measures relative search interest, not who searches or what stakeholders access, and that Google’s market share varies across countries (notably lower in China).",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is an attention-measurement study using aggregated Google Trends data rather than an empirical ILSA microdata analysis with student-level outcomes. Consequently, there is no ML prediction target, no survey sampling design, no plausible-values framework, and no student-level sample size to extract; the paper reports descriptive comparisons and correlations of attention proxies across countries and time."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "file_name": "178. Bernardo & Mante-Estacio (2023). Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data.pdf",
+    "title": "Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data",
+    "authors": null,
+    "year": 2023,
+    "doi": "10.1057/s41599-023-01886-6",
+    "venue": "Humanities and Social Sciences Communications",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the Philippines national sample from PISA 2018 (15-year-olds) and reports descriptive statistics “using sampling weights,” indicating complex survey weighting was applied in at least some analyses. The analytic sample is restricted to students with complete data on the main variables (metacognitive strategy usefulness items) and the control variables (sex, ESCS, number of books at home), yielding 6591 students out of the full 7233. For reading outcomes, the authors use PISA plausible values (PV1) for overall reading proficiency and for three cognitive process subscales, treating these as the dependent variables in hierarchical regression models. The manuscript does not report the specific weight variable name or replicate-weight method, so replicate-weight-based inference cannot be confirmed from the provided text."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 6591,
+      "countries": [
+        {
+          "country_code": "PHL",
+          "n_students": 6591
+        }
+      ],
+      "sample_filtering_criteria": "Used the Philippines PISA 2018 nationally representative sample of 15-year-olds (complete nationally representative sample: 7233). The analysis was restricted to participants with complete data on all main variables (11 metacognitive reading strategy usefulness items) and control variables (sex, ESCS, number of books at home), resulting in a final analytic sample of 6591 students."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "sex",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "books_at_home",
+        "variable_name": "Number of books at home",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (Philippines, 15-year-olds) — Overall reading proficiency (PV1)",
+        "target_variable": "Overall reading proficiency (Plausible Value 1)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Number of books at home",
+          "Gender",
+          "Metacognitive reading strategy usefulness (selected items)"
+        ],
+        "performance_metrics": "Hierarchical regression: Model R2 = 0.40 (final); baseline R2 = 0.22; additional explained variance by adding 11 strategies: ΔR2 = 0.18, ΔF = 181.28***. Strategy-level standardized coefficients (β) reported for each of the 11 items; overall model F(14, 6576) = 292.50*** (from reported hierarchical regression summary).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Filipino 15-year-olds (PV1 for overall reading proficiency), the study leveraged Gender, ESCS, number of books at home, and perceived usefulness of 11 metacognitive reading strategies to predict overall reading proficiency, finding that adding the 11 strategies explained an additional 18% of the variance (ΔR2 = 0.18) beyond the controls. This indicates that metacognitive strategy awareness is meaningfully associated with reading achievement in English as a second language, suggesting that reading instruction and assessment alignment should explicitly teach and model effective strategies while also addressing students’ miscalibrated perceptions of strategy usefulness (e.g., some low-level or ineffective strategies were rated as useful yet were negatively associated with proficiency)."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (Philippines, 15-year-olds) — Locate information (PV1)",
+        "target_variable": "Locate information subscale (Plausible Value 1)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Number of books at home",
+          "Gender",
+          "Metacognitive reading strategy usefulness (selected items)"
+        ],
+        "performance_metrics": "Final hierarchical regression coefficients reported: ESCS β = 0.26***; books at home β = 0.09***; gender β = −0.09***. Adding 11 strategies increased explained variance: ΔR2 = 0.16, F(11, 6576) = 149.77, p < 0.001.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Filipino 15-year-olds (PV1 for the locate information subscale), the study leveraged Gender, ESCS, number of books at home, and perceived usefulness of 11 metacognitive reading strategies to predict locate information performance, finding that adding the strategies increased explained variance by ΔR2 = 0.16. This indicates that strategy awareness is particularly linked to more basic information-locating processes, implying that early reading instruction in English should prioritize strategy instruction that supports locating and selecting relevant text evidence."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (Philippines, 15-year-olds) — Understand (PV1)",
+        "target_variable": "Understanding and summarizing subscale (Plausible Value 1)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Number of books at home",
+          "Gender",
+          "Metacognitive reading strategy usefulness (selected items)"
+        ],
+        "performance_metrics": "Final hierarchical regression coefficients reported: ESCS β = 0.27***; books at home β = 0.08***; gender β = −0.09***. Adding 11 strategies increased explained variance: ΔR2 = 0.18, F(11, 6576) = 170.06, p < 0.001.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Filipino 15-year-olds (PV1 for the understand subscale), the study leveraged Gender, ESCS, number of books at home, and perceived usefulness of 11 metacognitive reading strategies to predict understanding and summarizing performance, finding that adding the strategies increased explained variance by ΔR2 = 0.18. This indicates that metacognitive strategy awareness is strongly associated with comprehension processes, supporting policy and practice that integrate strategy instruction with comprehension and summarization tasks rather than teaching strategies as isolated topics."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (Philippines, 15-year-olds) — Evaluate and reflect (PV1)",
+        "target_variable": "Reflection and evaluation subscale (Plausible Value 1)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Number of books at home",
+          "Gender",
+          "Metacognitive reading strategy usefulness (selected items)"
+        ],
+        "performance_metrics": "Final hierarchical regression coefficients reported: ESCS β = 0.26***; books at home β = 0.10***; gender β = −0.06***. Adding 11 strategies increased explained variance: ΔR2 = 0.14, F(11, 6576) = 123.75, p < 0.001.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Filipino 15-year-olds (PV1 for the evaluate and reflect subscale), the study leveraged Gender, ESCS, number of books at home, and perceived usefulness of 11 metacognitive reading strategies to predict reflection and evaluation performance, finding that adding the strategies increased explained variance by ΔR2 = 0.14. This indicates that strategy awareness is also related to higher-level evaluation processes, but with weaker associations than for basic processes, implying that instruction should explicitly scaffold evaluation/critique strategies and ensure students understand what “useful” means in the context of PISA-aligned reading tasks."
+      }
+    ],
+    "outcome_summary": "The study analyzes the Philippines’ PISA 2018 reading data for 15-year-olds (analytic sample N=6591) to examine how perceived usefulness of 11 metacognitive reading strategies relates to reading proficiency in English as a second language. Reading proficiency is operationalized using PISA plausible values, specifically PV1 for overall reading and for three cognitive process subscales (locate information, understand, and evaluate/reflect). Using hierarchical regression with controls for gender, ESCS, and number of books at home, the authors report that adding the 11 strategy usefulness items explains an additional 18% of variance in overall reading proficiency (final R2=0.40; ΔR2=0.18). For subscales, the incremental variance is ΔR2=0.16 (locate information), ΔR2=0.18 (understand), and ΔR2=0.14 (evaluate/reflect), all with p<0.001. Limitations include reliance on perceived usefulness (which may reflect teacher/classmate messaging rather than actual strategy use) and the use of single PVs, so results should be interpreted as associations rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

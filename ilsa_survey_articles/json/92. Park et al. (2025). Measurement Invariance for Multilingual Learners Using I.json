@@ -15,14 +15,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 item responses and item-level response times for a U.S. sample of 15-year-old students, with an analytic split into multilingual learners (MLs) versus non-MLs based on home language. The authors describe the measurement-invariance workflow using multigroup IRT (2PL for dichotomous items and GPCM for polytomous items), DIF detection via RMSD thresholds, and response-time invariance via LOWESS and the Guo & Ercikan differential response time (DRT) test. The manuscript does not report applying PISA sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight methods (e.g., BRR/jackknife), and the analysis is conducted with IRT/WLE and DIF/DRT procedures rather than ML models that would typically require explicit weight handling. Therefore, weighting is treated as not applied/unspecified in the reported methodology."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for the United States and restricts the analytic sample to 15-year-old students with available item-level response data across reading, mathematics, and science. The authors further restrict the item set to those available in the PISA database for scored responses (511 total items) and response-time variables (423 items), and they classify students into ML vs non-ML using the home-language questionnaire item. The paper does not report applying PISA complex survey weights or replicate-weight procedures in the DIF and response-time invariance analyses; instead, it relies on IRT-based estimation (including WLE for latent ability) and model-based item-fit statistics. Because the manuscript does not specify weight variables (e.g., W_FSTUWT/TOTWGT) or replicate methods, readers should treat the results as conditional on the analyzed sample and consider re-running with official PISA weights if population-representative inference is required."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper does not use PISA plausible values (PVs) for achievement outcomes; instead, it estimates latent ability (theta) using weighted likelihood estimates (WLE) within a multigroup IRT framework and then evaluates measurement invariance (DIF) and response-time invariance (DRT). Because the dependent constructs are IRT-based latent traits and response-time comparisons rather than PV-based achievement scores, PV handling is not applicable. The manuscript also does not describe a missing-data strategy (e.g., complete-case rules or imputation), representing a reporting gap for how missing item responses/response times were treated prior to IRT estimation and DRT testing.",
+    "handling_not_reported_explanation": "The dependent variables are not PV-based achievement scores; the study focuses on measurement invariance using multigroup IRT item-fit statistics (RMSD/MD) and response-time functioning (LOWESS and DRT) between multilingual learners and non-MLs. As a result, plausible-value generation/combining is not part of the analysis pipeline. The manuscript also does not describe how missing item responses or missing response-time observations were handled when forming the 511 scored items and 423 response-time items, which is a reporting gap for transparency about the analytic sample construction.",
     "sample_details": {
       "total_students": 4838,
       "countries": [
@@ -31,7 +31,7 @@
           "n_students": 4838
         }
       ],
-      "sample_filtering_criteria": "Used the PISA 2018 U.S. student sample (15-year-olds) and classified students as MLs vs non-MLs using the questionnaire item 'What language do you speak at home most of the time' (home language = language of the test → non-ML; 'Other languages' → ML). The study analyzed all available items within reading, mathematics, and science domains generated from a design-based assessment (DBA), totaling 511 items for scored responses (366 reading, 70 mathematics, 115 science). For response-time analyses, it used all available item-level response-time data for 423 items (238 reading, 70 mathematics, 115 science), with response-time variables identified by names ending in 'TT'. No additional exclusion criteria (e.g., complete-case rules for missing responses/RTs) are explicitly stated."
+      "sample_filtering_criteria": "Used PISA 2018 data for the United States and analyzed 15-year-old students. Students were classified as multilingual learners (ML) vs non-ML based on the questionnaire item “What language do you speak at home most of the time,” where “language of the test” indicates non-ML and “Other languages” indicates ML. The study used all available items within reading, mathematics, and science generated from the PISA database (511 scored items total) and a subset with available item-level response times (423 items), with item types including computer-scored (multiple-choice and constructed responses) and human-coded constructed responses."
     },
     "ml_techniques": {
       "primary": null,
@@ -39,115 +39,77 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "home_language",
+        "variable_code": "home_language_ml_status",
         "variable_name": "Home language (ML vs non-ML)",
         "category": "demographic"
-      },
-      {
-        "variable_code": "gender",
-        "variable_name": "Gender",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "grade",
-        "variable_name": "Grade level",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "mother_birthplace_us",
-        "variable_name": "Mother born in U.S.",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "father_birthplace_us",
-        "variable_name": "Father born in U.S.",
-        "category": "socioeconomic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (U.S., 15-year-olds)",
-        "target_variable": "Differential item functioning (DIF) in scored responses",
+        "dataset_used": "PISA 2018 Reading (United States, 15-year-olds)",
+        "target_variable": "Differential item functioning (DIF) for scored responses (RMSD/MD)",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "DIF detected using multigroup IRT RMSD thresholding (RMSD > .12). In reading, 13.66% of items (50 items) showed DIF for MLs; 12.81% of computer-scored items (36/281) and 16.47% of human-coded items (14/85).",
-        "standardized_conclusion": "Using PISA 2018 Reading data for U.S. students, the study compared item functioning between home language groups (ML vs non-ML) to assess DIF in scored responses, finding that a larger share of reading items exhibited DIF for MLs (13.66% overall), indicating measurement non-comparability even after controlling for latent ability via multigroup IRT. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "DIF prevalence: 13.66% of overall items (50/366) for ML; 12.81% of computer-scored items (36/281) and 16.47% of human-coded items (14/85). DIF thresholding used RMSD = 0.12 for cognitive domains; MD indicated 50% of all items had negative MD for ML. Among DIF items, 22/50 (44%) had negative MD for ML.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged home language (ML vs non-ML) to evaluate differential item functioning for scored responses, finding that a non-trivial share of reading items showed DIF for ML students (13.66% overall; more DIF among computer-scored and human-coded items). This indicates that reading items in PISA 2018 are not fully measurement-equivalent across home-language groups, suggesting test developers and educators should review and potentially adapt construct-irrelevant linguistic demands in reading tasks for multilingual learners."
       },
       {
-        "dataset_used": "PISA 2018 Reading (U.S., 15-year-olds)",
-        "target_variable": "Latent ability differences (WLE theta) between ML and non-ML",
+        "dataset_used": "PISA 2018 Reading (United States, 15-year-olds)",
+        "target_variable": "Latent ability differences after releasing DIF constraints (WLE-based θ)",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "After releasing DIF-identified item parameter constraints, non-MLs had higher latent ability than MLs: t(4,778) = 6.51, p < .001, d = .26 (small effect).",
-        "standardized_conclusion": "Using PISA 2018 Reading data for U.S. students, the study leveraged multigroup IRT WLE latent ability estimates to compare ML and non-ML groups, finding that non-MLs had significantly higher reading ability than MLs (t(4,778)=6.51, d=0.26). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "WLE latent ability comparison: non-ML > ML in reading, t(4,778) = 6.51, p < .001, d = 0.26 (small effect).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged home language (ML vs non-ML) to compare WLE-based latent ability estimates after releasing DIF-identified item-parameter constraints, finding that non-ML students had significantly higher latent reading ability than ML students (d = 0.26). This indicates that even when DIF items are accounted for, multilingual learners still show lower estimated reading proficiency, implying that equity-oriented supports (e.g., language scaffolding and time/resources) may be needed alongside item fairness checks."
       },
       {
-        "dataset_used": "PISA 2018 Reading (U.S., 15-year-olds)",
-        "target_variable": "Differential response time (DRT) between ML and non-ML",
+        "dataset_used": "PISA 2018 Reading (United States, 15-year-olds)",
+        "target_variable": "Differential response time (DRT) functioning",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "DRT test (Guo & Ercikan) exceeded critical value 1.96 for 18 items (8%) in reading. DRT effect size range: (–8.36, 42.59). Positive DRT indicates MLs spent more time than non-MLs; overall MLs generally had slower response times when abilities were matched.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for U.S. students, the study compared response-time functioning between ML and non-ML groups using DRT, finding that 8% of reading items showed significant DRT and that MLs generally spent more time than non-MLs at matched ability levels. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "DRT critical exceedances: 18 items (8%) in reading exceeded the critical value of 1.96. DRT effect size range: (−8.36, 42.59). Positive DRT indicates MLs spent more time than non-MLs; overall direction was skewed against ML students.",
+        "standardized_conclusion": "Using PISA 2018 Reading data for the United States, the study leveraged home language (ML vs non-ML) to test differential response time functioning, finding that a subset of reading items showed significant DRT effects (8% exceeding 1.96) with effect sizes indicating ML students generally spent more time on items matched on ability. This indicates that time-on-task differences may reflect language-related processing demands, suggesting that providing additional time or language supports could improve fairness without necessarily changing the underlying construct."
       },
       {
-        "dataset_used": "PISA 2018 Mathematics (U.S., 15-year-olds)",
-        "target_variable": "Differential item functioning (DIF) in scored responses",
+        "dataset_used": "PISA 2018 Mathematics (United States, 15-year-olds)",
+        "target_variable": "Differential item functioning (DIF) for scored responses (RMSD/MD)",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "In mathematics, 7.14% of items (5 items) showed DIF for MLs; 5.77% of computer-scored items (3/52) and 11.11% of human-coded items (2/18).",
-        "standardized_conclusion": "Using PISA 2018 Mathematics data for U.S. students, the study compared item functioning between ML and non-ML groups to assess DIF in scored responses, finding that DIF was less prevalent in mathematics than in reading (7.14% of items overall), with DIF concentrated in the ML group. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "DIF prevalence: 7.14% of total items (5/70) for ML; 5.77% of computer-scored items (3/52) and 11.11% of human-coded response items (2/18). DIF thresholding used RMSD = 0.12 for cognitive domains; MD indicated 49% of all items had negative MD for ML. Among DIF items, 1/5 (20%) had negative MD for ML. Additional analysis (Latent ability differences after releasing DIF constraints (WLE-based θ)): WLE latent ability comparison: non-ML > ML in mathematics, t(2,594) = 4.19, p < .001, d = 0.23 (small effect). ANCOVA controlling for reading: group difference in math becomes non-significant after controlling for reading scores.",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for the United States, the study leveraged home language (ML vs non-ML) to evaluate differential item functioning for scored responses, finding that mathematics showed the lowest DIF proportion among the three domains (7.14% overall) and that DIF items were concentrated with higher RMSD values for ML students. This indicates that mathematics items are comparatively more measurement-equivalent than reading and science, but still contain a subset where multilingual learners experience different item characteristics, motivating targeted item review rather than wholesale test redesign."
       },
       {
-        "dataset_used": "PISA 2018 Mathematics (U.S., 15-year-olds)",
-        "target_variable": "Latent ability differences (WLE theta) between ML and non-ML",
+        "dataset_used": "PISA 2018 Mathematics (United States, 15-year-olds)",
+        "target_variable": "Differential response time (DRT) functioning",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "Non-MLs had higher latent ability than MLs: t(2,594) = 4.19, p < .001, d = .23 (small effect). After controlling for reading ability via ANCOVA, ML and non-ML differences in mathematics were no longer significant.",
-        "standardized_conclusion": "Using PISA 2018 Mathematics data for U.S. students, the study compared ML and non-ML groups using multigroup IRT WLE latent ability estimates, finding that non-MLs initially scored higher (t(2,594)=4.19, d=0.23) but that the group difference in mathematics disappeared after controlling for reading ability. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "DRT critical exceedances: 7 items (10%) in mathematics exceeded the critical value of 1.96. DRT effect size range: (−12.61, 42.68). Positive DRT values were most prevalent in mathematics (89% of items with positive DRT).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for the United States, the study leveraged home language (ML vs non-ML) to test differential response time functioning, finding that mathematics had a relatively high proportion of significant DRT items (10%) and that most positive DRT effects indicated ML students were slower than non-ML students at matched ability. This indicates that even where mathematics score differences may be explained by reading, response-time bias can still disadvantage multilingual learners, supporting time/resource accommodations and item-format review."
       },
       {
-        "dataset_used": "PISA 2018 Mathematics (U.S., 15-year-olds)",
-        "target_variable": "Differential response time (DRT) between ML and non-ML",
+        "dataset_used": "PISA 2018 Science (United States, 15-year-olds)",
+        "target_variable": "Differential item functioning (DIF) for scored responses (RMSD/MD)",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "DRT test exceeded critical value 1.96 for 7 items (10%) in mathematics. DRT effect size range: (–12.61, 42.68). Positive DRT values were most common in mathematics (89%), indicating MLs were predominantly slower.",
-        "standardized_conclusion": "Using PISA 2018 Mathematics data for U.S. students, the study compared response-time functioning between ML and non-ML groups using DRT, finding that 10% of mathematics items showed significant DRT and that DRT effects were predominantly positive (MLs slower). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "DIF prevalence: 11% of items (13/115) for ML; 13.25% of computer-scored items (11/83) and 6.25% of human-coded response items (2/32). DIF thresholding used RMSD = 0.12 for cognitive domains; MD indicated 49% of all items had negative MD for ML. Among DIF items, 9/13 (69%) had negative MD for ML. Additional analysis (Latent ability differences after releasing DIF constraints (WLE-based θ)): WLE latent ability comparison: non-ML > ML in science, t(2,588) = 7.18, p < .001, d = 0.39 (small effect). ANCOVA controlling for reading: science group difference remains significant, F(1, 2,578) = 18.53, p < .001.",
+        "standardized_conclusion": "Using PISA 2018 Science data for the United States, the study leveraged home language (ML vs non-ML) to evaluate differential item functioning for scored responses, finding that science had a moderate DIF proportion (11%) with DIF items more often showing negative MD for ML (69%), consistent with ML items being comparatively easier for ML students. This indicates that science assessment validity for multilingual learners may be affected by item-level linguistic/cultural features, supporting item-level diagnostics and potential language-sensitive revisions."
       },
       {
-        "dataset_used": "PISA 2018 Science (U.S., 15-year-olds)",
-        "target_variable": "Differential item functioning (DIF) in scored responses",
+        "dataset_used": "PISA 2018 Science (United States, 15-year-olds)",
+        "target_variable": "Differential response time (DRT) functioning",
         "top_predictors": [
           "Home language (ML vs non-ML)"
         ],
-        "performance_metrics": "In science, 11% of items (13 items) showed DIF for MLs; 13.25% of computer-scored items (11/83) and 6.25% of human-coded items (2/32).",
-        "standardized_conclusion": "Using PISA 2018 Science data for U.S. students, the study compared item functioning between ML and non-ML groups to assess DIF in scored responses, finding that 11% of science items exhibited DIF for MLs, again suggesting group-specific item behavior. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
-      },
-      {
-        "dataset_used": "PISA 2018 Science (U.S., 15-year-olds)",
-        "target_variable": "Latent ability differences (WLE theta) between ML and non-ML",
-        "top_predictors": [
-          "Home language (ML vs non-ML)"
-        ],
-        "performance_metrics": "Non-MLs had higher latent ability than MLs: t(2,588) = 7.18, p < .001, d = .39 (small effect). After controlling for reading ability via ANCOVA, the ML–non-ML difference in science remained significant (F(1, 2,578) = 18.53, p < .001).",
-        "standardized_conclusion": "Using PISA 2018 Science data for U.S. students, the study compared ML and non-ML groups using multigroup IRT WLE latent ability estimates, finding that non-MLs had higher science ability (t(2,588)=7.18, d=0.39) and that the disparity persisted even after controlling for reading ability. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
-      },
-      {
-        "dataset_used": "PISA 2018 Science (U.S., 15-year-olds)",
-        "target_variable": "Differential response time (DRT) between ML and non-ML",
-        "top_predictors": [
-          "Home language (ML vs non-ML)"
-        ],
-        "performance_metrics": "DRT test exceeded critical value 1.96 for 8 items (7%) in science. DRT effect size range: (–6.82, 41.52). Positive DRT values were most common in science (85%), indicating MLs were predominantly slower.",
-        "standardized_conclusion": "Using PISA 2018 Science data for U.S. students, the study compared response-time functioning between ML and non-ML groups using DRT, finding that 7% of science items showed significant DRT and that MLs generally spent more time than non-MLs at matched ability levels. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "DRT critical exceedances: 8 items (7%) in science exceeded the critical value of 1.96. DRT effect size range: (−6.82, 41.52). Positive DRT values were prevalent in science (85% of items with positive DRT).",
+        "standardized_conclusion": "Using PISA 2018 Science data for the United States, the study leveraged home language (ML vs non-ML) to test differential response time functioning, finding significant DRT effects for a subset of items (7% exceeding 1.96) with positive DRT effects indicating ML students generally spent more time than non-ML students at matched ability. This indicates that science assessment fairness for multilingual learners is also affected by processing-time demands, implying that assessment accommodations and language-sensitive item development may be necessary."
       }
     ],
-    "outcome_summary": "This study uses PISA 2018 U.S. data to examine assessment bias for multilingual learners (MLs) versus non-MLs using multigroup IRT DIF (RMSD thresholds) on scored responses and invariance of item response times via LOWESS and the Guo & Ercikan DRT test. Across reading, mathematics, and science, DIF was present for a minority of items (about 14% in reading, 7% in mathematics, and 11% in science), indicating that some items function differently for MLs even after accounting for latent ability. Latent ability estimates (WLE theta) showed non-MLs scoring higher in all three domains; however, the mathematics gap disappeared after controlling for reading ability, while the science gap remained significant. Response-time analyses consistently indicated that MLs spent more time than non-MLs when abilities were matched, with DRT significant for 8% (reading), 10% (math), and 7% (science) of items. The paper does not report a missing-data strategy and does not apply/describe PISA sampling weights, which may affect generalizability.",
+    "outcome_summary": "This study investigates assessment bias for multilingual learners in PISA 2018 within the United States by combining multigroup IRT DIF analysis for scored responses with response-time invariance testing. Using 4,838 students and 511 scored items (reading: 366; math: 70; science: 115) plus 423 items with response-time data, the authors detect DIF using RMSD thresholds (0.12 for cognitive domains) and estimate latent abilities using WLE after releasing DIF-identified item constraints. Non-ML students show higher latent ability than ML students in reading (d = 0.26), mathematics (d = 0.23), and science (d = 0.39), with math gaps disappearing after controlling for reading while science gaps remain significant (F(1, 2,578) = 18.53). Across domains, ML students generally spend more time than non-ML students at matched ability, with DRT significant for subsets of items (reading 8%, math 10%, science 7%). The paper does not report survey-weight usage or missing-data handling, and it uses measurement invariance diagnostics rather than predictive ML, so causal claims about language effects cannot be inferred.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": null
   }

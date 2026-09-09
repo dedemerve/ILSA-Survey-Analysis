@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "file_name": "177. Suárez‑Mesa & Gómez (2024). Does teachers’ motivation have an impact on students’ scientific literacy and motivation? An empirical study in Colombia with data from PISA 2015.pdf",
+    "title": "Does teachers’ motivation have an impact on students’ scientific literacy and motivation? An empirical study in Colombia with data from PISA 2015",
+    "authors": [
+      "Suárez‑Mesa",
+      "Gómez"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-023-00190-8",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata for Colombia, with students nested within schools, and applies a multilevel modeling framework. For the hierarchical models, the authors report that only the final school weights (W_SCHGRNRABWT) were applied at level two, following recommendations for two-level modeling with PISA. The manuscript does not clearly state whether student-level sampling weights were also applied; therefore, student-weight usage is not explicitly documented. Plausible values for science were handled by running analyses across the ten PVs and aggregating results, which is consistent with PISA scaling practice; no additional preprocessing exclusions beyond the multilevel/PV workflow are described."
+    },
+    "plausible_values_handling": "all_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper describes how plausible values (ten PVs for science) were analyzed and aggregated, but it does not report a specific missing-data strategy (e.g., listwise/pairwise deletion or imputation) for questionnaire or PV-related variables. Given PISA’s complex survey design and typical item nonresponse, this omission is a reporting gap that prevents assessing potential bias from missingness patterns.",
+    "sample_details": {
+      "total_students": 8095,
+      "countries": [
+        {
+          "country_code": "COL",
+          "n_students": 8095
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2015 Colombia student, teacher, and school responses (8095 students; 1314 science teachers; 313 schools). Teacher-level variables were aggregated to the school level and merged into the student file; scientific literacy was analyzed using the ten science plausible values for each student. No additional analytic exclusions (e.g., missing-variable rules) are explicitly described in the provided text."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GRADE",
+        "variable_name": "Grade (modal vs non-modal)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST114",
+        "variable_name": "Expected occupational status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST004Q01TA",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "REPEAT",
+        "variable_name": "Repeated grade",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "HEDRES",
+        "variable_name": "Home educational resources",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "INTBRSCI",
+        "variable_name": "Broad interest in science",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCIEEFF",
+        "variable_name": "Science self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "IBTEACH",
+        "variable_name": "Inquiry-based teaching",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TDTEACH",
+        "variable_name": "Directed science instruction",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TEACHSU",
+        "variable_name": "Teacher support in science",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "STUBEHA",
+        "variable_name": "climate hindrance",
+        "category": "school"
+      },
+      {
+        "variable_code": "TEACHBEHA",
+        "variable_name": "Teacher climate hindrance",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCHOOLTY",
+        "variable_name": "School type (public/private)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School enrollment size",
+        "category": "school"
+      },
+      {
+        "variable_code": "CLSIZE",
+        "variable_name": "Average class size",
+        "category": "school"
+      },
+      {
+        "variable_code": "ESCSSCHO",
+        "variable_name": "School ESCS",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "TEACHMOT",
+        "variable_name": "Teacher motivation (job satisfaction proxy)",
+        "category": "teacher"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Colombia Grade 15 Science (scientific literacy; 10 plausible values)",
+        "target_variable": "Students’ scientific literacy (PVSCIE)",
+        "top_predictors": [
+          "Directed science instruction (TDTEACH)",
+          "School ESCS (ESCSSCHO)",
+          "Teacher motivation (TEACHMOT)",
+          "Inquiry-based teaching (IBTEACH)",
+          "Science self-efficacy (SCIEEFF)"
+        ],
+        "performance_metrics": "Two-level hierarchical linear model (HLM). Teacher motivation effect: β = -4.37, p = 0.372. Directed instruction effect: β = 56.35, p < 0.001. Inquiry-based teaching effect: β = -16.67, p = 0.092. School ESCS effect: β = 21.18, p < 0.001. Teacher support effect: β = -23.66, p = 0.036. Model variance decomposition (unconditional): 28.1% between schools, 71.9% within schools.",
+        "standardized_conclusion": "Using PISA 2015 Colombia Grade 15 Science the study leveraged directed science instruction (TDTEACH), school ESCS (ESCSSCHO), inquiry-based teaching (IBTEACH), science self-efficacy (SCIEEFF), and teacher motivation (TEACHMOT) to model students’ scientific literacy (PVSCIE), finding no significant relationship between teacher motivation and scientific literacy (β = -4.37, p = 0.372). This indicates that, at least with the job-satisfaction proxy available in PISA 2015, policy efforts solely targeting teacher motivation may not translate into higher science achievement, while instructional practice and school socioeconomic context show stronger associations."
+      },
+      {
+        "dataset_used": "PISA 2015 Colombia Grade 15 Science (intrinsic motivation index)",
+        "target_variable": "Students’ intrinsic motivation (STU_MOTI)",
+        "top_predictors": [
+          "Inquiry-based teaching (IBTEACH)",
+          "School ESCS (ESCSSCHO)",
+          "Teacher motivation (TEACHMOT)",
+          "Broad interest in science (INTBRSCI)",
+          "Science self-efficacy (SCIEEFF)"
+        ],
+        "performance_metrics": "Two-level hierarchical linear model (HLM). Teacher motivation effect: β = -0.102, p = 0.462. Inquiry-based teaching effect: β = 0.631, p = 0.020. School ESCS effect: β = -0.321, p = 0.009. Student broad interest effect: β = 0.632, p < 0.001. Science self-efficacy effect: β = 0.122, p = 0.010. Unconditional model: school-level variance (ICC) ≈ 2%.",
+        "standardized_conclusion": "Using PISA 2015 Colombia Grade 15 Science the study leveraged inquiry-based teaching (IBTEACH), school ESCS (ESCSSCHO), teacher motivation (TEACHMOT), broad interest in science (INTBRSCI), and science self-efficacy (SCIEEFF) to model students’ intrinsic motivation (STU_MOTI), finding that teacher motivation was not significantly related to students’ motivation (β = -0.102, p = 0.462) while inquiry-based teaching was a positive predictor (β = 0.631, p = 0.020). This indicates that instructional approaches that support student engagement may be more actionable for boosting science motivation than teacher-motivation proxies, though causal claims remain limited due to the cross-sectional design."
+      }
+    ],
+    "outcome_summary": "This study analyzes PISA 2015 microdata for Colombia (8095 students, 313 schools, 1314 science teachers) to examine whether teachers’ motivation affects students’ scientific literacy and intrinsic motivation, framed by Self-Determination Theory. Using two-level hierarchical linear modeling, the authors regressed students’ science plausible-value achievement (ten PVs aggregated across PVs) and an intrinsic motivation index on student, teacher, and school variables, with teacher variables aggregated to the school level. For scientific literacy, teacher motivation showed no significant association (β = -4.37, p = 0.372), while directed science instruction (β = 56.35, p < 0.001) and school ESCS (β = 21.18, p < 0.001) were significant predictors. For intrinsic motivation, teacher motivation was again non-significant (β = -0.102, p = 0.462), but inquiry-based teaching was positively associated (β = 0.631, p = 0.020). Limitations include cross-sectional inference (no causal identification) and the use of job satisfaction as a proxy for teacher intrinsic motivation, plus missing-data handling not being reported.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The paper uses multilevel hierarchical linear modeling (HLM) rather than machine-learning predictive algorithms; therefore, the ML technique fields are intentionally empty. Because the extraction is not an ML-prediction study, plausible values are handled for the achievement outcome, but no ML model selection/accuracy metrics apply."
+  }
+}

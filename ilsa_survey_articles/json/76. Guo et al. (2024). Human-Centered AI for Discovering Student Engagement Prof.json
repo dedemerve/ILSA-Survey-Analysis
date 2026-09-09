@@ -18,14 +18,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses NAEP Grade 8 Mathematics digital assessment data (2022 item block) and reports an analytic sample size after excluding students with irregular response time and abnormal completion on the selected item block (N=14,008). The manuscript does not mention applying NAEP sampling/survey weights or any replicate-weight methodology (e.g., BRR/jackknife) in the ML pipeline. Because the analysis is based on deep learning (autoencoder with LSTM) and supervised ensemble learning (random forest + SVC) for profile prediction, the authors do not describe any weight-aware estimation; thus weights are treated as not applied. No explicit weighting variable name (e.g., W_FSTUWT/TOTWGT) is provided, and the paper focuses on preprocessing, representation learning, clustering for human annotation, and active learning for scaling."
+      "weight_fields_interpretation": "The study uses NAEP Grade 8 Mathematics digital assessment process/log data for a single NAEP item block (2022 administration; 14 items; 30 minutes). The manuscript reports a final analytic sample size after excluding students with irregular response time and abnormal completion, but it does not describe the application of NAEP complex survey weights or any replicate-weight procedure. Because the paper focuses on ML-based profile discovery and active learning with deep learning (autoencoder + LSTM) and supervised ensemble classification (random forest + SVC), it does not report a weighting variable (e.g., W_FSTUWT/TOTWGT) or how weights were incorporated into model training or evaluation. As a result, readers should treat the reported profile proportions and model behavior as conditional on the analytic sample rather than explicitly population-representative estimates."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper does not report any plausible-value (PV) generation/combining strategy because the dependent variable is not a PV-based cognitive achievement score. Instead, the study creates engagement profiles from process/log-derived sequences and uses performance scores on a specific NAEP item block as part of the profiling/labeling context. The manuscript also does not describe a missing-data strategy (e.g., how incomplete log sequences or missing item responses were handled), representing a reporting gap for the preprocessing stage.",
+    "handling_not_reported_explanation": "The dependent variables in this study are engagement profile labels derived from process/log-derived features (navigation sequences, response-time categories, and derived test-level aggregates) rather than NAEP cognitive achievement scores with plausible values. The paper does not describe any missing-data strategy for questionnaire/background variables or for process-log features (e.g., how missing timestamps, tool-use logs, or incomplete sequences were handled beyond excluding irregular response time/abnormal completion). This is a reporting gap because process-log datasets commonly contain partial or missing events that can affect sequence modeling and clustering.",
     "sample_details": {
       "total_students": 14008,
       "countries": [
@@ -34,7 +34,7 @@
           "n_students": 14008
         }
       ],
-      "sample_filtering_criteria": "Used NAEP Grade 8 Mathematics digital assessment data (2022) for illustration, selecting one released item block containing 14 items with a 30-minute time limit. The analytic sample was restricted to students who completed the selected item block with regular response-time behavior; students with irregular response time and abnormal completion on the selected item block were removed. The final sample size after these exclusions is N=14,008."
+      "sample_filtering_criteria": "Used NAEP 2022 Grade 8 Mathematics digital assessment process/log data for one publicly released item block containing 14 items (30 minutes). Excluded students with irregular response time and abnormal completion on the selected item block; the remaining analytic sample size is N=14,008."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -45,20 +45,19 @@
         "t-SNE",
         "Random Forest",
         "SVM",
-        "Ensemble voting classifier (soft voting)",
-        "Active learning",
-        "Semi-supervised learning"
+        "Ensemble voting classifier",
+        "Active learning"
       ]
     },
     "confounders_identified": [
       {
         "variable_code": "total_score",
-        "variable_name": "Total block score",
+        "variable_name": "Total score (block)",
         "category": "prior_achievement"
       },
       {
-        "variable_code": "total_time",
-        "variable_name": "Total time on block",
+        "variable_code": "total_response_time",
+        "variable_name": "Total response time",
         "category": "process_data"
       },
       {
@@ -67,7 +66,7 @@
         "category": "process_data"
       },
       {
-        "variable_code": "time_category",
+        "variable_code": "item_response_time_category",
         "variable_name": "Item response time category",
         "category": "process_data"
       },
@@ -77,32 +76,27 @@
         "category": "process_data"
       },
       {
-        "variable_code": "item_score_sequence",
-        "variable_name": "Item score sequence",
+        "variable_code": "item_visits_per_item",
+        "variable_name": "Visits per item",
         "category": "process_data"
-      },
-      {
-        "variable_code": "race_group",
-        "variable_name": "Race/ethnicity group",
-        "category": "demographic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "NAEP 2022 Grade 8 Mathematics (released item block; 14 items)",
-        "target_variable": "Engagement profile label (10-profile classification)",
+        "dataset_used": "NAEP 2022 Grade 8 Mathematics (digital) — one released item block (14 items)",
+        "target_variable": "Engagement profile membership (10 preliminary profiles)",
         "top_predictors": [
-          "Total block score",
-          "Total time on block",
+          "Total score (block)",
+          "Total response time",
           "Total number of visits",
           "Item response time category",
           "Item navigation sequence"
         ],
-        "performance_metrics": "Not reported (the paper reports profile frequencies/proportions and qualitative descriptions; no accuracy/AUC/F1/RMSE metrics are provided for the Step-3 classifier).",
-        "standardized_conclusion": "Using NAEP 2022 Grade 8 Mathematics item-block the study leveraged total block score, total time on block, total number of visits, item response time category, and item navigation sequence to predict engagement profile membership across ten preliminary profiles, finding that the resulting profiles were differentiable and that about 60% of students fell into low/very-low-score profiles while about 40% fell into medium-or-higher-score profiles. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Not reported (profile frequencies reported; model accuracy/confidence thresholds described but no numeric accuracy metrics provided). Additional analysis (Engagement profile membership (fully labeled profiles after active learning)): Not reported (stopping rule based on inability to improve model accuracy; pseudo-label confidence threshold >0.75 used).",
+        "standardized_conclusion": "Using NAEP 2022 Grade 8 Mathematics digital item-block the study leveraged total score, total response time, total number of visits, item response-time categories, and item navigation sequences to create engagement profiles, finding ten differentiable profiles with more than half associated with low-performing students. This indicates that combining process/log-derived timing and navigation context with performance information can produce actionable, human-interpretable engagement typologies for low-achieving learners, though the paper does not report predictive accuracy metrics for the profile classifier."
       }
     ],
-    "outcome_summary": "The study proposes a human-centered AI (HAI) framework to create student engagement profiles by integrating NAEP Grade 8 Mathematics digital process/log data with response information from a single 2022 released item block (14 items). After excluding students with irregular response time and abnormal completion, the analytic sample comprised 14,008 students from the USA. In Step 2, an autoencoder with LSTM compresses sequential navigation/response-time information into a latent space, and K-means clustering supports human annotation of ten preliminary engagement profiles. In Step 3, an active learning semi-supervised loop trains an ensemble voting classifier combining a random forest and an SVC to assign profiles to unlabeled students, using pseudo-label confidence thresholds (e.g., >0.75). The paper reports profile proportions and qualitative descriptors but does not provide standard predictive performance metrics (e.g., accuracy/AUC), and it does not describe a missing-data handling strategy or PV-based achievement handling.",
+    "outcome_summary": "The study demonstrates a human-centered AI (HAI) framework using NAEP 2022 Grade 8 Mathematics digital process/log data from one released item block (14 items; 30 minutes). After excluding students with irregular response time and abnormal completion, the analytic sample contains 14,008 students from the USA. Step 1 created interpretable process features, including item response-time categories derived from item-specific rapid-responding thresholds and test-level aggregates (total score, total response time, total visits). Step 2 used an autoencoder with LSTM layers to compress sequential navigation information into an 8-dimensional latent space, then clustered students (K-means with 30 clusters) and had human experts label representative and extreme cases, yielding 10 engagement profiles with more than half linked to low-performing students. Step 3 scaled labeling via active learning with a soft-voting ensemble (random forest + SVC), using pseudo-label confidence thresholds (e.g., >0.75), but the paper does not report numeric predictive metrics or survey-weighted estimates, limiting claims about population representativeness and classifier accuracy.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

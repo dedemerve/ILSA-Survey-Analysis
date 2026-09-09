@@ -1,7 +1,7 @@
 {
   "metadata": {
     "file_name": "122. Schmitz & Sonnleitner (2025). Evaluating AI‑generated vs. human‑written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large‑scale assessment.pdf",
-    "title": "Evaluating AI‑generated vs. human‑written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large‑scale assessment",
+    "title": "Evaluating AI-generated vs. human-written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large-scale assessment",
     "authors": [
       "Ripoll Y. Schmitz",
       "Philipp Sonnleitner"
@@ -15,103 +15,50 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study used an online blinded review questionnaire administered via LimeSurvey to N=89 participants (after attrition from N=161). The paper does not describe any complex survey design, sampling frame, or application of student/sampling weights (e.g., W_FSTUWT/TOTWGT) and there is no mention of replicate-weight methods (BRR/jackknife). Because the analysis is based on human ratings of text passages (not a population-representative ILSA student sample), survey weighting is not applicable in the reported design. The only reported data preparation steps were randomization of text order, alternation of item order, and exclusion of non-completers; no additional weighting or replicate-weight variance estimation is described."
+      "weight_fields_interpretation": "The study used an online blinded review questionnaire (LimeSurvey) with a snowball-recruited sample of N=89 reviewers who evaluated a small set of six reading comprehension texts (four GPT-4 generated and two human-written). The manuscript does not report the use of complex survey sampling weights or any replicate-weight scheme; participants were not drawn via a probability sample of students or schools from ÉpStan. Because the analysis is based on human ratings and group comparisons (e.g., MANOVA/Tukey HSD) rather than ILSA achievement PV estimation, there is no PV-based weighting requirement. Consequently, no weight variable (e.g., W_FSTUWT/TOTWGT) is specified, and the results should be interpreted as evidence about perceived text quality rather than population-representative estimates."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "Plausible values (PVs) are not applicable because the dependent variables are human expert ratings of text quality dimensions (readability, correctness, coherence, engagement, adequacy) and a subjective discernibility judgment (human vs AI), not cognitive achievement scores generated with PVs as in PISA/TIMSS/PIRLS. The manuscript reports attrition (72/161 did not complete) but does not specify a missing-data handling method for item-level nonresponse within the completed questionnaires. Therefore, missing-data handling is not reported for the rating items.",
+    "handling_not_reported_explanation": "The study does not analyze ILSA-style cognitive achievement outcomes with Plausible Values; instead, it uses Likert-scale human judgments of text quality dimensions and a subjective discernibility judgment (human vs AI). Missing-data handling is not described for the questionnaire items; the only explicit attrition information is that 72 of 161 enrolled participants did not complete the survey, leaving N=89. This means the paper provides limited transparency on how partially missing item responses (if any) were treated within the completed cases.",
     "sample_details": {
       "total_students": 89,
       "countries": [
         {
-          "country_code": "LUX",
+          "country_code": "DEU",
           "n_students": null
         },
         {
-          "country_code": "DEU",
+          "country_code": "LUX",
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Study 2 recruited N=161 reviewers via snowball sampling and retained only those who completed the full online questionnaire, yielding a final analytic sample of N=89 (55.28% completion). Participants evaluated six reading comprehension texts (two human-written and four GPT-4 generated) presented in randomized order; the SME selected the final text passages without editing prior to evaluation. No additional country- or grade-based filtering of participants is described beyond the recruitment and the assumption that the sample could evaluate German reading comprehension in Luxembourgish primary education."
+      "sample_filtering_criteria": "Participants were recruited via snowball sampling and completed a three-week online blinded review. The analytic sample comprised only those who completed the questionnaire (N=89) after excluding non-completers (72 of 161). Reviewers evaluated six German reading comprehension texts (two human-written and four GPT-4 generated) presented in randomized order; the manuscript does not report additional exclusions based on demographics or language proficiency beyond the general assumption that the sample could evaluate German texts in the Luxembourgish primary context."
     },
     "ml_techniques": {
       "primary": null,
       "all_techniques": []
     },
-    "confounders_identified": [
-      {
-        "variable_code": "text_type",
-        "variable_name": "Text type (human vs AI)",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "prompt_design",
-        "variable_name": "Prompt design (zero/one-shot)",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "genre",
-        "variable_name": "Genre (narrative vs informative)",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "reviewer_expertise",
-        "variable_name": "Reviewer expertise (expert vs general)",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "gender",
-        "variable_name": "Gender",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "age",
-        "variable_name": "Age",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "nationality",
-        "variable_name": "Nationality",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "school_country",
-        "variable_name": "Schooling country",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "home_language",
-        "variable_name": "Language spoken at home",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "education_level",
-        "variable_name": "Highest education level",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "profession",
-        "variable_name": "Current profession",
-        "category": "student_behavior"
-      }
-    ],
+    "confounders_identified": [],
     "main_findings": [
       {
-        "dataset_used": "Study 2 (online blinded review), German Grade 5 reading comprehension texts (ÉpStan context)",
-        "target_variable": "Discernibility of authorship (human vs AI; % correct/definitely AI)",
-        "top_predictors": [
-          "Text type (human vs AI)",
-          "Prompt design (zero/one-shot)",
-          "Genre (narrative vs informative)"
-        ],
-        "performance_metrics": "No text type achieved >50% correct identification. Highest correct identification proportions: informative zero-shot 49.44% and narrative human-written 48.32%. Mean accuracy: narrative 45.67% vs informative 41.20%. Informative one-shot: only 31.46% correctly identified as AI; informative zero-shot: 49.44% correctly identified as AI. Narrative one-shot: 47.10% correctly identified as AI; narrative zero-shot: 41.57% correctly identified as AI.",
-        "standardized_conclusion": "Using Study 2 online blinded review the study leveraged text type, prompt design, and genre to predict authorship discernibility, finding that reviewers could not reliably distinguish human-written from GPT-4-generated texts (no category exceeded 50% correct), with informative zero-shot and narrative human-written texts showing the highest—but still limited—discernibility. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "dataset_used": "ÉpStan-aligned German Grade 5 reading comprehension texts (GPT-4 generation; human vs AI; narrative & informative genres)",
+        "target_variable": "Text quality ratings (readability, correctness, coherence, engagement, adequacy)",
+        "top_predictors": [],
+        "performance_metrics": "MANOVA (Pillai’s Trace) for narrative: V=0.169, F(10, 522)=4.82, p<0.001; MANOVA for informative: V=0.077, F(10, 522)=2.093, p=0.023. Narrative post-hoc: significant differences in readability, engagement, coherence, adequacy; correctness showed no significant differences. Informative post-hoc: significant differences in readability (human vs one-shot), AI one-shot vs zero-shot (readability, coherence, adequacy). Descriptives: all mean dimension scores >4 on 5-point Likert; Cronbach’s alpha per dimension ~0.71–0.89; ceiling effects reported.",
+        "standardized_conclusion": "Using ÉpStan-aligned German Grade 5 reading comprehension texts the study compared human-written versus GPT-4 texts under zero-shot and one-shot prompting and evaluated five human-rated quality dimensions, finding that overall text quality was similarly high and that prompt type mattered by genre (one-shot better for informative texts; human-written better for narratives). This indicates that generative AI can support reading-text development in large-scale assessment contexts, but prompt strategy and genre-specific oversight are necessary to preserve engagement and coherence."
+      },
+      {
+        "dataset_used": "ÉpStan-aligned German Grade 5 reading comprehension texts (blinded authorship discernibility; narrative & informative genres)",
+        "target_variable": "Authorship discernibility (human vs AI; correct identification rates)",
+        "top_predictors": [],
+        "performance_metrics": "No text type achieved >50% correct identification. Narrative: mean accuracy 45.67% (human-written higher correct identification: 48.32% for narrative human-written; AI discernibility lower for narrative one-shot and zero-shot). Informative: mean accuracy 41.20% (informative zero-shot highest correct identification 49.44%; informative one-shot correct identification 31.46%). Substantial undecided responses (~1/6 to 1/4) and misclassification rates reported; discernibility differed by genre and prompting.",
+        "standardized_conclusion": "Using ÉpStan-aligned German Grade 5 reading comprehension texts the study assessed whether reviewers could distinguish human-written from GPT-4-generated passages and found that reviewers could not reliably identify authorship, with no condition exceeding 50% correct and many undecided responses. This indicates that GPT-4 can emulate human-like reading passages sufficiently to challenge authorship detection, so assessment programs should rely on human-in-the-loop validation and provenance controls rather than on reviewer discernibility alone."
       }
     ],
-    "outcome_summary": "This mixed-methods study (focus group N=6 experts; blinded online review N=89) evaluated GPT-4-generated German Grade 5 reading comprehension texts in an ÉpStan-like context. Across five quality dimensions (readability, correctness, coherence, engagement, adequacy), all six texts were rated highly (ceiling effects; means mostly >4 on a 5-point Likert scale), and reviewers were generally unable to consistently identify authorship origins. For narrative texts, human-written passages outperformed AI in readability, engagement, coherence, and (just) adequacy, while correctness showed no significant differences. For informative texts, one-shot prompting produced higher readability, coherence, adequacy, and overall performance than zero-shot prompting, with correctness again remaining high. The study reports no ML predictive modeling; results are based on MANOVA/ANOVA and human judgments, so PVs and survey-weighted ILSA achievement modeling are not applicable.",
+    "outcome_summary": "This mixed-methods study evaluated GPT-4’s usefulness for generating German reading comprehension passages aligned with Luxembourg’s ÉpStan context, focusing on Grade 5 narrative and informative genres. In a qualitative focus group (N=6 SMEs), experts developed a Text Analysis Cognitive Model (TACM) and SWOT-informed constraints for text generation. In a quantitative blinded review, N=89 participants rated six texts on five Likert-scale quality dimensions (readability, correctness, coherence, engagement, adequacy) and judged whether each text appeared human-written or AI-generated. Results showed ceiling-level quality (all means >4) and genre-dependent prompt effects: one-shot prompting performed best for informative texts, while human-written texts were superior for narratives in engagement/coherence/adequacy; correctness did not differ significantly across narrative conditions. Authorship discernibility was weak (no condition >50% correct; many undecided), implying that AI-generated texts can be human-like, but human oversight and governance are required. Limitations include small stimulus set (four AI texts) and lack of reported missing-item handling for the questionnaire.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": null
   }

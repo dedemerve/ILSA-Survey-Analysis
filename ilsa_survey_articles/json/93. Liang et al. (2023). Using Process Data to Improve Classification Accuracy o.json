@@ -2,7 +2,7 @@
   "metadata": {
     "file_name": "93. Liang et al. (2023). Using Process Data to Improve Classification Accuracy of Cognitive Diagnosis Model.pdf",
     "title": "Using Process Data to Improve Classification Accuracy of Cognitive Diagnosis Model",
-    "authors": [],
+    "authors": null,
     "year": 2023,
     "doi": "10.1080/00273171.2022.2157788",
     "venue": "Multivariate Behavioral Research",
@@ -12,23 +12,18 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 computer-based reading assessment data (12 reading items) for an empirical example and then runs two simulation studies. The manuscript reports the analytic dataset size (2,003 students) and the number of items/attributes, but it does not describe applying PISA sampling weights or any complex survey design adjustments (e.g., stratification/cluster weights) in the Bayesian MCMC estimation. Because the modeling approach is a fully Bayesian hierarchical cognitive diagnosis model estimated via JAGS, the paper does not report any weight variable (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedure (e.g., BRR/jackknife). Therefore, weighting is treated as not applied/unspecified for the empirical analysis, and the results should be interpreted as model-based estimates rather than population-representative survey-weighted estimates."
+      "weight_fields_interpretation": "The empirical analysis uses PISA 2018 computer-based reading data (12 items) from 79 countries, with response accuracy, response times, and mouse click/drag traces modeled jointly in a Bayesian hierarchical cognitive diagnosis framework. The manuscript does not report the use of PISA sampling weights or replicate weights, nor does it name any weight variables from the OECD PISA database; therefore, the weighting strategy is not documented. Because the model is fully Bayesian and estimated via MCMC in JAGS, the paper does not describe how complex survey design features (stratification/clustering) were incorporated into estimation. Analysts using the OECD PISA 2018 database should apply the standard PISA complex survey weights (and replicate weights if available) when producing population-representative estimates, but this paper’s documentation does not confirm that those weights were used."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "This paper does not use PISA plausible values (PVs) for cognitive achievement. Instead, it models dichotomous item responses using a cognitive diagnosis model (DINA/DINA-family) and jointly models response times and mouse click/drag traces within a Bayesian hierarchical framework, with person/attribute classification evaluated via pattern/attribute correct classification rates. The manuscript also does not report a missing-data strategy for the empirical dataset (e.g., how missing responses/RTs/action counts were handled), representing a methodological reporting gap for the joint response–RT–trace modeling.",
+    "handling_not_reported_explanation": "This study models dichotomous item responses using a cognitive diagnosis model (DINA/DINA-family) and models response times and action counts with separate measurement models; it does not use PISA plausible values (PV-based achievement scores). As a result, PV handling is not applicable to the dependent variables analyzed. The manuscript also does not describe any explicit missing-data strategy for the response/RT/action variables (e.g., exclusion rules or imputation), which is a reporting gap given that log-based process variables can be missing for incomplete interactions.",
     "sample_details": {
       "total_students": 2003,
-      "countries": [
-        {
-          "country_code": "CHN",
-          "n_students": null
-        }
-      ],
-      "sample_filtering_criteria": "Used PISA 2018 computer-based reading assessment data for an empirical example, restricted to 12 released reading items (dichotomous accuracy responses) and the corresponding process data: response times and number of actions (mouse click/drag traces). The dataset is described as including 2,003 students from 79 countries/districts, with five reading attributes defined by the 2018 PISA reading framework and a Q-matrix provided for the 12 items. The manuscript does not specify additional inclusion/exclusion rules beyond using the released computer-based reading items and their associated process variables."
+      "countries": [],
+      "sample_filtering_criteria": "Used PISA 2018 computer-based reading assessment data for an empirical example: 12 reading items and 5 attributes defined by the 2018 PISA reading framework. The analytic dataset comprises 2,003 students across 79 countries (districts) and includes response accuracy, response times, and number of actions (mouse click/drag traces) for those items. The paper does not specify additional inclusion/exclusion rules beyond using the released PISA 2018 computer-based reading dataset and the 12-item subset."
     },
     "ml_techniques": {
       "primary": null,
@@ -37,12 +32,12 @@
     "confounders_identified": [
       {
         "variable_code": "a1",
-        "variable_name": "Attribute a1 (literal meaning)",
+        "variable_name": "Attribute 1: literal meaning",
         "category": "curriculum"
       },
       {
-        "variable_code": "attribute_a2_content",
-        "variable_name": "Attribute a2 (content)",
+        "variable_code": "attribute_2_content",
+        "variable_name": "Attribute 2: content",
         "category": "student_behavior"
       },
       {
@@ -52,28 +47,23 @@
       },
       {
         "variable_code": "a3",
-        "variable_name": "Attribute a3 (conflict handling)",
+        "variable_name": "Attribute 3: conflict handling",
         "category": "curriculum"
       },
       {
-        "variable_code": "attribute_a4_access",
-        "variable_name": "Attribute a4 (access)",
+        "variable_code": "attribute_4_access",
+        "variable_name": "Attribute 4: access",
         "category": "student_behavior"
       },
       {
-        "variable_code": "retrieve",
-        "variable_name": "retrieve",
+        "variable_code": "retrieval",
+        "variable_name": "retrieval",
         "category": "student_behavior"
-      },
-      {
-        "variable_code": "a5",
-        "variable_name": "Attribute a5 (reading attribute)",
-        "category": "curriculum"
       },
       {
         "variable_code": "response_accuracy",
         "variable_name": "Item response accuracy",
-        "category": "process_data"
+        "category": "prior_achievement"
       },
       {
         "variable_code": "response_time",
@@ -82,47 +72,47 @@
       },
       {
         "variable_code": "number_of_actions",
-        "variable_name": "Mouse actions (trace count)",
+        "variable_name": "Number of actions (trace)",
         "category": "process_data"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries; process data: RTs + mouse actions)",
-        "target_variable": "Attribute classification reliability (tetrachoric reliability; attribute reliabilities)",
+        "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries)",
+        "target_variable": "Attribute classification reliability (tetrachoric reliability)",
         "top_predictors": [
           "Item response accuracy",
           "Response time (RT)",
-          "Mouse actions (trace count)"
+          "Number of actions (trace)"
         ],
-        "performance_metrics": "Average attribute reliabilities: MHO-RDINA = 0.437, JRT-DINA = 0.454, JCDM-RRT = 0.494; JCDM-RRT closer to 0.5 in posterior predictive p-values for response and RT (PPMC_RA: 0.551; PPMC_RT: 0.551).",
-        "standardized_conclusion": "Using PISA 2018 computer-based reading the study leveraged item response accuracy together with response times and mouse-action traces to predict attribute mastery/classification reliability, finding that the joint model (JCDM-RRT) produced higher attribute classification reliability (0.494) than models using no process data (0.437) or only RTs (0.454). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Average attribute reliabilities: MHO-RDINA = 0.437, JRT-DINA = 0.454, JCDM-RRT = 0.494. PPMC: JCDM-RRT PPMC_RA = 0.551; PPMC_RT = 0.551 (MHO-RDINA: 0.584/0.567; JRT-DINA: 0.569/0.567).",
+        "standardized_conclusion": "Using PISA 2018 Computer-based Reading the study leveraged item response accuracy together with response time (RT) and number of actions (mouse click/drag trace) to estimate a joint cognitive diagnosis model (JCDM-RRT) for attribute classification, finding that attribute classification reliability was higher for JCDM-RRT (0.494) than for models using no process data (MHO-RDINA: 0.437) or only RTs (JRT-DINA: 0.454). This indicates that incorporating readily available interaction traces and speed information can improve diagnostic measurement reliability beyond accuracy-only CDMs, though the paper does not document survey-weight handling or missing-data rules."
       },
       {
-        "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries; process data: RTs + mouse actions)",
+        "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries)",
         "target_variable": "Person classification accuracy (pattern correct classification rate, PCCR)",
         "top_predictors": [
           "Item response accuracy",
           "Response time (RT)",
-          "Mouse actions (trace count)"
+          "Number of actions (trace)"
         ],
-        "performance_metrics": "In simulation based on empirical structure: PCCR = 0.5193 (JCDM-RRT) vs 0.4977 (JRT-DINA) vs 0.4860 (MHO-RDINA).",
-        "standardized_conclusion": "Using PISA 2018 computer-based reading data (simulation based on the empirical parameter estimates), the study leveraged item response accuracy plus response times and mouse-action traces to predict person attribute patterns, finding that the joint model improved pattern correct classification rate (PCCR 0.5193) relative to RT-only and response-only CDMs. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Empirical-data-based simulation: PCCR JCDM-RRT = 0.5193 vs JRT-DINA = 0.4977 vs MHO-RDINA = 0.4860. Attribute correct classification rate (ACCR) mean: JCDM-RRT = 0.8335 vs JRT-DINA = 0.8230 vs MHO-RDINA = 0.8179.",
+        "standardized_conclusion": "Using PISA 2018 Computer-based Reading the study leveraged item response accuracy plus RT and mouse-action traces within a Bayesian joint CDM to classify examinees’ attribute profiles, finding higher pattern-level and attribute-level correct classification for JCDM-RRT (PCCR 0.5193; ACCR mean 0.8335) than for accuracy-only (MHO-RDINA) and RT-only (JRT-DINA) baselines. This indicates that process data integration can improve individual diagnostic classification accuracy in computer-based reading assessments, though the reported gains are based on simulation using empirical parameter estimates and the manuscript does not report complex-survey weighting or missing-data handling."
       },
       {
-        "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries; process data: RTs + mouse actions)",
-        "target_variable": "Attribute-level classification accuracy (ACCR)",
+        "dataset_used": "PISA 2018 Computer-based Reading (12 items; 79 countries)",
+        "target_variable": "Item parameter recovery (RMSE/BIAS) and model-fit",
         "top_predictors": [
-          "Item response accuracy",
           "Response time (RT)",
-          "Mouse actions (trace count)"
+          "Number of actions (trace)",
+          "Item response accuracy"
         ],
-        "performance_metrics": "In simulation based on empirical structure: ACCR mean = 0.8335 (JCDM-RRT) vs 0.8230 (JRT-DINA) vs 0.8179 (MHO-RDINA); attribute-wise ACCR higher for all attributes under JCDM-RRT.",
-        "standardized_conclusion": "Using PISA 2018 computer-based reading data (simulation based on the empirical parameter estimates), the study leveraged item response accuracy together with response times and mouse-action traces to predict attribute mastery, finding that the joint model increased attribute correct classification rate (ACCR mean 0.8335) compared with RT-only and response-only CDMs. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Posterior predictive model checking: JCDM-RRT closer to 0.5 than other models (PPMC_RA 0.551; PPMC_RT 0.551). Simulation (empirical-data-based): item-parameter recovery best for JCDM-RRT in terms of RMSE and BIAS (Table 8 shows lower RMSE/BIAS across b, d, c, k, f, re, w compared with baselines).",
+        "standardized_conclusion": "Using PISA 2018 Computer-based Reading the study leveraged RT and mouse-action traces alongside item responses to improve a joint cognitive diagnosis model’s parameter estimation, finding better posterior predictive fit and superior item-parameter recovery (lower RMSE/BIAS) for JCDM-RRT than for MHO-RDINA and JRT-DINA. This indicates that process data can strengthen both measurement model calibration and diagnostic inference, supporting the use of interaction logs for more accurate CDM item/person estimation, while also increasing estimation time (reported as ~6.5 hours for JCDM-RRT vs 1.91 and 3.58 hours for the baselines)."
       }
     ],
-    "outcome_summary": "The paper proposes a joint cognitive diagnosis model (JCDM-RRT) that integrates two process-data sources—response times (RTs) and mouse click/drag traces operationalized as the number of actions—into a DINA-family cognitive diagnosis framework. In the empirical PISA 2018 computer-based reading example (12 items; 2,003 students from 79 countries/districts), the joint model achieved better posterior predictive model checking for response and RT (PPMC_RA = 0.551; PPMC_RT = 0.551) and higher attribute classification reliability (average attribute reliability 0.494 vs 0.437 for response-only and 0.454 for RT-only). In simulation studies, the joint model improved person and attribute classification: PCCR = 0.5193 and ACCR mean = 0.8335, outperforming the two baselines. The study is Bayesian (MCMC via JAGS) and does not report a missing-data handling strategy or any survey-weighting approach, so results should be interpreted as model-based rather than explicitly population-representative.",
-    "research_design_type": "exploratory",
-    "null_fields_interpretation": null
+    "outcome_summary": "The paper proposes a joint cognitive diagnosis model (JCDM-RRT) that combines three sources of information from PISA 2018 computer-based reading: dichotomous item responses, response times (RTs), and mouse click/drag traces operationalized as the number of actions. In the empirical example (12 items; 2,003 students across 79 countries/districts), posterior predictive model checking shows the proposed model has better fit (PPMC_RA and PPMC_RT both 0.551, closer to 0.5 than baselines). In simulation studies using parameters from the empirical analysis as truth, JCDM-RRT improves person classification accuracy, with PCCR rising to 0.5193 versus 0.4977 (RT-only) and 0.4860 (accuracy-only), and ACCR mean to 0.8335. The study also reports improved item-parameter recovery (lower RMSE/BIAS) and higher attribute classification reliability (0.494). Limitations include lack of documented survey-weight use and missing-data handling, and the classification gains are partly validated through simulation rather than purely out-of-sample prediction.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": "The extraction cannot populate ml_techniques because the paper’s core estimation is a fully Bayesian hierarchical cognitive diagnosis model estimated via MCMC in JAGS (not a machine-learning predictive algorithm such as Random Forest/XGBoost). The schema’s ML-technique list is therefore left empty, even though the study performs predictive classification of attribute profiles within the Bayesian CDM framework."
   }
 }

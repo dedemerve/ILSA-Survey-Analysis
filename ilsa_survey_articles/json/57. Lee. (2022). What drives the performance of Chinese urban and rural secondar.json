@@ -14,14 +14,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 micro-level data for China, focusing on Beijing, Shanghai, Jiangsu, and Zhejiang and matching student-level information to school-level outcomes. The analytic outcome is school-level average achievement (mathematics, science, and reading), and the paper states that student-level information is weighted averaged by school level and matched to school-level data, but it does not report applying PISA student sampling weights or any specific weight variable (e.g., W_FSTUWT) at the model-estimation stage. The methodology describes a random 80:20 train/test split and model comparison, but does not mention complex survey design adjustments or replicate-weight procedures. Because the final model is linear regression and the paper does not discuss survey-weight incorporation, the analysis is treated as effectively unweighted with respect to PISA sampling weights; the manuscript only indicates aggregation/averaging to the school level."
+      "weight_fields_interpretation": "The study uses PISA 2018 micro-level data for China and constructs a school-level outcome by averaging student achievement across mathematics, science, and reading. The manuscript states that student-level information is weighted averaged by school level and matched to school-level data after excluding schools with insufficient information, implying that some form of PISA-provided weighting is used for aggregation to the school level, but it does not report the exact weight variable name. The analysis then compares best vs worst schools within urban and rural areas and applies a train/test split (80:20) for model evaluation. Because the paper does not specify whether complex survey replicate weights (e.g., BRR/jackknife) were used, replicate-weight-based uncertainty estimation cannot be confirmed from the text."
     },
     "plausible_values_handling": "average_pv",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The dependent variable is school-level average test scores across mathematics, science, and reading. The paper does not describe how PISA plausible values (PVs) were handled when constructing these achievement averages (e.g., whether PVs were combined using Rubin’s rules or averaged). Given that PISA achievement scores are typically derived from PVs, this represents a reporting gap: the study should have specified the PV-combination strategy used to compute school-level outcomes and to ensure correct uncertainty propagation.",
+    "handling_not_reported_explanation": "The dependent variable is a school-level average of PISA mathematics, science, and reading scores, which are typically derived from PISA plausible values; however, the paper does not describe the exact plausible-value combining rule used when aggregating to the school-level outcome. Missing-data handling is also not documented beyond excluding schools with insufficient information, so it is unclear whether missing questionnaire items were imputed, excluded listwise, or handled via model-based procedures. This is a reporting gap because PV and missing-data strategies materially affect school-level score estimates.",
     "sample_details": {
       "total_students": 12058,
       "countries": [
@@ -30,7 +30,7 @@
           "n_students": 12058
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 micro-level data for China, restricted to students from Beijing, Shanghai, Jiangsu, and Zhejiang. The paper reports 12,058 students from 361 schools initially, then excludes schools with insufficient information and retains 357 schools for the school-level analysis. The outcome is the school-level average score across mathematics, science, and reading; student-level characteristics are weighted-averaged to the school level and matched to school-level data. Urban vs. rural is defined by community population threshold (urban: population of 100,000 or more; rural: less than 100,000)."
+      "sample_filtering_criteria": "Uses PISA 2018 micro-level data for China, restricted to the four participating eastern provinces/municipalities: Beijing, Shanghai, Jiangsu, and Zhejiang. Urban vs rural is defined by community population threshold (urban: population of 100,000 or more; rural: less than 100,000). The analytic dataset is further restricted by excluding schools with insufficient information, and student-level characteristics are weighted-averaged to the school level and matched to school-level features; the outcome is the school-level average score across mathematics, science, and reading."
     },
     "ml_techniques": {
       "primary": "Linear Regression",
@@ -53,7 +53,7 @@
       {
         "variable_code": "DURECEC",
         "variable_name": "Early childhood education duration",
-        "category": "student_behavior"
+        "category": "curriculum"
       },
       {
         "variable_code": "REPEAT",
@@ -67,13 +67,8 @@
       },
       {
         "variable_code": "TMINS",
-        "variable_name": "Learning time (minutes per week)",
+        "variable_name": "Learning time per week",
         "category": "curriculum"
-      },
-      {
-        "variable_code": "RATCMP1",
-        "variable_name": "Computers per student",
-        "category": "ict"
       },
       {
         "variable_code": "ESCS",
@@ -82,22 +77,22 @@
       },
       {
         "variable_code": "EMOSUPS",
-        "variable_name": "Parents' emotional support",
+        "variable_name": "Parental emotional support",
         "category": "parent_home"
       },
       {
         "variable_code": "SCHLTYPE2",
-        "variable_name": "School type (private dependent)",
+        "variable_name": "School type: private dependent",
         "category": "school"
       },
       {
         "variable_code": "SCHLTYPE1",
-        "variable_name": "School type (private independent)",
+        "variable_name": "School type: private independent",
         "category": "school"
       },
       {
         "variable_code": "SCHLTYPE3",
-        "variable_name": "School type (public)",
+        "variable_name": "School type: public",
         "category": "school"
       },
       {
@@ -107,17 +102,17 @@
       },
       {
         "variable_code": "EDUSHORT",
-        "variable_name": "Shortage of educational material",
+        "variable_name": "Educational material shortage",
         "category": "school"
       },
       {
         "variable_code": "STAFFSHORT",
-        "variable_name": "Shortage of educational staff",
+        "variable_name": "Educational staff shortage",
         "category": "school"
       },
       {
         "variable_code": "ADMISSION",
-        "variable_name": "admission to school",
+        "variable_name": "admission policy",
         "category": "school"
       },
       {
@@ -133,12 +128,12 @@
       {
         "variable_code": "SCHABILICLASS",
         "variable_name": "Ability grouping across classes",
-        "category": "school"
+        "category": "curriculum"
       },
       {
         "variable_code": "SCHABILICLASSWITHIN",
         "variable_name": "Ability grouping within classes",
-        "category": "school"
+        "category": "curriculum"
       },
       {
         "variable_code": "STRATIO",
@@ -172,7 +167,7 @@
       },
       {
         "variable_code": "GFOFAIL",
-        "variable_name": "General fear of failure",
+        "variable_name": "Fear of failure",
         "category": "student_attitude"
       },
       {
@@ -187,12 +182,12 @@
       },
       {
         "variable_code": "METASPAM",
-        "variable_name": "Meta-cognition: assess credibility",
+        "variable_name": "Metacognition: assess credibility",
         "category": "student_behavior"
       },
       {
         "variable_code": "METASUM",
-        "variable_name": "Meta-cognition: summarizing",
+        "variable_name": "Metacognition: summarizing",
         "category": "student_behavior"
       },
       {
@@ -202,12 +197,12 @@
       },
       {
         "variable_code": "PERCOMP",
-        "variable_name": "Perception of competitiveness at school",
+        "variable_name": "Perceived competitiveness at school",
         "category": "peer_effects"
       },
       {
         "variable_code": "PERCOOP",
-        "variable_name": "Perception of cooperation at school",
+        "variable_name": "Perceived cooperation at school",
         "category": "student_attitude"
       },
       {
@@ -223,20 +218,59 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (China) — school-level average achievement (mathematics, science, reading)",
-        "target_variable": "School-level academic performance (average test scores)",
+        "dataset_used": "PISA 2018 (China) school-level average of mathematics, science, and reading",
+        "target_variable": "School academic performance (PISA average score)",
         "top_predictors": [
-          "Meta-cognition: assess credibility (METASPAM)",
-          "Class size (CLSIZE)",
+          "Metacognition: assess credibility",
+          "Class size",
           "Socioeconomic status (ESCS)",
-          "Learning time (minutes per week) (TMINS)",
-          "Parents' emotional support (EMOSUPS)"
+          "Learning time per week",
+          "Grade repetition"
         ],
-        "performance_metrics": "Linear regression outperforms nonlinear models such as XGBoost; no numeric accuracy/R²/RMSE metrics are reported. Feature effects are summarized via Shapley values relative to a benchmark school with PISA average score 581.",
-        "standardized_conclusion": "Using PISA 2018 China data aggregated to the school level, the study leveraged meta-cognition (METASPAM), class size (CLSIZE), socioeconomic status (ESCS), learning time (TMINS), and parents' emotional support (EMOSUPS) to predict school-level academic performance, finding that intermediate learning outcomes and student characteristics have the strongest positive contributions in best urban schools, while lower intermediate outcomes and weaker student/family factors drive lower performance in worst urban and worst rural schools relative to the benchmark. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Linear regression outperforms nonlinear models such as XGBoost; no numeric accuracy/R²/RMSE metrics reported.",
+        "standardized_conclusion": "Using PISA 2018 (China) the study leveraged metacognition (assess credibility), class size, socioeconomic status (ESCS), learning time, and grade repetition to predict school academic performance (school-level average across mathematics, science, and reading), finding that intermediate learning outcomes and student characteristics are key drivers of the best-vs-worst school gaps in urban areas, with metacognition (assess credibility) showing a large positive contribution relative to a benchmark school. This indicates that urban education policy should prioritize interventions that strengthen students’ metacognitive learning processes and reduce grade repetition, alongside family-support measures tied to ESCS."
+      },
+      {
+        "dataset_used": "PISA 2018 (China) school-level average of mathematics, science, and reading",
+        "target_variable": "School academic performance (PISA average score) — worst vs benchmark (urban)",
+        "top_predictors": [
+          "Learning time per week",
+          "Parental emotional support",
+          "Socioeconomic status (ESCS)",
+          "Grade repetition",
+          "Expected occupational status"
+        ],
+        "performance_metrics": "No numeric model-fit metrics reported; Shapley-value contributions reported as score differences vs benchmark (e.g., grade repetition lowers achievement by 23.02 points).",
+        "standardized_conclusion": "Using PISA 2018 (China) the study leveraged learning time, parental emotional support, ESCS, grade repetition, and expected occupational status to predict school academic performance for the worst schools in urban areas, finding that poorer intermediate learning outcomes and lower student characteristics reduce performance relative to the benchmark school, with grade repetition showing a substantial negative contribution (−23.02 points). This indicates that urban school improvement strategies should target underperforming students through extended learning opportunities, family emotional-support supports, and strong grade-repetition prevention, while also providing guidance that improves students’ occupational expectations."
+      },
+      {
+        "dataset_used": "PISA 2018 (China) school-level average of mathematics, science, and reading",
+        "target_variable": "School academic performance (PISA average score) — best vs benchmark (rural)",
+        "top_predictors": [
+          "ICT resources at home",
+          "Number of available computers per student at modal grade",
+          "Student behavior hindering learning",
+          "Student admission policy",
+          "Quality of the learning environment"
+        ],
+        "performance_metrics": "No numeric model-fit metrics reported; Shapley-value rankings indicate ICT resources and school learning environment as more important in best rural schools than in the benchmark.",
+        "standardized_conclusion": "Using PISA 2018 (China) the study leveraged ICT resources at home, school computer availability, student behavior hindering learning, student admission policy, and the learning environment quality to predict school academic performance for the best schools in rural areas, finding that school-level characteristics (e.g., computer availability and learning environment) are more important than in urban best schools and can compensate for losses from limited home ICT resources. This indicates that rural education policy should subsidize ICT access both at home and in schools and refine school admission and learning-environment practices to sustain high achievement."
+      },
+      {
+        "dataset_used": "PISA 2018 (China) school-level average of mathematics, science, and reading",
+        "target_variable": "School academic performance (PISA average score) — worst vs benchmark (rural)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Learning time per week",
+          "Parental emotional support",
+          "ICT resources at home",
+          "Number of available computers per student at modal grade"
+        ],
+        "performance_metrics": "No numeric model-fit metrics reported; Shapley-value patterns show negative contributions from ESCS, learning time, and parental emotional support via intermediate learning outcomes, and ICT-related factors affecting performance.",
+        "standardized_conclusion": "Using PISA 2018 (China) the study leveraged ESCS, learning time, parental emotional support, home ICT resources, and school computer availability to predict school academic performance for the worst schools in rural areas, finding that these factors depress intermediate learning outcomes and directly lower achievement relative to the benchmark, with ICT constraints contributing to poorer performance. This indicates that rural policy should combine family-support and learning-time interventions with targeted ICT provision (subsidies or devices) for both homes and schools to reduce rural achievement disadvantages."
       }
     ],
-    "outcome_summary": "The study uses PISA 2018 micro-data for China (Beijing, Shanghai, Jiangsu, Zhejiang) and constructs a school-level outcome as the average of mathematics, science, and reading scores. It compares linear regression with XGBoost using an 80:20 train/test split and reports that linear regression outperforms nonlinear models, but it does not provide numeric predictive performance metrics (e.g., R² or RMSE). Using Shapley-flow-based feature importance relative to a benchmark school score of 581, the paper finds that in best urban schools, intermediate learning outcomes (notably meta-cognition: assess credibility, METASPAM) and student characteristics (including ESCS and class size) contribute positively, with METASPAM associated with a large uplift (41.96 points). In worst urban schools, lower intermediate outcomes and weaker student/family factors reduce performance, including a negative effect of grade repetition (REPEAT) of 23.02 points versus the benchmark. In rural areas, school characteristics (e.g., ICT resources and computer availability) are more important for the best–worst gap, and the paper highlights limited ICT resources at home and compensatory effects of computers at school. Limitations include missing reporting of PV-combination and missing-data handling, and the use of Shapley values for causal-structure interpretation without explicit causal identification assumptions.",
+    "outcome_summary": "The study uses PISA 2018 micro-level data for China, restricted to students from Beijing, Shanghai, Jiangsu, and Zhejiang, and aggregates student information to the school level after excluding schools with insufficient information. The dependent variable is the school-level average score across mathematics, science, and reading, and the analysis compares best vs worst schools separately for urban and rural areas (urban defined by community population ≥100,000). The authors fit a linear regression model and compare it to a nonlinear model (XGBoost), reporting that linear regression outperforms XGBoost, but they do not provide numeric predictive metrics (e.g., R² or RMSE). Feature contributions are interpreted using Shapley flow/values relative to a benchmark school, yielding score-difference statements such as a −23.02 point effect for grade repetition in urban worst schools. Limitations include missing reporting of the exact plausible-value combining rule and missing-data strategy, and the reliance on Shapley-based “causal structure” language without explicit causal identification assumptions.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }
