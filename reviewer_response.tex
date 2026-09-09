@@ -1,0 +1,165 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{parskip}
+
+\definecolor{reviewercolor}{RGB}{0,70,127}
+\definecolor{authorcolor}{RGB}{30,100,30}
+
+\newcommand{\reviewer}[1]{\textcolor{reviewercolor}{\textbf{Reviewer comment:} \textit{#1}}}
+\newcommand{\response}[1]{\textcolor{authorcolor}{\textbf{Author response:} #1}}
+\newcommand{\change}[1]{\textbf{Change in manuscript:} #1}
+
+\title{Response to Reviewers\\
+\large IEEE Access Manuscript \#Access-2026-37050\\
+\normalsize \textit{AI and Data-Driven Research on International Large-Scale Assessment Datasets: A Structured Survey}}
+\author{Author(s)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+We thank the Associate Editor and the reviewers for their constructive and detailed comments. We have addressed all reviewer concerns in the revised manuscript. Below, we respond to each comment in turn. Reviewer comments are shown in \textcolor{reviewercolor}{blue}; our responses in \textcolor{authorcolor}{green}; changes to the manuscript are noted in \textbf{bold}.
+
+The revised corpus has been updated from $n = 130$ (initial submission) to $n = 212$ studies following inclusion of additional Google Scholar records identified through targeted forward citation snowballing and supplementary queries. All new records were screened and coded using the same protocol described in Section~3.1.
+
+\bigskip
+\hrule
+\bigskip
+
+\section*{Reviewer 1}
+
+\subsection*{Comment R1.1 — Acronym expansion}
+
+\reviewer{Several ILSA programme acronyms (PISA, TALIS, PIAAC, TIMSS, PIRLS, ICCS, ICILS) appear in the Introduction without being defined at first use. Please expand all acronyms.}
+
+\response{We thank the reviewer for this observation. All seven programme acronyms are now expanded at first use in the Introduction (Section~1):
+\begin{itemize}[noitemsep]
+  \item PISA: Programme for International Student Assessment
+  \item TALIS: Teaching and Learning International Survey
+  \item PIAAC: Programme for the International Assessment of Adult Competencies
+  \item TIMSS: Trends in International Mathematics and Science Study
+  \item PIRLS: Progress in International Reading Literacy Study Progress in International Reading Literacy Study
+  \item ICCS: International Civic and Citizenship Education Study
+  \item ICILS: International Computer and Information Literacy Study
+\end{itemize}
+}
+
+\change{Introduction, paragraph~2: all seven acronyms are now expanded at first use.}
+
+\bigskip
+
+\subsection*{Comment R1.2 — Corpus size and research questions}
+
+\reviewer{The Introduction states that the study synthesizes AI and data-driven research on ILSAs but does not clearly articulate the research questions guiding the synthesis.}
+
+\response{We have added an explicit paragraph in the Introduction enumerating the three research questions (RQ1--RQ3) addressed by the survey:
+\begin{enumerate}[noitemsep]
+  \item[\textbf{RQ1}] What AI and data-driven methods are applied to ILSA data, and how are they distributed across the five analytical categories?
+  \item[\textbf{RQ2}] What are the dominant outcome targets and predictor sets, and which ILSA programmes and datasets are most frequently analysed?
+  \item[\textbf{RQ3}] To what extent does the current literature produce policy-actionable evidence, as assessed through the three-dimensional policy actionability framework?
+\end{enumerate}
+}
+
+\change{Introduction: added RQ1--RQ3 paragraph after the scope statement.}
+
+\bigskip
+
+\subsection*{Comment R1.3 — Search string methodology}
+
+\reviewer{The search strategy section has a typographical error (``The search was The search was'') and the rationale for using the Web of Science Topic field (TS=) rather than Title/Abstract/Keywords is not explained. Additionally, the claim that IEEExplore returned zero results requires justification.}
+
+\response{We corrected the typographical error. We have also added an explanatory note on the choice of the WoS Topic field: TS= encompasses title, abstract, author keywords, and KeyWords Plus, which maximises recall for interdisciplinary ILSA literature that may use varied terminology. Searching title-only would have excluded many relevant conference and journal papers that mention ILSA programmes only in the abstract. Regarding IEEExplore: the combined query string exceeded the platform's 2 000-character field-length limit and returned an error rather than results; we have added a sentence noting this constraint and confirming that IEEE-published articles meeting our criteria are captured through the WoS and GS queries.}
+
+\change{Section~3.2 (Literature Review Strategy): corrected duplicate phrase; added one sentence on WoS Topic field scope; added one sentence on IEEExplore field-length constraint.}
+
+\bigskip
+
+\subsection*{Comment R1.4 — Subgroup terminology and LIME}
+
+\reviewer{The EDM and XAI subgroups within the search strategy are not visually distinguished from the surrounding prose, and LIME (Local Interpretable Model-Agnostic Explanations) is not mentioned among the explainability methods.}
+
+\response{The EDM and XAI subgroups in the analytical-methodology block are now typeset in bold to distinguish them from surrounding text. LIME has been added to the explainability search term list alongside SHAP.}
+
+\change{Section~3.2: EDM/XAI subgroups set in \textbf{bold}; ``LIME'' added to the explainability keyword list.}
+
+\bigskip
+
+\subsection*{Comment R1.5 — Process data: RTE definition}
+
+\reviewer{Section~3.5 uses the abbreviation RTE (Response Time Effort) without defining it at first use.}
+
+\response{RTE is now defined at first use in Section~3.5 as ``Response Time Effort (RTE), an indicator derived from the ratio of observed to expected response time under standardised conditions."}
+
+\change{Section~3.5 (Process Data): RTE defined at first use.}
+
+\bigskip
+
+\section*{Reviewer 2}
+
+\subsection*{Comment R2.1 — XAI versus causality distinction}
+
+\reviewer{Several passages in Section~3.9 and Section~4.1.4 conflate explainable AI (XAI) with causal explanation. SHAP values and LIME attributions are model-explanation tools, not estimates of causal effects. This distinction should be made explicit.}
+
+\response{We fully agree with this important methodological distinction. We have added an explicit paragraph in Section~3.9 (XAI subsection) clarifying that SHAP, LIME, and related feature-attribution methods quantify the contribution of features to a \emph{model's prediction}, not to the underlying data-generating process. Causal interpretation requires additional assumptions (e.g., from a structural causal model or an experimental design) that post-hoc explainability tools do not provide. A corresponding note has been added in Section~4.1.4.}
+
+\change{Section~3.9: added XAI $\neq$ causality paragraph. Section~4.1.4: added clarifying note and sub-group heterogeneity paragraph.}
+
+\bigskip
+
+\subsection*{Comment R2.2 — Section 5 structure}
+
+\reviewer{The Discussion/Conclusion section mixes future directions, limitations, and implications for practice without clearly separating these. Please reorganise.}
+
+\response{Section~5 has been restructured into three labelled subsections:
+\begin{enumerate}[noitemsep]
+  \item[\S5.1] Future Directions
+  \item[\S5.2] Limitations
+  \item[\S5.3] Implications for Educators and Policymakers
+\end{enumerate}
+Content has been distributed accordingly without substantive change.}
+
+\change{Section~5 split into \S5.1 Future Directions, \S5.2 Limitations, and \S5.3 Implications for Educators and Policymakers.}
+
+\bigskip
+
+\subsection*{Comment R2.3 — Corpus expansion}
+
+\reviewer{The scope of the survey (2020--2026) appears to undersample recent publications from 2025--2026 given the rapid growth of the field. Was a supplementary Google Scholar search performed?}
+
+\response{Yes. Following initial WoS retrieval ($n = 130$ after screening), we conducted targeted Google Scholar forward-citation and keyword queries to capture 2025--2026 publications not yet indexed in WoS. This supplementary search yielded 82 additional records meeting all inclusion criteria, expanding the final corpus to $n = 212$. The PRISMA flow diagram and paragraph in Section~3.2 have been updated to reflect the revised screening numbers (293 records after deduplication; 81 duplicates removed; 212 retained).}
+
+\change{Abstract, Introduction, Section~3.2, Section~3.3 table caption, Section~5 (Conclusion), and all table/figure captions: corpus size updated from $n = 130$ (initial) / $n = 222$ (intermediate) to $n = 212$ throughout. PRISMA paragraph updated: 71 $\to$ 81 duplicates removed, 222 $\to$ 212 retained.}
+
+\bigskip
+\hrule
+\bigskip
+
+\section*{Summary of all changes}
+
+\begin{tabular}{p{1.5cm} p{5.5cm} p{6cm}}
+\toprule
+Location & Change & Reviewer \\
+\midrule
+Abstract & $n = 212$ (was 130/222) & R2.3 \\
+Intro \S1 & ILSA acronyms expanded & R1.1 \\
+Intro \S1 & RQ1--RQ3 paragraph added & R1.2 \\
+\S3.2 & Duplicate phrase corrected & R1.3 \\
+\S3.2 & WoS TS= field justification added & R1.3 \\
+\S3.2 & IEEExplore 0-result explanation added & R1.3 \\
+\S3.2 & EDM/XAI subgroups in bold & R1.4 \\
+\S3.2 & LIME added to keyword list & R1.4 \\
+\S3.3 & Table caption $n$ updated to 212 & R2.3 \\
+\S3.5 & RTE defined at first use & R1.5 \\
+\S3.9 & XAI $\neq$ causality paragraph & R2.1 \\
+\S4.1.4 & XAI clarification + heterogeneity note & R2.1 \\
+\S5 & Restructured into \S5.1/5.2/5.3 & R2.2 \\
+Conclusion & $n = 212$ updated & R2.3 \\
+All tables/figs & $n = 212$ throughout & R2.3 \\
+\bottomrule
+\end{tabular}
+
+\end{document}
