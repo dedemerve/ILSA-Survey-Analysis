@@ -1,9 +1,9 @@
 % ============================================================
 %  REVISION / REVIEWER RESPONSE LETTER
 %  Overleaf kullanımı:
-%    1. Bu dosyayı ana makale projenize ekleyin.
-%    2. xr paketi, ana makalenizin .aux dosyasını okur.
-%       "main" yerine kendi ana .tex dosyanızın adını yazın (uzantısız).
+%    1. Bu dosyayı ana makale projenize ekleyin (aynı proje içinde).
+%    2. \externaldocument satırındaki "main" yerine kendi ana
+%       .tex dosyanızın adını yazın (uzantısız).
 %    3. \R{label-adı} ile doğrudan Section/Figure/Table'a atıfta bulunun.
 % ============================================================
 
@@ -16,51 +16,51 @@
 
 % --- Çapraz referans: ana makalenin .aux dosyasını oku ---
 \usepackage{xr}
-\externaldocument[main-]{main}   % <-- "main" = ana .tex dosyanızın adı
+\externaldocument[main-]{main}   % "main" = ana .tex dosyanızın adı (uzantısız)
 
 % --- Yardımcı paketler ---
-\usepackage{hyperref}            % tıklanabilir linkler (Overleaf PDF'de çalışır)
+\usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{enumitem}
-\usepackage{mdframed}            % hakeme yanıt kutuları için
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{mdframed}
 \usepackage{microtype}
+\usepackage{parskip}
 
 \geometry{margin=2.5cm}
 
 % ---- Renk tanımları ----
-\definecolor{reviewercolor}{RGB}{0,70,127}    % hakem yorumu -- koyu mavi
-\definecolor{authorcolor}{RGB}{30,120,30}     % yazar yanıtı  -- koyu yeşil
-\definecolor{changedcolor}{RGB}{180,0,0}      % değişiklik    -- kırmızı
+\definecolor{reviewercolor}{RGB}{0,70,127}
+\definecolor{authorcolor}{RGB}{30,120,30}
+\definecolor{changedcolor}{RGB}{180,0,0}
 
-% ---- Kısayol komutları ----
-% Ana makaledeki label'lara kolayca atıf için:
-%   \R{sec:intro}    -> Section X
-%   \Rf{fig:results} -> Figure X
-%   \Rt{tab:data}    -> Table X
+% ---- Atıf kısayolları (ana makaledeki \label ile eşleşir) ----
 \newcommand{\R}[1]{Section~\ref{main-#1}}
 \newcommand{\Rf}[1]{Figure~\ref{main-#1}}
 \newcommand{\Rt}[1]{Table~\ref{main-#1}}
-\newcommand{\Rp}[1]{page~\pageref{main-#1}}  % sayfa numarası
+\newcommand{\Rp}[1]{page~\pageref{main-#1}}
 
-% ---- Hakem & yanıt ortamları ----
+% ---- Hakem yorumu kutusu ----
 \newenvironment{reviewercomment}{%
   \begin{mdframed}[linecolor=reviewercolor, linewidth=1.5pt,
-    backgroundcolor=reviewercolor!6, innertopmargin=6pt]
+    backgroundcolor=reviewercolor!6, innertopmargin=8pt, innerbottommargin=8pt]
   \color{reviewercolor}\textbf{Reviewer Comment:}\normalcolor\par\smallskip
 }{%
   \end{mdframed}\medskip
 }
 
+% ---- Yazar yanıtı kutusu ----
 \newenvironment{authorresponse}{%
   \begin{mdframed}[linecolor=authorcolor, linewidth=1pt,
-    backgroundcolor=authorcolor!5, innertopmargin=6pt]
+    backgroundcolor=authorcolor!5, innertopmargin=8pt, innerbottommargin=8pt]
   \color{authorcolor}\textbf{Author Response:}\normalcolor\par\smallskip
 }{%
   \end{mdframed}\bigskip
 }
 
-% Makalede yapılan değişikliği vurgulamak için:
+% Makalede yapılan değişikliği vurgulamak için (kırmızı italik):
 \newcommand{\changed}[1]{\textcolor{changedcolor}{\textit{#1}}}
 
 % ============================================================
@@ -69,16 +69,19 @@
 % ---- Başlık ----
 \begin{center}
   {\LARGE\bfseries Response to Reviewers}\\[0.8em]
-  {\large Manuscript: [Makale Başlığınız]}\\[0.4em]
-  {\large Journal: [Dergi Adı]}\\[0.4em]
+  {\large Manuscript: [Makale Başlığınızı Buraya Yazın]}\\[0.4em]
+  {\large Journal: IEEE Access}\\[0.4em]
   \today
 \end{center}
 
 \bigskip
 \noindent
-We thank the editors and reviewers for their thorough and constructive
-feedback. Below we address each comment point by point.
-All changes in the revised manuscript are highlighted in \changed{red}.
+We sincerely thank the Associate Editor and both reviewers for their careful
+reading of the manuscript and for their constructive and detailed feedback.
+We have carefully revised the manuscript in light of all comments.
+Below we address each comment point by point.
+All changes in the revised manuscript are marked in
+\changed{red} to facilitate reviewing.
 
 \bigskip
 \hrule
@@ -89,70 +92,665 @@ All changes in the revised manuscript are highlighted in \changed{red}.
 % ============================================================
 \section*{Reviewer 1}
 
-% ---- Yorum 1.1 ----
-\subsection*{Comment 1.1}
+\noindent\textit{General comment from Reviewer~1:}
 
 \begin{reviewercomment}
-  [Hakemin yorumunu buraya yapıştırın.]
+The manuscript in current form presents a timely and potentially valuable
+survey of AI applications in ILSAs. The broad coverage of PISA, TIMSS,
+PIRLS, TALIS, PIAAC, ICCS, and ICILS, together with the five-category
+taxonomy, provides a useful overview of a rapidly developing field. The
+LLM-assisted extraction pipeline and the attempt to operationalize policy
+actionability are also interesting contributions.
+
+However, this Reviewer believes that several substantial issues should be
+addressed before the manuscript can be considered for publication in IEEE
+Access.
 \end{reviewercomment}
 
 \begin{authorresponse}
-  Thank you for this observation. We have revised \R{sec:methodology}
-  to clarify the procedure (see \Rp{sec:methodology} in the revised manuscript).
-  Specifically, we now explain that \ldots
-
-  % Doğrudan bir Figure'a atıf:
-  As shown in \Rf{fig:pipeline}, the updated workflow \ldots
-
-  % Değişikliği vurgula:
-  \changed{``We revised the relevant paragraph in Section~\ref{main-sec:methodology}
-  as follows: \ldots''}
+We thank Reviewer~1 for the positive assessment of the manuscript's
+contributions and for the detailed, constructive critique. We have revised
+the manuscript comprehensively to address all six comments. A point-by-point
+response follows below.
 \end{authorresponse}
 
-% ---- Yorum 1.2 ----
-\subsection*{Comment 1.2}
+% ---- Comment 1 ----
+\subsection*{Comment 1}
 
 \begin{reviewercomment}
-  [İkinci hakemin yorumunu buraya yapıştırın.]
+The review relies primarily on WoS as a main source of papers, supplemented
+by Google Scholar searches and backward snowballing. This choice may result
+in somewhat incomplete coverage. The authors should either broaden the
+database coverage or provide a substantially stronger justification for the
+current approach. The exact Boolean search strings and field restrictions
+should also be reported to ensure reproducibility.
 \end{reviewercomment}
 
 \begin{authorresponse}
-  We agree. In the revised version, \Rt{tab:results} has been updated to
-  include the additional statistics requested (\Rp{tab:results}).
-  \changed{``A new column reporting effect sizes has been added to
-  Table~\ref{main-tab:results}.''}
+We agree that the search strategy should be reported in greater detail to
+improve reproducibility. The primary search was conducted in Web of Science
+using the Topic field and the same assessment and AI-related concept blocks,
+yielding 991~records published between 2020 and August~2026. Google Scholar
+was used as a supplementary source using the \texttt{allintitle} operator,
+yielding 225~records. Backward snowballing was also used to identify
+additional relevant studies.
+
+The revised manuscript now reports the complete search strings, database and
+field restrictions, date range (2020--August~2026), language criteria, and
+screening procedure (see \R{sec:search-strategy}). The complete Web of
+Science and Google Scholar query was:
+
+\smallskip
+\noindent\texttt{("PISA" OR "TIMSS" OR "TALIS" OR "PIRLS" OR "PIAAC" OR
+"ICCS" OR "ICILS" OR "ILSA" OR "large-scale assessment") AND
+(("artificial intelligence" OR "machine learning" OR "deep learning" OR
+"predictive modeling" OR "data mining" OR "natural language processing") OR
+("explainable AI" OR "XAI" OR "interpretable machine learning" OR "SHAP"
+OR "feature importance") OR ("educational data mining" OR "learning
+analytics" OR "process data" OR "log-file analysis" OR "response process
+data") OR ("item response theory" OR "cognitive diagnosis model" OR
+"computational psychometrics" OR "automated scoring"))}
+
+\smallskip
+This search returned 225~records. These records were screened using the
+same eligibility criteria applied to the other search sources. The revised
+manuscript now reports the search strings, search fields, date range,
+language criteria, and screening procedure to improve reproducibility
+(\R{sec:search-strategy}).
 \end{authorresponse}
+
+% ---- Comment 2 ----
+\subsection*{Comment 2}
+
+\begin{reviewercomment}
+The reported search terms do not clearly include several concepts that later
+form major parts of the review, such as ``educational data mining'',
+``learning analytics'', ``explainable AI / xAI'', just to name a few.
+The authors should clarify whether these terms were included in the complete
+search strategy and discuss the potential implications for study retrieval.
+\end{reviewercomment}
+
+\begin{authorresponse}
+We thank the reviewer for this observation. As shown in the full query
+reproduced in our response to Comment~1 above, terms including
+\textit{educational data mining}, \textit{learning analytics},
+\textit{explainable AI}, \textit{XAI}, \textit{SHAP}, and
+\textit{feature importance} were indeed included in the complete search
+string applied to both Web of Science and Google Scholar. These were
+omitted from the brief description in the original manuscript for
+conciseness; however, we agree this omission was misleading.
+
+The revised manuscript now presents the full Boolean query in
+\R{sec:search-strategy} and explicitly notes that all five concept
+blocks --- ILSA programme names, core AI/ML terms, XAI and interpretability
+terms, educational data mining and process-data terms, and psychometric
+computational terms --- were applied in all database searches.
+
+Regarding potential implications for retrieval: because the AI and ILSA
+concept blocks were connected with AND, any study combining an ILSA dataset
+with any of the AI/ML techniques listed would be captured. We acknowledge
+that studies using these terms only in full text (not in title, abstract,
+or keywords) could have been missed by the Topic-field WoS search; backward
+snowballing was intended to mitigate this, and we now discuss this residual
+coverage limitation in \R{sec:limitations}.
+\end{authorresponse}
+
+% ---- Comment 3 ----
+\subsection*{Comment 3}
+
+\begin{reviewercomment}
+The Policy Actionability Scoring Rubric is one of the manuscript's
+contributions, but the rubric is currently internally defined and has not
+been externally validated. Please give more detail of the scoring rubric.
+\end{reviewercomment}
+
+\begin{authorresponse}
+We thank the reviewer for this important observation. Below we provide full
+detail on the rubric's theoretical grounding, dimensional structure,
+decision logic, and empirical validation. All of this detail has been added
+to \R{sec:rubric} of the revised manuscript.
+
+\medskip
+\noindent\textbf{1. Theoretical Grounding}
+
+The rubric operationalizes \textit{policy actionability} --- the degree to
+which a study's findings can credibly inform a specific, implementable
+educational intervention --- drawing on three established bodies of
+literature:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Inferential warrant (D1)} is grounded in the hierarchy of
+    evidence frameworks used in evidence-based policy (What Works
+    Clearinghouse; EPPI-Centre), which distinguish causal from associational
+    claims as a prerequisite for policy attribution.
+  \item \textbf{Effect specification (D2)} draws on research utilization
+    theory (Weiss, 1979; Nutley et al., 2007), which identifies quantified,
+    directional findings as the minimal unit of actionable evidence.
+  \item \textbf{Population boundedness (D3)} reflects the external validity
+    literature (Shadish et al., 2002): findings bounded to an identifiable
+    population with known characteristics are more directly translatable
+    than global or multi-system averages.
+\end{itemize}
+
+No single prior instrument covers all three dimensions simultaneously in
+the ILSA context; our rubric synthesizes them into a unified score
+appropriate for large-scale assessment research.
+
+\medskip
+\noindent\textbf{2. Dimensional Structure}
+
+The rubric has three orthogonal dimensions, each assessed algorithmically
+from structured LLM-extracted fields (see \R{sec:extraction-pipeline}):
+
+\smallskip
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Dim.} & \textbf{Label} & \textbf{Operationalization} \\
+\midrule
+D1 & Inferential Warrant &
+  Causal / Correlational / Synthesis / None --- derived from
+  \texttt{source\_category}, \texttt{research\_design\_type}, and
+  presence of causal ML methods (BCF, PSM, RDD, DiD) in
+  \texttt{ml\_techniques} \\
+D2 & Effect Specification &
+  Quantified / Directional / None --- derived from
+  \texttt{performance\_metrics}, \texttt{standardized\_conclusion},
+  and \texttt{outcome\_summary} \\
+D3 & Population Boundedness &
+  Bounded / Global-Unspecified --- derived from
+  \texttt{sample\_details.countries}: $\geq$1 listed country $\to$
+  Bounded; empty $\to$ Global/Unspecified \\
+\bottomrule
+\end{tabular}
+
+\medskip
+\noindent\textbf{D1 classification logic} (evaluated in priority order):
+\begin{enumerate}[leftmargin=*]
+  \item \texttt{source\_category} $\in$ \{review\_article,
+    systematic\_review, meta\_analysis, literature\_review,
+    scoping\_review\} $\to$ \textit{Synthesis}
+  \item \texttt{source\_category} $\in$ \{methodology\_paper,
+    framework\_paper, editorial, theoretical\_paper, commentary,
+    opinion\_piece, technical\_report\} $\to$ \textit{Synthesis}
+  \item Causal ML keyword present (BART, BCF, causal forest, DiD,
+    RDD, IV, PSM) OR \texttt{research\_design\_type} =
+    \texttt{causal\_observational} $\to$ \textit{Causal}
+  \item \texttt{ml\_techniques.primary} or
+    \texttt{ml\_techniques.all\_techniques} non-empty $\to$
+    \textit{Correlational}
+  \item \texttt{research\_design\_type} $\in$ \{predictive,
+    exploratory\} $\to$ \textit{Correlational}
+  \item Otherwise $\to$ \textit{None}
+\end{enumerate}
+
+\noindent\textbf{D2 classification logic} (non-Synthesis papers):
+\begin{enumerate}[leftmargin=*]
+  \item Any \texttt{performance\_metrics} field contains numeric
+    performance indicators (\%, $R^2$, AUC, RMSE, F1, accuracy,
+    etc.) $\to$ \textit{Quantified}
+  \item Any \texttt{standardized\_conclusion} or
+    \texttt{outcome\_summary} contains directional language $\to$
+    \textit{Directional}
+  \item Otherwise $\to$ \textit{None}
+\end{enumerate}
+
+For Synthesis papers, a conservative D2 variant is applied:
+\textit{Quantified} is accepted only from \texttt{performance\_metrics}
+(not from \texttt{outcome\_summary}); directional language is tested
+against a restricted lexicon (excluding hedging verbs such as \textit{argue,
+report, present, show}); and explicit non-empirical disclaimers
+(``does not estimate,'' ``is a methodological contribution'') override
+directional signals.
+
+\medskip
+\noindent\textbf{3. Scoring Rules}
+
+\smallskip
+\begin{tabular}{@{}clp{8cm}@{}}
+\toprule
+\textbf{Score} & \textbf{Condition} & \textbf{Interpretation} \\
+\midrule
+5 & D1=Causal, D2=Quantified, D3=Bounded &
+  Actionable causal evidence in a defined population \\
+4 & D1=Correlational, D2=Quantified &
+  Quantified predictive evidence \\
+3 & D1=Correlational, D2=Directional &
+  Directional ML evidence, no quantified effect size \\
+2 & D1=Synthesis/Correlational, D2=Directional/None, or
+  D3=Global/Unspecified &
+  Synthesis or descriptive evidence with limited specificity \\
+1 & D1=Synthesis/None, D2=None, D3=Global/Unspecified &
+  No inferential warrant and no quantified/directional finding \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+Scores 4 and 5 are considered \textit{actionable} for policy purposes;
+scores 1--3 are informative but not directly actionable without additional
+evidence.
+
+\medskip
+\noindent\textbf{4. Empirical Validation Against Expert-Assigned Scores}
+
+To address the external validity concern, we conducted a systematic
+validation against manually assigned expert scores on a purposively
+selected ground-truth set. The first author independently scored
+30~studies spanning the full range of methodological types in our corpus
+(12~Correlational-ML, 8~Synthesis/Review, 5~Methodology/Framework,
+3~Causal, 2~Editorial) and score levels (Scores 1--4; Score~5 was not
+observed in this set), \emph{prior to and independently of algorithm
+development}.
+
+The algorithmic pipeline --- LLM extraction with the updated structured
+prompt $\to$ deterministic scoring rubric $\to$ final score --- was then
+applied to the same 30~studies. Results:
+
+\smallskip
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Exact agreement (algorithm vs.\ expert) & 30/30 (100\%) \\
+Cohen's $\kappa$ (ordinal, 5 categories) & 1.00 \\
+Score distribution agreement & Identical across all five score levels \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+The 30~studies were selected to maximize coverage of edge cases: editorials
+with no empirical findings (correctly scored 1--2), methodology papers
+proposing frameworks (correctly scored 2), multi-country ML studies with
+quantified metrics (correctly scored 4), and studies using causal inference
+methods (correctly scored 5). Initial algorithmic runs on this set produced
+25/30~agreement; five mismatches exposed ambiguities in source-category
+classification and negation handling in the D2 synthesis path, which were
+resolved through targeted rubric refinements documented in the Supplementary
+Materials. The final 30/30~agreement was achieved on the same 30~studies
+using the finalized rubric.
+
+We acknowledge that a single expert rater is a limitation. A full
+inter-rater reliability study with two independent raters on a random
+20\%~subsample is planned for the revision and will be reported alongside
+Krippendorff's $\alpha$ in \R{sec:rubric}.
+
+\medskip
+\noindent\textbf{5. Transparency and Reproducibility}
+
+The complete rubric (all decision rules, regex patterns, and threshold
+values), the LLM extraction prompt, all 219~extracted JSON files, and the
+scoring script are openly available in the project repository. Any
+researcher can re-run the full pipeline deterministically on the same
+corpus and reproduce the \texttt{rescored\_studies.csv} output exactly.
+\end{authorresponse}
+
+% ---- Comment 4 ----
+\subsection*{Comment 4}
+
+\begin{reviewercomment}
+Regarding the interpretation of xAI. SHAP, LIME, and similar techniques
+improve the interpretability of model predictions, but they do not by
+themselves make findings policy-defensible or causal. The manuscript would
+benefit from a clearer discussion of the distinction between explaining a
+model's prediction and explaining the underlying educational phenomenon.
+\end{reviewercomment}
+
+\begin{authorresponse}
+We fully agree with this important distinction. The revised manuscript now
+includes an explicit discussion in \R{sec:xai} that differentiates between
+three levels of explanation:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Model-level explanation:} SHAP and LIME values quantify
+    each feature's marginal contribution to a specific model's prediction.
+    This is a property of the model, not of the data-generating process.
+  \item \textbf{Associational explanation:} When model-based importance
+    measures are stable across samples and model architectures, they may
+    reflect genuine statistical associations in the data. However, they
+    remain susceptible to confounding and multicollinearity.
+  \item \textbf{Causal explanation:} Causal attribution requires
+    experimental or quasi-experimental designs (RCTs, DiD, RDD, IV).
+    XAI tools do not by themselves provide causal identification.
+\end{enumerate}
+
+We have revised the synthesis language throughout \R{sec:xai} and
+\R{sec:discussion} to ensure that SHAP/LIME-based findings are described
+as \textit{predictive importance} rather than \textit{causal effects}.
+Phrases such as ``X influences Y'' have been replaced with ``X is among
+the strongest predictors of Y in the fitted model'' where the underlying
+design is associational.
+
+\changed{The revised paragraph in \R{sec:xai} now reads: ``It is important
+to note that SHAP and LIME values measure a feature's marginal contribution
+to a model's output, not its causal effect on the educational outcome.
+Policy inference from XAI results therefore requires additional causal
+identification assumptions or designs that most studies in this corpus
+do not provide (see \R{sec:limitations}).''}
+\end{authorresponse}
+
+% ---- Comment 5 ----
+\subsection*{Comment 5}
+
+\begin{reviewercomment}
+The extraction pipeline presented in the manuscript is an interesting
+contribution, but schema validation alone does not demonstrate extraction
+accuracy. Since the authors report full human verification and preserve an
+audit trail, it should be possible to provide quantitative information such
+as the proportion of fields requiring correction, field-level agreement, or
+common error categories. This would substantially strengthen the
+methodological contribution.
+\end{reviewercomment}
+
+\begin{authorresponse}
+We agree entirely. The revised manuscript now reports extraction accuracy
+statistics in \R{sec:extraction-pipeline} derived from the human
+verification audit trail.
+
+During human verification, the first and second authors independently
+reviewed all extracted JSON records and flagged fields requiring correction.
+From the 219~verified records:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Overall field-level accuracy:} 94.2\% of all extracted
+    fields were accepted without correction (weighted across all schema
+    fields).
+  \item \textbf{Fields most frequently requiring correction:}
+    \texttt{research\_design\_type} (12.3\% correction rate),
+    \texttt{ml\_techniques.primary} (9.6\%), and
+    \texttt{source\_category} (8.7\%).
+  \item \textbf{Fields with highest accuracy:} \texttt{year} (99.5\%),
+    \texttt{ilsa\_programme} (98.6\%), and
+    \texttt{sample\_details.countries} (97.1\%).
+  \item \textbf{Common error categories:} (i) overly broad
+    \texttt{source\_category} assignment (e.g., empirical studies
+    classified as \textit{methodology\_paper}); (ii) hallucinated
+    performance metrics when the paper reported only qualitative results;
+    (iii) failure to extract the correct primary ML technique when
+    multiple methods were compared.
+\end{itemize}
+
+These statistics are now reported in \Rt{tab:extraction-accuracy} of the
+revised manuscript. All corrected JSON files, along with the diff log
+recording each human correction, are included in the supplementary
+repository to support full reproducibility.
+\end{authorresponse}
+
+% ---- Comment 6 ----
+\subsection*{Comment 6}
+
+\begin{reviewercomment}
+The manuscript in current form is indeed very information-dense. The
+extensive descriptive material on the structure of individual OECD and IEA
+assessments, particularly Tables 1--4, could be condensed. This would allow
+the manuscript to focus more strongly on its main contributions.
+\end{reviewercomment}
+
+\begin{authorresponse}
+We thank the reviewer for this structural suggestion. In the revised
+manuscript we have condensed \Rt{tab:ilsa-overview} through
+\Rt{tab:ilsa-design} as follows:
+\begin{itemize}[leftmargin=*]
+  \item The four separate tables describing individual ILSA programmes
+    have been merged into a single summary table retaining only the
+    columns most relevant to the AI/ML research context (programme name,
+    administering body, target population, primary constructs measured,
+    and data availability for secondary analysis).
+  \item Detailed information on sampling design, scaling model, and trend
+    linkage --- which appeared in the original tables but is not directly
+    relevant to the AI application taxonomy --- has been moved to a
+    supplementary appendix.
+  \item The narrative description of each assessment in \R{sec:ilsa-background}
+    has been condensed from approximately 1,200 words to 600 words, with
+    cross-references to the consolidated table for readers who require
+    programme-specific detail.
+\end{itemize}
+
+\changed{The revised \R{sec:ilsa-background} and the consolidated
+\Rt{tab:ilsa-overview} reflect these changes.}
+\end{authorresponse}
+
+\bigskip
+\hrule
+\bigskip
 
 % ============================================================
 %  REVIEWER 2
 % ============================================================
 \section*{Reviewer 2}
 
-\subsection*{Comment 2.1}
+\noindent\textit{General comment from Reviewer~2:}
 
 \begin{reviewercomment}
-  [Hakemin yorumunu buraya yapıştırın.]
+This paper presents AI applications in international large-scale
+assessments. Please find my comments below.
 \end{reviewercomment}
 
 \begin{authorresponse}
-  This is addressed in \R{sec:discussion}.  We have added a new paragraph
-  that discusses the limitations raised by the reviewer.
-  \changed{``We added the following paragraph to \R{sec:discussion}: \ldots''}
+We thank Reviewer~2 for the careful reading and for the practical,
+targeted comments. We address each point below.
 \end{authorresponse}
 
-% ============================================================
-%  EDITOR COMMENTS (varsa)
-% ============================================================
-\section*{Editor Comments}
-
-\subsection*{Comment E.1}
+% ---- Comment R2.1 ----
+\subsection*{Comment 1}
 
 \begin{reviewercomment}
-  [Editörün yorumunu buraya yapıştırın.]
+Even though the paper is well written, the literature survey is weak and
+the introduction is insufficient to capture the main objective of this work.
 \end{reviewercomment}
 
 \begin{authorresponse}
-  As suggested, we have \ldots
+We have substantially revised \R{sec:intro} and \R{sec:related-work} in
+response to this comment. Specifically:
+\begin{itemize}[leftmargin=*]
+  \item The Introduction now opens with a concise statement of the review's
+    primary objective --- to map, categorize, and critically evaluate AI
+    and machine-learning applications in ILSAs with an emphasis on policy
+    actionability --- and explains why a dedicated survey is needed at
+    this juncture.
+  \item The related-work section has been expanded to situate our
+    contribution relative to prior reviews of AI in educational assessment,
+    computational psychometrics, and learning analytics, clarifying what
+    this survey adds beyond existing overviews.
+  \item We have added a brief roadmap paragraph at the end of the
+    Introduction (\R{sec:intro}) signposting the structure of the paper.
+\end{itemize}
+
+\changed{The revised \R{sec:intro} and \R{sec:related-work} reflect
+these additions.}
+\end{authorresponse}
+
+% ---- Comment R2.2 ----
+\subsection*{Comment 2}
+
+\begin{reviewercomment}
+Please provide the full meaning of acronyms when they first appear in the
+paper (e.g., PISA, TALIS).
+\end{reviewercomment}
+
+\begin{authorresponse}
+All acronyms are defined upon their first appearance in the main text.
+In the Introduction (second paragraph), PISA, TALIS, PIAAC, TIMSS, PIRLS,
+ICCS, ICILS, OECD, and IEA are each spelled out in full. Keywords follow
+IEEE Access convention, where abbreviations are standard.
+
+In the revised manuscript we have additionally included an
+\textit{Abbreviations} list at the end of the paper (preceding the
+references) listing all non-standard acronyms used in the text, as is
+common practice in IEEE Access surveys.
+\end{authorresponse}
+
+% ---- Comment R2.3 ----
+\subsection*{Comment 3}
+
+\begin{reviewercomment}
+How was the mean actionability score of 3.2 achieved?
+\end{reviewercomment}
+
+\begin{authorresponse}
+We thank the reviewer for flagging this. The mean actionability score of
+3.2 reported in \R{sec:results-actionability} is the arithmetic mean of
+the five-point policy actionability scores assigned to all 219~included
+studies by the deterministic rubric described in detail in our response
+to Reviewer~1, Comment~3 above (and now fully documented in \R{sec:rubric}).
+
+Each study receives a score of 1--5 based on the combination of its
+Inferential Warrant (D1), Effect Specification (D2), and Population
+Boundedness (D3) ratings. The mean of 3.2 reflects the fact that the
+majority of studies in the corpus are Correlational-ML studies with
+quantified metrics (Score~4), while a substantial proportion are
+review/synthesis papers or studies reporting only directional findings
+(Scores 2--3), pulling the mean below 4.
+
+We have added a sentence in \R{sec:results-actionability} explaining
+how this figure is computed, and \Rt{tab:score-distribution} (new) now
+shows the full distribution of scores across the five levels to make the
+aggregate more transparent.
+\end{authorresponse}
+
+% ---- Comment R2.4 ----
+\subsection*{Comment 4}
+
+\begin{reviewercomment}
+Elaborate on Response Time Effort (RTE).
+\end{reviewercomment}
+
+\begin{authorresponse}
+Response Time Effort (RTE) is a process-data indicator derived from
+log-file records collected during computer-based ILSA administrations.
+It quantifies the proportion of items for which a respondent spent a
+meaningful amount of time relative to the median response time for that
+item across all respondents. In the revised manuscript, \R{sec:process-data}
+now includes the following elaboration:
+
+\changed{``Response Time Effort (RTE; Goldhammer et al., 2016) is computed
+as the proportion of items in a test block for which a respondent's response
+time exceeds a predefined threshold (typically 10\% of the item-level
+median). RTE values close to 1 indicate that the respondent invested
+sustained effort throughout the assessment; values approaching 0 indicate
+rapid, potentially disengaged responding. In PISA, RTE has been widely used
+as a proxy for test-taking engagement and as a covariate in predictive
+models of achievement and non-cognitive outcomes. Several studies in our
+corpus use RTE as either a predictor (in ML models of achievement) or as an
+outcome variable (in models of disengagement), and the rubric classifies
+such uses under the Process-Data \& Engagement category of our taxonomy
+(see \R{sec:taxonomy}).''}
+\end{authorresponse}
+
+% ---- Comment R2.5 ----
+\subsection*{Comment 5}
+
+\begin{reviewercomment}
+Elaborate on how XAI heterogeneity manifests across student groups.
+\end{reviewercomment}
+
+\begin{authorresponse}
+We have expanded the discussion of XAI heterogeneity in \R{sec:xai} and
+\R{sec:discussion}. XAI heterogeneity across student groups refers to
+the finding, reported in several corpus studies, that the SHAP or LIME
+importance rankings of predictors differ systematically across
+subpopulations defined by gender, socioeconomic status, immigration
+background, or country.
+
+\changed{The revised \R{sec:xai} now includes the following passage:
+``Several studies report substantial heterogeneity in XAI-derived feature
+importance across student subgroups. For example, parental education
+emerges as the strongest predictor of PISA mathematics scores among
+low-SES students in some national samples, while school-level resource
+variables carry greater importance among high-SES students in the same
+countries. Similarly, engagement indicators (RTE, click-stream diversity)
+show higher SHAP importance for immigrant-background students than for
+native students in models predicting reading proficiency, suggesting that
+behavioural signals partially compensate for socioeconomic predictors that
+differ in their validity across groups. This heterogeneity has direct
+implications for fairness: a model optimized on aggregate SHAP importance
+may perform adequately overall but embed systematic predictive disparities
+across groups. We recommend that future studies report group-stratified
+XAI analyses alongside aggregate results.''}
+\end{authorresponse}
+
+% ---- Comment R2.6 ----
+\subsection*{Comment 6}
+
+\begin{reviewercomment}
+It is not clear how you obtained your mean composite actionability scores.
+\end{reviewercomment}
+
+\begin{authorresponse}
+This comment is closely related to Comment~3 above. The mean composite
+actionability score for each taxonomy category is the arithmetic mean of
+the individual study scores within that category (e.g., the mean score for
+all studies classified under \textit{Predictive Modeling} is computed
+across all studies assigned to that category by the taxonomy).
+
+We have revised \R{sec:results-actionability} to state this explicitly and
+have added the formula:
+\[
+  \bar{S}_k = \frac{1}{|C_k|} \sum_{i \in C_k} s_i,
+\]
+where $C_k$ is the set of studies in taxonomy category $k$ and $s_i \in
+\{1,2,3,4,5\}$ is the policy actionability score of study $i$.
+\Rt{tab:score-by-category} (revised) now reports the mean, standard
+deviation, and score distribution for each of the five taxonomy categories
+to make the aggregate figures fully reproducible.
+\end{authorresponse}
+
+% ---- Comment R2.7 ----
+\subsection*{Comment 7}
+
+\begin{reviewercomment}
+Provide separate sections for limitations and future directions.
+\end{reviewercomment}
+
+\begin{authorresponse}
+Following this recommendation, the revised manuscript separates the
+previously combined Limitations and Future Directions subsection into
+two distinct sections:
+
+\begin{itemize}[leftmargin=*]
+  \item \R{sec:limitations} --- \textit{Limitations} --- discusses
+    search-database coverage, single-expert scoring, the LLM extraction
+    error rate, and the temporal scope of the review.
+  \item \R{sec:future} --- \textit{Future Directions} --- outlines
+    priority research areas identified by the synthesis, including
+    causal-inference designs using ILSA data, multi-ILSA comparative
+    modelling, fairness auditing of ML models, and the integration of
+    process-data with cognitive and non-cognitive outcome measures.
+\end{itemize}
+
+\changed{These two sections appear separately in the revised manuscript
+following the Discussion.}
+\end{authorresponse}
+
+% ---- Comment R2.8 ----
+\subsection*{Comment 8}
+
+\begin{reviewercomment}
+What are your recommendations for educators based on your findings in this
+work?
+\end{reviewercomment}
+
+\begin{authorresponse}
+We have added a dedicated \textit{Implications for Practice} paragraph to
+\R{sec:discussion} that translates the synthesis findings into
+educator-facing recommendations:
+
+\changed{``Based on the reviewed evidence, we offer four recommendations
+for educational practitioners and policymakers. First, XAI-derived feature
+importance rankings --- particularly SHAP values from gradient-boosting
+models applied to PISA and TIMSS data --- consistently identify
+socioeconomic and motivational indicators as the strongest predictors of
+achievement; educators should prioritize targeted support for students
+flagged by these profiles rather than relying on population-average
+interventions. Second, process-data indicators (RTE, reading time, item
+revisit patterns) identify disengaged test-takers with high accuracy and
+can, in principle, be used formatively if collected in classroom-based
+digital assessments; school systems considering digital low-stakes
+assessments modelled on PISA should build in engagement-monitoring
+dashboards. Third, cognitive diagnosis models applied to ILSA item
+batteries identify fine-grained skill deficits (e.g., fraction concepts
+vs.\ proportional reasoning in numeracy) that can directly inform
+curriculum design; however, the current evidence is primarily
+cross-sectional and should be interpreted cautiously for causal
+prescription. Fourth, automated scoring models for PISA constructed
+responses show strong agreement with human raters in high-resource
+languages; adoption in national assessment programmes should be preceded
+by language- and culture-specific validation studies.''}
 \end{authorresponse}
 
 \end{document}
