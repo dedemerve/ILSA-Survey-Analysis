@@ -1,0 +1,158 @@
+% ============================================================
+%  REVISION / REVIEWER RESPONSE LETTER
+%  Overleaf kullanımı:
+%    1. Bu dosyayı ana makale projenize ekleyin.
+%    2. xr paketi, ana makalenizin .aux dosyasını okur.
+%       "main" yerine kendi ana .tex dosyanızın adını yazın (uzantısız).
+%    3. \R{label-adı} ile doğrudan Section/Figure/Table'a atıfta bulunun.
+% ============================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% --- Dil & Kodlama ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% --- Çapraz referans: ana makalenin .aux dosyasını oku ---
+\usepackage{xr}
+\externaldocument[main-]{main}   % <-- "main" = ana .tex dosyanızın adı
+
+% --- Yardımcı paketler ---
+\usepackage{hyperref}            % tıklanabilir linkler (Overleaf PDF'de çalışır)
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{mdframed}            % hakeme yanıt kutuları için
+\usepackage{microtype}
+
+\geometry{margin=2.5cm}
+
+% ---- Renk tanımları ----
+\definecolor{reviewercolor}{RGB}{0,70,127}    % hakem yorumu -- koyu mavi
+\definecolor{authorcolor}{RGB}{30,120,30}     % yazar yanıtı  -- koyu yeşil
+\definecolor{changedcolor}{RGB}{180,0,0}      % değişiklik    -- kırmızı
+
+% ---- Kısayol komutları ----
+% Ana makaledeki label'lara kolayca atıf için:
+%   \R{sec:intro}    -> Section X
+%   \Rf{fig:results} -> Figure X
+%   \Rt{tab:data}    -> Table X
+\newcommand{\R}[1]{Section~\ref{main-#1}}
+\newcommand{\Rf}[1]{Figure~\ref{main-#1}}
+\newcommand{\Rt}[1]{Table~\ref{main-#1}}
+\newcommand{\Rp}[1]{page~\pageref{main-#1}}  % sayfa numarası
+
+% ---- Hakem & yanıt ortamları ----
+\newenvironment{reviewercomment}{%
+  \begin{mdframed}[linecolor=reviewercolor, linewidth=1.5pt,
+    backgroundcolor=reviewercolor!6, innertopmargin=6pt]
+  \color{reviewercolor}\textbf{Reviewer Comment:}\normalcolor\par\smallskip
+}{%
+  \end{mdframed}\medskip
+}
+
+\newenvironment{authorresponse}{%
+  \begin{mdframed}[linecolor=authorcolor, linewidth=1pt,
+    backgroundcolor=authorcolor!5, innertopmargin=6pt]
+  \color{authorcolor}\textbf{Author Response:}\normalcolor\par\smallskip
+}{%
+  \end{mdframed}\bigskip
+}
+
+% Makalede yapılan değişikliği vurgulamak için:
+\newcommand{\changed}[1]{\textcolor{changedcolor}{\textit{#1}}}
+
+% ============================================================
+\begin{document}
+
+% ---- Başlık ----
+\begin{center}
+  {\LARGE\bfseries Response to Reviewers}\\[0.8em]
+  {\large Manuscript: [Makale Başlığınız]}\\[0.4em]
+  {\large Journal: [Dergi Adı]}\\[0.4em]
+  \today
+\end{center}
+
+\bigskip
+\noindent
+We thank the editors and reviewers for their thorough and constructive
+feedback. Below we address each comment point by point.
+All changes in the revised manuscript are highlighted in \changed{red}.
+
+\bigskip
+\hrule
+\bigskip
+
+% ============================================================
+%  REVIEWER 1
+% ============================================================
+\section*{Reviewer 1}
+
+% ---- Yorum 1.1 ----
+\subsection*{Comment 1.1}
+
+\begin{reviewercomment}
+  [Hakemin yorumunu buraya yapıştırın.]
+\end{reviewercomment}
+
+\begin{authorresponse}
+  Thank you for this observation. We have revised \R{sec:methodology}
+  to clarify the procedure (see \Rp{sec:methodology} in the revised manuscript).
+  Specifically, we now explain that \ldots
+
+  % Doğrudan bir Figure'a atıf:
+  As shown in \Rf{fig:pipeline}, the updated workflow \ldots
+
+  % Değişikliği vurgula:
+  \changed{``We revised the relevant paragraph in Section~\ref{main-sec:methodology}
+  as follows: \ldots''}
+\end{authorresponse}
+
+% ---- Yorum 1.2 ----
+\subsection*{Comment 1.2}
+
+\begin{reviewercomment}
+  [İkinci hakemin yorumunu buraya yapıştırın.]
+\end{reviewercomment}
+
+\begin{authorresponse}
+  We agree. In the revised version, \Rt{tab:results} has been updated to
+  include the additional statistics requested (\Rp{tab:results}).
+  \changed{``A new column reporting effect sizes has been added to
+  Table~\ref{main-tab:results}.''}
+\end{authorresponse}
+
+% ============================================================
+%  REVIEWER 2
+% ============================================================
+\section*{Reviewer 2}
+
+\subsection*{Comment 2.1}
+
+\begin{reviewercomment}
+  [Hakemin yorumunu buraya yapıştırın.]
+\end{reviewercomment}
+
+\begin{authorresponse}
+  This is addressed in \R{sec:discussion}.  We have added a new paragraph
+  that discusses the limitations raised by the reviewer.
+  \changed{``We added the following paragraph to \R{sec:discussion}: \ldots''}
+\end{authorresponse}
+
+% ============================================================
+%  EDITOR COMMENTS (varsa)
+% ============================================================
+\section*{Editor Comments}
+
+\subsection*{Comment E.1}
+
+\begin{reviewercomment}
+  [Editörün yorumunu buraya yapıştırın.]
+\end{reviewercomment}
+
+\begin{authorresponse}
+  As suggested, we have \ldots
+\end{authorresponse}
+
+\end{document}
