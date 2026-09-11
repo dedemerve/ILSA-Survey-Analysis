@@ -1,0 +1,231 @@
+{
+  "metadata": {
+    "file_name": "134. Chen et al. (2026). Interpretable machine learning reveals key determinants of creative thinking among East Asian students: Evidence from PISA 2022.pdf",
+    "title": "Interpretable machine learning reveals key determinants of creative thinking among East Asian students: Evidence from PISA 2022",
+    "authors": [
+      "Hui Chen",
+      "Hongji Deng",
+      "Hao Yu",
+      "Yan Dong",
+      "Huazhen Wang"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tsc.2025.102069",
+    "venue": "Thinking Skills and Creativity",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 creative thinking scores constructed from 10 plausible values (PVs) under PISA’s IRT scaling procedure, and it pools PVs using Rubin’s rules to obtain a single composite creative thinking score per student. The authors also state that the PV pooling approach is designed to maintain measurement properties under PISA’s complex survey design, but they do not report applying explicit student sampling weights (e.g., W_FSTUWT) or replicate-weight variance estimation. Because the paper’s ML models (Elastic Net, Random Forest, SVR, XGBoost, LightGBM) are trained on preprocessed features and evaluated via resampling, the manuscript does not document whether survey weights were incorporated into model fitting or only reflected through the PV construction. Preprocessing included label encoding for gender and Z-score standardization for continuous variables, plus KNN-based missing value imputation performed within each training fold to reduce data leakage."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "knn_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 29208,
+      "countries": [
+        {
+          "country_code": "HKG",
+          "n_students": 5907
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 6454
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 4384
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6606
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 5857
+        }
+      ],
+      "sample_filtering_criteria": "The analysis uses PISA 2022 data for five East Asian economies: Hong Kong (China), Macau (China), Chinese Taipei, South Korea, and Singapore. Japan was excluded because it did not participate in the creative thinking assessment module. The dependent variable is the PISA 2022 creative thinking composite score derived from 10 PVs; predictor variables were restricted by excluding variables with missing-data rates exceeding 10%. Missing values in the remaining predictors were imputed using KNNImputer, and all preprocessing (encoding, standardization, imputation) was fit within each training set during the repeated 80/20 nested resampling to prevent data leakage."
+    },
+    "ml_techniques": {
+      "primary": "LightGBM",
+      "all_techniques": [
+        "Elastic Net",
+        "Random Forest",
+        "SVM",
+        "XGBoost",
+        "LightGBM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "EXERPRAC",
+        "variable_name": "Extracurricular physical activity",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "EXPECEDU",
+        "variable_name": "Expected educational attainment",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "MATH",
+        "variable_name": "Math performance",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "READING",
+        "variable_name": "Reading performance",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "SCIENCE",
+        "variable_name": "Science performance",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "CURIOAGR",
+        "variable_name": "Curiosity",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PERSEVAGR",
+        "variable_name": "Perseverance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMPATAGR",
+        "variable_name": "Empathy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ASSERAGR",
+        "variable_name": "Assertiveness",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "STRESAGR",
+        "variable_name": "Stress resistance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMOCOAGR",
+        "variable_name": "Emotional control",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CREATEFF",
+        "variable_name": "Creative self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CREATOP",
+        "variable_name": "Openness to intellect",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "OPENART",
+        "variable_name": "Openness to art",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ICTEFFIC",
+        "variable_name": "Digital self-efficacy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTWKDY",
+        "variable_name": "ICT weekday frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTWKEND",
+        "variable_name": "ICT weekend frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PAREDINT",
+        "variable_name": "Highest parental education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support frequency",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "CREATFAM",
+        "variable_name": "Family creative climate",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT availability at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "CREATSCH",
+        "variable_name": "School creative climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "CREATAS",
+        "variable_name": "Creative activities at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT availability at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUT",
+        "variable_name": "ICT use outside classroom",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTENQ",
+        "variable_name": "ICT use in inquiry learning",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTSUBJ",
+        "variable_name": "Subject-related ICT use",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Creative Thinking (East Asian economies; student-level composite from 10 PVs)",
+        "target_variable": "Creative thinking score (PVs pooled via Rubin’s rules)",
+        "top_predictors": [
+          "Reading performance",
+          "Science performance",
+          "ESCS",
+          "Math performance",
+          "Gender"
+        ],
+        "performance_metrics": "LightGBM (best model in primary analysis): R²=0.6304 (SD=0.0078), RMSE=6.24 (SD=0.06), MAE=4.96 (SD=0.05) across 100 repeated 80/20 splits; LOGO-CV robustness: LightGBM R²=0.3898 (SD=0.1126) vs ENR R²=0.4440 (SD=0.1011).",
+        "standardized_conclusion": "Using PISA 2022 creative thinking data for East Asian students, the study leveraged reading performance, science performance, ESCS, math performance, and gender to predict creative thinking, finding that reading performance was the most influential global predictor and that overall predictive fit was moderate (LightGBM R²≈0.63 in random splits). This indicates that strengthening reading comprehension and articulation skills—alongside addressing socioeconomic disparities—may be a practical starting point for creative-thinking interventions, while also noting that SHAP-based importance reflects predictive associations rather than causal effects and that group-level generalizability is weaker under LOGO-CV."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2022 creative thinking for five East Asian economies (HKG, MAC, TWN, KOR, SGP; N=29,208), predicting a student-level creative thinking composite derived from 10 plausible values pooled with Rubin’s rules. Five ML regressors (Elastic Net, Random Forest, SVR, XGBoost, LightGBM) were trained on 30 predictors spanning demographics, achievement, socio-emotional traits, ICT self-efficacy/use, and home/school environment; missing predictors with >10% missingness were excluded and remaining missing values were imputed with KNN within training folds. In the primary repeated 80/20 split evaluation, LightGBM performed best with R²=0.6304 (RMSE=6.24; MAE=4.96), and SHAP (Mean |SHAP|) ranked reading performance, science performance, ESCS, math performance, and gender as the top determinants. A robustness check using Leave-One-Group-Out CV showed reduced generalization (LightGBM R²=0.3898), suggesting economy-specific patterns. Because the analysis is correlational and SHAP explains predictive contributions rather than causality, policy translation should be treated as hypothesis generation rather than causal proof.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}
