@@ -17,6 +17,7 @@
 \usepackage{longtable}
 \usepackage{multicol}
 \usepackage{bm}
+\usepackage{rotating}
 \usepackage{scrlfile}
 \usepackage[hidelinks]{hyperref}
 
@@ -82,192 +83,81 @@ ILSAs are standardized cross-national studies designed to monitor and compare ed
 
 Since the first ILSA in 1960, which assessed 13-year-olds across 12 countries under UNESCO coordination \cite{foshay-etal1962}, the field has evolved from right--wrong scoring toward computer-based adaptive designs that capture response times, tool use, and solution strategies \cite{teig2023, zhang-etal2023, fink-etal2024}. Currently, ILSAs assess academic outcomes and affective dimensions such as self-efficacy, belonging, democratic participation, and ethical values \cite{michaelo-martinIEAsTechnicalStandards2025}, and have become fundamental tools for monitoring education quality, informing policy, and ensuring accountability \cite{aera2014, alvarez-etal2024}. Although administered by different institutions, some by the OECD, others by the IEA, they share common measurement and comparability principles while targeting distinct populations and domains \cite{hernandez-torrano-courtney2021, lee-lee-ExtendedDataset2025}.
 
-\subsection{ILSA\texorpdfstring{\lowercase{s}}{s} conducted by the OECD}\label{subsec2.2}
+\subsection{Major ILSA Programs: OECD and IEA}\label{subsec2.2}
 
-PISA, PIAAC, and TALIS, conducted by the OECD, are studies that focus on lifelong learning. Rather than measuring solely curriculum-based achievements, they measure individuals' ability to apply their knowledge and skills in daily life, their education/work experience, and teaching environments. Each ILSA focuses on different target groups and areas \cite{hernandez-torrano-courtney2021}. The key technical and methodological characteristics of these OECD studies are summarized in Table \ref{tab:oecd_ilsa_comparison}, which are further detailed in the following subsections.
+Although administered by different institutions, OECD and IEA ILSAs share common measurement and comparability principles while targeting distinct populations and domains \cite{hernandez-torrano-courtney2021, lee-lee-ExtendedDataset2025}. OECD programs---PISA, TALIS, and PIAAC---focus on lifelong learning and measure individuals’ ability to apply knowledge and skills in daily life, working environments, and teaching contexts. IEA programs---TIMSS, PIRLS, ICCS, and ICILS---assess student knowledge and skills at defined grade levels within frameworks aligned with school curricula. Table~\ref{tab:ilsa_summary} provides a unified overview of all seven programs across their target populations, core domains, assessment cycles, administration modes, psychometric models, and scoring approaches.
 
-\begin{table*}[!t]
+\begin{sidewaystable}
 \centering
-\caption{Comparative matrix of OECD ILSAs}
-\label{tab:oecd_ilsa_comparison}
-\renewcommand{\arraystretch}{1.2}
+\caption{Overview of OECD and IEA ILSAs: core characteristics and assessment framework}
+\label{tab:ilsa_summary}
+\renewcommand{\arraystretch}{1.3}
 \setlength{\tabcolsep}{4pt}
 
-\begin{tabular}{p{2.5cm}p{4,4cm}p{4,4cm}p{4,8cm}}
+\begin{tabular}{p{2.3cm}p{4.4cm}p{4.4cm}p{4.4cm}p{3.5cm}p{3.5cm}p{3.5cm}p{3.5cm}}
 \toprule
-Feature & PISA & TALIS & PIAAC \\
+& \multicolumn{3}{c}{\textbf{OECD ILSAs}} & \multicolumn{4}{c}{\textbf{IEA ILSAs}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-8}
+Feature & PISA & TALIS & PIAAC & TIMSS & PIRLS & ICCS & ICILS \\
 \midrule
 
-Official Title & Programme for International Student Assessment 
-& Teaching and Learning International Survey 
-& Programme for the International Assessment of Adult Competencies \\
-
-Start Year & 2000 & 2008 & 2008 \\
-
-Cycle & Every 3 years (triennial) 
-& Every 5 years (quinquennial) 
-& Every 10 years (decennial) \\
-
-Target Group & 15-year-old students \newline (end of compulsory education) 
-& Teachers and school leaders 
-& Adults aged 16--65 \\
-
-Core Domains & Reading, mathematics, and science; occasionally additional areas such as creativity and education finance 
-& Working conditions, teaching climate, leadership styles, professional development, and job satisfaction 
-& Literacy, numeracy, and problem solving in technology rich environments \\
-
-Primary Objective 
-& To compare real-life skills at an international level 
-& To identify the strengths and weaknesses of education systems 
-& To analyze countries' human capital and the economic impact of competencies \\
-
-\bottomrule
-\end{tabular}
-\end{table*}
-
-The measurement and assessment frameworks of OECD ILSAs have undergone substantial transformation in response to technological advances and evolving construct requirements \cite{fink-etal2024, robitzsch-ludtke2022}. Across successive cycles, these studies have progressively shifted from paper-based, fixed-format designs toward computer-based adaptive assessments, sophisticated psychometric models, and multi-source data architectures that capture not only what examinees know but how they engage with tasks \cite{guo-etal-ercikan2024, jiao-etal2021, teig2023}. Table \ref{tab:oecd_framework} presents a systematic comparison of these developments across PISA, TALIS, and PIAAC along five dimensions: administration mode, test structure, psychometric modeling, data types, and scoring approach.
-
-\begin{table*}[!t]
-\centering
-\caption{Measurement and assessment framework of OECD ILSAs}
-\label{tab:oecd_framework}
-\renewcommand{\arraystretch}{1.2}
-\setlength{\tabcolsep}{4pt}
-
-\begin{tabular}{p{2.1cm}p{4.7cm}p{4.7cm}p{4.7cm}}
-\toprule
-\text{Feature} & \text{PISA} & \text{TALIS} & \text{PIAAC} \\
-\midrule
-
-Administration Mode 
-& Utilized PBA from 2000 to 2012, including simplified booklets and specific adaptations in 2012. Formally transitioned to CBA as the primary mode in 2015 and moved toward an almost exclusive digital environment in 2018
-& Maintained paper-and-pencil formats in 2008 and 2013, with optional online administration introduced in 2018. CBA was officially adopted as the default mode for 2024 to enable digitally integrated data collection 
-& CBA as basis from 2011 to 2018 (PBA retained for participants with limited digital experience); CBA as primary mode in 2022--2023, enhanced with adaptive problem-solving, automatic scoring, process data collection\\
-
-Test Structure 
-& Fixed-form design based on rotated booklets in 2000--2015 cycles; MSAT introduced in reading in 2018, routing test blocks based on prior student performance, enhancing measurement precision and testing efficiency
-& Fixed survey structure until 2018 (same questions for all participants); rotated survey design introduced in 2024 to reduce response burden and broaden content coverage while preserving common core questions 
-& Limited adaptive testing in 2011--2018 cycles; MSAT structure fully integrated in 2022--2023, directing participants to different competency paths based on initial performance \\
-
-Psychometric Model 
-& 2000--2012: Rasch model for dichotomous items and PCM for multi-categorical items; since 2015: 2PL for dichotomous items and Generalized PCM for multi-categorical items 
-& CFA and multi-group CFA for construct validity and measurement invariance; IRT-based models used in a limited, supplementary capacity in 2018 and 2024 
-& IRT framework across cycles for calibration on a common scale; first cycle: 2PL and Generalized PCM; second cycle: IRT integrated with process data and adaptive problem-solving \\
-
-Data Types 
-& 2000--2012: result data; since 2015 (CBA): process data systematically collected (clicks, time usage, task sequences), enabling analysis of both what and how achievement occurs 
-& Survey responses and contextual data; process data collected since 2018 (online); limited cognitive result data added in 2024 via the TKS module 
-& First cycle: process data partially available; second cycle (2022--2023): process data central, enabling analysis of competencies, problem-solving strategies, and time usage via adaptive tasks \\
-
-Scoring \newline Approach 
-& PBA period: human coders for open-ended items; CBA: digitized via Open-Ended Coding System; since 2022: Machine-Supported Coding for repetitive standard responses, reducing human coding burden 
-& IRT-based scaling of survey responses (not cognitive performance); automated scoring and quality control via online implementation; TKS module (2024) incorporated scoring of pedagogical knowledge items 
-& 2011--2018: hybrid structure (automated and human methods); 2022--2023: automated scoring expanded with integration of adaptive problem-solving \\
-
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\subsection{ILSA\texorpdfstring{\lowercase{s}}{s} conducted by the IEA}\label{subsec2.3}
-
-International studies such as TIMSS, PIRLS, ICCS, and ICILS, conducted by IEA, are international studies that assess the knowledge and skills of students at various grade levels within frameworks aligned with curricula \cite{hernandez-torrano-courtney2021}. A comparative overview of the core characteristics and assessment focus of these IEA studies is provided in Table \ref{tab:iea_ilsa_comparison}.
-
-\begin{table*}[!t]
-\centering
-\caption{Comparative matrix of IEA ILSAs}
-\label{tab:iea_ilsa_comparison}
-\renewcommand{\arraystretch}{1.2}
-\setlength{\tabcolsep}{4pt}
-
-\begin{tabular}{p{2cm}p{3.5cm}p{3.5cm}p{3.5cm}p{3.5cm}}
-\toprule
-Feature & TIMSS & PIRLS & ICCS & ICILS \\
-\midrule
-
-Official Title 
-& Trends in International Mathematics and Science Study 
-& Progress in International Reading Literacy Study 
-& International Civic and Citizenship Education Study 
-& International Computer and Information Literacy Study \\
-
-Start Year 
-& 1995 & 2001 & 2009 & 2013 \\
-
-Cycle 
-& Every 4 years (quadrennial) 
-& Every 5 years (quinquennial) 
-& Every 5 years (quinquennial) 
-& Every 5 years (quinquennial) \\
-
-Target Group 
-& Grade 4 and Grade 8 students 
-& Grade 4 students 
-& Grade 8 students (avg. age 13.5+) 
+Target Group
+& 15-year-old students (end of compulsory education)
+& Teachers and school leaders
+& Adults aged 16--65
+& Grade 4 and Grade 8 students
+& Grade 4 students
+& Grade 8 students (avg.\ age 13.5+)
 & Grade 8 students \\
 
-Core Domains 
-& Mathematics and science (both assessed equally each cycle) 
-& Reading literacy and comprehension 
-& Civic knowledge, engagement, and attitudes
-& Computer and information literacy and computational thinking\\
+Core Domains
+& Reading, mathematics, and science
+& Working conditions, teaching practices, professional development
+& Literacy, numeracy, and problem solving in technology-rich environments
+& Mathematics and science
+& Reading literacy and comprehension
+& Civic knowledge, attitudes, and engagement
+& Computer and information literacy, computational thinking \\
 
-Primary Objective 
-& To assess students’ knowledge and skills in mathematics and science across countries 
-& To monitor reading achievement and the transition from learning to read to reading to learn 
-& To understand how prepared young people are for their civic roles in a changing world 
-& To assess students' competencies in using digital information and technology effectively \\
-
-\bottomrule
-\end{tabular}
-\end{table*}
-
-The measurement and assessment frameworks of IEA ILSAs have evolved in accordance with the principles of curriculum-based assessment, long-term trend comparability, and psychometric consistency \cite{lee-lee-ExtendedDataset2025, teig2023}. Successive cycles reflect a deliberate architectural progression across administration mode, test structure, psychometric modeling, data types, and scoring approach, balancing innovation with the preservation of cross-cycle comparability \cite{deschipper-etal2025, jung-etal2024, tyack-etal2024}. Table \ref{tab:iea_framework} presents a systematic comparison of these developments across TIMSS, PIRLS, ICCS, and ICILS.
-
-\begin{table*}[!t]
-\centering
-\caption{Measurement and assessment framework of IEA ILSAs}
-\label{tab:iea_framework}
-\renewcommand{\arraystretch}{1.2}
-\setlength{\tabcolsep}{4pt}
-
-\begin{tabular}{p{2.1cm}p{3.4cm}p{3.4cm}p{3.5cm}p{3.4cm}}
-\toprule
-Feature & TIMSS & PIRLS & ICCS & ICILS \\
-\midrule
+Cycle
+& Every 3 years
+& Every 5 years
+& Every 10 years
+& Every 4 years
+& Every 5 years
+& Every 5 years
+& Every 5 years \\
 
 Administration Mode
-& PBA and CBA used together in 2019; all new items developed exclusively in CBA format in 2023
-& Steps toward digitization taken in 2016; digital assessment adopted as primary implementation in 2021
-& CBA offered as an option in 2022; bridging studies conducted to monitor the effects of digitization on assessment results
-& Pioneer in CBA since its first cycle in 2013; fully computer-based from the outset \\
-
-Test Structure
-& Fixed block matrix sampling was integrated in 2023, and 2027 introduces adaptive routing and group- adaptive designs to better match item difficulty
-& Group adaptive design first applied in 2021; item blocks structured at low, medium, and high difficulty levels to better align with country-level achievement profiles
-& Unadopted rotated block design preserved across 2016 and 2022 cycles to maintain secure items and long-term comparability
-& Rotational module structure since 2013; limited number of modules used to measure broad content coverage at the population level \\
+& CBA as primary mode since 2015; fully digital since 2018
+& CBA adopted as default for 2024; paper-based in 2008 and 2013
+& CBA as primary mode since 2022--23; paper-based retained for limited-access participants in earlier cycles
+& New items developed exclusively in CBA format since 2019; fully CBA in 2023
+& CBA adopted as primary mode in 2021
+& CBA offered as an option since 2022; bridging studies conducted to monitor mode effects
+& Fully CBA since its first cycle in 2013 \\
 
 Psychometric Model
-& IRT and PVs since 1995; in 2023, new MC items used 2PL, while 3PL was retained for trend items; shift from blank= incorrect to strength-of-evidence approach
-& Scale continuity maintained across all cycles; randomly equivalent samples design and population-based linking approaches adopted in 2021 to balance CBA and PBA differences
-& High measurement invariance maintained between PBA and CBA from 2016 to 2022; scale production continued with the same item parameters for both modes
-& IRT-based proficiency estimates produced since 2013 by combining digitally designed items with latent regression information; trend comparability maintained in digitally process-based tasks \\
-
-Data Types
-& Cognitive test data systematic reviewcombined with contextual surveys (students, teachers, schools, curricula, families); process data expanded with CBA integration in 2023
-& Reading performance data combined with contextual surveys (students, parents, teachers, schools); process data introduced with digital implementation in 2021
-& Civic knowledge and attitudinal data combined with contextual surveys (eg., students, teachers, school principals); process data collected via CBA in 2022
-& CIL and CT performance data combined with contextual surveys; process data central from the first cycle; CT integrated in 2018, CIL--CT combined in 2023 \\
+& 2PL for dichotomous and Generalized PCM for polytomous items since 2015; MSAT routing introduced in reading in 2018
+& CFA and multi-group CFA for construct validity; IRT used in a supplementary capacity since 2018
+& IRT-based calibration on a common scale; MSAT fully integrated in 2022--23
+& IRT and PVs since 1995; 2PL for new items, 3PL retained for trend items in 2023
+& Scale continuity maintained across cycles; population-based linking adopted in 2021 to balance CBA--PBA differences
+& High measurement invariance maintained between PBA and CBA from 2016 to 2022
+& IRT proficiency estimates combined with latent regression information since 2013 \\
 
 Scoring Approach
-& Hybrid (automated and human) scoring in 2019 and prior cycles; in 2023, structured responses scored automatically, AI-based methods used for quality control and borderline responses; TIMSS 2027 aims to expand automatically scored structured responses
-& Human-based scoring (2001– 2011); limited automated scoring from 2016; expanded automated scoring with new CBA-suitable item types in 2021; 2026 goal: digital structure with automated interactive items and human-scored open-ended responses
-& Human scoring was used exclusively in 2009 and 2016 (PBA), whereas in 2022 automated scoring was introduced for interactive CBA tasks, with human scoring retained for open-ended responses
-& Hybrid scoring adopted from the outset; skill, coding, and simulation tasks scored automatically; higher-order tasks evaluated by human scorers; CT integration in 2018 and CIL--CT in 2023 strengthened use of automatic scoring and process data\\
+& Machine-Supported Coding for standard responses since 2022; human coding retained for complex open-ended items
+& Automated scoring and quality control via online platform; pedagogical knowledge items scored since 2024 (TKS module)
+& Automated scoring expanded with adaptive problem-solving tasks since 2022--23
+& AI-assisted quality control and automated structured responses since 2023; hybrid scoring in earlier cycles
+& Automated scoring expanded with CBA-suitable item types since 2021; human scoring retained for open-ended items
+& Automated scoring introduced for interactive CBA tasks in 2022; human scoring retained for open-ended responses
+& Hybrid from outset: automated for simulation and coding tasks, human for higher-order items \\
 
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{sidewaystable}
 
 \subsection{Result and process data-based analytical perspectives} \label{subsec2.4}
 
