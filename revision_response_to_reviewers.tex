@@ -1,0 +1,715 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+
+\definecolor{reviewerblue}{RGB}{0,0,180}
+\definecolor{notegreen}{RGB}{0,120,0}
+
+\hypersetup{colorlinks=true, linkcolor=reviewerblue, urlcolor=reviewerblue}
+
+% -----------------------------------------------------------
+\begin{document}
+\setstretch{1.15}
+
+% ============================================================
+%  COVER LETTER
+% ============================================================
+\noindent
+\textbf{Original Manuscript ID:} Access-2026-37050
+
+\medskip
+\noindent
+\textbf{Original Article Title:} Artificial Intelligence Applications in International Large-Scale
+Assessments: A Survey with LLM-Assisted Evidence Synthesis
+
+\bigskip
+\noindent
+To: IEEE Access Editor
+
+\medskip
+\noindent
+Re: Response to reviewers
+
+\bigskip
+\noindent
+Dear Editor,
+
+\medskip
+Thank you for allowing a resubmission of our manuscript, with an opportunity to address the
+reviewers' comments. We are uploading (a) our point-by-point response to the comments (below)
+under ``Author's Response Files'', (b) an updated manuscript with yellow highlighting indicating
+changes (as ``Highlighted PDF''), and (c) a clean updated manuscript without highlights (``Main
+Manuscript'').
+
+\medskip
+\noindent
+Best regards,\\[6pt]
+Merve Dede and Ekrem \c{C}etinkaya
+
+\bigskip
+\noindent\textit{Note on location references.} The revised manuscript employs continuous line
+numbering via the \LaTeX{} \texttt{lineno} package. All page and line references below correspond
+to the visible line numbers in the compiled ``Main Manuscript'' PDF. Because these numbers differ
+from LaTeX source-file line counts, readers should verify each citation directly against the
+submitted PDF.
+
+\newpage
+
+% ============================================================
+%  PRELIMINARY NOTE
+% ============================================================
+
+\noindent Dear Editor and Reviewers,
+
+\medskip
+Thank you for the careful and constructive evaluation of our manuscript. We have addressed every
+comment in full and revised the manuscript accordingly. For each response, the corresponding
+revision is identified by its section number and, where unambiguous, by the page and line numbers
+visible in the compiled revised manuscript PDF. We note that the original reviewer letter contains
+a numbering inconsistency (two comments labelled ``Comment \#3'' and no ``Comment \#2'' for
+Reviewer~1); we follow the sequential ordering in which the comments appear.
+
+\bigskip\hrule\bigskip
+
+% ============================================================
+%  REVIEWER 1
+% ============================================================
+
+\noindent\textbf{\large Reviewer \#1}
+
+\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#1}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+The review relies primarily on Web of Science (WoS) as a main source of papers, supplemented by
+Google Scholar searches and backward snowballing. This choice may result in somewhat incomplete
+coverage. The authors should either broaden the database coverage or provide a substantially
+stronger justification for the current approach. The exact Boolean search strings and field
+restrictions should also be reported to ensure reproducibility.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this constructive observation. We have substantially revised Section~3.2 (Literature
+Review Strategy) to address both concerns.
+
+\emph{Database justification.} We attempted an IEEExplore search using the identical query; it
+returned no results due to that platform's field-length constraints. We note that the majority of
+IEEE-indexed journals within this review's scope are indexed in WoS, so our primary search already
+captures most of this literature; coverage of IEEE conference proceedings via WoS is acknowledged
+as a minor limitation and is now stated explicitly. Google Scholar was retained as a complementary
+source to reduce coverage bias, particularly for interdisciplinary conference proceedings, preprints,
+and cross-disciplinary outlets at the intersection of AI and educational measurement.
+
+\emph{Search-string transparency.} The full Boolean query is now reported in Section~3.2. The
+analytical-methodology block was organised into four named subgroups from the outset: (B)~core
+AI/ML methods, (C)~explainability methods (including ``explainable AI,'' ``XAI,'' ``SHAP''),
+(D)~educational data methods (including ``educational data mining,'' ``learning analytics,''
+``process data''), and (E)~psychometric-computational methods. With this expanded and fully
+disclosed query, the WoS yield increased from 675 to 991 records; the final corpus grew from 130
+to 212 studies. The complete pipeline scripts remain publicly available via the Data Availability
+Statement.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.2 was revised to include: the complete five-block Boolean query (Blocks A--E) displayed
+verbatim; an explicit justification for WoS as the primary database; a description of the
+IEEExplore attempt and its outcome; and a clarification of Google Scholar's role alongside an
+acknowledgement of its limitations.
+
+\medskip
+\noindent\textbf{Location:} Section~3.2 (Literature Review Strategy). In the compiled PDF, the
+Boolean query display begins on the page containing Section~3.2 and spans the passage running from
+``The search query combined two conceptual blocks'' through ``Block A AND (Block B OR Block C OR
+Block D OR Block E).''
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#2}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+The reported search terms do not clearly include several concepts that later form major parts of
+the review, such as ``educational data mining'', ``learning analytics'', ``explainable AI / xAI'',
+just to name a few. The authors should clarify whether these terms were included in the complete
+search strategy and discuss the potential implications for study retrieval.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this important observation. We confirm that these terms were included in the original
+search strategy and were \emph{not} added post-hoc. However, the original manuscript did not
+report the full Boolean string explicitly, which created the impression that these concepts were
+absent. This has been corrected in the revised Section~3.2.
+
+The revised query explicitly documents Block~C (explainability methods: ``explainable AI,'' ``XAI,''
+``interpretable machine learning,'' ``SHAP,'' ``feature importance'') and Block~D (educational data
+methods: ``educational data mining,'' ``learning analytics,'' ``process data,'' ``log-file
+analysis,'' ``response process data'') as integral subgroups. The revised text states explicitly
+that these subgroups were ``incorporated from the outset rather than added post-hoc.'' The expanded,
+fully disclosed string yielded 991 WoS records and a final corpus of 212 studies.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.2 was revised to display Blocks C and D verbatim, with an explicit statement that these
+subgroups were incorporated from the outset.
+
+\medskip
+\noindent\textbf{Location:} Section~3.2. The relevant passage begins at ``Block C --- Explainability
+methods'' and ``Block D --- Educational data methods'' in the query display.
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#3}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+The Policy Actionability Scoring Rubric is one of the manuscript's contributions, but the rubric
+is currently internally defined and has not been externally validated. Please give more detail of
+the scoring rubric.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this important methodological point. Section~3.1.3 (Composite Actionability Scoring)
+has been substantially revised in two respects.
+
+\emph{Rubric detail.} The three dimensions are now described with concrete criteria:
+$D_1$~(inferential warrant) ranges from purely descriptive or synthesis claims at the lowest level
+through correlational association to causal ML designs (e.g., Bayesian Causal Forests) at the
+highest. $D_2$~(effect specification) distinguishes findings that quantify effect size (coefficients,
+percentage-point differences, AUC gains) from directional-only or unquantified findings.
+$D_3$~(population boundedness) assesses whether conclusions are constrained to a named, identifiable
+population. Score-assignment rules for all five levels are now stated deterministically: Score~5
+requires causal warrant with quantified, population-bounded findings; Score~4 requires correlational
+warrant with quantified effect sizes and country-specific scope; Score~3 requires at minimum
+directional empirical evidence; Scores~1--2 cover purely methodological studies, synthesis papers,
+or findings that are globally unspecified. Table~2 presents the full rubric. The revised text also
+acknowledges that the rubric was developed internally and has not been externally validated; it
+should be interpreted as a structured analytical lens rather than a psychometrically calibrated
+instrument.
+
+\emph{Validation.} A human rater independently scored a randomly selected subsample of 37 studies
+by applying the same rubric without access to the programmatic scores. Exact agreement was
+86.5\% (32/37); Cohen's $\kappa=0.76$ (unweighted) and $\kappa_w=0.83$ (quadratic-weighted),
+indicating substantial agreement on the ordinal scale. The five disagreements involved boundary
+cases concerning population boundedness, effect quantification, and methodological classification
+and are noted in Section~6 (Limitations).
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.1.3 now includes: (i)~full operational definitions of all three scoring dimensions with
+illustrative examples; (ii)~explicit score-assignment rules for all five levels; (iii)~an
+acknowledgement that GRADE/SIGN frameworks were not directly applicable and why; (iv)~the full
+corpus-level score distribution ($\bar{x}=3.70$, $SD=0.80$, $n=212$); and (v)~the inter-rater
+validation results.
+
+\medskip
+\noindent\textbf{Location:} Section~3.1.3 (Composite Actionability Scoring) and Table~2 (Policy
+Actionability Scoring Rubric). The passage begins at ``Established evidence-grading frameworks
+such as GRADE \ldots{} were not directly applicable'' and ends at the inter-rater reliability
+statistics.
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#4}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+Regarding the interpretation of xAI. SHAP, LIME, and similar techniques improve the
+interpretability of model predictions, but they do not by themselves make findings policy-defensible
+or causal. The manuscript would benefit from a clearer discussion of the distinction between
+explaining a model's prediction and explaining the underlying educational phenomenon.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this conceptually important point. We fully agree that this distinction was not drawn
+with sufficient clarity in the original manuscript.
+
+The distinction is now stated explicitly in three locations. In Section~1 (Introduction), a sentence
+was added noting that ``XAI methods explain model predictions rather than underlying educational
+mechanisms; policy-defensible inference therefore requires combining XAI outputs with substantive
+domain knowledge and, where possible, causal designs.'' In Section~3.3.3 (Explainable Artificial
+Intelligence), an explicit statement appears: these methods ``explain model predictions rather than
+underlying educational mechanisms; feature importance should therefore not be interpreted as causal
+evidence.'' In Section~5.1 (Recommendations for Educators and Practitioners), practitioners are
+directly cautioned: ``XAI can clarify model-specific predictor contributions but should not be
+interpreted causally; instructional decisions should therefore integrate model outputs with
+contextual knowledge.''
+
+In addition, Section~3.3.3 includes a new paragraph documenting XAI heterogeneity across student
+groups and national contexts, grounding the model-versus-phenomenon distinction in concrete empirical
+evidence from the reviewed studies.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+The distinction between model-prediction explanations and educational-phenomenon explanations is
+now stated explicitly in Sections~1, 3.3.3, and~5.1.
+
+\medskip
+\noindent\textbf{Locations:}
+\begin{itemize}
+  \item Section~1 (Introduction): the passage beginning ``XAI methods explain model predictions
+        rather than underlying educational mechanisms.''
+  \item Section~3.3.3 (Explainable Artificial Intelligence): the passage beginning ``Importantly,
+        these methods explain model predictions rather than underlying educational mechanisms.''
+  \item Section~5.1 (Recommendations for Educators and Practitioners): Recommendation~3 beginning
+        ``XAI can clarify model-specific predictor contributions.''
+\end{itemize}
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#5}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+The extraction pipeline presented in the manuscript is an interesting contribution, but schema
+validation alone does not demonstrate extraction accuracy. Since the authors report full human
+verification and preserve an audit trail, it should be possible to provide quantitative information
+such as the proportion of fields requiring correction, field-level agreement, or common error
+categories. This would substantially strengthen the methodological contribution.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this constructive suggestion. We agree that reporting schema-validation pass rates
+alone is insufficient, and we have added quantitative extraction-fidelity data to Section~3.1.2
+(Reliability Safeguards).
+
+The revised section reports fidelity at two levels. At the field-coverage level: across 22 core
+fields and 212 studies (4,664 field-instances), 962 instances (20.6\%) received sentinel labels
+(\textit{Not Reported}, \textit{N/A}, or empty), falling to 7.7\% (293/3,816) when survey-weight
+and open-access metadata were excluded; the most frequently flagged substantive fields were
+\textit{ml\_techniques} (37.3\%), \textit{sample\_size} (25.0\%), \textit{countries\_formatted}
+(24.1\%), \textit{confounders} (17.9\%), and \textit{effect\_size} (17.0\%), reflecting
+source-level non-reporting rather than extraction errors. At the primary-method level: LLM--human
+agreement was 93.2\% (124/133) after semantic normalization across studies with non-missing values
+in both sources; the nine disagreements arose from multi-method studies where the LLM identified
+a different primary method rather than making a factual error. The revised text also clarifies that
+because human edits were not systematically logged, sentinel and null counts provide a completeness
+proxy rather than a direct measure of correction frequency, and that field categories most
+frequently requiring correction were outcome fields, conclusion templates, and method-family
+assignments.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.1.2 (Reliability Safeguards) now includes field-level sentinel rates, the primary
+method-agreement statistic (93.2\%), a description of the nine disagreement cases, and an
+identification of the field categories most frequently requiring human correction.
+
+\medskip
+\noindent\textbf{Location:} Section~3.1.2 (Reliability Safeguards). The relevant passage begins
+at ``Extraction fidelity was assessed at field and method-agreement levels'' and continues through
+the sentence ending ``a completeness proxy rather than a direct measure of correction frequency.''
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#6}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+The manuscript in current form is indeed very information-dense. The extensive descriptive material
+on the structure of individual OECD and IEA assessments, particularly Tables~1--4, could be
+condensed. This would allow the manuscript to focus more strongly on its main contributions.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this suggestion. The four tables covering OECD and IEA assessment frameworks have
+been replaced with a single consolidated summary table (Table~1) retaining only the dimensions
+directly relevant to understanding how these assessments generate the data analyzed across the
+reviewed studies: target group, core domains, cycle frequency, administration mode, psychometric
+model, and scoring approach. Descriptive prose in Section~2.2 has been shortened accordingly.
+This restructuring reduces the descriptive weight of Section~2 and rebalances the manuscript so
+that the analytical contributions in Sections~3--5 receive proportionally greater emphasis.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Sections~2.2 was revised by consolidating four detailed tables into Table~1 (``Overview of OECD
+and IEA ILSAs: core characteristics and assessment framework'').
+
+\medskip
+\noindent\textbf{Location:} Section~2.2 (International Large-Scale Assessments) and Table~1.
+
+\newpage
+
+% ============================================================
+%  REVIEWER 2
+% ============================================================
+
+\noindent\textbf{\large Reviewer \#2}
+
+\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#1}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+Even though the paper is well written, the literature survey is weak and the introduction is
+insufficient to capture the main objective of this work.}
+
+\medskip
+\noindent\textbf{Response:}
+
+We thank the reviewer for this general concern. We note that this comment does not identify a
+specific deficiency; our response therefore addresses the two dimensions most plausibly implied:
+scope of the literature survey and clarity of the introduction's objectives.
+
+\emph{Introduction.} The revised Introduction now states the study's primary objective, its scope
+(212 studies, 2020--August 2026, seven ILSA programs), and the three specific departures from prior
+syntheses more explicitly. The final paragraph of Section~1 identifies the five-category framework,
+the LLM-assisted extraction contribution, and the policy actionability framework as the three
+substantive contributions, and the sentence structure of that paragraph was revised to make the
+motivation-to-contribution logic explicit.
+
+\emph{Literature survey.} The survey is organized around the five-category framework in Section~4
+and grounded in the methodological typology in Section~3.3. The revised manuscript covers 212
+studies (up from 130), and the temporal scope was extended to August~2026. While we acknowledge
+that a comprehensive discussion of every subfield covered would extend the manuscript beyond
+reasonable length, we believe the revised Introduction and the explicit five-category framework in
+Section~4 more clearly communicate the manuscript's scope and objectives.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~1 (Introduction) was revised to state the primary objective and the three contributions
+more explicitly, with the final paragraph rewritten to articulate the motivation-to-contribution
+logic.
+
+\medskip
+\noindent\textbf{Location:} Section~1 (Introduction), final two paragraphs.
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#2}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+Please provide the full meaning of acronyms when they first appear in the paper (e.g., PISA,
+TALIS).}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this observation. The revised Introduction (Section~1) provides the full name of each
+assessment program at first mention: Programme for International Student Assessment (PISA), Teaching
+and Learning International Survey (TALIS), Programme for the International Assessment of Adult
+Competencies (PIAAC), Trends in International Mathematics and Science Study (TIMSS), Progress in
+International Reading Literacy Study (PIRLS), International Civic and Citizenship Education Study
+(ICCS), and International Computer and Information Literacy Study (ICILS). The same convention has
+been applied to all other technical acronyms (e.g., AI, EDM, LA, ML, DL, XAI) introduced
+throughout the manuscript.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+All acronyms are defined at first use in Section~1, in accordance with IEEE Access style
+requirements.
+
+\medskip
+\noindent\textbf{Location:} Section~1 (Introduction). The OECD program acronyms are defined in the
+second paragraph of Section~1; IEA program acronyms appear in the same paragraph.
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#3}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+How was the mean actionability score of 3.2 achieved?}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for raising this point. The original manuscript did not describe the scoring mechanism
+with sufficient transparency. Section~3.1.3 has been substantially revised to explain this in full.
+
+Each study receives a score from 1 to 5 based on three observable dimensions: $D_1$ (inferential
+warrant), $D_2$ (effect specification), and $D_3$ (population boundedness). Scores are assigned
+deterministically through a hierarchical rule set applied to the $(D_1, D_2, D_3)$ triple, with
+no coder discretion. The corpus mean reported in the original manuscript ($\bar{x}=3.20$) reflected
+the arithmetic average of deterministic scores across 130 studies. In the revised version, the
+corpus has been expanded to 212 studies, yielding an updated mean of $\bar{x}=3.70$ ($SD=0.80$).
+The full score distribution (Table~2) and the scoring rule set are reported in Section~3.1.3 and
+are also available in the publicly accessible pipeline scripts.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.1.3 and Table~2 now provide a complete explanation of how composite scores are derived
+from the three dimensions, including the deterministic rule set and corpus-level summary statistics.
+
+\medskip
+\noindent\textbf{Location:} Section~3.1.3 (Composite Actionability Scoring) and Table~2 (Policy
+Actionability Scoring Rubric).
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#4}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+Elaborate on Response Time Effort (RTE).}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this suggestion. The revised Section~3.3.2 (Deep Learning and Process-Data Analytics)
+now includes a formal definition of RTE. RTE relates a student's observed response time to an
+item-level normative time threshold derived from the empirical distribution of response times across
+examinees. Values substantially below the normative level, commonly $\text{RTE}<0.20$, are used to
+identify potentially disengaged responding consistent with random guessing; values near or above the
+threshold are consistent with sustained engagement. The revised text states this definition explicitly
+and clarifies that RTE operationalizes test-taking effort at the item level, complementing
+accuracy-based indicators by capturing behavioral validity rather than correctness alone.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.3.2 now includes a formal definition of RTE with its standard interpretation and threshold
+criterion.
+
+\medskip
+\noindent\textbf{Location:} Section~3.3.2 (Deep Learning and Process-Data Analytics). The passage
+begins at ``Response time effort (RTE), for instance, relates observed response time to an
+item-level normative time threshold.''
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#5}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+Elaborate on how XAI heterogeneity manifests across student groups.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this suggestion. The revised Section~3.3.3 (Explainable Artificial Intelligence) now
+includes a dedicated passage on XAI heterogeneity at two levels.
+
+At the student-group level, SHAP dependency plots from reviewed studies reveal that feature
+contributions differ in direction and magnitude across achievement quartiles: for example,
+self-efficacy shows diminishing marginal returns in the upper achievement quartile while carrying
+the largest positive SHAP contribution in the lower quartile. At the cross-national level, the
+relative importance ranking of the same variable shifts across systems even when the variable
+remains statistically significant; ESCS dominates in resource-constrained contexts while
+psychosocial constructs lead in higher-income systems. These patterns confirm that XAI findings
+are context-bound inferences about model behavior rather than universal claims about educational
+causation.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~3.3.3 now includes an explicit passage on XAI heterogeneity across student achievement
+groups and national contexts, supported by examples from reviewed studies.
+
+\medskip
+\noindent\textbf{Location:} Section~3.3.3 (Explainable Artificial Intelligence). The passage
+begins at ``The reviewed studies further indicate heterogeneity in feature contributions across
+student groups and national contexts.''
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#6}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+It is not clear how you obtained your mean composite actionability scores.}
+
+\medskip
+\noindent\textbf{Response:}
+
+This comment addresses the same concern as Comment~\#3 above; the response and revision are
+identical. For completeness: each study is scored deterministically from the $(D_1, D_2, D_3)$
+triple using a hierarchical rule set (no coder discretion); the composite score is the resulting
+ordinal value from 1 to 5; the corpus mean is the arithmetic average of these scores across all
+212~studies ($\bar{x}=3.70$, $SD=0.80$). The scoring function is included in the publicly available
+pipeline scripts. Full details are in the revised Section~3.1.3 and Table~2.
+
+\medskip
+\noindent\textbf{Location:} Section~3.1.3 and Table~2 (see Comment~\#3 above).
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#7}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+Provide separate sections for limitations and future directions.}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this structural suggestion. The combined ``Limitations and Future Directions''
+subsection has been separated into two independent sections in the revised manuscript:
+Section~6 (Limitations) and Section~7 (Future Directions). Each section now stands independently,
+allowing readers to engage with methodological limitations and research priorities separately.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Sections~6 and~7 are now distinct, labeled ``Limitations'' and ``Future Directions'' respectively.
+
+\medskip
+\noindent\textbf{Locations:}
+\begin{itemize}
+  \item Section~6 (Limitations): begins with ``Several methodological limitations warrant
+        acknowledgement.''
+  \item Section~7 (Future Directions): begins with ``Three research priorities emerge from the
+        corpus.''
+\end{itemize}
+
+\bigskip\hrule\bigskip
+
+% -----------------------------------------------------------
+\noindent\textbf{Comment \#8}
+
+\medskip
+\noindent\textcolor{reviewerblue}{%
+What are your recommendations for educators based on your findings in this work?}
+
+\medskip
+\noindent\textbf{Response:}
+
+Thank you for this practically important suggestion. A dedicated subsection, Section~5.1
+(Recommendations for Educators and Practitioners), has been added to the Conclusion.
+
+Four concrete evidence-based recommendations are provided. (1)~Self-efficacy, metacognitive
+strategy use, and school belonging are the most consistently modifiable predictors across programs
+and geographies; school-level interventions targeting these constructs are more likely to generalize
+than those targeting demographic or resource variables alone. (2)~Process data analytics reveal
+that students reaching identical scores often follow measurably different behavioral pathways;
+educators can use behavioral engagement indicators such as RTE and action-sequence profiles to
+identify students who appear on-track by score alone but show signs of disengagement.
+(3)~SHAP-based feature importance outputs should be interpreted as model-specific summaries of
+predictor contributions rather than causal explanations, and should be triangulated with contextual
+knowledge before informing instructional decisions. (4)~Given the cross-cultural instability of
+predictors documented across the corpus, findings from high-performing or resource-rich systems
+should be piloted rather than directly adopted in different national contexts.
+
+\medskip
+\noindent\textbf{Revision in the Manuscript:}
+Section~5.1 (Recommendations for Educators and Practitioners) added to the Conclusion with four
+evidence-based recommendations derived from the survey findings.
+
+\medskip
+\noindent\textbf{Location:} Section~5.1 (Recommendations for Educators and Practitioners). The
+subsection begins at ``The findings yield four practical recommendations.''
+
+\bigskip\hrule\bigskip
+
+\newpage
+
+% ============================================================
+%  VERIFICATION TABLE
+% ============================================================
+
+\noindent\textbf{\large Summary Verification Table}
+
+\medskip
+\noindent\textit{Note:} Exact line numbers are not reproducible from the LaTeX source alone and
+must be read directly from the compiled revised PDF. Section references below are stable across
+compilation.
+
+\medskip
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{p{1.2cm} p{3.3cm} p{4.0cm} p{5.5cm}}
+\toprule
+\textbf{Rev.} & \textbf{Comment} & \textbf{Revision Made} & \textbf{Location} \\
+\midrule
+\endhead
+
+R1\,\#1 & Database coverage and Boolean search string transparency
+         & Full Boolean query (Blocks A--E) disclosed; IEEExplore attempt described; GS role
+           clarified; corpus expanded to 212 studies
+         & Section~3.2 (Literature Review Strategy) \\
+
+R1\,\#2 & Missing EDM, LA, XAI search terms
+         & Blocks C and D documented verbatim with explicit statement that subgroups were
+           incorporated from the outset
+         & Section~3.2 (Blocks C and D in query display) \\
+
+R1\,\#3 & Scoring rubric detail and validation
+         & Full operational definitions of $D_1$--$D_3$; five-level score rules; inter-rater
+           agreement ($\kappa=0.76$, $\kappa_w=0.83$, $n_{\mathrm{sub}}=37$)
+         & Section~3.1.3 and Table~2 \\
+
+R1\,\#4 & XAI prediction vs.\ educational phenomenon distinction
+         & Explicit clarification added in Sections~1, 3.3.3, and~5.1; new XAI heterogeneity
+           paragraph in Section~3.3.3
+         & Sections~1, 3.3.3, and~5.1 \\
+
+R1\,\#5 & Quantitative extraction fidelity data
+         & Sentinel rates (20.6\%), primary-method agreement (93.2\%), field-level correction
+           categories reported
+         & Section~3.1.2 (Reliability Safeguards) \\
+
+R1\,\#6 & Condensing Tables 1--4 on OECD/IEA assessment structure
+         & Four tables replaced with one consolidated Table~1
+         & Section~2.2 and Table~1 \\
+
+R2\,\#1 & Literature survey weak; introduction insufficient
+         & Introduction revised to state objectives, scope, and contributions more explicitly
+         & Section~1, final two paragraphs \\
+
+R2\,\#2 & Acronyms not defined at first use
+         & All program and technical acronyms defined at first mention in Section~1
+         & Section~1 (Introduction) \\
+
+R2\,\#3 & How was mean actionability score of 3.2 derived?
+         & Deterministic rule set and corpus statistics ($\bar{x}=3.70$, $SD=0.80$, $n=212$)
+           fully explained; rubric in Table~2
+         & Section~3.1.3 and Table~2 \\
+
+R2\,\#4 & Elaborate on RTE
+         & Formal definition and threshold interpretation added
+         & Section~3.3.2 \\
+
+R2\,\#5 & XAI heterogeneity across student groups
+         & Dedicated passage on student-group and cross-national heterogeneity added
+         & Section~3.3.3 \\
+
+R2\,\#6 & Composite actionability score derivation unclear
+         & Same revision as R2\,\#3
+         & Section~3.1.3 and Table~2 \\
+
+R2\,\#7 & Separate sections for limitations and future directions
+         & Sections~6 (Limitations) and~7 (Future Directions) created as independent sections
+         & Sections~6 and~7 \\
+
+R2\,\#8 & Recommendations for educators
+         & Section~5.1 (Recommendations for Educators and Practitioners) added with four
+           evidence-based recommendations
+         & Section~5.1 \\
+
+\bottomrule
+\end{longtable}
+
+\bigskip\noindent\textit{Note: References suggested by reviewers should only be added if relevant
+to the article and make it more complete. Excessive cases of recommending non-relevant articles
+should be reported to \href{mailto:ieeeaccesseic@ieee.org}{ieeeaccesseic@ieee.org}.}
+
+\end{document}
