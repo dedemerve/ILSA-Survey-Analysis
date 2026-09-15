@@ -3,8 +3,8 @@
     "file_name": "10. Aydoğan & Tat. (2025). Investigating the Performance of Artificial Neural Networks in Predicting Affective Responses .pdf",
     "title": "Investigating the Performance of Artificial Neural Networks in Predicting Affective Responses",
     "authors": [
-      "Aydoğan, İ.",
-      "Tat, O."
+      "İ. Aydoğan",
+      "O. Tat"
     ],
     "year": 2025,
     "doi": "10.21031/epod.1525454",
@@ -15,23 +15,23 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 microdata for the Lebanese sample (5614 students initially; analytic sample 4631 after exclusions). The manuscript describes listwise deletion of cases with missing and extreme values to satisfy CFA/ANN assumptions, but it does not report applying PISA sampling weights or any replicate-weight procedure. Because the predictive models are artificial neural networks trained on student responses, the authors do not discuss complex survey weighting; thus the analysis is treated as unweighted. No replicate-weight method (e.g., BRR/jackknife) is mentioned, and no specific weight variable name (e.g., W_FSTUWT/TOTWGT) is provided."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for the Lebanese sample (5614 participants initially) and then restricts the analytic dataset to 4631 cases after deleting observations with missing or extreme values to satisfy CFA/ANN assumptions. The manuscript does not report the use of PISA complex survey weights or any replicate-weight procedure, and it does not name any weight variables (e.g., W_FSTUWT/TOTWGT) or software that would automatically apply them. Because the predictive component is an ANN trained on questionnaire Likert responses, the authors appear to have proceeded without explicit survey-weighted estimation; this means results may not be fully representative of the target population under PISA’s sampling design. No grade/school-type filtering is described beyond the missing/extreme-value deletion, and the ANN inputs are the six remaining Awacom items used to predict two held-out items."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "listwise_deletion",
-    "handling_not_reported_explanation": "plausible_values_handling is 'not_applicable' — the study likely does not analyze cognitive achievement PVs (e.g., it may focus on affective/attitudinal outcomes, curriculum data, or non-ILSA micro-data).",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are affective/intercultural communicative awareness Likert items (Awacom items ST218Q01HA–ST218Q07HA) rather than PV-based cognitive achievement scores. The study instead predicts item responses directly (scaled to 0–1 and then mapped back to ordinal categories), so PV generation/combining is not part of the analysis pipeline. Missing data handling is reported as listwise deletion (cases with missing and extreme values were deleted), so the missing-data strategy is documented.",
     "sample_details": {
       "total_students": 4631,
       "countries": [
         {
           "country_code": "LBN",
-          "n_students": null
+          "n_students": 4631
         }
       ],
-      "sample_filtering_criteria": "Starting from the PISA 2018 Lebanese sample (5614 students), the authors deleted cases with missing data and extreme values using a list-based data deletion approach to meet assumptions for CFA and ANN. The final analytic dataset contains 4631 students with complete and non-extreme responses for the seven Awacom items used in the models."
+      "sample_filtering_criteria": "Used PISA 2018 Lebanese sample data. Started with 5614 Lebanese students who participated in PISA 2018, then deleted cases with missing data and extreme values to meet assumptions for CFA (SEM) and ANN modeling; the final analytic sample contained 4631 students. No additional grade, school-type, or subgroup restrictions are described beyond this missing/extreme-value deletion."
     },
     "ml_techniques": {
       "primary": "Neural Network",
@@ -43,38 +43,38 @@
       {
         "variable_code": "ST218Q01HA",
         "variable_name": "Item1 intercultural awareness",
-        "category": "student_attitude"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ST218Q02HA",
         "variable_name": "Item2 intercultural awareness",
-        "category": "student_attitude"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ST218Q04HA",
         "variable_name": "Item4 intercultural awareness",
-        "category": "student_attitude"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ST218Q05HA",
         "variable_name": "Item5 intercultural awareness",
-        "category": "student_attitude"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ST218Q06HA",
         "variable_name": "Item6 intercultural awareness",
-        "category": "student_attitude"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ST218Q07HA",
         "variable_name": "Item7 intercultural awareness",
-        "category": "student_attitude"
+        "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (Lebanon) — Intercultural communicative awareness (Awacom) items",
-        "target_variable": "Item3 response (predicted vs actual)",
+        "dataset_used": "PISA 2018 (Lebanon) Intercultural communicative awareness (Awacom) items",
+        "target_variable": "Item3 response (Awacom)",
         "top_predictors": [
           "Item1 intercultural awareness",
           "Item2 intercultural awareness",
@@ -82,11 +82,24 @@
           "Item5 intercultural awareness",
           "Item6 intercultural awareness"
         ],
-        "performance_metrics": "Best ANN (Model1): RMSE (All/Train/Test) = 0.619/0.618/0.623. Similarity: Match ratio = 0.63; Marginal homogeneity test p > .05; Kappa = 0.42 (moderate).",
-        "standardized_conclusion": "Using PISA 2018 (Lebanon) Awacom item responses, the study leveraged Item1, Item2, Item4, Item5, and Item6 responses to predict Item3 responses with an ANN, finding moderate overlap between predicted and actual responses (match ratio ≈ 0.63; Kappa ≈ 0.42) and RMSE around 0.62, while validity/reliability analyses indicated that predicted items still supported the latent construct despite weakening some fit indices. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Best ANN model (Model1) selected by RMSE closeness across all/train/test: RMSE All=.619, Train=.618, Test=.623. Similarity between predicted vs actual Item3: Match ratio=.63; marginal homogeneity test p>.05; Kappa=.42 (moderate). Construct validity/reliability: for predicted subset RMSEA=.106, CFI=.965, TLI=.948, R-square=.983, Loading=.992, Alpha=.903 (vs actual subset RMSEA=.081, CFI=.972, TLI=.959, R-square=.613, Loading=.783, Alpha=.891).",
+        "standardized_conclusion": "Using PISA 2018 (Lebanon) Awacom item the study leveraged Item1, Item2, Item4, Item5, and Item6 responses to predict Item3 responses, finding that predicted and actual Item3 responses overlapped at a moderate level (Kappa=.42; match ratio=.63) while CFA fit indices were only partially weakened. This indicates that ANN-based response prediction within the same affective latent construct can preserve measurement structure and slightly improve reliability, suggesting potential for data augmentation or missing-item recovery in intercultural awareness scales, though the study does not establish causal effects and uses listwise deletion for missing/extreme values."
+      },
+      {
+        "dataset_used": "PISA 2018 (Lebanon) Intercultural communicative awareness (Awacom) items",
+        "target_variable": "Item7 response (Awacom)",
+        "top_predictors": [
+          "Item1 intercultural awareness",
+          "Item2 intercultural awareness",
+          "Item4 intercultural awareness",
+          "Item5 intercultural awareness",
+          "Item6 intercultural awareness"
+        ],
+        "performance_metrics": "Best ANN model (ModelB) selected by smallest/closest RMSE across all/train/test: RMSE All=.708, Train=.695, Test=.734. Similarity between predicted vs actual Item7: Match ratio=.58; marginal homogeneity test p>.05; Kappa=.37 (low). Construct validity/reliability: for predicted subset RMSEA=.111, CFI=.963, TLI=.944, R-square=.942, Loading=.970, Alpha=.909 (vs actual subset RMSEA=.081, CFI=.972, TLI=.959, R-square=.489, Loading=.700, Alpha=.891).",
+        "standardized_conclusion": "Using PISA 2018 (Lebanon) Awacom item the study leveraged Item1, Item2, Item4, Item5, and Item6 responses to predict Item7 responses, finding that overlap with actual Item7 responses was moderate-to-low (Kappa=.37; match ratio=.58) and that model fit indices were partially weakened but remained strong. This indicates that ANN prediction is less accurate for Item7 specifically (consistent with non-linear sensitivity patterns), yet predicted items can still improve factor loadings/variance explained and reliability, suggesting targeted support for scale scoring where some items are harder to predict."
       }
     ],
-    "outcome_summary": "The study trains artificial neural networks on PISA 2018 Lebanese Awacom (intercultural communicative awareness) item responses to predict two held-out items (Item3 and Item7) from the other six items, after listwise deletion of cases with missing and extreme values (final N=4631). For Item3, the selected single-hidden-layer ANN (Model1) achieved RMSE ≈ 0.619 (all) and ≈ 0.623 (test), with moderate agreement between predicted and actual responses (match ratio 0.63; Kappa 0.42). For Item7, the best ANN (ModelB) showed weaker predictive correspondence (RMSE test ≈ 0.734; match ratio 0.58; Kappa 0.37). Although similarity metrics were only moderate/low, CFA-based validity and reliability analyses indicated that using predicted items with the remaining items improved factor loadings, explained variance, and Cronbach’s alpha, while fit indices were somewhat weakened. The manuscript does not report the use of PISA sampling weights, and the ANN predictions are evaluated on response overlap and psychometric consequences rather than PV-based achievement.",
+    "outcome_summary": "The study uses PISA 2018 Lebanese student questionnaire data and focuses on the Awacom affective latent trait (intercultural communicative awareness). After deleting cases with missing and extreme values, the authors train feed-forward artificial neural networks to predict two held-out Awacom items (Item3 and Item7) from the other six items, scaling ordinal responses to 0–1 for ANN training and then mapping back to ordinal categories. For Item3, the best model (Model1) achieved RMSE around .619 (all) and produced moderate agreement with actual responses (match ratio .63; Kappa .42), with CFA-based validity/reliability showing improved factor loadings and reliability despite weaker fit indices. For Item7, the best model (ModelB) had RMSE around .708 (all) and lower agreement (match ratio .58; Kappa .37), but predicted subsets still improved variance explained, loadings, and reliability. Limitations include listwise deletion for missing/extreme values, no reported use of PISA sampling/replicate weights, and the fact that predictive overlap does not imply causal relationships.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

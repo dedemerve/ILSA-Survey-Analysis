@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "file_name": "162.Teig et al. (2020). Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data.pdf",
+    "title": "Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data",
+    "authors": [
+      "Nani Teig",
+      "Svenja Scherer",
+      "Nilsen"
+    ],
+    "year": 2020,
+    "doi": "10.1002/tea.21657",
+    "venue": "Journal of Research in Science Teaching",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses Norwegian PISA 2015 science log-file data for a subsample of students assigned to an assessment unit containing two simulated inquiry tasks (Items 1 and 2). The analytic sample is restricted to students with complete data on all variables, excluding 23 students with missing values on all variables and further excluding 153 students with missing covariates in the profile-regression analyses. The manuscript does not report the use of PISA sampling/survey weights or any replicate-weight procedure; therefore, it is unclear whether complex survey design was incorporated into estimation. Plausible values for scientific literacy achievement are handled via Rubin’s combination rules in the distal-outcome LCA regression, but no PV-specific weighting variable (e.g., W_FSTUWT/TOTWGT) is documented."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 1222,
+      "countries": [
+        {
+          "country_code": "NOR",
+          "n_students": 1222
+        }
+      ],
+      "sample_filtering_criteria": "Used Norwegian PISA 2015 science log-file data. From 5,456 participating students, 1,245 were assigned to an assessment unit containing Items 1 and 2; 23 students were excluded due to missing values on all variables, yielding N=1,222. For RQ2 profile-regression analyses, 153 additional students were excluded due to missing values in all covariates (reported as N=1,069 for Table 3)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "SES",
+        "variable_name": "Socioeconomic status (SES)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "language_at_home",
+        "variable_name": "Language at home",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "enjoyment_in_science",
+        "variable_name": "Enjoyment in science",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "self_efficacy_science",
+        "variable_name": "Self-efficacy toward science",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "test_anxiety",
+        "variable_name": "Test anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "science_achievement",
+        "variable_name": "Scientific literacy achievement",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Norway Grade 9-10 Science (simulated inquiry Items 1 & 2; log-file process indicators)",
+        "target_variable": "Latent profile membership on Item 1 (strategic vs emergent vs disengaged)",
+        "top_predictors": [
+          "Gender",
+          "Socioeconomic status (SES)",
+          "Language at home",
+          "Enjoyment in science",
+          "Self-efficacy toward science"
+        ],
+        "performance_metrics": "Three-class LCA fit: entropy EItem1=0.791; profile separation supported by VLMR/LMR tests (3-class vs 2-class). Distal outcome differences: strategic vs emergent ΔM=101.5 (SE=11, p<.01, d=0.50) and strategic vs disengaged ΔM=116.8 (SE=9, p<.01, d=0.58); no emergent vs disengaged difference (ΔM=15.3, SE=12, p=.18). Covariate explained variance: 18.2% (profile membership). Additional analysis (Latent profile membership on Item 2 (strategic vs emergent vs disengaged)): Three-class LCA fit: entropy EItem2=0.876; 3-class solution selected as best-fitting. Distal outcome differences: strategic vs emergent ΔM=89.7 (SE=7, p<.01, d=0.59), strategic vs disengaged ΔM=154.3 (SE=7, p<.01, d=1.04), and emergent vs disengaged ΔM=64.6 (SE=7, p<.01, d=0.44). Covariate explained variance: 11.9% (profile membership). Additional analysis (Transition/association between Item 1 and Item 2 profile memberships): Association between profile memberships: Pearson chi-square χ2(4, N=1,222)=129.9, p<.01 with Cramer's V=0.23 (medium effect). About half of strategic Item 1 students retained the same profile on Item 2; only a few emergent Item 1 students shifted to strategic on Item 2; most disengaged Item 1 students retained disengaged membership but some shifted due to strategy changes.",
+        "standardized_conclusion": "Using PISA 2015 Norway Grade 9-10 science log-file the study leveraged Gender, SES, Language at home, Enjoyment in science, and Self-efficacy toward science to model latent profile membership on Item 1 (strategic, emergent, disengaged), finding that boys had higher odds of being in the disengaged profile and that higher SES and more positive science attitudes were associated with membership in the strategic profile. This indicates that strengthening socioeconomic supports and science motivation/self-efficacy may help more students adopt effective inquiry behaviors on lower-demand multivariable reasoning tasks, though causality cannot be inferred from cross-sectional profile associations."
+      }
+    ],
+    "outcome_summary": "This open-access study analyzes Norwegian PISA 2015 science log-file data for N=1,222 students (Grades 9–10) who completed two simulated inquiry tasks (Items 1 and 2) requiring scientific reasoning. The authors derived latent inquiry-performance profiles using latent class analysis with process indicators (exploration behavior, inquiry strategy, time-on-task, and item accuracy) and then used demographic and attitudinal covariates plus scientific literacy achievement (10 plausible values) as a distal outcome, pooling across plausible values with Rubin’s combination rules. They identified three profiles—strategic, emergent, and disengaged—with entropy EItem1=0.791 and EItem2=0.876. Strategic students showed the highest science achievement (e.g., Item 2: M=575.4) and were more likely to apply the appropriate inquiry strategy, while disengaged students showed low strategy use and lower achievement. Limitations include the absence of documented survey-weight handling and the cross-sectional nature of profile associations, so causality and population-representative inference cannot be established.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "Although the paper uses a mixture-model framework (latent class analysis with regression/distal outcomes), it does not train predictive machine-learning algorithms; therefore ml_techniques are intentionally left empty. The study’s primary contribution is profiling (latent classes) and associations with covariates rather than supervised prediction, so the research design is classified as exploratory."
+  }
+}

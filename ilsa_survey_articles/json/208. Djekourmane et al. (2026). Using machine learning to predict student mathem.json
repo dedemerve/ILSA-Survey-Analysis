@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "file_name": "208. Djekourmane et al. (2026). Using machine learning to predict student mathematics performance in six East Asian countries: evidence from PISA 2022.pdf",
+    "title": "Using machine learning to predict student mathematics performance in six East Asian countries: evidence from PISA 2022",
+    "authors": [
+      "Djekourmane",
+      "WZ",
+      "MA",
+      "DW",
+      "YZ"
+    ],
+    "year": 2026,
+    "doi": "10.3389/fpsyg.2026.1840049",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata for mathematics achievement among 15-year-old students in six East Asian education systems, with an analytic sample of 26,718 after outlier removal. The manuscript describes preprocessing (median imputation, RobustScaler, SelectKBest) and a train/test split with cross-validated hyperparameter tuning, but it does not report applying PISA sampling weights or replicate weights. Because the analysis is implemented in scikit-learn with standard ML models (e.g., XGBoost/LightGBM/Random Forest) and no weight-aware estimation is described, the weighting strategy is unclear from the text and should be treated as potentially unweighted. Analysts using the PISA database should apply the appropriate student sampling weights (and replicate weights if variance estimation is required) when producing population-representative estimates; however, the paper’s ML pipeline does not document this step."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "mean_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 26718,
+      "countries": [
+        {
+          "country_code": "KOR",
+          "n_students": 5483
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 5477
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 4749
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 4495
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 3572
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 3193
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2022 mathematics data for 15-year-old students from Korea, Singapore, Japan, Chinese Taipei, Hong Kong, and Macao. The initial sample comprised 26,969 students; the analytic sample was reduced to 26,718 after (i) removing univariate outliers exceeding ±3.5 SD of the outcome (excluding 1 observation) and (ii) removing multivariate outliers detected via Isolation Forest trained on the 20 highest-variance predictors with contamination rate 5% (excluding 250 observations). Missing values were imputed (median imputation) and then predictors were standardized and reduced to the top 50 features via SelectKBest before model training."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "XGBoost",
+        "LightGBM",
+        "Random Forest",
+        "AdaBoost",
+        "Elastic Net",
+        "Linear Regression"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "Grade",
+        "variable_name": "Grade level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "Gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "Mother_educ",
+        "variable_name": "Mother education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "Father_educ",
+        "variable_name": "Father education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "Language_bac",
+        "variable_name": "Language background",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "Math_Hour_week",
+        "variable_name": "Math hours per week",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "Math_instruction_quality",
+        "variable_name": "Math instruction quality",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "Digital_device_for_school_work",
+        "variable_name": "Digital device for schoolwork",
+        "category": "ict"
+      },
+      {
+        "variable_code": "Learning_school_closure",
+        "variable_name": "Learning during school closure",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "Immigration_status",
+        "variable_name": "Immigration status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "Cognitive_activation_score",
+        "variable_name": "Cognitive activation score",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "Exposure_21st_century_skills",
+        "variable_name": "Exposure to 21st-century skills",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ESCS_homeposs",
+        "variable_name": "ESCS home possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ESCS_Digital_deviceshome",
+        "variable_name": "ESCS digital devices at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "Grade_repetition",
+        "variable_name": "Grade repetition",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "Truancy",
+        "variable_name": "Truancy",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "Absenteism",
+        "variable_name": "Absenteeism",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "Student_Teacher_Relations_Qual",
+        "variable_name": "Student-teacher relations quality",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "School_Sense_of_belonging",
+        "variable_name": "School sense of belonging",
+        "category": "school"
+      },
+      {
+        "variable_code": "School_bulling",
+        "variable_name": "School bullying",
+        "category": "school"
+      },
+      {
+        "variable_code": "School_Safety",
+        "variable_name": "School safety",
+        "category": "school"
+      },
+      {
+        "variable_code": "School_safety_risks",
+        "variable_name": "School safety risks",
+        "category": "school"
+      },
+      {
+        "variable_code": "Extra_Activities_before_school",
+        "variable_name": "Extracurricular before school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "Extra_Activities_after_school",
+        "variable_name": "Extracurricular after school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "Online_activities_Time",
+        "variable_name": "Online activities time",
+        "category": "ict"
+      },
+      {
+        "variable_code": "Digital_device_usage_behaviors",
+        "variable_name": "Digital device usage behaviors",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Mathematics (15-year-olds), six systems (KOR, SGP, JPN, TWN, HKG, MAC)",
+        "target_variable": "Mathematics performance (mean of PV1MATH–PV10MATH)",
+        "top_predictors": [
+          "Mathematics self-efficacy",
+          "Extracurricular activities before school",
+          "Math hours per week",
+          "Math instruction quality",
+          "ESCS home possessions"
+        ],
+        "performance_metrics": "XGBoost (best): R2 = 0.5703, RMSE = 65.06, MAE = 51.59, Explained variance = 0.5703, AUC-regression = 0.8104 (test set). Random Forest baseline: R2 ≈ 0.5152. LightGBM: R2 = 0.5700; AdaBoost: R2 = 0.5220; Elastic Net/Linear regression: R2 ≈ 0.129.",
+        "standardized_conclusion": "Using PISA 2022 Mathematics data for 15-year-olds in six East Asian education systems, the study leveraged mathematics self-efficacy, extracurricular activities before school, math hours per week, math instruction quality, and ESCS home possessions to predict mathematics performance (averaged PV1MATH–PV10MATH), finding that XGBoost achieved the highest out-of-sample fit (R2 = 0.5703) and substantially outperformed linear and elastic-net baselines. This indicates that competence-related beliefs and learning-time/engagement factors are high-leverage correlates for identifying students at risk of lower mathematics achievement, though the cross-sectional, non-causal design and SHAP-based interpretability should not be interpreted as causal effects."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2022 mathematics microdata for 15-year-old students from Korea, Singapore, Japan, Chinese Taipei, Hong Kong, and Macao (final analytic sample N = 26,718 after outlier removal). Mathematics performance is modeled as the mean of ten plausible values (PV1MATH–PV10MATH), with missing values imputed via median imputation and predictors standardized using RobustScaler; feature selection retains the top 50 predictors. Models are trained on an 80% training set and evaluated on a 20% held-out test set, with hyperparameter tuning via 5-fold cross-validation. Among XGBoost, LightGBM, Random Forest, AdaBoost, Elastic Net, and linear regression, XGBoost performs best with R2 = 0.5703 (RMSE = 65.06; MAE = 51.59) and AUC-regression = 0.8104. SHAP indicates mathematics self-efficacy is the dominant predictor, but the authors emphasize the cross-sectional, non-causal nature of the data and note that averaged PVs are a simplification relative to OECD multiple-imputation recommendations.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

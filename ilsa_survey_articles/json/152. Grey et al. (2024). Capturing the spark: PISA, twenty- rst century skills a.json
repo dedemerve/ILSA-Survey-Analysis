@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "file_name": "152. Grey et al. (2024). Capturing the spark: PISA, twenty- rst century skills and the reconstruction of creativity.pdf",
+    "title": "Capturing the spark: PISA, twenty-first century skills and the reconstruction of creativity",
+    "authors": [
+      "Sue Grey",
+      "Paul Morris"
+    ],
+    "year": 2024,
+    "doi": "10.1080/14767724.2022.2100981",
+    "venue": "Globalisation, Societies and Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article does not conduct a student-level empirical analysis of PISA microdata; instead, it performs a thematic analysis of OECD materials and media coverage related to the development of the PISA 2022 creativity domain. Because no estimation model is fit to a sampled student dataset, there is no sampling-weight application (e.g., W_FSTUWT/TOTWGT) and no replicate-weight procedure (e.g., BRR/jackknife) to describe. The paper also does not report plausible-value (PV) scaling or scoring model estimation steps that would normally require PV-combining rules. Consequently, there is no analytic subsample defined for statistical inference beyond the qualitative corpus of documents and media sources."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the study does not analyze PISA achievement outcomes at the student level; it is a qualitative thematic analysis of OECD documentation and media discourse about the introduction of creativity into PISA 2022. As a result, there is no PV-based dependent variable and no PV-combining procedure to report. Missing-data handling is also not reported because no quantitative model is estimated on an ILSA micro-dataset.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No student sample is analyzed. The study’s 'data' consist of (1) OECD materials documenting the development of the creativity measure (reports, pilot materials, and draft framework) and (2) media materials (OECD YouTube/webcasts and media coverage of PISA results)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [],
+    "outcome_summary": "This paper is not an empirical ML study of PISA student performance; it is a critical thematic analysis of how the OECD has responded to the challenge of measuring creativity within PISA and how creativity is framed in policy and media discourse. It draws on OECD documents (from early formalisation through pilot materials and the 2019 draft framework) and on media sources (OECD webcasts/YouTube and media coverage) using Multimodal Discourse Analysis to interpret linguistic and semiotic messaging. The article argues that the forthcoming PISA 2022 creativity metric is likely to operationalize creativity as a narrow, convergent, easily measured cognitive competence linked to human capital and economic productivity, rather than capturing broader, more polysemic conceptualizations. It also discusses how PISA’s existing high-performer stereotypes in media (e.g., East Asian 'lack of creativity') motivated the move toward a direct creativity domain. Limitations include the absence of student-level scoring, PV scaling, or performance metrics, so no quantitative benchmark or causal impact on achievement can be estimated.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The extraction yields no student-level sample, PV handling, missing-data strategy, or ML model outputs because the manuscript is a qualitative critical analysis rather than an empirical predictive/causal study using PISA microdata. The paper does not report any algorithmic training, validation metrics, or statistical estimation results; instead, it analyzes the development and communication of the creativity assessment concept and its implications for PISA’s role as a global benchmark."
+  }
+}

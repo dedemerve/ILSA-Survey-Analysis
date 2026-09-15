@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "file_name": "175. Wang et al. (2023). Factors predicting mathematics achievement in PISA: a systematic review.pdf",
+    "title": "Factors predicting mathematics achievement in PISA: a systematic review",
+    "authors": [
+      "Sarah Wang",
+      "L. P.",
+      "A. M.",
+      "T. I."
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40536-023-00174-8",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This study is a systematic literature review of peer-reviewed articles analyzing PISA mathematics achievement; it does not conduct a new student-level analysis of PISA microdata. Therefore, there is no application of PISA sampling weights (e.g., student weights) or replicate-weight procedures (e.g., BRR/jackknife) within this review. Instead, the review synthesizes reported associations across primary studies that used different analytical approaches and (in some cases) different missing-data and significance-threshold decisions. For interpreting the synthesized findings, readers should note that differences in how primary studies handled complex survey design and plausible values can contribute to mixed results across factors."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because this paper does not estimate PISA mathematics achievement from student-level plausible values; it synthesizes results from 156 previously published studies. Missing-data handling is not reported at the review level because the authors do not re-analyze microdata and instead summarize associations reported in the included primary studies, each of which may have used different missing-data strategies.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No student-level PISA sample is analyzed by the authors. The review includes peer-reviewed English-language journal articles published between 1 September 2011 and 30 September 2021 (with a second screening window 31 August 2021 to 1 July 2022) that examined factors predicting PISA mathematics performance using any main PISA cycle (2000, 2003, 2006, 2009, 2012, 2015, 2018). Conceptual/theoretical articles that did not analyze PISA math scores were excluded. Additional inclusion constraints included that the PISA math scores were analyzed separately from other domains and that journals met a Q1 ranking criterion in Scimago Journal & Country Rank at least once between 2016 and 2020."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 and fewer examining multiple cycles",
+        "target_variable": "predicting mathematics achievement in PISA: a systematic review",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA 2012 and fewer examining multiple cycles the study leveraged the reported predictors to predict predicting mathematics achievement in PISA: a systematic review, finding that This paper is a PRISMA-guided systematic review synthesizing 156 peer-reviewed studies that investigated predictors of PISA mathematics achievement. The included primary studies analyzed PISA mathematics scores from multiple PISA cycles (2000, 2003, 2006, 2009, 2012, 2015, 2018), with most studies using PISA 2012 and fewer examining multiple cycles. Across the synthesized evidence, the authors identify 135 factors grouped into five ecological levels and report seven factors that are consistently associated with math achievement: student grade level and overall family SES (positive), and absenteeism/lack of punctuality, grade repetition and dropout rate, school misbehavior prevalence, shortages of teachers/general staff, and student-centered instruction (negative). The review also reports 14 factors with predominantly positive or negative associations, while many others show mixed findings due to methodological differences across studies (e.g., measures, analytical methods, missing-data handling, and significance thresholds). Because this is a review rather than a re-analysis, no single predictive model, accuracy metric, or causal identification strategy is estimated here; the findings should be interpreted as patterns of association across heterogeneous studies rather than as causal effects. This indicates that , no single predictive model, accuracy metric, or causal identification strategy is estimated here; the findings should be interpreted as patterns of association across heterogeneous studies rather than as causal effects."
+      }
+    ],
+    "outcome_summary": "This paper is a PRISMA-guided systematic review synthesizing 156 peer-reviewed studies that investigated predictors of PISA mathematics achievement. The included primary studies analyzed PISA mathematics scores from multiple PISA cycles (2000, 2003, 2006, 2009, 2012, 2015, 2018), with most studies using PISA 2012 and fewer examining multiple cycles. Across the synthesized evidence, the authors identify 135 factors grouped into five ecological levels and report seven factors that are consistently associated with math achievement: student grade level and overall family SES (positive), and absenteeism/lack of punctuality, grade repetition and dropout rate, school misbehavior prevalence, shortages of teachers/general staff, and student-centered instruction (negative). The review also reports 14 factors with predominantly positive or negative associations, while many others show mixed findings due to methodological differences across studies (e.g., measures, analytical methods, missing-data handling, and significance thresholds). Because this is a review rather than a re-analysis, no single predictive model, accuracy metric, or causal identification strategy is estimated here; the findings should be interpreted as patterns of association across heterogeneous studies rather than as causal effects.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This extraction is sparse with respect to student-level ML and sampling because the article is a systematic review rather than an empirical analysis of PISA microdata. As a result, there is no analytic sample of students, no country-level per-cell Ns, no plausible-values estimation procedure, and no ML model training/evaluation reported by the authors themselves. The review synthesizes reported associations from included studies, so fields tied to predictive modeling performance and survey-weighted estimation are not applicable at the review level."
+  }
+}

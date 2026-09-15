@@ -18,11 +18,11 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 student questionnaire and well-being questionnaire data for the United Kingdom and Japan, with a final analytic sample of 13,818 (UK) and 6,109 (Japan) after imputing missing values. The manuscript describes data extraction from the PISA 2018 database and preprocessing (normalization for KNN, mean imputation for missing values) but does not report applying PISA sampling weights or any replicate-weight procedure. Because the models are standard supervised ML regressors implemented in scikit-learn (Random Forest and KNN) and the paper does not mention survey-weight-aware estimation, the analysis is treated as unweighted. No weight variable name (e.g., W_FSTUWT/TOTWGT) or BRR/jackknife method is provided, so complex survey design adjustments are not documented."
+      "weight_fields_interpretation": "The study used PISA 2018 student questionnaire and well-being questionnaire data for two countries (UK and Japan) and restricted the analytic sample to students with complete enough data after preprocessing. The authors report imputing missing values using series mean and normalizing features for KNN, but they do not report applying PISA sampling weights or any replicate-weight variance estimation. Because the models are implemented with scikit-learn (Random Forest regression and KNN regression), the manuscript does not describe any complex survey weighting strategy, suggesting an unweighted ML analysis. Consequently, the results should be interpreted as predictive associations within the analyzed samples rather than population-representative estimates for all PISA 2018 students in each country."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "mean_imputation",
-    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is life satisfaction from the PISA 2018 student questionnaire (0–10 scale) rather than a cognitive achievement score for which PISA typically provides plausible values. The paper explicitly states that missing values (<10%) were handled by imputing the series mean, so missing-data handling is reported.",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because the dependent variable is the PISA 2018 life satisfaction scale score derived from student self-reports (0–10), and the paper does not describe using PV-based achievement scaling. Instead, the analysis treats life satisfaction as a continuous response for supervised regression. Missing data handling is reported (series mean imputation), so the missing-data strategy is not a reporting gap.",
     "sample_details": {
       "total_students": 19927,
       "countries": [
@@ -35,7 +35,7 @@
           "n_students": 6109
         }
       ],
-      "sample_filtering_criteria": "Students were selected from PISA 2018 for the United Kingdom and Japan. The analytic sample includes students with available life satisfaction and the set of 26 individual-level questionnaire variables used as predictors; missing values in these variables were imputed (missingness <10% overall). No additional grade/school-type restrictions are described; the authors state that the UK and Japan samples were extracted from the PISA 2018 SPSS file and then normalized (for KNN) and mean-imputed before model training and evaluation."
+      "sample_filtering_criteria": "Students were selected from PISA 2018 for the United Kingdom (GBR) and Japan (JPN). The dependent variable was life satisfaction (ST016Q01NA) from the PISA 2018 student questionnaire, and the model used 26 individual-level questionnaire variables (Table 2) as predictors. Missing values were imputed using series mean (missingness <10% overall), and for KNN the features were normalized; both RF and KNN were trained and tested on the same preprocessed dataset. No additional grade/school-type restrictions are reported beyond using the PISA 2018 student sample for these two countries."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -56,9 +56,19 @@
         "category": "demographic"
       },
       {
-        "variable_code": "ESCS",
-        "variable_name": "Socioeconomic status (ESCS)",
-        "category": "socioeconomic"
+        "variable_code": "economic",
+        "variable_name": "Economic",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "social",
+        "variable_name": "social",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "cultural_status",
+        "variable_name": "cultural status",
+        "category": "student_behavior"
       },
       {
         "variable_code": "ict_resources_at_home",
@@ -77,7 +87,7 @@
       },
       {
         "variable_code": "EMOSUPS",
-        "variable_name": "Parents' emotional support",
+        "variable_name": "Parents emotional support",
         "category": "parent_home"
       },
       {
@@ -133,7 +143,7 @@
       {
         "variable_code": "WORKMAST",
         "variable_name": "Motivation to master tasks",
-        "category": "student_behavior"
+        "category": "student_attitude"
       },
       {
         "variable_code": "ATTLNACT",
@@ -183,8 +193,8 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 (UK) — student questionnaire life satisfaction",
-        "target_variable": "Life satisfaction (0–10 scale)",
+        "dataset_used": "PISA 2018 (UK, secondary students) life satisfaction (ST016Q01NA)",
+        "target_variable": "Life satisfaction (continuous 0–10)",
         "top_predictors": [
           "Meaning in life (EUDMO)",
           "Motivation to master tasks (WORKMAST)",
@@ -192,24 +202,24 @@
           "ICT resources at home and school (ICTRES)",
           "Exposure to bullying (BEINGBULLIED)"
         ],
-        "performance_metrics": "Random Forest (RF) — Validation R²: 0.187 (mean across outer folds), Test R²: 0.187; MSE: 0.203 (validation mean), RMSE: 0.451 (test mean), MAE: 0.408 (validation mean). KNN — Validation R²: 0.103, Test R²: 0.103; MSE: 0.224 (validation mean), RMSE: 0.474 (test mean), MAE: 0.433 (validation mean).",
-        "standardized_conclusion": "Using PISA 2018 (UK) the study leveraged meaning in life, motivation to master tasks, student competition, ICT resources, and exposure to bullying to predict students' life satisfaction, finding that the Random Forest model outperformed k-NN and achieved higher predictive fit (test R² ≈ 0.187 vs. ≈ 0.103). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random Forest regression (nested CV, 5 outer folds): Test R² ≈ 0.187 (mean), RMSE ≈ 0.451 (mean). KNN regression (nested CV, 5 outer folds): Test R² ≈ 0.103 (mean), RMSE ≈ 0.474 (mean).",
+        "standardized_conclusion": "Using PISA 2018 UK the study leveraged meaning in life, motivation to master tasks, student competition, ICT resources, and exposure to bullying to predict students' life satisfaction, finding that Random Forest outperformed KNN on both validation and test performance (higher R² and lower RMSE). This indicates that combining multiple psychosocial and school-experience variables in non-linear models may better identify students at risk of lower life satisfaction, though the study reports predictive associations rather than causal effects and does not apply survey weights."
       },
       {
-        "dataset_used": "PISA 2018 (Japan) — student questionnaire life satisfaction",
-        "target_variable": "Life satisfaction (0–10 scale)",
+        "dataset_used": "PISA 2018 (Japan, secondary students) life satisfaction (ST016Q01NA)",
+        "target_variable": "Life satisfaction (continuous 0–10)",
         "top_predictors": [
-          "Student cooperation (PERCOOP)",
-          "Self-efficacy (RESILIENCE)",
           "Meaning in life (EUDMO)",
+          "Self-efficacy (RESILIENCE)",
+          "Student competition (PERCOMP)",
           "Teacher support (TEACHSUP)",
           "ICT resources at home and school (ICTRES)"
         ],
-        "performance_metrics": "Random Forest (RF) — Validation R²: 0.138 (mean across outer folds), Test R²: 0.138; MSE: 0.215 (validation mean), RMSE: 0.464 (test mean), MAE: 0.434 (validation mean). KNN — Validation R²: 0.055, Test R²: 0.055; MSE: 0.236 (validation mean), RMSE: 0.486 (test mean), MAE: 0.451 (validation mean).",
-        "standardized_conclusion": "Using PISA 2018 (Japan) the study leveraged student cooperation, self-efficacy, meaning in life, teacher support, and ICT resources to predict students' life satisfaction, finding that the Random Forest model again outperformed k-NN and achieved higher predictive fit (test R² ≈ 0.138 vs. ≈ 0.055). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random Forest regression (nested CV, 5 outer folds): Test R² ≈ 0.138 (mean), RMSE ≈ 0.464 (mean). KNN regression (nested CV, 5 outer folds): Test R² ≈ 0.055 (mean), RMSE ≈ 0.486 (mean).",
+        "standardized_conclusion": "Using PISA 2018 Japan the study leveraged meaning in life, self-efficacy, student competition, teacher support, and ICT resources to predict students' life satisfaction, finding that Random Forest again outperformed KNN (substantially higher R² and lower RMSE). This indicates that school climate and individual psychological resources jointly relate to life satisfaction in Japan, but the cross-sectional, questionnaire-based design and unweighted ML approach limit population generalization and causal interpretation."
       }
     ],
-    "outcome_summary": "The study predicts PISA 2018 students’ life satisfaction (0–10) using two supervised ML regressors—Random Forest and k-NN—trained separately on the UK and Japan samples (N=13,818 and N=6,109). Missing values (<10%) were imputed using series mean, and KNN inputs were normalized; models were evaluated with nested cross-validation (5 outer folds, 5 inner folds) using MSE, RMSE, MAE, and R². Across both countries, Random Forest performed better than k-NN: for the UK, test R² was about 0.187 (RF) versus 0.103 (KNN), and for Japan about 0.138 (RF) versus 0.055 (KNN). Feature importance rankings highlighted meaning in life, student competition/cooperation, teacher support, exposure to bullying, and ICT resources as key predictors. The paper is cross-sectional and does not claim causal effects; additionally, it does not document the use of PISA sampling weights, so results may not fully reflect complex survey design.",
+    "outcome_summary": "The study used PISA 2018 student questionnaire and well-being questionnaire data for two countries (UK: 13,818; Japan: 6,109) and predicted students’ life satisfaction (ST016Q01NA, 0–10) using supervised ML regression. Two models were compared under nested cross-validation with five outer folds and five inner folds for hyperparameter tuning: Random Forest and k-nearest neighbours (KNN). Random Forest achieved higher predictive performance than KNN in both countries, with UK test R² ≈ 0.187 vs. KNN R² ≈ 0.103 (RMSE ≈ 0.451 vs. 0.474) and Japan test R² ≈ 0.138 vs. KNN R² ≈ 0.055 (RMSE ≈ 0.464 vs. 0.486). Across both countries, feature-importance rankings highlighted meaning in life, student competition, teacher support, exposure to bullying, and ICT resources, but the models explain only a modest share of variance. The paper imputes missing values via series mean and does not report applying PISA sampling/replicate weights, so results should be treated as predictive associations rather than population-representative or causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

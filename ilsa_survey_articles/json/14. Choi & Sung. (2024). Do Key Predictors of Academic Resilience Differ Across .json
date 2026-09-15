@@ -15,13 +15,13 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 microdata and restricts the analytic sample to students in the bottom 25% of the ESCS (Economic, Social and Cultural Status) index within each country (Korea and the US). The dependent variable is a binary indicator of academic resilience based on reading literacy at or above Level 3, which is derived from PISA reading plausible values. The manuscript does not report applying PISA sampling weights or replicate-weight procedures; instead, it fits random forest models in R (randomForest package) and evaluates sensitivity, specificity, and accuracy. Because the paper does not discuss complex survey weighting and random forests do not natively incorporate PISA design weights, the analysis is treated as unweighted/weight-agnostic, with results interpreted as predictive associations rather than population-representative estimates."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for 15-year-old students in South Korea and the United States, then restricts the analytic sample to students in the bottom 25% of ESCS within each country. The dependent variable is a binary indicator of reading resilience (at or above Level 3 in reading literacy, coded 1, among students in the bottom ESCS quartile, coded 0 otherwise). The manuscript does not report applying PISA sampling weights or replicate weights in the random forest estimation; instead it describes model fitting in R using the randomForest package and performance evaluation (sensitivity, specificity, accuracy) across 10 plausible-value-based models. Missing values are imputed using na.roughfix (mode for categorical, median for continuous), but the paper does not specify any complex-survey-weight adjustments for the ML models."
     },
     "plausible_values_handling": "rubin_rules",
-    "missing_data_handling": "mean_imputation",
+    "missing_data_handling": "single_imputation",
     "handling_not_reported_explanation": null,
     "sample_details": {
       "total_students": 2829,
@@ -35,7 +35,7 @@
           "n_students": 1175
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 reading literacy data and defined academic resilience as being in the bottom 25% of ESCS within each country while achieving reading literacy at or above Level 3. The analytic sample therefore includes only disadvantaged students (bottom-25% ESCS) in Korea and the US, with resilience coded as 1 and non-resilience as 0. Random forest models were fitted separately for each country using the dependent variable computed from reading plausible values (10 PVs), and variable importance rankings were averaged across the 10 PV-based models. Missing values were imputed using na.roughfix: mode imputation for categorical variables and median imputation for continuous variables (with the paper noting less than 20% missingness)."
+      "sample_filtering_criteria": "Used PISA 2018 student data for reading literacy. Restricted to students in the bottom 25% of ESCS within each country (South Korea and the US). Defined academic resilience as achieving at or above Level 3 in reading literacy while belonging to the bottom 25% of ESCS; created a binary DV (resilient=1, non-resilient=0)."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -81,12 +81,12 @@
       },
       {
         "variable_code": "SCREADCOMP",
-        "variable_name": "Reading self-concept: competence",
+        "variable_name": "Self-concept of reading competence",
         "category": "student_attitude"
       },
       {
         "variable_code": "SCREADDIFF",
-        "variable_name": "Reading self-concept: difficulty",
+        "variable_name": "Self-concept of reading difficulty",
         "category": "student_attitude"
       },
       {
@@ -96,7 +96,7 @@
       },
       {
         "variable_code": "ST225Q06HA",
-        "variable_name": "Educational expectation (university)",
+        "variable_name": "Educational expectation for university",
         "category": "student_attitude"
       },
       {
@@ -105,19 +105,24 @@
         "category": "student_attitude"
       },
       {
+        "variable_code": "UNDREM",
+        "variable_name": "Metacognition (understanding, remembering)",
+        "category": "student_behavior"
+      },
+      {
         "variable_code": "WORKMAST",
         "variable_name": "Work mastery",
         "category": "student_behavior"
       },
       {
         "variable_code": "ATTLNACT",
-        "variable_name": "Attitude toward school: learning activities",
+        "variable_name": "Attitude toward school learning activities",
         "category": "student_attitude"
       },
       {
         "variable_code": "ADAPTIVITY",
         "variable_name": "Adaptation of instruction",
-        "category": "curriculum"
+        "category": "teacher"
       },
       {
         "variable_code": "BELONG",
@@ -136,7 +141,7 @@
       },
       {
         "variable_code": "DISCLIMA",
-        "variable_name": "Disciplinary climate in language lessons",
+        "variable_name": "Disciplinary climate in test language lessons",
         "category": "peer_effects"
       },
       {
@@ -151,7 +156,7 @@
       },
       {
         "variable_code": "PERCOOP",
-        "variable_name": "Perceived cooperation at school",
+        "variable_name": "Perception of cooperation at school",
         "category": "student_attitude"
       },
       {
@@ -176,31 +181,26 @@
       },
       {
         "variable_code": "TEACHSUP",
-        "variable_name": "Teacher support in language lessons",
+        "variable_name": "Teacher support in test language lessons",
         "category": "teacher"
-      },
-      {
-        "variable_code": "UNDREM",
-        "variable_name": "Metacognition (understanding, remembering)",
-        "category": "student_behavior"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (15-year-olds), disadvantaged students (bottom 25% ESCS) in Korea and the US",
-        "target_variable": "Academic resilience (binary: reading Level 3+ vs below) using 10 reading PVs",
+        "dataset_used": "PISA 2018 Reading (15-year-olds), South Korea & United States (bottom 25% ESCS subset)",
+        "target_variable": "Academic resilience (binary: Level 3+ reading among bottom-ESCS students)",
         "top_predictors": [
           "Meta-cognition: summarizing (METASUM)",
+          "Meta-cognition: understanding & remembering (UNDREM)",
           "Meta-cognition: assess credibility (METASPAM)",
-          "Meta-cognition: understanding and remembering (UNDREM)",
-          "Reading self-concept: competence (SCREADCOMP)",
+          "Self-concept of reading competence (SCREADCOMP)",
           "Joy/like reading (JOYREAD)"
         ],
-        "performance_metrics": "Random Forest (%IncMSE variable importance). Sensitivity/Specificity/Accuracy across 10 PV-based models: Korea—Sensitivity 0.68 to 0.78, Specificity 0.72 to 0.78, Accuracy 0.71 to 0.76; US—Sensitivity 0.83 to 0.92, Specificity 0.50 to 0.65, Accuracy 0.73 to 0.79.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for disadvantaged students (bottom-25% ESCS) in Korea and the US, the study leveraged meta-cognition variables (METASUM, METASPAM, UNDREM), reading self-concept (SCREADCOMP), and joy of reading (JOYREAD) to predict academic resilience (binary Level 3+ vs below) from reading plausible values, finding that individual cognitive/non-cognitive factors ranked highest in both countries while some predictors differed by culture (e.g., self-efficacy and educational expectation more prominent in Korea; fixed mindset and meaning in life more prominent in the US). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random Forest (R randomForest, 5,000 trees). Performance across 10 plausible-value-based models: Korea sensitivity 0.68–0.78, specificity 0.72–0.78, accuracy 0.71–0.76; US sensitivity 0.83–0.92, specificity 0.50–0.65, accuracy 0.73–0.79. Variable importance via %IncMSE permutation; final rankings averaged across plausible values.",
+        "standardized_conclusion": "Using PISA 2018 Reading the study leveraged meta-cognition (METASUM, UNDREM, METASPAM), reading self-concept (SCREADCOMP), and joy of reading (JOYREAD) to predict academic resilience (Level 3+ reading among bottom-ESCS students), finding that individual-level factors were consistently ranked highest in both South Korea and the United States. This indicates that strengthening reading-related metacognitive skills and positive reading engagement for socioeconomically disadvantaged students may be a cross-cultural priority, while country-specific supports (e.g., self-efficacy/expectations in Korea; fixed mindset/meaning in life in the US) should be tailored rather than assumed universal, though causality cannot be inferred from cross-sectional ML feature importance."
       }
     ],
-    "outcome_summary": "The study used PISA 2018 reading literacy data and defined academic resilience as being in the bottom 25% of ESCS while achieving reading literacy at or above Level 3, yielding a binary outcome. Random forest models were trained separately for Korea and the US on disadvantaged students, with variable importance computed via %IncMSE and averaged across 10 plausible-value-based models. Across both countries, top predictors were dominated by individual factors—especially meta-cognition (METASUM, METASPAM, UNDREM), reading self-concept (SCREADCOMP), joy of reading (JOYREAD), and work mastery (WORKMAST). Model performance was moderate: in Korea, sensitivity ranged 0.68–0.78 and accuracy 0.71–0.76; in the US, sensitivity was higher (0.83–0.92) with accuracy 0.73–0.79 but lower specificity (0.50–0.65). The paper uses cross-sectional data and does not report survey-weighted estimation, so results should be interpreted as predictive associations rather than causal effects.",
+    "outcome_summary": "The study uses PISA 2018 reading literacy to model academic resilience as a binary outcome: students in the bottom 25% of ESCS who achieve at or above Level 3 in reading. Random forest models were fit separately for South Korea and the US on the restricted samples (KOR n=1,654; USA n=1,175), using 10 plausible values for reading and averaging variable-importance rankings across plausible-value-based models. Model performance was moderate: in Korea, sensitivity ranged 0.68–0.78, specificity 0.72–0.78, and accuracy 0.71–0.76; in the US, sensitivity ranged 0.83–0.92, specificity 0.50–0.65, and accuracy 0.73–0.79. The most influential predictors were largely individual factors (especially meta-cognition and joy of reading), while some predictors differed by country (e.g., self-efficacy and educational expectations in Korea; fixed mindset and meaning in life in the US). The paper is cross-sectional and uses ML feature importance (permutation %IncMSE), so results should be interpreted as predictive associations rather than causal effects, and the manuscript does not report complex-survey weight application for the ML models.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

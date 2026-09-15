@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "file_name": "132. Yildirim et al. (2026). Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018.pdf",
+    "title": "Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018",
+    "authors": [
+      "U.H. Yildirim",
+      "Y. Kayhan Atilgan",
+      "D. Turfan"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.psicod.2026.500187",
+    "venue": "Revista de Psicodidáctica",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the Turkish subset of PISA 2018 (15-year-olds) and extracts a student-level analytic dataset of 6,863 students from 186 schools. Although PISA is collected using a complex survey design with stratification, clustering, and unequal selection probabilities, the authors explicitly do not incorporate PISA sampling and replicate weights into the ML classification models because the aim is an exploratory, sample-oriented predictive approach rather than population-level estimation. Plausible values (PV1MATH–PV10MATH) are used to address uncertainty in mathematics achievement, and all feature selection and model training/evaluation are conducted separately for each plausible value. The manuscript therefore treats the ML results as patterns in the extracted sample; it does not apply complex-survey variance estimation via weights/replicates, which may affect generalizability and uncertainty quantification."
+    },
+    "plausible_values_handling": "all_pv",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 6863,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 6863
+        }
+      ],
+      "sample_filtering_criteria": "Used publicly available PISA 2018 data and extracted the Turkish sample only (6,890 students from 186 schools). Excluded 27 students (0.39%) with no valid responses to any student-level variables, yielding a final analytic sample of 6,863 students. Mathematics achievement was operationalized using the ten PISA mathematics plausible values (PV1MATH–PV10MATH), and analyses were run separately for each PV; PVs were not missing. For predictors, missing values in the 62 retained independent variables were imputed using MissForest, with the dependent variables explicitly excluded from the imputation process to avoid target leakage."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Decision Tree",
+        "Bagging",
+        "Random Forest",
+        "AdaBoost",
+        "SVM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "STRATUM",
+        "variable_name": "School stratum type",
+        "category": "school"
+      },
+      {
+        "variable_code": "STUBEHA",
+        "variable_name": "behavior hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "REPEAT",
+        "variable_name": "Grade repetition",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "PISADIFF",
+        "variable_name": "Perceived test difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "AWACOM",
+        "variable_name": "Awareness of academic content",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupational status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School size",
+        "category": "school"
+      },
+      {
+        "variable_code": "GCSELFEFF",
+        "variable_name": "General self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "STRATIO",
+        "variable_name": "Student-teacher ratio",
+        "category": "school"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "Enjoyment of using ICT",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTCLASS",
+        "variable_name": "ICT use in class",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT access at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "TMINS",
+        "variable_name": "Instructional time (minutes)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "EDUSHORT",
+        "variable_name": "Short educational resources",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SCRADIFF",
+        "variable_name": "Perceived reading difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCHLOC",
+        "variable_name": "School location",
+        "category": "school"
+      },
+      {
+        "variable_code": "TEACHBEHA",
+        "variable_name": "Teacher behavior hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCMCEG",
+        "variable_name": "School multicultural egalitarian beliefs",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Mathematics (Turkish sample; PV1MATH–PV10MATH; Level 2 threshold)",
+        "target_variable": "Mathematics achievement class (low vs high, Level 2 benchmark)",
+        "top_predictors": [
+          "School stratum type (STRATUM)",
+          "Student behavior hindering learning (STUBEHA)",
+          "Grade repetition (REPEAT)",
+          "Perceived test difficulty (PISADIFF)",
+          "Socioeconomic status (ESCS)"
+        ],
+        "performance_metrics": "Model comparison using repeated stratified 5-fold CV (5 folds, 5 repetitions) across all ten PVs. Using all 62 variables: AdaBoost F1-score 0.7509 (±0.0046), RF F1-score 0.7437 (±0.0048), SVM 0.7415 (±0.0050), Bagging 0.7215 (±0.0040), DT 0.6614 (±0.0034). Feature-selection experiments (Table 1): RF with MI-selected top-20 features achieves F1-score 0.8352 (±0.0038) and AUC 0.8370 (±0.0037) (PV-averaged).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for the Turkish sample (PV1MATH–PV10MATH) and predicting low- vs high-performing students via the PISA Level 2 benchmark, the study leveraged STRATUM, STUBEHA, REPEAT, PISADIFF, and ESCS to classify mathematics achievement, finding that ensemble models outperform DT and that Random Forest achieves stable, high discrimination—especially when trained on MI-selected top-20 features. This indicates that parsimonious, MI-based feature sets combined with RF can produce accurate and more interpretable achievement classification patterns for education diagnostics, though the results are exploratory and do not apply PISA sampling weights and should not be interpreted causally."
+      }
+    ],
+    "outcome_summary": "The study analyzes the Turkish subset of PISA 2018 (n=6,863 students from 186 schools) and converts ten mathematics plausible values (PV1MATH–PV10MATH) into a binary outcome using the PISA Level 2 threshold (below 420.07 = low-performing; ≥420.07 = high-performing). After imputing missing predictor values with MissForest (excluding the dependent variables to avoid target leakage), the authors apply three feature-selection methods (Boruta, Mutual Information, ReliefF) and train five supervised classifiers (DT, Bagging, Random Forest, AdaBoost, SVM) using repeated stratified 5-fold cross-validation (5 folds, 5 repetitions) separately for each PV. Across all 62 predictors, AdaBoost attains the highest mean F1-score (0.7509 ± 0.0046), while Random Forest is close (0.7437 ± 0.0048) and shows stable performance. In feature-selection experiments, RF combined with MI-selected top-20 variables reaches substantially higher F1-score (0.8352 ± 0.0038) and AUC (0.8370 ± 0.0037). The study uses conditional SHAP and related plots for interpretability, but the authors explicitly do not incorporate PISA sampling/replicate weights, so findings reflect sample-based patterns rather than population-level estimates, and SHAP-based importance is not causal evidence.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -14,14 +14,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2022 computer-based assessment process data for the Turkish sample and focuses on mathematics performance alongside log-derived engagement indicators (response time and number of actions) and the PISA effort thermometer self-reported effort item. The analytic sample was reduced to 6,560 students after excluding missing values via listwise deletion. The manuscript does not report applying PISA sampling weights or any complex survey design adjustments (e.g., design/analysis weights or BRR/jackknife replicate weights). Because the analysis is based on person-centered latent profile analysis (LPA) and descriptive/correlation results rather than a survey-weight-aware predictive ML pipeline, the paper provides no weighting variable name or weighting procedure."
+      "weight_fields_interpretation": "The study uses PISA 2022 process data and self-reported effort items for the Turkish sample, then constructs person-level indicators (response time, number of actions, and response-time-effort indices) and applies Latent Profile Analysis (LPA) to classify students into engagement profiles. The manuscript reports listwise deletion for missing process indicators, but it does not describe the use of PISA sampling weights or replicate weights (e.g., BRR/jackknife) in the LPA or descriptive/correlation analyses. Because LPA and standard correlation procedures are not explicitly documented as weight-aware here, the weighting approach is unclear from the text; analysts should consult the PISA technical documentation and the authors’ data-analysis code (if available) to confirm whether complex survey design weights were applied. For replication, weighting should follow PISA’s complex sampling design guidance (student sampling weights for point estimates; replicate weights for variance estimation) and should be applied consistently across profile estimation and achievement comparisons."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "listwise_deletion",
-    "handling_not_reported_explanation": "The dependent variable is mathematics performance, but the paper does not describe plausible value (PV) generation or PV-specific estimation/combining rules. Instead, it reports mathematics achievement means and profile-specific achievement comparisons, suggesting the use of a single achievement score/scale rather than an explicitly PV-based analysis. Therefore, PV handling is not applicable based on the information provided in the manuscript, and the authors also do not document any PV-specific missing-data or combining procedure.",
+    "handling_not_reported_explanation": "plausible_values_handling is 'not_applicable' — the study likely does not analyze cognitive achievement PVs (e.g., it may focus on affective/attitudinal outcomes, curriculum data, or non-ILSA micro-data).",
     "sample_details": {
       "total_students": 6560,
       "countries": [
@@ -30,7 +30,7 @@
           "n_students": 6560
         }
       ],
-      "sample_filtering_criteria": "Used the PISA 2022 Turkish sample and restricted the analysis to mathematics items (computer-based assessment). For process indicators, the authors computed each student's average response time (RT) and average number of actions (NA) across items. Missing values were excluded using listwise deletion, resulting in an analytic sample of 6,560 students out of 7,250."
+      "sample_filtering_criteria": "The analytic sample is restricted to the Turkish PISA 2022 students who completed the mathematics computer-based assessment and for whom response time (RT) and number of actions (NA) could be computed; missing values on these process indicators were excluded using listwise deletion. This cleaning step reduced the sample from 7250 to 6560 students. The study focuses on mathematics performance and uses the PISA effort thermometer self-reported effort item (SRE) together with process-based indicators to estimate engagement profiles."
     },
     "ml_techniques": {
       "primary": null,
@@ -38,9 +38,9 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "gender",
-        "variable_name": "Gender",
-        "category": "demographic"
+        "variable_code": "SRE",
+        "variable_name": "Self-reported effort (SRE)",
+        "category": "student_behavior"
       },
       {
         "variable_code": "RT",
@@ -53,37 +53,46 @@
         "category": "process_data"
       },
       {
-        "variable_code": "SRE",
-        "variable_name": "Self-reported effort (SRE)",
-        "category": "student_behavior"
+        "variable_code": "RTE_5sec",
+        "variable_name": "Response-time effort (5 sec)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "RTE_10p",
+        "variable_name": "Response-time effort (10p)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "NA_10p",
+        "variable_name": "Action effort (10p)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "Ach",
+        "variable_name": "Mathematics achievement (Ach)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 (Turkey) Mathematics — process data (log) and effort thermometer",
+        "dataset_used": "PISA 2022 Mathematics (Turkey) process data",
         "target_variable": "Engagement profile membership (LPA profiles)",
         "top_predictors": [
           "Response time (RT)",
           "Number of actions (NA)",
           "Self-reported effort (SRE)"
         ],
-        "performance_metrics": "Not reported (LPA fit indices reported: 3-profile solution selected; AIC=51750.54, BIC=51845.58, aBIC=51801.09, entropy=0.883; LMR p<.05).",
-        "standardized_conclusion": "Using PISA 2022 (Turkey) mathematics the study leveraged response time (RT), number of actions (NA), and self-reported effort (SRE) to classify students into engagement profiles, finding three distinct groups: Moderately Engaged (Profile 1, 82.79%), Highly Engaged (Profile 2, 7.20%), and Disengaged (Profile 3, 10.01%). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
-      },
-      {
-        "dataset_used": "PISA 2022 (Turkey) Mathematics — process data and effort thermometer",
-        "target_variable": "Mathematics achievement (profile differences)",
-        "top_predictors": [
-          "Response time (RT)",
-          "Number of actions (NA)",
-          "Self-reported effort (SRE)"
-        ],
-        "performance_metrics": "Profile means: Highly Engaged=536.453; Disengaged=421.74; Moderately Engaged=452.689. Statistical significance reported (differences significant at p<.05).",
-        "standardized_conclusion": "Using PISA 2022 (Turkey) mathematics the study leveraged RT, NA, and SRE-derived engagement profiles to explain mathematics achievement differences, finding that the Disengaged profile had the lowest achievement (421.74) while the Highly Engaged profile had the highest (536.453), with Moderately Engaged in between (452.689). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "LPA fit: optimal 3-profile solution; AIC 51750.54, BIC 51845.58, aBIC 51801.09; entropy 0.883; LMR test p < .05. Profile sizes: Profile 1 (Moderately-Engaged) 5431; Profile 2 (Highly-Engaged) 472; Profile 3 (Disengaged) 657. Profile differences: ANOVA p < .05; Tukey post-hoc p < .05 for RT, NA, and SRE across all profiles. Additional analysis (Mathematics achievement differences across engagement profiles): Profile-specific mean mathematics achievement: Profile 2 (Highly-Engaged) 536.453; Profile 3 (Disengaged) 421.74; Profile 1 (Moderately-Engaged) 452.689. Differences reported as statistically significant for each group (exact test statistic not provided).",
+        "standardized_conclusion": "Using PISA 2022 Mathematics (Turkey) process data, the study leveraged response time (RT), number of actions (NA), and self-reported effort (SRE) to classify students into engagement profiles, finding that a three-profile structure best captured engagement heterogeneity (Moderately-Engaged, Highly-Engaged, Disengaged). This indicates that disengagement is not uniform but forms a distinct subgroup that can be identified from combined behavioral and self-report indicators, supporting assessment practices that flag low-effort responding when interpreting achievement results."
       }
     ],
-    "outcome_summary": "The study analyzes PISA 2022 process data for the Turkish sample (N=6,560 after listwise deletion) to examine test-taking disengagement using three indicators: response time (RT), number of actions (NA), and self-reported effort (SRE). Using latent profile analysis (LPA), the authors selected a three-profile solution (entropy=0.883; AIC/BIC/aBIC improved; LMR p<.05), yielding Moderately Engaged (82.79%), Highly Engaged (7.20%), and Disengaged (10.01%) groups. Disengagement was characterized by low SRE, minimal interactions, and rapid responses, and it was associated with lower mathematics achievement (Disengaged mean=421.74 vs. Highly Engaged mean=536.453; Moderately Engaged mean=452.689; p<.05). The manuscript does not report any machine-learning predictive model performance metrics (e.g., accuracy/AUC) and does not document plausible value (PV) handling, limiting direct comparability to PV-based ILSA achievement modeling.",
+    "outcome_summary": "The study analyzes PISA 2022 mathematics process data for Turkey, focusing on three engagement indicators: response time (RT), number of actions (NA), and self-reported effort (SRE) from the PISA effort thermometer. After listwise deletion of missing process indicators, the analytic sample contains 6560 students. The authors first show that engagement distributions vary substantially by thresholding approach (RTE_5sec, RTE_10p, and NA_10p), and that NA correlates most strongly with mathematics achievement (r = .43), while SRE shows the weakest association (r = .02). Using latent profile analysis, they select a three-profile solution (entropy = 0.883) and find that the Disengaged profile (10.01%) has the lowest mean mathematics achievement (421.74) compared with the Moderately-Engaged (452.689) and Highly-Engaged (536.453) profiles. A key limitation is that the manuscript does not report survey-weight handling for PISA’s complex design, and the profile-based approach is person-centered rather than a predictive ML model.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": null
+    "null_fields_interpretation": "This paper does not train or evaluate machine-learning predictive models; instead, it uses Latent Profile Analysis (LPA) to uncover latent engagement subgroups and then compares mathematics achievement across profiles. Therefore, the ML technique fields are intentionally left empty (no supervised learner is reported), and the study is classified as exploratory rather than predictive."
   }
 }

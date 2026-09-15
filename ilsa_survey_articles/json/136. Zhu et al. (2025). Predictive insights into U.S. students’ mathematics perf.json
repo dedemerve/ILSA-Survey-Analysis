@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "file_name": "136. Zhu et al. (2025). Predictive insights into U.S. students’ mathematics performance on PISA 2022 using ensemble tree-based machine learning models.pdf",
+    "title": "Predictive insights into U.S. students’ mathematics performance on PISA 2022 using ensemble tree-based machine learning models",
+    "authors": [
+      "Li Zhu",
+      "Hyesun You",
+      "Minju Hong",
+      "Zhenhan Fang"
+    ],
+    "year": 2025,
+    "doi": "10.1016/j.ijer.2025.102537",
+    "venue": "International Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 U.S. student microdata and merges student and school files using the school identifier (CNTSCHID), assigning school-level predictors to students within the same school. The analytic sample comprises 4,552 students in 154 schools, with grade information reported (primarily 10th grade). The authors explicitly state they did not include sampling weights in the ML analyses, arguing that weighting may be less critical for ML model configuration than for traditional regression and citing prior work; thus complex multistage/cluster design weights were omitted. For data preparation, they removed predictors with >50% missingness, removed identical and redundant variables (including excluding components used to compute ESCS), then imputed remaining missing predictor values using missForest (RF-based imputation) before training/testing split and 5-fold cross-validation."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 4552,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": 4552
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2022 data for the United States (15-year-old students). Merged student and school questionnaires using CNTSCHID so that school-level predictors were attached to students in the same school. For predictors, removed variables with >50% missing values; removed identical variables (same values for all students); removed redundant variables to avoid collinearity (e.g., retained ESCS and excluded the three component DVs used to compute it). After cleaning, imputed missing values for remaining predictors using missForest, then split the overall dataset into training (80%, N=3644) and test (20%, N=908)."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Random Forest",
+        "XGBoost",
+        "LightGBM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Mathematics self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FAMCON",
+        "variable_name": "Familiarity with math concepts",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupation status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "FAMSUPSL",
+        "variable_name": "Family support for self-learning",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "WORKPAY",
+        "variable_name": "Working for pay (days/week)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "FEELLAH",
+        "variable_name": "Feelings about learning at home",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EXERPRAC",
+        "variable_name": "Exercising/practicing sport (days/week)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ANXMAT",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Mathematics (U.S. students, 15-year-olds; PV1MATH–PV10MATH)",
+        "target_variable": "Mathematics achievement (10 plausible values)",
+        "top_predictors": [
+          "Mathematics self-efficacy",
+          "Socioeconomic status (ESCS)",
+          "Familiarity with math concepts",
+          "Expected occupation status",
+          "Family support for self-learning"
+        ],
+        "performance_metrics": "Model comparison using reduced predictor sets: RF (5 predictors) rMSE=69.82, XGBoost (10 predictors) rMSE=66.39, LightGBM (10 predictors) rMSE=66.36; efficiency (training time): RF=129.27s, XGBoost=4.14s, LightGBM=22.93s. Best model by accuracy+efficiency: XGBoost.",
+        "standardized_conclusion": "Using PISA 2022 Mathematics data for U.S. students, the study leveraged mathematics self-efficacy, ESCS, familiarity with math concepts, expected occupation status, and family support for self-directed learning to predict mathematics achievement (averaged across PV1MATH–PV10MATH), finding that XGBoost achieved lower prediction error than Random Forest and LightGBM when using ML-selected predictors. This indicates that data-driven predictor selection can identify actionable student- and home-related levers for improving U.S. mathematics performance, though the results are predictive associations rather than causal effects and the analysis omits sampling weights."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2022 mathematics performance for U.S. 15-year-olds (N=4,552 students in 154 schools) and predicts mathematics achievement using 10 plausible values (PV1MATH–PV10MATH) as separate outcomes, then averages estimates across PVs. After cleaning predictors (dropping variables with >50% missingness, removing identical/redundant variables) the authors impute remaining missing predictor values using missForest (RF-based imputation), split data into training (80%) and test (20%), and train three ensemble tree models: Random Forest, XGBoost, and LightGBM. Using reduced predictor sets selected via an ARE criterion, XGBoost performed best on both accuracy and efficiency, with reduced-model rMSE=66.39 and training time=4.14s (vs. RF rMSE=69.82, 129.27s; LightGBM rMSE=66.36, 22.93s). The most consistent top predictors across models include mathematics self-efficacy and ESCS, plus familiarity with math concepts and family support. A key limitation is that sampling weights were not incorporated, so results may not fully reflect the complex survey design; additionally, interpretability via ALE supports predictive understanding rather than causal claims.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

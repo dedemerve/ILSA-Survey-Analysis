@@ -19,11 +19,11 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 Hong Kong student microdata and restricts the analytic sample to students in the bottom 25% of ESCS (Economic, Social and Cultural Status), yielding N=1,459. The dependent variable is a binary indicator of academic resilience based on reading achievement being in the top 25% within the Hong Kong context. The manuscript describes missing-data imputation and machine-learning model training/validation, but it does not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife). Because the primary model is a random forest classifier implemented via the R package “randomForest” and the paper does not mention weight-aware estimation, the analysis is treated as unweighted; the paper also does not specify any complex-survey design adjustments."
+      "weight_fields_interpretation": "The study uses PISA 2018 Hong Kong microdata and restricts the analytic sample to students in the bottom 25% of ESCS (Economic, Social and Cultural Status), yielding 1,459 students, of whom 251 are classified as resilient. The dependent variable is a binary indicator of resilience based on reading achievement being in the top 25% among low-ESCS students. Although PISA is collected using a complex sampling design, the manuscript does not report applying PISA sampling weights or replicate weights in the random forest classification. Because the analysis is implemented with the R randomForest package and the paper does not discuss survey-weighted ML estimation, the most defensible interpretation is that the model was trained on an unweighted subset; this may affect generalizability and uncertainty quantification under the clustered/survey design."
     },
-    "plausible_values_handling": "not_applicable",
+    "plausible_values_handling": "average_pv",
     "missing_data_handling": "multiple_imputation",
-    "handling_not_reported_explanation": "Plausible values handling is not applicable because the dependent variable is defined as a binary resilience indicator using reading achievement categories (top 25% vs. not) rather than modeling PV-based continuous achievement scores directly. The paper does not describe PV generation/combining for the outcome; instead, it uses the resilience definition based on reading achievement percentiles. Missing data handling is reported: the authors impute missing values five times using MCMC multiple imputation in SPSS 26.0, but then select only the first imputed dataset for the random forest analysis.",
+    "handling_not_reported_explanation": null,
     "sample_details": {
       "total_students": 1459,
       "countries": [
@@ -32,7 +32,7 @@
           "n_students": 1459
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 Hong Kong data; restricted to 15-year-old students in the bottom 25% of ESCS (Economic, Social and Cultural Status). The dependent variable was then defined as resilient (coded 1) if the student’s reading achievement was in the top 25% (within the Hong Kong context) and non-resilient (coded 0) otherwise. Final analytic sample comprised 1,459 students after applying the ESCS bottom-quartile restriction; missing values for model variables were imputed (5 MCMC imputations) and the first imputed dataset was used for the random forest analysis."
+      "sample_filtering_criteria": "Used PISA 2018 Hong Kong data and selected only socioeconomically disadvantaged students defined as being in the bottom 25% of ESCS. The dependent variable was then constructed as a binary resilience indicator: low-ESCS students with reading achievement in the top 25% were coded as resilient (1), and the remaining low-ESCS students were coded as non-resilient (0)."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -48,13 +48,23 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "perception_difficulty_pisa_test",
-        "variable_name": "Perception of test difficulty",
+        "variable_code": "perception_of_difficulty_pisa_test",
+        "variable_name": "Perception of difficulty (PISA test)",
         "category": "student_attitude"
       },
       {
+        "variable_code": "meta_cognition_understanding",
+        "variable_name": "Meta-cognition: understanding",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "remembering",
+        "variable_name": "remembering",
+        "category": "student_behavior"
+      },
+      {
         "variable_code": "self_concept_reading_competence",
-        "variable_name": "Reading self-concept (competence)",
+        "variable_name": "Self-concept of reading competence",
         "category": "student_attitude"
       },
       {
@@ -63,13 +73,13 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "self_concept_reading_difficulty",
-        "variable_name": "Reading self-concept (difficulty)",
+        "variable_code": "self_concept_reading_perceived_difficulty",
+        "variable_name": "Self-concept of reading difficulty",
         "category": "student_attitude"
       },
       {
         "variable_code": "attitude_towards_school_learning_activities",
-        "variable_name": "Attitude toward school learning",
+        "variable_name": "Attitude toward school learning activities",
         "category": "student_attitude"
       },
       {
@@ -94,12 +104,12 @@
       },
       {
         "variable_code": "eudaemonia_meaning_in_life",
-        "variable_name": "Meaning in life (eudaemonia)",
+        "variable_name": "Eudaemonia: meaning in life",
         "category": "student_attitude"
       },
       {
-        "variable_code": "self_efficacy_reading",
-        "variable_name": "Self-efficacy (reading tasks)",
+        "variable_code": "self_efficacy",
+        "variable_name": "Self-efficacy",
         "category": "student_attitude"
       },
       {
@@ -109,7 +119,7 @@
       },
       {
         "variable_code": "subjective_wellbeing_positive_affect",
-        "variable_name": "Positive affect (well-being)",
+        "variable_name": "Positive affect (subjective wellbeing)",
         "category": "student_attitude"
       },
       {
@@ -119,12 +129,12 @@
       },
       {
         "variable_code": "teacher_stimulation_reading_engagement",
-        "variable_name": "Teacher stimulation of reading",
+        "variable_name": "Teacher stimulation of reading engagement",
         "category": "teacher"
       },
       {
         "variable_code": "disciplinary_climate_test_language_lessons",
-        "variable_name": "Disciplinary climate in lessons",
+        "variable_name": "Disciplinary climate in test language lessons",
         "category": "school"
       },
       {
@@ -144,18 +154,18 @@
       },
       {
         "variable_code": "perception_cooperation_at_school",
-        "variable_name": "Perceived cooperation at school",
+        "variable_name": "Perception of cooperation at school",
         "category": "school"
       },
       {
-        "variable_code": "perceived_teachers_interest",
+        "variable_code": "perceived_teacher_interest",
         "variable_name": "Perceived teacher’s interest",
         "category": "teacher"
       },
       {
         "variable_code": "student_experience_bullied",
-        "variable_name": "Experience of being bullied",
-        "category": "student_behavior"
+        "variable_name": "Student’s experience of being bullied",
+        "category": "school"
       },
       {
         "variable_code": "perceived_feedback",
@@ -164,7 +174,7 @@
       },
       {
         "variable_code": "teacher_support_test_language_lessons",
-        "variable_name": "Teacher support in lessons",
+        "variable_name": "Teacher support in test language lessons",
         "category": "teacher"
       },
       {
@@ -185,20 +195,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (Hong Kong; ESCS bottom quartile; age 15)",
+        "dataset_used": "PISA 2018 Reading (Hong Kong; ESCS bottom quartile; resilience defined via top-25% reading achievement)",
         "target_variable": "Academic resilience (binary: resilient vs non-resilient)",
         "top_predictors": [
-          "Metacognition: assess credibility",
+          "Meta-cognition: assess credibility",
           "Joy of reading",
           "Teacher-directed instruction",
-          "Perception of test difficulty",
+          "Perception of difficulty (PISA test)",
           "Sense of belonging to school"
         ],
-        "performance_metrics": "Random Forest — AUC: 0.81; Accuracy: 0.83 (95% CI [0.79, 0.87]); 10-fold cross-validation with five repeats; top-8 predictors after minimal MSE reduction beyond the 8th variable.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for Hong Kong students in the ESCS bottom quartile, the study leveraged metacognition (assess credibility), joy of reading, teacher-directed instruction, perceived test difficulty, and sense of belonging to predict academic resilience (resilient vs non-resilient), finding that the random forest achieved AUC=0.81 and accuracy=0.83. The top eight predictors were identified via mean decrease in accuracy (MDA) and cross-validation, with all predictors positively associated except perceived test difficulty and discriminating school climate, which negatively predicted resilience; the paper uses MCMC multiple imputation but then analyzes only the first imputed dataset and does not report survey-weighted modeling. This indicates that t difficulty and discriminating school climate, which negatively predicted resilience; the paper uses MCMC multiple imputation but then analyzes only the first imputed dataset and does not report survey-weighted modeling."
+        "performance_metrics": "Random Forest: AUC = 0.81; Accuracy = 0.83 (95% CI [0.79, 0.87]). Ten-fold cross-validation with five repeats; feature selection via mean decrease in accuracy (MDA) and marginal MSE reduction after the 8th variable. Logistic regression (supplementary): Accuracy = 0.68 (95% CI [0.64, 0.73]).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Hong Kong students restricted to the ESCS bottom quartile, the study leveraged meta-cognition (assess credibility), joy of reading, teacher-directed instruction, perceived difficulty of the PISA test, and sense of belonging to school (among other top factors) to classify students as resilient versus non-resilient, finding that the random forest achieved high discrimination (AUC = 0.81) and accuracy (0.83). This indicates that strengthening metacognitive reading strategies and intrinsic reading motivation, alongside more teacher-directed instruction and inclusive school belonging, may help socioeconomically disadvantaged students reach high reading achievement, though the cross-sectional design and unweighted ML estimation limit causal claims."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 Hong Kong data restricted to students in the bottom 25% of ESCS (N=1,459) and defined academic resilience as reading achievement in the top 25% (binary outcome). Using a random forest classifier, the authors reported AUC=0.81 and accuracy=0.83 (95% CI [0.79, 0.87]) under 10-fold cross-validation with five repeats, and identified eight top predictors based on mean decrease in accuracy (MDA). The most important variables included metacognition (assess credibility), joy of reading, teacher-directed instruction, perceived difficulty of the PISA test, sense of belonging to school, discriminating school climate, self-efficacy, and perceived teacher’s interest. A supplementary logistic regression model showed lower accuracy (0.68, 95% CI [0.64, 0.73]). Methodologically, the paper imputes missing data five times via MCMC multiple imputation but uses only the first imputed dataset for random forest, and it does not report applying PISA sampling weights or PV-combining for the resilience definition.",
+    "outcome_summary": "The study uses PISA 2018 Hong Kong microdata and constructs a binary resilience outcome among socioeconomically disadvantaged students (bottom 25% ESCS): resilient students are those whose reading achievement falls in the top 25% (n=251) versus non-resilient (n=1,208), totaling 1,459 students. Missing values (0–11.9% across variables) were imputed five times using MCMC multiple imputation in SPSS, but the random forest analysis used only the first imputed dataset. A random forest classifier trained on 30 personal and social-contextual variables was evaluated with ten-fold cross-validation with five repeats; it achieved AUC=0.81 and accuracy=0.83 (95% CI [0.79, 0.87]). The top eight predictors were identified via mean decrease in accuracy and marginal MSE reduction, with two variables showing negative prediction (perceived difficulty and discriminating school climate). Because the paper does not report applying PISA sampling/replicate weights and the design is cross-sectional, the results support prioritization of correlates rather than causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

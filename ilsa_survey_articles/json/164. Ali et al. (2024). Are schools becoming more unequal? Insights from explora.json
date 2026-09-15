@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "file_name": "164. Ali et al. (2024). Are schools becoming more unequal? Insights from exploratory data mining of international large-scale assessment, TIMSS 2003-2019 Farhan Ali* ,1 , Yook Kit Ow-Yeong , Jacqueline L. Tilley 2.pdf",
+    "title": "Are schools becoming more unequal? Insights from exploratory data mining of international large-scale assessment, TIMSS 2003-2019",
+    "authors": [
+      "Farhan Ali",
+      "Yook Kit Ow-Yeong",
+      "Jacqueline L. Tilley"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.stueduc.2024.101330",
+    "venue": "Studies in Educational Evaluation",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS science scale scores for Grade 4 and Grade 8 across five cycles (2003, 2007, 2011, 2015, 2019) and computes school-level statistics from student-level plausible values. For representativeness, the authors explicitly state that they used total student weight when computing average scale scores for each school (via intsvy.mean.pv), and they filtered out schools with fewer than 10 tested students. The paper does not report replicate-weight methodology (e.g., BRR/jackknife), so uncertainty estimation at the replicate level is not documented here. Because the analysis is exploratory and focuses on variance decomposition and distributional modeling at the school level, the key weighting step is the use of total student weights to form weighted means/variances rather than a separate replicate-weight variance estimation procedure."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper describes how TIMSS plausible values (five PVs) were computed per student and then averaged to obtain the final relevant statistic at the school level, but it does not explicitly document how missing questionnaire/background variables or missing PVs were handled. This is a reporting gap because missingness handling can affect variance and distributional measures, especially when aggregating to schools across multiple cycles. The authors also do not state whether they used complete-case filtering beyond the school-level exclusion criterion (schools with fewer than 10 tested students).",
+    "sample_details": {
+      "total_students": 221421,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "RUS",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used TIMSS general science achievement data for Grade 4 and Grade 8 across five cycles (2003, 2007, 2011, 2015, 2019). Restricted to 10 countries that had complete data for all five cycles at both grade levels. Focused on general science (not specific science subjects) to ensure comparability across systems. Excluded schools with fewer than 10 students tested, yielding 7474 schools (Grade 4) and 7567 schools (Grade 8) with adequate sample sizes across cycles. For within-school distribution modeling, the analysis was conducted at the school level (with supplementary checks using classes due to limited class sampling per school)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "school_level_unit",
+        "variable_name": "School unit (between/within)",
+        "category": "school"
+      },
+      {
+        "variable_code": "grade_level",
+        "variable_name": "Grade level (4 vs 8)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "country",
+        "variable_name": "Country system",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "early_tracking_system",
+        "variable_name": "Early tracking system",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2003-2019 Grade 4 General Science (5 cycles)",
+        "target_variable": "Between-school vs within-school achievement inequality (SD; Between:Within ratio)",
+        "top_predictors": [
+          "Country system",
+          "Early tracking system",
+          "Grade level (4 vs 8)",
+          "School unit (between/within)"
+        ],
+        "performance_metrics": "Not reported (visual trends in Fig. 1a and Fig. 2; qualitative statements that Between:Within ratio < 1 for all countries).",
+        "standardized_conclusion": "Using TIMSS 2003-2019 Grade 4 general science the study leveraged country system and early-tracking classification to decompose achievement inequality into between-school and within-school components, finding that between-school inequality was consistently smaller than within-school inequality (Between:Within ratio < 1 for all countries) and that there was no clear worsening of between-school inequality over time. This indicates that policy attention should prioritize within-school mechanisms (classroom-level heterogeneity and instructional differentiation) rather than assuming that school-to-school sorting alone is driving inequality trends."
+      },
+      {
+        "dataset_used": "TIMSS 2003-2019 Grade 8 General Science (5 cycles)",
+        "target_variable": "Between-school vs within-school achievement inequality (SD; Between:Within ratio)",
+        "top_predictors": [
+          "Country system",
+          "Early tracking system",
+          "Grade level (4 vs 8)",
+          "School unit (between/within)"
+        ],
+        "performance_metrics": "Not reported (visual trends in Fig. 1b and Fig. 2; qualitative statements: Between:Within ratio < 1 for most countries; Hong Kong SAR and England occasionally > 1; within-school inequality may increase by 2019 vs 2015).",
+        "standardized_conclusion": "Using TIMSS 2003-2019 Grade 8 general science the study leveraged country system and early-tracking classification to compare between-school and within-school inequality across cycles, finding that within-school inequality remained the dominant contributor to total inequality and that between-school inequality did not show a consistent overall upward trend. This indicates that even in systems with early tracking, inequality is largely sustained within schools, suggesting that interventions should target classroom practices and support for lower-achieving students rather than relying on tracking to homogenize outcomes."
+      },
+      {
+        "dataset_used": "TIMSS 2003-2019 Grade 4 & Grade 8 General Science (5 cycles)",
+        "target_variable": "Relationship between within-school average achievement and within-school inequality (within-school SD vs within-school mean)",
+        "top_predictors": [
+          "Country system",
+          "Early tracking system",
+          "Grade level (4 vs 8)",
+          "School unit (between/within)"
+        ],
+        "performance_metrics": "Not reported (reported as moderate-to-large negative relationship; examples: in Singapore inequality can be 2–3 times higher in lower-achieving schools; stability across cycles shown in Fig. 5).",
+        "standardized_conclusion": "Using TIMSS 2003-2019 Grade 4 and Grade 8 general science the study leveraged country system and early-tracking classification to relate within-school average achievement to within-school inequality, finding a highly consistent moderate-to-large negative relationship across countries and cycles (higher-achieving schools are more equal within-school). This indicates that education policies that raise average achievement—especially by supporting lower-performing students—may simultaneously reduce within-school achievement dispersion, challenging a simple efficiency–equality trade-off narrative."
+      },
+      {
+        "dataset_used": "TIMSS 2003-2019 Grade 4 & Grade 8 General Science (5 cycles)",
+        "target_variable": "Statistical nature of within-school inequality (Gaussian mixture count / bimodality)",
+        "top_predictors": [
+          "Country system",
+          "Early tracking system",
+          "Grade level (4 vs 8)",
+          "School unit (between/within)"
+        ],
+        "performance_metrics": "Not reported (qualitative: lower-achieving schools tend to have multiple Gaussian components; effect clearer in Grade 4; for Grade 4, number of Gaussians increases in 2019 vs earlier cycles except Singapore; Grade 8 shows no clear trend).",
+        "standardized_conclusion": "Using TIMSS 2003-2019 Grade 4 and Grade 8 general science the study leveraged country system and early-tracking classification to model within-school achievement distributions using Gaussian mixture modeling, finding that lower-achieving schools more often exhibit bimodality/multiple subpopulations rather than only skewed tails, with an increasing tendency for more subpopulations in Grade 4 by 2019. This indicates that inequality may reflect persistent within-school heterogeneity requiring differentiated instruction and targeted support for distinct student subgroups, rather than only remediation for a small number of low-tail students."
+      }
+    ],
+    "outcome_summary": "This study uses TIMSS general science achievement data for Grade 4 and Grade 8 across five cycles (2003–2019) in 10 countries with complete data across cycles and grades. It computes school-level achievement inequality by decomposing total variance into between-school and within-school components using weighted plausible-value-based scale scores, excluding schools with fewer than 10 tested students. Across both grades, the dominant pattern is that within-school inequality is much larger than between-school inequality, and between-school inequality does not show consistent worsening over nearly two decades. The study also finds a stable, moderate-to-large negative relationship between within-school average achievement and within-school inequality, and distributional modeling suggests that lower-achieving schools often contain multiple subpopulations (bimodality), with a clearer rise in such subpopulations for Grade 4 by 2019. Limitations include limited class sampling per school (hindering finer within-school decomposition) and lack of explicit documentation of missing-data handling beyond the school exclusion rule.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

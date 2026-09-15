@@ -1,0 +1,452 @@
+{
+  "metadata": {
+    "file_name": "185. Resino et al. (2024). School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach.pdf",
+    "title": "School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach",
+    "authors": [
+      "Arroyo Resino et al."
+    ],
+    "year": 2024,
+    "doi": "10.5944/educxx1.38634",
+    "venue": "Educación XX1",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Spain and defines the analytic sample as Spanish students aged 15–16, with a further restriction for the multilevel logistic regression stage (schools with more than 20 students). The authors report imputing missing values via multiple imputation by chained equations (MICE) and then standardising continuous predictors before fitting models. The manuscript does not report the use of PISA sampling weights or replicate weights (e.g., BRR/jackknife), and the ML stage (Random Forest in H2O) is described without any weight-aware estimation. Therefore, readers should treat the results as conditional on the modelling choices and preprocessing described, rather than as fully population-representative estimates unless weights are applied in the underlying PISA dataset extraction pipeline."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 34411,
+      "countries": [
+        {
+          "country_code": "ESP",
+          "n_students": 34411
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 database and restricted to Spanish students (initially 35,943). For the Random Forest stage, the entire dataset was utilised after preprocessing; for the multilevel binary logistic regression stage, schools with 20 or fewer students were omitted, yielding a refined sample of 34,411 students across 976 schools. The outcome was dichotomised as high reading performance (PISA reading level 5–6) vs average/low (levels below 5), with 1,797 high-performing students and 34,146 low/average in the Spanish sample. Predictors were reduced from 159 to 137 by removing variables with over 20% missingness, except learning-time variables (LMMINS, MMINS, SMINS) which were retained despite ~24–25% missingness; missing values were then imputed using MICE."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HOMEPOS",
+        "variable_name": "Home possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "CULTPOSS",
+        "variable_name": "Cultural possessions at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "WEALTH",
+        "variable_name": "Family wealth",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BMMJ1",
+        "variable_name": "ISEI of mother",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BFMJ2",
+        "variable_name": "ISEI of father",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISEI",
+        "variable_name": "Highest parental occupational status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother’s education (ISCED)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FISCED",
+        "variable_name": "Father’s education (ISCED)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PARED",
+        "variable_name": "Parental education (years)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PAREDINT",
+        "variable_name": "Parental education (international years)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "LANGN",
+        "variable_name": "Language at home",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST004D01T",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "SCCHANGE",
+        "variable_name": "Number of school changes",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "CHANGE",
+        "variable_name": "Changes in educational biography",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Duration in early childhood education",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "SCHLTYPE",
+        "variable_name": "School ownership",
+        "category": "school"
+      },
+      {
+        "variable_code": "STRATIO",
+        "variable_name": "Student-teacher ratio",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School size (sum)",
+        "category": "school"
+      },
+      {
+        "variable_code": "CLSIZE",
+        "variable_name": "Class size",
+        "category": "school"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT available at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT available at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUTSIDE",
+        "variable_name": "ICT use outside lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use outside school work",
+        "category": "ict"
+      },
+      {
+        "variable_code": "USESCH",
+        "variable_name": "ICT use at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SOIAICT",
+        "variable_name": "ICT as topic in social interaction",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTCLASS",
+        "variable_name": "Subject-related ICT use during lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use outside of school (leisure)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "COMPICT",
+        "variable_name": "Perceived ICT competence",
+        "category": "ict"
+      },
+      {
+        "variable_code": "AUTICT",
+        "variable_name": "Perceived autonomy related to ICT use",
+        "category": "ict"
+      },
+      {
+        "variable_code": "JOYREAD",
+        "variable_name": "Enjoyment of reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "METASPAM",
+        "variable_name": "Metacognition: credibility assessment",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "METASUM",
+        "variable_name": "Metacognition: summarising",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "UNDREM",
+        "variable_name": "Metacognition (understanding, remembering)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SCREADCOMP",
+        "variable_name": "Reading self-concept: competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCREADDIFF",
+        "variable_name": "Reading self-concept: difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PISADIFF",
+        "variable_name": "Perception of difficulty of PISA test",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MMINS",
+        "variable_name": "Learning time (minutes per week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Learning time in science (minutes per week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "LMINS",
+        "variable_name": "Learning time in reading (minutes per week)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "TMINS",
+        "variable_name": "Total learning time (minutes per week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST225Q06HA",
+        "variable_name": "Expected completion (ISCED 5A/6)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST225Q03HA",
+        "variable_name": "Expected completion (ISCED 3A)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST225Q05HA",
+        "variable_name": "Expected completion (ISCED 5B)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST225Q02HA",
+        "variable_name": "Expected completion (ISCED 3B/C)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST225Q01HA",
+        "variable_name": "Expected completion (ISCED 2)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "expected occupational status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EC158Q02HA",
+        "variable_name": "Study time after school (minutes)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "EC159Q02HA",
+        "variable_name": "Study time after leaving school (minutes)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "EC158Q02HA",
+        "variable_name": "Study time before school (minutes)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "WB176Q01HA",
+        "variable_name": "Last homework/study time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "DISCLIMA",
+        "variable_name": "Disciplinary climate",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher support in reading lessons",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "DIRINS",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ADAPTIVITY",
+        "variable_name": "Adaptation of instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TEACHINT",
+        "variable_name": "Perceived teacher interest",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "STUBEHA",
+        "variable_name": "behaviour hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "TEACHBEHA",
+        "variable_name": "Teacher behaviour hindering learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC037Q07TA",
+        "variable_name": "Seeking feedback from students",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q01HA",
+        "variable_name": "School assessments to guide learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q02WA",
+        "variable_name": "School assessments for parents",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q03WA",
+        "variable_name": "School assessments for retention/promotion",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q04WA",
+        "variable_name": "School assessments for grouping",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q05WA",
+        "variable_name": "School assessments for comparison",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q06WA",
+        "variable_name": "School assessments for progress over time",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q07WA",
+        "variable_name": "School assessments for teacher effectiveness",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q08WA",
+        "variable_name": "School assessments for curriculum improvement",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q09HA",
+        "variable_name": "School assessments for adapting teaching",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q010WA",
+        "variable_name": "School assessments for comparing schools",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC154Q011HA",
+        "variable_name": "School assessments for certificates",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC064Q01TA",
+        "variable_name": "Parents discuss progress (initiative)",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "SC064Q02TA",
+        "variable_name": "Parents discuss progress (teacher initiative)",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "SC064Q03TA",
+        "variable_name": "Parents participate in local government",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "SC064Q04TA",
+        "variable_name": "Parents volunteer in activities",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "EMOSUPS",
+        "variable_name": "Parents emotional support (WLE)",
+        "category": "parent_home"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (Spain; students aged 15–16)",
+        "target_variable": "High reading performance (Level 5–6 vs below 5)",
+        "top_predictors": [
+          "Enjoyment of reading (JOYREAD)",
+          "Metacognition: credibility assessment (METASPAM)",
+          "Reading self-concept: competence (SCREADCOMP)",
+          "Reading self-concept: difficulty (SCREADDIFF)",
+          "Learning time in science (SMINS)"
+        ],
+        "performance_metrics": "Random Forest (H2O) — best PV selected as PV9 with AUC = 0.827; contextual-only set (15 variables) AUC = 0.839 (Accuracy = 0.952); multilevel logistic regression explained variance: context-only PEV = 38.258% and process-only PEV = 40.909% (zero-inflated baseline PEV = 40.909); full model PEV ≈ 54.356% with odds ratio for METASPAM ≈ 1.989 (model 3).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Spanish students, the study leveraged enjoyment of reading (JOYREAD) and metacognition (especially credibility assessment, METASPAM), along with reading self-concept and learning time, to predict high reading performance (Level 5–6). It found that process variables dominated relative importance and that the full context+process model explained about 54% of reading success, with METASPAM showing the largest effect (roughly twice the effect of key context/input indices). This indicates that strengthening reading enjoyment and metacognitive instruction (e.g., teaching students to evaluate text credibility) may increase the proportion of high-performing readers in Spain, though the study is correlational and cannot establish causality."
+      }
+    ],
+    "outcome_summary": "The study conducts a secondary analysis of PISA 2018 reading for Spain, defining “high performance” as reaching reading levels 5–6 and modelling it as a dichotomous outcome. For variable selection and ranking, it trains a Random Forest classifier in H2O using 10-fold cross-validation and evaluates performance across plausible values, selecting PV9 as the most accurate (AUC = 0.827). It then estimates multilevel binary logistic regression models (student level 1; school level 2) after excluding schools with 20 or fewer students, using robust standard errors and reporting odds ratios and explained variance (PEV). Context-only predictors explained about 41% of variance, process-only predictors about 38–41%, and the combined model about 54.676% (PEV ≈ 54.356%). The authors emphasize that metacognition: credibility assessment is the strongest predictor (OR ≈ 1.989), but they also note that results cannot be interpreted causally and that questionnaire-based constructs may have validity limitations.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -3,8 +3,8 @@
     "file_name": "83. Murchan & Siddiq. (2021). A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment.pdf",
     "title": "A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment",
     "authors": [
-      "Damian Murchan",
-      "Fiona Siddiq"
+      "Murchan",
+      "Siddiq"
     ],
     "year": 2021,
     "doi": "10.1186/s40536-021-00115-3",
@@ -18,40 +18,15 @@
       "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "This paper is a desk-based systematic literature review (no student-level dataset or assessment microdata were analyzed). The authors screened and coded 22 eligible studies from an initial pool of 1349 records, using qualitative and quantitative coding of ethical/privacy/regulatory elements rather than statistical estimation on an ILSA sample. Because no primary empirical dataset was used, there is no application of complex survey weights, replicate weights, or weight variables (e.g., W_FSTUWT/TOTWGT) in the analysis. Consequently, weighting fields are not applicable to this review methodology."
+      "weight_fields_interpretation": "This study is a desk-based systematic literature review and does not analyze a student-level large-scale assessment dataset. Because no primary microdata are used, there is no sampling frame, no complex survey design, and no application of student or replicate weights (e.g., W_FSTUWT/TOTWGT or BRR/jackknife). The review instead codes and summarizes characteristics of 22 eligible publications using an ordinal coding scheme aligned to Sclater’s (2016) code of practice. Therefore, weighting guidance for ILSA plausible values or survey inference is not applicable to the empirical unit of analysis (the included studies)."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "This is a systematic review of ethical and regulatory issues in using process data in educational assessment, not an empirical study predicting cognitive achievement outcomes from ILSA-style test scores. Therefore, plausible values (PVs) are not generated or analyzed, and missing-data handling for PVs is not part of the study design. The review instead uses eligibility criteria, full-text screening, and coding of included studies using an ordinal rubric (Sclater’s code of practice).",
+    "handling_not_reported_explanation": "Plausible Values (PV) are generated for cognitive achievement scales in ILSA assessments, but this paper does not estimate student achievement scores from ILSA microdata. Instead, it synthesizes published studies and codes whether ethical/privacy/regulatory elements are present using an ordinal rubric. Missing-data handling for PVs or student responses is therefore not part of the methodology because there is no student-level dataset being imputed or deleted.",
     "sample_details": {
       "total_students": null,
-      "countries": [
-        {
-          "country_code": "AUS",
-          "n_students": null
-        },
-        {
-          "country_code": "ESP",
-          "n_students": null
-        },
-        {
-          "country_code": "USA",
-          "n_students": null
-        },
-        {
-          "country_code": "DEU",
-          "n_students": null
-        },
-        {
-          "country_code": "NLD",
-          "n_students": null
-        },
-        {
-          "country_code": "UKR",
-          "n_students": null
-        }
-      ],
-      "sample_filtering_criteria": "Systematic review selection: (1) initial search (2010–2018) across ERIC, Web of Science, ProQuest plus hand-searching six journals and searching LAK proceedings and a 2016 special issue; (2) remove duplicates (74) and screen titles/abstracts (1349 screened); (3) include studies if published in English, in refereed venues (conference/report/book/journal), with K-12 educational context, referencing an achievement/attainment/curriculum test or assessment outcomes, and referencing ethical/regulatory issues tied to learning analytics/process/log data; (4) if few K-12-specific studies met criteria (3), apply second-order eligibility to include education-context studies (K-12, higher education, training) that mention learning analytics/process data and assessment plus ethical/regulatory issues; (5) full-text screening yields 22 eligible studies."
+      "countries": [],
+      "sample_filtering_criteria": "Systematic review selection: searches (2010–2018) in ERIC, Web of Science, and ProQuest plus hand-searching six journals and conference/special issue proceedings; inclusion required English-language refereed conference/report/book/paper, a K-12 educational context, reference to assessment/test outcomes, and reference to process/log/user-generated data plus ethical/regulatory issues. When only three K-12 studies met the key inclusion criteria, the authors applied second-order eligibility criteria to include studies in education contexts (K-12, higher education, training/adult) that referenced learning/process data and assessment and also mentioned ethical/regulatory issues. Final eligible set comprised 22 studies for full-text screening and coding."
     },
     "ml_techniques": {
       "primary": null,
@@ -64,11 +39,11 @@
         "target_variable": "Literature synthesis outcome (not student-level prediction)",
         "top_predictors": [],
         "performance_metrics": "Not reported",
-        "standardized_conclusion": "Using ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset) the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper is a systematic review (not an ML modeling study) examining how ethical, privacy, and regulatory considerations are addressed in research using process/log data in educational assessment. Across 22 eligible studies (from an initial 1349 screened records), the authors find a dearth of work that explicitly and clearly addresses ethics/privacy in K-12 assessment contexts (only three K-12-relevant studies met the initial criteria). Using a modified Sclater (2016) code of practice with eight categories, they report that ethics-related issues feature minimally overall, with comparatively higher attention to Privacy, Transparency & consent, Enabling interventions, and Minimising adverse impact. The review highlights gaps in responsibility/administration of data and in access rights, and argues for developing a bespoke code of ethics for process/log data in educational assessment. This indicates that , and Minimising adverse impact. The review highlights gaps in responsibility/administration of data and in access rights, and argues for developing a bespoke code of ethics for process/log data in educational assessment."
+        "standardized_conclusion": "Using ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset) the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper is a systematic literature review (not an empirical ML study) examining how ethical, privacy, and regulatory considerations are reflected in research that uses process/log data in educational assessment. The authors searched multiple databases and hand-searched journals for 2010–2018, initially finding 1349 records after deduplication and screening down to 66 full-text candidates, then to 22 eligible studies after applying first- and second-order eligibility criteria. They coded each included study using a modified Sclater (2016) code of practice with eight categories (e.g., Responsibility, Transparency & consent, Privacy, Validity, Access, Stewardship of data, Enabling positive interventions, Minimising adverse impact) on a 0–3 ordinal scale, then summarized medians/ranges and subgroup differences. Across the 22 studies, ethics-related issues were found to feature minimally overall, with comparatively higher attention to Privacy and Transparency & consent, while responsibility and stewardship of data were rarely addressed. The review concludes that assessment standards and ethical guidance have not kept pace with the use of process data, motivating a bespoke code of ethics for educational assessment contexts. This indicates that  of data were rarely addressed. The review concludes that assessment standards and ethical guidance have not kept pace with the use of process data, motivating a bespoke code of ethics for educational assessment contexts."
       }
     ],
-    "outcome_summary": "This paper is a systematic review (not an ML modeling study) examining how ethical, privacy, and regulatory considerations are addressed in research using process/log data in educational assessment. Across 22 eligible studies (from an initial 1349 screened records), the authors find a dearth of work that explicitly and clearly addresses ethics/privacy in K-12 assessment contexts (only three K-12-relevant studies met the initial criteria). Using a modified Sclater (2016) code of practice with eight categories, they report that ethics-related issues feature minimally overall, with comparatively higher attention to Privacy, Transparency & consent, Enabling interventions, and Minimising adverse impact. The review highlights gaps in responsibility/administration of data and in access rights, and argues for developing a bespoke code of ethics for process/log data in educational assessment.",
+    "outcome_summary": "This paper is a systematic literature review (not an empirical ML study) examining how ethical, privacy, and regulatory considerations are reflected in research that uses process/log data in educational assessment. The authors searched multiple databases and hand-searched journals for 2010–2018, initially finding 1349 records after deduplication and screening down to 66 full-text candidates, then to 22 eligible studies after applying first- and second-order eligibility criteria. They coded each included study using a modified Sclater (2016) code of practice with eight categories (e.g., Responsibility, Transparency & consent, Privacy, Validity, Access, Stewardship of data, Enabling positive interventions, Minimising adverse impact) on a 0–3 ordinal scale, then summarized medians/ranges and subgroup differences. Across the 22 studies, ethics-related issues were found to feature minimally overall, with comparatively higher attention to Privacy and Transparency & consent, while responsibility and stewardship of data were rarely addressed. The review concludes that assessment standards and ethical guidance have not kept pace with the use of process data, motivating a bespoke code of ethics for educational assessment contexts.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": null
+    "null_fields_interpretation": "This extraction yields no student-level ML outputs because the article is a systematic review that synthesizes previously published studies rather than training predictive models on ILSA/LSA microdata. Consequently, there is no assessment cycle, grade/domain achievement outcome, PV handling, or missing-data strategy for student responses to extract. The main empirical evidence is the coded presence/absence and depth of ethical/privacy/regulatory elements across 22 included publications, summarized with descriptive statistics (medians/ranges) rather than predictive performance metrics."
   }
 }

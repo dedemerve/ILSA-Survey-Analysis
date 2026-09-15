@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "file_name": "143. Bezek Güre et al. (2023). Reviewing the Factors Affecting PISA Reading Skills by Using Random Forest and MARS Methods.pdf",
+    "title": "Özlem Bezek Güre1, Hikmet Şevgin2, Murat Kayri3",
+    "authors": [
+      "Özlem Bezek Güre",
+      "Hikmet Şevgin",
+      "Murat Kayri"
+    ],
+    "year": 2023,
+    "doi": "10.33200/ijcer.1192590",
+    "venue": "IJCER (International Journal of Contemporary Educational Research)",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 Turkey microdata for 15-year-old students (analytic sample after exclusions: 5713). The authors describe a sampling procedure based on a random selection of 6890 students from 186 schools across 12 NUTS Level 1 regions, and they exclude students with missing demographic characteristics before analysis. They then apply additional missing-data rules: for variables with <5% missingness they use regression-based imputation, while variables with >5% missingness are deleted. The manuscript does not report the use of PISA complex survey weights (e.g., student sampling weights) or replicate weights; given the ML workflow in SPM/SPSS and the absence of explicit weight application, weighting is treated as not reported/unclear for population-representative inference."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 5713,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": 5713
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 Turkey student data. A random selection of 6890 students from 186 schools was drawn based on 12 NUTS Level 1 regions. Students with missing data from demographic characteristics were excluded prior to analysis. For predictor variables, the authors conducted missing-data procedures: regression imputation was applied for variables with <5% missing data, while deletion was used for variables with >5% missing data. The final analytic dataset contained 5713 students (2838 male, 2875 female) who took PISA 2018."
+    },
+    "ml_techniques": {
+      "primary": "MARS",
+      "all_techniques": [
+        "Random Forest",
+        "MARS"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "mother_education_level",
+        "variable_name": "Mother’s educational level",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "father_education_level",
+        "variable_name": "Father’s educational level",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "own_room_home",
+        "variable_name": "Own room at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "classic_artefacts_home",
+        "variable_name": "Classic artefacts at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "poetry_books_home",
+        "variable_name": "Poetry books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "supplementary_books_home",
+        "variable_name": "Supplementary books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "dictionary_home",
+        "variable_name": "Dictionary at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "art_music_design_books_home",
+        "variable_name": "Art/music/design books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "books_at_home_count",
+        "variable_name": "Number of books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "difficulty_perception",
+        "variable_name": "Perception of difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "motivation_reading",
+        "variable_name": "Motivation for reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "reading_pleasure",
+        "variable_name": "Reading pleasure",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "bullying_experience",
+        "variable_name": "Bullying experience",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "attitude_towards_school",
+        "variable_name": "Attitude towards school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "competition_environment_school",
+        "variable_name": "Competition environment at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "competition_power",
+        "variable_name": "Competition power",
+        "category": "school"
+      },
+      {
+        "variable_code": "cooperation_perception_school",
+        "variable_name": "Cooperation perception at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "reading_frequency",
+        "variable_name": "Reading frequency",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "self_efficacy",
+        "variable_name": "Self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "anxiety_reading",
+        "variable_name": "Anxiety about reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "teacher_support",
+        "variable_name": "Teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "reading_fluency",
+        "variable_name": "Reading fluency",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "sense_belonging_school",
+        "variable_name": "Sense of belonging to school",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Turkey (15-year-olds) Reading",
+        "target_variable": "Reading skills category (successful vs unsuccessful)",
+        "top_predictors": [
+          "Number of books at home",
+          "Perception of difficulty",
+          "Motivation for reading",
+          "Father’s educational level",
+          "Reading pleasure"
+        ],
+        "performance_metrics": "MARS — Correct classification: 72.59%, Sensitivity: 70.51%, Specificity: 74.96%, Precision: 76.32%, F1: 73.30%, AUC: 79.80. RF — Correct classification: 70.28%, Sensitivity: 64.02%, Specificity: 77.44%, Precision: 76.46%, F1: 69.69%, AUC: 78.29.",
+        "standardized_conclusion": "Using PISA 2018 Turkey (15-year-olds) Reading the study leveraged number of books at home, perception of difficulty, motivation for reading, father’s educational level, and reading pleasure to predict reading skills category (successful vs unsuccessful), finding that MARS outperformed Random Forest on correct classification, sensitivity, F1, and AUC. This indicates that nonlinear, interaction-sensitive models can better identify which home and psychosocial factors align with reading success, supporting targeted interventions such as expanding access to books and strengthening reading motivation and self-efficacy, though the study is predictive and does not establish causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 Turkey reading skills for 15-year-old students (final analytic sample: 5713) and predicts a binary reading outcome (successful vs unsuccessful) derived from PISA 2018 reading competence thresholds. The dependent variable is constructed by averaging ten plausible values (PV1READ–PV10READ) and then mapping the averaged score into two categories. Two supervised ML classifiers are compared: Random Forest and MARS, implemented in SPM/SPSS/Excel. Across performance metrics, MARS achieves higher correct classification (72.59% vs 70.28%), sensitivity (70.51% vs 64.02%), F1 (73.30% vs 69.69%), and AUC (79.80% vs 78.29%), while Random Forest shows higher specificity (77.44% vs 74.96%) and slightly higher precision (76.46% vs 76.32%). The paper excludes students with missing demographic data and applies regression imputation for predictors with <5% missingness, but it does not report survey-weight usage, limiting population-representative interpretation.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}
