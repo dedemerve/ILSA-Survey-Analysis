@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "file_name": "201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machine Learning: Evidence from TALIS 2024.pdf",
+    "title": "Predicting Teachers’ AI Usage in Education Based on Machine Learning: Evidence from TALIS 2024",
+    "authors": [
+      "Jiaqi Ou",
+      "Zhenpeng He",
+      "Jingyan Xue",
+      "Fengwei Liu",
+      "Tao He",
+      "Xiaoming Cao"
+    ],
+    "year": 2026,
+    "doi": "10.1109/CSTE69562.2026.11649574",
+    "venue": "2026 the 8th International Conference on Computer Science and Technologies in Education (CSTE)",
+    "publication_type": "conference",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses OECD TALIS 2024 teacher questionnaire data pooled across ISCED 1–3 (primary, lower secondary, upper secondary) and constructs a normalized analytic dataset of 89,833 cases after theory-driven feature extraction. The manuscript does not report any use of TALIS sampling weights or replicate-weight procedures, nor does it name any weight variables (e.g., TOTWGT/W_FSTUWT) or describe complex survey design handling. Because the models are tree-based ensembles (Random Forest, XGBoost) and SHAP is applied for interpretation, the paper does not provide evidence that survey weights were incorporated into estimation. Analysts should therefore treat the reported predictive performance as potentially unweighted and interpret generalizability cautiously; future work should explicitly apply TALIS complex-survey weights if available in the released microdata."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are teacher AI adoption (binary) and AI integration intensity (continuous index) derived from questionnaire items, not cognitive achievement scores with TALIS plausible values. As a result, plausible-value generation/combining is not applicable to the modeled outcomes. The manuscript also does not describe any missing-data strategy (e.g., complete-case exclusion or imputation), which is a reporting gap because missingness can affect both the binary adoption threshold and the constructed intensity index.",
+    "sample_details": {
+      "total_students": 89833,
+      "countries": [],
+      "sample_filtering_criteria": "Used the OECD TALIS 2024 Teacher Questionnaire pooled dataset across ISCED 1–3 (primary, lower secondary, upper secondary). Applied theory-driven feature extraction to select variables relevant to AI integration logic and constructed two prediction targets: (1) AI adoption as a binary indicator of whether teachers used AI in the past 12 months, and (2) AI integration intensity as a continuous index aggregated from specific AI usage items. After preprocessing/normalization, the final analytic dataset comprised 89,833 high-quality and relevant cases; no further inclusion/exclusion rules (e.g., missing-item handling) are explicitly reported."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest",
+        "XGBoost",
+        "Logistic Regression",
+        "Linear Regression"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ai_attitude",
+        "variable_name": "AI attitude",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "teacher_collaboration",
+        "variable_name": "Teacher collaboration",
+        "category": "school"
+      },
+      {
+        "variable_code": "qualification_year",
+        "variable_name": "Year of first qualification",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teaching_joy",
+        "variable_name": "Enjoyment of teaching",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 Teacher Questionnaire (pooled ISCED 1–3)",
+        "target_variable": "AI adoption (used AI in past 12 months; binary)",
+        "top_predictors": [
+          "AI attitude",
+          "Teacher collaboration",
+          "Year of first qualification",
+          "Enjoyment of teaching"
+        ],
+        "performance_metrics": "Random Forest: AUC=0.81, PR_AUC=0.74, ACC=0.75, F1=0.69; XGBoost: AUC=0.80, PR_AUC=0.73, ACC=0.73, F1=0.68; Logistic Regression: AUC=0.79, PR_AUC=0.72, ACC=0.72, F1=0.67. DeLong test p<0.001 for Random Forest vs logistic regression.",
+        "standardized_conclusion": "Using TALIS 2024 Teacher Questionnaire (pooled ISCED 1–3) the study leveraged AI attitude, teacher collaboration, year of first qualification, and enjoyment of teaching to predict AI adoption (binary), finding that Random Forest achieved the highest discrimination (AUC=0.81) and outperformed logistic regression (p<0.001). This indicates that strengthening teachers’ AI-related beliefs and providing collegial collaboration opportunities may improve adoption, though the study is cross-sectional and SHAP-based interpretation does not establish causality."
+      },
+      {
+        "dataset_used": "TALIS 2024 Teacher Questionnaire (pooled ISCED 1–3)",
+        "target_variable": "AI integration intensity (continuous index)",
+        "top_predictors": [
+          "AI attitude",
+          "Teacher collaboration",
+          "Year of first qualification",
+          "Enjoyment of teaching"
+        ],
+        "performance_metrics": "Random Forest regressor: RMSE=1.56, R²=0.67; XGBoost: RMSE=1.75, R²=0.58; Linear Regression: RMSE=1.93, R²=0.49. Paired t-test p<0.001 for Random Forest vs baselines.",
+        "standardized_conclusion": "Using TALIS 2024 Teacher Questionnaire (pooled ISCED 1–3) the study leveraged AI attitude, teacher collaboration, year of first qualification, and enjoyment of teaching to predict AI integration intensity (continuous), finding that Random Forest achieved the best explanatory power (R²=0.67) and lower error (RMSE=1.56) than linear regression and XGBoost (p<0.001). This indicates that teacher professional development and school-level support should target not only average effects but also threshold-like conditions (e.g., collaboration intensity and attitude levels) to increase depth of AI integration, while causality cannot be inferred from predictive modeling on self-reported cross-sectional data."
+      }
+    ],
+    "outcome_summary": "The study uses OECD TALIS 2024 teacher questionnaire data pooled across ISCED 1–3 and constructs two outcomes: a binary AI adoption indicator (used AI in the past 12 months) and a continuous AI integration intensity index aggregated from AI usage items. Using an 80/20 train-test split with hyperparameters tuned via 5-fold cross-validation, the authors compare Random Forest and XGBoost against logistic and linear regression baselines. For AI adoption, Random Forest achieved AUC=0.81 (vs logistic regression AUC=0.79; DeLong p<0.001) and improved classification metrics (F1=0.69). For AI integration intensity, Random Forest reached R²=0.67 with RMSE=1.56 (vs linear regression R²=0.49; paired t-test p<0.001). SHAP interpretation highlights AI attitude, teacher collaboration, and qualification year as key predictors, but the paper relies on cross-sectional self-reports and does not document missing-data handling or survey-weight usage, limiting causal and population-representative claims.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "file_name": "149. Wijaya et al. (2024). Exploring Contributing Factors to PISA 2022 Mathematics Achievement: Insights from Indonesian Teachers.pdf",
+    "title": "Exploring contributing factors to PISA 2022 mathematics achievement: Insights from Indonesian teachers",
+    "authors": [
+      "Wijaya, T. T.",
+      "Hidayat, W.",
+      "Hermita, N.",
+      "Alim, J. A.",
+      "Talib, C. A."
+    ],
+    "year": 2024,
+    "doi": "10.22460/infinity.v13i1.p139-156",
+    "venue": "Infinity",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This study is based on qualitative semi-structured interviews with 36 Indonesian mathematics teachers rather than student microdata from PISA 2022. Because the analysis does not use ILSA/PISA student achievement plausible values or any student-level sampling frame, there is no application of PISA sampling weights or replicate weights. The reported percentages in Table 1 describe the interview participant composition (e.g., gender, age, teaching experience) and are not survey-weighted estimates of a student population. Therefore, weighting variables (e.g., W_FSTUWT/TOTWGT) are not relevant to the inferential target of the study, which is teachers’ perceptions and recommendations."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the study does not model PISA 2022 cognitive achievement scores at the student level; instead, it analyzes teachers’ interview responses about perceived factors behind score changes. The paper also does not describe any missing-data handling procedure because the dataset is interview transcripts and coding outputs rather than a PV-based quantitative dataset requiring imputation/deletion rules. As a result, missing-data handling is not reported in the sense used for quantitative ILSA analyses.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "IDN",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Analytic sample consists of 36 Indonesian mathematics teachers recruited between December 5 and 19 via online interviews. Teachers were recruited after contacting school principals for permission; participation was voluntary. The study does not report any additional filtering by grade level, school type, or teacher characteristics beyond the descriptive breakdown in Table 1 (gender, age, education level, teaching experience)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 mathematics achievement",
+        "target_variable": "mathematics scores",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA 2022 mathematics achievement the study leveraged the reported predictors to predict mathematics scores, finding that This paper investigates why Indonesian mathematics scores declined in PISA 2022 by eliciting teachers’ perspectives rather than by statistically modeling student achievement. The authors conducted semi-structured interviews with 36 mathematics teachers across different provinces in Indonesia, then used open coding with consensus between two researchers to derive themes and subcategories. Teachers reported six principal factor groups—pandemic-related issues, curriculum/system challenges, teacher-related issues, educational resource limitations, individual student factors, and parental involvement—and provided recommendations for government, schools, and parents (e.g., ICT training, workshops for curriculum implementation, and strengthening parental emotional/academic support). The study reports frequencies of how often subcategories were mentioned, but it does not provide predictive performance metrics (e.g., accuracy/RMSE) because no ML prediction task is performed. Consequently, the findings are interpretive and policy-relevant as perceived constraints and actionable suggestions, but they cannot establish causal effects on PISA score changes. This indicates that ause no ML prediction task is performed. Consequently, the findings are interpretive and policy-relevant as perceived constraints and actionable suggestions, but they cannot establish causal effects on PISA score changes."
+      }
+    ],
+    "outcome_summary": "This paper investigates why Indonesian mathematics scores declined in PISA 2022 by eliciting teachers’ perspectives rather than by statistically modeling student achievement. The authors conducted semi-structured interviews with 36 mathematics teachers across different provinces in Indonesia, then used open coding with consensus between two researchers to derive themes and subcategories. Teachers reported six principal factor groups—pandemic-related issues, curriculum/system challenges, teacher-related issues, educational resource limitations, individual student factors, and parental involvement—and provided recommendations for government, schools, and parents (e.g., ICT training, workshops for curriculum implementation, and strengthening parental emotional/academic support). The study reports frequencies of how often subcategories were mentioned, but it does not provide predictive performance metrics (e.g., accuracy/RMSE) because no ML prediction task is performed. Consequently, the findings are interpretive and policy-relevant as perceived constraints and actionable suggestions, but they cannot establish causal effects on PISA score changes.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The study is qualitative (interviews + open coding) and does not perform student-level predictive modeling on PISA 2022 microdata. As a result, there are no ML algorithms, no target-variable prediction metrics, and no plausible-value or missing-data handling procedures typical of quantitative ILSA analyses. The absence of country-level student counts is expected because the empirical unit is teachers, not PISA-tested students."
+  }
+}

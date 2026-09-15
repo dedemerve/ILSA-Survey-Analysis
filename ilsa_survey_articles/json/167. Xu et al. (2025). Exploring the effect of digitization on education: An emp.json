@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "file_name": "167. Xu et al. (2025). Exploring the effect of digitization on education: An empirical analysis based on PISA 2022.pdf",
+    "title": "Exploring the effect of digitization on education: An empirical analysis based on PISA 2022",
+    "authors": [
+      "Fang Xu"
+    ],
+    "year": 2025,
+    "doi": "10.1007/s10639-025-13414-x",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata (student questionnaire and ICT-related items) and constructs latent/scale variables from questionnaire items (e.g., IC172, ST326, ST273, ST283, ST272). The manuscript reports selecting 53,908 valid cases after deleting questionnaires with missing/invalid/inapplicable responses, but it does not describe the use of PISA sampling weights or any replicate-weight procedure. Because the analysis is conducted with SmartPLS (bootstrap-based path significance testing) rather than an explicit survey-weighted estimation workflow, the paper does not document whether complex survey design weights were applied; therefore, weighting cannot be verified from the provided text. Analysts using the PISA database should apply the official PISA student/sampling weights (and replicate weights if required by the software/workflow) when estimating population-representative effects, especially given the multistage school-based sampling design."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables in this study are questionnaire-based constructs (digitization level, teaching behavior, learning level, and perceived quality of math instruction), not PISA cognitive achievement scores reported via PVs. Missing data handling is described as deleting questionnaires with missing, invalid, and inapplicable data for the selected items, which corresponds to complete-case/listwise deletion. The paper does not provide a detailed missingness mechanism or item-level missingness rates, so the impact of listwise deletion on bias and representativeness cannot be assessed from the excerpt.",
+    "sample_details": {
+      "total_students": 53908,
+      "countries": [],
+      "sample_filtering_criteria": "Used PISA 2022 student questionnaire and ICT questionnaire items corresponding to digitization construction (IC172) and digitization application (ST326), learning level (ST273), teaching behavior (ST283), and perceived educational effectiveness (ST272). The analytic sample was restricted to cases with valid responses for the selected items; questionnaires with missing, invalid, and inapplicable data for these items were deleted, yielding 53,908 observations for analysis."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "IC172",
+        "variable_name": "Digitization construction",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST326",
+        "variable_name": "Digitization application hours",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST283",
+        "variable_name": "Teaching behavior (math)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ST273",
+        "variable_name": "Learning level (math class)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST272",
+        "variable_name": "Perceived math instruction quality",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "grade",
+        "variable_name": "Grade level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 (ICT questionnaire + student questionnaire) — perceived educational effectiveness (math instruction quality, ST272)",
+        "target_variable": "Educational effectiveness (perceived math instruction quality, ST272)",
+        "top_predictors": [
+          "Digitization construction (IC172)",
+          "Digitization application hours (ST326)",
+          "Grade level",
+          "Gender"
+        ],
+        "performance_metrics": "Path coefficient: −0.001; p-value: 0.915 (H1 not supported).",
+        "standardized_conclusion": "Using PISA 2022 questionnaire the study leveraged digitization construction (IC172) and digitization application (ST326), with grade and gender as moderators, to analyze educational effectiveness measured as perceived math instruction quality (ST272), finding that digitization had no significant direct positive effect (β = −0.001, p = 0.915). This indicates that simply increasing digitization levels may not improve perceived instructional quality unless digitization translates into changes in teaching and learning behaviors."
+      },
+      {
+        "dataset_used": "PISA 2022 (ICT questionnaire + student questionnaire) — teaching behavior (ST283) and educational effectiveness (ST272)",
+        "target_variable": "Educational effectiveness (ST272) via teaching behavior",
+        "top_predictors": [
+          "Digitization construction (IC172)",
+          "Digitization application hours (ST326)",
+          "Teaching behavior (ST283)"
+        ],
+        "performance_metrics": "Indirect path (H2): coefficient 0.044; t-statistic 11.742; p-value 0.000 (supported).",
+        "standardized_conclusion": "Using PISA 2022 questionnaire the study leveraged digitization construction (IC172) and digitization application (ST326) to predict teaching behavior (ST283) and, in turn, educational effectiveness (ST272), finding a significant positive indirect effect through teaching behavior (β = 0.044, p < 0.001). This indicates that education digitization policies should prioritize teacher-facing implementation (digital pedagogy and classroom practices) rather than focusing only on infrastructure or access."
+      },
+      {
+        "dataset_used": "PISA 2022 (student questionnaire) — learning level (ST273) and educational effectiveness (ST272)",
+        "target_variable": "Educational effectiveness (ST272) via learning level",
+        "top_predictors": [
+          "Digitization construction (IC172)",
+          "Digitization application hours (ST326)",
+          "Learning level (ST273)"
+        ],
+        "performance_metrics": "Indirect path (H3): coefficient 0.038; t-statistic 31.993; p-value 0.000 (supported).",
+        "standardized_conclusion": "Using PISA 2022 questionnaire the study leveraged digitization construction (IC172) and digitization application (ST326) to predict learning level (ST273) and, in turn, educational effectiveness (ST272), finding a significant positive indirect effect through learning level (β = 0.038, p < 0.001). This indicates that digitization initiatives should support students’ effective use of digital resources (learning routines, engagement, and study behaviors) to improve perceived instructional effectiveness."
+      },
+      {
+        "dataset_used": "PISA 2022 (ICT questionnaire + student questionnaire) — chain mediation via teaching behavior and learning level",
+        "target_variable": "Educational effectiveness (ST272) via teaching behavior and learning level (chain mediation)",
+        "top_predictors": [
+          "Digitization construction (IC172)",
+          "Digitization application hours (ST326)",
+          "Teaching behavior (ST283)",
+          "Learning level (ST273)"
+        ],
+        "performance_metrics": "Chain indirect path (H4): coefficient 0.125; t-statistic 24.052; p-value 0.000 (supported).",
+        "standardized_conclusion": "Using PISA 2022 questionnaire the study leveraged digitization construction (IC172) and digitization application (ST326) to influence teaching behavior (ST283), which then shaped learning level (ST273), ultimately predicting educational effectiveness (ST272), finding a significant positive chain mediation effect (β = 0.125, p < 0.001). This indicates that effective digitization requires coordinated classroom mechanisms—digital-enabled teaching practices that translate into improved student learning behaviors."
+      },
+      {
+        "dataset_used": "PISA 2022 (student questionnaire) — learning level (ST273) as outcome",
+        "target_variable": "Learning level (ST273) via perceived educational effectiveness (ST272) / intermediary role",
+        "top_predictors": [
+          "Digitization construction (IC172)",
+          "Digitization application hours (ST326)",
+          "Perceived math instruction quality (ST272)"
+        ],
+        "performance_metrics": "The abstract/conclusions state: 'perception of recreation' has a significant positive impact on the level of learning; exact coefficient not reported in the provided excerpt.",
+        "standardized_conclusion": "Using PISA 2022 questionnaire the study examined how perceived educational effectiveness relates to learning level (ST273) and reports that the perception measure has a significant positive impact on learning level, indicating that students’ perceived quality of math instruction is associated with stronger learning behaviors. This indicates that digitization efforts should also attend to how students experience instructional quality, not only to objective access to digital tools."
+      }
+    ],
+    "outcome_summary": "This study analyzes PISA 2022 questionnaire data to model how education digitization relates to educational effectiveness, using digitization construction (IC172) and digitization application (ST326) as predictors, teaching behavior (ST283) and learning level (ST273) as mediators, and perceived math instruction quality (ST272) as the effectiveness outcome. The analytic sample contains 53,908 valid cases after deleting questionnaires with missing, invalid, or inapplicable responses for the selected items. The reported results show no significant direct effect of digitization on educational effectiveness (β = −0.001, p = 0.915), but significant positive indirect effects through teaching behavior (β = 0.044, p < 0.001) and through learning level (β = 0.038, p < 0.001), as well as a significant chain mediation through both (β = 0.125, p < 0.001). Moderation tests indicate grade and gender alter the strength of these pathways. Limitations include reliance on perceived measures rather than achievement PVs and the absence of documented survey-weight handling in the excerpt, so population-representative causal claims cannot be made.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

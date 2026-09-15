@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "file_name": "199. López-Meneses et al. (2025). Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge.pdf",
+    "title": "Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge",
+    "authors": [
+      "López-Meneses",
+      "P.C.M.-M.",
+      "L.L.-C.",
+      "N.P.-P."
+    ],
+    "year": 2025,
+    "doi": "10.3390/app15020772",
+    "venue": "Applied Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article is a bibliometric analysis and qualitative systematic review of publications indexed in Scopus (2006–2024), not an analysis of student microdata from an ILSA such as PISA/TIMSS. Because no student-level assessment dataset is analyzed, there is no sampling frame, complex survey design, or ILSA weight variable (e.g., TOTWGT/W_FSTUWT) to apply. The study’s “sample” consists of bibliographic records selected via Scopus keyword searches and then purified using SciMAT and network mapping in VOSviewer, so weighting for representativeness is not part of the methodology. Consequently, any interpretation of “coverage” refers to the bibliographic corpus rather than population-representative student achievement estimates."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible Values (PV) are generated for cognitive achievement scales in ILSA assessments (e.g., PISA/TIMSS). This paper does not analyze student achievement outcomes from an ILSA dataset; instead, it analyzes scientific production and keyword co-occurrence patterns across 78 selected publications from Scopus. Therefore, PV handling is not applicable to the study’s dependent variables (bibliometric indicators and thematic clusters), and the paper also does not report any PV-specific missing-data strategy.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "The study searched Scopus using key terms related to “artificial intelligence”, “education”, and “data mining”, then purified the retrieved bibliographic records to remove duplicates/inconsistencies using SciMAT (SciMAT v1.1.06). From 370 consulted Scopus publications, 78 were retained because of direct relevance to the study focus. The bibliometric analysis then used SciMAT for thematic visualization and VOSviewer (v1.6.20) for keyword co-occurrence network maps and clustering, with relevance scoring based on keyword frequency in titles/abstracts."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This study is a bibliometric analysis combined with a qualitative systematic review of scientific knowledge on AI in educational data mining, human-in-the-loop machine learning, and machine teaching, covering publications from 2006 to 2024. Using Scopus keyword searches, the authors consulted 370 records and retained 78 publications deemed directly relevant, then applied SciMAT to purify and map thematic areas over time and VOSviewer to generate keyword co-occurrence networks. Results report growth in scientific production, with 2024 accounting for 19.19% of articles (71 articles) and an overall cumulative total of 370 consulted records, alongside five thematic keyword clusters (AI/ML, data science & predictive analytics, educational technologies & teaching systems, knowledge management & decision support, and ethics/privacy). The paper also identifies future research directions using a relevance score (e.g., big-data education evaluation, multimodal learning analytics, latent Dirichlet allocation). Because the analysis is bibliometric rather than student-outcome predictive modeling, it does not estimate educational effects on learners and does not use ILSA PVs or survey weights. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This study is a bibliometric analysis combined with a qualitative systematic review of scientific knowledge on AI in educational data mining, human-in-the-loop machine learning, and machine teaching, covering publications from 2006 to 2024. Using Scopus keyword searches, the authors consulted 370 records and retained 78 publications deemed directly relevant, then applied SciMAT to purify and map thematic areas over time and VOSviewer to generate keyword co-occurrence networks. Results report growth in scientific production, with 2024 accounting for 19.19% of articles (71 articles) and an overall cumulative total of 370 consulted records, alongside five thematic keyword clusters (AI/ML, data science & predictive analytics, educational technologies & teaching systems, knowledge management & decision support, and ethics/privacy). The paper also identifies future research directions using a relevance score (e.g., big-data education evaluation, multimodal learning analytics, latent Dirichlet allocation). Because the analysis is bibliometric rather than student-outcome predictive modeling, it does not estimate educational effects on learners and does not use ILSA PVs or survey weights.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is not an empirical ILSA-style study with student-level outcomes; it is a review/bibliometric mapping of the literature. As a result, there is no ILSA program/cycle/grade/domain, no student sample size, no PV-based achievement target, and no predictive ML pipeline evaluated on learner data. The absence of main_findings rows and ML techniques reflects the study’s design (SciMAT/VOSviewer bibliometric procedures and keyword network clustering) rather than a supervised learning task with measurable educational outcomes."
+  }
+}

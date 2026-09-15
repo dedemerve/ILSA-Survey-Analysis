@@ -2,17 +2,12 @@
   "metadata": {
     "file_name": "65. Khine et al. (2024). A Machine-Learning Approach to Predicting the Achievement of Australian Students Using School Climate; Learner Characteristics; and Economic, Social, and Cultural Status.pdf",
     "title": "A Machine-Learning Approach to Predicting the Achievement of Australian Students Using School Climate; Learner Characteristics; and Economic, Social, and Cultural Status",
-    "authors": [
-      "M.S. Khine",
-      "Y. Liu",
-      "V.K. P",
-      "E.A."
-    ],
+    "authors": null,
     "year": 2024,
     "doi": "10.3390/educsci14121350",
-    "venue": "Education Sciences (MDPI)",
+    "venue": "Education Sciences",
     "publication_type": "journal",
-    "open_access": true,
+    "open_access": null,
     "source_category": "peer_reviewed_research"
   },
   "data": {
@@ -20,11 +15,11 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses OECD PISA 2022 microdata for Australia (15-year-old students) and reports a total of 13,437 students in 743 schools. The analytic approach described in the Methods focuses on splitting the dataset into 70% training and 30% testing using a stratified random split, followed by hyperparameter tuning and model evaluation. The manuscript does not report applying PISA sampling weights (e.g., student/sampling weights) or any replicate-weight procedure (e.g., BRR/jackknife) in the ML training or evaluation. Because the models are standard regression learners (SVM, KNN, Decision Tree, Elastic Net, XGBoost) implemented via R/Python packages, the analysis appears to be conducted without complex-survey weighting; this omission may affect population-representativeness and uncertainty quantification under PISA’s clustered sampling design."
+      "weight_fields_interpretation": "The study uses OECD PISA 2022 microdata for Australia (15-year-olds) and reports an analytic sample of 13,437 students in 743 schools. The manuscript describes splitting the dataset into 70% training and 30% testing using stratified random sampling, but it does not report applying PISA sampling weights or replicate weights in the ML training/evaluation. Because the models are standard ML regressors (SVM, KNN, Decision Tree, Elastic Net, XGBoost) implemented via common R/Python packages, the analysis appears to follow an unweighted ML workflow; the paper does not specify any weight variable (e.g., TOTWGT/W_FSTUWT) or complex survey design handling. No additional sample restrictions (e.g., grade bands beyond PISA’s 15-year-old cohort, or exclusions for missingness) are explicitly documented, so the exact missing-data and cleaning rules are unclear beyond the reported final sample size."
     },
     "plausible_values_handling": "average_pv",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper does not describe how missing values were handled (e.g., complete-case deletion, imputation, or PV-specific procedures). Given that PISA typically uses plausible values for achievement and includes missingness in questionnaire items, the absence of a documented missing-data strategy is a transparency gap that prevents assessing potential bias and the validity of the reported predictive performance.",
+    "handling_not_reported_explanation": "The dependent variable is mathematics achievement (ACHIEVE) from PISA 2022, which in PISA is typically represented using plausible values; however, the manuscript does not describe whether plausible values were used directly, averaged, or combined via Rubin’s rules. The paper also does not report any explicit missing-data strategy (e.g., complete-case deletion or imputation), which is a reporting gap given that questionnaire and background variables commonly have missingness in PISA datasets. As a result, the exact treatment of PVs and missingness cannot be verified from the methods section.",
     "sample_details": {
       "total_students": 13437,
       "countries": [
@@ -33,7 +28,7 @@
           "n_students": 13437
         }
       ],
-      "sample_filtering_criteria": "Used OECD PISA 2022 data for Australia, targeting 15-year-old students’ mathematics achievement (ACHIEVE) and questionnaire-based constructs representing school climate and learner characteristics. The manuscript does not specify additional exclusions beyond the ML train/test split; it reports a stratified random 70/30 split for modeling and evaluation."
+      "sample_filtering_criteria": "Used OECD PISA 2022 data for Australia, focusing on the standard PISA target population of 15-year-old students. The analytic sample comprises 13,437 students in 743 schools who completed the mathematics assessment; the paper does not report additional exclusions beyond the final sample size. For modeling, the dataset was split into 70% training and 30% testing sets using stratified random sampling to preserve proportional representation of classes."
     },
     "ml_techniques": {
       "primary": "XGBoost",
@@ -48,7 +43,7 @@
     "confounders_identified": [
       {
         "variable_code": "TSINTER",
-        "variable_name": "Student–teacher relationship",
+        "variable_name": "Teacher–student interaction",
         "category": "teacher"
       },
       {
@@ -58,7 +53,7 @@
       },
       {
         "variable_code": "FEELSAFE",
-        "variable_name": "Feeling safe in school",
+        "variable_name": "Feeling safe",
         "category": "student_attitude"
       },
       {
@@ -88,7 +83,7 @@
       },
       {
         "variable_code": "MATHEFF",
-        "variable_name": "Mathematics self-efficacy",
+        "variable_name": "Self-efficacy (math)",
         "category": "student_attitude"
       },
       {
@@ -99,20 +94,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 (Australia) Mathematics achievement (15-year-olds)",
-        "target_variable": "Mathematics achievement score (ACHIEVE)",
+        "dataset_used": "PISA 2022 Mathematics (Australia, 15-year-olds)",
+        "target_variable": "Mathematics achievement (ACHIEVE)",
         "top_predictors": [
-          "Mathematics self-efficacy",
+          "Self-efficacy (math)",
           "Socioeconomic status (ESCS)",
-          "Student–teacher relationship",
+          "Teacher–student interaction",
           "Sense of belonging",
           "Disciplinary climate"
         ],
-        "performance_metrics": "Best model: XGBoost — MSE: 5227.0, RMSE: 72.776, MAE: 57.67, MAPE: 0.125, R²: 0.424 (Adjusted R²: 0.4310), correlation coefficient: 0.6577. Other models: SVM (R²: 0.403), KNN (R²: 0.396), DT (R²: 0.375), Elastic Net (R²: 0.402). Friedman test: statistic 29.49, p=0.00004922; Nemenyi CD=1.39 indicating significant differences with XGBoost outperforming.",
-        "standardized_conclusion": "Using PISA 2022 (Australia) mathematics achievement the study leveraged mathematics self-efficacy (MATHEFF), socioeconomic status (ESCS), and school-climate/learner-characteristic constructs (e.g., student–teacher relationship, sense of belonging, disciplinary climate) to predict mathematics achievement, finding that XGBoost achieved the lowest prediction errors (MSE 5227.0; RMSE 72.776) and the highest explained variance (R² 0.424) among the five regression models. SHAP was used for interpretation of feature influence, but the paper does not establish causal effects; additionally, the manuscript does not report PISA plausible-value handling or missing-data procedures and does not describe the use of PISA sampling weights. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "XGBoost: MSE=5227.0, RMSE=72.776, MAE=57.67, MAPE=0.125, R2=0.424 (adjusted R2 highest), correlation coefficient=0.6577; Friedman test: statistic=29.49, p=0.00004922; Nemenyi CD=1.39 indicating XGBoost outperforms others.",
+        "standardized_conclusion": "Using PISA 2022 Mathematics data for Australian 15-year-olds, the study leveraged self-efficacy (math), socioeconomic status (ESCS), teacher–student interaction, sense of belonging, and disciplinary climate to predict mathematics achievement, finding that XGBoost achieved the lowest prediction errors (MSE/RMSE/MAE/MAPE) and the highest explanatory fit (R2≈0.424) among five regression models. This indicates that strengthening students’ mathematics learning efficacy and addressing socioeconomic disadvantage may improve mathematics outcomes, while SHAP-based feature importance should be interpreted as predictive association rather than causal impact."
       }
     ],
-    "outcome_summary": "The study uses OECD PISA 2022 microdata for Australia (13,437 students in 743 schools) to predict students’ mathematics achievement (ACHIEVE) from school climate and learner characteristics. Five regression ML models were compared (SVM, KNN, Decision Tree, Elastic Net, and XGBoost) using a stratified 70/30 train/test split and hyperparameter tuning. XGBoost performed best, with MSE=5227.0, RMSE=72.776, MAE=57.67, MAPE=0.125, and R²=0.424 (correlation coefficient=0.6577), outperforming the other models across most metrics; Friedman and Nemenyi tests supported statistically significant performance differences. SHAP interpretation indicated MATHEFF (highest importance, 40.72) and ESCS (18.37) as the strongest predictors, with other constructs contributing more modestly. Key caveats are that the paper does not report missing-data handling or explicit plausible-value procedures and does not describe the use of PISA sampling weights; SHAP is interpretive rather than causal.",
+    "outcome_summary": "The study uses OECD PISA 2022 microdata for Australia (15-year-olds; N=13,437 students in 743 schools) to predict mathematics achievement from school climate and learner characteristics plus ESCS. Five ML regressors were compared using a stratified 70/30 train-test split and hyperparameter tuning: SVM, KNN, Decision Tree, Elastic Net, and XGBoost. Across evaluation metrics (MSE, RMSE, MAE, MAPE, R2, adjusted R2, and correlation), XGBoost performed best, with MSE=5227.0, RMSE=72.776, MAE=57.67, MAPE=0.125, and R2=0.424 (correlation=0.6577). A Friedman test (p=0.00004922) and Nemenyi post-hoc comparisons supported statistically significant performance differences, with XGBoost notably outperforming the others. The paper uses SHAP (global and local) to interpret feature influence and reports an interaction between MATHEFF and ESCS, but it does not document how plausible values and missing data were handled, and it does not report survey-weighted estimation—so results should be treated as predictive associations rather than causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

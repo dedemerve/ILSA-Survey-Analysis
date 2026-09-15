@@ -2,7 +2,7 @@
   "metadata": {
     "file_name": "73. Yun et al. (2025). Discovering action insights from large-scale assessment log data using machine learning.pdf",
     "title": "Discovering action insights from large-scale assessment log data using machine learning",
-    "authors": [],
+    "authors": null,
     "year": 2025,
     "doi": "10.1038/s41598-025-14802-6",
     "venue": "Scientific Reports",
@@ -12,23 +12,18 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses the 2012 PIAAC log data and focuses on two PIAAC problem sets (“Party Invitation” and “Club Membership”). The analytic sample is restricted to participants with complete action logs/sequences (incomplete logs or sequences with missing actions were removed) and then stratified by performance levels to compare high- vs low-performing groups. The manuscript does not report applying PIAAC sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), and it does not name any weight variables. Because the core models are neural networks and random forests trained on vectorized action-sequence representations, the analysis appears to follow an ML workflow that does not incorporate complex survey weights; this omission may affect population representativeness under PIAAC’s complex sampling design."
+      "weight_fields_interpretation": "The study uses the 2012 PIAAC log dataset for two problem sets (“Party Invitation” and “Club Membership”) and constructs analytic samples by filtering out incomplete logs or sequences with missing actions. The manuscript reports stratification by performance levels for comparisons and then builds sequence embeddings (Word2Vec/Doc2Vec) followed by supervised group classification (neural network and random forest). No complex survey weighting variables (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures (e.g., BRR/jackknife) are mentioned, and the ML models are trained on behavioral action-sequence representations rather than PV-based achievement scores. Given the absence of explicit weighting discussion, the analysis should be treated as unweighted with respect to PIAAC’s complex survey design, which may limit population-representativeness of the classification results."
     },
     "plausible_values_handling": "not_applicable",
-    "missing_data_handling": "listwise_deletion",
-    "handling_not_reported_explanation": "Plausible values (PVs) are not applicable because the dependent variables are performance levels derived from the PIAAC problem-set scores (e.g., score0 vs score3; correct vs incorrect), not PV-based cognitive achievement scales. Missing data handling is described as removing incomplete logs or sequences with missing actions, which corresponds to listwise deletion of affected sequences rather than PV-based multiple imputation.",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are performance groups derived from PIAAC problem-set scores (e.g., score0 vs score3; correct vs incorrect) based on action-sequence logs, not PV-based cognitive achievement scales. The paper states that incomplete logs/sequences with missing actions were removed during preprocessing, but it does not provide a formal missing-data handling method for other variables used in modeling (e.g., whether any additional missingness was imputed or how remaining missingness was treated). This is therefore a reporting gap for missing-data handling beyond the explicit log-completeness filter.",
     "sample_details": {
       "total_students": 2739,
-      "countries": [
-        {
-          "country_code": "BEL",
-          "n_students": null
-        }
-      ],
-      "sample_filtering_criteria": "Used the 2012 PIAAC log data and restricted analyses to two problem sets: “Party Invitation” (35 distinct actions) and “Club Membership” (25 distinct actions). Preprocessed the data by removing incomplete logs or sequences with missing actions, then stratified the remaining sequences by performance levels to form high- vs low-performing groups for feature selection and verification. For “Party Invitation,” analyses focused on score0 vs score3 groups; for “Club Membership,” analyses focused on correct vs incorrect groups (with sorting actions excluded from feature verification due to low frequency)."
+      "countries": [],
+      "sample_filtering_criteria": "Used the 2012 PIAAC log data for two specific problem sets: “Party Invitation” (35 distinct actions) and “Club Membership” (25 distinct actions). Preprocessed the dataset to remove incomplete logs or sequences with missing actions, then stratified by performance levels to compare high- vs low-performing groups. For feature verification, created three cases per problem set by using (case1) all actions, (case2) only the identified meaningful actions, and (case3) sequences with the meaningful actions excluded; sorting actions were excluded from consideration in “Club Membership” due to infrequency."
     },
     "ml_techniques": {
       "primary": "Neural Network",
@@ -51,34 +46,41 @@
       {
         "variable_code": "performance_level",
         "variable_name": "Performance level (score group)",
-        "category": "student_behavior"
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "task_type",
+        "variable_name": "Problem set type",
+        "category": "curriculum"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PIAAC 2012 Problem Solving (Party Invitation)",
-        "target_variable": "High vs low performance (score3 vs score0)",
+        "dataset_used": "PIAAC 2012 Problem Solving (Party Invitation log actions)",
+        "target_variable": "Party Invitation performance group (score0 vs score3)",
         "top_predictors": [
           "Performance level (score group)",
+          "Problem set type",
           "Age group",
           "Gender"
         ],
-        "performance_metrics": "Neural Network (Doc2Vec vectors): F1 0.850–0.962 and Accuracy 0.850–0.946 across cases; best case (Case 2: mail-moving actions only) Accuracy 94.6% and F1 0.962. Random Forest: F1 0.893–0.951 and Accuracy 0.852–0.930; best case (Case 2) Accuracy 92.3% and F1 0.949. Unsupervised verification: silhouette score 0.362 (Case 1 all actions), 0.491 (Case 2 mail-moving only), 0.216 (Case 3 without mail-moving).",
-        "standardized_conclusion": "Using PIAAC 2012 “Party Invitation” log the study leveraged action-sequence representations (Word2Vec/Doc2Vec) to predict high vs low performance (score3 vs score0), finding that focusing on mail-moving actions (Case 2) produced the strongest separation (silhouette 0.491) and the highest classification performance (NN Accuracy 94.6%, F1 0.962), while excluding these actions reduced both clustering coherence and predictive efficiency. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Doc2Vec + Neural Network: F1 0.850–0.962 and accuracy 0.850–0.946 across cases; best case2 (mail-moving actions only) accuracy 94.6% with silhouette 0.491. Doc2Vec + Random Forest: F1 0.893–0.951 and accuracy 0.852–0.930 across cases; best case2 accuracy 92.3% with similar silhouette improvement.",
+        "standardized_conclusion": "Using PIAAC 2012 Problem Solving data from the “Party Invitation” problem set, the study leveraged embedded action-sequence representations (Word2Vec/Doc2Vec) and focused on mail-moving actions to predict the performance group (score0 vs score3), finding that restricting to the meaningful mail-moving actions (case2) produced the highest clustering coherence (silhouette 0.491) and the strongest classification performance (NN accuracy 94.6%, F1 up to 0.962). This indicates that identifying and validating a small set of high-impact actions can improve automated detection of low vs high problem-solving performance from log data, supporting adaptive feedback systems that target the specific action steps learners miss, though the results are based on log-derived group labels and do not establish causal effects."
       },
       {
-        "dataset_used": "PIAAC 2012 Problem Solving (Club Membership)",
-        "target_variable": "Correct vs incorrect performance",
+        "dataset_used": "PIAAC 2012 Problem Solving (Club Membership log actions)",
+        "target_variable": "Club Membership performance group (correct vs incorrect)",
         "top_predictors": [
           "Performance level (score group)",
+          "Problem set type",
           "Age group",
           "Gender"
         ],
-        "performance_metrics": "Neural Network (Doc2Vec vectors): F1 0.862–0.917 and Accuracy 0.862–0.876 across cases; best case (Case 2: mail-sending + environment actions) F1 0.917 and Accuracy 0.876. Random Forest: F1 0.761–0.923 and Accuracy 0.652–0.880 across cases; best case (Case 2) F1 0.923 and Accuracy 0.880. Unsupervised verification: silhouette score 0.180 (Case 1 all actions), 0.333 (Case 2 mail-sending+environment), 0.129 (Case 3 excluding mail-sending+environment).",
-        "standardized_conclusion": "Using PIAAC 2012 “Club Membership” log the study leveraged action-sequence representations (Word2Vec/Doc2Vec) to predict correct vs incorrect performance, finding that the subset of mail-sending and environment actions (Case 2) yielded the best cluster separation (silhouette 0.333) and strong classification performance (NN F1 0.917, Accuracy 0.876), whereas removing these actions decreased separation and predictive efficiency. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Doc2Vec + Neural Network: F1 0.862–0.917 and accuracy 0.862–0.876 across cases; best case2 (mail-sending + environment actions) F1 0.917 and accuracy 0.876 with silhouette 0.333. Doc2Vec + Random Forest: F1 0.761–0.923 and accuracy 0.652–0.930 across cases; best case2 accuracy 0.880 and F1 0.923.",
+        "standardized_conclusion": "Using PIAAC 2012 Problem Solving data from the “Club Membership” problem set, the study leveraged embedded action-sequence representations and selected mail-sending plus environment actions as meaningful steps to predict the performance group (correct vs incorrect), finding that case2 increased separation (silhouette 0.333) and improved classification (NN F1 up to 0.917, accuracy 0.876; RF accuracy up to 0.880). This indicates that log-based action-step identification can yield compact, interpretable behavioral signals for distinguishing correct from incorrect task completion, informing targeted instructional or system feedback that emphasizes the critical action steps, while generalization may be limited by the single-dataset context and the absence of explicit survey-weighted inference."
       }
     ],
-    "outcome_summary": "The study analyzes 2012 PIAAC log data for two problem sets (“Party Invitation” and “Club Membership”) and uses Word2Vec/Doc2Vec to vectorize action sequences, then applies neural networks and random forests to classify performance groups. For “Party Invitation,” the best configuration (Case 2 using mail-moving actions only) achieved NN Accuracy of 94.6% with F1 of 0.962, alongside the highest silhouette score (0.491), while excluding mail-moving actions reduced both clustering coherence and predictive performance (silhouette 0.216; NN Accuracy 0.850). For “Club Membership,” Case 2 (mail-sending + environment actions) produced NN F1 of 0.917 and Accuracy of 0.876 with silhouette 0.333, whereas Case 3 (excluding key actions) lowered separation (silhouette 0.129). The paper removes incomplete/missing-action sequences (listwise deletion) and does not report PV handling or survey-weight application; therefore, results should be interpreted as predictive classification of log-derived performance levels rather than PV-based achievement, and generalizability may be limited by the single-country Belgian PIAAC dataset and the lack of explicit complex-survey weighting.",
+    "outcome_summary": "The study analyzes 2012 PIAAC problem-solving log data for two tasks (“Party Invitation” with 35 actions; “Club Membership” with 25 actions) and preprocesses logs by removing incomplete sequences with missing actions. It converts action sequences into embeddings using Word2Vec (action-level) and Doc2Vec (sequence-level), then validates “meaningful actions” via clustering coherence (silhouette scores) and supervised group classification using a neural network and random forest. For “Party Invitation,” focusing on mail-moving actions (case2) yields the best separation (silhouette 0.491) and the strongest NN performance (accuracy 94.6%, F1 up to 0.962). For “Club Membership,” focusing on mail-sending and environment actions (case2) improves separation (silhouette 0.333) and classification (NN F1 up to 0.917, accuracy 0.876; RF accuracy up to 0.880). Limitations include lack of explicit survey-weight handling discussion, reliance on log-derived group labels, and potential representativeness constraints.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

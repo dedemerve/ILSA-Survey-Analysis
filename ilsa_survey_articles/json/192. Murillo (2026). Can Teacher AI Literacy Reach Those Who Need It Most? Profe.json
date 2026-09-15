@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "file_name": "192. Murillo (2026). Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024.pdf",
+    "title": "Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024",
+    "authors": [
+      "F. Javier Murillo",
+      "Angel C. Herrero"
+    ],
+    "year": 2026,
+    "doi": "10.15388/infedu.2605.036",
+    "venue": "Informatics Education (infedu)",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TALIS 2024 lower-secondary teacher data (teachers nested within schools, schools nested within 55 education systems) and incorporates teacher sampling weights in all multilevel models. The analytic sample is constructed by sequentially restricting the initial teacher working file to those in questionnaire forms containing the AI-related professional learning participation item (TT4G21G) and the declared need item (TT4G24G), and then excluding cases with missing/non-applicable values for the outcome, key predictors, weights, or clustering identifiers. The authors also retain the three-level clustering structure by specifying schools and education systems as clustering levels in Mplus. Because the outcome is binary and models are linear probability multilevel specifications (with logistic robustness checks), the weighting is used for prevalence estimation and regression estimation rather than for any PV-combining procedure."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variable is teachers’ self-reported participation in AI-related professional learning (binary, from TT4G21G), not a cognitive achievement score with Plausible Values. The paper describes excluding cases with missing or non-applicable values for the outcome, predictors, weights, and clustering identifiers, but it does not provide a formal missing-data handling label (e.g., listwise vs pairwise deletion) beyond describing exclusions in the analytic-sample construction table. Therefore, missing-data handling is treated as not_reported for the purposes of this extraction schema.",
+    "sample_details": {
+      "total_students": 108136,
+      "countries": [
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "MAR",
+          "n_students": null
+        },
+        {
+          "country_code": "DNK",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Analyses use TALIS 2024 lower-secondary teacher questionnaire data. The initial working file contains 129,617 teacher records across 55 education systems. The analytic sample is restricted to teachers in questionnaire forms that include both the AI-related professional learning participation item (TT4G21G) and the declared need item (TT4G24G), then further restricted to teachers with valid information on reported participation, valid information on declared need, valid teacher-level predictors including teaching experience, and successful linkage to school-level predictors from the principal questionnaire. Final restrictions exclude cases with missing/non-applicable values in the outcome, declared need, teacher- or school-level predictors, missing school-level information from the principal questionnaire, invalid sampling weights, or missing clustering identifiers. The final analytic sample for the main multilevel models comprises 108,136 teachers nested within 10,840 schools across 55 education systems."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "TT4G24G",
+        "variable_name": "Declared AI learning need",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "T4SEDRT",
+        "variable_name": "Digital self-efficacy (digital tools)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4EXINF",
+        "variable_name": "Professional exchange of ideas",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4COLES",
+        "variable_name": "Professional collaboration in lessons",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teaching_experience_years_group",
+        "variable_name": "Teaching experience (years group)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TC4G40E",
+        "variable_name": "School shortage of digital tech",
+        "category": "school"
+      },
+      {
+        "variable_code": "TC4G40F",
+        "variable_name": "School insufficient internet access",
+        "category": "school"
+      },
+      {
+        "variable_code": "TC4G28A",
+        "variable_name": "School digital leadership support",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4PLEADS",
+        "variable_name": "Instructional leadership",
+        "category": "school"
+      },
+      {
+        "variable_code": "T4POPPART",
+        "variable_name": "Opportunities for staff decisions",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 Lower-secondary teachers (55 education systems)",
+        "target_variable": "Reported participation in AI-related professional learning (TT4G21G)",
+        "top_predictors": [
+          "Declared AI learning need",
+          "Digital self-efficacy (digital tools)",
+          "Professional collaboration in lessons",
+          "School shortage of digital tech",
+          "School digital leadership support"
+        ],
+        "performance_metrics": "Weighted prevalence across systems: 8.86% (France, 95% CI [7.29, 10.43]) to 75.69% (Singapore, 95% CI [73.12, 78.25]); difference 66.83 percentage points. Three-level variance partition (null model): teacher VPC 81.8%, school VPC 9.7%, system VPC 8.5% (contextual VPC school+system 18.2%).",
+        "standardized_conclusion": "Using TALIS 2024 lower-secondary teacher the study estimated weighted prevalence and multilevel variance in reported participation in AI-related professional learning, finding that access is highly heterogeneous across education systems (8.86% to 75.69%) and that about 18.2% of the variation is attributable to school and system levels rather than teachers alone. This indicates that teacher AI literacy implementation depends on contextual opportunity structures, so equity-oriented professional learning policies must address system- and school-level digital capacity rather than relying only on individual teacher demand."
+      }
+    ],
+    "outcome_summary": "This study uses TALIS 2024 lower-secondary teacher and principal questionnaires across 55 education systems, analyzing a binary outcome: whether teachers reported participating in professional learning on “Using artificial intelligence for teaching and learning” during the previous 12 months (TT4G21G). The analytic sample comprises 108,136 teachers nested within 10,840 schools, with teacher sampling weights incorporated in all multilevel models. The study finds large cross-system heterogeneity in access (weighted prevalence from 8.86% in France to 75.69% in Singapore) and that about 18.2% of variation lies at school/system levels. Declared need shows a non-linear pattern: low and moderate need increase participation by 7.7 and 10.7 percentage points, while high need is not significant on average. Associations are also patterned by teacher digital self-efficacy and structured collaboration, and by school digital leadership and digital resource shortages; the paper uses linear probability multilevel models with logistic robustness checks. Limitations include cross-sectional, self-reported measures and no direct measurement of objective AI literacy or the quality/content of professional learning, so causality cannot be inferred.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

@@ -9,21 +9,21 @@
     ],
     "year": 2025,
     "doi": "10.7866/HPE-RPE.25.1.4",
-    "venue": "HPE-RPE",
+    "venue": null,
     "publication_type": "journal",
     "open_access": null,
     "source_category": "peer_reviewed_research"
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Spain with an expanded sample to obtain regionally representative estimates across all Spanish regions. The manuscript describes the use of plausible values (10 per student per subject) and bootstrapping to generate confidence intervals, but it does not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife) in the CIT/CIF estimation. Because the analysis is implemented via conditional inference trees/forests and the paper does not mention weight-aware estimation, the most defensible interpretation is that the models were run without explicit complex-survey weighting. The main preprocessing described is the construction of circumstance variables and the averaging of estimators across the 10 plausible values; no additional outlier trimming or grade/school filtering rules are specified."
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for Spain with an expanded sample designed to be regionally representative across all Spanish regions. The analytic task is to estimate inequality of opportunity (IOpE) using conditional inference trees (CIT) and conditional inference forests (CIF) with bootstrapping and averaging across the 10 PISA plausible values for achievement in science. The manuscript does not report applying PISA sampling weights or replicate weights in the ML estimation stage; given the ML algorithms used (CIT/CIF) and the absence of explicit weight-variable references, weighting is likely not incorporated in the model fitting. For comparability across regions, the authors standardize the ML tuning parameters (common alpha, number of trees, and mtry) and compute confidence intervals via bootstrapping rather than via replicate-weight variance estimation."
     },
-    "plausible_values_handling": "rubin_rules",
+    "plausible_values_handling": "average_pv",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper explicitly states that PISA achievement is represented through 10 plausible values and that estimators (including IOpE and circumstance importance) are computed separately for each plausible value and then averaged, but it does not provide a concrete missing-data rule for the circumstance variables used in CIT/CIF. While the CIT/CIF methodology section notes that the variable-importance procedure can deal with missing values (via surrogate splits/maxsurrogate), the manuscript does not clearly specify the exact missing-data handling strategy used for model estimation (e.g., whether cases with missing circumstances were retained via surrogate splits, imputed, or excluded). This is a reporting gap because missingness can affect tree partitions and therefore the IOpE estimates.",
+    "handling_not_reported_explanation": "The paper discusses that CIT/CIF importance calculations can handle missing values (via the conditional inference framework), but it does not specify the exact missing-data rule used for the analytic sample (e.g., surrogate splits settings beyond maxsurrogate=3, whether cases are listwise-deleted, or how missingness is treated within each bootstrap and across plausible values). This is a reporting gap because IOpE estimates and circumstance importance can be sensitive to how missing covariates are handled, especially when tuning tree depth and split criteria.",
     "sample_details": {
       "total_students": null,
       "countries": [
@@ -32,29 +32,29 @@
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2018 for Spain with an expanded sample designed to be regionally representative; the analysis is conducted at the Spanish regional level for the three PISA domains, with the main results presented for science. The dependent variable is the IOpE measure computed from CIT/CIF predictions of achievement, and the estimators are computed separately for each of the 10 plausible values per subject and then averaged. The manuscript does not report additional analytic restrictions such as grade bands, school-type exclusions, or complete-case filtering; it only notes that CIT/CIF results are sensitive to missing values and that surrogate splits are used (maxsurrogate=3) for robustness/comparability."
+      "sample_filtering_criteria": "Used PISA 2018 for Spain with regionally representative coverage of all Spanish regions; the IOpE estimation is performed for science achievement and then averaged across the 10 PISA plausible values. The ML tuning and estimation are carried out under three scenarios (baseline, unrestricted, parameter tuning), with the preferred CIF using common tuning parameters across regions (alpha=0.80, M=5, N=150). For CIT, alpha is tuned via cross-validation; for CIF, alpha and M are tuned using out-of-bag MSE with N fixed at 150. The methodology notes the presence of missing values in explanatory variables and uses surrogate splits (maxsurrogate=3) to address missingness in tree construction."
     },
     "ml_techniques": {
-      "primary": "Conditional Inference Forests",
+      "primary": "Conditional Inference Forest",
       "all_techniques": [
-        "Conditional Inference Trees",
-        "Conditional Inference Forests"
+        "Conditional Inference Tree",
+        "Conditional Inference Forest"
       ]
     },
     "confounders_identified": [
       {
-        "variable_code": "Sex",
+        "variable_code": "gender",
         "variable_name": "Gender",
         "category": "demographic"
       },
       {
-        "variable_code": "Immigrant",
-        "variable_name": "immigrant status",
+        "variable_code": "immigrant_status_student",
+        "variable_name": "Immigrant status (student)",
         "category": "demographic"
       },
       {
-        "variable_code": "MigrantParents",
-        "variable_name": "Parents immigrant status",
+        "variable_code": "immigrant_status_parents",
+        "variable_name": "Immigrant status (parents)",
         "category": "demographic"
       },
       {
@@ -89,7 +89,7 @@
       },
       {
         "variable_code": "Cultposs",
-        "variable_name": "Household cultural possessions",
+        "variable_name": "Cultural possessions index",
         "category": "socioeconomic"
       },
       {
@@ -99,26 +99,26 @@
       },
       {
         "variable_code": "Peer",
-        "variable_name": "Peer effect (mean ESCS)",
+        "variable_name": "Peer effect (school ESCS mean)",
         "category": "peer_effects"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Science (Spain; all regions)",
-        "target_variable": "Inequality of opportunity in science achievement (IOpE)",
+        "dataset_used": "PISA 2018 Science (Spain; all regions; ages 15-16)",
+        "target_variable": "Inequality of opportunity in science achievement (IOpE; variance share explained by circumstances)",
         "top_predictors": [
           "Number of books at home",
-          "Household cultural possessions",
           "Mother occupation",
           "Father occupation",
+          "Cultural possessions index",
           "Household wealth index"
         ],
-        "performance_metrics": "Conditional Inference Forest (CIF, parameter-tuning scenario): average IOpE about 43% vs 20% under traditional linear regression (Sicilia et al., 2022); region range (science) about 40.5% to 48.7% under preferred ML specification; CIT tuning around 0.20 (≈20%) with region values from about 0.28 (Murcia) to about 0.17 (Castilla-La Mancha and Valencia).",
-        "standardized_conclusion": "Using PISA 2018 science data for Spain’s regions, the study leveraged number of books at home, household cultural possessions, and parental occupation (mother/father) to predict achievement within conditional inference trees/forests and then computed IOpE as the share of achievement variance explained by circumstances, finding that the preferred CIF specification yields IOpE more than twice the traditional linear-regression estimates (on average 43% vs 20%), with Murcia and Extremadura among the highest and Castilla-La Mancha and País Vasco among the lowest. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Conditional Inference Forest (CIF, parameter tuning: alpha=0.80, M=5, N=150) — average IOpE about 43% vs 20% from traditional OLS-linear approach (Sicilia et al., 2022); region range (preferred ML, science): 40.5% to 48.7% with Murcia, Extremadura, and Cataluña highest; Castilla-La Mancha and País Vasco lowest. Confidence intervals obtained via bootstrapping (200 bootstraps).",
+        "standardized_conclusion": "Using PISA 2018 Science data for Spain’s regions, the study leveraged home cultural environment (Number of books at home) and parental socioeconomic circumstances (Mother occupation and Father occupation), along with Cultural possessions index and Household wealth index, to estimate the IOpE distribution via conditional inference forests, finding that CIF-based IOpE is more than twice the traditional OLS-linear estimates on average (43% vs 20%). This indicates that conventional regression-based approaches likely understate inequality of opportunity in Spanish regions, implying that regional equity diagnostics and targeted support policies should be informed by ML-based, bias-robust IOpE measurement rather than relying solely on parametric R²-style estimates."
       }
     ],
-    "outcome_summary": "The paper estimates inequality of opportunity in educational achievement (IOpE) for Spanish regions using PISA 2018, focusing on science as the main illustrative domain. It applies conditional inference trees (CIT) and conditional inference forests (CIF) to predict achievement from a set of circumstances (gender, immigrant status, parental education and occupation, household wealth, books at home, cultural possessions, school type, and peer effect), then defines IOpE as the ratio of explained variance to total variance. Under the preferred CIF with tuned parameters (α*≈0.80, M=5, N=150), IOpE is substantially higher than in traditional linear regression: on average about 43% versus 20%, and regionally about 40.5% to 48.7% in science, with Murcia, Extremadura, and Cataluña highest and Castilla-La Mancha and País Vasco lowest. The most influential circumstances are the home cultural environment (books at home and cultural possessions) and parental occupation, while wealth and parental education tend to contribute less once other circumstances are controlled. Methodologically, the study does not report a clear missing-data handling rule for model estimation (beyond surrogate-split discussion), and it does not discuss complex-survey weighting, which may affect precision and comparability across regions.",
+    "outcome_summary": "The paper estimates inequality of opportunity in educational achievement (IOpE) for Spanish regions using PISA 2018 microdata, focusing on science achievement for students aged 15–16. The authors model the share of achievement variance explained by circumstances beyond students’ control using conditional inference trees (CIT) and conditional inference forests (CIF), with CIF selected under a parameter-tuning scenario (alpha=0.80, M=5, N=150) to balance downward and upward bias. IOpE from CIF is about twice the traditional OLS-linear benchmark (on average 43% vs 20%), with preferred ML estimates ranging roughly from 40.5% to 48.7% across regions; Murcia, Extremadura, and Cataluña are highest, while Castilla-La Mancha and País Vasco are lowest. The study averages results across the 10 PISA plausible values for science and uses bootstrapping (200 resamples) to form confidence intervals. A key limitation is that the manuscript does not clearly report how PISA sampling/replicate weights are incorporated in the ML estimation, and missing-data handling is only partially specified (surrogate splits are mentioned), which may affect the stability of IOpE and circumstance importance.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

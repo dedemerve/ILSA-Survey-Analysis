@@ -1,13 +1,16 @@
 # ILSA Survey Analysis
 
-A comprehensive collection of structured metadata from International Large-Scale Assessment (ILSA) research articles using machine learning methods. This repository contains extracted metadata from 130+ academic papers analyzing PISA, TIMSS, PIRLS, and other ILSA datasets.
+A comprehensive collection of structured metadata from International Large-Scale Assessment (ILSA) research articles using machine learning methods. This repository contains extracted metadata from 212 academic papers analyzing PISA, TIMSS, PIRLS, TALIS, PIAAC, ICCS, and ICILS datasets (2020–August 2026).
+
+An interactive companion site is in `docs/index.html` (GitHub Pages).
 
 ## Dataset Overview
 
 The `ilsa_survey_articles` directory contains:
-- **JSON files**: Structured metadata for 130+ research articles (extracted using AI/LLM pipeline)
-- **Database**: SQLite database (`ilsa_knowledge_base.db`) with all metadata
-- **Parquet file**: Tabular dataset (`ilsa_master.parquet`) for analysis
+- **JSON files**: Structured metadata for 212 research articles (LLM-assisted extraction with human verification)
+- **Findings**: 382 structured finding records
+- **Predictors**: 3,088 predictor–study records across 13 taxonomy categories
+- **Scores**: `rescored_final_csv_212.csv` with policy-actionability scores (mean 3.70, SD 0.80; 85.8% score 4–5)
 
 ## Data Structure
 

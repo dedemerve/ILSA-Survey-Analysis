@@ -20,7 +20,7 @@
       "student_weights_used": true,
       "replicate_weights_used": null,
       "weight_variable_name": "W_FSTUWT",
-      "weight_fields_interpretation": "The study used PISA 2015 ColPS microdata for the Xandar unit and restricted the analytic sample to students who took the assessment in English and had the Xandar unit as the first cluster. From the initial pool (3,065 students across 11 education systems), the authors excluded 539 outliers using robust Mahalanobis distance (p-value cutoff 0.01) and then removed 6 inactive students with no activity across indicators, yielding N=2,520. For estimation, they applied the final student weights (W_FSTUWT) and accounted for the hierarchical sampling structure by selecting schools first (cluster variable CNTSCHID) using Mplus with the COMPLEX MIXTURE option. Missingness on the eight indicators was handled via full information maximum likelihood (default in Mplus), and the plausible values were analyzed using Rubin’s rules across 10 PV datasets."
+      "weight_fields_interpretation": "The study used PISA 2015 ColPS microdata restricted to test-takers who completed the assessment in English and had the Xandar unit as the first cluster, yielding an analytic sample of N=2,520. The authors explicitly incorporated PISA’s sampling hierarchy (schools selected first; cluster variable CNTSCHID) and applied the final student weights W_FSTUWT in Mplus (WEIGHT option). For the distal outcome modeling with plausible values, they used Mplus’s complex mixture modeling (COMPLEX MIXTURE option) to respect the hierarchical sampling design. Missingness on the eight process indicators was handled via full information maximum likelihood (FIML) within Mplus, rather than listwise deletion, and the response-time indicators were log-transformed to address non-normality."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
@@ -73,7 +73,7 @@
           "n_students": 338
         }
       ],
-      "sample_filtering_criteria": "Analytic sample drawn from PISA 2015 ColPS participants and restricted to (a) students who took the ColPS assessment in English and (b) students for whom the Xandar unit was the first cluster (to control for language, item position, and fatigue). From 3,065 students in 11 education systems, 539 outliers were excluded using robust Mahalanobis distance with a 0.01 p-value cutoff. Then 6 inactive students were excluded (no activities across the indicators). The final sample comprised 2,520 students. For the LPA indicators, four response-time indicators were log-transformed (natural log) due to high variance; action indicators were not transformed because one student had zero actions in Part 4."
+      "sample_filtering_criteria": "Analytic sample drawn from PISA 2015 ColPS participants using two inclusion criteria: (a) students administered the ColPS assessment in English, and (b) the Xandar unit was the first cluster (to control language, item position, and fatigue effects). From the total of 3,065 students across 11 education systems, 539 outliers were excluded using robust Mahalanobis distance estimation with a 0.01 p-value cutoff, and 6 inactive students were excluded (no activities across the indicators). The final sample consisted of 2,520 students. For the LPA indicators, eight process indicators were used (log-transformed response time and number of actions for Parts 1–4), with remaining missing indicator values handled via full information maximum likelihood in Mplus."
     },
     "ml_techniques": {
       "primary": null,
@@ -123,21 +123,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2015 ColPS (Xandar unit) — process indicators and PVCLPS outcome",
-        "target_variable": "ColPS overall performance (PVCLPS)",
+        "dataset_used": "PISA 2015 Collaborative problem solving (ColPS) process data, Xandar unit (Parts 1–4)",
+        "target_variable": "Latent profile membership (Profile 1 vs Profile 2)",
         "top_predictors": [
           "Response time (Part 1)",
           "Actions (Part 1)",
           "Response time (Part 2)",
-          "Actions (Part 3)",
-          "Actions (Part 2)"
+          "Actions (Part 3)"
         ],
-        "performance_metrics": "Latent profile analysis (LPA) — two profiles: Profile 1 (95%, N=2,395) vs Profile 2 (5%, N=125). Mean performance gap: 129.41 (S.E.=21.66, p<.01); Profile 1 mean PVCLPS=519.11 vs Profile 2 mean PVCLPS=389.70. Model selection: entropy=0.98; average posterior classification probability=0.96 for the 2-profile solution.",
-        "standardized_conclusion": "Using PISA 2015 ColPS (Xandar unit) the study leveraged response-time and action indicators across the four parts to identify two latent behavioral profiles and then compared them on overall ColPS performance (PVCLPS), finding that Profile 1 (more efficient, fewer actions and shorter response times) outperformed Profile 2 by 129.41 PV points on average (p<.01). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "LPA model selection: two-profile solution retained; entropy=0.98; smallest profile size=5% (N=125); average classification probability=0.96; significant mean differences across indicators (Wald tests) except response time in Part 4 (p=0.51). Additional analysis (Overall ColPS performance (PVCLPS, across 10 plausible values)): Mean performance gap: 129.41 (S.E.=21.66, p<0.01); Profile 1 mean PVCLPS=519.11 vs Profile 2 mean PVCLPS=389.70.",
+        "standardized_conclusion": "Using PISA 2015 ColPS Xandar unit process data, the study leveraged response time and action-count indicators across Parts 1–4 to identify latent profiles, finding two distinct behavioral profiles (Profile 1=95% vs Profile 2=5%) with significantly different patterns, especially in Part 1. This indicates that early-stage coordination behaviors in human-to-agent collaboration can be empirically distinguished at scale, supporting the use of process-informed profiling to target interventions toward students who rely on trial-and-error rather than organized strategy use."
       }
     ],
-    "outcome_summary": "This exploratory LPA used PISA 2015 ColPS process data from the Xandar unit, restricting to English test-takers with Xandar as the first cluster (N=2,520 across 11 education systems). The authors modeled four response-time indicators (log-transformed) and four action-count indicators to derive two behavioral profiles (Profile 1: 95%, N=2,395; Profile 2: 5%, N=125). Profile 2 showed more actions and longer response times in most parts, with the largest differentiation in Part 1. Overall performance differed significantly between profiles: Profile 1 had higher PVCLPS (519.11) than Profile 2 (389.70), with a mean gap of 129.41 (S.E.=21.66, p<.01). The study used complex-sample student weights (W_FSTUWT) and analyzed 10 plausible values with Rubin’s rules; however, it did not include covariates predicting profile membership and used a single task unit, limiting generalizability.",
+    "outcome_summary": "The study analyzed PISA 2015’s computer-based collaborative problem solving (human-to-agent) Xandar unit using process data from Parts 1–4. After restricting to English test-takers with Xandar as the first cluster, the authors excluded outliers via robust Mahalanobis distance and removed inactive students, resulting in N=2,520 across 11 education systems. They conducted an exploratory latent profile analysis (LPA) using eight indicators (log-transformed response times and action counts per part), selecting a two-profile solution (entropy=0.98; Profile 1=95%, Profile 2=5%). Distal outcomes were overall ColPS performance (PVCLPS) estimated across 10 plausible values with Rubin’s rules and complex survey weights (W_FSTUWT). Profile 1 outperformed Profile 2 (519.11 vs 389.70; gap=129.41, p<0.01). Limitations include the exploratory nature of LPA, reliance on a single released unit, and no covariates for profile membership.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": null
+    "null_fields_interpretation": "The paper does not train predictive machine-learning models; instead it uses latent profile analysis (a person-centered mixture modeling approach) to profile behavioral patterns and then compares distal plausible-value outcomes. Therefore, ML technique fields are intentionally empty (no supervised ML algorithms are evaluated), and the primary ML model is not applicable."
   }
 }

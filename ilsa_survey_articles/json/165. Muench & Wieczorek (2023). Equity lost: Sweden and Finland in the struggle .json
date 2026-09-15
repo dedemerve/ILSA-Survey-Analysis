@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "file_name": "165. Muench & Wieczorek (2023). Equity lost: Sweden and Finland in the struggle for PISA scores.pdf",
+    "title": "Equity lost: Sweden and Finland in the struggle for PISA scores",
+    "authors": [
+      "Richard Muench",
+      "Oliver Wieczorek"
+    ],
+    "year": 2023,
+    "doi": "10.1177/14749041211069240",
+    "venue": "European Educational Research Journal",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses OECD PISA microdata for science achievement for Sweden and Finland in 2000, 2009, and 2015, estimating separate cross-sectional multilevel linear regression models for each year. The authors explicitly state that they calculate and apply student weights provided by the OECD to compensate for missing observations at the student level, indicating complex survey considerations in the estimation. No replicate-weight method (e.g., BRR/jackknife) is reported in the provided text, so replicate-weight usage cannot be confirmed. The analytic sample is further restricted by the modeling strategy (student-level and school-level predictors, plus governance indices and interaction terms), and the authors report robustness checks and diagnostics (z-standardization, normality checks, and VIF for heteroscedasticity), with some effects described as influenced by outliers."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper reports the use of OECD-provided student weights to compensate for missing observations, but it does not specify the exact missing-data mechanism or the concrete missing-data handling rule (e.g., listwise/pairwise deletion or an imputation strategy) for the regression variables. Because the dependent variable is PISA science achievement (which is typically based on plausible values), the manuscript does not document the PV-combining procedure used in the multilevel regressions, representing a transparency gap for reproducibility.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The authors conduct separate cross-sectional multilevel linear regression analyses for Sweden and Finland using PISA science scores for the years 2000, 2009, and 2015. The dependent variable is PISA science achievement, and the models include student-level and school-level predictors (ESCS, migration background indicators, disciplinary climate, and governance-tool indices), plus interaction terms for socioeconomic status and disciplinary climate. Beyond this modeling structure, the provided text does not specify additional inclusion/exclusion rules (e.g., grade restrictions, school-type restrictions, or explicit complete-case criteria), so the analytic sample is best described as the available PISA student and school data for the specified countries and years with OECD student weights applied."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "school_mean_escs",
+        "variable_name": "School mean ESCS",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "migration_second_generation",
+        "variable_name": "Second-generation migrant background",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "school_share_migrant_second_gen",
+        "variable_name": "School share second-gen migrants",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "language_at_home_test_language",
+        "variable_name": "Home language equals test language",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "student_school_disciplinary_climate",
+        "variable_name": "disciplinary climate (science)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "school_mean_disciplinary_climate",
+        "variable_name": "School mean disciplinary climate",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "school_autonomy",
+        "variable_name": "School autonomy index",
+        "category": "school"
+      },
+      {
+        "variable_code": "educational_leadership",
+        "variable_name": "Educational leadership index",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "accountability",
+        "variable_name": "Accountability index",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2000 Science (Sweden & Finland; grade not specified in text)",
+        "target_variable": "PISA science achievement score",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School mean ESCS",
+          "Second-generation migrant background",
+          "Home language equals test language",
+          "Student disciplinary climate (science)"
+        ],
+        "performance_metrics": "Multilevel regression: R2 full model (level 1,2) Sweden 0.117; Finland 0.116. ICC (level 1,2) Sweden 0.0768; Finland 0.0815. Hypothesis H1 (governance tools reducing ESCS effects) refuted; Hypothesis H2 (governance tools more effective for higher ESCS) confirmed.",
+        "standardized_conclusion": "Using PISA 2000 science the study leveraged socioeconomic status (student ESCS and school mean ESCS) alongside migration and disciplinary-climate variables to model science achievement, finding that family background effects were strong and that governance-tool indices (school autonomy, leadership, accountability) did not show a systematic positive effect. This indicates that, in these Nordic contexts, marketization/accountability-style governance tools did not measurably improve science performance or reduce socioeconomic achievement gaps, and equity gains were not supported by the governance mechanisms proposed in the global reform agenda."
+      },
+      {
+        "dataset_used": "PISA 2009 Science (Sweden & Finland; grade not specified in text)",
+        "target_variable": "PISA science achievement score",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School mean ESCS",
+          "Home language equals test language",
+          "Student disciplinary climate (science)",
+          "School mean disciplinary climate"
+        ],
+        "performance_metrics": "Multilevel regression: R2 full model (level 1,2) Sweden 0.211; Finland 0.0859. ICC Sweden 0.173; Finland 0.0709. Hypothesis H1 refuted; Hypothesis H2 confirmed.",
+        "standardized_conclusion": "Using PISA 2009 science the study leveraged student and school ESCS plus migration and disciplinary-climate measures to predict science achievement, finding increasing inequality tied to socioeconomic background and only limited additional explanatory power from governance tools. This indicates that extending autonomy/leadership/accountability mechanisms did not counteract the growing role of family background in shaping science outcomes, suggesting policy emphasis should shift toward equity-oriented supports rather than governance-tool intensification."
+      },
+      {
+        "dataset_used": "PISA 2015 Science (Sweden & Finland; grade not specified in text)",
+        "target_variable": "PISA science achievement score",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School mean ESCS",
+          "Student disciplinary climate (science)",
+          "Home language equals test language",
+          "Educational leadership index"
+        ],
+        "performance_metrics": "Multilevel regression: R2 full model (level 1,2) Sweden 0.229; Finland 0.145. ICC Sweden 0.196; Finland 0.0956. Hypothesis H1 refuted; Hypothesis H2 confirmed. The interaction between student and school ESCS in 2015 is described as too weak and outlier-influenced to interpret; governance-tool effects are not consistently positive (e.g., Sweden shows a small significant negative robust effect of leadership).",
+        "standardized_conclusion": "Using PISA 2015 science the study leveraged ESCS at both student and school levels together with disciplinary climate and migration-language indicators to predict science achievement, finding that socioeconomic gradients remained dominant and that governance-tool indices did not reduce ESCS-related inequality (and in Sweden, leadership shows a small negative robust association). This indicates that accountability/marketization governance reforms did not deliver the promised equity improvements and may coincide with increased segregation and stratification by socioeconomic status."
+      }
+    ],
+    "outcome_summary": "The article tests two hypotheses derived from the global educational reform movement (GERM) by analyzing OECD PISA science achievement for Sweden and Finland in 2000, 2009, and 2015. The authors estimate separate cross-sectional multilevel linear regression models with student-level and school-level predictors, using OECD student weights to address missing observations and applying z-standardization for comparability. Across years, the strongest and most robust associations with science achievement come from socioeconomic status (student ESCS and school mean ESCS), with explained variance and ICC indicating increasing stratification in Sweden earlier than in Finland. Governance-tool indices (school autonomy, educational leadership, accountability) do not show a systematic positive effect on performance or on reducing the ESCS gradient; instead, Hypothesis H2 is confirmed in both countries, implying that advantaged students are better positioned to benefit from these reforms. Limitations include incomplete reporting of plausible-value handling and missing-data rules for reproducibility, and the study’s observational design prevents causal claims about governance tools.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

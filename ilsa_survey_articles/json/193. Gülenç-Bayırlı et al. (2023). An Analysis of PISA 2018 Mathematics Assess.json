@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "file_name": "193. Gülenç-Bayırlı et al. (2023). An Analysis of PISA 2018 Mathematics Assessment for Asia-Pacific Countries Using Educational Data Mining.pdf",
+    "title": "An Analysis of PISA 2018 Mathematics Assessment for Asia-Pacific Countries Using Educational Data Mining",
+    "authors": [
+      "E. Gülenç-Bayırlı",
+      "E. Ö.",
+      "A. K."
+    ],
+    "year": 2023,
+    "doi": "10.3390/math11061318",
+    "venue": "Mathematics",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses OECD PISA 2018 microdata for 12 Asia-Pacific countries and constructs a student-level classification dataset by combining mathematics plausible values (PVs) with questionnaire variables. The authors describe PISA’s two-stage sampling (schools then students) but do not report applying any PISA sampling weights or replicate weights in the ML training/evaluation. Because the models are standard scikit-learn classifiers (LR, RF, SVM) and the manuscript does not mention weight-aware estimation, the analysis appears to be unweighted. Preprocessing includes dropping students with missing feature values (~3% removed), imputing specific questionnaire response categories with the mode, one-hot encoding categorical variables, and min-max scaling numerical features to [0,1]."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 86886,
+      "countries": [
+        {
+          "country_code": "BRN",
+          "n_students": 5374
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 5659
+        },
+        {
+          "country_code": "IDN",
+          "n_students": 12023
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 6054
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 6636
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 3769
+        },
+        {
+          "country_code": "MYS",
+          "n_students": 6036
+        },
+        {
+          "country_code": "PHL",
+          "n_students": 7118
+        },
+        {
+          "country_code": "CHN",
+          "n_students": 11989
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6556
+        },
+        {
+          "country_code": "THA",
+          "n_students": 8511
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 7161
+        }
+      ],
+      "sample_filtering_criteria": "Used the publicly available PISA 2018 dataset for the 12 specified Asia-Pacific countries. The analytic dataset was created by selecting relevant questionnaire features and combining them with mathematics PVs; initially 89,541 student records were available. Records with missing values in any feature were dropped (about 3% removed), leaving 86,886 samples. Additionally, special response evaluations (e.g., “Valid Skip”, “Not applicable”, “Invalid”, “No Response”) were imputed by filling with the mode for the corresponding column. For the dependent variable, 5 PVs were randomly selected among 10 PVs and each PV was treated as a separate binary outcome (successful if PV ≥ OECD math average 489; unsuccessful otherwise), with separate model training/evaluation repeated across PV draws."
+    },
+    "ml_techniques": {
+      "primary": "SVM",
+      "all_techniques": [
+        "Logistic Regression",
+        "Random Forest",
+        "SVM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "Age",
+        "variable_name": "Age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "Gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST005Q01TA",
+        "variable_name": "Mother education level",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST007Q01TA",
+        "variable_name": "Father education level",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST006Q01TA",
+        "variable_name": "Mother qualification ISCED",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST006Q02TA",
+        "variable_name": "Father qualification ISCED",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST006Q03TA",
+        "variable_name": "Mother qualification ISCED (alt)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST008Q01TA",
+        "variable_name": "Father qualification ISCED (alt)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST008Q02TA",
+        "variable_name": "Mother qualification ISCED (alt2)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST008Q03TA",
+        "variable_name": "Father qualification ISCED (alt2)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ISCED0",
+        "variable_name": "Age started ISCED 0",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST125Q01NA",
+        "variable_name": "Age started ISCED 0",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother education ISCED",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FISCED",
+        "variable_name": "Father education ISCED",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISCED",
+        "variable_name": "Highest parental education ISCED",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "Desk",
+        "variable_name": "Desk to study",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Room",
+        "variable_name": "Own room to study",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "quiet_place_to_study",
+        "variable_name": "Quiet place to study",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "pc_for_schoolwork",
+        "variable_name": "PC for schoolwork",
+        "category": "ict"
+      },
+      {
+        "variable_code": "educational_software",
+        "variable_name": "Educational software",
+        "category": "ict"
+      },
+      {
+        "variable_code": "Internet",
+        "variable_name": "Internet access",
+        "category": "ict"
+      },
+      {
+        "variable_code": "classic_literature_at_home",
+        "variable_name": "Classic literature at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "poetry_books_at_home",
+        "variable_name": "Poetry books at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "works_of_art_at_home",
+        "variable_name": "Works of art at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "school_books_at_home",
+        "variable_name": "School books at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "technical_books_at_home",
+        "variable_name": "Technical books at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Dictionary",
+        "variable_name": "Dictionary at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "art_books_at_home",
+        "variable_name": "Art books at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "TV",
+        "variable_name": "Televisions at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Cars",
+        "variable_name": "Cars at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Smartphones",
+        "variable_name": "Smartphones at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "Computers",
+        "variable_name": "Computers at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "tablet_computers_at_home",
+        "variable_name": "Tablet computers at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "e_book_readers_at_home",
+        "variable_name": "E-book readers at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "musical_instruments_at_home",
+        "variable_name": "Musical instruments at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Books",
+        "variable_name": "Books at home",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Support_Achievements",
+        "variable_name": "Parents support achievements",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Support_Difﬁculties",
+        "variable_name": "Parents support difficulties",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "Encourage",
+        "variable_name": "Parents encourage confidence",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "PerWeek_TLanguage",
+        "variable_name": "Class periods per week (test language)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "PerWeek_Math",
+        "variable_name": "Class periods per week (math)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "PerWeek_Science",
+        "variable_name": "Class periods per week (science)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "PerWeek_FLanguage",
+        "variable_name": "Class periods per week (foreign language)",
+        "category": "curriculum"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Mathematics (15-year-olds), 12 Asia-Pacific countries (BRN, HKG, IDN, JPN, KOR, MAC, MYS, PHL, CHN, SGP, THA, TWN)",
+        "target_variable": "Mathematics achievement success (binary from PV ≥ 489)",
+        "top_predictors": [
+          "PerWeek_Science",
+          "ISCED0",
+          "Books",
+          "Age",
+          "PerWeek_FLanguage"
+        ],
+        "performance_metrics": "SVM best mean accuracy: 73% (95% CI not consistently reported per model in text; Table 5 shows per-country accuracies). Mean accuracies across countries: LR 0.718, RF 0.722, SVM 0.718 (Table 5). Per-country best model: SVM highest for BRN, HKG, MYS, PHL, CHN, TWN; RF highest for MAC, SGP, THA; LR highest for IDN, JPN, KOR (Table 5).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for 12 Asia-Pacific countries, the study leveraged PerWeek_Science, ISCED0, Books, Age, and PerWeek_FLanguage to predict mathematics achievement success (PV ≥ 489), finding that SVM achieved the highest overall classification performance (about 73% accuracy) and that feature-importance patterns were broadly consistent across countries. This indicates that strengthening science and foreign-language instructional time, early education entry (ISCED0), and home book resources may be promising levers for improving mathematics outcomes, though the results are predictive and not causal and the study does not apply PISA sampling weights."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 mathematics achievement for 12 Asia-Pacific OECD-participating countries (BRN, HKG, IDN, JPN, KOR, MAC, MYS, PHL, CHN, SGP, THA, TWN). It constructs a student-level binary target by converting mathematics PVs into “success” when the PV is at or above the OECD math average (489), using 5 PVs sampled from the 10 available and repeating model training/evaluation across PV draws. Three classifiers—logistic regression, random forest, and SVM—are tuned via grid search with 5-fold cross-validation on a 90/10 train/test split per country, and evaluated with accuracy, precision, recall, and F1; SVM is reported as the best-performing algorithm with about 73% accuracy, while mean accuracies across countries are very similar across models. Feature importance is estimated using permutation feature importance (PFI), and the most common high-importance predictors include science class periods, foreign-language class periods, age started ISCED 0, age, and books at home. Limitations include unweighted ML estimation (no PISA weights reported), reliance on predictive importance rather than causal identification, and potential preprocessing/data-splitting leakage risk because PV sampling and missing-value handling are described prior to model splitting.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

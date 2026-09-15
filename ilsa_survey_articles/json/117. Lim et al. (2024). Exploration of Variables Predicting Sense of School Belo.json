@@ -3,7 +3,6 @@
     "file_name": "117. Lim et al. (2024). Exploration of Variables Predicting Sense of School Belonging Using the Machine Learning Method—Group Mnet.pdf",
     "title": "Exploration of Variables Predicting Sense of School Belonging Using the Machine Learning Method—Group Mnet",
     "authors": [
-      "Lim et al.",
       "Jin Eun Yoo",
       "Minjeong Rho"
     ],
@@ -19,7 +18,7 @@
       "student_weights_used": false,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2015 microdata and begins with 5,581 Korean students, then merges four questionnaires (student background, ICT familiarity, educational career, and parent) to form a candidate predictor set. The authors explicitly removed weighting variables (e.g., W_FSTURWT) during preprocessing, and they do not report applying complex survey weights or replicate-weight procedures in the modeling stage. Because the analysis is based on group Mnet (penalized regression) with k-NN imputation and repeated random train/test splits, the manuscript does not describe any weight-aware estimation; thus the effective analysis is treated as unweighted. Additional preprocessing included retaining only the first plausible value per subject (then deleting other PVs), deleting variables with ≥30% missingness, removing near-zero-variance variables, and dummy-coding categorical items while treating Likert items as continuous."
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata for Korean students and constructs a modeling dataset by merging four questionnaires (student background, ICT familiarity, educational career, and parent). The authors explicitly removed weighting variables (e.g., W_FSTURWT) during preprocessing, along with identification and administration variables, and then restricted the plausible values by retaining only the first PV per subject while deleting the other PVs. They further removed variables with ≥30% missingness and near-zero variance variables, and then applied k-nearest neighbors (k-NN) imputation to handle remaining missingness. Because the manuscript does not report applying PISA complex survey weights (and the weighting variable was removed), the ML models are treated as unweighted analyses; this may affect generalizability and uncertainty estimates under the clustered sampling design."
     },
     "plausible_values_handling": "single_pv",
     "missing_data_handling": "knn_imputation",
@@ -32,13 +31,12 @@
           "n_students": 5581
         }
       ],
-      "sample_filtering_criteria": "Analytic sample starts from 5,581 Korean students participating in PISA 2015 (mostly 10th graders). The authors merged four questionnaires (student background, ICT familiarity, educational career, and parent) and removed irrelevant variables including identification (e.g., CNTSTUID), weighting (e.g., W_FSTURWT), and administration (e.g., ADMINMODE). For plausible values, they retained only the first PV of each subject and deleted the other PVs, then removed variables with ≥30% missingness (68 variables), removed near-zero-variance variables (65), and removed derived variables (e.g., ANXTEST, MOTIVA) in favor of individual items, yielding 504 predictors. For missingness in predictors, they used listwise deletion only for the initial complete cases (retaining ~8.13%, 454/5,581) and then applied k-NN imputation for the remaining variables with missing rates between 0.44% and 26.41%."
+      "sample_filtering_criteria": "Analytic sample is Korean students participating in PISA 2015 (n=5581; most are 10th graders). The authors began with 927 student and parent variables after merging four questionnaires, removed irrelevant variables including identification (e.g., CNTSTUID), weighting (e.g., W_FSTURWT), and administration (e.g., ADMINMODE), and retained only the first plausible value (PV1) for each subject while deleting other PVs. They then deleted variables with ≥30% missingness (68 variables), removed near-zero variance variables (65 variables), removed derived variables (56 variables such as ANXTEST and MOTIVA) and instead included individual items, yielding 504 variables. For missingness in the remaining predictors, they used k-NN imputation after listwise deletion would have retained only ~8.13% of observations (454/5581)."
     },
     "ml_techniques": {
       "primary": "Group Mnet",
       "all_techniques": [
-        "Group Mnet",
-        "k-NN"
+        "Group Mnet"
       ]
     },
     "confounders_identified": [
@@ -79,32 +77,32 @@
       },
       {
         "variable_code": "PA007Q04TA",
-        "variable_name": "Parent satisfied with discipline",
+        "variable_name": "Satisfied with child school discipline",
         "category": "parent_home"
       },
       {
         "variable_code": "ST097Q04TA",
-        "variable_name": "Class academically focused",
+        "variable_name": "cannot work well",
         "category": "school"
       },
       {
         "variable_code": "ST078Q07NA",
-        "variable_name": "Meet friends after school",
+        "variable_name": "Meet friends after leaving school",
         "category": "peer_effects"
       },
       {
         "variable_code": "ST076Q07NA",
-        "variable_name": "Meet friends before school",
+        "variable_name": "Meet friends before going to school",
         "category": "peer_effects"
       },
       {
         "variable_code": "ST039Q06NA",
-        "variable_name": "Teachers insulted in front",
+        "variable_name": "Teacher insulted in front of others",
         "category": "teacher"
       },
       {
         "variable_code": "ST039Q02NA",
-        "variable_name": "Teachers graded harder",
+        "variable_name": "Teacher graded harder than others",
         "category": "teacher"
       },
       {
@@ -114,47 +112,47 @@
       },
       {
         "variable_code": "PA009Q02NA",
-        "variable_name": "Parental involvement hindered",
+        "variable_name": "Parent involvement hindered by work",
         "category": "parent_home"
       },
       {
         "variable_code": "ST123Q03NA",
-        "variable_name": "Parents support in difficulties",
+        "variable_name": "Parents support during difficulties",
         "category": "parent_home"
       },
       {
         "variable_code": "ST082Q02NA",
-        "variable_name": "Good listener",
-        "category": "student_behavior"
+        "variable_name": "I am a good listener",
+        "category": "student_attitude"
       },
       {
         "variable_code": "ST082Q03NA",
-        "variable_name": "Enjoy classmates’ success",
-        "category": "student_behavior"
+        "variable_name": "Enjoy seeing classmates succeed",
+        "category": "student_attitude"
       },
       {
         "variable_code": "ST082Q14NA",
         "variable_name": "Enjoy cooperating with peers",
-        "category": "student_behavior"
+        "category": "student_attitude"
       },
       {
         "variable_code": "ST082Q13NA",
-        "variable_name": "Teamwork raises own efficiency",
-        "category": "student_behavior"
+        "variable_name": "Teamwork raises my efficiency",
+        "category": "student_attitude"
       },
       {
         "variable_code": "ST082Q01NA",
-        "variable_name": "Prefer team over alone",
-        "category": "student_behavior"
+        "variable_name": "Prefer team work over alone",
+        "category": "student_attitude"
       },
       {
         "variable_code": "ST118Q05NA",
-        "variable_name": "Nervous when not knowing tasks",
+        "variable_name": "Nervous when not knowing how",
         "category": "student_attitude"
       },
       {
         "variable_code": "ST118Q03NA",
-        "variable_name": "Anxious even when prepared",
+        "variable_name": "Anxious even when well-prepared",
         "category": "student_attitude"
       },
       {
@@ -174,17 +172,17 @@
       },
       {
         "variable_code": "IC008Q05TA",
-        "variable_name": "Uses digital devices for social networks",
-        "category": "ict"
-      },
-      {
-        "variable_code": "IC013Q05NA",
-        "variable_name": "Social networks useful",
+        "variable_name": "Use digital devices for social networks",
         "category": "ict"
       },
       {
         "variable_code": "IC013Q12NA",
-        "variable_name": "Feels bad without internet",
+        "variable_name": "Feels bad if no internet connection",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC013Q05NA",
+        "variable_name": "Social networks are useful",
         "category": "ict"
       },
       {
@@ -194,12 +192,12 @@
       },
       {
         "variable_code": "ST131Q06NA",
-        "variable_name": "Prefers repeating experiments",
+        "variable_name": "Prefers experiments more than once",
         "category": "curriculum"
       },
       {
         "variable_code": "ST071Q02NA",
-        "variable_name": "Hours learning mathematics",
+        "variable_name": "Hours learning in addition (math)",
         "category": "student_behavior"
       },
       {
@@ -215,20 +213,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2015 (KOR) — school belonging (ST034, 4-point Likert)",
-        "target_variable": "Sense of school belonging",
+        "dataset_used": "PISA 2015 (KOR; most students in grade 10) — school belonging (ST034)",
+        "target_variable": "Sense of school belonging (ST034; 4-point Likert)",
         "top_predictors": [
           "Student gender",
           "Educational software at home",
           "Threatened by other students",
-          "Teachers graded harder",
+          "Teacher insulted in front of others",
           "Life satisfaction"
         ],
-        "performance_metrics": "Group Mnet — test RMSE stable across 100 iterations: 0.36–0.41 (mean 0.39, SD 0.009). Average selected variables per run: 74.55 (SD 22.14) out of 504; selection counts used to identify 32 predictors selected in ≥75 iterations.",
-        "standardized_conclusion": "Using PISA 2015 (KOR) the study leveraged student gender, home ICT/educational resources, school climate (e.g., being threatened), teacher relationship indicators, and life satisfaction to predict students’ sense of school belonging, finding that positive peer/teacher relationships, parental support, cooperation tendencies, learning/physical activities, and life satisfaction were associated with higher belonging while anxiety, unfair teacher treatment, and being threatened by peers were associated with lower belonging; predictive performance was stable (RMSE≈0.39) but the manuscript notes that ML-selected predictors are not necessarily statistically significant in a conventional inferential sense. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Group Mnet — test RMSE stable across 100 iterations: range 0.36–0.41, mean 0.39 (SD=0.009). Average selected variables per run: 74.55 (SD=22.14) out of 504; ~14.8% selected per run.",
+        "standardized_conclusion": "Using PISA 2015 (KOR) the study leveraged student gender, home ICT resources, perceived school climate threats, teacher treatment, and life satisfaction to predict students’ sense of school belonging (ST034), finding that predictors spanning background, school climate, peer/teacher relationships, parental involvement, motivation/anxiety, ICT attitudes, and learning/physical activities contributed to prediction with stable test RMSE (≈0.39). This indicates that strengthening supportive school climate and positive teacher–peer relationships, alongside targeted supports for students’ motivation and anxiety, may improve school belonging, though the results are predictive and do not establish causal effects."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2015 data for Korean students (N=5,581) to predict students’ sense of school belonging (ST034, 4-point Likert) using group Mnet, a penalized regression ML method. After preprocessing (including retaining only the first PV per subject and applying k-NN imputation for predictor missingness), the authors repeatedly split the data and refit the model 100 times. Prediction error measured by test RMSE was stable across runs, ranging from 0.36 to 0.41 with a mean of 0.39 (SD=0.009). Using selection counts across iterations, they identified 32 predictors selected in ≥75 runs, spanning student motivation/anxiety, cooperation tendencies, ICT use, parental support, peer/teacher relationship, school climate, learning/physical activities, and life satisfaction. The paper does not report applying survey weights and emphasizes that ML variable importance/selection is not equivalent to conventional statistical significance.",
+    "outcome_summary": "The study analyzes PISA 2015 Korean student data to predict students’ sense of school belonging measured by ST034 (4-point Likert; Cronbach’s alpha = .80). After preprocessing (removing identification/administration/weighting variables, retaining only the first PV per subject, deleting variables with ≥30% missingness and near-zero variance, and using k-NN imputation for remaining missingness), the authors fit Group Mnet, a penalized regression method designed for grouped dummy-coded predictors and multicollinearity. Model performance was assessed via repeated random train/test splits (70/30) with 10-fold CV on training to select the penalty, repeated 100 times; test RMSE was stable at a mean of 0.39 (SD=0.009). Across runs, Mnet selected on average 74.55 variables (≈14.8% of 504), and 32 variables were selected in ≥75 iterations, spanning student, parent, peer/teacher, ICT, and learning/physical activity domains. Limitations include unweighted ML estimation (PISA weights removed/not applied) and the fact that penalized selection counts identify predictive contribution rather than statistical significance or causality.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }
