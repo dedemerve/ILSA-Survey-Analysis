@@ -511,7 +511,7 @@
   <div class="hero-bottom">
     <div>
       <p class="hero-desc">
-        A survey paper covering 212 peer-reviewed studies examining how artificial intelligence and machine learning methods are applied across seven international large-scale assessment programs, covering methods, outcomes, and methodological rigor.
+        A survey of 212 studies (2020–August 2026) mapping AI and machine learning across seven ILSA programs, with a five-category synthesis and a policy-actionability framework (mean 3.70 / 5).
       </p>
       <div class="hero-programs" style="margin-top:20px;">
         <span class="prog">PISA</span><span class="prog">TIMSS</span><span class="prog">PIRLS</span>
@@ -561,33 +561,33 @@
     <div class="abstract-layout">
       <div class="abstract-main">
         <p class="abstract-pull">
-          "The first <span>comprehensive evidence map</span> of artificial intelligence applications in International Large-Scale Assessments, revealing how the field has evolved and where methodological gaps remain."
+          "A structured survey of AI applications in ILSAs across <span>212 studies</span>, pairing a five-category synthesis with a policy-actionability rubric (mean 3.70 / 5; 85.8% high actionability)."
         </p>
         <p class="abstract-body">
-          International Large-Scale Assessments (ILSAs) have produced rich, large-scale datasets through programs such as PISA, TIMSS, PIRLS, TALIS, ICCS, ICILS, and PIAAC. Over the past decade, researchers have increasingly applied artificial intelligence and machine learning techniques to these data to predict educational outcomes, identify learner profiles, automate scoring, analyze process data, and support educational measurement.
+          International Large-Scale Assessments (ILSAs) are a primary evidence base for comparing education systems. AI and data-mining applications to ILSA data have grown rapidly, yet the field remains prediction-oriented, relies on aggregate performance indicators, and only partially converts computational advances into educationally interpretable insight.
         </p>
         <p class="abstract-body" style="margin-top:16px;">
-          Despite this rapid growth, the evidence has remained fragmented across assessment programs, research domains, and methodological approaches. No previous study has systematically synthesized AI applications across the full ILSA ecosystem, examined methodological practices, and transformed the literature into a structured, reusable evidence resource.
+          This study synthesizes AI and data-driven research on ILSA datasets through five categories: (i) predictive modelling of achievement, (ii) process data and learning analytics, (iii) socio-emotional and behavioral modelling, (iv) assessment engineering, and (v) computational psychometrics. A schema-constrained LLM-assisted extraction pipeline with full human verification produced the open machine-readable dataset released with the survey.
         </p>
         <p class="abstract-body" style="margin-top:16px;">
-          This survey addresses that gap through a PRISMA-guided review of 212 peer-reviewed studies published between 2020 and August 2026, accompanied by an openly available structured evidence repository that enables transparent exploration, comparison, and reuse of the accumulated research.
+          Practical usefulness is evaluated with a three-dimensional policy-actionability framework (inferential warrant, effect specification, population boundedness). Across 212 studies (2020–August 2026), mean actionability was 3.70 (SD = 0.80), with 85.8% reaching Score 4–5. Study type, not algorithmic family, was the primary differentiator: predictive modelling families scored uniformly high, while review/methodology studies scored lower (mean 3.23).
         </p>
       </div>
       <div class="abstract-divider"></div>
       <div class="abstract-sidebar">
         <div class="aside-block">
           <div class="aside-label">Motivation</div>
-          <p class="aside-text">AI applications in International Large-Scale Assessments have grown rapidly, but evidence remains fragmented across programs, methods, and countries, limiting comprehensive evaluation and gap identification.</p>
+          <p class="aside-text">Computational capability in ILSA research has expanded faster than theoretically grounded, policy-defensible insight. The survey maps that gap across seven programs.</p>
           <span class="aside-tag at-ind">gap analysis</span>
         </div>
         <div class="aside-block">
           <div class="aside-label">Approach</div>
-          <p class="aside-text">PRISMA-guided review, comprehensive full-text evaluation, structured evidence coding, thematic classification, and standardized metadata extraction across all included studies.</p>
+          <p class="aside-text">PRISMA-guided search, schema-constrained LLM extraction with full human verification, five-category synthesis, and a three-dimensional policy-actionability rubric.</p>
           <span class="aside-tag at-cyn">survey paper</span>
         </div>
         <div class="aside-block">
           <div class="aside-label">Output</div>
-          <p class="aside-text">A reusable open evidence resource comprising 212 studies, 382 synthesized findings, 3,088 predictor records, and a CC BY 4.0 dataset supporting transparent exploration, comparison, and future research.</p>
+          <p class="aside-text">Open evidence resource: 212 studies, 382 finding records, 3,088 predictors, actionability scores, and a CC BY 4.0 dataset for reuse and secondary analysis.</p>
           <span class="aside-tag at-org">open dataset</span>
         </div>
       </div>
@@ -606,15 +606,15 @@
     <div class="rq-block">
       <div class="rq-row">
         <div class="rq-id">RQ 1</div>
-        <div class="rq-text">How can AI applications in International Large-Scale Assessments be systematically categorized, and how are studies distributed across these computational domains between 2020 and August 2026?</div>
+        <div class="rq-text">How is the methodological landscape of AI-driven ILSA research distributed across predictive modelling, process-data analytics, socio-emotional modelling, assessment engineering, and computational psychometrics (2020–August 2026)?</div>
       </div>
       <div class="rq-row">
         <div class="rq-id">RQ 2</div>
-        <div class="rq-text">What methodological characteristics, including model types, data sources, and the balance between predictive performance and interpretability, characterize AI applications in International Large-Scale Assessment research?</div>
+        <div class="rq-text">How actionable are the field’s findings for educational policy when scored on inferential warrant, effect specification, and population boundedness, and does actionability vary by study type or algorithmic family?</div>
       </div>
       <div class="rq-row">
         <div class="rq-id">RQ 3</div>
-        <div class="rq-text">What gaps remain in the integration of AI methods into International Large-Scale Assessment research, and what methodological roadmap can support their adoption for generating pedagogically actionable insights?</div>
+        <div class="rq-text">Under what conditions do computational advances in ILSA research translate into educationally defensible evidence, and which methodological gaps still limit classroom- and system-level use?</div>
       </div>
     </div>
 
@@ -663,46 +663,42 @@
       <div class="crit-cell">
         <div class="crit-head inc">Inclusion Criteria</div>
         <ul class="crit-list">
-          <li>Peer-reviewed journal or conference publications</li>
-          <li>Empirical application of AI or machine learning</li>
-          <li>Analysis of ILSA microdata</li>
-          <li>Published between 2020–August 2026</li>
-          <li>English-language publications</li>
+          <li>English-language publications, 2020–August 2026</li>
+          <li>Uses ILSA / large-scale assessment data (PISA, TIMSS, PIRLS, TALIS, PIAAC, ICCS, ICILS)</li>
+          <li>AI, ML, EDM, LA, XAI, or computational-psychometric methods</li>
+          <li>Peer-reviewed research, reviews, and methodology papers</li>
+          <li>Full text available for human-verified extraction</li>
         </ul>
       </div>
       <div class="crit-cell">
         <div class="crit-head exc">Exclusion Criteria</div>
         <ul class="crit-list">
-          <li>Non-ILSA or aggregated data only</li>
-          <li>Non-empirical or conceptual studies</li>
-          <li>Reports, theses, and gray literature</li>
-          <li>AI systems without ILSA data analysis</li>
-          <li>Non-English language publications</li>
+          <li>No large-scale assessment data used</li>
+          <li>Non-ILSA national assessments only (unless ILSA-linked)</li>
+          <li>Duplicate records across WoS and Google Scholar</li>
+          <li>Non-English publications</li>
+          <li>Records outside the 2020–August 2026 window</li>
         </ul>
       </div>
       <div class="crit-cell">
-        <div class="crit-head inc" style="color:var(--cyan);">Structured Extraction Framework</div>
+        <div class="crit-head inc" style="color:var(--cyan);">Five-Category Synthesis Framework</div>
         <ul class="crit-list">
-          <li>Study metadata</li>
-          <li>ILSA dataset characteristics</li>
-          <li>AI/ML methodology</li>
-          <li>Outcome domains</li>
-          <li>Predictor taxonomy</li>
-          <li>Methodological design</li>
-          <li>Model evaluation</li>
-          <li>Evidence synthesis</li>
-          <li>Quality assessment</li>
+          <li>Predictive modelling of achievement</li>
+          <li>Process data and learning analytics</li>
+          <li>Socio-emotional and behavioral modelling</li>
+          <li>Assessment engineering (scoring / items)</li>
+          <li>Computational psychometrics &amp; methods</li>
         </ul>
       </div>
       <div class="crit-cell">
-        <div class="crit-head" style="color:var(--orange);">Quality &amp; Reproducibility Indicators</div>
+        <div class="crit-head" style="color:var(--orange);">Policy Actionability Rubric</div>
         <ul class="crit-list">
-          <li>Plausible value handling: Correct use of plausible values</li>
-          <li>Sampling weights: Survey design properly accounted for</li>
-          <li>Model evaluation: Performance metrics transparently reported</li>
-          <li>Sample documentation: Sample size and country coverage reported</li>
-          <li>Reproducibility: Sufficient information for replication</li>
-          <li>Overfitting control: Validation procedures to ensure generalizability</li>
+          <li>D₁ Inferential warrant (descriptive → correlational → causal)</li>
+          <li>D₂ Effect specification (none → directional → quantified)</li>
+          <li>D₃ Population boundedness (global/unspecified → bounded)</li>
+          <li>Composite ordinal score 1–5</li>
+          <li>Human inter-rater check: n = 37, κ = 0.76, κ<sub>w</sub> = 0.83</li>
+          <li>Mean 3.70 (SD 0.80); 85.8% Score 4–5</li>
         </ul>
       </div>
     </div>
@@ -800,10 +796,11 @@
           <div class="tax-row">
             <div class="tax-field">ml_family</div>
             <div class="tax-vals">
-              <span class="tax-val tv-i">Tree-Based</span>
+              <span class="tax-val tv-i">Ensemble</span>
               <span class="tax-val tv-o">Deep Learning</span>
-              <span class="tax-val tv-c">GLM</span>
-              <span class="tax-val tv-g">Clustering</span>
+              <span class="tax-val tv-c">Classical</span>
+              <span class="tax-val tv-g">Hybrid</span>
+              <span class="tax-val tv-g">Review/Methods</span>
             </div>
           </div>
           <div class="tax-row">
@@ -860,38 +857,38 @@
         <div class="ml-rows">
           <div class="ml-row">
             <div>
-              <div class="ml-name">Tree-Based / Ensemble Learning</div>
-              <div class="ml-detail">Random Forest · XGBoost · Gradient Boosting · SHAP Interpretation</div>
-              <div class="ml-bar-bg"><div class="ml-bar-fill bf-i" style="width:61%"></div></div>
+              <div class="ml-name">Ensemble Learning</div>
+              <div class="ml-detail">Random Forest · XGBoost · Gradient Boosting · LightGBM · SHAP</div>
+              <div class="ml-bar-bg"><div class="ml-bar-fill bf-i" style="width:60%"></div></div>
             </div>
-            <div class="ml-pct pct-i">61%</div>
+            <div class="ml-pct pct-i">60%</div>
           </div>
           <div class="ml-row">
             <div>
-              <div class="ml-name">Generalized Linear Models</div>
-              <div class="ml-detail">LASSO · Ridge · Elastic Net · Logistic Regression</div>
-              <div class="ml-bar-bg"><div class="ml-bar-fill bf-o" style="width:10%"></div></div>
+              <div class="ml-name">Classical / Statistical</div>
+              <div class="ml-detail">Regression · HLM · Logistic · Discriminant Analysis</div>
+              <div class="ml-bar-bg"><div class="ml-bar-fill bf-o" style="width:17%"></div></div>
             </div>
-            <div class="ml-pct pct-o">10%</div>
+            <div class="ml-pct pct-o">17%</div>
           </div>
           <div class="ml-row">
             <div>
               <div class="ml-name">Deep Learning</div>
-              <div class="ml-detail">Neural Networks · CNN · LSTM · Automated Scoring</div>
+              <div class="ml-detail">Neural Networks · CNN · LSTM · Autoencoders</div>
               <div class="ml-bar-bg"><div class="ml-bar-fill bf-c" style="width:12%"></div></div>
             </div>
             <div class="ml-pct pct-c">12%</div>
           </div>
           <div class="ml-row">
             <div>
-              <div class="ml-name">Other ML / Not Classified</div>
-              <div class="ml-detail">SVM · Naive Bayes · Mixed-Method · Unspecified ML</div>
-              <div class="ml-bar-bg"><div class="ml-bar-fill bf-r" style="width:17%"></div></div>
+              <div class="ml-name">Hybrid / Penalised</div>
+              <div class="ml-detail">LASSO · Ridge · Elastic Net · Stacking · Causal ML</div>
+              <div class="ml-bar-bg"><div class="ml-bar-fill bf-r" style="width:11%"></div></div>
             </div>
-            <div class="ml-pct pct-r">17%</div>
+            <div class="ml-pct pct-r">11%</div>
           </div>
         </div>
-        <p style="font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.5;">Percentages are computed among 133 empirical studies with a reported primary ML method. The remaining 79 Review/Methodology papers are excluded from this breakdown.</p>
+        <p style="font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.5;">Shares among predictive modelling families in the survey taxonomy (Ensemble n = 77, Classical n = 22, Deep Learning n = 16, Hybrid/Penalised n = 14; total 129). Review/Methodology studies (n = 83; mean actionability 3.23) are excluded from this breakdown and scored separately.</p>
 
         <div class="domains-block">
           <div class="domains-head">Outcome domains targeted</div>
@@ -934,7 +931,7 @@
             <div class="rigor-score rs-hi">85.8%</div>
           </div>
         </div>
-        <p style="font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.5;">Three-dimensional rubric: inferential warrant × effect specification × population boundedness.</p>
+        <p style="font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.5;">Three-dimensional rubric: inferential warrant × effect specification × population boundedness. Predictive families (Ensemble, Classical, Deep Learning, Hybrid) all mean 4.00; Review/Methodology mean 3.23.</p>
 
         <div class="rigor-head" style="margin-top:40px;">Methodological rigor indicators</div>
         <div class="rigor-rows">
@@ -998,9 +995,9 @@
         <div class="contrib-divv"></div>
         <div class="contrib-body">
           <div class="contrib-title">First Comprehensive Survey of AI in ILSAs</div>
-          <div class="contrib-text">The first systematic review of artificial intelligence and machine learning applications across all seven major International Large-Scale Assessment programs, providing a unified view of the field within a consistent analytical framework.</div>
+          <div class="contrib-text">The first survey explicitly mapping AI methods across seven ILSA programs, synthesizing 212 studies (2020–August 2026) through a five-category framework spanning prediction, process data, socio-emotional modelling, assessment engineering, and computational psychometrics.</div>
           <div class="contrib-foot">
-            <span class="cf-tag">7 ILSA programs</span><span class="cf-tag">212 studies</span><span class="cf-tag">PRISMA-guided review</span>
+            <span class="cf-tag">7 ILSA programs</span><span class="cf-tag">212 studies</span><span class="cf-tag">Five-category taxonomy</span>
           </div>
         </div>
       </div>
@@ -1009,7 +1006,7 @@
         <div class="contrib-divv"></div>
         <div class="contrib-body">
           <div class="contrib-title">Open Structured Evidence Repository</div>
-          <div class="contrib-text">An openly available, structured research dataset with standardized metadata, evidence records, and predictor taxonomy, designed to support secondary analyses, methodological comparisons, and reproducible research.</div>
+          <div class="contrib-text">A schema-constrained LLM-assisted extraction pipeline with full human verification produced a reusable open dataset of study metadata, findings, predictors, and actionability scores under CC BY 4.0.</div>
           <div class="contrib-foot">
             <span class="cf-tag">3 relational tables</span><span class="cf-tag">3,682 structured records</span><span class="cf-tag">CC BY 4.0</span>
           </div>
@@ -1019,10 +1016,10 @@
         <div class="contrib-idx">03</div>
         <div class="contrib-divv"></div>
         <div class="contrib-body">
-          <div class="contrib-title">Methodological Quality Assessment</div>
-          <div class="contrib-text">A systematic evaluation of methodological practices, including plausible value handling, sampling weights, model validation, and reporting transparency, revealing substantial opportunities to improve methodological rigor.</div>
+          <div class="contrib-title">Policy Actionability Framework</div>
+          <div class="contrib-text">A domain-adapted three-dimensional rubric (inferential warrant × effect specification × population boundedness) scores what ILSA–AI findings can support for policy. Mean score 3.70 (SD 0.80); 85.8% reach Score 4–5, with study type as the main differentiator.</div>
           <div class="contrib-foot">
-            <span class="cf-tag">Plausible values</span><span class="cf-tag">Survey weights</span><span class="cf-tag">Model validation</span>
+            <span class="cf-tag">D₁–D₃ rubric</span><span class="cf-tag">κ = 0.76</span><span class="cf-tag">Score 4–5: 85.8%</span>
           </div>
         </div>
       </div>
@@ -1031,9 +1028,9 @@
         <div class="contrib-divv"></div>
         <div class="contrib-body">
           <div class="contrib-title">Research Gaps and Future Directions</div>
-          <div class="contrib-text">A comprehensive gap analysis identifying underexplored assessment programs, application domains, methodological challenges, and emerging research opportunities to guide future AI research in International Large-Scale Assessments.</div>
+          <div class="contrib-text">Identifies under-mined process sequences, limited causal designs, fragmented outcome domains (only 32.5% of findings in core cognitive domains), and the need for multi-country invariance-aware analyses.</div>
           <div class="contrib-foot">
-            <span class="cf-tag">Evidence gaps</span><span class="cf-tag">Research roadmap</span><span class="cf-tag">Future directions</span>
+            <span class="cf-tag">Evidence gaps</span><span class="cf-tag">Causal ML</span><span class="cf-tag">Process data</span>
           </div>
         </div>
       </div>
@@ -1051,24 +1048,24 @@
     </div>
     <div class="limit-grid">
       <div class="limit-card">
-        <div class="limit-title">English-language restriction</div>
-        <p class="limit-text">The search was restricted to English-language publications. Studies in Chinese, Spanish, Turkish, and other languages may represent a non-trivial share of the ILSA-ML literature and are not captured here.</p>
+        <div class="limit-title">Single extraction model</div>
+        <p class="limit-text">Extraction used one model version (gpt-5.4-nano, snapshot 2026-03-17) with a fixed schema. Reproducibility of derived fields applies to Layer-2 rule-based scripts after human verification.</p>
       </div>
       <div class="limit-card">
-        <div class="limit-title">Single primary database</div>
-        <p class="limit-text">The primary search was conducted in Web of Science (991 records), supplemented by Google Scholar (225 records). Studies indexed exclusively in Scopus or IEEE conference proceedings may be underrepresented.</p>
+        <div class="limit-title">Internally developed actionability rubric</div>
+        <p class="limit-text">The D₁–D₃ rubric has not been externally validated. It is a structured analytical lens rather than a consensus psychometric instrument; a follow-up expert re-rating is planned.</p>
       </div>
       <div class="limit-card">
-        <div class="limit-title">Search date cutoff</div>
-        <p class="limit-text">The corpus covers January 2020 to August 2026. Methodological advances published after this date are not reflected in the synthesis.</p>
+        <div class="limit-title">Partial reliability subsample</div>
+        <p class="limit-text">Independent human scoring was checked on n = 37 (exact agreement 86.5%; κ = 0.76, κ<sub>w</sub> = 0.83). Full-corpus verification relied on author consensus rather than dual coding of every study.</p>
       </div>
       <div class="limit-card">
-        <div class="limit-title">Reporting incompleteness</div>
-        <p class="limit-text">Many studies do not explicitly state their plausible value protocol or sampling weight decisions. Rigor coding for these studies relies on textual inference, introducing some classification uncertainty.</p>
+        <div class="limit-title">Rubric structure and score concentration</div>
+        <p class="limit-text">Review/methodology papers receive lower D₁ by design (family mean 3.23). Most empirical studies cluster at Score 4 (180/212), limiting discrimination among predictive papers.</p>
       </div>
       <div class="limit-card">
-        <div class="limit-title">Extraction schema granularity</div>
-        <p class="limit-text">The schema captures the primary ML method and top-level model characteristics. Hyperparameter choices, ensemble configurations, and secondary analytical decisions are not systematically coded.</p>
+        <div class="limit-title">Search coverage</div>
+        <p class="limit-text">English-only search in Web of Science (991) and Google Scholar (225); Scopus was excluded. Scopus-only and some IEEE proceedings may be underrepresented. Cutoff: August 2026.</p>
       </div>
     </div>
 
@@ -1078,24 +1075,24 @@
     <div class="future-grid">
       <div class="future-card">
 
-        <div class="future-title">Multilingual extension</div>
-        <p class="future-text">Systematic replication of the search in non-English databases to assess whether the patterns identified here hold across a broader linguistic corpus.</p>
+        <div class="future-title">Multi-country comparative designs</div>
+        <p class="future-text">Move beyond single-country models with measurement invariance and contextual heterogeneity so generalizable effects can be separated from system-specific ones.</p>
       </div>
       <div class="future-card">
-        <div class="future-title">Statistical meta-analysis</div>
-        <p class="future-text">Where studies report comparable performance metrics for the same outcome-domain pair, quantitative meta-analytic synthesis would enable more precise estimation of predictor importance and cross-study heterogeneity.</p>
+        <div class="future-title">Routine XAI with domain grounding</div>
+        <p class="future-text">Pair predictive models with explainability methods and substantive educational theory so feature attributions are not read as causal mechanisms.</p>
       </div>
       <div class="future-card">
-        <div class="future-title">Formal replication with correct psychometric protocols</div>
-        <p class="future-text">A targeted replication applying Rubin's Rules across all ten plausible values and appropriate variance estimation to published ML analyses, to assess sensitivity to these methodological choices.</p>
+        <div class="future-title">Micro-level process sequences</div>
+        <p class="future-text">Go beyond response time and action counts to sequential and multilevel models of decision transitions in CBA log data.</p>
       </div>
       <div class="future-card">
-        <div class="future-title">Causal inference integration</div>
-        <p class="future-text">Causal inference methods applied to ILSA data represent a rapidly growing subfield not fully captured in the current corpus and warrant a dedicated review.</p>
+        <div class="future-title">Causal and counterfactual ML</div>
+        <p class="future-text">Expand BART/BCF and related designs where ILSA structure supports stronger inferential warrants for policy claims.</p>
       </div>
       <div class="future-card">
-        <div class="future-title">Process data as a dedicated sub-review</div>
-        <p class="future-text">Log-file and clickstream data from PISA 2022 and TIMSS 2023 represent a qualitatively distinct data type. A focused sub-review would allow more granular analysis of behavioral indicators and sequence modeling approaches.</p>
+        <div class="future-title">Core cognitive outcome coverage</div>
+        <p class="future-text">Only 32.5% of extracted findings address mathematics, reading, and science jointly as core cognitive domains; denser coverage would strengthen synthesis.</p>
       </div>
     </div>
   </div>
