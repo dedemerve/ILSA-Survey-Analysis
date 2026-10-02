@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "file_name": "133. Kraus et al. (2026). The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level.pdf",
+    "title": "The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level",
+    "authors": [
+      "Elisabeth Barbara Kraus",
+      "Benjamin Goecke",
+      "Ann-Kathrin Jaggy"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tsc.2026.102205",
+    "venue": "Thinking Skills and Creativity",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study reanalyzed PISA 2022 microdata for 15-year-old students who completed the creative thinking assessment, using item–person linked responses and associated computer-based process indicators. The authors report that they excluded sampling weights during preprocessing (“sampling weights were excluded to reduce noise and file size”), and they did not describe applying complex survey weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures. Because the predictive models are random forests fitted in R (ranger via tidymodels) and the manuscript explicitly removed sampling weights, the analysis should be interpreted as unweighted with respect to PISA’s complex sampling design. The analytic dataset was further filtered to creative-thinking completers, restructured into long format (one row per item–person combination), and creative-thinking plausible values were removed in favor of raw item scores plus process indicators."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper uses PVs for mathematics, reading, and science competences but does not report the missing-data strategy for either the PV draws or the background/process predictors (e.g., whether cases with missing covariates were excluded or imputed). This is a reporting gap because PISA datasets typically contain missingness in questionnaire and derived variables, and the choice of listwise deletion vs. imputation can affect variable importance and ALE profiles. The authors also removed PVs for creative thinking outcomes and relied on raw item scores, but they still do not document how missingness in predictors was handled.",
+    "sample_details": {
+      "total_students": 142564,
+      "countries": [],
+      "sample_filtering_criteria": "Reanalyzed PISA 2022 for 15-year-old students in 63 participating countries/economies, using only students who completed the creative thinking assessment. The analytic sample was restricted to creative-thinking completers (overall N=142,564) and then restructured into a long-format dataset with one row per item–person combination. During preprocessing, the authors excluded character variables with lengthy text entries (e.g., open-ended parental occupation fields) and excluded sampling weights; they also removed creative-thinking PVs and retained raw single-item scores plus process indicators (response time, latency to first action, number of actions, revisits/short visits)."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "student_gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "grade_level",
+        "variable_name": "Grade level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "HOMEPOS",
+        "variable_name": "Home possessions (HOMEPOS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ISCEDP",
+        "variable_name": "Parents’ education (ISCEDP)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "reading_pv",
+        "variable_name": "Reading competence (PV)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "math_pv",
+        "variable_name": "Mathematics competence (PV)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "science_pv",
+        "variable_name": "Science competence (PV)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "numberofactions",
+        "variable_name": "Number of actions",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "timing",
+        "variable_name": "Total time on task",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "timetoaction",
+        "variable_name": "Latency to first action",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "student_id",
+        "variable_name": "identifier",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "BOOKID",
+        "variable_name": "Booklet version (BOOKID)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "item_domain",
+        "variable_name": "Item content domain",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "item_identifier",
+        "variable_name": "Item identifier",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "country_identifier",
+        "variable_name": "Country identifier",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "OECD_membership",
+        "variable_name": "OECD membership",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "Option_[...]",
+        "variable_name": "Technical test option",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "facet_complementary_mean",
+        "variable_name": "Other-facet mean scores",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "other_facet_process_mean",
+        "variable_name": "Other-facet process means",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Creative Thinking (15-year-olds) — facet generate diverse ideas (GDI) item-level",
+        "target_variable": "Creative thinking item score categories (GDI; no/partial/full credit)",
+        "top_predictors": [
+          "Item content domain",
+          "Item identifier",
+          "Gender",
+          "Total time on task",
+          "Reading competence (PV)"
+        ],
+        "performance_metrics": "Random Forest — accuracy: 67.5% (per item–person classification into 3 score categories); permutation variable importance used (importance range ~0.04–0.08).",
+        "standardized_conclusion": "Using PISA 2022 creative thinking item-level data for the GDI facet, the study leveraged item characteristics (item identifier/domain), demographic factors (gender/grade), behavioral engagement indicators (total time on task, number of actions, latency), general academic competences (reading/mathematics/science PVs), and socioeconomic background (HOMEPOS, ISCEDP) to predict item score categories, finding that engagement and general academic competence plus SES were among the strongest predictors rather than creativity dispositions. This indicates that the PISA creative-thinking items may partly reflect engagement and domain-general diligence, so facet-level reporting should be interpreted cautiously as a pure measure of creative ideation."
+      },
+      {
+        "dataset_used": "PISA 2022 Creative Thinking (15-year-olds) — facet generate creative ideas (GCI) item-level",
+        "target_variable": "Creative thinking item score categories (GCI; no/partial/full credit)",
+        "top_predictors": [
+          "Item content domain",
+          "Item identifier",
+          "Total time on task",
+          "Mathematics competence (PV)",
+          "Home possessions (HOMEPOS)"
+        ],
+        "performance_metrics": "Random Forest — accuracy: 64.5% (per item–person classification into 3 score categories); permutation variable importance used (importance range ~0.04–0.08).",
+        "standardized_conclusion": "Using PISA 2022 creative thinking item-level data for the GCI facet, the study leveraged item characteristics, behavioral engagement indicators, general academic competences (reading/mathematics/science PVs), and socioeconomic background to predict item score categories, finding that the predictor profile was highly similar to the other facets and that engagement/general competence remained dominant. This indicates that the three theoretically distinct facets may not be empirically separable in how they relate to student resources, limiting the validity of using separate facet sub-scores for construct interpretation."
+      },
+      {
+        "dataset_used": "PISA 2022 Creative Thinking (15-year-olds) — facet evaluate and improve ideas (EII) item-level",
+        "target_variable": "Creative thinking item score categories (EII; no/partial/full credit)",
+        "top_predictors": [
+          "Item content domain",
+          "Item identifier",
+          "Latency to first action",
+          "Science competence (PV)",
+          "Parents’ education (ISCEDP)"
+        ],
+        "performance_metrics": "Random Forest — accuracy: 65.8% (per item–person classification into 3 score categories); permutation variable importance used (importance range ~0.04–0.08).",
+        "standardized_conclusion": "Using PISA 2022 creative thinking item-level data for the EII facet, the study leveraged item characteristics, behavioral engagement indicators, general academic competences, and socioeconomic background to predict item score categories, finding that the influential predictor set closely matched the GDI and GCI facets and that domain-specific effects were present but subtle. This indicates that PISA’s creative-thinking construct validity at the facet level may be driven more by general resources and engagement than by distinct convergent vs. divergent ideation processes."
+      }
+    ],
+    "outcome_summary": "This study reanalyzed PISA 2022 creative thinking microdata for 15-year-olds who completed the creative thinking assessment (N=142,564) and modeled raw item scores at the facet level (GDI, GCI, EII) as a 3-category outcome (no/partial/full credit). Using random forests with permutation variable importance and XAI via accumulated local effects (ALE), the authors achieved item-level classification accuracies of 67.5% (GDI), 64.5% (GCI), and 65.8% (EII). Across facets, the strongest predictors were item characteristics, behavioral engagement indicators (e.g., total time on task, number of actions, latency), general academic competences (reading/mathematics/science PVs), and socioeconomic background (e.g., HOMEPOS, ISCEDP), while creativity self-report measures were not among the top predictors. The study also found small, threshold-like interactions between domain-relevant competences and item content domains, but the facet-specific predictor profiles were remarkably similar. Limitations include exclusion of sampling weights during preprocessing and the use of a single randomly selected PV per competence domain, plus the fact that predictive importance and ALE effects are not causal evidence.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

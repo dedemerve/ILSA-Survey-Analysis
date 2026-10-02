@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "file_name": "202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMSS 2023 data: a deep learning and explainable AI approach.pdf",
+    "title": "Explaining student absenteeism in Morocco using TIMSS 2023 data: a deep learning and explainable AI approach",
+    "authors": [
+      "Abdelamine elouafi",
+      "Assiya Nouna",
+      "Ilyas Tammouch",
+      "Soumaya Nouna"
+    ],
+    "year": 2025,
+    "doi": "10.1109/ICOA66896.2025.11236843",
+    "venue": "2025 11th International Conference on Optimization and Applications (ICOA)",
+    "publication_type": "conference",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS 2023 contextual questionnaire data for Moroccan eighth-graders, combining student (BS), teacher (BT), and school principal (BC) variables into a single high-dimensional dataset. During preprocessing, the authors removed 53 technical factors explicitly including weights, information/IDs, and duplicates, and also removed PV-related reference variables to avoid prediction bias. The manuscript does not report applying any complex survey weights (e.g., student sampling weights) or replicate-weight procedures; therefore, the modeling appears to be conducted on the cleaned feature set without explicit survey-weighted estimation. Because the analysis trains standard ML classifiers (autoencoder + SVM/RF/XGBoost) on latent representations, the paper does not describe any weight-aware handling of the nested TIMSS sampling design."
+    },
+    "plausible_values_handling": "not_reported",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper states that PV-related reference variables were removed during preprocessing, but it does not clearly describe whether any remaining PV-based achievement variables were used as inputs or how PVs would have been handled if present. Similarly, while the authors report removing variables with more than 50% missing values and variables with no data, they do not specify the missing-data rule at the case (student/school) level (e.g., listwise deletion vs imputation). This is a reporting gap because TIMSS datasets typically contain non-trivial item nonresponse, and the choice of case-level missing-data handling can affect model training and performance.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "MAR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used the TIMSS 2023 international database for Morocco, restricted to eighth-grade Moroccan students. The authors cleaned the dataset by removing 759 variables initially, including 53 technical factors (weights, IDs, duplicates), eliminating 30 variables with more than 50% missing values and 70 variables with no data, removing 30 redundant numerical score variables expressed in different formats, and removing 10 reference variables mostly related to plausible values (PVs). After cleaning, they retained 596 variables for modeling. For the target, they used the school principal absenteeism severity variable BCBG15B and reclassified it into a binary outcome by combining 'No problem', 'Minor problem', and 'Moderate problem' into a low-to-moderate class versus 'Serious problem' as the high-absenteeism class."
+    },
+    "ml_techniques": {
+      "primary": "SVM",
+      "all_techniques": [
+        "Autoencoder",
+        "Support Vector Machine",
+        "Random Forest",
+        "XGBoost",
+        "Decision Tree"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "BCBG13B",
+        "variable_name": "Teacher encouragement of interest",
+        "category": "school"
+      },
+      {
+        "variable_code": "BTBG10",
+        "variable_name": "Class size",
+        "category": "school"
+      },
+      {
+        "variable_code": "BTBG09E",
+        "variable_name": "Need more time to assist",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BTBM15C",
+        "variable_name": "Memorization-focused teaching",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BCBG20C",
+        "variable_name": "Perceived teacher kindness",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BTBG13F",
+        "variable_name": "Uninterested students",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BCBG12C",
+        "variable_name": "High teacher achievement expectations",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BTBM19BE",
+        "variable_name": "representations of problems",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BCBG11AF",
+        "variable_name": "Shortage of technology support staff",
+        "category": "ict"
+      },
+      {
+        "variable_code": "BTBM18B",
+        "variable_name": "Smartphone use in math lessons",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2023 Morocco Grade 8 (student/teacher/school context questionnaires)",
+        "target_variable": "Serious absenteeism severity (binary, from BCBG15B)",
+        "top_predictors": [
+          "Teacher encouragement of interest",
+          "Class size",
+          "Need more time to assist",
+          "Memorization-focused teaching",
+          "Shortage of technology support staff"
+        ],
+        "performance_metrics": "SVM (latent features from autoencoder): Accuracy 0.9081, F1-score 0.8883; ROC-AUC 0.98. Random Forest: Accuracy 0.9011, F1 0.8860, ROC-AUC 0.97. XGBoost: Accuracy 0.9011, F1 0.8871, ROC-AUC 0.96. Decision Tree: Accuracy 0.8174, F1 0.7890, ROC-AUC 0.84.",
+        "standardized_conclusion": "Using TIMSS 2023 Morocco Grade 8 the study leveraged teacher encouragement of interest, class size, need for more time to assist, memorization-focused teaching, and technology support shortages (via autoencoder latent features) to predict serious absenteeism severity, finding that the SVM model achieved the highest discrimination (Accuracy 0.9081, F1 0.8883, ROC-AUC 0.98) and that teacher-student relational quality, instructional practices, and institutional/technology conditions were among the most influential factors. This indicates that absenteeism interventions in Morocco should prioritize classroom climate and teacher support practices alongside resource and technology staffing improvements, though the study is predictive and does not establish causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes TIMSS 2023 contextual questionnaire information for Moroccan eighth-graders, using the school principal’s absenteeism severity item (BCBG15B) reclassified into a binary target: serious absenteeism versus low-to-moderate absenteeism. After removing technical variables (including weights/IDs/duplicates), high-missingness variables, redundant score variables, and PV-related reference variables, the authors train an autoencoder to compress 596 remaining inputs into a 10-dimensional latent representation. They then fit four classifiers in the latent space—SVM, Random Forest, XGBoost, and Decision Tree—and evaluate them with accuracy, F1-score, and ROC-AUC. SVM performs best (Accuracy 0.9081, F1 0.8883, ROC-AUC 0.98), while Decision Tree performs worst (Accuracy 0.8174, F1 0.7890, ROC-AUC 0.84). Interpretability is provided via SHAP on latent dimensions and a backward mapping to identify top original variables; however, the paper does not report case-level missing-data handling or explicit survey-weight usage, and SHAP-based importance should not be interpreted as causal evidence.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

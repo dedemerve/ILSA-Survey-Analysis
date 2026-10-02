@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "file_name": "134. Chen et al. (2026). Interpretable machine learning reveals key determinants of creative thinking among East Asian students: Evidence from PISA 2022.pdf",
+    "title": "Interpretable machine learning reveals key determinants of creative thinking among East Asian students: Evidence from PISA 2022",
+    "authors": [
+      "Hui Chen",
+      "Hongji Deng",
+      "Hao Yu",
+      "Yan Dong",
+      "Huazhen Wang"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tsc.2025.102069",
+    "venue": "Thinking Skills and Creativity",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata for creative thinking, with the dependent variable constructed from 10 plausible values (PVs) generated via IRT scaling and combined using Rubin’s rules. The analytic sample is restricted to five East Asian economies that participated in the creative thinking module (Hong Kong-China, Macau-China, Chinese Taipei, South Korea, Singapore), with Japan excluded. The authors apply a nested resampling scheme (100 random 80/20 splits) and explicitly fit all preprocessing steps (including KNN imputation, encoding, and standardization) within the training set to avoid data leakage. The manuscript does not report the use of PISA sampling weights or replicate weights; therefore, it is unclear whether complex survey weighting was applied beyond the PV construction and Rubin pooling."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "knn_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 29208,
+      "countries": [
+        {
+          "country_code": "HKG",
+          "n_students": 5907
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 6454
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 4384
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6606
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 5857
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2022 student main survey data restricted to East Asian economies that participated in the creative thinking assessment module: Hong Kong-China, Macau-China, Chinese Taipei, South Korea, and Singapore. Japan was excluded because it did not participate in the creative thinking module. Students with missingness rates exceeding 10% on candidate predictors were excluded. Missing values in the remaining dataset were imputed using KNN within each training fold/split."
+    },
+    "ml_techniques": {
+      "primary": "LightGBM",
+      "all_techniques": [
+        "Elastic Net Regression",
+        "Random Forest",
+        "Support Vector Regression",
+        "XGBoost",
+        "LightGBM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "EXERPRAC",
+        "variable_name": "Extracurricular physical activity",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "EXPECEDU",
+        "variable_name": "Expected educational attainment",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "MATH",
+        "variable_name": "Math performance",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "READING",
+        "variable_name": "Reading performance",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "SCIENCE",
+        "variable_name": "Science performance",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "CURIOAGR",
+        "variable_name": "Curiosity",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PERSEVAGR",
+        "variable_name": "Perseverance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMPATAGR",
+        "variable_name": "Empathy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ASSERAGR",
+        "variable_name": "Assertiveness",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COOPAGR",
+        "variable_name": "Cooperative tendency",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "STRESAGR",
+        "variable_name": "Stress resistance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMOCOAGR",
+        "variable_name": "Emotional control",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CREATEFF",
+        "variable_name": "Creative self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CREATOP",
+        "variable_name": "Openness to intellect",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "OPENART",
+        "variable_name": "Openness to art",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ICTEFFIC",
+        "variable_name": "Self-efficacy in digital competencies",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTWKDY",
+        "variable_name": "ICT weekday activity frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTWKEND",
+        "variable_name": "ICT weekend activity frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "family_economic",
+        "variable_name": "Family economic",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "social",
+        "variable_name": "social",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "cultural_status",
+        "variable_name": "cultural status",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "PAREDINT",
+        "variable_name": "Highest parental education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "CREATFAM",
+        "variable_name": "Family creative climate",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT availability at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "CREATSCH",
+        "variable_name": "School creative climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "CREATAS",
+        "variable_name": "Creative activities at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT availability at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUT",
+        "variable_name": "Use of ICT outside classroom",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTENQ",
+        "variable_name": "Use of ICT in inquiry learning",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTSUBJ",
+        "variable_name": "Subject-related ICT use",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Creative Thinking (East Asian economies; student-level composite score 0–60)",
+        "target_variable": "Creative thinking score (PVs combined via Rubin’s rules)",
+        "top_predictors": [
+          "Reading performance",
+          "Science performance",
+          "Family economic, social and cultural status (ESCS)",
+          "Math performance",
+          "Gender"
+        ],
+        "performance_metrics": "LightGBM (best model): R²=0.6304 (SD=0.0078), RMSE=6.24 (SD=0.06), MAE=4.96 (SD=0.05) across 100 random 80/20 splits with 5-fold CV hyperparameter tuning; LOGO-CV robustness: LightGBM R²=0.3898 (SD=0.1126).",
+        "standardized_conclusion": "Using PISA 2022 Creative Thinking the study leveraged reading performance, science performance, ESCS, math performance, and gender to predict students’ creative thinking scores, finding that reading performance was the most influential predictor and that LightGBM achieved the highest average predictive fit (R²≈0.63) though performance dropped under Leave-One-Group-Out by economy (R²≈0.39). This indicates that creative-thinking interventions in East Asia should prioritize literacy/reading development and address socioeconomic and gender-linked differences, while recognizing that model-based importance is correlational and may not generalize uniformly across economies."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2022 creative thinking microdata for five East Asian economies (Hong Kong-China, Macau-China, Chinese Taipei, South Korea, Singapore; Japan excluded) and predicts a student-level creative thinking composite score (0–60) derived from 10 plausible values combined using Rubin’s rules. Five regression ML models were trained (Elastic Net, Random Forest, SVR, XGBoost, LightGBM) using nested resampling: 100 repetitions of an 80/20 train-test split with preprocessing (KNN imputation, encoding, standardization) fit only on training data, plus grid-search hyperparameter tuning with 5-fold CV. Across random splits, LightGBM performed best with R²=0.6304, RMSE=6.24, and MAE=4.96; however, LOGO-CV by economy showed lower and more conservative performance (LightGBM R²=0.3898). SHAP interpretation indicated that reading performance, science performance, ESCS, math performance, and gender were consistently top predictors, with additional evidence of nonlinear threshold effects and interactions. The paper is correlational (no causal identification) and does not report whether PISA sampling/replicate weights were applied beyond PV construction, limiting population-representativeness claims.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

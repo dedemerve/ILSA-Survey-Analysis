@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "file_name": "173. Mang et al. (2021). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA survey.pdf",
+    "title": "The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA survey",
+    "authors": null,
+    "year": 2021,
+    "doi": "10.1186/s40536-021-00099-0",
+    "venue": "Large-scale Assess Educ",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 sampling structures (two-stage stratified cluster sampling with PPS school selection and random student selection within schools) and focuses on how to incorporate sampling weights in two-level hierarchical models (students nested in schools). The analytic work is primarily a Monte Carlo simulation with 1000 replications per scenario, where simulated samples are drawn from a German PISA 2015-based population and weights are generated to reflect selection probabilities and non-response adjustments (school non-response assumed 100% participation; student non-response simulated using grade and gender). The paper evaluates multiple weighting scenarios (e.g., no weights, unscaled weights, only student weights, only school weights, and scaled variants such as Cluster/ECluster/Clustersum/House weights), and it recommends using only level-2 school weights for unbiased parameter recovery. Because the paper is not training ML models but comparing estimation procedures in multilevel modeling, it does not report ML-style weight omission; instead, it explicitly varies weight usage and scaling as the core methodological factor."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper does not describe a missing-data strategy for the simulation or the PISA application beyond simulating non-response and using weight adjustments; it therefore does not provide an explicit missing-data handling method (e.g., listwise deletion or multiple imputation) for item-level missingness. This is a reporting gap because PISA datasets typically contain missing responses, and the paper’s focus on weighting does not substitute for documenting how missingness in the outcome/inputs was handled in the estimation workflow.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "DEU",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The simulation population is based on the German PISA 2015 sampling frame and population characteristics; samples are drawn as 1000 Monte Carlo replications of 234 schools per scenario with a maximum of 25 students per school (and all eligible students selected in schools with fewer than 25). The paper also applies the recommended weighting approach to PISA 2015 data for the practical illustration, using the first plausible value for science and ESCS (z-standardized) at both student and school levels, but it does not specify additional analytic exclusions beyond the hierarchical modeling setup."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "school_escs",
+        "variable_name": "School average ESCS",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 (Germany) Science achievement (first plausible value)",
+        "target_variable": "Intercept (grand mean) in two-level MLM",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School average ESCS"
+        ],
+        "performance_metrics": "Empirical 95% coverage rate (CR) for intercept β0: with recommended weighting Only School Weights, CR is high in scenarios where it is unbiased; e.g., in Simulation Scenario 1 (PISA-like), Only School Weights yields CR≈1.00 for β0 in both SAS and Mplus, while several alternatives show CR≈0.00 (No weights / Only student weights / Clustersum / House weights).",
+        "standardized_conclusion": "Using PISA 2015 (Germany) science plausible-value data within a two-level multilevel modeling framework, the study leveraged socioeconomic status (ESCS) and school average ESCS as level-1/level-2 regressors to estimate the intercept (grand mean). It found that weighting only at level 2 (Only School Weights) retrieves the true population intercept with least bias (high 95% coverage), whereas omitting school weights or using unscaled/other scaling schemes can drastically overestimate the intercept. This indicates that applying school-level sampling weights is essential for valid interpretation of average achievement in hierarchical analyses of PISA-like data, though the results are based on simulation-based recovery rather than causal effects."
+      },
+      {
+        "dataset_used": "PISA 2015 (Germany) Science achievement (first plausible value)",
+        "target_variable": "Within-school variance (σ²ε) in two-level MLM",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School average ESCS"
+        ],
+        "performance_metrics": "Empirical 95% coverage rate (CR) for within-school variance σ²ε: in Simulation Scenario 1 (PISA-like), SAS shows underestimation (low CR) for Unscaled Weights / Only Student Weights / Withincluster Weights, while Only School Weights achieves CR≈1.00; in Simulation Scenario 2 (low between-school variance), SAS again underestimates σ²ε for Unscaled Weights / Only Student Weights / Withincluster Weights (CR roughly 0.3–0.8).",
+        "standardized_conclusion": "Using PISA 2015 (Germany) science plausible-value data in two-level MLM, the study leveraged ESCS at the student level and school average ESCS to estimate the within-school variance component. It found that Only School Weights provides sufficiently unbiased recovery of σ²ε across scenarios, while several alternatives (notably unscaled weights, only student weights, and withincluster-weight approaches) tend to underestimate within-school variability, especially in SAS. This indicates that researchers should avoid weight configurations that distort variance decomposition in multilevel analyses of LSA data, because such distortions can mislead conclusions about how much heterogeneity exists within schools."
+      },
+      {
+        "dataset_used": "PISA 2015 (Germany) Science achievement (first plausible value)",
+        "target_variable": "Between-school variance (σ²τ) in two-level MLM",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School average ESCS"
+        ],
+        "performance_metrics": "Empirical 95% coverage rate (CR) for between-school variance σ²τ: in Simulation Scenario 1 (PISA-like), Only School Weights yields high CR (≈0.95–1.00 depending on model/software), while No weights / Only student weights / Clustersum / House weights show poor coverage (often near 0.38–0.51). In the PISA application, compared to Only School Weights, several alternatives underestimate σ²τ in Models 2 and 3 (Tables 9–10).",
+        "standardized_conclusion": "Using PISA 2015 (Germany) science plausible-value data in two-level MLM, the study leveraged ESCS and school average ESCS to estimate the between-school variance component. It found that Only School Weights most consistently recovers σ²τ with least bias (high 95% coverage) across simulation scenarios, whereas other weighting schemes can underestimate between-school variability and therefore distort the inferred role of schools. This indicates that policy-relevant interpretations about school-level differences in achievement depend critically on correct school-weight handling, though the study’s evidence is based on parameter recovery under simulated sampling designs."
+      }
+    ],
+    "outcome_summary": "This paper investigates how to scale and apply sampling weights in two-level hierarchical models for large-scale assessment data, using PISA 2015 (Germany) as an illustrative structure. The core evidence comes from a Monte Carlo simulation with 1000 replications per scenario, comparing nine weighting approaches (e.g., no weights, unscaled weights, only student weights, only school weights, and scaled variants such as Cluster/ECluster/Clustersum/House weights) across three hierarchical models and two software packages (Mplus and SAS PROC GLIMMIX). Performance is evaluated via empirical 95% coverage rates for estimated parameters (intercept, within-school variance, between-school variance), showing that Only School Weights yields the least biased and sufficiently precise estimates across scenarios. In the PISA 2015 application using the first science plausible value and ESCS at student and school levels, alternative weighting schemes tend to inflate the intercept and/or underestimate variance components relative to the recommended approach. Limitations include reliance on simulation-based recovery and the absence of a detailed missing-data handling description beyond weight-based non-response adjustments.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

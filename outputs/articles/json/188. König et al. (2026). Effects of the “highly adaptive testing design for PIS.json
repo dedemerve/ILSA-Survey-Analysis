@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "file_name": "188. König et al. (2026). Effects of the “highly adaptive testing design for PISA” on plausible value-based population estimates.pdf",
+    "title": "Effects of the “highly adaptive testing design for PISA” on plausible value-based population estimates",
+    "authors": [
+      "König",
+      "Frey",
+      "König",
+      "Fink",
+      "Seitz"
+    ],
+    "year": 2026,
+    "doi": "10.1186/s40536-026-00309-7",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": true,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses simulated PISA 2018 Reading administrations under two test designs (MST vs HAT) and then applies PISA’s official PV-based population modeling procedure. For the PV-based country statistics (means, standard deviations, and proficiency-level proportions), the authors compute sampling variances and imputation variances using the final student and replicate weights included in the PISA 2018 public use files. They apply a Fay factor of 0.5 within the balanced repeated replication (BRR) framework for replicate-weight variance estimation. Country-specific proficiency cut scores from the PISA 2018 technical report are used to derive proficiency-level proportions from the drawn PVs; the manuscript does not report any additional unweighted ML-style omission of weights, because the analysis is variance-component evaluation rather than predictive modeling."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper does not describe a conventional missing-data strategy (e.g., listwise/pairwise deletion or imputation) for questionnaire or background variables. Instead, it simulates omitted item responses (“not-reached” items) and treats them as missing in the response vectors after simulated administration; these omissions are already reflected in the generation of the students’ true ability vectors. Because the focus is on PV drawing and variance-component decomposition under the official PISA procedure, the manuscript does not frame this as a missing-data handling method in the usual statistical sense.",
+    "sample_details": {
+      "total_students": 110958,
+      "countries": [
+        {
+          "country_code": "AUT",
+          "n_students": 6802
+        },
+        {
+          "country_code": "BEL",
+          "n_students": 8475
+        },
+        {
+          "country_code": "CZE",
+          "n_students": 7019
+        },
+        {
+          "country_code": "DNK",
+          "n_students": 7657
+        },
+        {
+          "country_code": "FRA",
+          "n_students": 6308
+        },
+        {
+          "country_code": "DEU",
+          "n_students": 5451
+        },
+        {
+          "country_code": "HUN",
+          "n_students": 5132
+        },
+        {
+          "country_code": "ISL",
+          "n_students": 3296
+        },
+        {
+          "country_code": "IRL",
+          "n_students": 5577
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 6109
+        },
+        {
+          "country_code": "LUX",
+          "n_students": 5230
+        },
+        {
+          "country_code": "MEX",
+          "n_students": 7299
+        },
+        {
+          "country_code": "NZL",
+          "n_students": 6173
+        },
+        {
+          "country_code": "NOR",
+          "n_students": 5813
+        },
+        {
+          "country_code": "SVN",
+          "n_students": 6401
+        },
+        {
+          "country_code": "SWE",
+          "n_students": 5504
+        },
+        {
+          "country_code": "CHE",
+          "n_students": 5822
+        },
+        {
+          "country_code": "TUR",
+          "n_students": 6890
+        }
+      ],
+      "sample_filtering_criteria": "The analytic sample is a simulated subset of PISA 2018 main-survey data restricted to 18 OECD countries (and language groups within countries where applicable) that implemented PISA as a computer-based assessment for the Reading domain. The study uses the PISA 2018 public use cognitive achievement and background data to generate student-specific ability vectors and then simulates item administration under two Reading test designs: the PISA 2018 MST design (with stage order switched for 25% of students to control item-position effects) and the PISA HAT design (implemented via the STA with specified constraints). For the simulated administrations, response vectors are subset to the administered items; “not-reached” items are recoded as missing after simulation, and these omissions are accounted for in the generation of the students’ true ability vectors."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (computer-based), simulated administrations across 18 OECD countries",
+        "target_variable": "Country mean Reading proficiency (Plausible Values-based estimate)",
+        "top_predictors": [],
+        "performance_metrics": "HAT vs MST: mean imputation variance decreased by 19% (range: 16% to 23%); total error variance approximately 2% smaller on average; sampling variances not significantly different.",
+        "standardized_conclusion": "Using PISA 2018 Reading data (simulated under MST vs HAT across 18 OECD countries), the study compared PV-based country-specific means by decomposing total error variance into sampling and imputation components, finding that HAT significantly reduced the imputation variance by 19% while leaving sampling variance essentially unchanged. This indicates that adopting the HAT design can improve the measurement precision of PISA’s reported country mean estimates, strengthening the reliability of international benchmarking even when sampling error remains the dominant uncertainty source."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (computer-based), simulated administrations across 18 OECD countries",
+        "target_variable": "Country standard deviation of Reading proficiency (Plausible Values-based estimate)",
+        "top_predictors": [],
+        "performance_metrics": "HAT vs MST: imputation variance decreased by 16% on average (range: 13% to 19%); total error variance decreased by 1.6% on average; sampling variances not significantly different.",
+        "standardized_conclusion": "Using PISA 2018 Reading data (simulated under MST vs HAT across 18 OECD countries), the study evaluated PV-based country-specific standard deviations via variance-component decomposition, finding that HAT reduced imputation variance by 16% and lowered total error variance by about 1.6% while sampling variance showed no significant design differences. This indicates that HAT can yield more precise estimates of within-country dispersion in reading proficiency, supporting more stable policy interpretations about inequality and spread in achievement distributions."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (computer-based), simulated administrations across 18 OECD countries",
+        "target_variable": "Proportions of students on Reading proficiency levels (Plausible Values-based estimates)",
+        "top_predictors": [],
+        "performance_metrics": "HAT vs MST: imputation variance reduced by 8% to 13% across proficiency levels; total error variance reduced up to 9% (largest for Levels V and VI); point estimates shifted with smaller proportions on Levels V and VI under HAT; absolute changes averaged: Level III +0.27 percentage points, Level V −0.12 percentage points.",
+        "standardized_conclusion": "Using PISA 2018 Reading data (simulated under MST vs HAT across 18 OECD countries), the study compared PV-based proficiency-level proportions by examining both variance components and point-estimate shifts, finding that HAT substantially reduced imputation variance (8%–13%) and total error variance (up to 9%) and produced smaller estimated proportions at the upper proficiency levels (V and VI) than MST. This indicates that switching to HAT can reduce overestimation of extreme proficiency shares and enable more nuanced categorization of students for policy-relevant reporting, though the study is simulation-based and does not establish causal effects on real operational outcomes."
+      }
+    ],
+    "outcome_summary": "This study simulates the PISA 2018 Reading assessment under two test designs—PISA 2018 multistage testing (MST) and the highly adaptive testing (HAT) design—across 18 OECD countries (N=110,958 students; 5,723,330 after weighting). Using the official PISA PV-based population modeling procedure (including PV draws, BRR replicate variance estimation with Fay factor 0.5, and PISA 2018 proficiency cut scores), the authors evaluate how the design affects measurement precision at the population level. HAT reduced the imputation variance for country mean Reading proficiency by 19% (total error variance about 2% smaller on average) and reduced imputation variance for country standard deviations by 16% (total error variance about 1.6% smaller). For proficiency-level proportions, HAT reduced imputation variance by 8%–13% and total error variance by up to 9%, with point estimates showing smaller shares at Levels V and VI than MST. Limitations include reliance on simulation and the fact that the analysis targets variance-component precision rather than predictive accuracy or causal impacts.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}
