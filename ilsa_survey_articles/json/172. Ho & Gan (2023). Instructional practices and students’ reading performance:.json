@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "file_name": "172. Ho & Gan (2023). Instructional practices and students’ reading performance: a comparative study of 10 top performing regions in PISA 2018.pdf",
+    "title": "Instructional practices and students’ reading performance: a comparative study of 10 top performing regions in PISA 2018",
+    "authors": [
+      "Soi Kei Ho",
+      "Zhengdong Gan"
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40468-023-00261-1",
+    "venue": "Language Testing in Asia",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 questionnaire and reading assessment data for 15-year-olds from 10 selected top-performing regions. The analytic sample is restricted to students within these regions (2963 schools; 80,016 students) and further excludes cases with missing data. For the regression analyses predicting reading performance, the authors state that the regression analyses were conducted for all 10 reading plausible values incorporating the sampling weights, but they do not report the specific weight variable name. Because the models are hierarchical linear regression (not ML algorithms), the paper’s weighting choice is treated as part of the PISA complex survey design handling rather than an ML-specific omission."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 80016,
+      "countries": [
+        {
+          "country_code": "CHN",
+          "n_students": 12058
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6676
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 3775
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 6037
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 6650
+        },
+        {
+          "country_code": "EST",
+          "n_students": 5316
+        },
+        {
+          "country_code": "CAN",
+          "n_students": 22653
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 5649
+        },
+        {
+          "country_code": "IRL",
+          "n_students": 5577
+        },
+        {
+          "country_code": "POL",
+          "n_students": 5625
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 questionnaire and reading assessment data and restricted the secondary analysis to students aged 15 from the 10 top-performing regions: B-S-J-Z (China), Singapore, Macao, Hong Kong, Korea, Estonia, Canada, Finland, Ireland, and Poland. The final analytic sample includes 80,016 students from 2963 schools within these regions, and the authors excluded subjects with missing data before analysis."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher academic support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "DIRINS",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Teacher feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ADAPTIVITY",
+        "variable_name": "Adaptive instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "STIMREAD",
+        "variable_name": "Stimulation of reading engagement",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TEACHINT",
+        "variable_name": "Teacher enthusiasm",
+        "category": "teacher"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (15-year-olds), overall reading performance (PVREAD)",
+        "target_variable": "Reading performance (PVREAD; mean across 10 PVs)",
+        "top_predictors": [
+          "Teacher stimulation of reading engagement (STIMREAD)",
+          "Adaptive instruction (ADAPTIVITY)",
+          "Teacher enthusiasm (TEACHINT)",
+          "Teacher academic support (TEACHSUP)",
+          "Teacher-directed instruction (DIRINS)"
+        ],
+        "performance_metrics": "Hierarchical linear regression (weighted sampling weights; all 10 PVs). Step 1 (demographics) R2=0.092; Step 2 (instructional practices) R2=0.128; ΔR2=0.036. Standardized effects: STIMREAD β=0.14 (p<0.001), ADAPTIVITY β=0.07 (p<0.001), TEACHINT β=0.06 (p<0.001), TEACHSUP β=0.06 (p<0.001), DIRINS β=-0.13 (p<0.001), PERFEED β=-0.09 (p<0.001).",
+        "standardized_conclusion": "Using PISA 2018 Reading the study leveraged teacher instructional practice indices (STIMREAD, ADAPTIVITY, TEACHINT, TEACHSUP, DIRINS, PERFEED) to predict students’ overall reading performance (PVREAD; averaged across 10 plausible values), finding that teacher stimulation, adaptive instruction, teacher enthusiasm, and teacher academic support were positively associated with reading performance, while teacher-directed instruction and teacher feedback were negatively associated. This indicates that reading improvement policies should prioritize classroom practices that actively engage students and adapt instruction to learning needs, while rethinking how direct instruction and feedback are implemented to avoid unintended negative associations, though the cross-sectional design limits causal claims."
+      }
+    ],
+    "outcome_summary": "This study used PISA 2018 questionnaire and reading assessment data to compare 10 top-performing regions (B-S-J-Z/CHN, Singapore/SGP, Macao/MAC, Hong Kong/HKG, Korea/KOR, Estonia/EST, Canada/CAN, Finland/FIN, Ireland/IRL, Poland/POL). Reading literacy was measured with a 1-hour computer-based test and scaled into an overall reading score (PVREAD) represented by 10 plausible values; the authors used the mean of the 10 PVs as the outcome. Instructional practices were captured via six student-perceived teacher indices (TEACHSUP, DIRINS, PERFEED, ADAPTIVITY, STIMREAD, TEACHINT), scaled using weighted likelihood estimates (WLE). Using hierarchical linear regression with sampling weights and excluding missing cases, the model explained 12.8% of variance in PVREAD after adding instructional practices (ΔR2=0.036 beyond demographics). The strongest positive predictor was STIMREAD (β=0.14), while DIRINS (β=-0.13) and PERFEED (β=-0.09) were negative; associations were largely consistent across Asian and Western region groupings, but the study is correlational and relies on student self-reports of teaching.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

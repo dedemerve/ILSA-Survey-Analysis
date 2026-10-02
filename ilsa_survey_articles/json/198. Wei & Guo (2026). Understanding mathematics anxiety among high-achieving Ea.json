@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "file_name": "198. Wei & Guo (2026). Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data.pdf",
+    "title": "Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data",
+    "authors": [
+      "Xu Wei",
+      "Kan Guo"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.paid.2026.113952",
+    "venue": "Personality and Individual Differences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "W_FSTUWT",
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata pooled across six East Asian regions (Singapore, Macau, Chinese Taipei, Hong Kong, Japan, Korea) and links student, parent, and school principal questionnaires. The analytic dataset is constructed by removing predictors with >50% missingness, excluding textual variables, merging redundant variables, and matching student- and school-level records via school ID, yielding 118 predictors (69 student-level, 49 school-level). For model training and evaluation, the authors apply final student weights (W_FSTUWT) to correct for non-response bias and sampling error arising from the two-stage stratified sampling design. The manuscript does not report replicate-weight methods (e.g., BRR/jackknife), so uncertainty estimation details for resampling-based inference are not specified."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 34968,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 6606
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 4384
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 5857
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 5907
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 5760
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 6454
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2022 student responses for 15-year-olds from six East Asian regions (Singapore, Macau, Chinese Taipei, Hong Kong, Japan, Korea). Predictors were restricted to derived questionnaire variables (student, parent, and school principal) and mathematics achievement was included as PV1MATH (plausible value 1). Variables with over 50% missingness were removed; textual variables were excluded; redundant variables (e.g., different labels for school type) were merged; then student- and school-level data were matched via school ID to form the final modeling dataset. The paper does not describe additional grade/school-type restrictions beyond the PISA 15-year-old target population."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "XGBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "MATHEF21",
+        "variable_name": "Mathematics self-efficacy (reasoning)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "STRESAGR",
+        "variable_name": "Stress resistance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Mathematics self-efficacy (formal/applied)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PROBSELF",
+        "variable_name": "Problems with self-directed learning",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MATHEASE",
+        "variable_name": "Perceived math easier than others",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPERS",
+        "variable_name": "Proactive mathematics study behavior",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MATHPREF",
+        "variable_name": "Preference for mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "FAMCON",
+        "variable_name": "Familiarity with mathematics concepts",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "PV1MATH",
+        "variable_name": "Mathematics achievement (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "SDLEFF",
+        "variable_name": "Self-directed learning self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "TOTMATH",
+        "variable_name": "Total math teachers at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "PROPMATH",
+        "variable_name": "Proportion of math teachers",
+        "category": "school"
+      },
+      {
+        "variable_code": "DIGPREP",
+        "variable_name": "Preparedness for digital learning",
+        "category": "ict"
+      },
+      {
+        "variable_code": "INSTLEAD",
+        "variable_name": "Instructional leadership",
+        "category": "school"
+      },
+      {
+        "variable_code": "STUBEHA",
+        "variable_name": "behaviors undermining climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "TOTAT",
+        "variable_name": "Total teachers at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "RATCMP1",
+        "variable_name": "Availability of computers",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School size",
+        "category": "school"
+      },
+      {
+        "variable_code": "MATHEXC",
+        "variable_name": "Mathematics extension courses",
+        "category": "curriculum"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 (15-year-olds) Mathematics anxiety (6-item IRT scale)",
+        "target_variable": "Mathematics anxiety (IRT-based score)",
+        "top_predictors": [
+          "Mathematics self-efficacy (reasoning)",
+          "Stress resistance",
+          "Mathematics self-efficacy (formal/applied)",
+          "Problems with self-directed learning",
+          "Mathematics achievement (PV1)"
+        ],
+        "performance_metrics": "XGBoost — Training: RMSE 0.9857, R² 26.57%; Testing: RMSE 0.9724, R² 27.75%. Feature selection: learning curve plateau after 26 features; R² 26.35% at 26 features vs 28.48% with all 117 features.",
+        "standardized_conclusion": "Using PISA 2022 data for 15-year-olds, the study leveraged mathematics self-efficacy, stress resistance, self-directed learning problems, and mathematics achievement (PV1MATH) to predict mathematics anxiety, finding that self-efficacy and stress regulation variables were the strongest predictors while mathematics achievement had relatively weak predictive power. This indicates that interventions prioritizing socio-emotional supports (self-efficacy and stress regulation) may be more effective than achievement-focused remediation for reducing math anxiety among high-achieving East Asian students, though the results are predictive and not causal."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2022 microdata for 15-year-olds from six East Asian regions (Singapore, Macau, Chinese Taipei, Hong Kong, Japan, Korea; N=34,968) to predict mathematics anxiety measured by a six-item IRT scale. After removing predictors with >50% missingness, excluding textual variables, merging redundant variables, and matching student and school data via school ID, the authors train an XGBoost model on a pooled dataset with a 70/30 train-test split and tune hyperparameters via randomized search with five-fold cross-validation. They apply final student weights (W_FSTUWT) to address non-response bias and sampling error from the two-stage stratified design. Predictive performance is moderate (testing R²=27.75%, RMSE=0.9724), with the learning curve plateauing after 26 features. SHAP and partial dependence plots are used for interpretation, but these explain predictive contributions rather than causal effects, and the paper does not report replicate-weight uncertainty methods.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

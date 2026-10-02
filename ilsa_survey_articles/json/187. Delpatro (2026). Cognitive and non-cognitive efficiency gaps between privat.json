@@ -1,0 +1,344 @@
+{
+  "metadata": {
+    "file_name": "187. Delpatro (2026). Cognitive and non-cognitive efficiency gaps between private and public schools and their determinants in the Latin America region a hybrid data envelo.pdf",
+    "title": "Cognitive and non-cognitive efficiency gaps between private and public schools and their determinant",
+    "authors": [
+      "Marcos Delprato"
+    ],
+    "year": 2026,
+    "doi": "10.1080/2331186X.2026.2684391",
+    "venue": "Cogent Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 school-level efficiency analysis for nine Latin American countries, constructing school averages from student and school questionnaires and then estimating DEA efficiency scores separately for private and public schools. The analytic sample is restricted to schools with complete inputs/outputs for the DEA formulations (including non-cognitive soft-skills outcomes), resulting in 2,034 schools (1,548 public; 486 private). The manuscript does not report applying PISA complex survey weights (e.g., student sampling weights) or replicate-weight procedures in the DEA or the second-stage ML; therefore, weighting strategy is not documented. In the second stage, the authors train binary classifiers (logit, neural networks, gradient boosted trees) with stratified 5-fold cross-validation and select models using AUROC and AUPRC; these ML methods are typically run without native survey-weight incorporation, and the paper does not specify any weight-aware training or post-stratification corrections."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables in the second stage are binary indicators derived from DEA technical efficiency scores (above vs. below the regional mean), not directly from PV-based achievement scores. While PISA achievement inputs are used to construct school-average cognitive outputs, the paper does not document how missing item responses or any PV-related missingness were handled when building those school-level outputs, which is a reporting gap for transparency. Because the analysis relies on aggregated school measures and DEA/ML rather than explicitly reported PV estimation procedures, the missing-data strategy is not clearly traceable from the text provided.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "ARG",
+          "n_students": null
+        },
+        {
+          "country_code": "BRA",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "COL",
+          "n_students": null
+        },
+        {
+          "country_code": "DOM",
+          "n_students": null
+        },
+        {
+          "country_code": "MEX",
+          "n_students": null
+        },
+        {
+          "country_code": "PAN",
+          "n_students": null
+        },
+        {
+          "country_code": "PER",
+          "n_students": null
+        },
+        {
+          "country_code": "URY",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The working sample includes nine Latin American countries (Argentina, Brazil, Chile, Colombia, Dominican Republic, Mexico, Panama, Peru, Uruguay) from PISA 2022. The analysis is conducted at school level: the author constructs averages of key student and school variables and merges them into a school-level dataset for DEA. The resulting school sample contains 2,034 schools total (1,548 public; 486 private). Two additional LAC countries are excluded: Costa Rica (missing the household SES covariate used as an input for the DEA formulation) and Paraguay (missing non-cognitive outputs). The DEA is estimated separately for private and public schools and for two output sets (cognitive: school-average math/reading/science scores; non-cognitive: a soft-skills well-being index), implying that schools must have the required output/input information for each DEA model."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting",
+      "all_techniques": [
+        "Logistic Regression",
+        "Neural Network",
+        "XGBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "books_number",
+        "variable_name": "Books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ict_home_resources_index",
+        "variable_name": "ICT home resources",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_resources_use_index",
+        "variable_name": "ICT use during pandemic",
+        "category": "ict"
+      },
+      {
+        "variable_code": "device_used_during_closure",
+        "variable_name": "Device used during closure",
+        "category": "ict"
+      },
+      {
+        "variable_code": "school_autonomy_index",
+        "variable_name": "School autonomy",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_climate_bad_index",
+        "variable_name": "Bad school climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "teachers_support_in_class_index",
+        "variable_name": "Teacher support in class",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "repetition_primary",
+        "variable_name": "Repetition (primary)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "repetition_lower_secondary",
+        "variable_name": "Repetition (lower secondary)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "missed_classes",
+        "variable_name": "Truancy / skipped classes",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "work_paid_days",
+        "variable_name": "Paid work intensity",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "work_unpaid_days",
+        "variable_name": "Unpaid work intensity",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "homework_access_connectivity_index",
+        "variable_name": "Homework access/connectivity",
+        "category": "ict"
+      },
+      {
+        "variable_code": "homework_understanding_no_help_index",
+        "variable_name": "Homework understanding/no help",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "homework_barriers_help_covid",
+        "variable_name": "Homework barriers during COVID",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "homework_barriers_web_covid",
+        "variable_name": "Connectivity barriers during COVID",
+        "category": "ict"
+      },
+      {
+        "variable_code": "sense_of_belonging",
+        "variable_name": "Sense of school belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "teachers_certified_rate",
+        "variable_name": "Certified teachers rate",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_pd_last_3_months",
+        "variable_name": "Teacher PD in last 3 months",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "methods_to_monitor_practice",
+        "variable_name": "Methods to monitor teaching",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "quality_improvements_policies_index",
+        "variable_name": "Quality improvement policies",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "social_emotional_skills_policy",
+        "variable_name": "Social-emotional skills policy",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "urban",
+        "variable_name": "Urban location",
+        "category": "school"
+      },
+      {
+        "variable_code": "competition",
+        "variable_name": "School competition",
+        "category": "school"
+      },
+      {
+        "variable_code": "admission_academic_record",
+        "variable_name": "Admission based on record",
+        "category": "school"
+      },
+      {
+        "variable_code": "admission_religious_philosophy",
+        "variable_name": "Religious admission philosophy",
+        "category": "school"
+      },
+      {
+        "variable_code": "disadvantaged_students_share",
+        "variable_name": "Disadvantaged students share",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "immigrant",
+        "variable_name": "Immigrant student share",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "gender_male",
+        "variable_name": "Male student share",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "homework",
+        "variable_name": "Homework time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "problem_schoolwork_access_connectivity_index",
+        "variable_name": "Schoolwork access/connectivity",
+        "category": "ict"
+      },
+      {
+        "variable_code": "problem_schoolwork_understanding_no_help_index",
+        "variable_name": "Schoolwork understanding/no help",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "remote_learning_proportion",
+        "variable_name": "Proportion in distance learning",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "remote_instruction_hindered_by_digital_access",
+        "variable_name": "Remote instruction hindered by devices",
+        "category": "ict"
+      },
+      {
+        "variable_code": "remote_instruction_hindered_by_internet_access",
+        "variable_name": "Remote instruction hindered by internet",
+        "category": "ict"
+      },
+      {
+        "variable_code": "remote_instruction_hindered_by_system_material",
+        "variable_name": "Remote instruction hindered by system/material",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "days_school_closed",
+        "variable_name": "Days school closed",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "resources_to_support_students_learning",
+        "variable_name": "Resources to support students",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "teacher_communication_students_parents",
+        "variable_name": "Teacher communication with students/parents",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "resources_to_support_teachers_remote_learning",
+        "variable_name": "Resources to support teachers",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_have_skills_for_instruction",
+        "variable_name": "Teachers have digital instruction skills",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_have_time_integrate_devices",
+        "variable_name": "Teachers have time to integrate devices",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_have_learning_support_platform",
+        "variable_name": "Teachers have learning support platform",
+        "category": "ict"
+      },
+      {
+        "variable_code": "school_infrastructure_physical",
+        "variable_name": "Physical school infrastructure",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_infrastructure_educational",
+        "variable_name": "Educational school infrastructure",
+        "category": "school"
+      },
+      {
+        "variable_code": "student_teacher_ratio_inverse",
+        "variable_name": "Student-teacher ratio (inverse)",
+        "category": "school"
+      },
+      {
+        "variable_code": "family_ses",
+        "variable_name": "Family SES",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 (secondary, school-level) — cognitive efficiency (math/reading/science outputs) by school type",
+        "target_variable": "Cognitive school efficiency (DEA technical efficiency; binary top-half vs bottom-half)",
+        "top_predictors": [
+          "Books at home",
+          "ICT home resources",
+          "School autonomy",
+          "Bad school climate",
+          "Paid work intensity"
+        ],
+        "performance_metrics": "Gradient boosted trees (GBT/XGBoost) — AUROC and AUPRC reported in Appendix A; example for private cognitive model: AUROC=0.769, AUPRC=0.855 (logit AUROC/AUPRC ranges 0.727–0.792; NN AUROC/AUPRC 0.678/0.721).",
+        "standardized_conclusion": "Using PISA 2022 school-level the study leveraged Books at home, ICT home resources, School autonomy, Bad school climate, and Paid work intensity to predict whether a school is in the top half of cognitive efficiency, finding that private schools have higher cognitive technical efficiency (0.865 vs 0.768; gap ≈ 0.10) and that resource-rich and autonomy-supportive contexts (e.g., books/ICT at home, higher autonomy, lower engagement in paid work) are key drivers of high efficiency. This indicates that strengthening home learning resources and school autonomy—alongside reducing barriers to engagement during and after disruptions—may narrow private-public efficiency gaps, though the SHAP-based interpretation is predictive rather than causal."
+      },
+      {
+        "dataset_used": "PISA 2022 (secondary, school-level) — non-cognitive efficiency (soft-skills well-being index outputs) by school type",
+        "target_variable": "Non-cognitive school efficiency (DEA technical efficiency; binary top-half vs bottom-half)",
+        "top_predictors": [
+          "Physical school infrastructure",
+          "Educational school infrastructure",
+          "ICT home resources",
+          "Repetition (lower secondary)",
+          "Sense of school belonging"
+        ],
+        "performance_metrics": "Gradient boosted trees (GBT/XGBoost) — AUROC/AUPRC reported in Appendix A for the non-cognitive models; exact values not provided in the main text excerpt.",
+        "standardized_conclusion": "Using PISA 2022 school-level the study leveraged Physical school infrastructure, Educational school infrastructure, ICT home resources, Repetition (lower secondary), and Sense of school belonging to predict whether a school is in the top half of non-cognitive efficiency, finding that private schools also have higher non-cognitive technical efficiency (0.685 vs 0.640; gap ≈ 0.045) but with smaller magnitude and less consistent statistical significance across countries. This indicates that policies targeting instructional barriers (infrastructure/material/ICT), attendance and repetition, and students’ belonging may help reduce non-cognitive efficiency gaps, though the evidence is based on predictive modeling and DEA efficiency rather than causal impact estimates."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2022 school-level data from nine Latin American countries (2,034 schools) to estimate DEA technical efficiency separately for private and public schools, using two output sets: cognitive outputs (school-average math/reading/science) and non-cognitive outputs (a soft-skills well-being index). It finds a sizable cognitive efficiency gap favoring private schools (mean TEBC 0.865 vs 0.768; gap ≈ 0.10) and a smaller non-cognitive gap (0.685 vs 0.640; gap ≈ 0.045). To explain determinants, the author converts DEA efficiency into a binary outcome (top half vs bottom half) and trains interpretable ML classifiers (logit, neural networks, and gradient boosted trees/XGBoost), selecting the best model by AUROC and AUPRC with stratified 5-fold cross-validation. SHAP is used for global and local interpretability, highlighting home learning resources, school autonomy, climate, repetition, truancy, and COVID-related remote-learning barriers as key correlates. Limitations include lack of documented survey-weight use and missing-data/PV handling transparency, and SHAP-based explanations are predictive rather than causal.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

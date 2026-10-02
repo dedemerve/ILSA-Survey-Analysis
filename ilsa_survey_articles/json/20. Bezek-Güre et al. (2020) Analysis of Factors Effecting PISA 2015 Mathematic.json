@@ -3,9 +3,9 @@
     "file_name": "20. Bezek-Güre et al. (2020) Analysis of Factors Effecting PISA 2015 Mathematics Literacy via Educational Data Mining EN.pdf",
     "title": "Analysis of Factors Effecting PISA 2015 Mathematics Literacy via Educational Data Mining",
     "authors": [
-      "Özlem Bezek Güre",
-      "Murat Kayri",
-      "Fevzi Erdoğan"
+      "Ö. Bezek Güre",
+      "M. Kayri",
+      "F. Erdoğan"
     ],
     "year": 2020,
     "doi": "10.15390/EB.2020.8477",
@@ -16,14 +16,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2015 Turkey microdata (15-year-old students) and reports a sample of 5,895 students drawn from 187 schools in 61 provinces, with an analytic dataset of 4,422 students. The manuscript describes downloading the open PISA dataset and then converting it to Excel, transferring to SPSS, and performing data clearance and descriptive statistics before training ML models in Weka/Matlab/SPSS Modeler. No complex survey weighting variables (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures (BRR/jackknife) are mentioned, and the ML algorithms (Random Forest and MLP) are applied without any stated survey-design correction. Given the ML-specific omission pattern and the lack of reported weight variables, the analysis is treated as unweighted; this may affect generalizability under PISA’s clustered sampling design."
+      "weight_fields_interpretation": "The study uses PISA 2015 Turkey microdata for 15-year-old students, with an analytic sample of 4,422 students drawn from 187 randomly selected schools across 61 provinces. The manuscript describes downloading the PISA dataset and then converting it to Excel, importing into SPSS, and performing data clearance and descriptive statistics before training ML models. It does not report applying PISA sampling weights or replicate weights (e.g., BRR/jackknife) in the ML training or evaluation steps. Because the paper trains Random Forest and Multi-layer Perceptron models using Weka/SPSS Modeler/Matlab, it is unclear whether complex survey design corrections were incorporated; the safest interpretation is that weights were not explicitly used or not documented."
     },
-    "plausible_values_handling": "rubin_rules",
+    "plausible_values_handling": "average_pv",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The dependent variable is derived from PISA mathematics plausible values (PV1MATH–PV10MATH) by averaging across the ten PVs and then categorizing into low/medium/high proficiency. However, the manuscript does not report any strategy for handling missing questionnaire/test data (e.g., complete-case exclusion rules or imputation), which is a transparency gap because PISA datasets typically contain missingness in background variables and/or PV-related components. The paper therefore does not provide sufficient information to assess potential bias from missing-data treatment.",
+    "handling_not_reported_explanation": "The dependent variable is constructed from PISA mathematics plausible values by averaging PV1MATH–PV10MATH and then binning into low/medium/high categories. However, the paper does not describe any missing-data strategy for either questionnaire predictors or the PV-derived outcome (e.g., complete-case selection, imputation, or PV-specific handling). Given that PISA datasets typically contain missingness in background variables, this omission is a reporting gap that limits reproducibility and may affect model generalizability.",
     "sample_details": {
       "total_students": 4422,
       "countries": [
@@ -32,7 +32,7 @@
           "n_students": 4422
         }
       ],
-      "sample_filtering_criteria": "Used PISA 2015 Turkey computer-based assessment data for 15-year-old students. Sampling followed PISA’s Turkey implementation: 187 schools from 61 provinces were randomly selected, and 5,895 students participated; the analytic dataset for this study comprised 4,422 students (2165 boys and 2257 girls) after the study’s data clearance and inclusion steps (specific exclusion criteria for the reduction from 5,895 to 4,422 are not detailed)."
+      "sample_filtering_criteria": "The study uses PISA 2015 Turkey computer-based assessment data. Sampling followed PISA’s design: 187 schools were randomly selected among 61 provinces, and 5,895 students were initially selected; the analytic dataset used for modeling contains 4,422 students (2165 boys and 2257 girls). The manuscript does not specify additional inclusion/exclusion rules beyond using the available PISA Turkey dataset and performing data clearance in SPSS."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -43,19 +43,29 @@
     },
     "confounders_identified": [
       {
-        "variable_code": "ST004Q01TA",
-        "variable_name": "Gender",
-        "category": "demographic"
+        "variable_code": "Turkish_success_status",
+        "variable_name": "Turkish language success",
+        "category": "prior_achievement"
       },
       {
-        "variable_code": "class",
-        "variable_name": "Grade level (class)",
-        "category": "demographic"
+        "variable_code": "Anxiety",
+        "variable_name": "anxiety",
+        "category": "student_attitude"
       },
       {
-        "variable_code": "mother_education_level",
-        "variable_name": "Mother education level",
-        "category": "socioeconomic"
+        "variable_code": "Motivation",
+        "variable_name": "motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "Epistemological_Beliefs",
+        "variable_name": "Belief about epistemology",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "target_point_school_life",
+        "variable_name": "Target point in school life",
+        "category": "student_attitude"
       },
       {
         "variable_code": "father_education_level",
@@ -63,19 +73,79 @@
         "category": "socioeconomic"
       },
       {
+        "variable_code": "mother_education_level",
+        "variable_name": "Mother education level",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "Gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "Class",
+        "variable_name": "Grade/class level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "teachers_call_on_me_less_often",
+        "variable_name": "Teachers call less often",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_force_me_harder",
+        "variable_name": "Teachers force harder",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_impression_less_smart",
+        "variable_name": "Teachers think less smart",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_discipline_more_harshly",
+        "variable_name": "Teachers discipline more harshly",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_ridicule_in_front",
+        "variable_name": "Teachers ridicule in front",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teachers_insult_in_front",
+        "variable_name": "Teachers insult in front",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "number_of_lessons_per_week",
+        "variable_name": "Lessons per week",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "Turkish_success_status",
+        "variable_name": "Turkish language success status",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "learning_time_allocated_math",
+        "variable_name": "Weekly math learning time",
+        "category": "curriculum"
+      },
+      {
         "variable_code": "study_desk_at_home",
         "variable_name": "Study desk at home",
-        "category": "socioeconomic"
+        "category": "parent_home"
       },
       {
         "variable_code": "own_room_at_home",
         "variable_name": "Own room at home",
-        "category": "socioeconomic"
+        "category": "parent_home"
       },
       {
         "variable_code": "quiet_place_to_study",
         "variable_name": "Quiet place to study",
-        "category": "socioeconomic"
+        "category": "parent_home"
       },
       {
         "variable_code": "computer_at_home_for_schoolwork",
@@ -95,105 +165,50 @@
       {
         "variable_code": "auxiliary_books_at_home",
         "variable_name": "Auxiliary books at home",
-        "category": "socioeconomic"
+        "category": "parent_home"
       },
       {
         "variable_code": "technical_reference_books_at_home",
-        "variable_name": "Technical reference books",
-        "category": "socioeconomic"
+        "variable_name": "Technical reference books at home",
+        "category": "parent_home"
       },
       {
-        "variable_code": "target_point_in_school_life",
-        "variable_name": "Target point in school life",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "teachers_call_on_me_less_often",
-        "variable_name": "Teachers call on me less",
+        "variable_code": "teachers_see_low_math_intelligence",
+        "variable_name": "Teachers see low math intelligence",
         "category": "teacher"
       },
       {
-        "variable_code": "teachers_force_me_harder",
-        "variable_name": "Teachers force me harder",
-        "category": "teacher"
+        "variable_code": "disciplined_class_environment",
+        "variable_name": "Disciplined class environment",
+        "category": "school"
       },
       {
-        "variable_code": "teachers_impression_less_smart",
-        "variable_name": "Teachers think I am less smart",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "teachers_discipline_more_harshly",
-        "variable_name": "Teachers discipline more harshly",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "teachers_ridicule_in_front",
-        "variable_name": "Teachers ridicule in front",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "teachers_insult_in_front",
-        "variable_name": "Teachers insult in front",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "lessons_per_week",
-        "variable_name": "Number of lessons per week",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "turkish_success_status",
-        "variable_name": "Turkish success status",
-        "category": "prior_achievement"
-      },
-      {
-        "variable_code": "learning_time_allocated_to_math",
-        "variable_name": "Weekly math learning time",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "anxiety",
-        "variable_name": "anxiety level",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "motivation",
-        "variable_name": "motivation level",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "epistemological_beliefs",
-        "variable_name": "Belief in epistemology",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "teacher_interest",
+        "variable_code": "teachers_interest",
         "variable_name": "Teacher interest",
         "category": "teacher"
       },
       {
-        "variable_code": "class_disciplinary_environment",
-        "variable_name": "Class disciplinary environment",
-        "category": "school"
+        "variable_code": "Turkish_success_status",
+        "variable_name": "Turkish success status",
+        "category": "prior_achievement"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2015 Mathematics (Turkey; age 15; PV1MATH–PV10MATH averaged then categorized)",
+        "dataset_used": "PISA 2015 Turkey (15-year-olds) Mathematics literacy (PV1MATH–PV10MATH averaged; binned to low/medium/high)",
         "target_variable": "Math achievement status (low/medium/high)",
         "top_predictors": [
-          "anxiety",
-          "turkish_success_status",
-          "mother_education_level",
-          "motivation",
-          "epistemological_beliefs"
+          "Anxiety",
+          "Turkish language success status",
+          "Mother education level",
+          "Student motivation",
+          "Belief about epistemology"
         ],
-        "performance_metrics": "Random Forest — Correct classification: 81.2%, Misclassification: 18.8%; Correlation: 0.676193; RMSE: 0.3217; MAE: 0.2064; RAE: 0.5756; RRSE: 0.7377. MLPANN — Correct classification: 86.7%, Correlation: 0.638909; RMSE: 0.3927; MAE: 0.2449; RAE: 0.6831; RRSE: 0.9005.",
-        "standardized_conclusion": "Using PISA 2015 Mathematics (Turkey) the study leveraged anxiety, Turkish success status, mother education level, motivation, and epistemological beliefs to predict students’ mathematics achievement status (low/medium/high). Random Forest produced lower error (RMSE/MAE/RAE/RRSE) and a higher correlation than MLPANN, and it identified anxiety as the most important predictor, followed by Turkish success status and mother education level. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random Forest — Correct classification: 81.2%, Misclassification: 18.8%; Correlation: 0.676193; RMSE: 0.3217; MAE: 0.2064; RAE: 0.5756; RRSE: 0.7377",
+        "standardized_conclusion": "Using PISA 2015 Turkey mathematics literacy the study leveraged student anxiety, Turkish language success, mother education level, student motivation, and epistemological beliefs to predict students’ math achievement status (low/medium/high), finding that Random Forest achieved 81.2% correct classification and outperformed the Multi-layer Perceptron on several error metrics. This indicates that strengthening student affective factors (especially anxiety) alongside reading-related achievement and family educational resources may improve mathematics proficiency, though the study is predictive and does not establish causal effects."
       }
     ],
-    "outcome_summary": "The study analyzes PISA 2015 Turkey data (n=4,422) to predict students’ mathematics literacy proficiency status (low/medium/high) derived from the average of PV1MATH–PV10MATH and PISA 2015 proficiency thresholds. Two educational data mining models were compared: MLPANN and Random Forest, using 25 predictors from student questionnaires and scales (including anxiety, motivation, epistemological beliefs, Turkish success status, parental education, and classroom/teacher-related items). Random Forest achieved 81.2% correct classification with correlation 0.676 and lower errors (RMSE 0.3217, MAE 0.2064, RRSE 0.7377) than MLPANN (86.7% correct classification but higher errors: RMSE 0.3927, MAE 0.2449, RRSE 0.9005). The most important predictors in Random Forest were anxiety, Turkish success status, mother education level, motivation, and epistemological beliefs, with additional teacher/classroom variables also appearing in the importance ranking. The paper does not report a missing-data handling strategy and does not discuss survey-weight application, which limits assessment of bias and generalizability under PISA’s complex sampling design.",
+    "outcome_summary": "The study analyzes PISA 2015 Turkey data for 15-year-old students (analytic sample N=4,422) to predict students’ mathematics literacy proficiency category (low/medium/high). The dependent variable is constructed by averaging PV1MATH–PV10MATH and then applying PISA 2015 proficiency thresholds to create a three-level categorical outcome. Two educational data mining models are compared: a Multi-layer Perceptron neural network and Random Forest, trained using 25 predictors drawn from student questionnaires and background/context variables. Random Forest achieved 81.2% correct classification with correlation 0.676 and lower error metrics (RMSE 0.3217, MAE 0.2064, RRSE 0.7377) than the MLPANN (86.7% correct classification but higher RMSE 0.3927 and RRSE 0.9005). The paper does not report a missing-data strategy and does not document whether PISA sampling/replicate weights were applied, so results should be interpreted as predictive associations rather than causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

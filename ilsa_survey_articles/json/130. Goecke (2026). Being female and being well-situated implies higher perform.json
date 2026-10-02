@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "file_name": "218.  Goecke (2026). Being female and being well-situated implies higher performance on creative thinking tests: Evidence across 62 countries from PISA 2022.pdf",
+    "title": "Being female and being well-situated implies higher performance on creative thinking tests: Evidence across 62 countries from PISA 2022",
+    "authors": [
+      "B. Goecke",
+      "M. Benedek",
+      "J.G. Diedrich",
+      "B. Forthmann",
+      "S. Patzl",
+      "S. Weiss"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tsc.2025.101963",
+    "venue": "Thinking Skills and Creativity",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": true,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses secondary microdata from PISA 2022 and restricts it to the 62 country/economy samples that include the innovative domain (creative thinking), excluding Cyprus (no creative thinking data) and excluding Costa Rica (missing SES variables). Analyses are conducted with design-based weighted regression to respect PISA’s complex sampling design, explicitly accounting for the nested structure of students within schools. The authors apply student-level sampling weights and replicate weights and estimate robust standard errors using Balanced Repeated Replication (BRR) with Fay’s adjustment. Effect estimates are then pooled across multiple imputations using Rubin’s rules, and the subsequent cross-country synthesis is performed via a two-stage individual-participant meta-analytic approach with cluster-robust random-effects models."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 493660,
+      "countries": [
+        {
+          "country_code": "JOR",
+          "n_students": null
+        },
+        {
+          "country_code": "PSE",
+          "n_students": null
+        },
+        {
+          "country_code": "SAU",
+          "n_students": null
+        },
+        {
+          "country_code": "PER",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "MEX",
+          "n_students": null
+        },
+        {
+          "country_code": "ISL",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "UZB",
+          "n_students": null
+        },
+        {
+          "country_code": "JAM",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "CRI",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used a subset of PISA 2022 microdata for the innovative domain creative thinking plus the core domains mathematics and reading. The analytic dataset includes 62 of the 64 country/economy samples participating in creative thinking; Cyprus was excluded because no creative thinking data were available, and Costa Rica was excluded because SES variables were not available. For missingness, the authors removed a very small number of cases with missing gender via listwise deletion and removed four Iceland rows with missing plausible values (PVs) for mathematics/reading/creative thinking. For SES (ESCS) missing cells, they applied nested multiple imputation (10 imputations per PV set) within each country sample, using a Bayesian substantive-model-compatible approach with science competence as an auxiliary variable."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISEI",
+        "variable_name": "Socioeconomic status (HISEI)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "OECD_membership",
+        "variable_name": "OECD membership status",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "HDI",
+        "variable_name": "Human Development Index (HDI)",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "GGGI",
+        "variable_name": "Global Gender Gap Index (GGGI)",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "power_distance",
+        "variable_name": "Power distance (PD)",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Creative Thinking (innovative domain; 62 countries/economies)",
+        "target_variable": "Creative thinking performance (PVs; standardized regression effects)",
+        "top_predictors": [
+          "Gender",
+          "Socioeconomic status (ESCS)",
+          "Gender x SES interaction"
+        ],
+        "performance_metrics": "Cluster-robust random-effects meta-analysis (Table 1): Gender effect (female vs male coding with male=1) Est.=0.277 (SE=0.014), 95% CI [0.250, 0.304], 95% PI [0.081, 0.472], p<.001; SES effect Est.=0.334 (SE=0.009), 95% CI [0.315, 0.353], 95% PI [0.192, 0.476], p<.001; Gender*SES interaction Est.=0.034 (SE=0.005), 95% CI [0.023, 0.044], 95% PI [0.021, 0.088], p<.001. Gender variability (lnVR) pooled lnVR=0.032 (SE=0.013), p<.05; variance ratio=0.97 (95% CI [0.94, 0.99]).",
+        "standardized_conclusion": "Using PISA 2022 Creative Thinking the study leveraged Gender and socioeconomic status (ESCS) plus their interaction to predict creative thinking PV performance, finding that female students outperform male students (gender main effect) and that higher SES is associated with higher creative thinking across countries. This indicates that reducing socioeconomic inequality and supporting gender-inclusive learning conditions may help sustain higher creative thinking outcomes, while the gender gap appears relatively stable across national contexts (though residual heterogeneity remains)."
+      },
+      {
+        "dataset_used": "PISA 2022 Mathematics (core domain; 62 countries/economies)",
+        "target_variable": "Mathematics performance (PVs; standardized regression effects)",
+        "top_predictors": [
+          "Gender",
+          "Socioeconomic status (ESCS)",
+          "Gender x SES interaction"
+        ],
+        "performance_metrics": "Cluster-robust random-effects meta-analysis (Table 1): Gender effect Est.=0.028 (SE=0.015), 95% CI [0.003, 0.074], 95% PI [0.003, 0.198], p<.001; SES effect Est.=0.361 (SE=0.010), 95% CI [0.342, 0.381], 95% PI [0.213, 0.510], p<.001; Gender*SES interaction Est.=0.006 (SE=0.006), 95% CI [0.001, 0.018], 95% PI [0.006, 0.066], p<.001. Moderator results (Table 2): OECD membership moderates gender main effect (Est.=0.118, SE=0.024, p<.001) and HDI moderates gender main effect (Est.=0.778, SE=0.199, p<.001); power distance moderates gender main effect (Est.=0.002, SE=0.001, p<.05).",
+        "standardized_conclusion": "Using PISA 2022 Mathematics the study leveraged Gender and socioeconomic status (ESCS) plus their interaction to predict mathematics PV performance, finding that SES has a strong positive association with mathematics while the gender main effect is small and varies by country context. This indicates that mathematics achievement gaps are more sensitive to structural national conditions than creative thinking gaps, implying that policy levers may need to be domain-specific (e.g., targeted SES support and context-aware gender equity strategies for mathematics)."
+      },
+      {
+        "dataset_used": "PISA 2022 Reading (core domain; 62 countries/economies)",
+        "target_variable": "Reading performance (PVs; standardized regression effects)",
+        "top_predictors": [
+          "Gender",
+          "Socioeconomic status (ESCS)",
+          "Gender x SES interaction"
+        ],
+        "performance_metrics": "Cluster-robust random-effects meta-analysis (Table 1): Gender effect Est.=0.294 (SE=0.014), 95% CI [0.256, 0.322], 95% PI [0.087, 0.501], p<.001; SES effect Est.=0.342 (SE=0.009), 95% CI [0.324, 0.361], 95% PI [0.205, 0.479], p<.001; Gender*SES interaction Est.=0.026 (SE=0.006), 95% CI [0.015, 0.037], 95% PI [0.033, 0.085], p<.001. Moderator results (Table 2): OECD membership moderates gender main effect (Est.=0.075, SE=0.026, p<.01) and HDI moderates gender main effect (Est.=0.489, SE=0.228, p<.01); SES effects on reading are moderated by OECD membership (Est.=0.036, SE=0.017, p<.05).",
+        "standardized_conclusion": "Using PISA 2022 Reading the study leveraged Gender and socioeconomic status (ESCS) plus their interaction to predict reading PV performance, finding a consistent female advantage and a strong positive SES gradient across countries. This indicates that literacy-focused equity policies—especially those addressing socioeconomic disadvantage—are likely to support both gender and SES-related reading disparities, while acknowledging that some gender/SES patterns vary with national development and OECD membership."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2022 microdata for 62 countries/economies that administered the innovative domain creative thinking, alongside mathematics and reading. It uses a two-stage individual-participant meta-analytic approach: within each country, weighted regressions predict z-standardized plausible values (PVs) for creative thinking, mathematics, and reading from Gender, ESCS (and Gender×SES), with science competence used as an auxiliary variable in nested Bayesian multiple imputation for ESCS missingness. Effects are synthesized across countries using cluster-robust random-effects meta-analysis and pooled across imputations using Rubin’s rules. Key results show female students outperform male students in creative thinking and reading (gender main effects), while SES is a strong positive predictor in all three domains (≈0.33–0.36 SD per 1 SD ESCS). The paper also finds creative-thinking gender/SES disparities are comparatively stable across macro moderators (OECD membership, HDI, GGGI, power distance), whereas mathematics and reading show more context sensitivity. Limitations include reliance on observational cross-sectional associations and the fact that the analysis is not a machine-learning predictive pipeline (no ML model metrics such as accuracy/AUC are reported).",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is an observational, design-based comparative analysis using weighted regressions and two-stage meta-analytic synthesis across countries, not a machine-learning predictive modeling study. Consequently, no ML algorithms are trained or evaluated, and the ML technique fields are intentionally empty. The paper’s core outcomes are standardized regression coefficients and meta-regression moderation tests rather than ML performance metrics."
+  }
+}

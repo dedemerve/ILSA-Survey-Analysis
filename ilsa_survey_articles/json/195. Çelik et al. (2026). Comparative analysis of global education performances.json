@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "file_name": "195. Çelik et al. (2026). Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods.pdf",
+    "title": "Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods",
+    "authors": [
+      "Emel Şaşmaz",
+      "Sadullah Çelik",
+      "Bilge Doğanlı"
+    ],
+    "year": 2026,
+    "doi": "10.1007/s11135-026-02915-7",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study does not use PISA student microdata; instead it uses OECD-published country-level aggregated average scores for Mathematics, Reading, Science, and overall PISA achievement. Because the unit of analysis is the country (one observation per country), there is no student-level sampling frame and no complex survey design to weight at the analysis stage. The paper reports preprocessing steps such as standardizing score variables and treating missing values during preprocessing, but it does not report any application of PISA sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures. Consequently, weighting is not applicable to the analytic dataset as constructed from published aggregates."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The analysis is performed on country-level aggregated mean scores published by OECD, not on student-level PISA plausible values (PVs). As a result, PV handling is not applicable because the dependent variables are already aggregated achievement summaries rather than PV-based student achievement estimates. The paper states that missing values were treated in preprocessing, but it does not specify whether missingness was handled via deletion, imputation, or another rule, which is a reporting gap for reproducibility.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "CHE",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "PHL",
+          "n_students": null
+        },
+        {
+          "country_code": "UZB",
+          "n_students": null
+        },
+        {
+          "country_code": "KHM",
+          "n_students": null
+        },
+        {
+          "country_code": "DOM",
+          "n_students": null
+        },
+        {
+          "country_code": "PRY",
+          "n_students": null
+        },
+        {
+          "country_code": "XKX",
+          "n_students": null
+        },
+        {
+          "country_code": "JOR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The analytic dataset is constructed from OECD-published PISA 2022 country-level aggregated average scores (Mathematics, Reading, Science, and overall PISA score). Each observation corresponds to a single country/economy that participated in PISA 2022 and submitted the necessary data to OECD; the paper states that 81 countries/economies participated in PISA 2022. The study uses only these national-level averages (no student-level records), and it standardizes score variables before PCA and clustering. Missing values are said to be treated during preprocessing, but the specific rule is not reported."
+    },
+    "ml_techniques": {
+      "primary": "Extra Trees",
+      "all_techniques": [
+        "Random Forest",
+        "Extra Trees",
+        "SVM",
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "Math_Score",
+        "variable_name": "Mathematics score",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "Reading_Score",
+        "variable_name": "Reading score",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "Science_Score",
+        "variable_name": "Science score",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 (country-level averages) Mathematics/Reading/Science",
+        "target_variable": "Overall PISA achievement score (country-level)",
+        "top_predictors": [
+          "Mathematics score",
+          "Reading score",
+          "Science score"
+        ],
+        "performance_metrics": "Regression models (Linear Regression, Ridge Regression, Huber Regressor): R²=1.0 for all; smallest errors for Classical Linear Regression (RMSE=0.309, MAE=0.283). Permutation feature importance: Math_Score significance=0.268 (Linear Regression) vs Reading_Score=0.226 and Science_Score=0.216. Additional analysis (K-Means cluster membership (4 clusters)): Stratified 5-fold cross-validation classification of K-Means clusters: Extra Trees mean accuracy=1.000 (SD=0.000) with macro F1/precision/recall=1.000; Random Forest mean accuracy=0.9875 (SD=0.025) with macro F1=0.9795; MLP mean accuracy=1.000 with macro F1=1.000 in the summary table; SVC (RBF) mean accuracy=0.9750 (SD=0.0306) with macro F1=0.9345. Confusion matrices show perfect prediction in the test summary (Table 5).",
+        "standardized_conclusion": "Using PISA 2022 country-level averages, the study leveraged Mathematics score, Reading score, and Science score to predict overall PISA achievement, finding that all three sub-scores explained the overall score almost perfectly (R²=1.0) while Mathematics had the highest permutation importance (0.268 vs 0.226 and 0.216). This indicates that strengthening mathematical literacy is likely to be the most leverageable policy priority for improving headline PISA achievement, though the analysis is based on aggregated correlations/regression rather than causal effects."
+      }
+    ],
+    "outcome_summary": "The study uses OECD-published PISA 2022 country-level average scores in Mathematics, Reading, Science, and overall PISA achievement (one observation per country/economy; 81 participants). It first applies Pearson correlations and PCA to summarize the strong co-movement among the three domain scores (e.g., very high correlations with the overall score). In regression, three linear variants (Linear, Ridge, Huber) all achieve R²=1.0, with the smallest errors for Classical Linear Regression (RMSE=0.309, MAE=0.283); permutation importance indicates Mathematics is the most decisive sub-score (significance 0.268 vs 0.226 and 0.216). For clustering, K-Means yields four clusters (k=4), and supervised validation via stratified 5-fold cross-validation shows extremely high separability, with Extra Trees reaching mean accuracy=1.000 and macro F1=1.000. Limitations include reliance on aggregated data (no student PVs), unspecified missing-value treatment, and the fact that cluster labels are data-derived rather than externally validated, so results support typology stability rather than causal policy effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

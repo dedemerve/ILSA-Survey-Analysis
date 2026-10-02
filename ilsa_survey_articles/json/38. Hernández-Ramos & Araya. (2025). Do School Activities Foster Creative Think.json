@@ -15,14 +15,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2018 and PISA 2022 results plus PISA 2022 Creative Thinking test domain scores and country/economy-level summaries of students’ weekly participation in school activities. The analytic dataset is constructed at the country/economy record level (e.g., 64–80 records for performance inputs and 74 records for activity participation), after excluding records with missing or cautionary sampling standards. The manuscript does not report applying PISA sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures (e.g., BRR/jackknife), and it does not specify any complex-survey variance estimation. Because the analysis is conducted with linear regression/correlation/PCA on aggregated country-level records rather than student-level microdata, the paper provides no weighting variable name and does not describe weight-based estimation."
+      "weight_fields_interpretation": "The study uses PISA 2022 creative thinking results and links them to PISA 2018 and 2022 reading/mathematics/science scores plus student-reported participation in school activities. The analytic dataset is constructed at the country/economy record level (mean creative thinking scores and activity participation frequencies), after excluding records with missing or cautionary sampling standards and retaining only records with complete fields across all inputs. The manuscript does not report applying PISA sampling weights or replicate weights (e.g., BRR/jackknife) in the regression/correlation analyses, so weighting cannot be confirmed. Because the analysis is conducted on aggregated country/economy records rather than individual student microdata, the paper’s weighting discussion is limited; analysts should verify whether the underlying OECD/PISA aggregates already incorporate complex survey design adjustments."
     },
-    "plausible_values_handling": "not_applicable",
-    "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "The paper does not describe plausible value (PV) handling for PISA creative thinking scores. Instead, it analyzes country/economy-level mean creative thinking scores and domain means (and activity participation percentages) and excludes records with missing sampling standards and records missing required input fields. Because the dependent variables are treated as aggregated scores rather than student-level PV outcomes, PV combining rules (e.g., Rubin’s rules) are not documented and are not applicable in the way PVs are typically handled for student-level achievement modeling.",
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
     "sample_details": {
       "total_students": null,
       "countries": [
@@ -71,7 +71,7 @@
           "n_students": null
         }
       ],
-      "sample_filtering_criteria": "The study starts from PISA 2022 creative thinking test participation (64 countries/economies for mean creative thinking performance and 74 for creative thinking questionnaire/activity participation) and PISA 2018/2022 reading, mathematics, and science scores. It excludes records where one or more sampling standards were missing or flagged with caution, and it retains only records containing all required input fields (creative thinking mean/domain scores, weekly participation percentages for specified school activities, and PISA 2018/2022 domain scores). In the results section, it further states that Australia, Canada, Denmark, Hong Kong, Ireland, Jamaica, Latvia, the Netherlands, New Zealand, Panama, and the United Kingdom were excluded due to sampling-standard differences, leaving 54 OECD countries and associated economies meeting inclusion criteria."
+      "sample_filtering_criteria": "The study constructs a country/economy-level analytic dataset using PISA 2022 creative thinking mean scores (64 records) and domain snapshots plus student-reported weekly participation in specified creative classes/activities (74 records), and links these to PISA 2018 and PISA 2022 reading/mathematics/science results (78 and 80 records, respectively). Records are excluded if one or more sampling standards are missing or flagged with caution, and only records containing all required input fields (creative thinking mean/domain data, activity participation data, and PISA 2018/2022 reading/mathematics/science scores) are retained. Additionally, the paper explicitly excludes Australia, Canada, Denmark, Hong Kong, Ireland, Jamaica, Latvia, the Netherlands, New Zealand, Panama, and the United Kingdom due to differences in sampling standards, yielding 54 OECD countries/economies in the final sample."
     },
     "ml_techniques": {
       "primary": null,
@@ -79,99 +79,99 @@
     },
     "confounders_identified": [
       {
+        "variable_code": "creative_thinking_mean_score",
+        "variable_name": "Creative thinking mean score",
+        "category": "curriculum"
+      },
+      {
         "variable_code": "Var_1",
-        "variable_name": "Verbal/critical activities composite",
-        "category": "student_behavior"
+        "variable_name": "Var 1 (writing/critical activities)",
+        "category": "curriculum"
       },
       {
         "variable_code": "Var_2",
-        "variable_name": "Art/music activities composite",
-        "category": "student_behavior"
+        "variable_name": "Var 2 (art/music activities)",
+        "category": "curriculum"
       },
       {
-        "variable_code": "programming_classes_weekly",
-        "variable_name": "Weekly programming activity participation",
-        "category": "student_behavior"
+        "variable_code": "programming_classes_frequency",
+        "variable_name": "Programming activity frequency",
+        "category": "curriculum"
       },
       {
-        "variable_code": "science_club_weekly",
-        "variable_name": "Weekly science club participation",
-        "category": "student_behavior"
+        "variable_code": "science_club_frequency",
+        "variable_name": "Science club activity frequency",
+        "category": "curriculum"
       },
       {
-        "variable_code": "Reading_2018",
+        "variable_code": "reading_2018_score",
         "variable_name": "Reading score (PISA 2018)",
         "category": "prior_achievement"
       },
       {
-        "variable_code": "Mathematics_2018",
-        "variable_name": "Mathematics score (PISA 2018)",
-        "category": "prior_achievement"
-      },
-      {
-        "variable_code": "Science_2018",
-        "variable_name": "Science score (PISA 2018)",
-        "category": "prior_achievement"
-      },
-      {
-        "variable_code": "Reading_2022",
+        "variable_code": "reading_2022_score",
         "variable_name": "Reading score (PISA 2022)",
         "category": "prior_achievement"
       },
       {
-        "variable_code": "Mathematics_2022",
+        "variable_code": "mathematics_2018_score",
+        "variable_name": "Mathematics score (PISA 2018)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "science_2018_score",
+        "variable_name": "Science score (PISA 2018)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "mathematics_2022_score",
         "variable_name": "Mathematics score (PISA 2022)",
         "category": "prior_achievement"
       },
       {
-        "variable_code": "Science_2022",
+        "variable_code": "science_2022_score",
         "variable_name": "Science score (PISA 2022)",
         "category": "prior_achievement"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 Creative Thinking (country/economy means; 2022)",
-        "target_variable": "Creative thinking mean score (PISA 2022)",
+        "dataset_used": "PISA 2022 Creative Thinking (country/economy means; 15-year-olds)",
+        "target_variable": "Creative thinking score (PISA 2022 mean score)",
         "top_predictors": [
-          "Verbal/critical activities composite",
-          "Art/music activities composite",
-          "Weekly programming activity participation"
+          "Var 1 (writing/critical activities)",
+          "Var 2 (art/music activities)",
+          "Programming activity frequency"
         ],
-        "performance_metrics": "Pearson correlations: Var 1 vs mean score R=−0.852, adjusted R²=0.721; Model with Var 1+Var 2: R=0.881, adjusted R²=0.768. Programming excluded as non-significant (p=0.604 in Model 1; p=0.448 in Model 2).",
-        "standardized_conclusion": "Using PISA 2022 Creative Thinking country/economy mean scores, the study leveraged the verbal/critical activities composite (Var 1) and the art/music activities composite (Var 2) to predict creative thinking mean score, finding that Var 1 had a strong negative association while Var 2 had a smaller positive association; programming activity participation was not statistically significant. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Pearson correlations: art −0.154 (p=0.266), music −0.094 (p=0.499), programming −0.578 (p<0.001), creative writing −0.700 (p<0.001), science club −0.810 (p<0.001), drama/theatre −0.802 (p<0.001), debate −0.841 (p<0.001), publications −0.868 (p<0.001). Regression: Model 1 (Var 1 only) R=0.852, adjusted R²=0.721; Model 2 (Var 1 + Var 2) R=0.881, adjusted R²=0.768. Coefficients (Model 2): Var 1 Beta=−0.949 (t=−13.180, p<0.001), Var 2 Beta=0.245 (t=3.409, p=0.001); programming excluded as non-significant.",
+        "standardized_conclusion": "Using PISA 2022 Creative Thinking the study leveraged Var 1 (writing/critical activities), Var 2 (art/music activities), and programming activity frequency to explain the PISA 2022 mean creative thinking score, finding that Var 1 had a strong negative association while Var 2 had a smaller positive association; programming was not statistically significant. This indicates that, in the way these school activities are implemented and measured in PISA 2022, activities clustered around verbal/critical-thinking contexts may not translate into higher creative-thinking performance, suggesting a need to redesign pedagogies and align activity goals with divergent/creative processes rather than assuming that participation alone improves creativity."
       },
       {
-        "dataset_used": "PISA 2022 Creative Thinking (country/economy means; 2022)",
+        "dataset_used": "PISA 2022 Creative Thinking (Scientific Problem Solving domain; country/economy means)",
         "target_variable": "Scientific problem-solving domain score (PISA 2022)",
         "top_predictors": [
-          "Reading score (PISA 2022)"
+          "Science club activity frequency",
+          "Programming activity frequency",
+          "Var 1 (writing/critical activities)",
+          "Var 2 (art/music activities)"
         ],
-        "performance_metrics": "Model (Reading 2022 only): R=0.884, adjusted R²=0.777. Mathematics and science (2022) were not significant and excluded.",
-        "standardized_conclusion": "Using PISA 2022 scientific problem-solving domain mean scores, the study leveraged reading score (PISA 2022) to predict performance, finding a strong positive association (adjusted R²=0.777) while mathematics and science (2022) did not add statistical significance. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Pearson correlations with scientific problem-solving: science club −0.666 (p<0.001), programming −0.438 (p=0.001). Domain correlations with Var 1: scientific problem solving −0.708 (p<0.001); with Var 2: −0.010 (p=0.943). Regression summaries are referenced as linear models in supplementary tables (Tables S4–S8), with the paper stating programming remains insignificant once included in domain models.",
+        "standardized_conclusion": "Using PISA 2022 Creative Thinking data for the scientific problem-solving domain, the study leveraged science club participation and programming activity frequency (and the PCA-derived Var 1/Var 2 composites) to explain domain scores, finding significant negative correlations for both science clubs and programming and a strong negative association for Var 1 with the scientific domain. This indicates that participation in these activities, as currently practiced in many systems, may be misaligned with the specific creative-scientific processes assessed by PISA, implying that policy should focus on pedagogical quality and task design (e.g., open-ended ideation and iterative improvement) rather than increasing activity frequency alone."
       },
       {
-        "dataset_used": "PISA 2022 Creative Thinking (domain means; 2022)",
-        "target_variable": "Scientific problem-solving domain score (PISA 2022)",
-        "top_predictors": [
-          "Weekly science club participation",
-          "Weekly programming activity participation"
-        ],
-        "performance_metrics": "Pearson correlations: science club vs scientific problem solving R=−0.666 (p<0.001); programming vs scientific problem solving R=−0.438 (p=0.001).",
-        "standardized_conclusion": "Using PISA 2022 Creative Thinking scientific problem-solving domain mean scores, the study leveraged weekly science club participation and weekly programming activity participation to predict the domain score, finding both associations were negative and statistically significant. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
-      },
-      {
-        "dataset_used": "PISA 2018 & PISA 2022 (country/economy means; 2018/2022)",
-        "target_variable": "Creative thinking mean score (PISA 2022)",
+        "dataset_used": "PISA 2022 Creative Thinking (country/economy means linked to PISA 2018/2022 reading and other domains)",
+        "target_variable": "Creative thinking score (PISA 2022 mean score) predicted from PISA 2018/2022 reading and activity variables",
         "top_predictors": [
           "Reading score (PISA 2018)",
-          "Verbal/critical activities composite"
+          "Reading score (PISA 2022)",
+          "Var 1 (writing/critical activities)",
+          "Programming activity frequency"
         ],
-        "performance_metrics": "Model 1 (Reading 2018 only): R=0.912, adjusted R²=0.829. Model 2 (Reading 2018 + Var 1): R=0.929, adjusted R²=0.857. Mathematics and science (2018) were not significant and excluded.",
-        "standardized_conclusion": "Using PISA 2018 and PISA 2022 country/economy mean scores, the study leveraged reading score (PISA 2018) and the verbal/critical activities composite (Var 1) to predict PISA 2022 creative thinking mean score, finding reading was the strongest positive predictor while mathematics and science (2018) were not significant. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Regression (PISA 2018 predictors): Model 1 (Reading 2018 only) R=0.912, adjusted R²=0.829; Model 2 (Reading 2018 + Var 1) R=0.929, adjusted R²=0.857. Regression (PISA 2022 predictors): Model 1 (Reading 2022 only) R=0.941, adjusted R²=0.883; Model 2 (Reading 2022 + Programming) R=0.950, adjusted R²=0.898. The paper reports mathematics and science scores were statistically insignificant and excluded in the final models.",
+        "standardized_conclusion": "Using PISA 2018 and PISA 2022 linked the study leveraged reading scores (and in some models Var 1 or programming) to predict the PISA 2022 creative thinking mean score, finding that reading was the strongest and most consistent positive predictor while mathematics and science scores were not significant. This indicates that strengthening reading comprehension and interpretive literacy may be a more reliable pathway for improving creative thinking outcomes than simply expanding participation in STEM-related activities, though the study’s correlational design and country-level aggregation limit causal interpretation."
       }
     ],
-    "outcome_summary": "This paper analyzes country/economy-level relationships between PISA 2022 Creative Thinking mean scores (and domain means) and students’ reported weekly participation in school activities (art, music, programming, creative writing, science clubs, drama/theatre, debate, publications), using correlations, PCA-derived composites (Var 1 and Var 2), and linear regression. Across the overall creative thinking score, Var 1 (verbal/critical activities composite) shows a strong negative association (Model 1 adjusted R²=0.721; Model 2 adjusted R²=0.768), while Var 2 has a smaller positive contribution; programming activity participation is not statistically significant. For the scientific problem-solving domain, both science club participation and programming participation are negatively and significantly correlated with the domain score. Across PISA 2018/2022, reading scores emerge as the most consistent positive predictor of creative thinking and scientific problem-solving, whereas mathematics and science scores are generally not significant. The study does not report ML methods, survey-weight usage, or PV combining rules, and it relies on aggregated country/economy records rather than student-level PV modeling.",
+    "outcome_summary": "This study analyzes how students’ weekly participation in school activities relates to creative thinking performance in the PISA 2022 creative thinking assessment, using a country/economy-level dataset. The authors exclude records with missing or cautionary sampling standards and retain only countries/economies with complete linked inputs across PISA 2018 and 2022 reading/mathematics/science and PISA 2022 creative thinking domains. They derive PCA-based composites (Var 1 for writing/science club/theatre/debate/publications; Var 2 for art/music) and run Pearson correlations and linear regressions. Across analyses, Var 1 shows strong negative associations with creative thinking and its domains, while Var 2 shows a smaller positive association; programming and science club participation are also negatively correlated with the scientific problem-solving domain. Reading scores (2018 and 2022) emerge as the strongest positive predictors of creative thinking, while mathematics and science scores are generally insignificant. Limitations include the use of aggregated country/economy records (not student microdata), reliance on correlational regression/correlation rather than causal identification, and no explicit reporting of complex survey weighting or PV handling details for the creative thinking scores.",
     "research_design_type": "exploratory",
     "null_fields_interpretation": null
   }

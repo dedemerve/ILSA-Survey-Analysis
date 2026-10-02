@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "file_name": "155. Kusmaryono and Kusumaningsih (2022). Evaluating the Results of PISA Assessment: Are There Gaps Between the Teaching of Mathematical Literacy at Schools and in PISA Assessment?.pdf",
+    "title": "Evaluating the Results of PISA Assessment: Are There Gaps Between the Teaching of Mathematical Literacy at Schools and in PISA Assessment?",
+    "authors": [
+      "Imam Kusmaryono",
+      "Kusumaningsih"
+    ],
+    "year": 2023,
+    "doi": "10.12973/eu-jer.12.3.1479",
+    "venue": "European Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study used a purposive sample of 100 ninth-grade students from two junior high schools in Semarang City, Indonesia, and administered a 24-item mathematical literacy test constructed from PISA 2012, 2015, and 2018 items. The manuscript states that sampling followed PISA technical standards, but it does not report any use of PISA student/sampling weights or replicate weights, nor any specific weight variable names. Because the analysis is based on a small, locally selected sample rather than an international PISA microdata extract, complex survey weighting is not documented and should not be assumed. The reported scoring relies on Rasch fixed item parameters and WLE reliability, so the key preparation step is test scoring and categorization (mathematical competence, precision, and self-perception), not survey-weighted estimation."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are derived from a locally administered 24-item mathematical literacy test and from questionnaire/interview measures (self-perception and precision coding), rather than from PISA-provided plausible values (PVs). The paper does not describe any missing-data rule for questionnaire items, test responses, or interview coding (e.g., complete-case selection or imputation), which is a reporting gap given that missingness can occur in Likert responses and test items. Therefore, missing-data handling cannot be reconstructed from the text.",
+    "sample_details": {
+      "total_students": 100,
+      "countries": [
+        {
+          "country_code": "IDN",
+          "n_students": 100
+        }
+      ],
+      "sample_filtering_criteria": "Analytic sample comprised 100 ninth-grade students aged 15 years from two junior high schools in Semarang City, Indonesia (50 from state schools and 50 from private schools). Inclusion criteria required students to be male or female, 15 years old, and ninth-grade junior high school students; sampling was purposive. The mathematical literacy test contained 24 PISA-based items (drawn from PISA 2012, 2015, and 2018) and students’ responses were scored using PISA international coding rules and Rasch fixed item parameters; precision was coded from students’ answer sheets and self-perception from a 20-item Likert questionnaire."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "mathematical_competence",
+        "variable_name": "Mathematical competence (MC)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "precision_level",
+        "variable_name": "Precision (accuracy/attention)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "self_perception_math",
+        "variable_name": "Self-perception of math",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "school_type",
+        "variable_name": "School type (state vs private)",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA-based mathematical literacy test (24 items from PISA 2012/2015/2018), Semarang City, Indonesia; grade 9 (age 15); mathematical literacy domain",
+        "target_variable": "Mathematical literacy skill (test score)",
+        "top_predictors": [
+          "Mathematical competence (MC)",
+          "Precision (accuracy/attention)",
+          "Self-perception of math",
+          "School type (state vs private)"
+        ],
+        "performance_metrics": "Pearson correlations with Math Literacy: Math Competency r=0.904 (p=0.022), Precision r=0.874 (p=0.002), Self-Perception r=0.793 (p=0.007); descriptive: mean score Total=55.4 (SD=8.62), Group A=58.1 (SD=8.39) vs Group B=52.7 (SD=7.45). Additional analysis (Precision (low/medium/high precision coding from answer sheets)): Pearson correlations with Precision: Math Competency r=0.879 (p=0.012), Self-Perception r=0.856 (p=0.002); descriptive: precision mean Total=41.5 (low), Group A mean=51.0 (low) vs Group B mean=32.0 (low). Additional analysis (Self-perception of mathematical literacy (Likert-based score)): Pearson correlations with Self-Perception: Math Competency r=0.791 (p=0.003), Precision r=0.856 (p=0.002); descriptive: self-perception mean Total=69.05 (middle), Group A mean=70.1 vs Group B mean=67.0 (both middle).",
+        "standardized_conclusion": "Using a PISA-based mathematical literacy test administered to grade 9 students in Semarang City, the study leveraged mathematical competence, precision, and self-perception (and compared state vs private schools) to analyze mathematical literacy performance, finding strong positive correlations between these factors and math literacy scores. This indicates that improving students’ foundational mathematical competence, attention/accuracy during problem solving, and positive self-perceptions may help reduce gaps between classroom mathematics instruction and the reasoning-focused demands of PISA-style tasks, though the study is correlational and not a causal evaluation."
+      }
+    ],
+    "outcome_summary": "This study used a locally administered 24-item mathematical literacy test based on PISA 2012, 2015, and 2018 items, together with a 20-item Likert self-perception questionnaire and precision coding from students’ answer sheets, in a purposive sample of 100 grade 9 students (age 15) from two schools in Semarang City, Indonesia. Students’ overall mathematical literacy mean was 55.4 (SD=8.62), with Group A (state) higher than Group B (private): 58.1 vs 52.7. The paper reports strong Pearson correlations among mathematical competence, precision, self-perception, and mathematical literacy (e.g., Math Competency–Math Literacy r=0.904; Precision–Math Literacy r=0.874; Self-Perception–Math Literacy r=0.793). It also documents that most students performed at low proficiency levels (levels 1–2 dominate) and that teachers’ instruction emphasized formulas and procedural practice rather than PISA-style reasoning. Limitations include the small, single-city sample, the absence of documented missing-data handling, and the correlational nature of the relationships (no causal identification).",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

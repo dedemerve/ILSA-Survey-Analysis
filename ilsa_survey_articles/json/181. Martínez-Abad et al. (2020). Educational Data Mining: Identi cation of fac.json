@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "file_name": "181. Martínez-Abad et al. (2020). Educational Data Mining: Identi cation of factors associated with school e ectiveness in PISA assessment.pdf",
+    "title": "Educational Data Mining: Identi cation of factors associated with school e ectiveness in PISA assessment",
+    "authors": [
+      "F. Martínez-Abad",
+      "Adriana Gamazo",
+      "M.-J. Rodríguez-Conde"
+    ],
+    "year": 2020,
+    "doi": "10.1016/j.stueduc.2020.100875",
+    "venue": "Studies in Educational Evaluation",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata for Spain and restricts the analytic sample to students aged 15 within 896 schools (after excluding schools with fewer than 20 participants). For the multilevel phase, the authors state that HLM 7 enabled the use of student and school sample weights to ensure correct representation of the PISA-eligible population, and they apply robust Huber-White adjustments because student replicate weights could not be used. For the decision-tree phase, the unit of analysis is the school, so student-level predictors are aggregated to school means; the authors then weight the decision-tree learning based on the available school sample weights. Missingness is handled within HLM7 at student level (low missing percentages) and via regression imputation at school level (with no missing values in final multilevel models), while the decision-tree algorithm (J48/C4.5 in Weka) uses a weighting approach to route instances with missing predictor values across branches."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 31236,
+      "countries": [
+        {
+          "country_code": "ESP",
+          "n_students": 31236
+        }
+      ],
+      "sample_filtering_criteria": "Used the PISA 2015 Spain sample of 15-year-old students. Excluded all schools with fewer than 20 assessment participants, reducing the sample from 32,330 students and 976 schools to 31,236 students and 896 schools. In phase 2 (decision trees), further restricted to the selected high- and low-efficacy schools, yielding 8,347 students across 239 schools (3,801 in high-efficacy schools; 4,546 in low-efficacy schools)."
+    },
+    "ml_techniques": {
+      "primary": "Decision Tree",
+      "all_techniques": [
+        "Decision Tree"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "Gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "birth_month",
+        "variable_name": "Birth month",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "grade",
+        "variable_name": "Grade",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "immigrant_status",
+        "variable_name": "Immigrant status",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "grade_repetition",
+        "variable_name": "Grade repetition",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "number_school_changes",
+        "variable_name": "Number of school changes",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "mother_tongue",
+        "variable_name": "Mother tongue",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "school_size",
+        "variable_name": "School size",
+        "category": "school"
+      },
+      {
+        "variable_code": "classroom_size",
+        "variable_name": "Classroom size",
+        "category": "school"
+      },
+      {
+        "variable_code": "shortage_educational_resources",
+        "variable_name": "Shortage of educational resources",
+        "category": "school"
+      },
+      {
+        "variable_code": "shortage_educational_staff",
+        "variable_name": "Shortage of educational staff",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_ownership",
+        "variable_name": "School ownership",
+        "category": "school"
+      },
+      {
+        "variable_code": "student_teacher_ratio",
+        "variable_name": "Student-teacher ratio",
+        "category": "school"
+      },
+      {
+        "variable_code": "average_ESCS",
+        "variable_name": "Average ESCS (school)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "repeater_rate",
+        "variable_name": "Repeater rate",
+        "category": "school"
+      },
+      {
+        "variable_code": "immigrant_student_rate",
+        "variable_name": "Immigrant student rate",
+        "category": "school"
+      },
+      {
+        "variable_code": "proportion_girls",
+        "variable_name": "Proportion of girls",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "EXTR_CURR",
+        "variable_name": "Additional lessons (curricular)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "COOPERATE",
+        "variable_name": "Cooperative learning value",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use outside school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use outside school leisure",
+        "category": "ict"
+      },
+      {
+        "variable_code": "LMINS",
+        "variable_name": "Reading lesson minutes (weekly)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "CPSVALUE",
+        "variable_name": "Value of cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AUTICT",
+        "variable_name": "ICT autonomy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENVOPT",
+        "variable_name": "Environmental optimism",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT available at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "EXTR_CCSS",
+        "variable_name": "Additional lessons (social sciences)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SMTAUT_TEACH",
+        "variable_name": "Teacher autonomy (management)",
+        "category": "teacher"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 (Spain) — secondary students (15-year-olds), school effectiveness classification (decision-tree phase)",
+        "target_variable": "School effectiveness (high vs low)",
+        "top_predictors": [
+          "Additional lessons (curricular)",
+          "Cooperative learning value",
+          "ICT use outside school",
+          "Reading lesson minutes (weekly)",
+          "ICT autonomy"
+        ],
+        "performance_metrics": "Decision tree (J48/C4.5, Weka): Training set — High: TP=0.906, Precision=0.929, COR=0.947; Low: TP=0.941, Precision=0.922, COR=0.947; Global: Kappa=0.849, RRSE=0.515. Cross-validation (10-fold stratified): Global — COR=0.916, Kappa=0.747, RRSE=0.647; Correct predictions=0.875, ROC AUC=0.916 (high/low maintained at high levels). Tree size: 25 branches, 13 terminal nodes; 11 variables used (10 aggregated at school level).",
+        "standardized_conclusion": "Using PISA 2015 (Spain) the study leveraged additional lessons (curricular), cooperative learning value, ICT use outside school, reading lesson minutes, and ICT autonomy to classify schools as high- vs low-effectiveness, finding that the decision tree achieved high classification fit (global cross-validation COR=0.916; Kappa=0.747; ROC AUC=0.916). This indicates that school effectiveness in secondary education is strongly associated with a small set of process- and context-related factors (extracurricular academic time, ICT use patterns, and reading time-on-task), suggesting that education authorities can prioritize targeted guidance on instructional time and ICT practices rather than relying only on socioeconomic inputs, while noting the study is cross-sectional and uses aggregated school-level predictors."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2015 Spain data for 15-year-old students and uses a two-phase school-effectiveness approach. First, multilevel models (HLM 7) estimate expected performance from input variables and compute school residuals to select high- and low-effectiveness schools; the authors report ICCs above 10% for science, mathematics, and reading. Second, the authors train a decision tree (J48/C4.5 in Weka) using school effectiveness (high vs low) as a dichotomous target and process/context variables from PISA 2015 questionnaires as predictors, aggregating student-level variables to the school level. The resulting tree (25 branches, 13 leaves) shows strong performance: global cross-validation COR=0.916, Kappa=0.747, RRSE=0.647, and ROC AUC=0.916, with correct predictions around 87.5%. Limitations include cross-sectional design (no causal inference) and reliance on aggregated predictors, which may mask within-school variability.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

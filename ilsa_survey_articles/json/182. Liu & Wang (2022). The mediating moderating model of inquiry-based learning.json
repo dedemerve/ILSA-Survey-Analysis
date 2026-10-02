@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "file_name": "182. Liu & Wang (2022). The mediating moderating model of inquiry-based learning and science self-efficacy  evidence from PISA 2015.pdf",
+    "title": "The mediating–moderating model of inquiry-based learning and science self-efficacy: evidence from PISA 2015",
+    "authors": [
+      "Y. Liu",
+      "J. Wang"
+    ],
+    "year": 2022,
+    "doi": "10.1080/09500693.2022.2067364",
+    "venue": "International Journal of Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 student questionnaire constructs that were scaled with Item Response Theory (IRT) and reported as weighted likelihood estimates (WLE) transformed to a mean of 0 and SD of 1 across OECD countries. The sampling design is described as a two-stage stratified design with schools selected using systematic PPS sampling and students selected with equal probability within schools, implying a complex survey structure. However, the manuscript does not report the use of PISA sampling weights (e.g., student design weights) or replicate-weight procedures for variance estimation; instead, it focuses on PROCESS macro mediation/moderation with standardized WLE scores. For replication, analysts should use the official PISA sampling weights and appropriate variance estimation when estimating uncertainty, while treating WLE as the IRT-based scaling of questionnaire constructs rather than a substitute for survey-weighted estimation."
+    },
+    "plausible_values_handling": "wle",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are WLE-based IRT scores from PISA student questionnaires (science self-efficacy, inquiry-based science teaching/learning practices, science interest, teacher support), not achievement plausible values. The paper does not describe any missing-data handling procedure (e.g., listwise/pairwise deletion or imputation), so the approach to missing questionnaire responses is not transparent. This is a reporting gap because missingness can affect mediation/moderation estimates in large-scale survey data.",
+    "sample_details": {
+      "total_students": 346109,
+      "countries": [],
+      "sample_filtering_criteria": "Used PISA 2015 student data from 57 participating countries and economies. The analytic sample includes 346,109 students who had administered questions measuring all variables of interest in the PISA 2015 context questionnaires (inquiry-based learning, science interest, science self-efficacy, teacher support) plus the control variable (disciplinary climate) and demographic gender. The paper does not report additional grade/school-type restrictions beyond the PISA target population of 15-year-old students, nor does it specify an explicit missing-data rule beyond stating that the included sample had measures for all variables of interest."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "DISCLISCI",
+        "variable_name": "Disciplinary climate (science)",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 (15-year-olds) Science domain (context questionnaires)",
+        "target_variable": "Science self-efficacy (SCIEEFF; WLE)",
+        "top_predictors": [
+          "Inquiry-based learning (IBTEACH; WLE)",
+          "Science interest (INTBRSCI; WLE)",
+          "Teacher support (TEACHSUP; WLE)",
+          "Disciplinary climate (DISCLISCI; WLE)",
+          "Gender"
+        ],
+        "performance_metrics": "Mediation (PROCESS Model 4, 5,000 bootstraps): total effect B=0.194 (p<.001), direct effect B=0.155 (p<.001), indirect effect B=0.039 (20.1% of total; 95% CI above 0). Moderated mediation (PROCESS Model 59, 5,000 bootstraps): interaction IBTEACH×TEACHSUP predicting science self-efficacy B=0.049 (p<.001); interaction INTBRSCI×TEACHSUP predicting science self-efficacy B=-0.015 (p<.001). Model fit: R2=0.111 for the science self-efficacy outcome model (standardized). Effect size: Cohen’s f2 for final model = 0.125 (small).",
+        "standardized_conclusion": "Using PISA 2015 (15-year-olds) science context questionnaire the study leveraged inquiry-based learning (IBTEACH), science interest (INTBRSCI), and teacher support (TEACHSUP), controlling for disciplinary climate and gender, to model science self-efficacy (SCIEEFF; WLE). It found that inquiry-based learning had a significant positive direct association with science self-efficacy (B=0.155), and that science interest partially mediated this relationship with an indirect effect accounting for 20.1% of the total effect (indirect B=0.039). Teacher support strengthened the direct effect of inquiry-based learning on science self-efficacy (interaction B=0.049) while weakening the indirect pathway through science interest (interaction B=-0.015), indicating a mediating–moderating pattern. This indicates that improving inquiry-based science instruction should be paired with strategies that sustain students’ science interest while leveraging teacher support to maximize self-efficacy gains, though the cross-sectional design limits causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2015 student questionnaire data from 57 participating countries and economies (N=346,109) to test a mediating–moderating model linking inquiry-based learning to science self-efficacy. The constructs (inquiry-based learning, science interest, science self-efficacy, teacher support) are scaled using IRT and expressed as weighted likelihood estimates (WLE), standardized across OECD countries. Using PROCESS macro mediation (Model 4) and moderated mediation (Model 59) with 5,000 bootstrap samples, the authors report a significant positive total effect of inquiry-based learning on science self-efficacy (B=0.194, p<.001), with partial mediation via science interest (indirect effect B=0.039; 20.1% of total). Teacher support moderates the direct effect positively (B=0.049) but moderates the indirect effect negatively (B=-0.015), yielding R2=0.111 for the self-efficacy outcome model. Limitations include lack of reported missing-data handling and no explicit discussion of applying PISA sampling weights/replicate variance estimation; results are correlations due to cross-sectional data.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "file_name": "173. Mang et al. (2026). Sampling Weights in Multilevel Modelling: An Investigation Using PISA Sampling Structures.pdf",
+    "title": "Sampling weights in multilevel modelling: an investigation using PISA sampling structures",
+    "authors": [
+      "Julia Mang"
+    ],
+    "year": 2021,
+    "doi": "10.1186/s40536-021-00099-0",
+    "venue": "Large-Scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study is based on PISA’s two-stage stratified cluster sampling (schools sampled first via PPS with stratification, then students sampled within schools). It discusses and operationalizes PISA sampling weights at both levels: final student weights (combining school and student selection probabilities with non-response adjustments) and final school weights (level-two weights reflecting school selection probabilities adjusted for school non-response). In the simulation and application, the authors compare multiple ways of incorporating these weights into two-level multilevel models, including scenarios with no weights, unscaled weights, and several scaling rules for level-one (student) weights, while keeping level-two (school) weights as the key component. The recommended approach is to use only the final school weights at level two (i.e., no student-level weights at level one), because this best recovers population parameters under the simulated PISA sampling structure; the paper does not report replicate-weight procedures (e.g., BRR/jackknife) as part of the estimation."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This paper does not perform missing-data imputation for student-level outcomes; instead, it focuses on how sampling weights are incorporated into two-level multilevel models under simulated PISA sampling and non-response mechanisms. Missingness is handled through simulated non-response adjustments (e.g., student participation probabilities by grade and gender) rather than through an explicit missing-data imputation strategy for analysis variables. Therefore, a standard missing-data handling label (e.g., listwise deletion or multiple imputation) is not applicable as a documented procedure for the analysis dataset.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "DEU",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The simulation population is based on the PISA 2015 sampling frame for Germany (15-year-old students; two-stage stratified cluster sampling with explicit stratification by federal state and implicit stratification by school type). For each simulation scenario, 1000 Monte Carlo sample replications are drawn: 234 schools per replication (selected via PPS within strata) with a maximum of 25 students per school; in schools with fewer than 25 eligible students, all eligible students are selected. School non-response is assumed to be 100% participation for Germany in the simulation; student non-response is simulated using a logistic model with participation probabilities depending on gender and grade, and non-response adjustments are applied at the student level following PISA’s approach (non-response adjustment cells built within stratum, school, grade, and gender). For the empirical illustration, the authors apply the same three two-level hierarchical models to PISA 2015 data (science competence as the outcome; ESCS at student and school levels), using the same weighting scenarios as in the simulation; the paper does not specify additional analytic exclusions beyond the weighting/participation framework."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "school_escs",
+        "variable_name": "School average ESCS",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "grade",
+        "variable_name": "grade (modal 9/10)",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 sampling frame for Germany",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "School average ESCS",
+          "Student gender",
+          "Student grade (modal 9/10)"
+        ],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA 2015 sampling frame for Germany the study leveraged Socioeconomic status (ESCS), School average ESCS, Student gender to predict Literature synthesis outcome (not student-level prediction), finding that This methodology paper investigates how to incorporate PISA sampling weights into two-level multilevel (hierarchical) models, using both simulation and an application to PISA 2015 data for Germany. The authors simulate a German PISA-like population with two-stage stratified cluster sampling (schools sampled via PPS with stratification; students sampled within schools) and generate student achievement (PISA competence in science) and socioeconomic background (ESCS) under three scenarios differing in between-school variance (ICC 0.05, 0.52, 0.79). They compare nine weighting scenarios (e.g., no weights, unscaled weights, only student weights, only school weights, and several scaling rules for student weights) across three two-level model specifications, estimating parameters and their uncertainty using pseudo maximum likelihood with sandwich-type variance estimation in two software packages (Mplus and SAS PROC GLIMMIX). Across scenarios, the recommended approach is to use only final school weights at level two; scaling of student weights yields nearly identical results when school weights are used, and software differences are small under the recommended weighting scheme. The study is not a predictive ML analysis; its key contribution is methodological guidance for valid multilevel inference under complex LSA sampling designs. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This methodology paper investigates how to incorporate PISA sampling weights into two-level multilevel (hierarchical) models, using both simulation and an application to PISA 2015 data for Germany. The authors simulate a German PISA-like population with two-stage stratified cluster sampling (schools sampled via PPS with stratification; students sampled within schools) and generate student achievement (PISA competence in science) and socioeconomic background (ESCS) under three scenarios differing in between-school variance (ICC 0.05, 0.52, 0.79). They compare nine weighting scenarios (e.g., no weights, unscaled weights, only student weights, only school weights, and several scaling rules for student weights) across three two-level model specifications, estimating parameters and their uncertainty using pseudo maximum likelihood with sandwich-type variance estimation in two software packages (Mplus and SAS PROC GLIMMIX). Across scenarios, the recommended approach is to use only final school weights at level two; scaling of student weights yields nearly identical results when school weights are used, and software differences are small under the recommended weighting scheme. The study is not a predictive ML analysis; its key contribution is methodological guidance for valid multilevel inference under complex LSA sampling designs.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is a simulation/methodology investigation of weighting and estimation procedures for multilevel models rather than a machine-learning predictive study. As a result, there is no ML target variable with predictive performance metrics (e.g., accuracy/AUC) and no ML algorithm training/evaluation pipeline to extract; consequently, ml_techniques is empty and main_findings is left as an empty array per the schema rules for non-ML methodological papers. The paper’s outcomes are parameter recovery and coverage rates for multilevel model parameters under different weighting schemes, which are not represented as StructuredFinding rows in this schema."
+  }
+}

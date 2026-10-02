@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "file_name": "159. Alnahdi & Schwab (2023). The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data.pdf",
+    "title": "The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data",
+    "authors": [
+      "Ghaleb Hamad Alnahdi",
+      "Susanne Schwab"
+    ],
+    "year": 2023,
+    "doi": "10.3389/fpsyg.2023.1066843",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS 2019 international database data for Saudi Arabia, focusing on fourth-grade mathematics and science achievement and linking them to teacher-reported attitudes and teaching style plus student-reported teaching practices. The manuscript reports sample composition (students and teachers) and administration dates, but it does not describe the application of TIMSS complex survey weights or any replicate-weight procedure. Because the analysis is presented as multiple regression with reported F-tests and R², the paper does not provide the weight variable name(s) (e.g., TOTWGT/W_FSTUWT) or replicate design details needed to reproduce population-representative estimates. Analysts using TIMSS microdata should apply TIMSS sampling weights and replicate weights when estimating standard errors and model fit; however, this paper’s weighting strategy is not documented, so it is unclear whether weighted estimation was performed."
+    },
+    "plausible_values_handling": "not_reported",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are students’ TIMSS mathematics and science achievement scores, but the manuscript does not state whether these were analyzed using TIMSS plausible values (PV) with Rubin’s combining rules, averaged PVs, or an alternative scaling approach. Similarly, the paper does not report any missing-data handling procedure (e.g., complete-case exclusion, imputation, or PV-specific missingness rules). Given that TIMSS datasets typically include missing questionnaire responses and PV-based achievement scoring, the absence of explicit PV and missing-data documentation is a reporting gap that limits transparency and reproducibility.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "SAU",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used TIMSS 2019 data from Saudi Arabia, restricted to fourth-grade students and their associated teachers in the TIMSS 2019 administration (9–10 April 2019). The analytic focus is on five teacher-related predictors: teaching practices (measured via student questionnaire items), teaching style (teacher questionnaire), teaching attitudes (teacher questionnaire), years of teaching experience, and teacher major/specialization (math vs science). The manuscript reports that the sample is nearly split by student gender and that teacher gender counts are available, but it does not specify additional exclusions (e.g., missing questionnaire items, school/teacher eligibility rules, or PV availability filters)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "teaching_practices",
+        "variable_name": "Teaching practices (student view)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teaching_style",
+        "variable_name": "Teaching style (teacher view)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teaching_attitudes",
+        "variable_name": "Teaching attitudes",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "years_of_experience",
+        "variable_name": "Years of teaching experience",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_major_math",
+        "variable_name": "Teacher major (math specialization)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_major_science",
+        "variable_name": "Teacher major (science specialization)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "student_gender",
+        "variable_name": "gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "teacher_gender",
+        "variable_name": "Teacher gender",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2019 Grade 4 Mathematics (Saudi Arabia)",
+        "target_variable": "Math achievement (TIMSS score)",
+        "top_predictors": [
+          "Teaching practices (student view)",
+          "Teaching style (teacher view)",
+          "Teaching attitudes",
+          "Years of teaching experience",
+          "Teacher major (math specialization)"
+        ],
+        "performance_metrics": "Multiple regression: model significant (F5, 8313 = 99.764, p < 0.001), R² = 0.057. Best predictor: teaching practices (partial R = 0.180), implying ~3.2% of unique variation explained. Coefficients: teaching practices (B = -30.810, Beta = -0.179, p < 0.001), teaching style (B = -20.801, Beta = -0.096, p < 0.001), teaching attitudes (B = -21.762, Beta = -0.078, p < 0.001).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 4 Mathematics data from Saudi Arabia, the study leveraged teaching practices (student view), teaching style (teacher view), teaching attitudes, years of teaching experience, and teacher major to predict students’ math achievement, finding that teaching practices, teaching style, and teaching attitudes were the three highest predictors and were positively associated with achievement. This indicates that strengthening high-quality instructional practices and supportive teacher dispositions may help reduce the gender achievement gap, though the study’s regression design and undocumented PV/weighting strategy limit causal interpretation."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 4 Science (Saudi Arabia)",
+        "target_variable": "Science achievement (TIMSS score)",
+        "top_predictors": [
+          "Teaching practices (student view)",
+          "Teaching style (teacher view)",
+          "Teaching attitudes",
+          "Teacher major (science specialization)"
+        ],
+        "performance_metrics": "Multiple regression: model significant (F5, 8062 = 146.804, p < 0.001), R² = 0.083. Best predictor: teaching practices (partial R = 0.206), implying ~4.2% of unique variation explained. Coefficients: teaching practices (B = -36.767, Beta = -0.203, p < 0.001), teaching style (B = -33.757, Beta = -0.141, p < 0.001), teaching attitudes (B = -25.151, Beta = -0.081, p < 0.001). Years of experience not significant (p = 0.288).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 4 Science data from Saudi Arabia, the study leveraged teaching practices (student view), teaching style (teacher view), teaching attitudes, years of teaching experience, and teacher major to predict students’ science achievement, finding that teaching practices, teaching style, and teaching attitudes were significant predictors with teaching practices the strongest. This indicates that teacher-focused professional development targeting instructional practices and positive teaching attitudes may improve science learning outcomes and partially address gender differences, while the lack of explicit PV and missing-data handling documentation constrains the precision and interpretability of effect estimates."
+      }
+    ],
+    "outcome_summary": "The study analyzes TIMSS 2019 data from Saudi Arabia, focusing on fourth-grade mathematics and science achievement and examining whether teacher-related factors explain gender differences in student performance. Across both domains, multiple regression models were statistically significant (Math: F5, 8313 = 99.764, R² = 0.057; Science: F5, 8062 = 146.804, R² = 0.083), with teaching practices (student-reported) emerging as the strongest predictor (partial R = 0.180 for math; partial R = 0.206 for science). Teaching style and teaching attitudes were also among the top predictors and were positively associated with achievement, while years of experience was not significant for science. The paper further reports that female teachers scored higher on these teacher variables, which the authors interpret as a partial reflection of the girls’ higher achievement. However, the manuscript does not report how TIMSS plausible values were handled or how missing data were treated, and it uses correlational/regression evidence rather than causal identification.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

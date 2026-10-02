@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "file_name": "170. Liu et al. (2024). A decade of PISA: student perceived instructional quality and mathematics achievement across European countries.pdf",
+    "title": "A decade of PISA: student perceived instructional quality and mathematics achievement across European countries",
+    "authors": [
+      "Xin Liu",
+      "Kajsa Yang Hansen",
+      "Martin Valcke",
+      "Jan De Neve"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s11858-024-01630-7",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2012 and PISA 2022 student microdata from ten European education systems (Belgium-Flanders, Denmark, Finland, France, Germany, Netherlands, Norway, Portugal, Spain, Sweden) with mathematics as the primary domain. Mathematics achievement is handled via PISA plausible values (five PVs in 2012; ten PVs in 2022) estimated in Mplus using TYPE=IMPUTATION and then averaged across PV datasets, which is the standard approach for PV-based achievement modeling. The manuscript does not report applying PISA sampling weights or replicate weights in the structural models; instead, it focuses on measurement invariance and uses Mplus TYPE=COMPLEX to adjust standard errors and chi-square statistics for clustering. Because survey-weight variables are not explicitly named or used, readers should treat the results as model-based associations rather than fully design-weighted population estimates unless weights are confirmed in the full methods section."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 165079,
+      "countries": [
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "DNK",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "DEU",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2012 and PISA 2022 student data for the ten specified European education systems that participated in both cycles, restricting to students with mathematics as the primary domain. Instructional quality predictors are based on students’ perceptions of mathematics instruction scales available in each cycle (PISA 2012: student-oriented instruction, classroom management, teacher support, disciplinary climate, cognitive activation; PISA 2022: teacher support, disciplinary climate, and two cognitive activation sub-dimensions). Mathematics achievement is modeled using PISA plausible values (PV1MATH–PV5MATH in 2012; PV1MATH–PV10MATH in 2022) with matrix-sampling nonresponse handled via multiple imputation in Mplus (TYPE=IMPUTATION). For RQ3, structural equation models are estimated controlling for ESCS and using Mplus TYPE=COMPLEX to adjust standard errors for clustering; measurement invariance is tested across countries before interpreting cross-country relationships."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "student_oriented_instruction",
+        "variable_name": "Student-oriented instruction",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "classroom_management",
+        "variable_name": "Classroom management",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "teacher_support",
+        "variable_name": "Teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "disciplinary_climate",
+        "variable_name": "Disciplinary climate",
+        "category": "school"
+      },
+      {
+        "variable_code": "cognitive_activation",
+        "variable_name": "Cognitive activation",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "cognitive_activation_encouraging_thinking",
+        "variable_name": "Cognitive activation: encouraging thinking",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "cognitive_activation_fostering_reasoning",
+        "variable_name": "Cognitive activation: fostering reasoning",
+        "category": "curriculum"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 Mathematics (15-year-olds) — Belgium-Flanders, Denmark, Finland, France, Germany, Netherlands, Norway, Portugal, Spain, Sweden",
+        "target_variable": "Mathematics achievement (PVs, PV1MATH–PV5MATH)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Student-oriented instruction",
+          "Classroom management",
+          "Teacher support",
+          "Disciplinary climate"
+        ],
+        "performance_metrics": "Structural equation model (SEM) with Mplus TYPE=COMPLEX; explained variance R² varies by country (e.g., Belgium-Flanders R²=0.39; Finland R²=0.21). Standardised path estimates reported in Table 2; effect sizes summarized in Table 4 (e.g., Belgium-Flanders effect size=0.64; Finland effect size=0.27).",
+        "standardized_conclusion": "Using PISA 2012 Mathematics the study leveraged socioeconomic status (ESCS) together with students’ perceived teacher support, disciplinary climate, cognitive activation, student-oriented instruction, and classroom management to model mathematics achievement, finding that teacher support, disciplinary climate, and cognitive activation positively predict achievement while student-oriented instruction and classroom management show negative associations in most countries. This indicates that strengthening supportive teacher-student interactions and maintaining an orderly disciplinary climate may promote mathematics performance and help mitigate SES-related inequities, though the study is correlational and does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2022 Mathematics (15-year-olds) — Belgium-Flanders, Denmark, Finland, France, Germany, Netherlands, Norway, Portugal, Spain, Sweden",
+        "target_variable": "Mathematics achievement (PVs, PV1MATH–PV10MATH)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Teacher support",
+          "Disciplinary climate",
+          "Cognitive activation: encouraging thinking",
+          "Cognitive activation: fostering reasoning"
+        ],
+        "performance_metrics": "Structural equation model (SEM) with Mplus TYPE=COMPLEX; explained variance R² varies by country (e.g., Belgium-Flanders R²=0.28; Norway R²=0.14). Standardised path estimates reported in Table 3; effect sizes summarized in Table 4 (e.g., Belgium-Flanders effect size=0.39; Norway effect size=0.16).",
+        "standardized_conclusion": "Using PISA 2022 Mathematics the study leveraged socioeconomic status (ESCS) together with teacher support, disciplinary climate, and two cognitive activation sub-dimensions (encouraging mathematical thinking vs fostering reasoning) to predict mathematics achievement, finding that teacher support and disciplinary climate have positive effects while encouraging mathematical thinking and fostering reasoning show opposite directions across countries (encouraging thinking negative in most countries; fostering reasoning positive). This indicates that equity-oriented instructional improvement should focus on the form of cognitive activation—promoting reasoning and problem-solving processes rather than simply encouraging thinking—while maintaining supportive and orderly classrooms."
+      },
+      {
+        "dataset_used": "PISA 2012 vs PISA 2022 Mathematics (trend across two cycles) — ten European education systems",
+        "target_variable": "Instructional quality trends and SES indirect effects on mathematics achievement",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "Teacher support",
+          "Disciplinary climate",
+          "Classroom management",
+          "Student-oriented instruction"
+        ],
+        "performance_metrics": "Trend analysis via within-country mean differences for ESCS, teacher support, and disciplinary climate (RQ2). Indirect effects of SES through instructional quality dimensions reported in Appendix D and summarized in the Results/Discussion; explained variance and effect sizes summarized in Table 4.",
+        "standardized_conclusion": "Using PISA 2012 and PISA 2022 the study examined how SES relates to mathematics achievement directly and indirectly through instructional quality dimensions, finding that teacher support, disciplinary climate, and cognitive activation consistently benefit low-SES students across cycles, while classroom management and student-oriented instruction tend to harm low-SES students’ performance. This indicates that policies aiming to reduce achievement gaps should prioritize teacher support and classroom order as equity levers, and should carefully redesign student-oriented and management-heavy practices to avoid unintended disadvantages for low-SES learners."
+      }
+    ],
+    "outcome_summary": "This study analyzes PISA 2012 and PISA 2022 mathematics data for 15-year-olds in ten European education systems (Belgium-Flanders, Denmark, Finland, France, Germany, Netherlands, Norway, Portugal, Spain, Sweden). Mathematics achievement is modeled using PISA plausible values (five PVs in 2012; ten PVs in 2022) with Mplus TYPE=IMPUTATION and averaged estimates, and the structural models are estimated with Mplus TYPE=COMPLEX to adjust standard errors for clustering. Across both cycles, teacher support and disciplinary climate show positive associations with mathematics achievement, and cognitive activation is beneficial overall, but its sub-dimensions in 2022 diverge: encouraging mathematical thinking is often negative while fostering reasoning is positive. SES has significant direct effects and also indirect effects through instructional quality dimensions, with patterns that consistently benefit low-SES students for teacher support, disciplinary climate, and reasoning-based cognitive activation. Limitations include the absence of explicit reporting on survey-weight application and the correlational nature of SEM paths (no causal identification).",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The manuscript reports structural equation modeling (CFA/SEM) and trend analyses rather than training/evaluating machine learning predictive models; therefore, no ML algorithms are extracted (ml_techniques.all_techniques is empty and primary is null). The extraction focuses on the empirical relationships among latent instructional-quality constructs and PV-based mathematics achievement across PISA cycles."
+  }
+}

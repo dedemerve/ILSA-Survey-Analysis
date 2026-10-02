@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "file_name": "150. Liu et al. (2023). How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018.pdf",
+    "title": "How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018",
+    "authors": [
+      "A.L.",
+      "Q.X.",
+      "Y.W.",
+      "H.Y.",
+      "J.L."
+    ],
+    "year": 2023,
+    "doi": "10.3390/bs13030237",
+    "venue": "Behaviours Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for 15-year-old students from mainland China, with a two-stage sampling design (schools then students) and sampling weights assigned to both schools and students. The authors state that, after excluding missing or invalid cases, they used a final analytic sample of 9343 students and that student weights and school weights were incorporated in their OLS models. The manuscript does not report the exact weight variable names, but it explicitly indicates that PISA sampling weights were applied to account for sampling and measurement error. No replicate-weight method (e.g., BRR/jackknife) is described, and the analysis is conducted in STATA 16 using OLS/threshold/quantile/2-stage regressions rather than ML algorithms that would require special weighting support."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 9343,
+      "countries": [
+        {
+          "country_code": "CHN",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 data for mainland China, focusing on four participating cities/provinces (Beijing, Shanghai, Jiangsu, Zhejiang). The authors report excluding missing or invalid samples from the PISA database and then selecting an analytic sample of 9343 students."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "urban_rural",
+        "variable_name": "Urban/rural location",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "school_type",
+        "variable_name": "School type (public/private)",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_quality",
+        "variable_name": "School quality (teacher degrees)",
+        "category": "school"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Family socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "UNDREM",
+        "variable_name": "Metacognition (understanding, remembering)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "attitude_toward_school",
+        "variable_name": "Attitude toward school (learning activities)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "subjective_well_being",
+        "variable_name": "Subjective well-being (belonging)",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 (China, 15-year-olds) Mathematics achievement (IRT-based scores; 10 PVs incorporated in OLS)",
+        "target_variable": "Mathematics achievement",
+        "top_predictors": [
+          "Learning time (math minutes/week)",
+          "Gender",
+          "Urban/rural location",
+          "School type (public/private)",
+          "Family socioeconomic status (ESCS)"
+        ],
+        "performance_metrics": "OLS: R2=0.195 (Model 1) and R2=0.202 (Model 2); threshold regression: optimal math learning time 200–240 min/week (single threshold 200 min/week; double threshold 200–240 min/week).",
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged learning time (math minutes/week) together with gender, urban/rural location, school type, and ESCS to model mathematics achievement, finding that learning time shows an inverted U-shaped relationship with significant positive effects up to an optimal range and negative/ineffective effects beyond it. This indicates that policies under the “double reduction” framework should target an evidence-based upper bound for subject-specific study time (about 200–240 minutes/week for math) rather than assuming that more time always improves achievement."
+      },
+      {
+        "dataset_used": "PISA 2018 (China, 15-year-olds) Science achievement (IRT-based scores; 10 PVs incorporated in OLS)",
+        "target_variable": "Science achievement",
+        "top_predictors": [
+          "Learning time (science minutes/week)",
+          "Gender",
+          "Urban/rural location",
+          "School type (public/private)",
+          "School quality (teacher degrees)"
+        ],
+        "performance_metrics": "OLS: R2=0.256 (Model 3) and R2=0.273 (Model 4); threshold regression: optimal science learning time 440–520 min/week (double threshold with inflection at 440 and negative beyond 520).",
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged science learning time (minutes/week) along with gender, urban/rural location, school type, and school quality to model science achievement, finding that the learning-time effect is nonlinear with a significant positive effect below the inflection point and a significant negative effect after exceeding the upper threshold. This indicates that curriculum and homework guidance should allow more science study time than math up to an evidence-based ceiling (about 440–520 minutes/week), while discouraging excessive time that may reduce learning efficiency."
+      },
+      {
+        "dataset_used": "PISA 2018 (China, 15-year-olds) Reading achievement (IRT-based scores; 10 PVs incorporated in OLS)",
+        "target_variable": "Reading achievement",
+        "top_predictors": [
+          "Learning time (language/reading minutes/week)",
+          "Gender",
+          "Urban/rural location",
+          "School type (public/private)",
+          "Metacognition (comprehension/memory)"
+        ],
+        "performance_metrics": "OLS: R2=0.267 (Model 5) and R2=0.275 (Model 6); threshold regression: optimal reading learning time about 200 min/week (single threshold 200 min/week; negative effect beyond 200).",
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged reading learning time (language/reading minutes/week) with gender, urban/rural location, school type, and metacognition to model reading achievement, finding a significant single-threshold inverted U pattern with positive effects below about 200 minutes/week and negative effects beyond that point. This indicates that homework and after-school tutoring recommendations for reading should emphasize a relatively modest time target (around 200 minutes/week) and focus on learning effectiveness rather than extending time."
+      },
+      {
+        "dataset_used": "PISA 2018 (China, 15-year-olds) Mathematics/Science/Reading achievement (quantile regression on PV-based outcomes)",
+        "target_variable": "Academic achievement heterogeneity by learning time (quantiles)",
+        "top_predictors": [
+          "Learning time (subject-specific minutes/week)",
+          "Academic performance level (quantile position)",
+          "Gender",
+          "Urban/rural location",
+          "Family socioeconomic status (ESCS)"
+        ],
+        "performance_metrics": "Quantile regression results reported qualitatively: diminishing marginal benefit; stronger positive marginal effects for lower-performing students (last 20–40% depending on subject) and weak/limited benefits for top performers (top 50%).",
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged subject-specific learning time and background controls to estimate quantile-specific effects on achievement, finding that learning-time benefits are concentrated among academically disadvantaged students (roughly the bottom 20–40%) while top performers show weak marginal gains and diminishing returns. This indicates that differentiated homework/time-allocation policies are needed: extend learning time for students below performance thresholds, but avoid uniform time increases for high-achieving students where efficiency gains are minimal."
+      },
+      {
+        "dataset_used": "PISA 2018 (China, 15-year-olds) Mathematics achievement (two-stage OLS mediation; PV-based outcomes)",
+        "target_variable": "Academic achievement via mediators (attitude and belonging)",
+        "top_predictors": [
+          "Learning time",
+          "Attitude toward school (learning activities)",
+          "Subjective well-being (sense of belonging)",
+          "Gender",
+          "Urban/rural location"
+        ],
+        "performance_metrics": "Mediation (Table 7): learning time primary term positive and squared term negative for both mediators; mediators positively associated with math scores. Model fit: R2=0.019 (attitude stage) and R2=0.020 (well-being stage) for mediator equations; R2=0.181 (math outcome stage with mediators) and F=434.373.",
+        "standardized_conclusion": "Using PISA 2018 China the study leveraged learning time and background controls to test a two-stage mechanism through attitude toward school and subjective well-being, finding an inverted U-shaped relationship where moderate learning time improves engagement/belonging but excessive time reduces them, and both mediators are positively associated with achievement. This indicates that policy should pair time-reduction goals with safeguards for students’ emotional health and learning engagement, because excessive time can harm non-cognitive states that support achievement."
+      }
+    ],
+    "outcome_summary": "This study analyzes PISA 2018 microdata for mainland China (four participating provinces/cities: Beijing, Shanghai, Jiangsu, Zhejiang) and models subject achievement in mathematics, science, and reading for 15-year-olds. The authors incorporate PISA’s IRT-based achievement information by generating 10 plausible values per student and using student and school sampling weights in STATA 16. They estimate (i) OLS models with linear and quadratic learning-time terms, (ii) threshold regression to identify optimal subject-specific learning-time ranges, (iii) quantile regression to assess heterogeneity across achievement levels, and (iv) a two-stage OLS mediation model via attitude toward school and subjective well-being. Results show inverted U-shaped effects with optimal ranges of about 200–240 minutes/week for math, 440–520 for science, and ~200 for reading, plus diminishing marginal benefits for top performers. Limitations include potential endogeneity (non-tracking design) and self-report bias in learning-time measures, so the findings support guidance on time allocation rather than causal claims.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

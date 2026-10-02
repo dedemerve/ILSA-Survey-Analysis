@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "file_name": "183. Büyükkıdık (2023). Influential Factors on Mathematical Literacy of Turkish Students: An Educational Data Mining Study Using PISA 2015 Data.pdf",
+    "title": "Influential factors on mathematical literacy of Turkish students: An educational data mining study using PISA 2015 data.",
+    "authors": [
+      "S. Büyükkıdık"
+    ],
+    "year": 2023,
+    "doi": "10.52963/PERR_Biruni_V12.N2.10",
+    "venue": "Psycho-Educational Research Reviews",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata restricted to Turkey’s participating students and then applies a supervised classification pipeline with 10-fold cross-validation. The manuscript does not report whether complex survey sampling weights (e.g., student/sampling weights) or replicate weights were applied, nor does it name any weight variables. Because the analysis is based on standard ML classifiers (SVM, Multi-Layer Perceptron, J48, Naïve Bayes), the paper may have proceeded without weight-aware estimation; however, this is not explicitly documented. For replication, analysts should use the official PISA student sampling weights and replicate-weight procedures when estimating performance and uncertainty, and should ensure that any preprocessing (e.g., feature selection/variable filtering) is performed within each cross-validation fold to avoid leakage."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variable is a binary classification of students as successful vs unsuccessful in mathematical literacy, rather than a PV-based achievement score. The paper does not describe any missing-data strategy (e.g., complete-case deletion or imputation), which is a reporting gap because PISA datasets typically contain missingness in background and questionnaire variables. Without documentation, it is unclear whether missing values were excluded, imputed, or handled via model-specific mechanisms.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used the full available PISA 2015 student sample for Turkey (\"all Turkish students who participated in PISA 2015\"). The paper reports classification into successful vs unsuccessful mathematical literacy groups and includes grade and questionnaire-derived variables (e.g., learning time, motivation/affect scales), but it does not specify additional task/module restrictions or explicit missing-data exclusions."
+    },
+    "ml_techniques": {
+      "primary": "Naive Bayes",
+      "all_techniques": [
+        "Support Vector Machine",
+        "Neural Network",
+        "Decision Tree",
+        "Naive Bayes"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "learning_time_per_week_total",
+        "variable_name": "Learning time per week (total)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "father_education_level",
+        "variable_name": "Father education level",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "EMOSUPS",
+        "variable_name": "Emotional support (EMOSUPS)",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "ANXTEST",
+        "variable_name": "Test anxiety (ANXTEST)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MOTIVAT",
+        "variable_name": "Achievement motivation (MOTIVAT)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COOPERATE",
+        "variable_name": "Cooperation (COOPERATE)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging (BELONG)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MMINS",
+        "variable_name": "Minutes per week (MMINS)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TMINS",
+        "variable_name": "Time spent (TMINS)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "OUTHOURS",
+        "variable_name": "Out-of-school hours (OUTHOURS)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "grade",
+        "variable_name": "Grade level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother education (MISCED)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FISCED",
+        "variable_name": "Father education (FISCED)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISCED",
+        "variable_name": "Highest education (HISCED)",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 (Turkey) — Mathematical literacy classification (successful vs unsuccessful)",
+        "target_variable": "Mathematical literacy success status (binary)",
+        "top_predictors": [
+          "Learning time per week (total)",
+          "Father education level",
+          "Test anxiety (ANXTEST)",
+          "Achievement motivation (MOTIVAT)",
+          "Sense of belonging (BELONG)"
+        ],
+        "performance_metrics": "10-fold cross-validation. Naïve Bayes — ROC: 0.720 (highest reported ROC); Precision (successful): 0.771; Precision (unsuccessful): 0.543; MCC: 0.318 (successful/unsuccessful). Multi-Layer Perceptron — lowest precision reported: 0.645 (overall table).",
+        "standardized_conclusion": "Using PISA 2015 (Turkey) the study leveraged learning time per week (total) and father education level (plus affect/motivation variables such as test anxiety and achievement motivation) to classify students as successful vs unsuccessful in mathematical literacy, finding that learning time per week and father education level were the most important variables and that the highest ROC value reached 0.720. This indicates that strengthening students’ sustained learning time and addressing socioeconomic barriers linked to parental education may improve the likelihood of mathematical literacy success, though the study’s binary classification and limited reporting of weighting/missing-data handling constrain causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study classifies Turkish students’ mathematical literacy into successful vs unsuccessful categories using PISA 2015 data and educational data mining classifiers. It evaluates multiple algorithms—Support Vector Machine, Multi-Layer Perceptron, J48 (decision tree), and Naïve Bayes—under 10-fold cross-validation, reporting Precision, Recall, F-measure, Matthews Correlation Coefficient (MCC), and ROC. Across methods, the highest ROC value reported is 0.720 (Naïve Bayes), while the lowest precision value reported is 0.645 for the Multi-Layer Perceptron. The most important predictors for classification are learning time per week in total and father’s education level, with additional influential variables drawn from questionnaire scales (e.g., test anxiety, motivation, belonging). The paper does not report a missing-data strategy or whether PISA sampling/replicate weights were used, limiting the interpretability of performance estimates and any policy inference.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

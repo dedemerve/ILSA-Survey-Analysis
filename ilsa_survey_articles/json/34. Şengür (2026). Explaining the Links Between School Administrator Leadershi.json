@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "file_name": "34. Şengür (2026). Explaining the Links Between School Administrator Leadership, Job Satisfaction, and Participatory School Climate: A Machine Learning-Enhanced Multilevel Analysis of TALIS 2024 School Administrator Data.pdf",
+    "title": "Explaining the Links Between School Administrator Leadership, Job Satisfaction, and Participatory School Climate: A Machine Learning-Enhanced Multilevel Analysis of TALIS 2024 School Administrator Data",
+    "authors": [
+      "Şengür"
+    ],
+    "year": 2026,
+    "doi": "10.3390/bs16071062",
+    "venue": "Behavioral Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TALIS 2024 school administrator data (fourth cycle) and constructs a combined administrator dataset with 16,335 observations. The authors explicitly state that TALIS survey weights and the full complex sampling design were not incorporated, so the analysis should be interpreted as associations in the pooled analytic sample rather than population-representative estimates for participating education systems. In the multilevel mediation stage, clustering is handled by specifying country as a random-intercept level, which partially accounts for the nested structure across countries, but it does not replace the omitted sampling-weight adjustments. Data preparation included cleaning missing/invalid responses, removing cases with missing dependent-variable values for the ML phase, and applying median imputation only within the ML modeling process for residual missing predictor values."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "mean_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is a TALIS composite scale score for participatory school climate (T4POPPART) rather than a PV-based cognitive achievement score. Missing-data handling is reported as median imputation for residual missing predictor values in the ML phase and complete-case analysis for the multilevel mediation stage; however, the schema does not include a 'median_imputation' option, so this is mapped to mean_imputation as the closest available literal. The paper also reports that cases with missing dependent-variable values were removed from the ML sample, and multilevel mediation used cases with complete data on leadership, job satisfaction, climate, and controls.",
+    "sample_details": {
+      "total_students": 16335,
+      "countries": [
+        {
+          "country_code": "ALB",
+          "n_students": null
+        },
+        {
+          "country_code": "AUT",
+          "n_students": null
+        },
+        {
+          "country_code": "AZE",
+          "n_students": null
+        },
+        {
+          "country_code": "BHR",
+          "n_students": null
+        },
+        {
+          "country_code": "BRA",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "COL",
+          "n_students": null
+        },
+        {
+          "country_code": "CRI",
+          "n_students": null
+        },
+        {
+          "country_code": "HRV",
+          "n_students": null
+        },
+        {
+          "country_code": "CYP",
+          "n_students": null
+        },
+        {
+          "country_code": "CZE",
+          "n_students": null
+        },
+        {
+          "country_code": "DNK",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "ISL",
+          "n_students": null
+        },
+        {
+          "country_code": "ISR",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "XKX",
+          "n_students": null
+        },
+        {
+          "country_code": "LVA",
+          "n_students": null
+        },
+        {
+          "country_code": "LTU",
+          "n_students": null
+        },
+        {
+          "country_code": "MLT",
+          "n_students": null
+        },
+        {
+          "country_code": "MNE",
+          "n_students": null
+        },
+        {
+          "country_code": "MAR",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "NZL",
+          "n_students": null
+        },
+        {
+          "country_code": "MKD",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "POL",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "SAU",
+          "n_students": null
+        },
+        {
+          "country_code": "SRB",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "SVK",
+          "n_students": null
+        },
+        {
+          "country_code": "SVN",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "UZB",
+          "n_students": null
+        },
+        {
+          "country_code": "VNM",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used TALIS 2024 school administrator combined data file across the listed participating education systems. For the machine learning phase, all observations with valid values on the dependent variable (participatory school climate, T4POPPART) were retained; records with missing dependent-variable values were removed, yielding 16,335 observations. For multilevel mediation analysis, the authors used complete cases with no missing data on the independent variable (leadership), mediating variable (job satisfaction), dependent variable (participatory climate), and control variables (workload, diversity beliefs), while country was used to define the random-intercept clustering structure. Residual missingness in predictors was handled in the ML phase via median imputation, and median imputation was not used for the multilevel mediation stage."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "Elastic Net",
+        "Random Forest",
+        "XGBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "T4PTLEAD",
+        "variable_name": "School administrator leadership",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4PJOBSAT",
+        "variable_name": "School administrator job satisfaction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4PWLOAD",
+        "variable_name": "School administrator workload",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "T4PDIVBF",
+        "variable_name": "Diversity beliefs",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "T4PWELS",
+        "variable_name": "School administrator well-being",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "CNTRY",
+        "variable_name": "Country context",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "IDPOP",
+        "variable_name": "Sample population indicator",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 School Administrator (4th cycle) — pooled administrators",
+        "target_variable": "Participatory school climate (T4POPPART)",
+        "top_predictors": [
+          "School administrator leadership",
+          "School administrator job satisfaction",
+          "Diversity beliefs",
+          "Country context",
+          "School administrator well-being"
+        ],
+        "performance_metrics": "XGBoost (with country): R²=0.218, MAE=1.417, RMSE=1.794. XGBoost (without country): R²=0.123, MAE=1.492, RMSE=1.900. ElasticNet (with country): R²=0.210, MAE=1.438, RMSE=1.803. Random Forest (with country): R²=0.178, MAE=1.440, RMSE=1.840.",
+        "standardized_conclusion": "Using TALIS 2024 School Administrator the study leveraged school administrator leadership, job satisfaction, diversity beliefs, country context, and well-being to predict participatory school climate, finding that the XGBoost model achieved the highest test performance (R²=0.218 with country; R²=0.123 without country). This indicates that participatory school climate is strongly associated with leadership and job satisfaction while also being context-sensitive across countries, though the authors caution that results are associations because TALIS survey weights and the full complex sampling design were not incorporated."
+      }
+    ],
+    "outcome_summary": "The study conducts a two-stage analysis on TALIS 2024 school administrator data (pooled administrators; N=16,335). In stage 1, explainable ML compares Elastic Net, Random Forest, and XGBoost to predict participatory school climate (T4POPPART), using 80/20 train-test splits and 5-fold cross-validation for tuning; XGBoost performs best with country information (R²=0.218, MAE=1.417, RMSE=1.794) and drops substantially without country (R²=0.123). Explainability via permutation importance and SHAP indicates leadership is the strongest predictor, followed by job satisfaction and diversity beliefs, with some country dummies contributing directionally. In stage 2, multilevel linear mixed mediation with country as a random intercept shows leadership positively predicts job satisfaction (a=0.2121) and job satisfaction positively predicts climate (b=0.1419), with an indirect effect ab=0.0301 and mediation ratio 0.131; bootstrap CIs exclude zero. Limitations include cross-sectional self-report data, omitted TALIS survey weights/complex sampling design, and the fact that SHAP/permutation importance reflect predictive association rather than causality.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

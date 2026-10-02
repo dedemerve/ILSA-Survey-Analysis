@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "file_name": "184. Sırgancı (2023). A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire.pdf",
+    "title": "A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire",
+    "authors": [
+      "Sırgancı"
+    ],
+    "year": 2023,
+    "doi": "10.3758/s13428-019-01224-2",
+    "venue": "International Journal of Curriculum and Instruction (IJCI)",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 ICT engagement questionnaire items administered to 15-year-old students in EECA countries (Bulgaria, Georgia, Croatia, Kazakhstan, Turkey). The analytic approach is DIF detection using the GPCMlasso regularization method for generalized partial credit models, which estimates item-level DIF parameters conditional on grouping variables (country, gender, ESCS). The manuscript does not report whether PISA sampling/student weights or replicate weights were applied, nor does it name any weight variables; therefore, weighting cannot be confirmed from the provided text. Analysts using PISA microdata should apply the official PISA student/sampling weights (and replicate weights if variance estimation is required) when estimating DIF parameters to account for the complex survey design; however, this paper’s weighting strategy is not documented."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are DIF indicators/parameters for polytomous ICT engagement questionnaire items (modeled via a generalized partial credit model with lasso regularization), not PV-based cognitive achievement scores. As a result, plausible values are not part of the DIF estimation target in this study. The manuscript also does not describe any missing-data handling procedure for questionnaire responses (e.g., listwise deletion or imputation), which is a reporting gap because DIF estimation can be sensitive to missing item responses.",
+    "sample_details": {
+      "total_students": 29277,
+      "countries": [
+        {
+          "country_code": "AZE",
+          "n_students": null
+        },
+        {
+          "country_code": "BLR",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": 2574
+        },
+        {
+          "country_code": "HRV",
+          "n_students": 4835
+        },
+        {
+          "country_code": "GEO",
+          "n_students": 2613
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": 13775
+        },
+        {
+          "country_code": "MDA",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": 5480
+        },
+        {
+          "country_code": "UKR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 ICT engagement questionnaire responses from EECA countries, focusing on the five countries that participated in the ICT questionnaire (Bulgaria, Georgia, Croatia, Kazakhstan, Turkey). The sample comprises 15-year-old students (total N=29,277) and includes gender and ESCS as covariates for DIF detection. The paper reports gender-specific frequencies and ESCS means/SDs in Table 1 for the five ICT-participating countries; it does not specify additional exclusions beyond the ICT-questionnaire participation restriction."
+    },
+    "ml_techniques": {
+      "primary": "LASSO",
+      "all_techniques": [
+        "LASSO"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "EECA",
+        "variable_name": "Country (EECA)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "dummy_coded",
+        "variable_name": "dummy-coded",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "gendermale",
+        "variable_name": "Gender (male vs female)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "economic",
+        "variable_name": "Economic",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "social",
+        "variable_name": "social",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "cultural status (ESCS)",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 ICT engagement questionnaire (EECA countries, 15-year-olds)",
+        "target_variable": "DIF presence across ICT items (uniform DIF via GPCMlasso)",
+        "top_predictors": [
+          "Country (EECA, dummy-coded)",
+          "Gender (male vs female)",
+          "Economic, social, cultural status (ESCS)"
+        ],
+        "performance_metrics": "GPCMlasso coefficients with BIC-selected tuning parameter λ; DIF diagnosed when lasso coefficients for grouping variables are non-zero and/or coefficient paths cross the optimal λ line. Reported counts: 2/21 items show DIF overall by country+gender+ESCS; by country all items except items 10 and 11 are DIF-flagged (only items 10,11 completely DIF-free). Additional analysis (Country-pair DIF burden relative to Bulgaria (reference group)): Reported DIF proportions based on GPCMlasso coefficients (Bulgaria reference): Georgia 28%, Croatia 71%, Kazakhstan 33%, Turkey 33% of all items hold DIF. Pairwise comparison narrative: most DIF-prone items between Bulgaria and Croatia; fewest between Bulgaria and Georgia.",
+        "standardized_conclusion": "Using PISA 2018 ICT engagement questionnaire data from EECA countries, the study leveraged Country (dummy-coded with Bulgaria as reference), Gender (male vs female), and ESCS to assess uniform DIF across 21 polytomous ICT items via GPCMlasso, finding that nearly all items exhibit DIF by country while only a small subset shows DIF by ESCS and a larger subset shows DIF by gender. This indicates that cross-country comparisons of ICT engagement using these items may be biased unless country-specific measurement non-equivalence is addressed (e.g., through DIF-aware scoring or revised item sets), though the study is descriptive and does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2018 ICT engagement questionnaire (EECA countries, 15-year-olds)",
+        "target_variable": "DIF direction by gender (favoring males vs females)",
+        "top_predictors": [
+          "Gender (male vs female)",
+          "Country (EECA, dummy-coded)"
+        ],
+        "performance_metrics": "Reported DIF direction counts: 7/21 items show DIF in favor of males and 6/21 items show DIF in favor of females (overall DIF based on country, gender, and ESCS). In the discussion, 62% of items show DIF for gender.",
+        "standardized_conclusion": "Using PISA 2018 ICT engagement questionnaire the study leveraged Gender (male vs female) alongside country comparisons within the GPCMlasso DIF framework, finding that DIF is not only present for gender but also shows systematic directionality (some items biased toward males and others toward females). This indicates that gender-neutral interpretation of ICT engagement items may be problematic and that item calibration or DIF-adjusted measurement should be considered to avoid overstating or understating gender differences in ICT engagement."
+      },
+      {
+        "dataset_used": "PISA 2018 ICT engagement questionnaire (EECA countries, 15-year-olds)",
+        "target_variable": "DIF prevalence by ESCS (favoring higher vs lower ESCS groups)",
+        "top_predictors": [
+          "Economic, social, cultural status (ESCS)"
+        ],
+        "performance_metrics": "Reported counts: according to ESCS, only 3/21 items display DIF overall. In the discussion, 14% of items for SES show DIF.",
+        "standardized_conclusion": "Using PISA 2018 ICT engagement questionnaire the study leveraged ESCS within the GPCMlasso DIF model, finding that DIF attributable to ESCS is comparatively limited (only about 3 of 21 items show DIF). This indicates that socioeconomic gradients in ICT engagement may be less affected by measurement non-equivalence than country- or gender-based comparisons, but DIF still exists for a subset of items and should be checked before using the scale for SES-sensitive policy conclusions."
+      }
+    ],
+    "outcome_summary": "This study examines differential item functioning (DIF) for the PISA 2018 ICT engagement questionnaire using a generalized partial credit model with lasso regularization (GPCMlasso). The analytic sample includes 29,277 fifteen-year-old students from EECA countries, focusing on the five ICT-participating countries (Bulgaria, Georgia, Croatia, Kazakhstan, Turkey). DIF was assessed at the item level across four ICT engagement subscales (interest in ICT, perceived ICT competence, perceived ICT autonomy, and social media use) using BIC-selected tuning for the lasso penalty; items were flagged as DIF when grouping-variable coefficients were non-zero and/or coefficient paths crossed the optimal λ line. Results indicate that only items 10 and 11 are completely DIF-free, while DIF is pervasive by country, present for gender with both male- and female-favoring items, and comparatively rare for ESCS (about 3/21 items). The paper does not report missing-data handling or whether PISA sampling/replicate weights were applied, limiting the precision and generalizability of DIF prevalence estimates.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

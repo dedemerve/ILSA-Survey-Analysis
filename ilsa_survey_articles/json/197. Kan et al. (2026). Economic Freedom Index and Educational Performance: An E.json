@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "file_name": "197. Kan et al. (2026). Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles.pdf",
+    "title": "Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles",
+    "authors": [
+      "A.Ü. Kan",
+      "Z.A. Kan",
+      "H. A.",
+      "M.A. Kan",
+      "S. Uzun",
+      "C. A.",
+      "G. Yıldırım",
+      "B. A."
+    ],
+    "year": 2026,
+    "doi": "10.3390/systems14060620",
+    "venue": "Systems",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses country-average PISA performance profiles (low–medium–high classes) and country-year economic freedom indicators, so it does not analyze student-level microdata from PISA. As a result, the paper does not report the application of PISA sampling weights or replicate weights (e.g., BRR/jackknife) at the student level. The ML models are trained on aggregated country-level features, which means complex survey weighting is not described as part of the modeling pipeline. Analysts should therefore treat the results as ecological, country-level classification patterns rather than population-representative student estimates."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables are country-average PISA scores converted into three ordered low–medium–high classes, and the paper does not describe any plausible-values (PV) workflow (e.g., Rubin’s rules) because the analysis is not conducted on student-level PVs. Missing-data handling is also not documented for the country-year panel construction (e.g., interpolation details, how missing IEF subcomponents or PISA averages were handled). This is a reporting gap because the study relies on a pooled country-year dataset (2002–2022) where missingness and interpolation choices can affect class assignments and model training.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Constructed an analytical panel of nominal country-year records covering 76 countries over 2002–2022 (n = 1596 country-year records). PISA outcomes were converted from country-average mathematics, reading, and science scores into three ordered low–medium–high classes using an empirically constructed threshold scheme (Group 3 as main configuration), with OECD-anchored thresholds used only for sensitivity (Group 5). The paper distinguishes between student-level OECD proficiency thresholds and the study’s country-average profile classification, and it does not analyze student microdata."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "XGBoost",
+        "Random Forest",
+        "Decision Tree",
+        "Logistic Regression",
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "PR",
+        "variable_name": "Property rights",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "GI",
+        "variable_name": "Government integrity",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "GS",
+        "variable_name": "Government spending",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "TB",
+        "variable_name": "Tax burden",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "TF",
+        "variable_name": "Trade freedom",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "BF",
+        "variable_name": "Business freedom",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "LF",
+        "variable_name": "Labor freedom",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "IF",
+        "variable_name": "Investment freedom",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "MF",
+        "variable_name": "Monetary freedom",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "IY",
+        "variable_name": "Judicial effectiveness",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "index_year_time_reference",
+        "variable_name": "Index year (time reference)",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA country-average profiles (2002–2022 panel), Mathematics (PISAM)",
+        "target_variable": "Mathematics performance profile (low–medium–high class)",
+        "top_predictors": [
+          "Government spending",
+          "Property rights",
+          "Government integrity",
+          "Tax burden",
+          "Trade freedom"
+        ],
+        "performance_metrics": "Selected model: Random Forest. Train Accuracy: 0.998; Validation Accuracy: 0.929; Test Accuracy: 0.898; Diff. Accuracy (Train–Val): 0.069; CV F1 Mean: 0.892 (± 0.021). fiXAIt explanation reliability: Fidelity 0.875; Faithfulness 0.880; Self-Consistency 0.623.",
+        "standardized_conclusion": "Using PISA country-average profiles (2002–2022 panel) for Mathematics (PISAM), the study leveraged Government spending, Property rights, Government integrity, Tax burden, and Trade freedom to predict the low–medium–high mathematics performance profile class, finding that the Random Forest model achieved strong test accuracy (0.898) with stable cross-validation F1 (0.892). The fiXAIt explanations indicate that Government spending and institutional trust-related components (Property rights, Government integrity) repeatedly contributed to distinguishing the profile classes, with Government spending showing a negative value-direction signal within the model. This indicates that institutional trust and rule-of-law-related signals may be useful diagnostic anchors for comparative education discussions, while spending/tax components should be interpreted as model-based balancing signals rather than direct causal policy levers."
+      },
+      {
+        "dataset_used": "PISA country-average profiles (2002–2022 panel), Reading (PISAR)",
+        "target_variable": "Reading performance profile (low–medium–high class)",
+        "top_predictors": [
+          "Business freedom",
+          "Property rights",
+          "Tax burden",
+          "Trade freedom",
+          "Government spending"
+        ],
+        "performance_metrics": "Selected model: XGBoost. Train Accuracy: 0.893; Validation Accuracy: 0.849; Test Accuracy: 0.829; Diff. Accuracy (Train–Val): 0.043; CV F1 Mean: 0.806 (± 0.026). fiXAIt explanation reliability: Fidelity 0.892; Faithfulness 0.810; Self-Consistency 0.652.",
+        "standardized_conclusion": "Using PISA country-average profiles (2002–2022 panel) for Reading (PISAR), the study leveraged Business freedom, Property rights, Tax burden, Trade freedom, and Government spending to predict the low–medium–high reading performance profile class, finding that the XGBoost model reached test accuracy of 0.829 with CV F1 mean of 0.806 (± 0.026). The fiXAIt layer shows Business freedom and Property rights as dominant inclusion signals, while Tax burden and Government spending exhibit negative value-direction effects within the classification mechanism. This indicates that regulatory/institutional components may be more informative for comparative reading-profile diagnostics than single fiscal measures, though the negative directions should not be read as causal effects of taxation or spending."
+      },
+      {
+        "dataset_used": "PISA country-average profiles (2002–2022 panel), Science (PISAS)",
+        "target_variable": "Science performance profile (low–medium–high class)",
+        "top_predictors": [
+          "Government spending",
+          "Property rights",
+          "Tax burden",
+          "Government integrity",
+          "Trade freedom"
+        ],
+        "performance_metrics": "Selected model: Random Forest. Train Accuracy: 0.938; Validation Accuracy: 0.858; Test Accuracy: 0.812; Diff. Accuracy (Train–Val): 0.080; CV F1 Mean: 0.839 (± 0.026). fiXAIt explanation reliability: Fidelity 0.912; Faithfulness 0.917; Self-Consistency 0.644.",
+        "standardized_conclusion": "Using PISA country-average profiles (2002–2022 panel) for Science (PISAS), the study leveraged Government spending, Property rights, Tax burden, Government integrity, and Trade freedom to predict the low–medium–high science performance profile class, finding that the Random Forest model achieved test accuracy of 0.812 with CV F1 mean of 0.839 (± 0.026). The fiXAIt explanations indicate that Government spending and Property rights are the strongest inclusion contributors, while Government spending and Tax burden act as balancing (negative value-direction) signals in the model’s decision logic. This indicates that combining institutional trust and market-openness-related signals can help prioritize cross-country science-performance diagnostics, while again avoiding causal interpretations of fiscal index directions."
+      }
+    ],
+    "outcome_summary": "The study builds a country-year panel (76 countries; 2002–2022; n = 1596) and converts OECD PISA country-average mathematics, reading, and science scores into three ordered low–medium–high classes. It trains multiple supervised classifiers (Random Forest, XGBoost, Decision Tree, Logistic Regression, and MLP) and selects domain-specific best models using test accuracy, cross-validation F1 (mean ± SD), and an overfitting diagnostic (train–validation accuracy gap). For Mathematics, Random Forest achieved test accuracy 0.898 and CV F1 0.892 (±0.021); for Reading, XGBoost achieved test accuracy 0.829 and CV F1 0.806 (±0.026); for Science, Random Forest achieved test accuracy 0.812 and CV F1 0.839 (±0.026). Explanations are produced with fiXAIt (FEI/FVI) and checked for convergence with SHAP top-feature overlap. The paper explicitly cautions against causal policy claims and notes ecological limitations (country-level aggregation and threshold-based discretization), and it does not report PV handling or a missing-data strategy for the constructed panel.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "file_name": "214. Jung et al. (2026). Optimizing automated scoring in ILSAs with prompt compression.pdf",
+    "title": "Optimizing automated scoring in ILSAs with prompt compression",
+    "authors": [
+      "J.Y. Jung",
+      "Ummugul Bezirhan",
+      "Matthias von Davier"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.caeai.2026.100558",
+    "venue": "Computers and Education: Artificial Intelligence",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses digital PIRLS 2021 constructed-response (CR) item responses from 27 countries and 29 languages, but it does not report applying PIRLS sampling weights or any replicate-weight variance estimation in the automated scoring evaluation. Instead, the authors draw a randomly selected 20% subset of the full dataset for each country to conduct exploratory analyses, and then run GPT-4o-based automated scoring with prompt compression variants. Because the evaluation is based on agreement between automated scores and human scores (accuracy, Cohen’s kappa, hallucination rate) rather than estimating population parameters, the manuscript provides no weight variable (e.g., W_FSTUWT/TOTWGT) and no discussion of complex survey design adjustments. As a result, the reported performance should be interpreted as model-scoring agreement on the sampled responses, not as a nationally representative estimate of PIRLS reading literacy distributions."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are binary 1-point constructed-response scores (human scoring vs automated scoring) for PIRLS CR items, not PV-based cognitive achievement scales. The paper also does not describe any missing-data handling strategy (e.g., how incomplete responses, translation failures, or absent fields were treated), which is a reporting gap given that multilingual responses and API-based translation/summarization can produce missing or unusable outputs. The evaluation therefore focuses on scoring agreement metrics computed on the available item responses after the authors’ subset selection, without documenting a formal missing-data protocol.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "ARE",
+          "n_students": 102
+        },
+        {
+          "country_code": "BEL",
+          "n_students": 81
+        },
+        {
+          "country_code": "CAN",
+          "n_students": 182
+        },
+        {
+          "country_code": "CZE",
+          "n_students": 113
+        },
+        {
+          "country_code": "DEU",
+          "n_students": 71
+        },
+        {
+          "country_code": "DNK",
+          "n_students": 73
+        },
+        {
+          "country_code": "ESP",
+          "n_students": 108
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 116
+        },
+        {
+          "country_code": "HRV",
+          "n_students": 59
+        },
+        {
+          "country_code": "HUN",
+          "n_students": 79
+        },
+        {
+          "country_code": "ITA",
+          "n_students": 84
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": 64
+        },
+        {
+          "country_code": "RUS",
+          "n_students": 41
+        },
+        {
+          "country_code": "LTU",
+          "n_students": 66
+        },
+        {
+          "country_code": "POL",
+          "n_students": 2
+        },
+        {
+          "country_code": "RUS",
+          "n_students": 4
+        },
+        {
+          "country_code": "MLT",
+          "n_students": 35
+        },
+        {
+          "country_code": "NOR",
+          "n_students": 75
+        },
+        {
+          "country_code": "NZL",
+          "n_students": 81
+        },
+        {
+          "country_code": "PRT",
+          "n_students": 93
+        },
+        {
+          "country_code": "QAT",
+          "n_students": 35
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 137
+        },
+        {
+          "country_code": "SVK",
+          "n_students": 3
+        },
+        {
+          "country_code": "SVK",
+          "n_students": 70
+        },
+        {
+          "country_code": "SVN",
+          "n_students": 78
+        },
+        {
+          "country_code": "SWE",
+          "n_students": 80
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 82
+        },
+        {
+          "country_code": "USA",
+          "n_students": 80
+        }
+      ],
+      "sample_filtering_criteria": "The dataset consists of multilingual responses from all participating countries in digital PIRLS 2021, but the analytic dataset is restricted to five 1-point CR items (trend items) used for PIRLS 2026 preparation. The authors further select a randomly chosen 20% subset of the full dataset for each country to conduct exploratory analyses while maintaining representation across countries and languages. The evaluation is then performed on these item responses across the specified countries/languages, with additional post-processing to fix misformatted JSON outputs and to detect/flag hallucinated translations based on response-length ratios (Latin-alphabet vs non-Latin thresholds), reassigning flagged cases to score 0."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PIRLS 2021 (digital), Grade 4 Reading, 1-point CR items (5 items; multilingual; 27 countries)",
+        "target_variable": "Automated scoring agreement (accuracy) vs human scoring",
+        "top_predictors": [
+          "Prompt compression via question-based passage summaries",
+          "Refined scoring guide type (abstractive vs extractive)",
+          "Prompt optimization with Zero-Shot-CoT validation",
+          "Hallucination post-processing (length-ratio detection)"
+        ],
+        "performance_metrics": "Model 3 (RefinedSG_AT + question-specific passage summaries): average accuracy 92.87%; baseline average accuracy 92.62%; Model 1 average accuracy 92.19%. Item-level accuracy (baseline vs Model 3): Item 1 90.83% vs 91.13%, Item 2 91.11% vs 90.26%, Item 3 95.05% vs 94.36%, Item 4 92.18% vs 94.85%, Item 5 93.95% vs 93.77%.",
+        "standardized_conclusion": "Using PIRLS 2021 digital Grade 4 reading data for five multilingual 1-point constructed-response items, the study leveraged prompt compression (question-based passage summaries) and refined scoring guides (RefinedSG_AT) together with Zero-Shot-CoT prompting and hallucination post-processing to predict binary automated scores aligned to human scoring, finding that Model 3 achieved the highest average accuracy (92.87%) and closely approximated the baseline despite substantial compression. This indicates that compressing long PIRLS prompts can preserve scoring agreement while improving operational efficiency, supporting scalable automated scoring workflows for multilingual reading assessments."
+      },
+      {
+        "dataset_used": "PIRLS 2021 (digital), Grade 4 Reading, 1-point CR items (5 items; multilingual; 27 countries)",
+        "target_variable": "Automated scoring agreement (Cohen’s kappa) vs human scoring",
+        "top_predictors": [
+          "Prompt compression via question-based passage summaries",
+          "Refined scoring guide type (abstractive vs extractive)",
+          "Prompt optimization with Zero-Shot-CoT validation",
+          "Hallucination post-processing (length-ratio detection)"
+        ],
+        "performance_metrics": "Average Cohen’s kappa: baseline 0.82; Model 1 0.81; Model 2 0.82; Model 3 0.80. Item-level kappa (baseline vs Model 3): Item 1 0.82 vs 0.82, Item 2 0.81 vs 0.81, Item 3 0.86 vs 0.81, Item 4 0.84 vs 0.85, Item 5 0.79 vs 0.73.",
+        "standardized_conclusion": "Using PIRLS 2021 digital Grade 4 reading data for five multilingual 1-point constructed-response items, the study leveraged prompt compression and refined scoring guides to predict binary automated scores aligned to human scoring, finding that Model 3’s average kappa (0.80) was slightly lower than the baseline (0.82) even though its average accuracy was highest. This indicates that while compressed prompts can maintain practical agreement, kappa may be more sensitive to skewed item difficulty and chance-corrected agreement patterns, so operational deployments should monitor both accuracy and reliability metrics across item types."
+      },
+      {
+        "dataset_used": "PIRLS 2021 (digital), Grade 4 Reading, 1-point CR items (5 items; multilingual; 27 countries)",
+        "target_variable": "Hallucination rate in automated scoring",
+        "top_predictors": [
+          "Prompt compression via question-based passage summaries",
+          "Refined scoring guide type (abstractive vs extractive)",
+          "Prompt optimization with Zero-Shot-CoT validation",
+          "Hallucination post-processing (length-ratio detection)"
+        ],
+        "performance_metrics": "Average hallucination rate: baseline 0.05%, Model 1 0.69%, Model 2 0.47%, Model 3 0.12%. Item-level hallucination rates (baseline vs Model 3): Item 1 0.02% vs 0.08%, Item 2 0.16% vs 0.08%, Item 3 0.00% vs 0.14%, Item 4 0.05% vs 0.24%, Item 5 0.01% vs 0.08%.",
+        "standardized_conclusion": "Using PIRLS 2021 digital Grade 4 reading data for five multilingual 1-point constructed-response items, the study leveraged prompt compression and refined scoring guides with an internal validation step plus length-ratio-based hallucination detection to predict binary automated scores, finding that hallucination rates remained low and were lowest for the baseline (0.05%) while Model 3 remained low (0.12%) despite heavy compression. This indicates that prompt compression can be made operationally safe for automated scoring by combining CoT-based validation with explicit hallucination detection and score correction rules."
+      }
+    ],
+    "outcome_summary": "This study evaluates automated scoring (AS) for PIRLS 2021 digital Grade 4 reading constructed-response items using GPT-4o with prompt compression and optimization. The authors score five 1-point CR items across 27 countries/29 languages, using a randomly selected 20% subset per country for exploratory analysis. They compare a baseline prompt (original passages and original scoring guides) against three variants that refine scoring guides (extractive vs abstractive) and compress reading passages via question-based summarization, all using Zero-Shot-CoT with an internal validation step and JSON output constraints. Across items, Model 3 achieves the highest average accuracy (92.87%) and low hallucination rate (0.12%), closely approximating baseline accuracy (92.62%) while reducing prompt token lengths to ~18% (passages) and ~15% (scoring guides). Limitations include the absence of documented missing-data handling and survey-weighted representativeness, and the fact that kappa can be suppressed by skewed item difficulty distributions.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

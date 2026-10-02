@@ -1,0 +1,252 @@
+{
+  "metadata": {
+    "file_name": "58. Tahri et al. (2026). Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022.pdf",
+    "title": "Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022",
+    "authors": [
+      "Dahman Tahri",
+      "Ji Liu",
+      "Millicent Aziku"
+    ],
+    "year": 2026,
+    "doi": "10.1007/s40647-026-00459-6",
+    "venue": "Fudan Journal of the Humanities and Social Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the publicly available PISA 2022 student dataset and restricts the analytic sample to students who took Module 8 (non-cognitive skills), then applies additional inclusion rules based on missingness in the dependent variable and predictors. The manuscript states that missing and invalid responses were recoded as system missing and that all observations with missing data were dropped, but it does not report the use of PISA sampling weights or replicate weights. Because the models are supervised ML regressors (LASSO, Random Forest, Gradient Boosting Machine) implemented in Stata/Python/H2O, the paper does not document any complex survey design correction via PISA weights; therefore, population-representativeness and standard error calibration may not fully reflect PISA’s multistage sampling design. Analysts should, at minimum, consider whether to apply PISA student weights (and replicate weights if available) when estimating uncertainty, even if the paper’s primary goal is predictive performance."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 75217,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Analytic sample is restricted to students who participated in PISA 2022 Module 8 (non-cognitive skills). Inclusion requires: (1) participation in Module 8; (2) less than 10% missing data overall; (3) exclusion of students with missing values in the dependent variable (non-cognitive skills composite); and (4) exclusion of students with missing values in any independent-group factor (background characteristics, cognitive-motivational traits, and cognitive performance indicators). Missing/invalid/skipped/not-applicable responses were recoded as system missing prior to dropping cases."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting",
+      "all_techniques": [
+        "LASSO",
+        "Gradient Boosting",
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "AGE",
+        "variable_name": "age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Early childhood education",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "EXPECEDU",
+        "variable_name": "Expected educational level",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration background",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother’s level of education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MATHPERS",
+        "variable_name": "Mathematics proactive behavior",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MATHEF21",
+        "variable_name": "21st century mathematics efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Mathematics self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXMATH",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPSUP",
+        "variable_name": "Mathematics perceived support",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPREF",
+        "variable_name": "Mathematics preference",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEASE",
+        "variable_name": "Perception of math as easier",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHMOT",
+        "variable_name": "Mathematics motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AVGMATH",
+        "variable_name": "Average score in mathematics",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "AVGREAD",
+        "variable_name": "Average score in reading",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "AVGSCIE",
+        "variable_name": "Average score in science",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "average_score_in_change",
+        "variable_name": "Average score in change",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "relationships",
+        "variable_name": "relationships",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "AVGMCQN",
+        "variable_name": "Average score in quantity",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "average_score_in_space",
+        "variable_name": "Average score in space",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "shape",
+        "variable_name": "shape",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "average_score_in_uncertainty",
+        "variable_name": "Average score in uncertainty",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "data",
+        "variable_name": "data",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "AVGMPEM",
+        "variable_name": "Average score in employing concepts",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "AVGMPFS",
+        "variable_name": "Average score in formulating situations",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Module 8 (Non-cognitive skills composite), ages 15, 10 countries",
+        "target_variable": "Non-cognitive skills composite score (NCS)",
+        "top_predictors": [
+          "Mathematics proactive behavior (MATHPERS)",
+          "21st century mathematics efficacy (MATHEF21)",
+          "Mathematics self-efficacy (MATHEFF)",
+          "Sense of belonging (BELONG)",
+          "Average score in science (AVGSCIE)"
+        ],
+        "performance_metrics": "Nested cross-validation with GridSearchCV hyperparameter tuning. Gradient Boosting Machine (GBM) best: Test MSE=0.2399, RMSE=0.4897, MAE=0.3575, R²=0.3038 (mean across outer folds). Random Forest: Test MSE≈0.2447, RMSE≈0.4946, MAE≈0.3609, R²≈0.2898. LASSO: Test MSE≈0.2529, RMSE≈0.5031, MAE≈0.3689, R²≈0.2663. OLS: Test R²≈0.2664.",
+        "standardized_conclusion": "Using PISA 2022 Module 8 the study leveraged mathematics cognitive-motivational traits (e.g., MATHPERS, MATHEF21, MATHEFF) together with background (BELONG) and prior achievement (AVGSCIE) to predict the non-cognitive skills composite (NCS), finding that Gradient Boosting Machine outperformed OLS, LASSO, and Random Forest on test RMSE/MAE and achieved the highest explained variance (R²≈0.304). This indicates that strengthening domain-specific self-beliefs and proactive engagement in mathematics—alongside fostering students’ sense of belonging—may be a practical pathway for improving non-cognitive skills, though the cross-sectional design and lack of documented survey-weight handling limit causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study predicts students’ non-cognitive skills using PISA 2022 student microdata, restricting the analytic sample to those who completed Module 8 (N=75,217) across ten OECD/partner economies. The dependent variable is an equally weighted composite index (NCS) aggregating five OECD non-cognitive domains, and the authors compare OLS with supervised ML regressors: LASSO, Random Forest, and Gradient Boosting Machine (GBM). Using nested 5-fold cross-validation with GridSearchCV hyperparameter tuning, GBM achieved the best test performance (mean across outer folds): MSE≈0.2399, RMSE≈0.4897, MAE≈0.3575, and R²≈0.3038, outperforming Random Forest (R²≈0.2898) and LASSO (R²≈0.2663). SHAP interpretation for the best model indicates cognitive-motivational traits as the most influential group, with mathematics proactive behavior, self-efficacy, and 21st-century mathematics efficacy among key contributors. Limitations include cross-sectional data (no causal claims) and missing documentation on whether PISA sampling/replicate weights were applied.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

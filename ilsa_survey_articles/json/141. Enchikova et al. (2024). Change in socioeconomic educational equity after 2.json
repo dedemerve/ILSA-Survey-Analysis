@@ -1,0 +1,228 @@
+{
+  "metadata": {
+    "file_name": "141. Enchikova et al. (2024). Change in socioeconomic educational equity after 20 years of PISA: A systematic literature review.pdf",
+    "title": "Change in socioeconomic educational equity after 20 years of PISA: A systematic literature review",
+    "authors": [
+      "Ekaterina Enchikova",
+      "Tiago Neves",
+      "Cibelle Toledo",
+      "Gil Nata"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.ijedro.2024.100359",
+    "venue": "International Journal of Educational Research Open",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This systematic review does not conduct a new student-level analysis of PISA microdata; instead, it synthesizes results from 33 original quantitative studies and 5 official OECD PISA reports that themselves analyze PISA waves from 2000 to 2022. Because no pooled re-estimation is performed, the review does not specify or apply PISA sampling weights (e.g., student weights) or replicate-weight procedures (e.g., BRR/jackknife) at the review level. The authors explicitly state that they assigned equal weight to all included studies rather than using weighting schemes to adjust for study quality or other design features. Consequently, any weighting used in the underlying primary studies remains internal to those studies and is not standardized or re-applied here."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This is a systematic literature review that does not estimate student-level achievement models from PISA microdata, so Plausible Values handling is not applicable at the review level. The review codes and summarizes how primary studies and OECD reports operationalize equity change (e.g., ESCS gradients, outcome gaps, segregation indices) rather than re-scaling or re-analyzing PV-based achievement scores. Missing-data handling is not reported because the review does not perform a new statistical analysis requiring imputation/deletion decisions.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "ISL",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "ARG",
+          "n_students": null
+        },
+        {
+          "country_code": "PER",
+          "n_students": null
+        },
+        {
+          "country_code": "DEU",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "MEX",
+          "n_students": null
+        },
+        {
+          "country_code": "DNK",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "POL",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "PRT",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "ROU",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "AUT",
+          "n_students": null
+        },
+        {
+          "country_code": "EST",
+          "n_students": null
+        },
+        {
+          "country_code": "LTU",
+          "n_students": null
+        },
+        {
+          "country_code": "LVA",
+          "n_students": null
+        },
+        {
+          "country_code": "HRV",
+          "n_students": null
+        },
+        {
+          "country_code": "LUX",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "HUN",
+          "n_students": null
+        },
+        {
+          "country_code": "CZE",
+          "n_students": null
+        },
+        {
+          "country_code": "SVK",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "BRA",
+          "n_students": null
+        },
+        {
+          "country_code": "COL",
+          "n_students": null
+        },
+        {
+          "country_code": "URY",
+          "n_students": null
+        },
+        {
+          "country_code": "CRI",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "NZL",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "THA",
+          "n_students": null
+        },
+        {
+          "country_code": "IDN",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The review does not define an analytic student sample; instead, it applies inclusion/exclusion criteria to publications. Included sources must report original quantitative analyses of PISA data on change in socioeconomic educational equity, include at least two PISA data collection points (i.e., not single-wave studies), and provide country-level evidence of equity change. Records were identified via database searches (EBSCO, Web of Science, SCOPUS) using terms including “PISA” and “equity” (and proxies), limited to the Education field, and restricted to publications written in English, Portuguese, Spanish, Russian, or French. Duplicates were removed using EndNote, abstracts were screened by two experts independently, and full-text review in NVivo further excluded studies that did not discuss change in equity at the country level, did not present clear/readable results, or used non-PISA datasets (e.g., TIMSS/PIRLS) or did not present original data analysis."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This systematic review synthesizes quantitative studies and OECD PISA reports that examine how socioeconomic educational equity has changed across PISA waves from 2000 to 2022 (with the review covering publications from 2005 to 2023, and an update in 2024). Rather than re-estimating models, the authors code how equity change is operationalized—grouping indicators into four categories: equality of outcome, equality of opportunity, resilience, and segregation—and how results are classified as positive, negative, no change, unclear, mixed, omitted, or not available. The review finds no clear overall direction of equity change across participating countries, with substantial within-country and cross-indicator discrepancies, and with OECD reports often providing the most consistent cross-country comparisons. Methodological limitations include reliance on heterogeneous indicator definitions and cut-off criteria across primary studies, and the fact that the review does not standardize weighting or PV/missing-data handling across studies. This indicates that ical limitations include reliance on heterogeneous indicator definitions and cut-off criteria across primary studies, and the fact that the review does not standardize weighting or PV/missing-data handling across studies."
+      }
+    ],
+    "outcome_summary": "This systematic review synthesizes quantitative studies and OECD PISA reports that examine how socioeconomic educational equity has changed across PISA waves from 2000 to 2022 (with the review covering publications from 2005 to 2023, and an update in 2024). Rather than re-estimating models, the authors code how equity change is operationalized—grouping indicators into four categories: equality of outcome, equality of opportunity, resilience, and segregation—and how results are classified as positive, negative, no change, unclear, mixed, omitted, or not available. The review finds no clear overall direction of equity change across participating countries, with substantial within-country and cross-indicator discrepancies, and with OECD reports often providing the most consistent cross-country comparisons. Methodological limitations include reliance on heterogeneous indicator definitions and cut-off criteria across primary studies, and the fact that the review does not standardize weighting or PV/missing-data handling across studies.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This record is a systematic literature review rather than an empirical ML study using PISA microdata. Therefore, there is no single analytic student sample, no PV-based dependent variable to model, no ML algorithm training/evaluation, and no study-level weighting or missing-data strategy to extract for the review itself. The main contribution is a structured synthesis (coding framework and narrative results) of how equity change is measured and reported across included PISA-based quantitative studies and OECD reports."
+  }
+}
