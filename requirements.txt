@@ -16,3 +16,7 @@ jupyter>=1.0.0
 # For working with the extraction pipeline
 openai>=1.0.0
 pymupdf>=1.23.0
+
+# RAG / vector index
+chromadb>=0.5.23
+sentence-transformers>=3.3.1
