@@ -1,0 +1,32 @@
+finding_id,metric,higher_is_better,rf_value,xgb_value,winner,xgb_advantage,xgb_advantage_pct,ilsa_programs,domain,target_type,is_achievement,analysis_level
+136. Zhu et al. (2025). Predictive insights into U.S. students’ mathematics perf#1,RMSE,False,69.82,66.39,XGBoost,3.43,4.91,PISA,Mathematics,achievement_score,True,student
+142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Lea#1,MAE,False,0.641,0.636,XGBoost,0.005,0.78,PISA,Mathematics,achievement_score,True,student
+142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Lea#1,R2,True,0.304,0.313,XGBoost,0.009,2.96,PISA,Mathematics,achievement_score,True,student
+142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Lea#1,RMSE,False,0.786,0.781,XGBoost,0.005,0.64,PISA,Mathematics,achievement_score,True,student
+186. Wei et al. (2026). Identifying Key Predictors of Resilience in Mathematics #1,AUC,True,0.7616,0.7396,Random Forest,-0.022,-2.89,PISA,Mathematics,process_behavior,False,student
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#1,AUC,True,0.81,0.8,Random Forest,-0.01,-1.23,TALIS,Teacher outcome,teacher_school,False,school
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#1,Accuracy,True,0.75,0.73,Random Forest,-0.02,-2.67,TALIS,Teacher outcome,teacher_school,False,school
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#1,F1,True,0.69,0.68,Random Forest,-0.01,-1.45,TALIS,Teacher outcome,teacher_school,False,school
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#2,R2,True,0.67,0.58,Random Forest,-0.09,-13.43,TALIS,Teacher outcome,teacher_school,False,school
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#2,RMSE,False,1.56,1.75,Random Forest,-0.19,-12.18,TALIS,Teacher outcome,teacher_school,False,school
+202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMS#1,AUC,True,0.97,0.96,Random Forest,-0.01,-1.03,TIMSS,Teacher outcome,non_cognitive,False,student
+202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMS#1,Accuracy,True,0.9011,0.9011,tie,0.0,0.0,TIMSS,Teacher outcome,non_cognitive,False,student
+202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMS#1,F1,True,0.886,0.8871,XGBoost,0.0011,0.12,TIMSS,Teacher outcome,non_cognitive,False,student
+"207. Trejo-Macotela (2026). Artificial Intelligence, Academic Resilience, and Ge#1",AUC,True,0.931,0.941,XGBoost,0.01,1.07,PISA,Mathematics,achievement_category,True,student
+"207. Trejo-Macotela (2026). Artificial Intelligence, Academic Resilience, and Ge#1",F1,True,0.31,0.276,Random Forest,-0.034,-10.97,PISA,Mathematics,achievement_category,True,student
+208. Djekourmane et al. (2026). Using machine learning to predict student mathem#1,R2,True,0.5152,0.5703,XGBoost,0.0551,10.69,PISA,Mathematics,achievement_score,True,student
+209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Class#1,Accuracy,True,0.59,0.61,XGBoost,0.02,3.39,PISA,Teacher outcome,teacher_school,False,teacher
+209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Class#1,F1,True,0.59,0.61,XGBoost,0.02,3.39,PISA,Teacher outcome,teacher_school,False,teacher
+209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Class#2,Accuracy,True,0.59,0.58,Random Forest,-0.01,-1.69,PISA,Teacher outcome,teacher_school,False,teacher
+209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Class#2,F1,True,0.59,0.58,Random Forest,-0.01,-1.69,PISA,Teacher outcome,teacher_school,False,teacher
+211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time#1,Accuracy,True,0.718,0.708,Random Forest,-0.01,-1.39,PIAAC,Numeracy,achievement_category,True,student
+211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time#1,F1,True,0.682,0.699,XGBoost,0.017,2.49,PIAAC,Numeracy,achievement_category,True,student
+211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time#1,Precision,True,0.774,0.72,Random Forest,-0.054,-6.98,PIAAC,Numeracy,achievement_category,True,student
+211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time#1,Recall,True,0.612,0.683,XGBoost,0.071,11.6,PIAAC,Numeracy,achievement_category,True,student
+29. Huang et al. (2024). Applying Machine Learning and SHAP Method to Identify K#1,MAPE,False,11.08,10.21,XGBoost,0.87,7.85,PISA,Mathematics,achievement_score,True,student
+34. Şengür (2026). Explaining the Links Between School Administrator Leadershi#1,MAE,False,1.44,1.417,XGBoost,0.023,1.6,TALIS,Teacher outcome,teacher_school,False,school
+34. Şengür (2026). Explaining the Links Between School Administrator Leadershi#1,R2,True,0.178,0.218,XGBoost,0.04,22.47,TALIS,Teacher outcome,teacher_school,False,school
+34. Şengür (2026). Explaining the Links Between School Administrator Leadershi#1,RMSE,False,1.84,1.794,XGBoost,0.046,2.5,TALIS,Teacher outcome,teacher_school,False,school
+6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Ex#1,AUC,True,0.75,0.76,XGBoost,0.01,1.33,TIMSS,Mathematics,achievement_category,True,student
+6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Ex#1,Accuracy,True,0.71,0.73,XGBoost,0.02,2.82,TIMSS,Mathematics,achievement_category,True,student
+6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Ex#1,F1,True,0.69,0.71,XGBoost,0.02,2.9,TIMSS,Mathematics,achievement_category,True,student

@@ -1,0 +1,1468 @@
+{
+  "min_studies": 2,
+  "priors": {
+    "all": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 10,
+        "salience": 0.467,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.159
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 10,
+        "salience": 0.467,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.159
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 63,
+        "salience": 0.84,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 5,
+          "negative": 1
+        },
+        "direction_consensus": 0.667,
+        "sign": 1,
+        "weight": 1.0
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 24,
+        "salience": 0.462,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 3,
+          "negative": 1
+        },
+        "direction_consensus": 0.5,
+        "sign": 1,
+        "weight": 0.381
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Immigration_Language"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.188,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 27,
+        "salience": 0.659,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.429
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Anxiety_Stress"
+        ],
+        "n_studies_top": 10,
+        "salience": 0.312,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 1
+        },
+        "direction_consensus": -1.0,
+        "sign": 0,
+        "weight": 0.159
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Belonging_School_Climate"
+        ],
+        "n_studies_top": 19,
+        "salience": 0.396,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.302
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Teacher_Efficacy_Workforce",
+          "Teacher_Quality_Practices"
+        ],
+        "n_studies_top": 13,
+        "salience": 0.274,
+        "direction": "mixed",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 2
+        },
+        "direction_consensus": -0.333,
+        "sign": 0,
+        "weight": 0.206
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "School_Resources"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.333,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Curriculum_Instruction",
+          "Homework_Study_Time"
+        ],
+        "n_studies_top": 15,
+        "salience": 0.294,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 2,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 1,
+        "weight": 0.238
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 18,
+        "salience": 0.383,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.286
+      }
+    },
+    "domain=Mathematics": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.535,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.535,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 33,
+        "salience": 0.943,
+        "direction": "mixed",
+        "direction_votes": {
+          "positive": 2,
+          "negative": 1
+        },
+        "direction_consensus": 0.333,
+        "sign": 0,
+        "weight": 0.524
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 9,
+        "salience": 0.409,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.143
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Immigration_Language"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.333,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 11,
+        "salience": 0.688,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.175
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Anxiety_Stress"
+        ],
+        "n_studies_top": 8,
+        "salience": 0.615,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 1
+        },
+        "direction_consensus": -1.0,
+        "sign": 0,
+        "weight": 0.127
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Belonging_School_Climate"
+        ],
+        "n_studies_top": 9,
+        "salience": 0.45,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.143
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Teacher_Efficacy_Workforce",
+          "Teacher_Quality_Practices"
+        ],
+        "n_studies_top": 6,
+        "salience": 0.291,
+        "direction": "mixed",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 1
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.095
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "School_Resources"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.4,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Curriculum_Instruction",
+          "Homework_Study_Time"
+        ],
+        "n_studies_top": 8,
+        "salience": 0.275,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.127
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "domain=Mathematics",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 9,
+        "salience": 0.45,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.143
+      }
+    },
+    "domain=Reading": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.55,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.55,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 18,
+        "salience": 0.72,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 2,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 1,
+        "weight": 0.286
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 8,
+        "salience": 0.421,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.127
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Demographic"
+        ],
+        "n_studies_top": 9,
+        "salience": 0.429,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.143
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 9,
+        "salience": 0.562,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.143
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Student attitude"
+        ],
+        "n_studies_top": 18,
+        "salience": 0.643,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.286
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Belonging_School_Climate"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.278,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Teacher_Quality_Practices"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.211,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 1
+        },
+        "direction_consensus": -1.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "School"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.25,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Curriculum_Instruction",
+          "Homework_Study_Time"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.163,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "domain=Reading",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 6,
+        "salience": 0.316,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.095
+      }
+    },
+    "domain=Science": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.55,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.55,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 13,
+        "salience": 0.722,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.206
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.455,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Demographic"
+        ],
+        "n_studies_top": 7,
+        "salience": 0.35,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.111
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.5,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Student attitude"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.235,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Belonging_School_Climate"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.3,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Teacher_Quality_Practices"
+        ],
+        "n_studies_top": 6,
+        "salience": 0.6,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 1
+        },
+        "direction_consensus": -1.0,
+        "sign": 0,
+        "weight": 0.095
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "School"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.308,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Curriculum_Instruction",
+          "Homework_Study_Time"
+        ],
+        "n_studies_top": 6,
+        "salience": 0.472,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.095
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "domain=Science",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.333,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      }
+    },
+    "program=PIRLS": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 10,
+        "salience": 0.467,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.159
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 10,
+        "salience": 0.467,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.159
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 63,
+        "salience": 0.84,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 5,
+          "negative": 1
+        },
+        "direction_consensus": 0.667,
+        "sign": 1,
+        "weight": 1.0
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 2,
+        "salience": 1.0,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Immigration_Language"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.188,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 2,
+        "salience": 1.0,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "Student attitude"
+        ],
+        "n_studies_top": 3,
+        "salience": 1.0,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "School"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.5,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "Teacher"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.6,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "School"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.5,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "program=PIRLS",
+        "groups": [
+          "Curriculum / instruction",
+          "Student behaviour"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.75,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 18,
+        "salience": 0.383,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.286
+      }
+    },
+    "program=PISA": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.389,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "System level",
+          "System_Policy"
+        ],
+        "n_studies_top": 5,
+        "salience": 0.389,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.079
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 55,
+        "salience": 0.846,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 5,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 1,
+        "weight": 0.873
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 21,
+        "salience": 0.467,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 3,
+          "negative": 1
+        },
+        "direction_consensus": 0.5,
+        "sign": 1,
+        "weight": 0.333
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Immigration_Language"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.25,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 21,
+        "salience": 0.618,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.333
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Anxiety_Stress"
+        ],
+        "n_studies_top": 9,
+        "salience": 0.29,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 1
+        },
+        "direction_consensus": -1.0,
+        "sign": 0,
+        "weight": 0.143
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Belonging_School_Climate"
+        ],
+        "n_studies_top": 17,
+        "salience": 0.395,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.27
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Teacher_Efficacy_Workforce",
+          "Teacher_Quality_Practices"
+        ],
+        "n_studies_top": 10,
+        "salience": 0.272,
+        "direction": "mixed",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 2
+        },
+        "direction_consensus": -0.333,
+        "sign": 0,
+        "weight": 0.159
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "School_Resources"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.364,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Curriculum_Instruction",
+          "Homework_Study_Time"
+        ],
+        "n_studies_top": 12,
+        "salience": 0.277,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.19
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "program=PISA",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 16,
+        "salience": 0.381,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.254
+      }
+    },
+    "program=TIMSS": {
+      "gdp_per_capita_log": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "System level"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.667,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "education_expenditure_pct_gdp": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "System level"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.667,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "escs_mean": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "SES"
+        ],
+        "n_studies_top": 6,
+        "salience": 1.0,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.095
+      },
+      "ict_home_access": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "ICT_Usage"
+        ],
+        "n_studies_top": 24,
+        "salience": 0.462,
+        "direction": "positive",
+        "direction_votes": {
+          "positive": 3,
+          "negative": 1
+        },
+        "direction_consensus": 0.5,
+        "sign": 1,
+        "weight": 0.381
+      },
+      "immigrant_share": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "Demographic"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.25,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "self_efficacy_mean": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "Self_Efficacy"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.75,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "anxiety_mean": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "Student attitude"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.375,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "belonging_mean": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "School"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.8,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "teacher_qualification": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "Teacher_Quality_Practices"
+        ],
+        "n_studies_top": 3,
+        "salience": 0.5,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.048
+      },
+      "school_resources": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "School"
+        ],
+        "n_studies_top": 4,
+        "salience": 0.8,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.063
+      },
+      "learning_time": {
+        "supported": true,
+        "scope": "program=TIMSS",
+        "groups": [
+          "Curriculum_Instruction"
+        ],
+        "n_studies_top": 2,
+        "salience": 0.5,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 1,
+          "negative": 0
+        },
+        "direction_consensus": 1.0,
+        "sign": 0,
+        "weight": 0.032
+      },
+      "parental_involvement": {
+        "supported": true,
+        "scope": "all",
+        "groups": [
+          "Parental_Involvement"
+        ],
+        "n_studies_top": 18,
+        "salience": 0.383,
+        "direction": "unspecified",
+        "direction_votes": {
+          "positive": 0,
+          "negative": 0
+        },
+        "direction_consensus": 0.0,
+        "sign": 0,
+        "weight": 0.286
+      }
+    }
+  }
+}

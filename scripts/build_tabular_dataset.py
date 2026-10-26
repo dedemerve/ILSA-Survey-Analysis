@@ -2,8 +2,9 @@
 """
 Build a 3-sheet relational Excel meta-analysis dataset from on-disk article JSON.
 
-Scans ``outputs/**/*.json`` (nested ``json/`` folders included), deduplicates articles
-by normalized ``file_name`` then ``doi``, and writes:
+Scans ``ilsa_survey_articles/json/*.json`` (the study corpus; any folder can be given
+with ``--outputs-dir``), deduplicates articles by normalized ``file_name`` then ``doi``
+(a shared DOI only merges records whose titles also match), and writes:
 
   outputs/ILSA_Meta_Analysis_Dataset.xlsx
     - 1_Articles_Master   (one row per article)
@@ -23,6 +24,7 @@ import re
 import sys
 import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -41,6 +43,9 @@ from src.enrichment.academic_taxonomy import (
 from src.schemas.models import validate_public_article_json
 
 DEFAULT_OUTPUTS_DIR = PROJECT_ROOT / "outputs"
+# The 212-article study corpus (219 JSON files incl. 7 duplicate extractions that
+# load_and_dedupe_articles collapses). Analysis outputs are built from this folder.
+DEFAULT_CORPUS_DIR = PROJECT_ROOT / "ilsa_survey_articles" / "json"
 DEFAULT_XLSX_PATH = DEFAULT_OUTPUTS_DIR / "ILSA_Meta_Analysis_Dataset.xlsx"
 DEFAULT_CLEAN_XLSX_PATH = DEFAULT_OUTPUTS_DIR / "ILSA_Meta_Analysis_Dataset_CLEAN.xlsx"
 DEFAULT_AUDIT_LOG = DEFAULT_OUTPUTS_DIR / "audit_log.txt"
@@ -888,9 +893,13 @@ def _format_countries(countries: Any) -> str | None:
 
 def _corpus_from_path(json_path: Path, outputs_dir: Path) -> str:
     try:
-        return json_path.relative_to(outputs_dir).parts[0]
+        parts = json_path.relative_to(outputs_dir).parts
     except ValueError:
         return "unknown"
+    if len(parts) > 1:
+        return parts[0]
+    # Flat folder (e.g. ilsa_survey_articles/json): name the corpus after the folder.
+    return outputs_dir.parent.name if outputs_dir.name == "json" else outputs_dir.name
 
 
 def _corpus_rank(corpus: str) -> int:
@@ -899,6 +908,18 @@ def _corpus_rank(corpus: str) -> int:
 
 def _is_article_json(raw: object) -> bool:
     return isinstance(raw, dict) and "metadata" in raw and "data" in raw
+
+
+def _norm_title(value: str | None) -> str:
+    return _norm_file_name(value)[:80]
+
+
+def _same_title(a: str | None, b: str | None) -> bool:
+    """Fuzzy title match (tolerates PDF ligature loss such as 'Identi cation')."""
+    ta, tb = _norm_title(a), _norm_title(b)
+    if not ta or not tb:
+        return True
+    return SequenceMatcher(None, ta, tb).ratio() >= 0.85
 
 
 def _dedupe_key(meta: dict[str, Any]) -> tuple[str, str]:
@@ -1016,7 +1037,18 @@ def load_and_dedupe_articles(
         if norm_fn and norm_fn in fn_index:
             existing_key = fn_index[norm_fn]
         elif norm_doi and norm_doi in doi_index:
-            existing_key = doi_index[norm_doi]
+            candidate_key = doi_index[norm_doi]
+            other_meta = by_key[candidate_key][1].get("metadata") or {}
+            if _same_title(meta.get("title"), other_meta.get("title")):
+                existing_key = candidate_key
+            else:
+                # Shared DOI but different titles → extraction error in one DOI,
+                # not a duplicate article. Keep both and flag for review.
+                warnings.append(
+                    f"DOI CONFLICT (kept both): {norm_doi} — {path.name} vs "
+                    f"{by_key[candidate_key][0].name}"
+                )
+                norm_doi = ""
 
         if existing_key is None:
             new_key = (norm_fn, norm_doi)
@@ -1251,8 +1283,8 @@ def main() -> None:
     parser.add_argument(
         "--outputs-dir",
         type=Path,
-        default=DEFAULT_OUTPUTS_DIR,
-        help=f"Root directory to rglob for article JSON (default: {DEFAULT_OUTPUTS_DIR})",
+        default=DEFAULT_CORPUS_DIR,
+        help=f"Root directory to rglob for article JSON (default: {DEFAULT_CORPUS_DIR})",
     )
     parser.add_argument(
         "--output-xlsx",

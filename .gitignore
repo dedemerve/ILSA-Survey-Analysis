@@ -68,3 +68,5 @@ secrets.json
 credentials.json
 *.key
 *.pem
+# Generated vector index (rebuild with scripts/query_engine.py index)
+outputs/chroma_ilsa_synthesis/

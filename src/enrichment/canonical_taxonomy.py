@@ -15,6 +15,9 @@ from typing import Any, Iterable
 
 import pandas as pd
 
+from src.analysis.ml_taxonomy import LEGACY_METHOD_FAMILY
+from src.analysis.ml_taxonomy import canonicalize as canonicalize_ml
+
 IGNORE_LABEL = "[IGNORE]"
 UNCATEGORIZED = "Uncategorized_Contextual"
 STUDENT_MOTIVATION = "Student_Motivation"
@@ -806,6 +809,16 @@ METHOD_CANONICAL_MAP: dict[str, list[str]] = {
     ],
 }
 
+# Word-boundary patterns: plain substring tests mis-fired on e.g. "sem" inside
+# "semi-supervised", "dea" inside "ideas" and "irt" inside "dirt".
+_METHOD_PATTERNS: dict[str, list[re.Pattern[str]]] = {
+    family: [
+        re.compile(rf"\b{re.escape(kw)}\b" if len(kw) <= 4 else rf"\b{re.escape(kw)}", re.IGNORECASE)
+        for kw in keywords
+    ]
+    for family, keywords in METHOD_CANONICAL_MAP.items()
+}
+
 _SENTINEL_MARKERS = (
     "n/a:", "not reported", "missing", "uncategorized", "[ignore]",
 )
@@ -1053,8 +1066,13 @@ def map_method_to_canonical(ml_text: Any) -> str:
         "Traditional_Stats",
     )
     hits: list[str] = []
-    for family, keywords in METHOD_CANONICAL_MAP.items():
-        if any(kw in text for kw in keywords):
+    # Learner names first: the shared ML taxonomy knows e.g. LASSO, BART, MARS.
+    for label in re.split(r"[,;]", text):
+        model = canonicalize_ml(label)
+        if model is not None and model.family in LEGACY_METHOD_FAMILY:
+            hits.append(LEGACY_METHOD_FAMILY[model.family])
+    for family, patterns in _METHOD_PATTERNS.items():
+        if any(p.search(text) for p in patterns):
             hits.append(family)
     if not hits:
         return UNCATEGORIZED

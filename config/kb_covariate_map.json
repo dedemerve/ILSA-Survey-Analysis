@@ -1,0 +1,77 @@
+{
+  "_comment": "Maps country-level covariate columns of the forecasting panel (data/country_panel/ilsa_country_covariates.csv) to predictor groups / domains of the literature knowledge base (outputs/knowledge_base/predictor_evidence.csv). orientation = +1 when a higher covariate value means more of the construct, -1 when reverse-coded. Covariates absent from the panel are ignored. Edit freely; the sign of each prior is taken from the literature, not from this file.",
+  "covariates": {
+    "gdp_per_capita_log": {
+      "description": "log GDP per capita (PPP, constant prices)",
+      "predictor_groups": ["System_Policy", "System level"],
+      "predictor_domains": ["system_level"],
+      "orientation": 1
+    },
+    "education_expenditure_pct_gdp": {
+      "description": "Public expenditure on education, % of GDP",
+      "predictor_groups": ["System_Policy", "System level"],
+      "predictor_domains": ["system_level"],
+      "orientation": 1
+    },
+    "escs_mean": {
+      "description": "Country mean of the PISA ESCS index (or IEA home-resources index)",
+      "predictor_groups": ["SES"],
+      "predictor_domains": ["socioeconomic"],
+      "orientation": 1
+    },
+    "ict_home_access": {
+      "description": "Share of students with a computer / internet at home",
+      "predictor_groups": ["ICT_Usage"],
+      "predictor_domains": ["ict"],
+      "orientation": 1
+    },
+    "immigrant_share": {
+      "description": "Share of first/second-generation immigrant students",
+      "predictor_groups": ["Immigration_Language"],
+      "predictor_domains": ["demographic"],
+      "orientation": 1
+    },
+    "self_efficacy_mean": {
+      "description": "Country mean of the domain self-efficacy index",
+      "predictor_groups": ["Self_Efficacy"],
+      "predictor_domains": ["student_attitude"],
+      "orientation": 1
+    },
+    "anxiety_mean": {
+      "description": "Country mean of the domain anxiety index",
+      "predictor_groups": ["Anxiety_Stress"],
+      "predictor_domains": ["student_attitude"],
+      "orientation": 1
+    },
+    "belonging_mean": {
+      "description": "Country mean of sense of belonging / school climate index",
+      "predictor_groups": ["Belonging_School_Climate"],
+      "predictor_domains": ["school"],
+      "orientation": 1
+    },
+    "teacher_qualification": {
+      "description": "Share of teachers fully certified / with a subject degree",
+      "predictor_groups": ["Teacher_Quality_Practices", "Teacher_Efficacy_Workforce"],
+      "predictor_domains": ["teacher"],
+      "orientation": 1
+    },
+    "school_resources": {
+      "description": "Index of school educational resources (shortage index → orientation -1)",
+      "predictor_groups": ["School_Resources"],
+      "predictor_domains": ["school"],
+      "orientation": 1
+    },
+    "learning_time": {
+      "description": "Intended instruction time / homework time",
+      "predictor_groups": ["Homework_Study_Time", "Curriculum_Instruction"],
+      "predictor_domains": ["curriculum", "student_behavior"],
+      "orientation": 1
+    },
+    "parental_involvement": {
+      "description": "Country mean of parental involvement / support index",
+      "predictor_groups": ["Parental_Involvement"],
+      "predictor_domains": ["parent_home"],
+      "orientation": 1
+    }
+  }
+}

@@ -211,9 +211,10 @@ def score(d1: str, d2: str, d3: str) -> int:
     return 2
 
 
-def process_file(path: str) -> dict:
-    with open(path, encoding="utf-8") as fh:
-        doc = json.load(fh)
+def process_file(path: str, doc: dict | None = None) -> dict:
+    if doc is None:
+        with open(path, encoding="utf-8") as fh:
+            doc = json.load(fh)
 
     meta = doc.get("metadata", {})
     data = doc.get("data", {})
@@ -237,17 +238,23 @@ def process_file(path: str) -> dict:
 
 
 def main():
-    files = sorted(glob.glob(os.path.join(JSON_DIR, "*.json")))
-    if not files:
+    if not glob.glob(os.path.join(JSON_DIR, "*.json")):
         print(f"No JSON files found in {JSON_DIR}", file=sys.stderr)
         sys.exit(1)
 
+    # Same de-duplication as the analysis pipeline: 219 files → 212 unique articles.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from src.analysis.corpus import load_corpus
+
+    articles, _warnings = load_corpus()
     rows = []
-    for f in files:
+    for art in articles:
+        f = art["_json_path"]
         try:
-            rows.append(process_file(f))
+            rows.append(process_file(f, {"metadata": art["metadata"], "data": art["data"]}))
         except Exception as e:
             print(f"ERROR {f}: {e}", file=sys.stderr)
+    rows.sort(key=lambda r: r["file"])
 
     fieldnames = ["file", "title", "source_category", "D1", "D2", "D3", "n_countries", "score"]
     with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as fh:

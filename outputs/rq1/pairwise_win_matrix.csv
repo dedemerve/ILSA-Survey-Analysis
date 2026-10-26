@@ -1,0 +1,24 @@
+model_a,model_b,n_comparisons,wins_a,wins_b,ties,win_rate_a
+Random Forest,Neural Network,5,2,3,0,0.4
+Random Forest,SVM,8,4,4,0,0.5
+Random Forest,Decision Tree,4,4,0,0,1.0
+Random Forest,XGBoost,14,5,9,0,0.357
+Random Forest,Logistic Regression,7,5,2,0,0.714
+Random Forest,Gradient Boosting,5,0,5,0,0.0
+Random Forest,LASSO,4,3,1,0,0.75
+Neural Network,SVM,1,1,0,0,1.0
+Neural Network,XGBoost,1,0,1,0,0.0
+Neural Network,Logistic Regression,1,1,0,0,1.0
+Neural Network,Gradient Boosting,1,0,1,0,0.0
+Neural Network,LASSO,1,1,0,0,1.0
+SVM,Decision Tree,4,3,1,0,0.75
+SVM,XGBoost,6,2,4,0,0.333
+SVM,Logistic Regression,3,1,2,0,0.333
+SVM,Gradient Boosting,1,0,1,0,0.0
+Decision Tree,XGBoost,3,0,3,0,0.0
+Decision Tree,Logistic Regression,2,2,0,0,1.0
+XGBoost,Logistic Regression,5,5,0,0,1.0
+XGBoost,Gradient Boosting,1,1,0,0,1.0
+XGBoost,LASSO,2,2,0,0,1.0
+Logistic Regression,Gradient Boosting,2,0,2,0,0.0
+Gradient Boosting,LASSO,1,1,0,0,1.0

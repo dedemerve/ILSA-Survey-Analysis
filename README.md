@@ -1,98 +1,105 @@
 # ILSA Survey Analysis
 
-A comprehensive collection of structured metadata from International Large-Scale Assessment (ILSA) research articles using machine learning methods. This repository contains extracted metadata from 130+ academic papers analyzing PISA, TIMSS, PIRLS, and other ILSA datasets.
+Structured metadata extracted from **212 research articles** on machine learning with International
+Large-Scale Assessment (ILSA) data (PISA, TIMSS, PIRLS, TALIS, PIAAC, ICILS, ICCS), plus the analysis
+pipeline for two research questions:
 
-## Dataset Overview
+- **RQ1.** Which ML models are most frequently used to predict student achievement in ILSA research, and how
+  does the forecasting performance of the most prevalent models (Random Forest, XGBoost) compare with
+  time-series models in predicting country-level mean achievement across ILSA programs and domains?
+- **RQ2.** To what extent can a structured knowledge base derived from the ILSA research corpus be integrated
+  with time-series forecasting models to improve predictions of country-level mean achievement?
 
-The `ilsa_survey_articles` directory contains:
-- **JSON files**: Structured metadata for 130+ research articles (extracted using AI/LLM pipeline)
-- **Database**: SQLite database (`ilsa_knowledge_base.db`) with all metadata
-- **Parquet file**: Tabular dataset (`ilsa_master.parquet`) for analysis
+## Repository map
 
-## Data Structure
+| Path | Content |
+|---|---|
+| `ilsa_survey_articles/json/` | The study corpus: 219 JSON files = 212 unique articles (7 articles were extracted twice; loaders collapse them by DOI + title) |
+| `ilsa_survey_articles/wos_manifest.json` | Web of Science PDF manifest |
+| `src/extractors/`, `src/schemas/` | PDF → LLM → Pydantic extraction pipeline and schema |
+| `src/analysis/` | Canonical ML taxonomy, rule-derived study attributes, metric parser, corpus loader |
+| `src/knowledge/` | Predictor-level knowledge base (RQ2) |
+| `src/forecasting/` | Country panel, time-series / pooled ML forecasters, rolling-origin evaluation |
+| `src/enrichment/` | Variable taxonomy and the outcome-level semantic knowledge base |
+| `config/kb_covariate_map.json` | Links country-level covariates to knowledge-base predictor groups |
+| `data/country_panel/` | Where the country mean-score panel and covariates go (see its README) |
+| `outputs/` | Generated tables (see below) |
+| `tests/` | Unit and leakage tests (`pytest`) |
 
-Each JSON file follows the `ILSAArticleMetadata` schema with two main sections:
+## Pipeline
 
-### 1. Metadata Block
-- `file_name`: Source PDF filename
-- `title`: Article title
-- `authors`: List of authors
-- `year`: Publication year
-- `doi`: Digital Object Identifier
-- `venue`: Journal/conference name
-- `publication_type`: Journal, conference, etc.
-- `open_access`: Accessibility status
-- `source_category`: Research type
+```bash
+pip install -r requirements.txt
 
-### 2. Data Block
-- `survey_design`: Weighting and sampling methodology
-- `sample_details`: Sample size and country breakdown
-- `ml_techniques`: Machine learning algorithms used
-- `confounders_identified`: Predictor variables (13 categories)
-- `main_findings`: Structured results with performance metrics
-- `outcome_summary`: Narrative summary of findings
+# Corpus tables and the outcome-level knowledge base (212 articles)
+python scripts/build_tabular_dataset.py               # outputs/ILSA_Meta_Analysis_Dataset[_CLEAN].xlsx
+python scripts/build_structured_meta_analysis.py      # outputs/ILSA_Structured_Meta_Analysis.xlsx
+python scripts/build_semantic_knowledge_base_v2.py    # outputs/final_knowledge_synthesis_v4.csv, semantic_knowledge_base.json
+python score_studies_v2.py                            # rescored_studies.csv (policy-actionability rubric)
 
-## Usage
+# RQ1 (A): model frequency and within-study RF vs XGBoost comparisons
+python scripts/rq1_literature_analysis.py             # outputs/rq1/
 
-### Python Analysis
-```python
-import pandas as pd
-import json
-from pathlib import Path
+# RQ2: predictor-level knowledge base → priors for country-level covariates
+python scripts/build_predictor_knowledge_base.py      # outputs/knowledge_base/
 
-# Load all JSON files
-json_dir = Path("ilsa_survey_articles/json")
-articles = []
-for json_file in json_dir.glob("*.json"):
-    with open(json_file) as f:
-        articles.append(json.load(f))
+# RQ1 (B) and RQ2 forecasting — need the country panel (data/country_panel/README.md)
+python scripts/fetch_country_covariates.py            # World Bank covariates (needs internet)
+python scripts/rq1_forecast_comparison.py             # outputs/rq1_forecast/
+python scripts/rq2_kb_forecast_ablation.py            # outputs/rq2_kb_forecast/
 
-# Convert to DataFrame
-df = pd.json_normalize(articles)
+# Human validation of the automated coding (Cohen's kappa)
+python scripts/validation_sample.py draw --n 30       # outputs/validation/coding_sheet.csv
+python scripts/validation_sample.py score <coderA.csv> [<coderB.csv>]
+
+pytest tests
 ```
 
-### SQLite Database
-```python
-import sqlite3
+### RQ1 (A) — literature
+`scripts/rq1_literature_analysis.py` canonicalises model names with word-boundary rules
+(`src/analysis/ml_taxonomy.py`), derives program / cycle / domain / target type / analysis level / task /
+validation scheme for every finding (`src/analysis/study_attributes.py`), parses free-text metrics into a
+model × metric × value table (`src/analysis/performance_parser.py`) and reports:
+model frequency (mention and primary model) for all ML articles and for the RQ1 population (empirical ML
+studies with an achievement target), by program and domain; publication-year trends; within-study
+Random Forest vs XGBoost comparisons; a pairwise win matrix; the best model per finding.
 
-conn = sqlite3.connect("ilsa_survey_articles/ilsa_knowledge_base.db")
-cursor = conn.cursor()
+### RQ1 (B) — forecasting
+`scripts/rq1_forecast_comparison.py` forecasts the next cycle of every country series with time-series models
+(naive, mean, drift, damped Holt, AICc-selected ARIMA) and pooled models (panel AR, Random Forest, XGBoost)
+in a rolling-origin design, then compares RMSE / MAE / bias / MAE relative to naive overall, per
+program × domain and per origin, with country-clustered Diebold–Mariano tests.
 
-# List tables
-cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-tables = cursor.fetchall()
-print(tables)
-```
+### RQ2 — knowledge-base integration
+`scripts/build_predictor_knowledge_base.py` aggregates, over achievement findings, how often each predictor
+group is a top predictor (salience) and its reported direction; `config/kb_covariate_map.json` links groups
+to country-level covariates. `scripts/rq2_kb_forecast_ablation.py` integrates the knowledge base by covariate
+selection, sign / monotone constraints and evidence-weighted shrinkage, and compares each variant with the
+same model without the knowledge base, with all covariates, and with random covariate subsets of equal size.
 
-### Parquet File
-```python
-df = pd.read_parquet("ilsa_survey_articles/ilsa_master.parquet")
-```
+## Data structure of an article JSON
 
-## Extraction Pipeline
+`metadata`: `file_name`, `title`, `authors`, `year`, `doi`, `venue`, `publication_type`, `open_access`,
+`source_category`.
 
-The metadata was extracted using a custom pipeline:
-1. **PDF Processing**: PyMuPDF for text extraction
-2. **LLM Extraction**: OpenAI models for structured JSON extraction
-3. **Schema Validation**: Pydantic models for data quality
-4. **Storage**: SQLite and Parquet for analysis
+`data`: `survey_design` (weights), `plausible_values_handling`, `missing_data_handling`, `sample_details`
+(students, countries), `ml_techniques` (`primary`, `all_techniques`), `confounders_identified` (13 predictor
+categories: socioeconomic, demographic, student attitude, student behaviour, teacher, school, ICT,
+curriculum, parent/home, process data, prior achievement, peer effects, system level), `main_findings`
+(`dataset_used`, `target_variable`, `top_predictors`, `performance_metrics`, `standardized_conclusion`),
+`outcome_summary`, `research_design_type`.
 
-## Research Categories
+Schema v2 (`src/schemas/models.py`) adds optional per-finding fields for future extractions:
+`ilsa_program`, `assessment_cycles`, `domain`, `analysis_level`, `task_type`, `validation_scheme`,
+`predictor_effects` (direction / size per top predictor) and `model_performance` (one value per model and
+metric). Existing JSON files remain valid; when these fields are present the analysis uses them instead of
+the rule-based derivations.
 
-Variables are categorized into 13 domains:
-1. Socioeconomic (ESCS, HOMEPOS, wealth)
-2. Demographic (gender, age, immigration)
-3. Student attitude (self-efficacy, motivation)
-4. Student behavior (study time, homework)
-5. Teacher (qualifications, experience)
-6. School (type, resources, climate)
-7. ICT (resources, computer use)
-8. Curriculum (type, instructional time)
-9. Parent/home (involvement, environment)
-10. Process data (aggregate task metrics)
-11. Prior achievement (test scores, grades)
-12. Peer effects (classroom climate)
-13. System level (GDP, education expenditure)
+## Known data issues (corpus left unchanged)
+
+- `53. Tin et al. (2024)` carries the DOI of `168. Chen et al. (2021)`; loaders keep both records and log a
+  `DOI CONFLICT` line instead of merging them.
+- Seven articles have two JSON files (e.g. `81.`/`123.` Schipper et al.); loaders collapse them.
 
 ## Citation
 
@@ -100,4 +107,5 @@ If you use this dataset, please cite the original research articles and acknowle
 
 ## License
 
-The metadata extraction is provided for research purposes. Original article copyrights remain with their respective publishers.
+The metadata extraction is provided for research purposes. Original article copyrights remain with their
+respective publishers.

@@ -1,0 +1,194 @@
+subset,subset_n_articles,model,family,n_articles,n_primary,pct_articles,pct_primary,rank_mention,rank_primary
+all_ml,132,Random Forest,Tree ensemble,80,40,60.6,30.3,1,1
+all_ml,132,Neural Network,Neural network / deep learning,35,12,26.5,9.1,2,3
+all_ml,132,SVM,Kernel / SVM,35,11,26.5,8.3,2,4
+all_ml,132,Decision Tree,Single tree,35,5,26.5,3.8,2,6
+all_ml,132,XGBoost,Tree ensemble,33,17,25.0,12.9,5,2
+all_ml,132,Logistic Regression,Linear / GLM,31,3,23.5,2.3,6,10
+all_ml,132,Gradient Boosting,Tree ensemble,21,9,15.9,6.8,7,5
+all_ml,132,LASSO,Regularized linear,13,4,9.8,3.0,8,7
+all_ml,132,LightGBM,Tree ensemble,13,4,9.8,3.0,8,7
+all_ml,132,k-NN,Instance-based,12,0,9.1,0.0,10,28
+all_ml,132,Linear Regression,Linear / GLM,11,1,8.3,0.8,11,15
+all_ml,132,Naive Bayes,Bayesian / probabilistic,11,1,8.3,0.8,11,15
+all_ml,132,Elastic Net,Regularized linear,8,2,6.1,1.5,13,12
+all_ml,132,AdaBoost,Tree ensemble,7,0,5.3,0.0,14,28
+all_ml,132,Stacking,Meta-ensemble,6,3,4.5,2.3,15,10
+all_ml,132,LSTM,Neural network / deep learning,6,2,4.5,1.5,15,12
+all_ml,132,CatBoost,Tree ensemble,5,4,3.8,3.0,17,7
+all_ml,132,Autoencoder,Neural network / deep learning,5,1,3.8,0.8,17,15
+all_ml,132,Extra Trees,Tree ensemble,4,1,3.0,0.8,19,15
+all_ml,132,Ridge Regression,Regularized linear,4,1,3.0,0.8,19,15
+all_ml,132,ANFIS,Neural network / deep learning,2,2,1.5,1.5,21,12
+all_ml,132,glmmLasso,Regularized linear,2,1,1.5,0.8,21,15
+all_ml,132,Bagging,Tree ensemble,2,0,1.5,0.0,21,28
+all_ml,132,Bayesian Ridge,Bayesian / probabilistic,2,0,1.5,0.0,21,28
+all_ml,132,Conditional Inference Tree,Single tree,2,0,1.5,0.0,21,28
+all_ml,132,GRU,Neural network / deep learning,2,0,1.5,0.0,21,28
+all_ml,132,Generalized Linear Model,Linear / GLM,2,0,1.5,0.0,21,28
+all_ml,132,BART,Bayesian / probabilistic,1,1,0.8,0.8,28,15
+all_ml,132,BCF,Bayesian / probabilistic,1,1,0.8,0.8,28,15
+all_ml,132,Bayesian Network,Bayesian / probabilistic,1,1,0.8,0.8,28,15
+all_ml,132,Conditional Inference Forest,Tree ensemble,1,1,0.8,0.8,28,15
+all_ml,132,Discriminant Analysis,Linear / GLM,1,1,0.8,0.8,28,15
+all_ml,132,Group Mnet,Regularized linear,1,1,0.8,0.8,28,15
+all_ml,132,MARS,Other,1,1,0.8,0.8,28,15
+all_ml,132,Blending,Meta-ensemble,1,0,0.8,0.0,28,28
+all_ml,132,Ensemble (unspecified),Meta-ensemble,1,0,0.8,0.0,28,28
+all_ml,132,Fast Large Margin,Kernel / SVM,1,0,0.8,0.0,28,28
+all_ml,132,Least Angle Regression,Regularized linear,1,0,0.8,0.0,28,28
+all_ml,132,RNN,Neural network / deep learning,1,0,0.8,0.0,28,28
+all_ml,132,Transformer / LLM,Neural network / deep learning,1,0,0.8,0.0,28,28
+all_ml,132,Voting ensemble,Meta-ensemble,1,0,0.8,0.0,28,28
+achievement_ml,88,Random Forest,Tree ensemble,56,28,63.6,31.8,1,1
+achievement_ml,88,SVM,Kernel / SVM,27,8,30.7,9.1,2,3
+achievement_ml,88,Decision Tree,Single tree,27,3,30.7,3.4,2,7
+achievement_ml,88,Neural Network,Neural network / deep learning,25,6,28.4,6.8,4,4
+achievement_ml,88,XGBoost,Tree ensemble,23,13,26.1,14.8,5,2
+achievement_ml,88,Logistic Regression,Linear / GLM,19,1,21.6,1.1,6,12
+achievement_ml,88,Gradient Boosting,Tree ensemble,15,6,17.0,6.8,7,4
+achievement_ml,88,LightGBM,Tree ensemble,9,1,10.2,1.1,8,12
+achievement_ml,88,Linear Regression,Linear / GLM,9,1,10.2,1.1,8,12
+achievement_ml,88,Naive Bayes,Bayesian / probabilistic,8,1,9.1,1.1,10,12
+achievement_ml,88,LASSO,Regularized linear,7,1,8.0,1.1,11,12
+achievement_ml,88,k-NN,Instance-based,7,0,8.0,0.0,11,22
+achievement_ml,88,Elastic Net,Regularized linear,5,2,5.7,2.3,13,9
+achievement_ml,88,AdaBoost,Tree ensemble,5,0,5.7,0.0,13,22
+achievement_ml,88,CatBoost,Tree ensemble,4,4,4.5,4.5,15,6
+achievement_ml,88,Stacking,Meta-ensemble,4,3,4.5,3.4,15,7
+achievement_ml,88,Ridge Regression,Regularized linear,3,1,3.4,1.1,17,12
+achievement_ml,88,ANFIS,Neural network / deep learning,2,2,2.3,2.3,18,9
+achievement_ml,88,LSTM,Neural network / deep learning,2,2,2.3,2.3,18,9
+achievement_ml,88,Conditional Inference Tree,Single tree,2,0,2.3,0.0,18,22
+achievement_ml,88,BCF,Bayesian / probabilistic,1,1,1.1,1.1,21,12
+achievement_ml,88,Conditional Inference Forest,Tree ensemble,1,1,1.1,1.1,21,12
+achievement_ml,88,Extra Trees,Tree ensemble,1,1,1.1,1.1,21,12
+achievement_ml,88,MARS,Other,1,1,1.1,1.1,21,12
+achievement_ml,88,Autoencoder,Neural network / deep learning,1,0,1.1,0.0,21,22
+achievement_ml,88,Bagging,Tree ensemble,1,0,1.1,0.0,21,22
+achievement_ml,88,Bayesian Ridge,Bayesian / probabilistic,1,0,1.1,0.0,21,22
+achievement_ml,88,Blending,Meta-ensemble,1,0,1.1,0.0,21,22
+achievement_ml,88,Fast Large Margin,Kernel / SVM,1,0,1.1,0.0,21,22
+achievement_ml,88,GRU,Neural network / deep learning,1,0,1.1,0.0,21,22
+achievement_ml,88,Generalized Linear Model,Linear / GLM,1,0,1.1,0.0,21,22
+achievement_ml,88,RNN,Neural network / deep learning,1,0,1.1,0.0,21,22
+achievement_ml,88,glmmLasso,Regularized linear,1,0,1.1,0.0,21,22
+achievement_ml|PISA,70,Random Forest,Tree ensemble,46,24,65.7,34.3,1,1
+achievement_ml|PISA,70,Neural Network,Neural network / deep learning,21,4,30.0,5.7,2,5
+achievement_ml|PISA,70,Decision Tree,Single tree,21,3,30.0,4.3,2,7
+achievement_ml|PISA,70,SVM,Kernel / SVM,20,6,28.6,8.6,4,3
+achievement_ml|PISA,70,XGBoost,Tree ensemble,17,9,24.3,12.9,5,2
+achievement_ml|PISA,70,Gradient Boosting,Tree ensemble,13,5,18.6,7.1,6,4
+achievement_ml|PISA,70,Logistic Regression,Linear / GLM,13,0,18.6,0.0,6,19
+achievement_ml|PISA,70,LightGBM,Tree ensemble,8,1,11.4,1.4,8,11
+achievement_ml|PISA,70,Linear Regression,Linear / GLM,6,1,8.6,1.4,9,11
+achievement_ml|PISA,70,Elastic Net,Regularized linear,5,2,7.1,2.9,10,9
+achievement_ml|PISA,70,LASSO,Regularized linear,5,0,7.1,0.0,10,19
+achievement_ml|PISA,70,CatBoost,Tree ensemble,4,4,5.7,5.7,12,5
+achievement_ml|PISA,70,Naive Bayes,Bayesian / probabilistic,4,1,5.7,1.4,12,11
+achievement_ml|PISA,70,AdaBoost,Tree ensemble,4,0,5.7,0.0,12,19
+achievement_ml|PISA,70,k-NN,Instance-based,4,0,5.7,0.0,12,19
+achievement_ml|PISA,70,Stacking,Meta-ensemble,3,3,4.3,4.3,16,7
+achievement_ml|PISA,70,ANFIS,Neural network / deep learning,2,2,2.9,2.9,17,9
+achievement_ml|PISA,70,Ridge Regression,Regularized linear,2,1,2.9,1.4,17,11
+achievement_ml|PISA,70,Conditional Inference Tree,Single tree,2,0,2.9,0.0,17,19
+achievement_ml|PISA,70,Conditional Inference Forest,Tree ensemble,1,1,1.4,1.4,20,11
+achievement_ml|PISA,70,Extra Trees,Tree ensemble,1,1,1.4,1.4,20,11
+achievement_ml|PISA,70,LSTM,Neural network / deep learning,1,1,1.4,1.4,20,11
+achievement_ml|PISA,70,MARS,Other,1,1,1.4,1.4,20,11
+achievement_ml|PISA,70,Bagging,Tree ensemble,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,Bayesian Ridge,Bayesian / probabilistic,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,Blending,Meta-ensemble,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,Fast Large Margin,Kernel / SVM,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,GRU,Neural network / deep learning,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,Generalized Linear Model,Linear / GLM,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,RNN,Neural network / deep learning,1,0,1.4,0.0,20,19
+achievement_ml|PISA,70,glmmLasso,Regularized linear,1,0,1.4,0.0,20,19
+achievement_ml|TIMSS,8,Random Forest,Tree ensemble,5,2,62.5,25.0,1,1
+achievement_ml|TIMSS,8,SVM,Kernel / SVM,4,1,50.0,12.5,2,3
+achievement_ml|TIMSS,8,Decision Tree,Single tree,4,0,50.0,0.0,2,7
+achievement_ml|TIMSS,8,XGBoost,Tree ensemble,3,2,37.5,25.0,4,1
+achievement_ml|TIMSS,8,Logistic Regression,Linear / GLM,3,1,37.5,12.5,4,3
+achievement_ml|TIMSS,8,Neural Network,Neural network / deep learning,3,1,37.5,12.5,4,3
+achievement_ml|TIMSS,8,Naive Bayes,Bayesian / probabilistic,3,0,37.5,0.0,4,7
+achievement_ml|TIMSS,8,Linear Regression,Linear / GLM,2,0,25.0,0.0,8,7
+achievement_ml|TIMSS,8,k-NN,Instance-based,2,0,25.0,0.0,8,7
+achievement_ml|TIMSS,8,BCF,Bayesian / probabilistic,1,1,12.5,12.5,10,3
+achievement_ml|TIMSS,8,Autoencoder,Neural network / deep learning,1,0,12.5,0.0,10,7
+achievement_ml|TIMSS,8,LASSO,Regularized linear,1,0,12.5,0.0,10,7
+achievement_ml|PIRLS,4,SVM,Kernel / SVM,3,1,75.0,25.0,1,1
+achievement_ml|PIRLS,4,Decision Tree,Single tree,2,0,50.0,0.0,2,5
+achievement_ml|PIRLS,4,Logistic Regression,Linear / GLM,2,0,50.0,0.0,2,5
+achievement_ml|PIRLS,4,Gradient Boosting,Tree ensemble,1,1,25.0,25.0,4,1
+achievement_ml|PIRLS,4,LASSO,Regularized linear,1,1,25.0,25.0,4,1
+achievement_ml|PIRLS,4,XGBoost,Tree ensemble,1,1,25.0,25.0,4,1
+achievement_ml|PIRLS,4,Naive Bayes,Bayesian / probabilistic,1,0,25.0,0.0,4,5
+achievement_ml|PIRLS,4,Random Forest,Tree ensemble,1,0,25.0,0.0,4,5
+achievement_ml|PIRLS,4,k-NN,Instance-based,1,0,25.0,0.0,4,5
+achievement_ml|Mathematics,38,Random Forest,Tree ensemble,25,12,65.8,31.6,1,1
+achievement_ml|Mathematics,38,Neural Network,Neural network / deep learning,14,4,36.8,10.5,2,3
+achievement_ml|Mathematics,38,XGBoost,Tree ensemble,13,6,34.2,15.8,3,2
+achievement_ml|Mathematics,38,SVM,Kernel / SVM,12,2,31.6,5.3,4,5
+achievement_ml|Mathematics,38,Decision Tree,Single tree,12,1,31.6,2.6,4,7
+achievement_ml|Mathematics,38,Logistic Regression,Linear / GLM,7,1,18.4,2.6,6,7
+achievement_ml|Mathematics,38,Linear Regression,Linear / GLM,5,1,13.2,2.6,7,7
+achievement_ml|Mathematics,38,LightGBM,Tree ensemble,5,0,13.2,0.0,7,16
+achievement_ml|Mathematics,38,Stacking,Meta-ensemble,3,3,7.9,7.9,9,4
+achievement_ml|Mathematics,38,Gradient Boosting,Tree ensemble,3,0,7.9,0.0,9,16
+achievement_ml|Mathematics,38,CatBoost,Tree ensemble,2,2,5.3,5.3,11,5
+achievement_ml|Mathematics,38,Naive Bayes,Bayesian / probabilistic,2,1,5.3,2.6,11,7
+achievement_ml|Mathematics,38,AdaBoost,Tree ensemble,2,0,5.3,0.0,11,16
+achievement_ml|Mathematics,38,Elastic Net,Regularized linear,2,0,5.3,0.0,11,16
+achievement_ml|Mathematics,38,LASSO,Regularized linear,2,0,5.3,0.0,11,16
+achievement_ml|Mathematics,38,k-NN,Instance-based,2,0,5.3,0.0,11,16
+achievement_ml|Mathematics,38,ANFIS,Neural network / deep learning,1,1,2.6,2.6,17,7
+achievement_ml|Mathematics,38,BCF,Bayesian / probabilistic,1,1,2.6,2.6,17,7
+achievement_ml|Mathematics,38,Extra Trees,Tree ensemble,1,1,2.6,2.6,17,7
+achievement_ml|Mathematics,38,LSTM,Neural network / deep learning,1,1,2.6,2.6,17,7
+achievement_ml|Mathematics,38,Ridge Regression,Regularized linear,1,1,2.6,2.6,17,7
+achievement_ml|Mathematics,38,Autoencoder,Neural network / deep learning,1,0,2.6,0.0,17,16
+achievement_ml|Mathematics,38,Bagging,Tree ensemble,1,0,2.6,0.0,17,16
+achievement_ml|Mathematics,38,Blending,Meta-ensemble,1,0,2.6,0.0,17,16
+achievement_ml|Mathematics,38,GRU,Neural network / deep learning,1,0,2.6,0.0,17,16
+achievement_ml|Mathematics,38,RNN,Neural network / deep learning,1,0,2.6,0.0,17,16
+achievement_ml|Mathematics,38,glmmLasso,Regularized linear,1,0,2.6,0.0,17,16
+achievement_ml|Reading,31,Random Forest,Tree ensemble,19,12,61.3,38.7,1,1
+achievement_ml|Reading,31,Decision Tree,Single tree,10,3,32.3,9.7,2,3
+achievement_ml|Reading,31,SVM,Kernel / SVM,7,5,22.6,16.1,3,2
+achievement_ml|Reading,31,Gradient Boosting,Tree ensemble,7,3,22.6,9.7,3,3
+achievement_ml|Reading,31,Logistic Regression,Linear / GLM,6,0,19.4,0.0,5,12
+achievement_ml|Reading,31,Neural Network,Neural network / deep learning,6,0,19.4,0.0,5,12
+achievement_ml|Reading,31,XGBoost,Tree ensemble,5,2,16.1,6.5,7,5
+achievement_ml|Reading,31,k-NN,Instance-based,4,0,12.9,0.0,8,12
+achievement_ml|Reading,31,LASSO,Regularized linear,2,1,6.5,3.2,9,6
+achievement_ml|Reading,31,AdaBoost,Tree ensemble,2,0,6.5,0.0,9,12
+achievement_ml|Reading,31,LightGBM,Tree ensemble,2,0,6.5,0.0,9,12
+achievement_ml|Reading,31,Naive Bayes,Bayesian / probabilistic,2,0,6.5,0.0,9,12
+achievement_ml|Reading,31,ANFIS,Neural network / deep learning,1,1,3.2,3.2,13,6
+achievement_ml|Reading,31,CatBoost,Tree ensemble,1,1,3.2,3.2,13,6
+achievement_ml|Reading,31,Elastic Net,Regularized linear,1,1,3.2,3.2,13,6
+achievement_ml|Reading,31,MARS,Other,1,1,3.2,3.2,13,6
+achievement_ml|Reading,31,Stacking,Meta-ensemble,1,1,3.2,3.2,13,6
+achievement_ml|Reading,31,Bayesian Ridge,Bayesian / probabilistic,1,0,3.2,0.0,13,12
+achievement_ml|Reading,31,Blending,Meta-ensemble,1,0,3.2,0.0,13,12
+achievement_ml|Reading,31,Conditional Inference Tree,Single tree,1,0,3.2,0.0,13,12
+achievement_ml|Reading,31,Linear Regression,Linear / GLM,1,0,3.2,0.0,13,12
+achievement_ml|Reading,31,Ridge Regression,Regularized linear,1,0,3.2,0.0,13,12
+achievement_ml|Science,16,Random Forest,Tree ensemble,10,7,62.5,43.8,1,1
+achievement_ml|Science,16,XGBoost,Tree ensemble,5,3,31.2,18.8,2,2
+achievement_ml|Science,16,Decision Tree,Single tree,5,1,31.2,6.2,2,3
+achievement_ml|Science,16,SVM,Kernel / SVM,5,1,31.2,6.2,2,3
+achievement_ml|Science,16,Logistic Regression,Linear / GLM,4,0,25.0,0.0,5,9
+achievement_ml|Science,16,Neural Network,Neural network / deep learning,3,0,18.8,0.0,6,9
+achievement_ml|Science,16,Linear Regression,Linear / GLM,2,0,12.5,0.0,7,9
+achievement_ml|Science,16,Naive Bayes,Bayesian / probabilistic,2,0,12.5,0.0,7,9
+achievement_ml|Science,16,BCF,Bayesian / probabilistic,1,1,6.2,6.2,9,3
+achievement_ml|Science,16,Conditional Inference Forest,Tree ensemble,1,1,6.2,6.2,9,3
+achievement_ml|Science,16,Ridge Regression,Regularized linear,1,1,6.2,6.2,9,3
+achievement_ml|Science,16,Stacking,Meta-ensemble,1,1,6.2,6.2,9,3
+achievement_ml|Science,16,Blending,Meta-ensemble,1,0,6.2,0.0,9,9
+achievement_ml|Science,16,Conditional Inference Tree,Single tree,1,0,6.2,0.0,9,9
+achievement_ml|Science,16,Gradient Boosting,Tree ensemble,1,0,6.2,0.0,9,9
+achievement_ml|Science,16,LASSO,Regularized linear,1,0,6.2,0.0,9,9
+achievement_ml|Science,16,LightGBM,Tree ensemble,1,0,6.2,0.0,9,9
+achievement_ml|Science,16,k-NN,Instance-based,1,0,6.2,0.0,9,9

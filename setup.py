@@ -33,10 +33,14 @@ setup(
         "pydantic>=2.0.0",
         "python-dotenv>=1.0.0",
         "tqdm>=4.65.0",
+        "openpyxl>=3.1.0",
     ],
     extras_require={
         "analysis": [
+            "scipy>=1.10.0",
             "scikit-learn>=1.3.0",
+            "xgboost>=2.0.0",
+            "statsmodels>=0.14.0",
             "matplotlib>=3.7.0",
             "seaborn>=0.12.0",
             "jupyter>=1.0.0",
@@ -44,6 +48,7 @@ setup(
         "extraction": [
             "openai>=1.0.0",
             "pymupdf>=1.23.0",
+            "chromadb>=0.4.0",
         ],
     },
     include_package_data=True,

@@ -865,6 +865,18 @@ def _build_standardized_conclusion(
     return _ensure_conclusion_meaning_clause(built, effect_hint=effect_hint)
 
 
+_OPTIONAL_FINDING_FIELDS = (
+    "ilsa_program",
+    "assessment_cycles",
+    "domain",
+    "analysis_level",
+    "task_type",
+    "validation_scheme",
+    "predictor_effects",
+    "model_performance",
+)
+
+
 def _normalize_main_findings_list(raw: list) -> list[dict]:
     """Normalize and validate main_findings entries from LLM or legacy JSON."""
     findings: list[dict] = []
@@ -912,13 +924,18 @@ def _normalize_main_findings_list(raw: list) -> list[dict]:
             conclusion,
             effect_hint=str(item.get("standardized_conclusion") or ""),
         )
-        findings.append({
+        finding = {
             "dataset_used": dataset,
             "target_variable": target,
             "top_predictors": predictors[:5],
             "performance_metrics": metrics,
             "standardized_conclusion": conclusion,
-        })
+        }
+        # Optional RQ1 coding fields (schema v2); kept only when the model filled them.
+        for key in _OPTIONAL_FINDING_FIELDS:
+            if item.get(key) not in (None, "", []):
+                finding[key] = item[key]
+        findings.append(finding)
     return _dedupe_main_findings(findings)
 
 
@@ -2884,6 +2901,18 @@ class GPTExtractor:
             "variable_name when listed there.\n"
             "  performance_metrics: Hard numbers (Accuracy, R², RMSE, AUC, F1) or "
             "'Not reported'.\n"
+            "  ilsa_program / assessment_cycles / domain: program (PISA, TIMSS, PIRLS, …), "
+            "cycle years and assessed domain of THIS finding.\n"
+            "  analysis_level: student | teacher | school | country | item | literature "
+            "(country = country-level mean scores or aggregates).\n"
+            "  task_type: regression | classification | clustering | other.\n"
+            "  validation_scheme: k_fold_cv | repeated_split | train_test_split | group_cv | "
+            "temporal_holdout | external | none | not_reported.\n"
+            "  predictor_effects: one {predictor, direction, effect_size} object per top predictor "
+            "(direction: positive | negative | null | nonlinear | not_reported).\n"
+            "  model_performance: one {model, metric, value, evaluation_split} object for EVERY "
+            "learner and metric reported for this target (not only the best model); "
+            "proportions on the 0-1 scale.\n"
             "  standardized_conclusion: REQUIRED template — "
             "'Using [dataset_used] data, the study leveraged [top_predictors] to predict "
             "[target_variable], finding that [direction/effect/result]. This indicates that "

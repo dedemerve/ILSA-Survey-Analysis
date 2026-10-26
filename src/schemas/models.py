@@ -275,6 +275,41 @@ class Confounder(BaseModel):
         return self
 
 
+class ModelPerformance(BaseModel):
+    """One reported metric value for one learner (long format for model comparison)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    model: str = Field(
+        description="Learner exactly as named in the paper (e.g. 'Random Forest', 'XGBoost', 'ARIMA')."
+    )
+    metric: str = Field(
+        description="Metric name (RMSE, MAE, R2, AUC, Accuracy, F1, Precision, Recall, Kappa, MAPE)."
+    )
+    value: float = Field(
+        description="Numeric value as reported; proportions on the 0–1 scale (convert 85% → 0.85)."
+    )
+    evaluation_split: Optional[str] = Field(
+        default=None,
+        description="Where the value was measured: 'test', 'cross-validation', 'training', 'out-of-time'.",
+    )
+
+
+class PredictorEffect(BaseModel):
+    """Direction (and size, when reported) of one top predictor's association with the target."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    predictor: str = Field(description="Exactly as written in top_predictors.")
+    direction: Literal["positive", "negative", "null", "nonlinear", "not_reported"] = Field(
+        description="Sign of the association with the target as reported (SHAP direction, coefficient sign)."
+    )
+    effect_size: Optional[str] = Field(
+        default=None,
+        description="Reported magnitude with its unit (e.g. 'β = 0.33 SD', 'mean |SHAP| = 12.4 points').",
+    )
+
+
 class StructuredFinding(BaseModel):
     """Dataset → Input → Target → Output pipeline for meta-analysis tabulation."""
 
@@ -305,6 +340,49 @@ class StructuredFinding(BaseModel):
         description=(
             "Reported model metrics (e.g. 'Accuracy: 85%, AUC: 0.82, R²: 0.45'). "
             "Write 'Not reported' if the paper gives no metrics for this target."
+        ),
+    )
+    ilsa_program: Optional[str] = Field(
+        default=None,
+        description="ILSA program of this finding: PISA, TIMSS, PIRLS, TALIS, PIAAC, ICILS, ICCS, or other.",
+    )
+    assessment_cycles: List[str] = Field(
+        default_factory=list,
+        description="Assessment cycle years used for this finding (e.g. ['2015', '2018']).",
+    )
+    domain: Optional[str] = Field(
+        default=None,
+        description=(
+            "Assessed domain of the target: Mathematics, Reading, Science, Problem solving, "
+            "Creative thinking, Financial literacy, Global competence, CIL, Civic, Non-cognitive, Teacher."
+        ),
+    )
+    analysis_level: Optional[Literal[
+        "student", "teacher", "school", "country", "item", "literature"
+    ]] = Field(
+        default=None,
+        description="Unit whose outcome is predicted (country = country-level means/aggregates).",
+    )
+    task_type: Optional[Literal["regression", "classification", "clustering", "other"]] = Field(
+        default=None,
+        description="Prediction task: continuous score (regression) vs categories (classification).",
+    )
+    validation_scheme: Optional[Literal[
+        "k_fold_cv", "repeated_split", "train_test_split", "group_cv",
+        "temporal_holdout", "external", "none", "not_reported"
+    ]] = Field(
+        default=None,
+        description="How out-of-sample performance was estimated.",
+    )
+    predictor_effects: List[PredictorEffect] = Field(
+        default_factory=list,
+        description="Direction/size of each top predictor's association with the target.",
+    )
+    model_performance: List[ModelPerformance] = Field(
+        default_factory=list,
+        description=(
+            "One entry per (model, metric) value reported for this target — include EVERY "
+            "compared learner, not only the best one, so models can be compared across studies."
         ),
     )
     standardized_conclusion: str = Field(

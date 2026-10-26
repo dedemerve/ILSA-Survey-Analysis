@@ -1,0 +1,302 @@
+scope,level,predictor_group,n_studies_top,n_findings_top,n_studies_considered,salience,mean_rank,n_positive,n_negative,n_unspecified,direction_consensus,direction,example_predictors
+all,predictor_domain,Other,63,98,63,1.0,2.8,6,0,57,1.0,positive,See outcome_summary (descriptive associations not coded as predictors) | ESCS | HISEI | Metacognitive reading strategy usefulness (selected items)
+all,predictor_domain,Socioeconomic,55,92,77,0.714,2.35,5,1,49,0.667,positive,Socioeconomic status (ESCS) | Number of books at home | Books at home | Index of ESCS
+all,predictor_domain,Student attitude,42,60,76,0.553,2.96,1,0,41,1.0,positive,Reading interest | Enjoyment of reading | Self-efficacy in digital competencies | Reading enjoyment
+all,predictor_domain,Demographic,32,56,78,0.41,2.53,0,0,32,0.0,unspecified,Gender | Urban/rural location | Grade repetition | Home language (ML vs non-ML)
+all,predictor_domain,Student behaviour,22,31,73,0.301,2.86,0,0,22,0.0,unspecified,Assessing credibility | Summarizing information | Work mastery | Days with friends after school
+all,predictor_domain,School,18,28,57,0.316,3.3,2,0,16,1.0,positive,Disciplinary climate | School size | School type (public/private) | School unit (between/within)
+all,predictor_domain,Teacher,18,23,56,0.321,3.3,2,0,16,1.0,positive,Teacher support | Teacher fairness | Teaching practices (student view) | Teaching style (teacher view)
+all,predictor_domain,Curriculum / instruction,14,26,52,0.269,3.12,1,2,11,-0.333,mixed,Total learning time | Var 1 (writing/critical activities) | Programming activity frequency | Mathematics learning time
+all,predictor_domain,ICT,14,24,51,0.275,3.57,2,1,11,0.333,mixed,ICT interest | ICT competence | ICT in social interaction | Perceived ICT competence
+all,predictor_domain,Process data,14,15,15,0.933,2.72,0,0,14,0.0,unspecified,Total time on task | VOTAT strategy score | Response time (RT) | Time to first action
+all,predictor_domain,Prior achievement,11,12,16,0.688,2.09,1,1,9,0.0,mixed,Mathematical literacy (PV1) | Reading literacy (PV1) | Mathematics achievement too low | Science achievement too low
+all,predictor_domain,Parent / home,9,9,38,0.237,3.46,0,0,9,0.0,unspecified,Parents’ emotional support | Family support | Family meal frequency | Time talking with parents
+all,predictor_domain,System level,9,16,17,0.529,2.92,0,0,9,0.0,unspecified,Country system | Early tracking system | Government spending | Property rights
+all,predictor_domain,Peer effects,4,4,19,0.211,3.25,0,1,3,-1.0,negative,Exposure to bullying | Classroom disciplinary climate | Class average ESCS | Disciplinary climate
+all,predictor_group,SES,63,101,75,0.84,2.33,5,1,57,0.667,positive,Socioeconomic status (ESCS) | Number of books at home | Books at home | Index of ESCS
+all,predictor_group,Other,45,58,45,1.0,2.61,7,0,38,1.0,positive,See outcome_summary (descriptive associations not coded as predictors) | ICTRES | METASPAM | Understanding and remembering
+all,predictor_group,Gender_Demographics,31,51,74,0.419,2.46,0,0,31,0.0,unspecified,Gender | Grade repetition | Grade repetition (REPEAT) | Grade level (4 vs 8)
+all,predictor_group,Self_Efficacy,27,33,41,0.659,2.59,1,0,26,1.0,positive,Mathematics self-efficacy | Self-efficacy in digital competencies | Reading self-concept: competence (SCREADCOMP) | Math self-efficacy
+all,predictor_group,Student attitude,26,33,61,0.426,3.04,0,0,26,0.0,unspecified,Perceived test difficulty | Self-awareness (PISA proxies) | Self-management (PISA proxies) | Social awareness (PISA proxies)
+all,predictor_group,ICT_Usage,24,35,52,0.462,3.56,3,1,20,0.5,positive,ICT competence | Perceived ICT competence | ICT in social interaction | ICT access and use
+all,predictor_group,Student_Motivation,21,36,47,0.447,3.03,2,1,18,0.333,mixed,ICT interest | Reading interest | Enjoyment of reading | Educational aspiration level
+all,predictor_group,Belonging_School_Climate,19,23,48,0.396,3.46,1,0,18,1.0,positive,Disciplinary climate | Sense of belonging (BELONG) | Student disciplinary climate (science) | Sense of belonging
+all,predictor_group,Parental_Involvement,18,20,47,0.383,3.35,0,0,18,0.0,unspecified,Parents’ emotional support | Family support | Parents' education level | Time talking with parents
+all,predictor_group,Student behaviour,15,23,63,0.238,2.66,0,0,15,0.0,unspecified,Assessing credibility | Summarizing information | Work mastery | Days with friends after school
+all,predictor_group,Teacher,14,19,47,0.298,3.44,3,0,11,1.0,positive,Teacher support | Teacher fairness | Teaching style (teacher view) | Teaching attitudes
+all,predictor_group,Process_Data_Log,12,13,12,1.0,2.25,1,0,11,1.0,positive,Total time on task | VOTAT strategy score | Response time (RT) | Total response time
+all,predictor_group,Homework_Study_Time,11,21,30,0.367,2.85,1,0,10,1.0,positive,Total learning time | Mathematics learning time | Learning time (minutes per week) – science (SMINS) | Science learning time (weekly)
+all,predictor_group,Process data,11,11,12,0.917,2.97,1,0,10,1.0,positive,Time to first action | Understanding city subway network | Understanding concession fares | Understanding travel options for four trips
+all,predictor_group,School,11,16,42,0.262,3.0,1,0,10,1.0,positive,School size | School unit (between/within) | Supportive school context | Availability of a school library
+all,predictor_group,Teacher_Quality_Practices,11,15,42,0.262,3.0,0,2,9,-1.0,negative,Total instructional time | Additional instruction | Teaching practices (student view) | Student-oriented instruction
+all,predictor_group,Anxiety_Stress,10,11,32,0.312,3.36,0,1,9,-1.0,negative,Mathematics anxiety | Math anxiety | Anxiety | Math test anxiety
+all,predictor_group,Metacognition_Strategies,9,15,16,0.562,3.09,0,0,9,0.0,unspecified,Metacognitive reading strategy usefulness (selected items) | Metacognition | Metacognition: Summarizing subscale | Metacognition: Assess credibility subscale
+all,predictor_group,System level,9,16,15,0.6,2.91,0,0,9,0.0,unspecified,Country system | Government spending | Property rights | Tax burden
+all,predictor_group,Wellbeing_Psychological,8,9,19,0.421,4.22,0,0,8,0.0,unspecified,Reading enjoyment | Growth mindset | Moderate physical activity days | Teaching enjoyment
+all,predictor_group,Demographic,6,11,18,0.333,2.54,0,0,6,0.0,unspecified,Home language (ML vs non-ML) | Home language equals test language | Migration background | Proportion of girls
+all,predictor_group,Reading_Achievement,6,7,8,0.75,2.22,1,0,5,1.0,positive,Reading literacy (PV1) | Reading score (PISA 2018) | Reading score (PISA 2022) | Reading achievement too low
+all,predictor_group,Curriculum / instruction,5,8,33,0.152,2.93,1,0,4,1.0,positive,Var 1 (writing/critical activities) | Programming activity frequency | Var 2 (art/music activities) | Classroom reading activities
+all,predictor_group,Math_Achievement,5,6,10,0.5,1.5,0,0,5,0.0,unspecified,Mathematical literacy (PV1) | Mathematics achievement too low | Math performance | Mathematical competence (MC)
+all,predictor_group,Science_Achievement,5,5,8,0.625,3.0,0,0,5,0.0,unspecified,Science achievement too low | Science literacy (PV1) | Science performance | Science score
+all,predictor_group,Curriculum_Instruction,4,6,18,0.222,2.71,1,0,3,1.0,positive,Early tracking system | Curriculum type (Integrated vs Separated) | Verbal skills (curriculum themes) | Math curriculum language themes
+all,predictor_group,School_Resources,4,4,12,0.333,3.0,1,0,3,1.0,positive,Satisfaction with material resources | Class size (CLSIZE) | Class size (average) | Class size
+all,predictor_group,Socioeconomic,4,6,22,0.182,2.83,0,0,4,0.0,unspecified,Annual household income | Household cultural possessions | Possessions - literature | Cultural possessions at home
+all,predictor_group,ICT,3,4,16,0.188,3.75,0,1,2,-1.0,negative,Playing online games | Frequency reading emails | Online group discussions/forums | Email access outside school
+all,predictor_group,Immigration_Language,3,4,16,0.188,2.6,0,0,3,0.0,unspecified,Immigration status (IMMIG) | Language at home | Immigration background | Second-generation migrant background
+all,predictor_group,Assessment_Methodology,2,2,3,0.667,1.5,0,0,2,0.0,unspecified,Item response accuracy | Response accuracy
+all,predictor_group,School_Type_Composition,2,6,15,0.133,3.78,0,0,2,0.0,unspecified,Urban/rural location | School type (public/private) | School type (state vs private)
+all,predictor_group,Teacher_Efficacy_Workforce,2,2,7,0.286,4.67,1,0,1,1.0,positive,Cognitive activation: encourage thinking | Cognitive activation: encouraging thinking | Cognitive activation: fostering reasoning
+all,predictor_group,Wellbeing_Mental_Health,2,3,13,0.154,2.67,0,0,2,0.0,unspecified,"Student well-being | Mental health (e.g., ST186Q09HA, ST185Q01HA)"
+all,predictor_group,Assessment_Practices,1,3,2,0.5,1.0,0,0,1,0.0,unspecified,Voice and Accountability
+all,predictor_group,Civic_Engagement,1,1,1,1.0,3.0,0,0,1,0.0,unspecified,Awareness of intercultural communication
+all,predictor_group,Dropout_Retention,1,1,5,0.2,4.0,0,0,1,0.0,unspecified,Truancy
+all,predictor_group,Parent / home,1,1,9,0.111,2.67,0,0,1,0.0,unspecified,Family meal frequency | Discuss how school is going | Encouragement for good grades
+all,predictor_group,Prior achievement,1,1,4,0.25,2.0,0,0,1,0.0,unspecified,Turkish language success status
+all,predictor_group,Prior_Achievement,1,1,1,1.0,1.0,0,1,0,-1.0,negative,Prior achievement (final mark)
+all,predictor_group,Psychometrics_Process,1,1,1,1.0,1.0,0,0,1,0.0,unspecified,PIAAC PSTRE latent proficiency
+all,predictor_group,School_Efficiency_Climate,1,2,2,0.5,3.5,0,1,0,-1.0,negative,Classroom management
+all,predictor_group,System_Policy,1,3,3,0.333,4.25,0,0,1,0.0,unspecified,GDP per capita | GDP
+domain=Mathematics,predictor_domain,Socioeconomic,29,41,36,0.806,2.5,2,1,26,0.333,mixed,Socioeconomic status (ESCS) | Socio-economic status (ESCS) | Books at home | Home possessions
+domain=Mathematics,predictor_domain,Other,26,31,26,1.0,2.55,3,0,23,1.0,positive,HISEI | Mathematics self-efficacy (formal/applied) | Student ESCS | ST012Q05NA
+domain=Mathematics,predictor_domain,Student attitude,20,22,33,0.606,3.0,1,0,19,1.0,positive,Mathematics anxiety | Mathematics self-efficacy | Sense of belonging | Math self-efficacy
+domain=Mathematics,predictor_domain,Demographic,16,20,35,0.457,2.5,0,0,16,0.0,unspecified,Gender | Urban/rural location | Grade repetition | Language at home
+domain=Mathematics,predictor_domain,Student behaviour,13,15,34,0.382,3.63,0,0,13,0.0,unspecified,Days with friends after school | Participation in extra math classes | Studies/does homework before class | Work on your own frequency
+domain=Mathematics,predictor_domain,School,9,11,24,0.375,3.55,1,0,8,1.0,positive,Disciplinary climate | Availability of a school library | Classroom libraries | School emphasis on academic success
+domain=Mathematics,predictor_domain,Teacher,8,12,21,0.381,3.17,2,0,6,1.0,positive,Teacher support | Teacher fairness | Teachers ask to explain answers | Teachers give challenging exercises
+domain=Mathematics,predictor_domain,Curriculum / instruction,6,13,26,0.231,3.26,0,1,5,-1.0,negative,Total learning time | Mathematics learning time | Student-oriented instruction | Classroom management
+domain=Mathematics,predictor_domain,ICT,6,8,23,0.261,3.69,0,0,6,0.0,unspecified,ICT interest | ICT competence | ICT in social interaction | Use of digital tools in math
+domain=Mathematics,predictor_domain,Prior achievement,6,6,8,0.75,2.3,0,1,5,-1.0,negative,Mathematics achievement too low | Science achievement too low | Turkish language success status | Prior achievement (final mark)
+domain=Mathematics,predictor_domain,Parent / home,4,4,15,0.267,3.75,0,0,4,0.0,unspecified,Parents’ emotional support | Family support | Talk to mother’s partner | Family support for self-learning
+domain=Mathematics,predictor_domain,System level,4,4,8,0.5,3.18,0,0,4,0.0,unspecified,Country (Singapore vs Hong Kong) | Country/economy | Government spending | Property rights
+domain=Mathematics,predictor_domain,Process data,3,3,3,1.0,2.33,0,0,3,0.0,unspecified,Response time (RT) | Number of actions (NA) | Total time on task | Response accuracy
+domain=Mathematics,predictor_domain,Peer effects,1,1,4,0.25,5.0,0,1,0,-1.0,negative,Class average ESCS
+domain=Mathematics,predictor_group,SES,33,45,35,0.943,2.57,2,1,30,0.333,mixed,Socioeconomic status (ESCS) | Socio-economic status (ESCS) | Books at home | HISEI
+domain=Mathematics,predictor_group,Other,17,18,17,1.0,2.48,1,0,16,1.0,positive,ST012Q05NA | ST166Q02HA | COMPETE | METASPAM
+domain=Mathematics,predictor_group,Gender_Demographics,16,20,35,0.457,2.24,0,0,16,0.0,unspecified,Gender | Grade repetition (REPEAT) | Grade repetition | Student gender
+domain=Mathematics,predictor_group,Self_Efficacy,11,12,16,0.688,2.0,1,0,10,1.0,positive,Mathematics self-efficacy | Math self-efficacy | Mathematics self-efficacy (formal/applied) | Mathematics self-efficacy (21st-century)
+domain=Mathematics,predictor_group,Belonging_School_Climate,9,11,20,0.45,3.33,1,0,8,1.0,positive,Disciplinary climate | Sense of belonging | School belonging | Student behavior hindering learning (STUBEHA)
+domain=Mathematics,predictor_group,ICT_Usage,9,11,22,0.409,3.59,1,0,8,1.0,positive,ICT competence | ICT in social interaction | Use of digital tools in math | Digital devices with screens
+domain=Mathematics,predictor_group,Parental_Involvement,9,10,20,0.45,2.91,0,0,9,0.0,unspecified,Parents’ emotional support | Mother education level | Family support | Talk to mother’s partner when bothered
+domain=Mathematics,predictor_group,Student attitude,9,10,25,0.36,2.93,0,0,9,0.0,unspecified,Mathematics efficacy | Perceived test difficulty | Belief about epistemology | Familiarity with math concepts
+domain=Mathematics,predictor_group,Student_Motivation,9,11,20,0.45,3.75,2,0,7,1.0,positive,ICT interest | Student motivation | Future aspirations | Enjoyment of learning math
+domain=Mathematics,predictor_group,Anxiety_Stress,8,9,13,0.615,3.0,0,1,7,-1.0,negative,Mathematics anxiety | Math anxiety | Anxiety | Math test anxiety
+domain=Mathematics,predictor_group,Student behaviour,8,9,29,0.276,3.44,0,0,8,0.0,unspecified,Days with friends after school | Work on your own frequency | Working in household | Self-reported effort (SRE)
+domain=Mathematics,predictor_group,Teacher,8,12,19,0.421,3.27,3,0,5,1.0,positive,Teacher support | Teacher fairness | Teachers ask to explain answers | Teacher professional development frequency
+domain=Mathematics,predictor_group,Homework_Study_Time,7,14,16,0.438,2.95,1,0,6,1.0,positive,Total learning time | Mathematics learning time | Studies/does homework before class | Learning time (minutes per week) (TMINS)
+domain=Mathematics,predictor_group,School,4,4,15,0.267,3.0,0,0,4,0.0,unspecified,Availability of a school library | Classroom libraries | School emphasis on academic success | Supportive school context
+domain=Mathematics,predictor_group,System level,4,4,7,0.571,3.0,0,0,4,0.0,unspecified,Country (Singapore vs Hong Kong) | Country/economy | Government spending | Property rights
+domain=Mathematics,predictor_group,Teacher_Quality_Practices,4,5,16,0.25,3.5,0,1,3,-1.0,negative,Student-oriented instruction | Total instructional time | Teaching practices (student view) | Years of teaching experience
+domain=Mathematics,predictor_group,Demographic,3,3,9,0.333,2.4,0,0,3,0.0,unspecified,Home language (ML vs non-ML) | Race/ethnicity group indicators | English learner status | Disability status
+domain=Mathematics,predictor_group,Math_Achievement,3,3,5,0.6,1.0,0,0,3,0.0,unspecified,Mathematics achievement too low | Mathematical competence (MC) | Mathematics score
+domain=Mathematics,predictor_group,Process_Data_Log,3,3,3,1.0,1.0,0,0,3,0.0,unspecified,Response time (RT) | Total time on task | Total response time
+domain=Mathematics,predictor_group,Science_Achievement,3,3,4,0.75,3.33,0,0,3,0.0,unspecified,Science achievement too low | Science score | Science achievement (PV1SCIE)
+domain=Mathematics,predictor_group,Socioeconomic,3,3,8,0.375,2.33,0,0,3,0.0,unspecified,Annual household income | Possessions - literature | Cultural possessions at home
+domain=Mathematics,predictor_group,Wellbeing_Psychological,3,3,5,0.6,4.33,0,0,3,0.0,unspecified,Moderate physical activity days | Growth mindset | Educational expectations (BSBG08)
+domain=Mathematics,predictor_group,Immigration_Language,2,2,6,0.333,2.67,0,0,2,0.0,unspecified,Language at home | Immigration background | Immigration status (IMMIG)
+domain=Mathematics,predictor_group,Metacognition_Strategies,2,2,5,0.4,3.75,0,0,2,0.0,unspecified,Metacognition | Metacognition: Summarizing subscale | Metacognition: Assess credibility subscale | Metacognition: Understanding and remembering subscale
+domain=Mathematics,predictor_group,Process data,2,2,2,1.0,3.2,0,0,2,0.0,unspecified,Number of actions (NA) | Time on each event | Rapid response indicator | Average number of actions
+domain=Mathematics,predictor_group,Reading_Achievement,2,2,3,0.667,3.5,0,0,2,0.0,unspecified,Reading score | Reading achievement (PV1READ)
+domain=Mathematics,predictor_group,School_Resources,2,2,5,0.4,3.5,1,0,1,1.0,positive,Satisfaction with material resources | Class size (CLSIZE)
+domain=Mathematics,predictor_group,School_Type_Composition,2,4,7,0.286,4.0,0,0,2,0.0,unspecified,Urban/rural location | School type (public/private) | School type (state vs private)
+domain=Mathematics,predictor_group,Teacher_Efficacy_Workforce,2,2,6,0.333,4.67,1,0,1,1.0,positive,Cognitive activation: encourage thinking | Cognitive activation: encouraging thinking | Cognitive activation: fostering reasoning
+domain=Mathematics,predictor_group,Assessment_Methodology,1,1,1,1.0,2.0,0,0,1,0.0,unspecified,Response accuracy
+domain=Mathematics,predictor_group,Assessment_Practices,1,1,1,1.0,1.0,0,0,1,0.0,unspecified,Voice and Accountability
+domain=Mathematics,predictor_group,Curriculum_Instruction,1,1,9,0.111,1.5,0,0,1,0.0,unspecified,Verbal skills (curriculum themes) | Math curriculum language themes
+domain=Mathematics,predictor_group,Dropout_Retention,1,1,2,0.5,4.0,0,0,1,0.0,unspecified,Truancy
+domain=Mathematics,predictor_group,Prior achievement,1,1,1,1.0,2.0,0,0,1,0.0,unspecified,Turkish language success status
+domain=Mathematics,predictor_group,Prior_Achievement,1,1,1,1.0,1.0,0,1,0,-1.0,negative,Prior achievement (final mark)
+domain=Mathematics,predictor_group,School_Efficiency_Climate,1,2,1,1.0,3.5,0,1,0,-1.0,negative,Classroom management
+domain=Mathematics,predictor_group,System_Policy,1,1,2,0.5,5.0,0,0,1,0.0,unspecified,GDP per capita
+domain=Mathematics,predictor_group,Wellbeing_Mental_Health,1,1,4,0.25,2.0,0,0,1,0.0,unspecified,Student well-being
+domain=Reading,predictor_domain,Other,24,32,24,1.0,2.96,3,0,21,1.0,positive,Metacognitive reading strategy usefulness (selected items) | Understanding and remembering | Reading habits | Teacher understanding
+domain=Reading,predictor_domain,Socioeconomic,19,26,29,0.655,2.27,2,0,17,1.0,positive,Socioeconomic status (ESCS) | Number of books at home | Mother’s education level | Annual household income
+domain=Reading,predictor_domain,Student attitude,18,25,28,0.643,3.06,0,0,18,0.0,unspecified,Reading interest | Enjoyment of reading | Reading enjoyment | Perceived competence
+domain=Reading,predictor_domain,Demographic,9,12,21,0.429,2.64,0,0,9,0.0,unspecified,Gender | Grade repetition | Home language (ML vs non-ML) | Urban/rural location
+domain=Reading,predictor_domain,ICT,7,11,18,0.389,3.35,1,1,5,0.0,mixed,Perceived ICT competence | ICT resources at home | ICT use at school | ICT use outside for schoolwork
+domain=Reading,predictor_domain,School,5,5,20,0.25,3.57,1,0,4,1.0,positive,Perceived discrimination at school | Government funding share | Emphasis on letter-sound relationships | Emphasis on alphabet letters
+domain=Reading,predictor_domain,Student behaviour,5,11,29,0.172,2.11,0,0,5,0.0,unspecified,Assessing credibility | Summarizing information | Work mastery | Assess credibility metacognition
+domain=Reading,predictor_domain,Teacher,5,5,27,0.185,4.17,0,0,5,0.0,unspecified,Teacher feedback | Borrow books from classroom library | Observing students as they work | Teacher-directed instruction
+domain=Reading,predictor_domain,Curriculum / instruction,3,3,14,0.214,3.67,1,1,1,0.0,mixed,Additional instruction | Classroom reading activities | Long-text use in class
+domain=Reading,predictor_domain,Parent / home,3,3,14,0.214,3.0,0,0,3,0.0,unspecified,Family meal frequency | Time talking with parents | Discuss how school is going | Encouragement for good grades
+domain=Reading,predictor_domain,Peer effects,3,3,12,0.25,2.67,0,0,3,0.0,unspecified,Exposure to bullying | Classroom disciplinary climate | Disciplinary climate
+domain=Reading,predictor_domain,System level,3,3,6,0.5,3.44,0,0,3,0.0,unspecified,Federal state fixed effects | Business freedom | Property rights | Tax burden
+domain=Reading,predictor_domain,Prior achievement,1,1,3,0.333,2.0,0,0,1,0.0,unspecified,Reading achievement too low | Early literacy tasks performance
+domain=Reading,predictor_domain,Process data,1,1,1,1.0,2.0,0,0,1,0.0,unspecified,Item response accuracy | Response time (RT) | Mouse actions (trace count)
+domain=Reading,predictor_group,SES,18,25,25,0.72,2.08,2,0,16,1.0,positive,Socioeconomic status (ESCS) | Number of books at home | ESCS | Expected occupational status
+domain=Reading,predictor_group,Other,14,18,14,1.0,2.78,2,0,12,1.0,positive,Understanding and remembering | Reading habits | Teacher understanding | Meta-cognition: summarizing (METASUM)
+domain=Reading,predictor_group,Student attitude,12,15,26,0.462,3.18,0,0,12,0.0,unspecified,Perceived competence | Perceived reading difficulty | Reading competence perception | Reading difficulty perception
+domain=Reading,predictor_group,Student_Motivation,10,16,21,0.476,2.56,0,1,9,-1.0,negative,Reading interest | Enjoyment of reading | Interest in ICT | Mastery motivation and persistence
+domain=Reading,predictor_group,Gender_Demographics,9,12,20,0.45,3.0,0,0,9,0.0,unspecified,Gender | Grade repetition | Student grade level | Student age
+domain=Reading,predictor_group,Self_Efficacy,9,10,16,0.562,3.09,0,0,9,0.0,unspecified,Reading self-concept: competence (SCREADCOMP) | Self-concept: perceived difficulty | Self-efficacy | Self-concept of reading difficulty
+domain=Reading,predictor_group,ICT_Usage,8,11,19,0.421,3.28,1,0,7,1.0,positive,Perceived ICT competence | ICT resources at home | ICT use at school | ICT use outside for schoolwork
+domain=Reading,predictor_group,Metacognition_Strategies,8,11,14,0.571,2.86,0,0,8,0.0,unspecified,Metacognitive reading strategy usefulness (selected items) | Metacognition: assess credibility | Assess credibility metacognition | Summarizing metacognition
+domain=Reading,predictor_group,Parental_Involvement,6,6,19,0.316,3.86,0,0,6,0.0,unspecified,Time talking with parents | Parents ask about school | Mother’s education level | Father’s education level
+domain=Reading,predictor_group,Belonging_School_Climate,5,5,18,0.278,3.6,0,0,5,0.0,unspecified,Exposure to bullying | School belongingness | Classroom disciplinary climate | Sense of belonging to school
+domain=Reading,predictor_group,Student behaviour,4,10,25,0.16,2.27,0,0,4,0.0,unspecified,Assessing credibility | Summarizing information | Work mastery | Absenteeism
+domain=Reading,predictor_group,Teacher_Quality_Practices,4,4,19,0.211,3.4,0,1,3,-1.0,negative,Teacher feedback | Additional instruction | Teacher-directed instruction | Adaptive instruction (ADAPTIVITY)
+domain=Reading,predictor_group,Wellbeing_Psychological,4,4,13,0.308,4.25,0,0,4,0.0,unspecified,Reading enjoyment | Growth mindset
+domain=Reading,predictor_group,ICT,3,4,5,0.6,3.75,0,1,2,-1.0,negative,Playing online games | Frequency reading emails | Online group discussions/forums | Email access outside school
+domain=Reading,predictor_group,School,3,3,17,0.176,3.2,1,0,2,1.0,positive,Perceived discrimination at school | Government funding share | Emphasis on letter-sound relationships | Emphasis on alphabet letters
+domain=Reading,predictor_group,System level,3,3,5,0.6,3.38,0,0,3,0.0,unspecified,Federal state fixed effects | Business freedom | Property rights | Tax burden
+domain=Reading,predictor_group,Curriculum / instruction,2,2,10,0.2,4.5,1,0,1,1.0,positive,Classroom reading activities | Long-text use in class
+domain=Reading,predictor_group,Demographic,2,2,7,0.286,2.0,0,0,2,0.0,unspecified,Home language (ML vs non-ML) | Migration background
+domain=Reading,predictor_group,Homework_Study_Time,2,2,10,0.2,3.0,0,0,2,0.0,unspecified,Learning time (language/reading minutes/week) | Learning time in science (SMINS)
+domain=Reading,predictor_group,Teacher,2,2,21,0.095,4.0,0,0,2,0.0,unspecified,Borrow books from classroom library | Observing students as they work | Reading engagement stimulation
+domain=Reading,predictor_group,Assessment_Methodology,1,1,1,1.0,1.0,0,0,1,0.0,unspecified,Item response accuracy
+domain=Reading,predictor_group,Assessment_Practices,1,1,1,1.0,1.0,0,0,1,0.0,unspecified,Voice and Accountability
+domain=Reading,predictor_group,Curriculum_Instruction,1,1,8,0.125,5.0,0,0,1,0.0,unspecified,Same-ability groups
+domain=Reading,predictor_group,Parent / home,1,1,3,0.333,2.67,0,0,1,0.0,unspecified,Family meal frequency | Discuss how school is going | Encouragement for good grades
+domain=Reading,predictor_group,Process data,1,1,1,1.0,3.0,0,0,1,0.0,unspecified,Mouse actions (trace count)
+domain=Reading,predictor_group,Process_Data_Log,1,1,1,1.0,2.0,0,0,1,0.0,unspecified,Response time (RT)
+domain=Reading,predictor_group,Reading_Achievement,1,1,2,0.5,2.0,0,0,1,0.0,unspecified,Reading achievement too low | Early literacy tasks performance
+domain=Reading,predictor_group,School_Type_Composition,1,1,2,0.5,3.5,0,0,1,0.0,unspecified,Urban/rural location | School type (public/private)
+domain=Reading,predictor_group,Socioeconomic,1,1,12,0.083,4.0,0,0,1,0.0,unspecified,Annual household income
+domain=Reading,predictor_group,System_Policy,1,1,2,0.5,3.5,0,0,1,0.0,unspecified,GDP | GDP per capita
+domain=Science,predictor_domain,Other,15,18,15,1.0,2.93,2,0,13,1.0,positive,Student disciplinary climate (science) | Learning time (minutes per week) – science (SMINS) | Economic social cultural status (ESCS) | METASPAM
+domain=Science,predictor_domain,Socioeconomic,10,14,19,0.526,2.33,0,0,10,0.0,unspecified,Socioeconomic status (ESCS) | School mean ESCS | Socioeconomic background (SES) | Home possessions
+domain=Science,predictor_domain,Demographic,7,13,20,0.35,2.73,0,0,7,0.0,unspecified,Gender | Grade level (4 vs 8) | Home language equals test language | Home language (ML vs non-ML)
+domain=Science,predictor_domain,Curriculum / instruction,5,5,14,0.357,3.38,0,1,4,-1.0,negative,Instructional time (teachers) | Curriculum type (Integrated vs Separated) | Science learning time (weekly) | Total learning time (weekly)
+domain=Science,predictor_domain,School,4,6,13,0.308,3.71,0,0,4,0.0,unspecified,School unit (between/within) | Supportive school context | School type (public/private) | School quality (teacher degrees)
+domain=Science,predictor_domain,Student attitude,4,4,17,0.235,2.5,0,0,4,0.0,unspecified,Feel confident about science | Confidence in science | Valuing science | Educational aspiration level
+domain=Science,predictor_domain,Teacher,4,4,13,0.308,3.0,0,0,4,0.0,unspecified,Teacher impartiality index | Teaching practices (student view) | Teaching style (teacher view) | Teaching attitudes
+domain=Science,predictor_domain,System level,3,5,6,0.5,2.36,0,0,3,0.0,unspecified,Country system | Early tracking system | Government spending | Property rights
+domain=Science,predictor_domain,Process data,2,2,2,1.0,3.33,0,0,2,0.0,unspecified,Interactive multivariable strategy | Number of actions | Number of trials | Time before first action
+domain=Science,predictor_domain,Student behaviour,2,2,13,0.154,4.0,0,0,2,0.0,unspecified,Science experiment frequency | Out-of-school study time
+domain=Science,predictor_domain,ICT,1,3,10,0.1,3.78,0,0,1,0.0,unspecified,ICT interest | ICT competence | ICT in social interaction | ICT autonomy
+domain=Science,predictor_group,SES,13,18,18,0.722,2.36,1,0,12,1.0,positive,Socioeconomic status (ESCS) | School mean ESCS | Economic social cultural status (ESCS) | Socioeconomic background (SES)
+domain=Science,predictor_group,Other,8,9,8,1.0,2.58,3,0,5,1.0,positive,METASPAM | ICTRES | CPERWEEK | PISADIFF
+domain=Science,predictor_group,Gender_Demographics,6,10,19,0.316,2.4,0,0,6,0.0,unspecified,Gender | Grade level (4 vs 8) | Student gender
+domain=Science,predictor_group,Student_Motivation,6,9,12,0.5,2.89,1,0,5,1.0,positive,ICT interest | Work mastery motivation (WORKMAST) | Educational aspiration level | Interest in ICT (INTICT)
+domain=Science,predictor_group,Teacher_Quality_Practices,6,6,10,0.6,2.17,0,1,5,-1.0,negative,Instructional time (teachers) | Total instructional time | Additional instruction | Teaching practices (student view)
+domain=Science,predictor_group,ICT_Usage,5,7,11,0.455,3.91,1,0,4,1.0,positive,ICT competence | ICT in social interaction | ICT access and use | ICT autonomy
+domain=Science,predictor_group,Homework_Study_Time,4,5,9,0.444,2.5,0,0,4,0.0,unspecified,Learning time (minutes per week) – science (SMINS) | Science learning time (weekly) | Total learning time (weekly) | Learning time (science minutes/week)
+domain=Science,predictor_group,Belonging_School_Climate,3,5,10,0.3,3.43,0,0,3,0.0,unspecified,Student disciplinary climate (science) | Sense of belonging (BELONG) | Experienced bullying (BEINGBULLIED) | School mean disciplinary climate
+domain=Science,predictor_group,Parental_Involvement,3,3,9,0.333,3.5,0,0,3,0.0,unspecified,Mother occupation | Father occupation | Parents' education level | Mother tongue and reading
+domain=Science,predictor_group,School,3,5,11,0.273,3.8,0,0,3,0.0,unspecified,School unit (between/within) | Supportive school context | School quality (teacher degrees)
+domain=Science,predictor_group,Self_Efficacy,3,3,6,0.5,4.0,0,0,3,0.0,unspecified,Confidence in science | Science self-efficacy | Science self-efficacy (SCIEEFF)
+domain=Science,predictor_group,Student attitude,3,3,10,0.3,2.33,0,0,3,0.0,unspecified,Feel confident about science | Valuing science | Science appreciation index
+domain=Science,predictor_group,System level,3,5,5,0.6,2.45,0,0,3,0.0,unspecified,Country system | Government spending | Property rights | Tax burden
+domain=Science,predictor_group,Teacher,3,3,13,0.231,3.8,1,0,2,1.0,positive,Teacher impartiality index | Teaching style (teacher view) | Teaching attitudes | Teacher major (science specialization)
+domain=Science,predictor_group,Curriculum_Instruction,2,4,4,0.5,2.75,1,0,1,1.0,positive,Early tracking system | Curriculum type (Integrated vs Separated)
+domain=Science,predictor_group,Demographic,2,4,5,0.4,3.0,0,0,2,0.0,unspecified,Home language equals test language | Home language (ML vs non-ML)
+domain=Science,predictor_group,Metacognition_Strategies,2,2,4,0.5,3.25,0,0,2,0.0,unspecified,Metacognition | Metacognition: Assess credibility subscale | Metacognition: Summarizing subscale | Metacognition: Understanding and remembering subscale
+domain=Science,predictor_group,Process_Data_Log,2,2,2,1.0,4.0,1,0,1,1.0,positive,Time on task | Response time effort (RTE)
+domain=Science,predictor_group,Socioeconomic,2,2,6,0.333,3.0,0,0,2,0.0,unspecified,Household cultural possessions | Annual household income
+domain=Science,predictor_group,Anxiety_Stress,1,1,5,0.2,5.0,0,0,1,0.0,unspecified,Stress resistance
+domain=Science,predictor_group,Assessment_Practices,1,1,2,0.5,1.0,0,0,1,0.0,unspecified,Voice and Accountability
+domain=Science,predictor_group,Curriculum / instruction,1,1,8,0.125,3.5,0,0,1,0.0,unspecified,Scientific approach trust index | Ozone layer environmental knowledge
+domain=Science,predictor_group,Immigration_Language,1,1,4,0.25,3.0,0,0,1,0.0,unspecified,Second-generation migrant background
+domain=Science,predictor_group,Process data,1,1,1,1.0,2.5,0,0,1,0.0,unspecified,Interactive multivariable strategy | Number of actions | Number of trials | Time before first action
+domain=Science,predictor_group,School_Type_Composition,1,1,5,0.2,3.5,0,0,1,0.0,unspecified,Urban/rural location | School type (public/private)
+domain=Science,predictor_group,Student behaviour,1,1,10,0.1,4.0,0,0,1,0.0,unspecified,Science experiment frequency
+domain=Science,predictor_group,System_Policy,1,1,2,0.5,5.0,0,0,1,0.0,unspecified,GDP
+domain=Science,predictor_group,Wellbeing_Mental_Health,1,1,3,0.333,1.0,0,0,1,0.0,unspecified,Student well-being
+domain=Science,predictor_group,Wellbeing_Psychological,1,1,2,0.5,4.0,0,0,1,0.0,unspecified,Emotional control
+program=PIRLS,predictor_domain,Other,5,5,5,1.0,2.5,0,0,5,0.0,unspecified,Computer and internet use | Students confident in reading | Student age | See outcome_summary (descriptive associations not coded as predictors)
+program=PIRLS,predictor_domain,Student attitude,3,3,3,1.0,4.0,0,0,3,0.0,unspecified,Reading is boring attitude | Computer self-efficacy | Teacher lets show learning
+program=PIRLS,predictor_domain,Teacher,3,3,5,0.6,3.5,0,0,3,0.0,unspecified,Perceived teacher support | Borrow books from classroom library | Observing students as they work | Same-ability groups
+program=PIRLS,predictor_domain,School,2,2,4,0.5,2.75,0,0,2,0.0,unspecified,Sense of safety at school | Emphasis on letter-sound relationships | Emphasis on alphabet letters | Emphasis on reading words
+program=PIRLS,predictor_domain,Student behaviour,2,2,4,0.5,2.0,0,0,2,0.0,unspecified,Absenteeism | Extracurricular reading | Time using computer daily | Time finding reading info
+program=PIRLS,predictor_domain,Curriculum / instruction,1,2,1,1.0,3.0,0,0,1,0.0,unspecified,Classroom reading activities
+program=PIRLS,predictor_domain,Parent / home,1,1,3,0.333,1.0,0,0,1,0.0,unspecified,Parental support behavior
+program=PIRLS,predictor_domain,Prior achievement,1,1,2,0.5,2.0,0,0,1,0.0,unspecified,Reading achievement too low | Early literacy tasks performance
+program=PIRLS,predictor_domain,Socioeconomic,1,1,2,0.5,5.0,0,0,1,0.0,unspecified,Digital devices at home
+program=PIRLS,predictor_domain,System level,1,2,1,1.0,5.0,0,0,1,0.0,unspecified,Federal state fixed effects
+program=PIRLS,predictor_group,Other,4,4,4,1.0,2.4,0,0,4,0.0,unspecified,Students confident in reading | See outcome_summary (descriptive associations not coded as predictors) | Device use in and out school | Reading attitudes
+program=PIRLS,predictor_group,ICT_Usage,2,2,2,1.0,3.0,0,0,2,0.0,unspecified,Computer and internet use | Time using computer daily | Digital devices at home
+program=PIRLS,predictor_group,Self_Efficacy,2,2,2,1.0,2.5,0,0,2,0.0,unspecified,Computer self-efficacy | Reading self-concepts
+program=PIRLS,predictor_group,Student attitude,2,2,2,1.0,4.0,0,0,2,0.0,unspecified,Reading is boring attitude | Teacher lets show learning
+program=PIRLS,predictor_group,Student behaviour,2,2,4,0.5,2.33,0,0,2,0.0,unspecified,Absenteeism | Extracurricular reading | Time finding reading info
+program=PIRLS,predictor_group,Teacher,2,2,5,0.4,3.0,0,0,2,0.0,unspecified,Perceived teacher support | Borrow books from classroom library | Observing students as they work
+program=PIRLS,predictor_group,Belonging_School_Climate,1,1,1,1.0,4.0,0,0,1,0.0,unspecified,Sense of safety at school
+program=PIRLS,predictor_group,Curriculum / instruction,1,2,1,1.0,3.0,0,0,1,0.0,unspecified,Classroom reading activities
+program=PIRLS,predictor_group,Curriculum_Instruction,1,1,1,1.0,5.0,0,0,1,0.0,unspecified,Same-ability groups
+program=PIRLS,predictor_group,Gender_Demographics,1,1,2,0.5,4.0,0,0,1,0.0,unspecified,Student age
+program=PIRLS,predictor_group,Parental_Involvement,1,1,3,0.333,1.0,0,0,1,0.0,unspecified,Parental support behavior
+program=PIRLS,predictor_group,Reading_Achievement,1,1,1,1.0,2.0,0,0,1,0.0,unspecified,Reading achievement too low | Early literacy tasks performance
+program=PIRLS,predictor_group,School,1,1,4,0.25,2.33,0,0,1,0.0,unspecified,Emphasis on letter-sound relationships | Emphasis on alphabet letters | Emphasis on reading words
+program=PIRLS,predictor_group,System level,1,2,1,1.0,5.0,0,0,1,0.0,unspecified,Federal state fixed effects
+program=PISA,predictor_domain,Other,53,87,53,1.0,2.82,6,0,47,1.0,positive,See outcome_summary (descriptive associations not coded as predictors) | ESCS | HISEI | Metacognitive reading strategy usefulness (selected items)
+program=PISA,predictor_domain,Socioeconomic,48,84,66,0.727,2.29,5,0,43,1.0,positive,Socioeconomic status (ESCS) | Number of books at home | Index of ESCS | Socio-economic status (ESCS)
+program=PISA,predictor_domain,Student attitude,34,52,63,0.54,2.92,1,0,33,1.0,positive,Reading interest | Enjoyment of reading | Self-efficacy in digital competencies | Reading enjoyment
+program=PISA,predictor_domain,Demographic,25,46,59,0.424,2.53,0,0,25,0.0,unspecified,Gender | Urban/rural location | Grade repetition | Home language (ML vs non-ML)
+program=PISA,predictor_domain,Student behaviour,16,24,58,0.276,3.0,0,0,16,0.0,unspecified,Assessing credibility | Summarizing information | Work mastery | Days with friends after school
+program=PISA,predictor_domain,ICT,13,23,46,0.283,3.61,2,1,10,0.333,mixed,ICT interest | ICT competence | ICT in social interaction | Perceived ICT competence
+program=PISA,predictor_domain,School,12,20,46,0.261,3.35,2,0,10,1.0,positive,Disciplinary climate | School size | School type (public/private) | Supportive school context
+program=PISA,predictor_domain,Teacher,12,16,43,0.279,3.56,2,0,10,1.0,positive,Teacher support | Teacher fairness | Teacher feedback | Talk to teacher when bothered
+program=PISA,predictor_domain,Process data,11,12,12,0.917,2.71,0,0,11,0.0,unspecified,Total time on task | VOTAT strategy score | Response time (RT) | Understanding city subway network
+program=PISA,predictor_domain,Curriculum / instruction,10,20,43,0.233,2.97,1,2,7,-0.333,mixed,Total learning time | Var 1 (writing/critical activities) | Programming activity frequency | Mathematics learning time
+program=PISA,predictor_domain,Parent / home,8,8,35,0.229,3.67,0,0,8,0.0,unspecified,Parents’ emotional support | Family support | Family meal frequency | Time talking with parents
+program=PISA,predictor_domain,Prior achievement,7,8,9,0.778,2.24,1,0,6,1.0,positive,Mathematical literacy (PV1) | Reading literacy (PV1) | Turkish language success status | Reading score (PISA 2018)
+program=PISA,predictor_domain,System level,4,8,11,0.364,3.15,0,0,4,0.0,unspecified,Government spending | Property rights | Tax burden | Trade freedom
+program=PISA,predictor_domain,Peer effects,3,3,17,0.176,2.67,0,0,3,0.0,unspecified,Exposure to bullying | Classroom disciplinary climate | Disciplinary climate
+program=PISA,predictor_group,SES,55,92,65,0.846,2.26,5,0,50,1.0,positive,Socioeconomic status (ESCS) | Number of books at home | Index of ESCS | Socio-economic status (ESCS)
+program=PISA,predictor_group,Other,37,50,37,1.0,2.6,7,0,30,1.0,positive,See outcome_summary (descriptive associations not coded as predictors) | ICTRES | METASPAM | Understanding and remembering
+program=PISA,predictor_group,Gender_Demographics,23,39,55,0.418,2.49,0,0,23,0.0,unspecified,Gender | Grade repetition | Grade repetition (REPEAT) | Grade level
+program=PISA,predictor_group,Student attitude,22,29,51,0.431,3.02,0,0,22,0.0,unspecified,Perceived test difficulty | Self-awareness (PISA proxies) | Self-management (PISA proxies) | Social awareness (PISA proxies)
+program=PISA,predictor_group,ICT_Usage,21,32,45,0.467,3.62,3,1,17,0.5,positive,ICT competence | Perceived ICT competence | ICT in social interaction | ICT access and use
+program=PISA,predictor_group,Self_Efficacy,21,27,34,0.618,2.53,1,0,20,1.0,positive,Mathematics self-efficacy | Self-efficacy in digital competencies | Reading self-concept: competence (SCREADCOMP) | Math self-efficacy
+program=PISA,predictor_group,Student_Motivation,20,35,44,0.455,3.0,2,1,17,0.333,mixed,ICT interest | Reading interest | Enjoyment of reading | Educational aspiration level
+program=PISA,predictor_group,Belonging_School_Climate,17,21,43,0.395,3.46,1,0,16,1.0,positive,Disciplinary climate | Sense of belonging (BELONG) | Student disciplinary climate (science) | Sense of belonging
+program=PISA,predictor_group,Parental_Involvement,16,17,42,0.381,3.6,0,0,16,0.0,unspecified,Parents’ emotional support | Family support | Time talking with parents | Parents ask about school
+program=PISA,predictor_group,Homework_Study_Time,11,21,23,0.478,2.85,1,0,10,1.0,positive,Total learning time | Mathematics learning time | Learning time (minutes per week) – science (SMINS) | Science learning time (weekly)
+program=PISA,predictor_group,Process_Data_Log,10,11,10,1.0,2.29,1,0,9,1.0,positive,Total time on task | VOTAT strategy score | Response time (RT) | Time on task
+program=PISA,predictor_group,Anxiety_Stress,9,10,31,0.29,3.5,0,1,8,-1.0,negative,Mathematics anxiety | Math anxiety | Anxiety | Parental pressure (dummy)
+program=PISA,predictor_group,Metacognition_Strategies,9,15,16,0.562,3.09,0,0,9,0.0,unspecified,Metacognitive reading strategy usefulness (selected items) | Metacognition | Metacognition: Summarizing subscale | Metacognition: Assess credibility subscale
+program=PISA,predictor_group,Student behaviour,9,16,49,0.184,2.7,0,0,9,0.0,unspecified,Assessing credibility | Summarizing information | Work mastery | Days with friends after school
+program=PISA,predictor_group,Teacher,9,13,35,0.257,3.69,2,0,7,1.0,positive,Teacher support | Teacher fairness | Talk to teacher when bothered | Student–teacher relationship
+program=PISA,predictor_group,Process data,8,8,9,0.889,3.0,0,0,8,0.0,unspecified,Understanding city subway network | Understanding concession fares | Understanding travel options for four trips | Comparing ticket prices
+program=PISA,predictor_group,Teacher_Quality_Practices,8,10,31,0.258,2.91,0,2,6,-1.0,negative,Additional instruction | Student-oriented instruction | Teacher feedback | Teacher-directed instruction
+program=PISA,predictor_group,School,6,9,31,0.194,2.9,1,0,5,1.0,positive,School size | Supportive school context | Perceived discrimination at school | Government funding share
+program=PISA,predictor_group,Wellbeing_Psychological,6,7,18,0.333,4.29,0,0,6,0.0,unspecified,Reading enjoyment | Growth mindset | Moderate physical activity days | Emotional control
+program=PISA,predictor_group,Reading_Achievement,5,6,7,0.714,2.29,1,0,4,1.0,positive,Reading literacy (PV1) | Reading score (PISA 2018) | Reading score (PISA 2022) | Reading performance
+program=PISA,predictor_group,Demographic,4,9,14,0.286,2.44,0,0,4,0.0,unspecified,Home language (ML vs non-ML) | Home language equals test language | Migration background | Proportion of girls
+program=PISA,predictor_group,Math_Achievement,4,5,7,0.571,1.6,0,0,4,0.0,unspecified,Mathematical literacy (PV1) | Math performance | Mathematical competence (MC) | Mathematics score
+program=PISA,predictor_group,School_Resources,4,4,11,0.364,3.0,1,0,3,1.0,positive,Satisfaction with material resources | Class size (CLSIZE) | Class size (average) | Class size
+program=PISA,predictor_group,Science_Achievement,4,4,7,0.571,3.0,0,0,4,0.0,unspecified,Science literacy (PV1) | Science performance | Science score | Science achievement (PV1SCIE)
+program=PISA,predictor_group,Socioeconomic,4,6,19,0.211,2.83,0,0,4,0.0,unspecified,Annual household income | Household cultural possessions | Possessions - literature | Cultural possessions at home
+program=PISA,predictor_group,System level,4,8,9,0.444,3.04,0,0,4,0.0,unspecified,Government spending | Property rights | Tax burden | Trade freedom
+program=PISA,predictor_group,Curriculum / instruction,3,5,29,0.103,2.92,1,0,2,1.0,positive,Var 1 (writing/critical activities) | Programming activity frequency | Var 2 (art/music activities) | Science club activity frequency
+program=PISA,predictor_group,ICT,3,4,14,0.214,3.75,0,1,2,-1.0,negative,Playing online games | Frequency reading emails | Online group discussions/forums | Email access outside school
+program=PISA,predictor_group,Immigration_Language,3,4,12,0.25,2.6,0,0,3,0.0,unspecified,Immigration status (IMMIG) | Language at home | Immigration background | Second-generation migrant background
+program=PISA,predictor_group,Assessment_Methodology,2,2,3,0.667,1.5,0,0,2,0.0,unspecified,Item response accuracy | Response accuracy
+program=PISA,predictor_group,School_Type_Composition,2,6,14,0.143,3.78,0,0,2,0.0,unspecified,Urban/rural location | School type (public/private) | School type (state vs private)
+program=PISA,predictor_group,Teacher_Efficacy_Workforce,2,2,7,0.286,4.67,1,0,1,1.0,positive,Cognitive activation: encourage thinking | Cognitive activation: encouraging thinking | Cognitive activation: fostering reasoning
+program=PISA,predictor_group,Wellbeing_Mental_Health,2,3,13,0.154,2.67,0,0,2,0.0,unspecified,"Student well-being | Mental health (e.g., ST186Q09HA, ST185Q01HA)"
+program=PISA,predictor_group,Assessment_Practices,1,3,2,0.5,1.0,0,0,1,0.0,unspecified,Voice and Accountability
+program=PISA,predictor_group,Civic_Engagement,1,1,1,1.0,3.0,0,0,1,0.0,unspecified,Awareness of intercultural communication
+program=PISA,predictor_group,Curriculum_Instruction,1,1,13,0.077,1.5,0,0,1,0.0,unspecified,Verbal skills (curriculum themes) | Math curriculum language themes
+program=PISA,predictor_group,Dropout_Retention,1,1,5,0.2,4.0,0,0,1,0.0,unspecified,Truancy
+program=PISA,predictor_group,Parent / home,1,1,8,0.125,2.67,0,0,1,0.0,unspecified,Family meal frequency | Discuss how school is going | Encouragement for good grades
+program=PISA,predictor_group,Prior achievement,1,1,2,0.5,2.0,0,0,1,0.0,unspecified,Turkish language success status
+program=PISA,predictor_group,School_Efficiency_Climate,1,2,1,1.0,3.5,0,1,0,-1.0,negative,Classroom management
+program=PISA,predictor_group,System_Policy,1,3,3,0.333,4.25,0,0,1,0.0,unspecified,GDP per capita | GDP
+program=TIMSS,predictor_domain,Other,4,5,4,1.0,2.5,0,0,4,0.0,unspecified,Student gender | Student confident in mathematics | Students confident in mathematics | Student socioeconomic status (SES)
+program=TIMSS,predictor_domain,School,4,6,5,0.8,3.5,0,0,4,0.0,unspecified,School unit (between/within) | Availability of a school library | Classroom libraries | School emphasis on academic success
+program=TIMSS,predictor_domain,Socioeconomic,4,5,6,0.667,2.33,0,0,4,0.0,unspecified,Books at home | Parents' education level | School average SES | Socioeconomic background (SES)
+program=TIMSS,predictor_domain,Student attitude,3,3,8,0.375,3.17,0,0,3,0.0,unspecified,Feel confident about science | Confidence in science | Valuing science | School belonging
+program=TIMSS,predictor_domain,Teacher,3,4,8,0.375,2.92,0,0,3,0.0,unspecified,Teaching practices (student view) | Teaching style (teacher view) | Teaching attitudes | Teachers ask to explain answers
+program=TIMSS,predictor_domain,Curriculum / instruction,2,3,7,0.286,4.5,0,0,2,0.0,unspecified,Total instructional time | Instructional time (teachers) | Curriculum type (Integrated vs Separated)
+program=TIMSS,predictor_domain,Demographic,2,4,8,0.25,2.75,0,0,2,0.0,unspecified,Grade level (4 vs 8) | Gender
+program=TIMSS,predictor_domain,Student behaviour,2,2,7,0.286,4.0,0,0,2,0.0,unspecified,Science experiment frequency | Work on your own frequency
+program=TIMSS,predictor_domain,System level,2,4,3,0.667,1.43,0,0,2,0.0,unspecified,Country system | Early tracking system | Economic and education indicators
+program=TIMSS,predictor_domain,ICT,1,1,3,0.333,2.0,0,0,1,0.0,unspecified,Use of digital tools in math
+program=TIMSS,predictor_domain,Prior achievement,1,1,2,0.5,2.0,0,0,1,0.0,unspecified,Mathematics achievement too low | Science achievement too low
+program=TIMSS,predictor_group,SES,6,7,6,1.0,2.44,0,0,6,0.0,unspecified,Books at home | School average SES | Socioeconomic background (SES) | Teachers give challenging exercises
+program=TIMSS,predictor_group,School,4,6,5,0.8,3.5,0,0,4,0.0,unspecified,School unit (between/within) | Availability of a school library | Classroom libraries | School emphasis on academic success
+program=TIMSS,predictor_group,Gender_Demographics,3,6,8,0.375,2.17,0,0,3,0.0,unspecified,Grade level (4 vs 8) | Student gender | Gender
+program=TIMSS,predictor_group,Other,3,3,3,1.0,3.0,0,0,3,0.0,unspecified,Student confident in mathematics | Students confident in mathematics | Students value mathematics | Home educational resources (BSBGHER)
+program=TIMSS,predictor_group,Self_Efficacy,3,3,4,0.75,3.0,0,0,3,0.0,unspecified,Confidence in science | Self-confidence in math | Confidence in mathematics (BSBGSCM)
+program=TIMSS,predictor_group,Teacher,3,4,7,0.429,3.22,1,0,2,1.0,positive,Teaching style (teacher view) | Teaching attitudes | Teachers ask to explain answers | Teacher professional development frequency
+program=TIMSS,predictor_group,Teacher_Quality_Practices,3,5,6,0.5,3.17,0,0,3,0.0,unspecified,Total instructional time | Teaching practices (student view) | Instructional time (teachers) | Years of teaching experience
+program=TIMSS,predictor_group,Curriculum_Instruction,2,4,4,0.5,2.75,1,0,1,1.0,positive,Early tracking system | Curriculum type (Integrated vs Separated)
+program=TIMSS,predictor_group,Student attitude,2,2,8,0.25,2.5,0,0,2,0.0,unspecified,Feel confident about science | Valuing science
+program=TIMSS,predictor_group,Student behaviour,2,2,6,0.333,4.0,0,0,2,0.0,unspecified,Science experiment frequency | Work on your own frequency
+program=TIMSS,predictor_group,System level,2,4,3,0.667,1.0,0,0,2,0.0,unspecified,Country system | Economic and education indicators
+program=TIMSS,predictor_group,Belonging_School_Climate,1,1,4,0.25,3.0,0,0,1,0.0,unspecified,School belonging
+program=TIMSS,predictor_group,ICT_Usage,1,1,3,0.333,2.0,0,0,1,0.0,unspecified,Use of digital tools in math
+program=TIMSS,predictor_group,Math_Achievement,1,1,2,0.5,1.0,0,0,1,0.0,unspecified,Mathematics achievement too low
+program=TIMSS,predictor_group,Parental_Involvement,1,2,1,1.0,2.0,0,0,1,0.0,unspecified,Parents' education level
+program=TIMSS,predictor_group,Science_Achievement,1,1,1,1.0,3.0,0,0,1,0.0,unspecified,Science achievement too low
+program=TIMSS,predictor_group,Student_Motivation,1,1,3,0.333,4.0,0,0,1,0.0,unspecified,Enjoyment of learning math
+program=TIMSS,predictor_group,Wellbeing_Psychological,1,1,1,1.0,4.0,0,0,1,0.0,unspecified,Educational expectations (BSBG08)

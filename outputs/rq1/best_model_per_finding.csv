@@ -1,0 +1,41 @@
+finding_id,metric,n_models_compared,models_compared,best_model,best_value,ilsa_programs,domain,is_achievement,analysis_level
+107. Tan et al. (2025). Using machine learning algorithms to predict students’ g#1,RMSE,2,LASSO; XGBoost,XGBoost,9.699,PISA,Teacher outcome,False,item
+11. Demir & Karaboğa. (2021). Modeling mathematics achievement with deep learni#1,Accuracy,2,Logistic Regression; Neural Network,Neural Network,0.826,PISA,Mathematics,True,student
+114. Khoudi et al. (2024). Identifying the contextual factors related to the rea#1,F1,4,Gradient Boosting; Logistic Regression; Random Forest; SVM,Gradient Boosting,0.638,PIRLS,Reading,True,student
+132. Yildirim et al. (2026). Understanding students’ mathematical achievement th#1,F1,2,AdaBoost; Random Forest,Random Forest,0.8352,PISA,Mathematics,True,student
+134. Chen et al. (2026). Interpretable machine learning reveals key determinants#1,R2,2,Elastic Net; LightGBM,LightGBM,0.6304,PISA,Creative thinking,True,student
+136. Zhu et al. (2025). Predictive insights into U.S. students’ mathematics perf#1,RMSE,3,LightGBM; Random Forest; XGBoost,LightGBM,66.36,PISA,Mathematics,True,student
+137. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese e#1,AUC,3,Logistic Regression; Stacking; XGBoost,Stacking; XGBoost,0.79,ICILS,Computer & information literacy,True,student
+142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Lea#1,RMSE,6,LASSO; Linear Regression; Neural Network; Random Forest; Stacking; XGBoost,Stacking,0.777,PISA,Mathematics,True,student
+143. Bezek Güre et al. (2023). Reviewing the Factors Affecting PISA Reading Skil#1,AUC,2,MARS; Random Forest,MARS,0.798,PISA,Reading,True,student
+161. Yi & Na (2020). How are maths-anxious students identified and what are the #1,AUC,2,Logistic Regression; Random Forest,Logistic Regression,0.854,PISA,Mathematics,False,student
+18. Khine et al. (2025). From Meals to Marks: Modeling the Impact of Family Invo#1,RMSE,3,Gradient Boosting; Neural Network; Random Forest,Gradient Boosting,111.61,PISA,Reading,True,student
+186. Wei et al. (2026). Identifying Key Predictors of Resilience in Mathematics #1,AUC,4,LightGBM; Logistic Regression; Random Forest; XGBoost,Random Forest,0.7616,PISA,Mathematics,False,student
+195. Çelik et al. (2026). Comparative analysis of global education performances#1,F1,3,Neural Network; Random Forest; SVM,Neural Network,1.0,PISA,Mathematics,True,country
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#1,AUC,3,Logistic Regression; Random Forest; XGBoost,Random Forest,0.81,TALIS,Teacher outcome,False,school
+201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machi#2,RMSE,3,Linear Regression; Random Forest; XGBoost,Random Forest,1.56,TALIS,Teacher outcome,False,school
+202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMS#1,AUC,4,Decision Tree; Random Forest; SVM; XGBoost,SVM,0.98,TIMSS,Teacher outcome,False,student
+"207. Trejo-Macotela (2026). Artificial Intelligence, Academic Resilience, and Ge#1",AUC,6,CatBoost; Gradient Boosting; LightGBM; Logistic Regression; Random Forest; XGBoost,CatBoost,0.949,PISA,Mathematics,True,student
+208. Djekourmane et al. (2026). Using machine learning to predict student mathem#1,R2,5,AdaBoost; LightGBM; Linear Regression; Random Forest; XGBoost,XGBoost,0.5703,PISA,Mathematics,True,student
+209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Class#1,F1,3,Random Forest; SVM; XGBoost,XGBoost,0.61,PISA,Teacher outcome,False,teacher
+209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Class#2,F1,2,Random Forest; XGBoost,Random Forest,0.59,PISA,Teacher outcome,False,teacher
+211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time#1,F1,2,Random Forest; XGBoost,XGBoost,0.699,PIAAC,Numeracy,True,student
+25. Anersen et al. (2025). Algorithmic Fairness in Automatic Short Answer Scorin#1,Accuracy,3,Random Forest; SVM; Transformer / LLM,Transformer / LLM,0.93,PISA,Reading,False,item
+27. Cai et al. (2025). A study on factors influencing digital sports participati#1,F1,2,Logistic Regression; Stacking,Stacking,0.166,PISA,not_determinable,False,student
+29. Huang et al. (2024). Applying Machine Learning and SHAP Method to Identify K#1,MAPE,3,Random Forest; SVM; XGBoost,XGBoost,10.21,PISA,Mathematics,True,student
+31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient S#1,RMSE,2,LASSO; Random Forest,Random Forest,44.47,PISA,Mathematics,True,student
+31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient S#2,RMSE,2,LASSO; Random Forest,LASSO,40.25,PISA,Mathematics,True,student
+32. Resinoet al. (2024). Student well-being and mathematical literacy performanc#1,RMSE,2,Decision Tree; Random Forest,Random Forest,75.579,PISA,Mathematics,True,student
+34. Şengür (2026). Explaining the Links Between School Administrator Leadershi#1,RMSE,3,Elastic Net; Random Forest; XGBoost,XGBoost,1.794,TALIS,Teacher outcome,False,school
+35. Nguyen et al. (2023). An evaluation of tiered machine learning framework to #1,Accuracy,5,Decision Tree; Logistic Regression; Naive Bayes; SVM; XGBoost,XGBoost,0.5747,TIMSS,Science,True,student
+39. Zheng et al. (2025). Unfolding key factors of resilience in ICT cognitive-mo#1,AUC,4,Decision Tree; Logistic Regression; Random Forest; SVM,SVM,0.951,PISA,not_determinable,False,student
+48. Pan & Cutumisu. (2022). Using machine learning to predict UK and Japanese se#1,R2,2,Random Forest; k-NN,Random Forest,0.187,PISA,not_determinable,False,student
+48. Pan & Cutumisu. (2022). Using machine learning to predict UK and Japanese se#2,R2,2,Random Forest; k-NN,Random Forest,0.138,PISA,not_determinable,False,student
+58. Tahri et al. (2026). Machine-Learning Applications in Predicting Students’ N#1,RMSE,3,Gradient Boosting; LASSO; Random Forest,Gradient Boosting,0.4897,PISA,not_determinable,True,student
+6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Ex#1,AUC,4,Decision Tree; Random Forest; SVM; XGBoost,SVM,0.79,TIMSS,Mathematics,True,student
+65. Khine et al. (2024). A Machine-Learning Approach to Predicting the Achieveme#1,R2,4,Elastic Net; SVM; XGBoost; k-NN,XGBoost,0.431,PISA,Mathematics,True,student
+7. Alas & Tezer. (2024). Artificial Neural Network and Adaptive Neuro Fuzzy Infe#1,RMSE,2,ANFIS; Neural Network,ANFIS,12.42771,PISA,Mathematics,True,student
+73. Yun et al. (2025). Discovering action insights from large-scale assessment l#1,F1,2,Neural Network; Random Forest,Random Forest,0.893,PIAAC,Problem solving,True,student
+73. Yun et al. (2025). Discovering action insights from large-scale assessment l#2,F1,2,Neural Network; Random Forest,Neural Network,0.862,PIAAC,Problem solving,True,student
+96. Li et al. (2025). Exploring the Evidence to Interpret Differential Item Func#1,AUC,2,Logistic Regression; Random Forest,Random Forest,0.86,PIAAC,Numeracy,False,item
+98. Zhou & Jiao. (2022). Exploration of the Stacking Ensemble Machine Learning A#1,F1,2,Gradient Boosting; Random Forest,Gradient Boosting,0.573,,not_determinable,False,student

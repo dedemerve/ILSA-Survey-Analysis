@@ -27,6 +27,7 @@ from pydantic import ValidationError
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from src.analysis.ml_taxonomy import canonical_name
 from src.extractors.gpt_extractor import GPTExtractor
 from src.schemas.findings_validation import (
     article_requires_main_findings,
@@ -37,6 +38,7 @@ from src.schemas.models import validate_public_article_json
 
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 from build_tabular_dataset import (  # noqa: E402
+    DEFAULT_CORPUS_DIR,
     _ILLEGAL_XLSX_CHARS,
     _format_countries,
     _join_list,
@@ -51,60 +53,6 @@ DEFAULT_FAIL_LOG = DEFAULT_OUTPUTS_DIR / "failed_to_process.log"
 
 NOT_REPORTED = "Not Reported"
 NOT_APPLICABLE_TR = "Not Applicable (Technical Report)"
-
-# Canonical ML taxonomy (lowercase key → canonical label). No inference beyond string match.
-_CANONICAL_ML: dict[str, str] = {
-    "random forest": "Random Forest",
-    "random forests": "Random Forest",
-    "rf": "Random Forest",
-    "xgboost": "XGBoost",
-    "xgb": "XGBoost",
-    "gradient boosting": "Gradient Boosting",
-    "gbm": "Gradient Boosting",
-    "lightgbm": "LightGBM",
-    "catboost": "CatBoost",
-    "support vector machine": "Support Vector Machine",
-    "svm": "Support Vector Machine",
-    "logistic regression": "Logistic Regression",
-    "linear regression": "Linear Regression",
-    "ridge regression": "Ridge Regression",
-    "lasso": "Lasso Regression",
-    "elastic net": "Elastic Net",
-    "neural network": "Neural Network",
-    "deep neural network": "Neural Network",
-    "multilayer perceptron": "Neural Network",
-    "mlp": "Neural Network",
-    "cnn": "Convolutional Neural Network",
-    "rnn": "Recurrent Neural Network",
-    "lstm": "LSTM",
-    "decision tree": "Decision Tree",
-    "decision trees": "Decision Tree",
-    "k-nearest neighbors": "K-Nearest Neighbors",
-    "knn": "K-Nearest Neighbors",
-    "naive bayes": "Naive Bayes",
-    "multilevel modeling": "Multilevel Modeling",
-    "multilevel model": "Multilevel Modeling",
-    "multilevel modelling": "Multilevel Modeling",
-    "hierarchical linear modeling": "Multilevel Modeling",
-    "hierarchical linear model": "Multilevel Modeling",
-    "hlm": "Multilevel Modeling",
-    "mixed effects": "Mixed Effects Model",
-    "mixed-effects": "Mixed Effects Model",
-    "latent class": "Latent Class Analysis",
-    "latent profile": "Latent Profile Analysis",
-    "cluster analysis": "Cluster Analysis",
-    "k-means": "K-Means Clustering",
-    "kmeans": "K-Means Clustering",
-    "principal component": "Principal Component Analysis",
-    "pca": "Principal Component Analysis",
-    "structural equation": "Structural Equation Modeling",
-    "sem": "Structural Equation Modeling",
-    "boosting": "Boosting",
-    "adaboost": "AdaBoost",
-    "ensemble": "Ensemble Learning",
-    "stacking": "Stacking Ensemble",
-    "bagging": "Bagging",
-}
 
 _METRIC_PATTERNS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"(?:accuracy|acc)\s*[:=]\s*([0-9]+(?:\.[0-9]+)?%?)", re.I), "Accuracy"),
@@ -135,16 +83,8 @@ def _is_technical_report(meta: dict[str, Any], data: dict[str, Any]) -> bool:
 
 
 def _canonical_ml(name: str | None) -> str:
-    if not name or not str(name).strip():
-        return NOT_REPORTED
-    raw = str(name).strip()
-    key = raw.lower()
-    if key in _CANONICAL_ML:
-        return _CANONICAL_ML[key]
-    for fragment, canonical in sorted(_CANONICAL_ML.items(), key=lambda x: -len(x[0])):
-        if fragment in key:
-            return canonical
-    return raw
+    """Canonical model label (word-boundary taxonomy in src.analysis.ml_taxonomy)."""
+    return canonical_name(name) or NOT_REPORTED
 
 
 def _canonicalize_techniques(techniques: Any) -> tuple[str | None, str | None]:
@@ -457,7 +397,7 @@ def write_workbook(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--outputs-dir", type=Path, default=DEFAULT_OUTPUTS_DIR)
+    parser.add_argument("--outputs-dir", type=Path, default=DEFAULT_CORPUS_DIR)
     parser.add_argument("--output-xlsx", type=Path, default=DEFAULT_XLSX)
     parser.add_argument("--fail-log", type=Path, default=DEFAULT_FAIL_LOG)
     parser.add_argument("--workers", type=int, default=8)
