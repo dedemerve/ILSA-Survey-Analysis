@@ -35,6 +35,8 @@ KEYWORDS_Q2 = [
     "weight", "sampling weight", "survey weight", "weighted", "unweighted",
     "pweight", "analytic weight", "student weight", "senate weight",
     "totwgt", "schwgt", "w_fstuwt", "design weight",
+    "sampling design", "complex sample", "survey design", "replicate weight",
+    "balanced repeated replication", "jackknife", "brr", "fay",
 ]
 KEYWORDS_Q3 = [
     "multilevel", "hierarchical linear", " hlm", "cluster", "nested",
@@ -47,6 +49,10 @@ KEYWORDS_Q4 = [
     "different cycle", "another cycle", "replication", "out-of-sample",
     "external data", "external sample", "holdout", "hold-out", "held-out",
     "transfer", "generali", "new dataset", "independent dataset",
+    "cross-validation", "cross validation", "k-fold", "kfold", "k fold",
+    "5-fold", "10-fold", "nested cv", "train test", "train/test",
+    "test set", "test data", "validation set", "validation data",
+    "train set", "training set", "split", "partition",
 ]
 
 ALL_KEYWORDS = KEYWORDS_Q1 + KEYWORDS_Q2 + KEYWORDS_Q3 + KEYWORDS_Q4
