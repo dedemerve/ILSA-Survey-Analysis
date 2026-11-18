@@ -118,9 +118,24 @@ EXTRACTION_PROMPT_TEMPLATE = """Below are excerpts from the study. Rate the four
 Study: {title} ({year})
 Source category: {source_category}
 
---- EXCERPTS ---
+--- PRIOR EXTRACTION (from structured JSON, may be incomplete) ---
+{prior_fields}
+--- END PRIOR ---
+
+--- EXCERPTS FROM PDF ---
 {text}
---- END EXCERPTS ---"""
+--- END EXCERPTS ---
+
+IMPORTANT REMINDERS:
+- Q4: If the excerpts mention ANY of these: cross-validation, k-fold, train/test split,
+  hold-out, nested CV, bootstrap, random subset — the answer is **not_met** (internal
+  validation), NOT not_reported. Only use not_reported if there is truly NO mention of
+  any validation strategy at all.
+- Q1: If prior extraction says average_pv, single_pv, wle, irt_theta, or eap → not_met.
+  If it says rubin_rules or all_pv → met. If it says not_applicable → not_applicable.
+- Q3: If the study models individual students from ILSA data (which is cluster-sampled
+  by schools) using flat models (no multilevel, no cluster-robust SE, no school-level
+  split), the answer is **not_met**, not not_reported."""
 
 
 # ---------------------------------------------------------------------------
@@ -230,7 +245,8 @@ def find_pdf_for_json(json_name: str, pdf_dirs: list) -> Optional[Path]:
 # API call (structured output)
 # ---------------------------------------------------------------------------
 def _call_api(title: str, year, text: str, model: str, client,
-              source_category: str = "peer_reviewed_research") -> dict:
+              source_category: str = "peer_reviewed_research",
+              prior_fields: str = "None available") -> dict:
     from pydantic import BaseModel
 
     class IndicatorResult(BaseModel):
@@ -244,7 +260,8 @@ def _call_api(title: str, year, text: str, model: str, client,
         q4_validation_beyond_estimation: IndicatorResult
 
     prompt = EXTRACTION_PROMPT_TEMPLATE.format(
-        title=title, year=year, text=text, source_category=source_category)
+        title=title, year=year, text=text, source_category=source_category,
+        prior_fields=prior_fields)
     response = client.beta.chat.completions.parse(
         model=model,
         messages=[
@@ -345,10 +362,29 @@ def cmd_extract(args):
             continue
 
         source_cat = meta.get("source_category", "peer_reviewed_research")
+        orig_data = data.get("data", {})
+        prior_lines = []
+        pv = orig_data.get("plausible_values_handling")
+        if pv:
+            prior_lines.append(f"plausible_values_handling: {pv}")
+        sd = orig_data.get("survey_design", {})
+        if isinstance(sd, dict):
+            sw = sd.get("student_weights_used")
+            if sw is not None:
+                prior_lines.append(f"student_weights_used: {sw}")
+            interp = sd.get("weight_fields_interpretation", "")
+            if interp:
+                prior_lines.append(f"weight_interpretation: {interp[:300]}")
+        hnr = orig_data.get("handling_not_reported_explanation", "")
+        if hnr:
+            prior_lines.append(f"handling_note: {hnr[:300]}")
+        prior_str = "\n".join(prior_lines) if prior_lines else "None available"
+
         print(f"[EXTRACT] {num}. {title[:60]} ({year})  [{source_cat}]")
         try:
             fields = _call_api(title, year, excerpts, args.model, client,
-                               source_category=source_cat)
+                               source_category=source_cat,
+                               prior_fields=prior_str)
             fields["_status"] = "extracted"
             fields["_pdf_matched"] = pdf_path.name
         except Exception as e:
