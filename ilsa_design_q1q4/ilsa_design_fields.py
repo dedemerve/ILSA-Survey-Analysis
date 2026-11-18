@@ -87,8 +87,12 @@ Q3 school_clustering:
 Q4 validation_beyond_estimation_sample:
   met           = model/findings validated on data from another country, another cycle,
                   or an entirely external dataset not used for training
-  not_met       = validation was only internal (k-fold CV, hold-out from same sample)
-  not_reported  = no validation information
+  not_met       = study performed ONLY internal validation (k-fold CV, nested CV, hold-out
+                  split, train/test split, bootstrap, or any resampling from the same dataset).
+                  If the study mentions ANY of these internal methods, the answer is not_met,
+                  NOT not_reported.
+  not_reported  = no validation information at all — no mention of CV, train/test, hold-out,
+                  or any other validation strategy
 
 For each indicator output EXACTLY one of its allowed labels and a one-sentence rationale.
 Be conservative: if evidence is unclear, choose not_reported."""
@@ -155,17 +159,28 @@ def _title_words(name: str) -> set:
     return set(re.findall(r'[a-z]{3,}', name.lower()))
 
 
-def find_pdf_for_json(json_name: str, pdf_dir: Path) -> Optional[Path]:
+def find_pdf_for_json(json_name: str, pdf_dirs: list) -> Optional[Path]:
+    """Search multiple PDF directories. Match by leading number, then title-word overlap."""
     num = _number_from_name(json_name)
     j_words = _title_words(json_name)
     candidates = []
-    for pdf in pdf_dir.glob("*.pdf"):
-        p_num = _number_from_name(pdf.name)
-        if p_num == num:
-            p_words = _title_words(pdf.name)
-            overlap = (len(j_words & p_words) / max(len(j_words), len(p_words))
-                       if j_words and p_words else 0.0)
-            candidates.append((overlap, pdf))
+    for pdf_dir in pdf_dirs:
+        for pdf in pdf_dir.glob("*.pdf"):
+            p_num = _number_from_name(pdf.name)
+            if p_num is not None and p_num == num:
+                p_words = _title_words(pdf.name)
+                overlap = (len(j_words & p_words) / max(len(j_words), len(p_words))
+                           if j_words and p_words else 0.0)
+                candidates.append((overlap, pdf))
+            elif num is not None:
+                continue
+            else:
+                # No number in JSON — try pure title overlap
+                p_words = _title_words(pdf.name)
+                if j_words and p_words:
+                    overlap = len(j_words & p_words) / max(len(j_words), len(p_words))
+                    if overlap >= 0.6:
+                        candidates.append((overlap, pdf))
     if not candidates:
         return None
     candidates.sort(key=lambda x: -x[0])
@@ -234,7 +249,12 @@ def cmd_extract(args):
                  "Re-export the key without extra characters.")
     client = OpenAI(api_key=api_key)
 
-    pdf_dir = Path(args.pdf_dir)
+    pdf_dirs = [Path(d) for d in args.pdf_dir]
+    for d in pdf_dirs:
+        if not d.is_dir():
+            sys.exit(f"PDF directory not found: {d}")
+    n_pdfs = sum(len(list(d.glob("*.pdf"))) for d in pdf_dirs)
+    print(f"[INFO] {len(pdf_dirs)} PDF dir(s), {n_pdfs} total PDFs")
     json_dir = Path(args.json_dir)
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -263,7 +283,7 @@ def cmd_extract(args):
         title = meta.get("title", jf.stem)
         year = meta.get("year", "?")
 
-        pdf_path = find_pdf_for_json(jf.name, pdf_dir)
+        pdf_path = find_pdf_for_json(jf.name, pdf_dirs)
         if pdf_path is None:
             print(f"[MATCHING PROBLEM] No PDF: {jf.name[:70]}")
             problems.append({"id": num, "json": jf.name, "issue": "no_pdf_match"})
@@ -524,7 +544,8 @@ def parse_args():
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     p = sub.add_parser("extract")
-    p.add_argument("--pdf-dir", required=True)
+    p.add_argument("--pdf-dir", required=True, nargs="+",
+                   help="One or more directories containing PDFs")
     p.add_argument("--json-dir", required=True)
     p.add_argument("--out", required=True)
     p.add_argument("--only", default=None, help="File with one ID per line")
