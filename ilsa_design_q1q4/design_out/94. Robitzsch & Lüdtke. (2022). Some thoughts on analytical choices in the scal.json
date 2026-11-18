@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies or external validation of findings.",
     "_status": "extracted",
-    "_pdf_matched": "94. Robitzsch & Lüdtke. (2022). Some thoughts on analytical choices in the scaling model for test scores in international large‑scale assessment studies.pdf"
+    "_pdf_matched": "94. Robitzsch & Lüdtke. (2022). Some thoughts on analytical choices in the scaling model for test scores in international large‑scale assessment studies.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

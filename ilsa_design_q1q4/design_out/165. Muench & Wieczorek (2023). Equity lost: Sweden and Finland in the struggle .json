@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "165. Muench & Wieczorek (2023). Equity lost: Sweden and Finland in the struggle for PISA scores.pdf"
+    "_pdf_matched": "165. Muench & Wieczorek (2023). Equity lost: Sweden and Finland in the struggle for PISA scores.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “estimate separate cross-sectional multilevel linear regression models… using OECD student weights… performance_metrics… R2 full model… Sweden 0.117; Finland 0.116… ICC… Sweden 0.0768; Finland 0.0815.”",
+    "_source": "no_pdf_fallback"
   }
 }

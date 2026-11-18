@@ -29,6 +29,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and focuses solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "197. Kan et al. (2026). Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles.pdf"
+    "_pdf_matched": "197. Kan et al. (2026). Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

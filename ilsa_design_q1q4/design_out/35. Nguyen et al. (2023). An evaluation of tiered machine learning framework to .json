@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performs internal validation through a train/evaluation split but does not validate the model on external data.",
     "_status": "extracted",
-    "_pdf_matched": "35. Nguyen et al. (2023). An evaluation of tiered machine learning framework to predict science achievement among Singapore students.pdf"
+    "_pdf_matched": "35. Nguyen et al. (2023). An evaluation of tiered machine learning framework to predict science achievement among Singapore students.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

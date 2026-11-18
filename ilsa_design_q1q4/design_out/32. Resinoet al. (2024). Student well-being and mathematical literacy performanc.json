@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using techniques such as train/test split and cross-validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "32. Resinoet al. (2024). Student well-being and mathematical literacy performance in PISA 2018  a machine-learning approach.pdf"
+    "_pdf_matched": "32. Resinoet al. (2024). Student well-being and mathematical literacy performance in PISA 2018  a machine-learning approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -22,6 +22,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "154. Robitzsch (2022). On the Choice of the Item Response Model for Scaling PISA Data: Model Selection Based on Information Criteria and Quantifying Model Uncertainty.pdf"
+    "_pdf_matched": "154. Robitzsch (2022). On the Choice of the Item Response Model for Scaling PISA Data: Model Selection Based on Information Criteria and Quantifying Model Uncertainty.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The study compares 11 unidimensional IRT scaling models for PISA 2009 mathematics/reading/science and quantifies model uncertainty (ME, MEbc, ER, TE) for country means/SD/percentiles; no separate per-country/system analysis across countries is described.",
+    "_source": "no_pdf_fallback"
   }
 }

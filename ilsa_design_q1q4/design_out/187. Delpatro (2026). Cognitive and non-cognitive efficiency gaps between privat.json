@@ -22,6 +22,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as stratified 5-fold cross-validation, indicating that it did not validate findings on an external dataset.",
     "_status": "extracted",
-    "_pdf_matched": "187. Delpatro (2026). Cognitive and non-cognitive efficiency gaps between private and public schools and their determinants in the Latin America region a hybrid data envelo.pdf"
+    "_pdf_matched": "187. Delpatro (2026). Cognitive and non-cognitive efficiency gaps between private and public schools and their determinants in the Latin America region a hybrid data envelo.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): Uses PISA 2022 school-level data from nine Latin American countries to estimate DEA technical efficiency separately for private and public schools; determinants via ML classifiers with stratified 5-fold cross-validation. No excerpt indicates separate per-country analyses or cross-country comparison.",
+    "_source": "no_pdf_fallback"
   }
 }

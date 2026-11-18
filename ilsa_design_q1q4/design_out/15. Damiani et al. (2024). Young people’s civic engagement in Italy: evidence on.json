@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies, only internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "15. Damiani et al. (2024). Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016.pdf"
+    "_pdf_matched": "15. Damiani et al. (2024). Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

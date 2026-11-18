@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "131. Wu et al. (2026). Predicting Key Factors Influencing Students’ Creative Thinking: A Machine Learning Analysis Based on PISA 2022 Data from East Asia.pdf"
+    "_pdf_matched": "131. Wu et al. (2026). Predicting Key Factors Influencing Students’ Creative Thinking: A Machine Learning Analysis Based on PISA 2022 Data from East Asia.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “To reach these goals, the data analyses encompassed a latent profile analysis and a logistic regression model… The latent profile analysis allowed the identification of three groups of Italian students”"
   }
 }

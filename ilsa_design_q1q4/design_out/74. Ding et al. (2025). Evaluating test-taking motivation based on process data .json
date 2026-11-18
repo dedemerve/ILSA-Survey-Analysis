@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation by comparing behavioral effort to traditional measures, indicating no validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "74. Ding et al. (2025). Evaluating test-taking motivation based on process data and its influence on academic performance.pdf"
+    "_pdf_matched": "74. Ding et al. (2025). Evaluating test-taking motivation based on process data and its influence on academic performance.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “We used data from the Programme for International Student Assessment (PISA) 2018… and it was used to predict academic performance through multilevel analysis.”"
   }
 }

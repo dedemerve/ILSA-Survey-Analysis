@@ -27,6 +27,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as train/test split and cross-validation, indicating no validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machine Learning: Evidence from TALIS 2024.pdf"
+    "_pdf_matched": "201. Ou et al. (2026). Predicting Teachers’ AI Usage in Education Based on Machine Learning: Evidence from TALIS 2024.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

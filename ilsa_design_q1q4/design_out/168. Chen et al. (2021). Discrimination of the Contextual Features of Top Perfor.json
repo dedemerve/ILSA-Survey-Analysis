@@ -22,6 +22,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "168. Chen et al. (2021). Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach.pdf"
+    "_pdf_matched": "168. Chen et al. (2021). Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -16,13 +16,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used a single plausible value for mathematics achievement, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not mention the application of sampling weights in the analysis, indicating that it likely treated the data as a convenience sample.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not mention the application of sampling weights in the analysis, indicating that it likely treated the data as a convenience sample.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis, suggesting that it used student-level models without considering school-level effects.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using k-fold cross-validation for internal validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "190. Filiz & Öz (2020). Educational Data Mining Methods for TIMSS 2015 Mathematics Success: Turkey Case.pdf"
+    "_pdf_matched": "190. Filiz & Öz (2020). Educational Data Mining Methods for TIMSS 2015 Mathematics Success: Turkey Case.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

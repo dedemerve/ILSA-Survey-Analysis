@@ -25,6 +25,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "170. Liu et al. (2024). A decade of PISA: student perceived instructional quality and mathematics achievement across European countries.pdf"
+    "_pdf_matched": "170. Liu et al. (2024). A decade of PISA: student perceived instructional quality and mathematics achievement across European countries.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “explained variance R² varies by country (e.g., Belgium-Flanders R²=0.39; Finland R²=0.21)” and “Standardised path estimates reported in Table 2… effect sizes summarized in Table 4 (e.g., Belgium-Flanders effect size=0.64; Finland effect size=0.27).”",
+    "_source": "no_pdf_fallback"
   }
 }

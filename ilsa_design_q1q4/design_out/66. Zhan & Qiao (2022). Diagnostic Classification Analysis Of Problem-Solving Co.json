@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and only describes internal validation strategies.",
     "_status": "extracted",
-    "_pdf_matched": "66. Zhan & Qiao (2022). Diagnostic Classification Analysis Of Problem-Solving Competence Using Process Data: An Item Expansion Method.pdf"
+    "_pdf_matched": "66. Zhan & Qiao (2022). Diagnostic Classification Analysis Of Problem-Solving Competence Using Process Data: An Item Expansion Method.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): Countries in data: USA, SGP, AUT, TUR. Excerpts only describe the PISA item and general method/results; no separate per-country analyses or cross-system comparisons are reported in the provided text."
   }
 }

@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not mention any validation strategy beyond the small validation activity described, making it unclear if any external validation was performed.",
     "_status": "extracted",
-    "_pdf_matched": "127. Sun et al. (2023). A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems.pdf"
+    "_pdf_matched": "127. Sun et al. (2023). A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

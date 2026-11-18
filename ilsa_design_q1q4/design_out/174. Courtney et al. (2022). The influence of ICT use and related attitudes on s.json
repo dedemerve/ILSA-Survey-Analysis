@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "174. Courtney et al. (2022). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys.pdf"
+    "_pdf_matched": "174. Courtney et al. (2022). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

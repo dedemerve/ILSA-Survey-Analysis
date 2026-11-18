@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
     "_status": "extracted",
-    "_pdf_matched": "198. Wei & Guo (2026). Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data.pdf"
+    "_pdf_matched": "198. Wei & Guo (2026). Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “train an XGBoost model on a pooled dataset with a 70/30 train-test split… Predictive performance is moderate (testing R²=27.75%, RMSE=0.9724)”",
+    "_source": "no_pdf_fallback"
   }
 }

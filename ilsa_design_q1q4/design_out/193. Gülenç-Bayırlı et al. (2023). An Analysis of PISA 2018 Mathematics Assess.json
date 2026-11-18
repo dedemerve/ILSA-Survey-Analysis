@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as clustering analysis but does not report any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "193. Gülenç-Bayırlı et al. (2023). An Analysis of PISA 2018 Mathematics Assessment for Asia-Pacific Countries Using Educational Data Mining.pdf"
+    "_pdf_matched": "193. Gülenç-Bayırlı et al. (2023). An Analysis of PISA 2018 Mathematics Assessment for Asia-Pacific Countries Using Educational Data Mining.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “SVM is reported as the best-performing algorithm with about 73% accuracy… Table 5 shows per-country accuracies… Per-country best model: SVM highest for BRN, HKG, MYS, PHL, CHN, TWN; RF highest for MAC, SGP, THA; LR highest for IDN, JPN, KOR (Table 5).”",
+    "_source": "no_pdf_fallback"
   }
 }

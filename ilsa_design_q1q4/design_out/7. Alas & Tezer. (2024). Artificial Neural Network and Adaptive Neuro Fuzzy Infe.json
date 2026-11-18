@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions a train/test split for model validation, indicating only internal validation methods were used.",
     "_status": "extracted",
-    "_pdf_matched": "7. Alas & Tezer. (2024). Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singapore and Hong Kong.pdf"
+    "_pdf_matched": "7. Alas & Tezer. (2024). Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singapore and Hong Kong.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The study uses PISA 2018 country-level mathematics/reading scores for Singapore and Hong Kong and reports overall ANN/ANFIS performance (RMSE and R²) but does not provide separate per-country model results or a formal cross-system comparison.",
+    "_source": "no_pdf_fallback"
   }
 }

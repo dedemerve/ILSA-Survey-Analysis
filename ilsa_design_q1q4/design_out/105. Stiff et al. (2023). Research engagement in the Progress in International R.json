@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies, as it is a systematic review of existing literature rather than an empirical analysis.",
     "_status": "extracted",
-    "_pdf_matched": "105. Stiff et al. (2023). Research engagement in the Progress in International Reading Literacy Study: A systematic review.pdf"
+    "_pdf_matched": "105. Stiff et al. (2023). Research engagement in the Progress in International Reading Literacy Study: A systematic review.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “Results show the changing engagement in PIRLS throughout the lifetime of the study and across different countries and research disciplines.”"
   }
 }

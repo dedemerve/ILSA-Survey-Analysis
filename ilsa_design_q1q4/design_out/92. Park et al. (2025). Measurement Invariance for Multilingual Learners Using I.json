@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
     "_status": "extracted",
-    "_pdf_matched": "92. Park et al. (2025). Measurement Invariance for Multilingual Learners Using Item Response and Response Time in PISA 2018.pdf"
+    "_pdf_matched": "92. Park et al. (2025). Measurement Invariance for Multilingual Learners Using Item Response and Response Time in PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “multilingual (MLs) and nonmultilingual (non-MLs) students in the United States are compared… across three cognitive domains (reading, mathematics, and science).”"
   }
 }

@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation methods, as indicated by the mention of model accuracy and comparisons without external validation.",
     "_status": "extracted",
-    "_pdf_matched": "2. Zhu et al. (2025). Predictive insights into U.S. students’ mathematics performance on PISA 2022 using ensemble tree-based machine learning models.pdf"
+    "_pdf_matched": "2. Zhu et al. (2025). Predictive insights into U.S. students’ mathematics performance on PISA 2022 using ensemble tree-based machine learning models.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

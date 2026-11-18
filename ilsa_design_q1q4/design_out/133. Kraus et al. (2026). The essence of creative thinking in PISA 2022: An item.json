@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods but does not provide evidence of validation on external datasets or different cycles.",
     "_status": "extracted",
-    "_pdf_matched": "133. Kraus et al. (2026). The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level.pdf"
+    "_pdf_matched": "133. Kraus et al. (2026). The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

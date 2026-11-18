@@ -22,6 +22,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any validation strategy beyond internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "185. Resino et al. (2024). School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach.pdf"
+    "_pdf_matched": "185. Resino et al. (2024). School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

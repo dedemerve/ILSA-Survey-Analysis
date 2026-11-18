@@ -17,13 +17,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study does not use PISA achievement plausible values for the outcome, which indicates that it does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study uses publicly available PISA 2018 microdata but does not mention applying any sampling or replicate weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study uses publicly available PISA 2018 microdata but does not mention applying any sampling or replicate weights in the analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "107. Tan et al. (2025). Using machine learning algorithms to predict students’ general self-efficacy in PISA 2018.pdf"
+    "_pdf_matched": "107. Tan et al. (2025). Using machine learning algorithms to predict students’ general self-efficacy in PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): We then used two machine learning algorithms, Lasso and XGBoost, to predict self-efficacy of 612,004 students aged 15 to 16 years from 79 countries and regions. The results showed that XGBoost outperformed Lasso.",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

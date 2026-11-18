@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation without mentioning any external validation strategies.",
     "_status": "extracted",
-    "_pdf_matched": "38. Hernández-Ramos & Araya. (2025). Do School Activities Foster Creative Thinking? An Analysis of PISA Results.pdf"
+    "_pdf_matched": "38. Hernández-Ramos & Araya. (2025). Do School Activities Foster Creative Thinking? An Analysis of PISA Results.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “However, we examined the phenomenon at the country level…”. The excerpt does not provide whether analyses were run separately per country/system or pooled, nor any separate per-country model outputs or performance metrics."
   }
 }

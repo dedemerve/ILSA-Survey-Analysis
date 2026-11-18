@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, such as external validation or cross-validation.",
     "_status": "extracted",
-    "_pdf_matched": "204. Lazarides et al. (2026). Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior.pdf"
+    "_pdf_matched": "204. Lazarides et al. (2026). Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

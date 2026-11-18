@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies, as it is a systematic review and does not conduct empirical analysis.",
     "_status": "extracted",
-    "_pdf_matched": "83. Murchan & Siddiq. (2021). A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment.pdf"
+    "_pdf_matched": "83. Murchan & Siddiq. (2021). A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “we conducted a systematic literature review… Initial results showed that few studies considered ethical, privacy and regulatory issues in K-12 assessment, prompting a widening of the search criteria to include research in higher education also”"
   }
 }

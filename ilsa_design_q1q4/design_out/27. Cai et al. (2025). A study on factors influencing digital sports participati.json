@@ -13,13 +13,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "Plausible values are not applicable because the dependent variable is a binary indicator of digital sports participation, not a PV-based cognitive achievement score.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
     "q3_school_clustering": "met",
     "q3_rationale": "The study used multilevel logistic regression, which accounts for school clustering in the analysis.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using 5-fold cross-validation and did not mention any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "27. Cai et al. (2025). A study on factors influencing digital sports participation among Chinese secondary school students based on explainable machine learning.pdf"
+    "_pdf_matched": "27. Cai et al. (2025). A study on factors influencing digital sports participation among Chinese secondary school students based on explainable machine learning.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “The data used in this study comes from the 2018 PISA survey conducted in Hong Kong, China… The 2018 PISA cycle… Regions participating in PISA 2018 from China included mainland China… Taipei, Hong Kong, and Macao… whereas the Hong Kong sample provided more complete responses, making it suitable for this study.”",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not apply sampling weights in the analysis."
   }
 }

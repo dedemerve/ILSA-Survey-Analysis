@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies or external validation, focusing instead on methodological guidance.",
     "_status": "extracted",
-    "_pdf_matched": "103. Scherer et al. (2024). The potential of international large‑scale assessments for meta‑analyses in education.pdf"
+    "_pdf_matched": "103. Scherer et al. (2024). The potential of international large‑scale assessments for meta‑analyses in education.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

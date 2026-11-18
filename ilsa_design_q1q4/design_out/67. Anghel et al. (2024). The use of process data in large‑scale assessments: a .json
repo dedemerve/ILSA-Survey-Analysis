@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies, as it focuses on synthesizing existing literature rather than conducting empirical analysis.",
     "_status": "extracted",
-    "_pdf_matched": "67. Anghel et al. (2024). The use of process data in large‑scale assessments: a literature review.pdf"
+    "_pdf_matched": "67. Anghel et al. (2024). The use of process data in large‑scale assessments: a literature review.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -22,6 +22,10 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods but does not report any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "194. dos Santos et al. (2021). Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well.pdf"
+    "_pdf_matched": "194. dos Santos et al. (2021). Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "Manual author-shared full-text review: Table 2 reports separate mathematics decision-tree attributes by country (Singapore, Hong Kong, Macao, Chinese Taipei, Japan); results compare country-specific success patterns.",
+    "_source": "no_pdf_fallback",
+    "_q4b_source_url": "https://www.researchgate.net/publication/354860774_Education_Data_Mining_on_PISA_2015_Best_Ranked_Countries_What_Makes_the_Students_go_Well"
   }
 }

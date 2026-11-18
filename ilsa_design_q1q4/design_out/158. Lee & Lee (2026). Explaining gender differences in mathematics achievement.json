@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "217. Lee & Lee (2026). Explaining gender differences in mathematics achievement: Cross-country evidence from PISA.pdf"
+    "_pdf_matched": "217. Lee & Lee (2026). Explaining gender differences in mathematics achievement: Cross-country evidence from PISA.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “PISA 2018 mathematics microdata for 15-year-olds pooled across 77 countries/economies… senate weights are applied so each country contributes equally to pooled estimates.”"
   }
 }

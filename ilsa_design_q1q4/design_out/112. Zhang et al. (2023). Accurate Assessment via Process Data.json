@@ -19,13 +19,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study does not analyze student-level ILSA microdata as it focuses on process data.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that student weights were not used in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The matching, text-readable full PDF does not report use or explicit non-use of sampling weights; full-text search found no weight terminology. Original extraction rationale: The study explicitly states that student weights were not used in the analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not mention any multilevel modeling or consideration of school clustering in its analysis.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as cross-validation, indicating that it did not validate findings on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "112. Zhang et al. (2023). Accurate Assessment via Process Data.pdf"
+    "_pdf_matched": "112. Zhang et al. (2023). Accurate Assessment via Process Data.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The excerpt does not describe separate analyses by country/education system or any cross-system comparison; it only discusses process data scoring improvements generally.",
+    "_q2_audit": "Full-text PDF check completed; no weight terminology, so not_met lacked the rubric-required explicit unweighted statement."
   }
 }

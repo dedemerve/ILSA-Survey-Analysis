@@ -17,13 +17,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used average plausible values for analysis, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Local matching Tin PDF text: no discussion of sampling/student/survey weights found; claimed explicit statement is unsupported.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not mention using multilevel modeling or any method that accounts for school clustering, indicating that it likely used student-level models.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as training and testing but does not report any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "53. Tin et al. (2024). Educational Big Data Mining: Comparison of Multiple Machine Learning Algorithms in Predictive Modelling of Student Academic Performance.pdf"
+    "_pdf_matched": "53. Tin et al. (2024). Educational Big Data Mining: Comparison of Multiple Machine Learning Algorithms in Predictive Modelling of Student Academic Performance.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected after matching source text check; original rationale: The study explicitly states that it did not apply sampling weights in the analysis."
   }
 }

@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation through methods like cross-validation and iterations, but did not validate the model on external data.",
     "_status": "extracted",
-    "_pdf_matched": "41. Immekus et al. (2022). Machine learning procedures for predictor variable selection for schoolwork‑related anxiety: evidence from PISA 2015 mathematics, reading, and science assessments.pdf"
+    "_pdf_matched": "41. Immekus et al. (2022). Machine learning procedures for predictor variable selection for schoolwork‑related anxiety: evidence from PISA 2015 mathematics, reading, and science assessments.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -17,13 +17,16 @@
   "design_fields": {
     "q1_plausible_values": "met",
     "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study used student-level models without accounting for school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation using cross-validation and train/test splits.",
     "_status": "extracted",
-    "_pdf_matched": "18. Khine et al. (2025). From Meals to Marks: Modeling the Impact of Family Involvement on Reading Performance with Counterfactual Explainable AI.pdf"
+    "_pdf_matched": "18. Khine et al. (2025). From Meals to Marks: Modeling the Impact of Family Involvement on Reading Performance with Counterfactual Explainable AI.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not apply sampling weights in the analysis."
   }
 }

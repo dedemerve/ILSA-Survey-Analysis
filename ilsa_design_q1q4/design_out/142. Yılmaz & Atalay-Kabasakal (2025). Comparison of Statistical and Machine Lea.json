@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using 10-fold cross-validation for model evaluation, indicating that it performed only internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye.pdf"
+    "_pdf_matched": "142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "159. Alnahdi & Schwab (2023). The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data.pdf"
+    "_pdf_matched": "159. Alnahdi & Schwab (2023). The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and only discusses internal validation strategies.",
     "_status": "extracted",
-    "_pdf_matched": "200. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study.pdf"
+    "_pdf_matched": "200. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

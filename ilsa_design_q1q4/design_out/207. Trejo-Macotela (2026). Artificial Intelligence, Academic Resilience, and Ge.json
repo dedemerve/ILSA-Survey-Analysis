@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods but does not indicate any validation on external datasets or different contexts.",
     "_status": "extracted",
-    "_pdf_matched": "207. Trejo-Macotela (2026). Artificial Intelligence, Academic Resilience, and Gender Equity in Education Systems: Ethical Challenges, Predictive Bias, and Governance Implications.pdf"
+    "_pdf_matched": "207. Trejo-Macotela (2026). Artificial Intelligence, Academic Resilience, and Gender Equity in Education Systems: Ethical Challenges, Predictive Bias, and Governance Implications.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

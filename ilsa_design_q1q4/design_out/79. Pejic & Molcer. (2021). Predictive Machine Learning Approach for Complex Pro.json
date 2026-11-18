@@ -16,13 +16,17 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study does not use plausible values as it focuses on log-file data and binary classification outcomes.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not use sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The matching, text-readable full PDF does not report use or explicit non-use of sampling weights; full-text search found no weight terminology. Original extraction rationale: The study explicitly states that it did not use sampling weights in the analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study analyzes individual student-level data without employing multilevel modeling or accounting for school clustering.",
-    "q4_validation_beyond_estimation": "not_met",
-    "q4_rationale": "The study mentions internal validation methods such as downsampling and does not report any validation on external datasets.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "Matching Pejić & Molcer (2021) PDF describes downsampling for class balance, but does not report train/test splitting, cross-validation, an external test sample, or another validation design. Downsampling is preprocessing, not validation.",
     "_status": "extracted",
-    "_pdf_matched": "79. Pejic & Molcer. (2021). Predictive Machine Learning Approach for Complex Problem Solving Process Data Mining.pdf"
+    "_pdf_matched": "79. Pejic & Molcer. (2021). Predictive Machine Learning Approach for Complex Problem Solving Process Data Mining.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q4_audit": "Original rationale: The study mentions internal validation methods such as downsampling and does not report any validation on external datasets.",
+    "_q2_audit": "Full-text PDF check completed; no weight terminology, so not_met lacked the rubric-required explicit unweighted statement."
   }
 }

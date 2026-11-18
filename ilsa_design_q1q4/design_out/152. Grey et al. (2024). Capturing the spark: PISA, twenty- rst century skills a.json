@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy, such as cross-validation or external validation, in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "152. Grey et al. (2024). Capturing the spark: PISA, twenty- rst century skills and the reconstruction of creativity.pdf"
+    "_pdf_matched": "152. Grey et al. (2024). Capturing the spark: PISA, twenty- rst century skills and the reconstruction of creativity.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

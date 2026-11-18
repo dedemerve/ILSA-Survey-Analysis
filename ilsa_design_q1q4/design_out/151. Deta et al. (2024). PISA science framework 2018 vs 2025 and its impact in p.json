@@ -20,6 +20,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies, such as cross-validation or external validation, making it unclear if any validation was performed.",
     "_status": "extracted",
-    "_pdf_matched": "151. Deta et al. (2024). PISA science framework 2018 vs 2025 and its impact in physics education: Literature review.pdf"
+    "_pdf_matched": "151. Deta et al. (2024). PISA science framework 2018 vs 2025 and its impact in physics education: Literature review.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

@@ -20,6 +20,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation using train/test splits and did not validate findings on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction.pdf"
+    "_pdf_matched": "209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

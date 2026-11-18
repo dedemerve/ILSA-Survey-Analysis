@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies, only internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "129. Campos & Scherer. (2024). Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries.pdf"
+    "_pdf_matched": "129. Campos & Scherer. (2024). Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): \"generate country-specific direct and indirect effects of gender on digital skills ... using multigroup SEMs\" ... \"then combine effect sizes via multivariate random- and multilevel meta-analysis\"",
+    "_source": "no_pdf_fallback"
   }
 }

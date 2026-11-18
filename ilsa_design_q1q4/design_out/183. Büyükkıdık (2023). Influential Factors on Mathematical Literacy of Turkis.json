@@ -22,6 +22,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study employs 10-fold cross-validation for internal validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "183. Büyükkıdık (2023). Influential Factors on Mathematical Literacy of Turkish Students: An Educational Data Mining Study Using PISA 2015 Data.pdf"
+    "_pdf_matched": "183. Büyükkıdık (2023). Influential Factors on Mathematical Literacy of Turkish Students: An Educational Data Mining Study Using PISA 2015 Data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

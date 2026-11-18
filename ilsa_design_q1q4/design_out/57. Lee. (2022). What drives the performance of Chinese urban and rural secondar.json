@@ -15,13 +15,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study averaged plausible values to create a school-level outcome, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study states that student-level information is weighted averaged by school level, but it does not explicitly mention applying sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study states that student-level information is weighted averaged by school level, but it does not explicitly mention applying sampling weights in the analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study constructs a school-level outcome and does not use multilevel modeling or account for school clustering in its analysis.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using an 80:20 train/test split for model training and evaluation, indicating only internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "57. Lee. (2022). What drives the performance of Chinese urban and rural secondary schools: A machine learning approach using PISA 2018.pdf"
+    "_pdf_matched": "57. Lee. (2022). What drives the performance of Chinese urban and rural secondary schools: A machine learning approach using PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): Using PISA 2018 micro-level data for China, this study examines the factors driving school-level academic performance disparity between urban and rural areas.",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not mention any validation strategies beyond the estimation sample, such as external validation or cross-validation.",
     "_status": "extracted",
-    "_pdf_matched": "76. Guo et al. (2024). Human-Centered AI for Discovering Student Engagement Profiles on Large-Scale Educational Assessments.pdf"
+    "_pdf_matched": "76. Guo et al. (2024). Human-Centered AI for Discovering Student Engagement Profiles on Large-Scale Educational Assessments.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “data from the National Assessment of Educational Progress (NAEP) Grade 8 Mathematics assessment were used for illustration… has provided meaningful results… in the US.”"
   }
 }

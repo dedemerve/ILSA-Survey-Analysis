@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "164. Ali et al. (2024). Are schools becoming more unequal? Insights from exploratory data mining of international large-scale assessment, TIMSS 2003-2019 Farhan Ali* ,1 , Yook Kit Ow-Yeong , Jacqueline L. Tilley 2.pdf"
+    "_pdf_matched": "164. Ali et al. (2024). Are schools becoming more unequal? Insights from exploratory data mining of international large-scale assessment, TIMSS 2003-2019 Farhan Ali* ,1 , Yook Kit Ow-Yeong , Jacqueline L. Tilley 2.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “It computes school-level achievement inequality… using… scale scores… Across both grades… between-school inequality does not show consistent worsening over nearly two decades.” (No separate per-country analyses or cross-system comparison reported.)",
+    "_source": "no_pdf_fallback"
   }
 }

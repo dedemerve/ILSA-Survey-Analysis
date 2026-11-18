@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using five-fold cross-validation and a train/test split, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "186. Wei et al. (2026). Identifying Key Predictors of Resilience in Mathematics Engagement: Global Evidence From PISA 2022 Using Machine Learning.pdf"
+    "_pdf_matched": "186. Wei et al. (2026). Identifying Key Predictors of Resilience in Mathematics Engagement: Global Evidence From PISA 2022 Using Machine Learning.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

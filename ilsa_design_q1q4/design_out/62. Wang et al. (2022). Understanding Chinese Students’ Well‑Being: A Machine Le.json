@@ -16,13 +16,17 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "Plausible values are not applicable because the dependent variables are well-being dimensions measured via questionnaire Likert items, not PV-based cognitive achievement scores.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not report applying PISA sampling weights or replicate weights in the analyses, indicating that it ran unweighted analyses.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not report applying PISA sampling weights or replicate weights in the analyses, indicating that it ran unweighted analyses.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study used random forest regression without mentioning any multilevel modeling or cluster-robust standard errors, indicating that it ignored school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using tenfold cross-validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "62. Wang et al. (2022). Understanding Chinese Students’ Well‑Being: A Machine Learning Study.pdf"
+    "_pdf_matched": "62. Wang et al. (2022). Understanding Chinese Students’ Well‑Being: A Machine Learning Study.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “All five East Asian economies, including Singapore, Chinese Taipei, Korea, Japan, and Hong Kong, were selected… Machine learning (i.e., random forest regression) was used to analyze the data.”",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

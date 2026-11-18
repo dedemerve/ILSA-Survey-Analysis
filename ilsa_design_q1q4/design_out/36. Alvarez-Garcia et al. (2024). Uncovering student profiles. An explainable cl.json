@@ -17,13 +17,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on clustering student profiles.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not report the use of PISA sampling/student weights, indicating that the analysis was likely unweighted.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not report the use of PISA sampling/student weights, indicating that the analysis was likely unweighted.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study employs clustering methods without mentioning any multilevel modeling or consideration of school-level clustering.",
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not provide any information about validation strategies beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "36. Alvarez-Garcia et al. (2024). Uncovering student profiles. An explainable cluster analysis approach to PISA 2022.pdf"
+    "_pdf_matched": "36. Alvarez-Garcia et al. (2024). Uncovering student profiles. An explainable cluster analysis approach to PISA 2022.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): We analyzed PISA 2022 Spanish student data (n = 30,800)... applying an end-to-end explainable cluster analysis methodology... Using local and global SHAP values, we interpreted clusters.",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

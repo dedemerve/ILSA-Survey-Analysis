@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not mention any validation strategies such as cross-validation or external validation, leaving this information unclear.",
     "_status": "extracted",
-    "_pdf_matched": "140. Shen & Zhou (2026). Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024.pdf"
+    "_pdf_matched": "140. Shen & Zhou (2026). Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “This study uses TALIS 2024 teacher survey data … to examine whether teachers’ use of AI teaching applications is associated with work stress. In baseline OLS models with school fixed effects … and HLM …”",
+    "_source": "no_pdf_fallback"
   }
 }

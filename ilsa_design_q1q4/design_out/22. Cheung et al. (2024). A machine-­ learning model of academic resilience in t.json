@@ -27,6 +27,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation using 10-fold cross-validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "22. Cheung et al. (2024). A machine-­ learning model of academic resilience in the times of the COVID-­ 19 pandemic: Evidence drawn from 79 countries:economies in the PISA 2022 mathematics study.pdf"
+    "_pdf_matched": "22. Cheung et al. (2024). A machine-­ learning model of academic resilience in the times of the COVID-­ 19 pandemic: Evidence drawn from 79 countries:economies in the PISA 2022 mathematics study.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “Random Forest (10-fold cross-validation)… Accuracy=90.54%, ROC-AUC=96.79%… SHAP… The study analyzed PISA 2022 mathematics data from 79 countries/economies.”"
   }
 }

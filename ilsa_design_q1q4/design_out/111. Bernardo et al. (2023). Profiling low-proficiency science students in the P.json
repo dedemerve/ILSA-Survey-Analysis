@@ -20,6 +20,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
     "_status": "extracted",
-    "_pdf_matched": "111. Bernardo et al. (2023). Profiling low-proficiency science students in the Philippines using machine learning.pdf"
+    "_pdf_matched": "111. Bernardo et al. (2023). Profiling low-proficiency science students in the Philippines using machine learning.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

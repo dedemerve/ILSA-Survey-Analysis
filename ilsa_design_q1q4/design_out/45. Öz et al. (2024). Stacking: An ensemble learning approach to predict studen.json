@@ -13,13 +13,16 @@
   "design_fields": {
     "q1_plausible_values": "met",
     "q1_rationale": "The study used all plausible values (PVs) from the PISA 2022 dataset and applied appropriate handling as indicated.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not use sampling weights in its analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The matching, text-readable full PDF does not report use or explicit non-use of sampling weights; full-text search found no weight terminology. Original extraction rationale: The study explicitly states that it did not use sampling weights in its analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study appears to model individual students without employing multilevel modeling or accounting for school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as cross-validation, indicating that it did not validate its findings on an external dataset.",
     "_status": "extracted",
-    "_pdf_matched": "45. Öz et al. (2024). Stacking: An ensemble learning approach to predict student performance in PISA 2022.pdf"
+    "_pdf_matched": "45. Öz et al. (2024). Stacking: An ensemble learning approach to predict student performance in PISA 2022.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Full-text PDF check completed; no weight terminology, so not_met lacked the rubric-required explicit unweighted statement."
   }
 }

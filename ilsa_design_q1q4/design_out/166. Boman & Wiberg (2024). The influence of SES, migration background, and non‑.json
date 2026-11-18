@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "166. Boman & Wiberg (2024). The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden.pdf"
+    "_pdf_matched": "166. Boman & Wiberg (2024). The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

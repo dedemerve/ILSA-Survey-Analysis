@@ -16,13 +16,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used weighted likelihood estimates (WLE) for scaling, which does not meet the criteria for using multiple plausible values and applying Rubin's rules.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not mention the application of sampling weights in the analysis, indicating that it likely treated the data as unweighted.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not mention the application of sampling weights in the analysis, indicating that it likely treated the data as unweighted.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not indicate the use of multilevel modeling or any methods that account for school clustering, suggesting that it used student-level models without considering school-level effects.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using bootstrapping and mediation analysis, but there is no mention of validation on external datasets or different contexts.",
     "_status": "extracted",
-    "_pdf_matched": "182. Liu & Wang (2022). The mediating moderating model of inquiry-based learning and science self-efficacy  evidence from PISA 2015.pdf"
+    "_pdf_matched": "182. Liu & Wang (2022). The mediating moderating model of inquiry-based learning and science self-efficacy  evidence from PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

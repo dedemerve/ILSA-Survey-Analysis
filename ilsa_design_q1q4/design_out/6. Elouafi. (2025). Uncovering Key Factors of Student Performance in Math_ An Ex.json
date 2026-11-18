@@ -18,13 +18,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study constructs a binary target from TIMSS plausible values but does not document how the five plausible values were combined, indicating improper handling.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study mentions using TIMSS data but does not report applying any sampling weights, suggesting an unweighted analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study mentions using TIMSS data but does not report applying any sampling weights, suggesting an unweighted analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not provide information on using multilevel modeling or any methods that account for school clustering, indicating a focus on student-level models.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Explainable Deep Learning Approach Using TIMSS 2019 Data.pdf"
+    "_pdf_matched": "6. Elouafi. (2025). Uncovering Key Factors of Student Performance in Math_ An Explainable Deep Learning Approach Using TIMSS 2019 Data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

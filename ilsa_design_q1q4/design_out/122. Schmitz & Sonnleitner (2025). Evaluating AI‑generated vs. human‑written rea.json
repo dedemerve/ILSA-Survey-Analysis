@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "122. Schmitz & Sonnleitner (2025). Evaluating AI‑generated vs. human‑written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large‑scale assessment.pdf"
+    "_pdf_matched": "122. Schmitz & Sonnleitner (2025). Evaluating AI‑generated vs. human‑written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large‑scale assessment.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “within the multilingual context of Luxembourg… Study 2 involved… an online survey… Native German speakers, teachers, and test developers… rated… to explore their potential for national school monitoring.”"
   }
 }

@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods such as random forest and comparisons with other models, indicating it performed only internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "5. Song & Cutumisu. (2024). Using machine learning to predict student science achievement based on science curriculum type in TIMSS 2019.pdf"
+    "_pdf_matched": "5. Song & Cutumisu. (2024). Using machine learning to predict student science achievement based on science curriculum type in TIMSS 2019.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “After data cleaning, 309,511 entries from 44 countries remained… Results from Grade 8 Science students in 44 countries… showed that (1) the integrated curricula benefitted students marginally more than the separated curricula”"
   }
 }

@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "90. Han et al. (2023). Behavioral patterns in collaborative problem solving: a latent profile analysis based on response times and actions in PISA 2015.pdf"
+    "_pdf_matched": "90. Han et al. (2023). Behavioral patterns in collaborative problem solving: a latent profile analysis based on response times and actions in PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “The current study examined the PISA 2015 ColPS assessment participants… Out of the total of 3,065 students belonging to 11 education systems… In addition… the final sample consisted of 2,520 students.”"
   }
 }

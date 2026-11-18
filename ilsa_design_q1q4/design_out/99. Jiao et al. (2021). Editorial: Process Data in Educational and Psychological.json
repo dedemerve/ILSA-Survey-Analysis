@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy in the editorial.",
     "_status": "extracted",
-    "_pdf_matched": "99. Jiao et al. (2021). Editorial: Process Data in Educational and Psychological Measurement.pdf"
+    "_pdf_matched": "99. Jiao et al. (2021). Editorial: Process Data in Educational and Psychological Measurement.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

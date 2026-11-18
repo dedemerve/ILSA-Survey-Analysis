@@ -12,14 +12,16 @@
   },
   "design_fields": {
     "q1_plausible_values": "not_met",
-    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not use sampling weights in the analysis.",
+    "q1_rationale": "Publisher full text, §2.4: model comparison uses PV1 only (one plausible value).",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Publisher full text, §§2.1–2.8: student sampling weights are not reported for model fitting.",
     "q3_school_clustering": "not_met",
-    "q3_rationale": "The study appears to analyze data at the school level but does not mention using multilevel modeling or accounting for school clustering in its analysis.",
+    "q3_rationale": "Publisher full text, §§2.1–2.8: student-level RNN models and student-level CV; no school-level clustering method reported.",
     "q4_validation_beyond_estimation": "not_met",
-    "q4_rationale": "The study mentions using internal validation methods such as stratified 5-fold cross-validation, which does not qualify as validation beyond the estimation sample.",
-    "_status": "extracted",
-    "_pdf_matched": "206. Delpatro (2026). Cognitive and non-cognitive efficiency gaps between private and public schools and their determinants in the Latin America region a hybrid data envelo.pdf"
+    "q4_rationale": "Publisher full text, §2.8.1: five-fold student-level cross-validation within the U.S. sample; no external country, cycle, or dataset validation.",
+    "_status": "manually_verified_publisher_full_text",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "Publisher full text, §2.1: U.S. PISA 2012 sample only.",
+    "_source_url": "https://www.mdpi.com/2079-3200/14/4/70"
   }
 }

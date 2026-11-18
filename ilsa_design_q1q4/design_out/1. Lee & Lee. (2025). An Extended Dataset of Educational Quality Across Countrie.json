@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as train/test split and cross-validation, indicating that it did not validate findings on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "1. Lee & Lee. (2025). An Extended Dataset of Educational Quality Across Countries (1970–2023) 3.pdf"
+    "_pdf_matched": "1. Lee & Lee. (2025). An Extended Dataset of Educational Quality Across Countries (1970–2023) 3.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

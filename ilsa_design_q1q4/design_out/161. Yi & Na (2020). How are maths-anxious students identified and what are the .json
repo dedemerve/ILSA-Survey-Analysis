@@ -16,13 +16,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "Plausible values are not applicable because the dependent variable is students’ maths anxiety classification, not a cognitive achievement score for which PISA provides plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not report applying PISA sampling weights or replicate weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not report applying PISA sampling weights or replicate weights in the analysis.",
     "q3_school_clustering": "met",
     "q3_rationale": "The study employs hierarchical general linear models (HGLM), which account for the nested structure of students within schools.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performs internal validation using a train/test split but does not validate the model on external data.",
     "_status": "extracted",
-    "_pdf_matched": "161. Yi & Na (2020). How are maths-anxious students identified and what are the key predictors of maths anxiety  Insights gained from PISA results for Korean adolescents.pdf"
+    "_pdf_matched": "161. Yi & Na (2020). How are maths-anxious students identified and what are the key predictors of maths anxiety  Insights gained from PISA results for Korean adolescents.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

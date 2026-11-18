@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods such as bootstrapping and LASSO, indicating that only internal validation was performed.",
     "_status": "extracted",
-    "_pdf_matched": "59. Schwerter et al. (2025). Metropolitan, Urban, and Rural Regions: How Regional Differences Affect Elementary School Students in Germany.pdf"
+    "_pdf_matched": "59. Schwerter et al. (2025). Metropolitan, Urban, and Rural Regions: How Regional Differences Affect Elementary School Students in Germany.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): Grouping regions into rural, (sub-)urban, and metropolitan, we found that students from rural and metropolitan areas are 10.9% and 15.1% more likely... than their urban counterparts."
   }
 }

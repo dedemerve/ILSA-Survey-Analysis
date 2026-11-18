@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies or external validation, indicating no validation information is provided.",
     "_status": "extracted",
-    "_pdf_matched": "108. Goldman et al. (2025). Artificial Intelligence to Support Writing Outcomes for Students With Disabilities.pdf"
+    "_pdf_matched": "108. Goldman et al. (2025). Artificial Intelligence to Support Writing Outcomes for Students With Disabilities.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The excerpts provide only background on NAEP writing assessment and AI tools; no information is shown about analyses across multiple countries/education systems or separate per-country results."
   }
 }

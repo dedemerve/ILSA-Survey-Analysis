@@ -22,6 +22,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies, only internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "109. Fink et al. (2024). Methodological aspects of the highly adaptive testing design for PISA.pdf"
+    "_pdf_matched": "109. Fink et al. (2024). Methodological aspects of the highly adaptive testing design for PISA.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): This methods paper describes the methodological and statistical underpinnings of the highly adaptive testing design (HAT) ... The algorithm is implemented using the programming language R and readers are provided with the necessary code.",
+    "_source": "no_pdf_fallback"
   }
 }

@@ -11,11 +11,14 @@
     "venue": "Computers in Human Behavior Reports",
     "publication_type": "journal",
     "open_access": true,
-    "source_category": "peer_reviewed_research"
+    "source_category": "peer_reviewed_research",
+    "_duplicate_of": 200,
+    "_exclude": true
   },
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q2_sampling_weights": "not_reported",
+<<<<<<< Updated upstream
     "q3_school_clustering": "not_met",
     "q4_validation_beyond_estimation": "not_met",
     "q1_rationale": "Prior extraction indicates single PV used for ICILS 2023 CT scores.",
@@ -24,5 +27,16 @@
     "q4_rationale": "Internal ML train/test validation only.",
     "_status": "manual_from_json",
     "_source": "web_abstract_not_fulltext"
+=======
+    "q3_school_clustering": "not_reported",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q1_rationale": "No PDF found.",
+    "q2_rationale": "No PDF found.",
+    "q3_rationale": "No PDF found.",
+    "q4_rationale": "No PDF found.",
+    "_status": "no_pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+>>>>>>> Stashed changes
   }
 }

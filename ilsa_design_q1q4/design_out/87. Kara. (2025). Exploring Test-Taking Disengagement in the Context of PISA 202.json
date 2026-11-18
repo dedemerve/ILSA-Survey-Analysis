@@ -22,6 +22,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "87. Kara. (2025). Exploring Test-Taking Disengagement in the Context of PISA 2022: Evidence from Process Data.pdf"
+    "_pdf_matched": "87. Kara. (2025). Exploring Test-Taking Disengagement in the Context of PISA 2022: Evidence from Process Data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): The study analyzes PISA 2022 mathematics process data for Turkey… analytic sample contains 6560 students… Using latent profile analysis… three-profile solution… (Turkey only)."
   }
 }

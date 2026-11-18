@@ -20,6 +20,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as paired bootstrap intervals and country-by-school grouped validation, indicating that it did not validate findings on an external dataset.",
     "_status": "extracted",
-    "_pdf_matched": "191. Mao (2026). AI-related measures and self-reported lesson-aim attainment: an explainable machine-learning analysis of TALIS 2024.pdf"
+    "_pdf_matched": "191. Mao (2026). AI-related measures and self-reported lesson-aim attainment: an explainable machine-learning analysis of TALIS 2024.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

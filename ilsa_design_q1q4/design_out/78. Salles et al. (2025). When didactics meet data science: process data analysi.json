@@ -16,13 +16,17 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study focuses on item-level correctness rather than using plausible values for cognitive achievement scales.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it does not report the use of complex survey weights.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study explicitly states that it does not report the use of complex survey weights.",
     "q3_school_clustering": "not_applicable",
     "q3_rationale": "The study analyzes log data rather than student-level survey data where schools are the sampling unit.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as supervised learning and clustering but does not validate findings on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "78. Salles et al. (2020). When didactics meet data science: process data analysis in large‑scale mathematics assessment in France.pdf"
+    "_pdf_matched": "78. Salles et al. (2020). When didactics meet data science: process data analysis in large‑scale mathematics assessment in France.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_source": "no_pdf_fallback",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

@@ -11,6 +11,7 @@
     "source_category": "peer_reviewed_research"
   },
   "design_fields": {
+<<<<<<< Updated upstream
     "q1_plausible_values": "not_applicable",
     "q2_sampling_weights": "not_met",
     "q3_school_clustering": "not_met",
@@ -21,5 +22,19 @@
     "q4_rationale": "Internal validation only.",
     "_status": "manual_from_json",
     "_source": "web_abstract_not_fulltext"
+=======
+    "q1_plausible_values": "not_met",
+    "q2_sampling_weights": "not_reported",
+    "q3_school_clustering": "not_met",
+    "q4_validation_beyond_estimation": "not_met",
+    "q1_rationale": "Publisher full text, §2.4: model comparison uses PV1 only (one plausible value).",
+    "q2_rationale": "Publisher full text, §§2.1–2.8: student sampling weights are not reported for model fitting.",
+    "q3_rationale": "Publisher full text, §§2.1–2.8: student-level RNN models and student-level CV; no school-level clustering method reported.",
+    "q4_rationale": "Publisher full text, §2.8.1: five-fold student-level cross-validation within the U.S. sample; no external country, cycle, or dataset validation.",
+    "_status": "manually_verified_publisher_full_text",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "Publisher full text, §2.1: U.S. PISA 2012 sample only.",
+    "_source_url": "https://www.mdpi.com/2079-3200/14/4/70"
+>>>>>>> Stashed changes
   }
 }

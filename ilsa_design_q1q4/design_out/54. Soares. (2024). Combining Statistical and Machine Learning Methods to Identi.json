@@ -15,13 +15,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study does not use plausible values as the dependent variables are dichotomized proficiency categories rather than PV-based continuous achievement scores.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply any student/sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The matching, text-readable full PDF does not report use or explicit non-use of sampling weights; full-text search found no weight terminology. Original extraction rationale: The study explicitly states that it did not apply any student/sampling weights in the analysis.",
     "q3_school_clustering": "met",
     "q3_rationale": "The study adjusted multilevel logistic regression analyses, which accounts for school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods such as random forest analysis and does not report any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "54. Soares. (2024). Combining Statistical and Machine Learning Methods to Identify Predictors of Brazilian Students’ Pro ciency in PISA 2018.pdf"
+    "_pdf_matched": "54. Soares. (2024). Combining Statistical and Machine Learning Methods to Identify Predictors of Brazilian Students’ Pro ciency in PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “The population of this study were 15-year-old students and schools from Brazil participating in PISA 2018.” “Using random forest analysis… I then adjusted multilevel logistic regression analyses…”",
+    "_q2_audit": "Full-text PDF check completed; no weight terminology, so not_met lacked the rubric-required explicit unweighted statement."
   }
 }

@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "75. Aydin et al. (2025). Investigating the Predictive Performance of Process Data and Result Data in Complex Problem Solving Using the Conditional Gradient Boosting Algorithm.pdf"
+    "_pdf_matched": "75. Aydin et al. (2025). Investigating the Predictive Performance of Process Data and Result Data in Complex Problem Solving Using the Conditional Gradient Boosting Algorithm.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): data from 915 participants of the 2012 cycle of the Programme for International Student Assessment (PISA) were utilized. Process data were obtained from the log file of the first question..."
   }
 }

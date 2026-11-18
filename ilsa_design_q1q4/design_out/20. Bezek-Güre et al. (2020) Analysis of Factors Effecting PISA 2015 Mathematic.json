@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods but does not indicate any validation on external datasets or different cycles.",
     "_status": "extracted",
-    "_pdf_matched": "20. Bezek-Güre et al. (2020) Analysis of Factors Effecting PISA 2015 Mathematics Literacy via Educational Data Mining EN.pdf"
+    "_pdf_matched": "20. Bezek-Güre et al. (2020) Analysis of Factors Effecting PISA 2015 Mathematics Literacy via Educational Data Mining EN.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): PISA 2015 was applied as computer based examination to the students of 15 years of age attending to formal education in our country... In this study... 4422 students, participating PISA 2015 examination."
   }
 }

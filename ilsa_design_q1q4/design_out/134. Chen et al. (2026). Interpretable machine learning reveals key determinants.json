@@ -26,6 +26,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any validation strategy beyond internal validation methods such as cross-validation or train/test splits.",
     "_status": "extracted",
-    "_pdf_matched": "134. Chen et al. (2026). Interpretable machine learning reveals key determinants of creative thinking among East Asian students: Evidence from PISA 2022.pdf"
+    "_pdf_matched": "134. Chen et al. (2026). Interpretable machine learning reveals key determinants of creative thinking among East Asian students: Evidence from PISA 2022.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “A robustness check using Leave-One-Group-Out CV showed reduced generalization (LightGBM R²=0.3898)… suggesting economy-specific patterns.”",
+    "_source": "no_pdf_fallback"
   }
 }

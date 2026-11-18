@@ -20,6 +20,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, making it unclear if any external validation was conducted.",
     "_status": "extracted",
-    "_pdf_matched": "178. Bernardo & Mante-Estacio (2023). Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data.pdf"
+    "_pdf_matched": "178. Bernardo & Mante-Estacio (2023). Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “The study analyzes the Philippines’ PISA 2018 reading data… Using hierarchical regression… the authors report…” (Only Philippines/PISA 2018; no separate per-country/system analyses or comparisons reported.)"
   }
 }

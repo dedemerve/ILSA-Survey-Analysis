@@ -15,13 +15,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used a single plausible value for the analysis, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as splitting the data for model training, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "60. Bozkuş. (2025). Predictors of reading performance of fourth-grade Turkish students.pdf"
+    "_pdf_matched": "60. Bozkuş. (2025). Predictors of reading performance of fourth-grade Turkish students.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not apply sampling weights in the analysis."
   }
 }

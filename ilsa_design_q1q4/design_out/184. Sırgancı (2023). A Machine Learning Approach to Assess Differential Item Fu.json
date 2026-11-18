@@ -22,6 +22,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using cross-validation techniques for model selection, indicating that validation was performed only within the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "184. Sırgancı (2023). A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire.pdf"
+    "_pdf_matched": "184. Sırgancı (2023). A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “DIF was assessed at the item level across four ICT engagement subscales… using… GPCMlasso… Country (dummy-coded)… DIF is pervasive by country… present for gender… comparatively rare for ESCS.”",
+    "_source": "no_pdf_fallback"
   }
 }

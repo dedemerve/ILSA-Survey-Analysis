@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "192. Murillo (2026). Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024.pdf"
+    "_pdf_matched": "192. Murillo (2026). Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “TALIS 2024 lower-secondary teacher and principal questionnaires across 55 education systems… The study finds large cross-system heterogeneity in access (weighted prevalence from 8.86% in France to 75.69% in Singapore)… uses linear probability multilevel models…”",
+    "_source": "no_pdf_fallback"
   }
 }

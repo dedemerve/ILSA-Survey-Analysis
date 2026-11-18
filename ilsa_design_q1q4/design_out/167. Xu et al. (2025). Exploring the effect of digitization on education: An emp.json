@@ -22,6 +22,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "167. Xu et al. (2025). Exploring the effect of digitization on education: An empirical analysis based on PISA 2022.pdf"
+    "_pdf_matched": "167. Xu et al. (2025). Exploring the effect of digitization on education: An empirical analysis based on PISA 2022.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

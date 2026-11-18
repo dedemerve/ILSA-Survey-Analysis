@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods such as confusion matrices and performance metrics, indicating only internal validation was performed.",
     "_status": "extracted",
-    "_pdf_matched": "202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMSS 2023 data: a deep learning and explainable AI approach.pdf"
+    "_pdf_matched": "202. Elouafi et al. (2025). Explaining student absenteeism in Morocco using TIMSS 2023 data: a deep learning and explainable AI approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

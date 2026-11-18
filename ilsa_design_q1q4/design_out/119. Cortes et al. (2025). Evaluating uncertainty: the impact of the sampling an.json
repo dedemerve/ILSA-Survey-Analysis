@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not mention any validation strategy beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "119. Cortes et al. (2025). Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA.pdf"
+    "_pdf_matched": "119. Cortes et al. (2025). Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): We provide empirical results using data collected for PIRLS 2016."
   }
 }

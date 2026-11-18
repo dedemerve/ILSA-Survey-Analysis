@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "124. Mirazchiyski & Gershteyn (2024). ﻿Technology factors related to the differences in paper and online reading scores in PIRLS 2016.pdf"
+    "_pdf_matched": "124. Mirazchiyski & Gershteyn (2024). ﻿Technology factors related to the differences in paper and online reading scores in PIRLS 2016.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “This study investigates the … ICT factors … in six European countries … The results … show … only in Italy… in Italy and Portugal… in Portugal and Slovenia… in Denmark … and Italy… In addition, socio-economic status … is a significant predictor in half of the countries.”"
   }
 }

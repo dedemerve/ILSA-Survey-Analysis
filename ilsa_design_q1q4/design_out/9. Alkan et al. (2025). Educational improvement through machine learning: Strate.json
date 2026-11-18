@@ -20,6 +20,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "9. Alkan et al. (2025). Educational improvement through machine learning: Strategic models for better PISA scores.pdf"
+    "_pdf_matched": "9. Alkan et al. (2025). Educational improvement through machine learning: Strategic models for better PISA scores.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The study uses PISA 2018 data from 37 OECD countries and applies a Random Forest model with Boruta feature selection… to identify influential predictors… They provide coefficient estimates… but do not report standard predictive performance metrics…",
+    "_source": "no_pdf_fallback"
   }
 }

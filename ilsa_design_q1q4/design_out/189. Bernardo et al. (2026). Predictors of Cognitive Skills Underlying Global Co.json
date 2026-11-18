@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as train/test splits, indicating that it did not validate its findings on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "189. Bernardo et al. (2026). Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach.pdf"
+    "_pdf_matched": "189. Bernardo et al. (2026). Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

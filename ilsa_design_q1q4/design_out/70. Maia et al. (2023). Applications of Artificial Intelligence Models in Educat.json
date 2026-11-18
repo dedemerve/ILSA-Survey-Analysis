@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies such as cross-validation or external validation.",
     "_status": "extracted",
-    "_pdf_matched": "70. Maia et al. (2023). Applications of Artificial Intelligence Models in Educational Analytics and Decision Making: A Systematic Review.pdf"
+    "_pdf_matched": "70. Maia et al. (2023). Applications of Artificial Intelligence Models in Educational Analytics and Decision Making: A Systematic Review.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): This PRISMA-based systematic review … reports descriptive synthesis rather than a single predictive model… Limitations include the absence of a unified dataset, no re-estimation of performance metrics across studies.",
+    "_source": "no_pdf_fallback"
   }
 }

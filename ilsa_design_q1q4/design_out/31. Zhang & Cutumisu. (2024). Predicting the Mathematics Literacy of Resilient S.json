@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
     "_status": "extracted",
-    "_pdf_matched": "31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient Student.pdf"
+    "_pdf_matched": "31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient Student.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): applied two machine learning algorithms, Lasso Regression (LR) and Random Forest (RF), to predict the mathematics literacy of resilient students from high-performing economies across cultures in PISA 2022. The findings indicated both RF and LR performed better in Western cultures than in Eastern cultures."
   }
 }

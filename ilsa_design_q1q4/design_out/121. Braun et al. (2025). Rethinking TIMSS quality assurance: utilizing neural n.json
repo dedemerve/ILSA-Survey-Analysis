@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and focuses solely on internal validation through model predictions and comparisons.",
     "_status": "extracted",
-    "_pdf_matched": "121. Braun et al. (2025). Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores.pdf"
+    "_pdf_matched": "121. Braun et al. (2025). Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “generate model-based predictions for country-level average scores… The comparison of these predictions against actual results supported the feasibility of this approach.”"
   }
 }

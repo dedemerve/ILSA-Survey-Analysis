@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as confirmatory factor analysis and latent profile analysis but does not report any validation on external datasets or different countries.",
     "_status": "extracted",
-    "_pdf_matched": "179. Tze et al. (2022). Similarities and differences in social and emotional profiles among students in Canada  USA  China  and Singapore PISA 2015.pdf"
+    "_pdf_matched": "179. Tze et al. (2022). Similarities and differences in social and emotional profiles among students in Canada  USA  China  and Singapore PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “test a four-factor measurement model with multigroup CFA, and then estimate latent social-emotional profiles using latent profile analysis (LPA)… profile differences are evaluated using the BCH approach with Wald tests.”",
+    "_source": "no_pdf_fallback"
   }
 }

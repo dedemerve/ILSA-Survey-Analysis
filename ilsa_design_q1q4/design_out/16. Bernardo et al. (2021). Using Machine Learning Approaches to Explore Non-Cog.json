@@ -20,13 +20,16 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not mention the application of sampling weights in its analysis of the PISA data.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not mention the application of sampling weights in its analysis of the PISA data.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as it does not mention any multilevel modeling or cluster-robust standard errors.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods such as cross-validation and train/test splits, which do not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "16. Bernardo et al. (2021). Using Machine Learning Approaches to Explore Non-Cognitive Variables Influencing Reading Proficiency in English among Filipino Learners.pdf"
+    "_pdf_matched": "16. Bernardo et al. (2021). Using Machine Learning Approaches to Explore Non-Cognitive Variables Influencing Reading Proficiency in English among Filipino Learners.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

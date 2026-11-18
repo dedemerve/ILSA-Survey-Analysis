@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "135. Martínez-Abad et al. (2020). Educational Data Mining: Identification of Factors Associated With School Effectiveness in PISA Assessment.pdf"
+    "_pdf_matched": "135. Martínez-Abad et al. (2020). Educational Data Mining: Identification of Factors Associated With School Effectiveness in PISA Assessment.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

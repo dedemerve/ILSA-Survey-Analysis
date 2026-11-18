@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using methods like ROC and AUC but did not validate findings on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "61. Wang et al. (2022). Beating the odds: Identifying the top predictors of resilience among Hong Kong students.pdf"
+    "_pdf_matched": "61. Wang et al. (2022). Beating the odds: Identifying the top predictors of resilience among Hong Kong students.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “Using PISA 2018 Reading data for Hong Kong students… A random forest classifier… evaluated with ten-fold cross-validation… AUC=0.81 and accuracy=0.83.” (Only Hong Kong data; no separate country/system analyses or comparisons.)"
   }
 }

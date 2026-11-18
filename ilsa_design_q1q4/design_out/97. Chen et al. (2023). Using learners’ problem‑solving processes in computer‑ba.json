@@ -22,6 +22,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy such as cross-validation or external validation in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "97. Chen et al. (2023). Using learners’ problem‑solving processes in computer‑based assessments for enhanced learner modeling: A deep learning approach.pdf"
+    "_pdf_matched": "97. Chen et al. (2023). Using learners’ problem‑solving processes in computer‑based assessments for enhanced learner modeling: A deep learning approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

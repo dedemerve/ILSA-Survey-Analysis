@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not mention any validation strategies beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "125. Huang & Keller (2025). Working with missing data in large‑scale assessments.pdf"
+    "_pdf_matched": "125. Huang & Keller (2025). Working with missing data in large‑scale assessments.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

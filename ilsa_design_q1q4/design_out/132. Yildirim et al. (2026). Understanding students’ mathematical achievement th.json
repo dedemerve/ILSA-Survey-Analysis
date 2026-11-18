@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using repeated stratified cross-validation, which indicates internal validation only, and does not report any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "132. Yildirim et al. (2026). Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018.pdf"
+    "_pdf_matched": "132. Yildirim et al. (2026). Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

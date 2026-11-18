@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation methods such as OLS regression and did not mention any external validation on different datasets.",
     "_status": "extracted",
-    "_pdf_matched": "150. Liu et al. (2023). How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018.pdf"
+    "_pdf_matched": "150. Liu et al. (2023). How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

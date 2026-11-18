@@ -25,6 +25,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies, such as cross-validation or external validation, and focuses solely on synthesizing findings from other studies.",
     "_status": "extracted",
-    "_pdf_matched": "141. Enchikova et al. (2024). Change in socioeconomic educational equity after 20 years of PISA: A systematic literature review.pdf"
+    "_pdf_matched": "141. Enchikova et al. (2024). Change in socioeconomic educational equity after 20 years of PISA: A systematic literature review.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): Rather than re-estimating models, the authors code how equity change is operationalized... and how results are classified... The review finds no clear overall direction of equity change across participating countries.",
+    "_source": "no_pdf_fallback"
   }
 }

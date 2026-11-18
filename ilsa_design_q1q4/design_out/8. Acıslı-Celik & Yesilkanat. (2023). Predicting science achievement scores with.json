@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using a train/test split for model evaluation, indicating only internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "8. Acıslı-Celik & Yesilkanat. (2023). Predicting science achievement scores with machine learning algorithms: a case study of OECD PISA 2015–2018 data.pdf"
+    "_pdf_matched": "8. Acıslı-Celik & Yesilkanat. (2023). Predicting science achievement scores with machine learning algorithms: a case study of OECD PISA 2015–2018 data.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “the highest PISA-2018 science achievement scores… were in Luxembourg (r = 0.600, RMSE = 75.06, MAE = 59.97), while the lowest were in Finland (r = 0.467, RMSE = 79.38, MAE = 63.24).”"
   }
 }

@@ -22,6 +22,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "72. Teig. (2024). Uncovering Student Strategies for Solving Scientific Inquiry Tasks: Insights from Student Process Data in PISA.pdf"
+    "_pdf_matched": "72. Teig. (2024). Uncovering Student Strategies for Solving Scientific Inquiry Tasks: Insights from Student Process Data in PISA.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): Applied to PISA 2015 field-trial Task 1 in Norway (N=81)... Task 2 in PISA 2015 Norway (N=1222). Countries in data: NOR."
   }
 }

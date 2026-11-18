@@ -16,13 +16,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "Plausible values handling is not applicable because the dependent variable is the PISA 2018 life satisfaction scale score derived from student self-reports, and the paper does not describe using PV-based achievement scaling.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study uses student-level models without mentioning any multilevel modelling or consideration of school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation using nested cross-validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "48. Pan & Cutumisu. (2022). Using machine learning to predict UK and Japanese secondary students' life satisfaction in PISA 2018.pdf"
+    "_pdf_matched": "48. Pan & Cutumisu. (2022). Using machine learning to predict UK and Japanese secondary students' life satisfaction in PISA 2018.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “Two supervised ML models, random forest (RF) and k-­nearest neighbours (KNN), were developed based on the UK data and the Japan data in PISA 2018.” / “both models yielded better performance on the UK data than on the Japanese data”",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not apply sampling weights in the analysis."
   }
 }

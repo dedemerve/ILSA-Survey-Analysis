@@ -17,13 +17,16 @@
   "design_fields": {
     "q1_plausible_values": "met",
     "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for combining them.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it uses publicly available PISA microdata without mentioning the application of sampling weights.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study explicitly states that it uses publicly available PISA microdata without mentioning the application of sampling weights.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study models individual students without using multilevel modeling or accounting for school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and only discusses internal validation strategies.",
     "_status": "extracted",
-    "_pdf_matched": "196. Miao et al. (2023). Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools.pdf"
+    "_pdf_matched": "196. Miao et al. (2023). Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

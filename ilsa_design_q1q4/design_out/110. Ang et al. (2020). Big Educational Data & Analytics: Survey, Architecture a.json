@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy, as the study is a literature review and does not present empirical findings.",
     "_status": "extracted",
-    "_pdf_matched": "110. Ang et al. (2020). Big Educational Data & Analytics: Survey, Architecture and Challenges.pdf"
+    "_pdf_matched": "110. Ang et al. (2020). Big Educational Data & Analytics: Survey, Architecture and Challenges.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): This paper is a review article that synthesizes the landscape of big educational data and analytics... it does not estimate a unified predictive model on a single ILSA-style dataset. Consequently, there are no PV-based achievement benchmarks."
   }
 }

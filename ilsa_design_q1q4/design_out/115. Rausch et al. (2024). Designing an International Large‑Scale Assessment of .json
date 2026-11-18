@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy, such as cross-validation or external validation, in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "115. Rausch et al. (2024). Designing an International Large‑Scale Assessment of Professional Competencies and Employability Skills: Emerging Avenues and Challenges of OECD’s PISA‑VET.pdf"
+    "_pdf_matched": "115. Rausch et al. (2024). Designing an International Large‑Scale Assessment of Professional Competencies and Employability Skills: Emerging Avenues and Challenges of OECD’s PISA‑VET.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

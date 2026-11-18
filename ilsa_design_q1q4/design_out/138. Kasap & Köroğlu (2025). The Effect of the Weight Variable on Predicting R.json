@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation methods and only discusses internal validation strategies.",
     "_status": "extracted",
-    "_pdf_matched": "138. Kasap & Köroğlu (2025). The Effect of the Weight Variable on Predicting Reading Comprehension Achievement in PISA 2018: A Data Mining Approach.pdf"
+    "_pdf_matched": "138. Kasap & Köroğlu (2025). The Effect of the Weight Variable on Predicting Reading Comprehension Achievement in PISA 2018: A Data Mining Approach.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): The study analyzes PISA 2018 Turkey microdata ... to predict reading comprehension achievement ... train CART and Random Forest models in two conditions: with the student-level sampling weight W_FSTUWT and without it."
   }
 }

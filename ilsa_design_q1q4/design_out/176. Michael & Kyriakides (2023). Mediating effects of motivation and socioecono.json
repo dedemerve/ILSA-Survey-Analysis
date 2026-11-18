@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "176. Michael & Kyriakides (2023). Mediating effects of motivation and socioeconomic status on reading achievement: a secondary analysis of PISA 2018.pdf"
+    "_pdf_matched": "176. Michael & Kyriakides (2023). Mediating effects of motivation and socioeconomic status on reading achievement: a secondary analysis of PISA 2018.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): \"mediation is estimated separately by country using uni-level SEM in EQS 6.4\" and \"expected occupational status mediates the SES–reading relationship in all countries, enjoyment of reading in 37/38\"",
+    "_source": "no_pdf_fallback"
   }
 }

@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions model evaluation but does not indicate any validation on external datasets or different countries, only internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "52. Hu et al. (2023). Decoding Contextual Factors Differentiating Adolescents’ High, Average, and Low Digital Reading Performance Through Machine-Learning Methods .pdf"
+    "_pdf_matched": "52. Hu et al. (2023). Decoding Contextual Factors Differentiating Adolescents’ High, Average, and Low Digital Reading Performance Through Machine-Learning Methods .pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

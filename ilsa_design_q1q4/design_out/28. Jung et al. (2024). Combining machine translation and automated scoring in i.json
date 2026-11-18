@@ -15,13 +15,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study does not model plausible values-based achievement as it focuses on dichotomous item scoring.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not use sampling weights in its analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study uses student-level models without accounting for school clustering.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation through cross-validation and train/test splits.",
     "_status": "extracted",
-    "_pdf_matched": "28. Jung et al. (2024). Combining machine translation and automated scoring in international large-scale assessments.pdf"
+    "_pdf_matched": "28. Jung et al. (2024). Combining machine translation and automated scoring in international large-scale assessments.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “We analyzed the multilingual student responses involving eight countries and six different languages… The item-by-country sample sizes are shown in Table 1.”",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not use sampling weights in its analysis."
   }
 }

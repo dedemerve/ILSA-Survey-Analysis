@@ -24,6 +24,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "162.Teig et al. (2020). Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data.pdf"
+    "_pdf_matched": "162.Teig et al. (2020). Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

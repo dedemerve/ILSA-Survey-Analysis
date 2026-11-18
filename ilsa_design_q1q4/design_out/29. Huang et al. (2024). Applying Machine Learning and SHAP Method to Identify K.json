@@ -18,13 +18,17 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used a single plausible value (PV1MATH) for analysis, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Publisher full text and matching Huang PDF: survey sampling weights not specified; XGBoost algorithmic weights and WLE scores are different concepts.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering, indicating that it likely used student-level models.",
-    "q4_validation_beyond_estimation": "not_met",
-    "q4_rationale": "The study mentions using internal validation methods such as GridSearchCV with 5-fold cross-validation, which does not qualify as validation beyond the estimation sample.",
+    "q4_validation_beyond_estimation": "met",
+    "q4_rationale": "Manual publisher full-text review, §3.1 and Supplementary Table S2: XGBoost prediction performance evaluated on Hong Kong, Korea, U.S., and Spain datasets; U.S. and Spain are outside the six-system estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "29. Huang et al. (2024). Applying Machine Learning and SHAP Method to Identify Key Influences on Middle-School Students’ Mathematics Literacy Performance.pdf"
+    "_pdf_matched": "29. Huang et al. (2024). Applying Machine Learning and SHAP Method to Identify Key Influences on Middle-School Students’ Mathematics Literacy Performance.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "Manual publisher full-text review, §3.1 and Supplementary Table S2: model prediction performance compared separately for Hong Kong, Korea, United States, and Spain.",
+    "_q4b_source_url": "https://www.mdpi.com/2079-3200/12/10/93",
+    "_q2_audit": "Corrected after matching source text check; original rationale: The study explicitly states that it did not apply sampling weights in the analysis."
   }
 }

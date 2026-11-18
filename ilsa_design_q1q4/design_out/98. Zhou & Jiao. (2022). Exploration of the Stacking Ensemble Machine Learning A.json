@@ -16,13 +16,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on a cheating detection classification.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not apply sampling weights and treats the dataset as a convenience sample.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
     "q3_school_clustering": "not_applicable",
     "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it uses a licensure-test dataset.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using k-fold cross-validation for model evaluation, indicating only internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "98. Zhou & Jiao. (2022). Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment.pdf"
+    "_pdf_matched": "98. Zhou & Jiao. (2022). Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The dataset consists of two test forms... made publicly available by Cizek and Wollack (2017). No information was given about the types of cheating behaviors... No information about countries/education systems or separate per-country analyses is provided.",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not apply sampling weights and treats the dataset as a convenience sample."
   }
 }

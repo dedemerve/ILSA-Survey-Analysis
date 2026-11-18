@@ -25,6 +25,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using a training/validation split in the machine-learning workflow, indicating that it performed only internal validation.",
     "_status": "extracted",
-    "_pdf_matched": "64. Constante-Amores et al. (2024). Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data.pdf"
+    "_pdf_matched": "64. Constante-Amores et al. (2024). Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “secondary analysis of PISA 2018 Spain… (n=35,943)” and “Countries in data: ESP” with no separate analyses across multiple countries/education systems reported."
   }
 }

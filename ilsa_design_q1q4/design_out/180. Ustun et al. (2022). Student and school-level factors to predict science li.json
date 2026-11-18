@@ -25,6 +25,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "180. Ustun et al. (2022). Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015  Finland and Singapore.pdf"
+    "_pdf_matched": "180. Ustun et al. (2022). Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015  Finland and Singapore.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “using a multilevel (HLM) framework… models explain about 43% (Finland) and 40% (Singapore) of within-school variance… ICC = 0.38… compared with Finland (ICC = 0.13).”",
+    "_source": "no_pdf_fallback"
   }
 }

@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies such as cross-validation or hold-out, nor does it provide information about validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "199. López-Meneses et al. (2025). Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge.pdf"
+    "_pdf_matched": "199. López-Meneses et al. (2025). Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

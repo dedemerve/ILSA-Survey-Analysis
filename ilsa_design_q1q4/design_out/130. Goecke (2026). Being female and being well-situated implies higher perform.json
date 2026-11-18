@@ -21,6 +21,7 @@
     "q1_plausible_values": "met",
     "q2_sampling_weights": "met",
     "q3_school_clustering": "met",
+<<<<<<< Updated upstream
     "q4_validation_beyond_estimation": "not_met",
     "q1_rationale": "Prior extraction indicates Rubin rules used for PISA 2022 creative thinking PVs.",
     "q2_rationale": "Prior extraction indicates sampling weights applied.",
@@ -28,5 +29,16 @@
     "q4_rationale": "Cross-country comparison is study design, not external model validation.",
     "_status": "manual_from_json",
     "_source": "web_abstract_not_fulltext"
+=======
+    "q4_validation_beyond_estimation": "not_reported",
+    "q1_rationale": "Manual full-text review, Goecke et al. (2026), p. 7: regressions estimated for each plausible value and results combined using Rubin’s rules.",
+    "q2_rationale": "Manual full-text review, Goecke et al. (2026), p. 7: weighted regressions use student-level sampling weights and BRR replicate weights with Fay adjustment.",
+    "q3_rationale": "Manual full-text review, Goecke et al. (2026), p. 7: students nested within schools; school random intercept used in imputation and BRR replicate weights used for regression standard errors.",
+    "q4_rationale": "Manual full-text review, Goecke et al. (2026), Methods: no model validation on an external country, cycle, or data set was identified; Q4 applicability needs protocol review.",
+    "_status": "manually_verified_external_pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "Manual full-text review, Goecke et al. (2026), p. 7: models estimated separately for each of 62 countries and compared through meta-analysis.",
+    "_source_url": "https://extern.fis.uni-bamberg.de/files/82b80493-1dce-4500-bd2b-625ac0067497/fisba112990.pdf"
+>>>>>>> Stashed changes
   }
 }

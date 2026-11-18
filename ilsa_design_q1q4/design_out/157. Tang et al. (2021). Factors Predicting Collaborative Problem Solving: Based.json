@@ -20,6 +20,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "157. Tang et al. (2021). Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015.pdf"
+    "_pdf_matched": "157. Tang et al. (2021). Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

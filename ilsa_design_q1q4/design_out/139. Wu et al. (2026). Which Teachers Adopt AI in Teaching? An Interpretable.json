@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using internal validation methods such as k-fold cross-validation, which disqualifies it from having external validation.",
     "_status": "extracted",
-    "_pdf_matched": "139. Wu et al. (2026). Which Teachers Adopt AI in Teaching? An Interpretable Machine Learning Analysis of East Asian Data from TALIS 2024.pdf"
+    "_pdf_matched": "139. Wu et al. (2026). Which Teachers Adopt AI in Teaching? An Interpretable Machine Learning Analysis of East Asian Data from TALIS 2024.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): dataset_used includes separate analyses for “TALIS 2024 (Teachers) — East Asia pooled (Singapore, Shanghai (China), Korea, Japan)”, “— Singapore”, and “— Shanghai (China)”, each with its own top_predictors and model performance metrics reported in appendices.",
+    "_source": "no_pdf_fallback"
   }
 }

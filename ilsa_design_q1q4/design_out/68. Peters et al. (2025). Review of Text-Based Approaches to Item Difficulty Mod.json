@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_applicable",
     "q4_rationale": "The study does not perform any validation as it is a review of existing literature rather than an empirical study.",
     "_status": "extracted",
-    "_pdf_matched": "68. Peters et al. (2025). Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments.pdf"
+    "_pdf_matched": "68. Peters et al. (2025). Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

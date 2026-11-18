@@ -20,6 +20,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, such as external validation or cross-validation.",
     "_status": "extracted",
-    "_pdf_matched": "126. He et al. (2024). The relationship between personal‑collaborative motivation profiles and students’ performance in collaborative problem solving.pdf"
+    "_pdf_matched": "126. He et al. (2024). The relationship between personal‑collaborative motivation profiles and students’ performance in collaborative problem solving.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “A total of 9398 Chinese students in 264 schools were included in this study.” “This study utilized data from four regions in mainland China (Beijing, Shanghai, Jiangsu, and Guangdong; B-S-J-G) collected in PISA 2015”"
   }
 }

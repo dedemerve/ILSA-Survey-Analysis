@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies or external validation beyond the literature review.",
     "_status": "extracted",
-    "_pdf_matched": "69. Hernández‑Torrano & Courtney. (2021). Modern international large‑scale assessment in education: an integrative review and mapping of the literature.pdf"
+    "_pdf_matched": "69. Hernández‑Torrano & Courtney. (2021). Modern international large‑scale assessment in education: an integrative review and mapping of the literature.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): This paper is a bibliometric mapping study of modern international large-scale assessment (ILSA) research in education. Using Web of Science metadata… The unit of analysis is publications rather than student responses.",
+    "_source": "no_pdf_fallback"
   }
 }

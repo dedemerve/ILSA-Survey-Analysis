@@ -15,13 +15,16 @@
   "design_fields": {
     "q1_plausible_values": "not_applicable",
     "q1_rationale": "Plausible values are not applicable because the dependent variable in the ML stage is a DIF label for items, not a PV-based cognitive achievement score.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not use student weights in the analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The matching, text-readable full PDF does not report use or explicit non-use of sampling weights; full-text search found no weight terminology. Original extraction rationale: The study explicitly states that it did not use student weights in the analysis.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not mention using multilevel modeling or accounting for school clustering in its analysis.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation using 10-fold cross-validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "96. Li et al. (2025). Exploring the Evidence to Interpret Differential Item Functioning via Response Process Data.pdf"
+    "_pdf_matched": "96. Li et al. (2025). Exploring the Evidence to Interpret Differential Item Functioning via Response Process Data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): Countries in data: USA. The MH method was applied to detect gender DIF among the nine items in the PIAAC 2012 numeracy assessment... We ultimately detected three out of nine items (33%).",
+    "_q2_audit": "Full-text PDF check completed; no weight terminology, so not_met lacked the rubric-required explicit unweighted statement."
   }
 }

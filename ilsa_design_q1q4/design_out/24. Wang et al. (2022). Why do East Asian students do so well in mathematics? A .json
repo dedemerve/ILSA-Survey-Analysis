@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed internal validation using tenfold cross-validation with five repeats, indicating no validation on external data.",
     "_status": "extracted",
-    "_pdf_matched": "24. Wang et al. (2022). Why do East Asian students do so well in mathematics? A machine learning study.pdf"
+    "_pdf_matched": "24. Wang et al. (2022). Why do East Asian students do so well in mathematics? A machine learning study.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): All five East Asian economies, including Singapore, Chinese Taipei, Korea, Japan, and Hong Kong, were selected. ... Machine learning (i.e., random forest regression) was used to analyze the data."
   }
 }

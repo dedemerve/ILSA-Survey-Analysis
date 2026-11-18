@@ -26,6 +26,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy, such as cross-validation or external validation, in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "149. Wijaya et al. (2024). Exploring Contributing Factors to PISA 2022 Mathematics Achievement: Insights from Indonesian Teachers.pdf"
+    "_pdf_matched": "149. Wijaya et al. (2024). Exploring Contributing Factors to PISA 2022 Mathematics Achievement: Insights from Indonesian Teachers.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

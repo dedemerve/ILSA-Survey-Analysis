@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as train/test splits, indicating that it did not validate findings on an external dataset.",
     "_status": "extracted",
-    "_pdf_matched": "11. Demir & Karaboğa. (2021). Modeling mathematics achievement with deep learning methods.pdf"
+    "_pdf_matched": "11. Demir & Karaboğa. (2021). Modeling mathematics achievement with deep learning methods.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “For this purpose, Turkey’s Programme for International Student Assessment (PISA 2018) survey data was used.”"
   }
 }

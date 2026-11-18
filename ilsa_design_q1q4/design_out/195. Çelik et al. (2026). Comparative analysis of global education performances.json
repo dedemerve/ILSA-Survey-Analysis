@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions using stratified k-fold cross-validation for internal validation, which does not qualify as validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "195. Çelik et al. (2026). Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods.pdf"
+    "_pdf_matched": "195. Çelik et al. (2026). Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): It uses OECD-published PISA 2022 country-level average scores (one observation per country/economy) and applies correlations/PCA, regression (R²=1.0), and clustering with stratified 5-fold cross-validation; no separate per-country/system analyses are described.",
+    "_source": "no_pdf_fallback"
   }
 }

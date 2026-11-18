@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The excerpts do not mention any validation strategies beyond the synthesis of secondary studies, leaving validation information unclear.",
     "_status": "extracted",
-    "_pdf_matched": "169. Odell et al. (2020). A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data.pdf"
+    "_pdf_matched": "169. Odell et al. (2020). A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The review synthesizes 25 secondary quantitative studies that used PISA data (2000–2015) ... The review reports mixed and context-dependent associations ... depending on subject and country.",
+    "_source": "no_pdf_fallback"
   }
 }

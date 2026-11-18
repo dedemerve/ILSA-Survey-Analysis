@@ -27,6 +27,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
     "_status": "extracted",
-    "_pdf_matched": "43. Hu et al. (2025). Predicting adolescents’ environmental action: From individual to national-level factors using an explainable machine learning approach.pdf"
+    "_pdf_matched": "43. Hu et al. (2025). Predicting adolescents’ environmental action: From individual to national-level factors using an explainable machine learning approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_source": "no_pdf_fallback"
   }
 }

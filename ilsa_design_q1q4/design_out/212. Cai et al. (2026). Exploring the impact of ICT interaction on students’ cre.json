@@ -24,6 +24,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods such as model training and feature analysis but does not indicate any validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "212. Cai et al. (2026). Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective.pdf"
+    "_pdf_matched": "212. Cai et al. (2026). Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “For multiclass classification, the authors compare Random Forest, LightGBM, and XGBoost under 10-fold cross-validation and internal/external validation; XGBoost is selected as best-performing, with external-validation accuracy around 0.676.”",
+    "_source": "no_pdf_fallback"
   }
 }

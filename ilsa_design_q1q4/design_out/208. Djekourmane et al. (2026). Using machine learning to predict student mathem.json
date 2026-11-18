@@ -19,13 +19,17 @@
   "design_fields": {
     "q1_plausible_values": "not_met",
     "q1_rationale": "The study used average plausible values for analysis, which does not meet the criteria for proper handling of plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study does not mention the application of sampling weights, indicating that it likely ran unweighted analyses.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not mention the application of sampling weights, indicating that it likely ran unweighted analyses.",
     "q3_school_clustering": "not_met",
     "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis.",
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions a train/test split for model validation, which constitutes internal validation only.",
     "_status": "extracted",
-    "_pdf_matched": "208. Djekourmane et al. (2026). Using machine learning to predict student mathematics performance in six East Asian countries: evidence from PISA 2022.pdf"
+    "_pdf_matched": "208. Djekourmane et al. (2026). Using machine learning to predict student mathematics performance in six East Asian countries: evidence from PISA 2022.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): Models are trained on an 80% training set and evaluated on a 20% held-out test set… Among XGBoost, LightGBM… XGBoost performs best with R2 = 0.5703 (RMSE = 65.06)… SHAP indicates mathematics self-efficacy is the dominant predictor.",
+    "_source": "no_pdf_fallback",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
   }
 }

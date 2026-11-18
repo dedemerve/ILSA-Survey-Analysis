@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study performed only internal validation through cross-validation and bootstrapping, with no mention of validation on external datasets.",
     "_status": "extracted",
-    "_pdf_matched": "25. Anersen et al. (2025). Algorithmic Fairness in Automatic Short Answer Scoring.pdf"
+    "_pdf_matched": "25. Anersen et al. (2025). Algorithmic Fairness in Automatic Short Answer Scoring.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “We tested various combinations… on responses to reading comprehension items from the 2015 German PISA assessment.” (Germany only; no separate per-country/system analyses reported.)"
   }
 }

@@ -23,6 +23,9 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
     "_status": "extracted",
-    "_pdf_matched": "153. Wu et al. (2020). A new perspective on memorization practices among East Asian students based on PISA 2012.pdf"
+    "_pdf_matched": "153. Wu et al. (2020). A new perspective on memorization practices among East Asian students based on PISA 2012.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “Class 2 is positively associated with mathematics performance in all systems, and Class 4 is positively associated in all systems except Singapore… Macau regression did not converge, so coefficients were not reported there.”",
+    "_source": "no_pdf_fallback"
   }
 }

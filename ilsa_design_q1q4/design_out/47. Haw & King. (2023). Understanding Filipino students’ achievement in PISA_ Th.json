@@ -23,6 +23,8 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study did not mention any external validation methods and only discussed internal validation strategies.",
     "_status": "extracted",
-    "_pdf_matched": "47. Haw & King. (2023). Understanding Filipino students’ achievement in PISA_ The roles of personal characteristics, proximal processes, and social contexts.pdf"
+    "_pdf_matched": "47. Haw & King. (2023). Understanding Filipino students’ achievement in PISA_ The roles of personal characteristics, proximal processes, and social contexts.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): We used the 2018 PISA Philippine data, which consisted of 7233 15-year-old adolescent participants."
   }
 }

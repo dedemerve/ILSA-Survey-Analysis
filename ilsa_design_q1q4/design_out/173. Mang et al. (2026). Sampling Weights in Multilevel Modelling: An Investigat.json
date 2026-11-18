@@ -14,14 +14,16 @@
   },
   "design_fields": {
     "q1_plausible_values": "not_applicable",
-    "q1_rationale": "The study does not analyze student-level ILSA microdata as it focuses on methodology regarding sampling weights.",
+    "q1_rationale": "Publisher full text: methodological simulation of weighting schemes under PISA sampling structures; no student achievement outcome is modeled as a substantive endpoint.",
     "q2_sampling_weights": "not_applicable",
-    "q2_rationale": "The study does not analyze student-level survey data; it is a methodology paper discussing sampling weights.",
+    "q2_rationale": "Publisher full text: compares alternative weighting schemes in a simulation; Q2 yes/no use of sampling weights in a substantive ILSA analysis is not applicable.",
     "q3_school_clustering": "not_applicable",
-    "q3_rationale": "The study does not analyze student-level survey data; it is a methodology paper focused on sampling weights in multilevel modeling.",
+    "q3_rationale": "Publisher full text: methodological comparison of hierarchical weighting schemes, not a substantive student-level analysis to code for school clustering.",
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies beyond the simulation context.",
-    "_status": "extracted",
-    "_pdf_matched": "173. Mang et al. (2021). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA survey.pdf"
+    "_status": "manually_verified_publisher_full_text",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_source_url": "https://link.springer.com/article/10.1186/s40536-021-00099-0"
   }
 }

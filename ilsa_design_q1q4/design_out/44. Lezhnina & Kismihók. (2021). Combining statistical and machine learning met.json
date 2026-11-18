@@ -15,14 +15,17 @@
   },
   "design_fields": {
     "q1_plausible_values": "met",
-    "q1_rationale": "The study explicitly states that Rubin's rules were applied for handling plausible values.",
-    "q2_sampling_weights": "not_met",
-    "q2_rationale": "The study explicitly states that it did not use sampling weights in the analysis.",
+    "q1_rationale": "Matching full PDF Methods/Appendix B: estimates averaged over all 10 plausible values and variances combined with PISA formulas.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "Matching full PDF Methods/Appendix B explicitly uses final student weight and 80 Fay replicate weights; original not_met code contradicted the source.",
     "q3_school_clustering": "met",
-    "q3_rationale": "The study used hierarchical linear models (HLM), which account for the nested structure of the data.",
-    "q4_validation_beyond_estimation": "not_met",
-    "q4_rationale": "The study does not mention any external validation methods and focuses solely on internal validation techniques.",
-    "_status": "extracted",
-    "_pdf_matched": "44. Lezhnina & Kismihók. (2021). Combining statistical and machine learning methods to explore German students  attitudes towards ICT in PISA.pdf"
+    "q3_rationale": "Matching full PDF Methods reports hierarchical linear models with random school intercepts.",
+    "q4_validation_beyond_estimation": "met",
+    "q4_rationale": "Matching full PDF Methods: random forest trained on PISA 2015 Germany; evaluated first on a 20% holdout from 2015 and then on PISA 2018 Germany, an external cycle.",
+    "_status": "manually_verified_local_pdf",
+    "_pdf_matched": "44. Lezhnina & Kismihók. (2021). Combining statistical and machine learning methods to explore German students  attitudes towards ICT in PISA.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "Germany only; comparison is across PISA cycles, not countries.",
+    "_q4b_source_url": "https://doi.org/10.1080/1743727X.2021.1963226"
   }
 }

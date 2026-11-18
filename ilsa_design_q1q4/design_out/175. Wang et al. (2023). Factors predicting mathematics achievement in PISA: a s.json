@@ -25,6 +25,8 @@
     "q4_validation_beyond_estimation": "not_reported",
     "q4_rationale": "The study does not mention any validation strategies such as cross-validation or external validation, nor does it provide information on validation beyond the estimation sample.",
     "_status": "extracted",
-    "_pdf_matched": "175. Wang et al. (2023). Factors predicting mathematics achievement in PISA: a systematic review.pdf"
+    "_pdf_matched": "175. Wang et al. (2023). Factors predicting mathematics achievement in PISA: a systematic review.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
   }
 }

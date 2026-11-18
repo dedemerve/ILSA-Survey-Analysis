@@ -25,6 +25,9 @@
     "q4_validation_beyond_estimation": "not_met",
     "q4_rationale": "The study mentions internal validation methods but does not provide evidence of validation on data from another country, another cycle, or an entirely external dataset.",
     "_status": "extracted",
-    "_pdf_matched": "39. Zheng et al. (2025). Unfolding key factors of resilience in ICT cognitive-motivational engagement: Global evidence from machine learning techniques.pdf"
+    "_pdf_matched": "39. Zheng et al. (2025). Unfolding key factors of resilience in ICT cognitive-motivational engagement: Global evidence from machine learning techniques.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_source": "no_pdf_fallback"
   }
 }
