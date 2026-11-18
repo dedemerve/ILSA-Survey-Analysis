@@ -114,6 +114,8 @@ def _extract_pdf_text(pdf_path: Path) -> str:
     pages = [page.get_text() for page in doc]
     doc.close()
     full = "\n".join(pages)
+    # Normalize to valid UTF-8; drop surrogates and other unrepresentable chars
+    full = full.encode("utf-8", errors="ignore").decode("utf-8")
     for marker in ["\nReferences\n", "\nREFERENCES\n", "\nBibliography\n",
                    "\nREFERENCES ", "\nReferences "]:
         idx = full.find(marker)
