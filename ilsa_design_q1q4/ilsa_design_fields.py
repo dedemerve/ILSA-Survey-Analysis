@@ -110,11 +110,12 @@ def _extract_pdf_text(pdf_path: Path) -> str:
         import fitz
     except ImportError:
         sys.exit("PyMuPDF not installed. Run: pip install pymupdf")
-    doc = fitz.open(str(pdf_path))
+    # Open via byte stream to avoid filename encoding issues on macOS
+    with open(pdf_path, "rb") as fh:
+        doc = fitz.open(stream=fh.read(), filetype="pdf")
     pages = [page.get_text() for page in doc]
     doc.close()
     full = "\n".join(pages)
-    # Normalize to valid UTF-8; drop surrogates and other unrepresentable chars
     full = full.encode("utf-8", errors="ignore").decode("utf-8")
     for marker in ["\nReferences\n", "\nREFERENCES\n", "\nBibliography\n",
                    "\nREFERENCES ", "\nReferences "]:
@@ -284,7 +285,9 @@ def cmd_extract(args):
             fields["_status"] = "extracted"
             fields["_pdf_matched"] = pdf_path.name
         except Exception as e:
+            import traceback
             print(f"  API ERROR: {e}")
+            traceback.print_exc()
             fields = _stub(f"API error: {e}")
             fields["_status"] = f"api_error"
         _write(out_dir, jf, meta, fields)
