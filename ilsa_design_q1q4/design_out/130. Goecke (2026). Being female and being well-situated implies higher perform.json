@@ -18,14 +18,14 @@
     "source_category": "peer_reviewed_research"
   },
   "design_fields": {
-    "q1_plausible_values": "not_reported",
-    "q2_sampling_weights": "not_reported",
-    "q3_school_clustering": "not_reported",
-    "q4_validation_beyond_estimation": "not_reported",
-    "q1_rationale": "No PDF found.",
-    "q2_rationale": "No PDF found.",
-    "q3_rationale": "No PDF found.",
-    "q4_rationale": "No PDF found.",
-    "_status": "no_pdf"
+    "q1_plausible_values": "met",
+    "q2_sampling_weights": "met",
+    "q3_school_clustering": "met",
+    "q4_validation_beyond_estimation": "not_met",
+    "q1_rationale": "Prior extraction indicates Rubin rules used for PISA 2022 creative thinking PVs.",
+    "q2_rationale": "Prior extraction indicates sampling weights applied.",
+    "q3_rationale": "Study across 62 countries with proper multilevel/country-level analysis of PISA data.",
+    "q4_rationale": "Cross-country comparison is study design, not external model validation.",
+    "_status": "manual_from_json"
   }
 }

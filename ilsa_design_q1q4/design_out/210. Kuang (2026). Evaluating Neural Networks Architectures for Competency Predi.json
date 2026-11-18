@@ -11,14 +11,14 @@
     "source_category": "peer_reviewed_research"
   },
   "design_fields": {
-    "q1_plausible_values": "not_reported",
-    "q2_sampling_weights": "not_reported",
-    "q3_school_clustering": "not_reported",
-    "q4_validation_beyond_estimation": "not_reported",
-    "q1_rationale": "No PDF found.",
-    "q2_rationale": "No PDF found.",
-    "q3_rationale": "No PDF found.",
-    "q4_rationale": "No PDF found.",
-    "_status": "no_pdf"
+    "q1_plausible_values": "not_applicable",
+    "q2_sampling_weights": "not_met",
+    "q3_school_clustering": "not_met",
+    "q4_validation_beyond_estimation": "not_met",
+    "q1_rationale": "Process data study predicting item correctness, not PV-based achievement.",
+    "q2_rationale": "Prior extraction indicates weights not used.",
+    "q3_rationale": "Student-level neural networks without school clustering.",
+    "q4_rationale": "Internal validation only.",
+    "_status": "manual_from_json"
   }
 }
