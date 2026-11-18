@@ -178,8 +178,39 @@ def find_pdf_for_json(json_name: str, pdf_dir: Path) -> Optional[Path]:
 # ---------------------------------------------------------------------------
 # API call (structured output)
 # ---------------------------------------------------------------------------
+_HTTPX2_PATCHED = False
+
+
+def _patch_httpx2_header_encoding():
+    """httpx2 encodes header values as ASCII and crashes on non-ASCII.
+    Strip non-ASCII instead, and report the offending value once."""
+    global _HTTPX2_PATCHED
+    if _HTTPX2_PATCHED:
+        return
+    try:
+        import httpx2._models as _m
+    except ImportError:
+        return
+    _orig = _m._normalize_header_value
+    reported = set()
+
+    def _patched(value, encoding=None):
+        try:
+            return _orig(value, encoding)
+        except UnicodeEncodeError:
+            if isinstance(value, str) and value not in reported:
+                reported.add(value)
+                print(f"  [header sanitised] {value!r}")
+            clean = value.encode("ascii", errors="ignore") if isinstance(value, str) else value
+            return clean
+
+    _m._normalize_header_value = _patched
+    _HTTPX2_PATCHED = True
+
+
 def _call_api(title: str, year, text: str, model: str, client) -> dict:
     from pydantic import BaseModel
+    _patch_httpx2_header_encoding()
 
     class IndicatorResult(BaseModel):
         label: str
