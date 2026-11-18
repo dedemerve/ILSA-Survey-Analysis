@@ -64,25 +64,41 @@ SYSTEM_PROMPT = """You are a methodologist reviewing machine-learning studies th
 (international large-scale assessment) microdata. For each study, rate four design quality
 indicators based ONLY on what is explicitly stated in the provided text excerpts.
 
+IMPORTANT CONTEXT: You will receive the study's source_category. Use it:
+  - methodology_paper / framework_paper / review → these do NOT analyse student-level
+    ILSA microdata, so Q1–Q3 are typically not_applicable (Q4 may still apply).
+  - automated_scoring / nlp_scoring → these score open-ended items; they do NOT use
+    plausible values or sampling weights, so Q1 and Q2 are not_applicable.
+  - process_data → these analyse log/clickstream data; Q1 is not_applicable unless
+    the study also uses achievement scores.
+  - peer_reviewed_research → standard empirical study; judge Q1–Q4 on the evidence.
+
 Definitions
 -----------
 Q1 plausible_values:
   met           = study used multiple plausible values AND applied Rubin's rules / proper combination
   not_met       = study used a single PV, averaged PVs, used raw scores, WLE/theta, or EAP
-  not_reported  = study uses ILSA achievement data but does not mention PV handling at all
-  not_applicable = achievement (latent proficiency) is not an outcome or predictor in this study
+  not_reported  = study uses ILSA achievement data as outcome/predictor but does not mention
+                  PV handling at all
+  not_applicable = achievement (latent proficiency) is NOT an outcome or predictor in this study
+                   (e.g., process-data-only, automated scoring, methodology paper, review,
+                    or the study builds a dataset without running predictive models)
 
 Q2 sampling_weights:
   met           = study explicitly applied sampling/replicate weights in the analysis
-  not_met       = study explicitly states it did NOT apply weights (treated data as unweighted)
-  not_reported  = no mention of weights; cannot determine whether weights were used
-  not_applicable = study does not use student-level survey data (e.g., pure process-data study)
+  not_met       = study explicitly states it did NOT apply weights OR clearly treats data
+                  as a convenience sample without weighting
+  not_reported  = study uses ILSA student-level data but makes no mention of weights
+  not_applicable = study does not use student-level survey data (e.g., pure process-data,
+                   automated scoring, methodology paper, framework, or review)
 
 Q3 school_clustering:
   met           = study used multilevel modelling, cluster-robust / BRR / JK replicate SE,
                   or performed train/test split at the school level
   not_met       = study used student-level models ignoring school clustering
   not_reported  = no information about clustering
+  not_applicable = study does not analyse student-level survey data where schools are the
+                   sampling unit (e.g., process-data, automated scoring, methodology paper)
 
 Q4 validation_beyond_estimation_sample:
   met           = model/findings validated on data from another country, another cycle,
@@ -95,11 +111,12 @@ Q4 validation_beyond_estimation_sample:
                   or any other validation strategy
 
 For each indicator output EXACTLY one of its allowed labels and a one-sentence rationale.
-Be conservative: if evidence is unclear, choose not_reported."""
+Be conservative: if evidence is unclear, choose not_reported rather than met."""
 
 EXTRACTION_PROMPT_TEMPLATE = """Below are excerpts from the study. Rate the four indicators.
 
 Study: {title} ({year})
+Source category: {source_category}
 
 --- EXCERPTS ---
 {text}
@@ -160,40 +177,60 @@ def _title_words(name: str) -> set:
 
 
 def find_pdf_for_json(json_name: str, pdf_dirs: list) -> Optional[Path]:
-    """Search multiple PDF directories. Match by leading number, then title-word overlap."""
+    """Search multiple PDF directories. Match by leading number AND title-word overlap.
+
+    Strategy: collect all PDFs whose number matches, pick the one with highest
+    title-word overlap (must be >= 0.3).  If none match by number, fall back to
+    pure title overlap >= 0.6 across ALL PDFs.  This avoids the bug where PDF
+    "194. dos Santos" is served for JSON "194. Jung" when the correct PDF is
+    numbered differently (e.g. "214. Jung").
+    """
     num = _number_from_name(json_name)
     j_words = _title_words(json_name)
-    candidates = []
+    number_candidates = []
+    title_candidates = []
+
     for pdf_dir in pdf_dirs:
         for pdf in pdf_dir.glob("*.pdf"):
             p_num = _number_from_name(pdf.name)
-            if p_num is not None and p_num == num:
-                p_words = _title_words(pdf.name)
-                overlap = (len(j_words & p_words) / max(len(j_words), len(p_words))
-                           if j_words and p_words else 0.0)
-                candidates.append((overlap, pdf))
-            elif num is not None:
+            p_words = _title_words(pdf.name)
+            if not j_words or not p_words:
                 continue
-            else:
-                # No number in JSON — try pure title overlap
-                p_words = _title_words(pdf.name)
-                if j_words and p_words:
-                    overlap = len(j_words & p_words) / max(len(j_words), len(p_words))
-                    if overlap >= 0.6:
-                        candidates.append((overlap, pdf))
-    if not candidates:
-        return None
-    candidates.sort(key=lambda x: -x[0])
-    best_overlap, best_pdf = candidates[0]
-    if best_overlap >= 0.5 or len(candidates) == 1:
-        return best_pdf
+            overlap = len(j_words & p_words) / max(len(j_words), len(p_words))
+
+            if p_num is not None and p_num == num:
+                number_candidates.append((overlap, pdf))
+
+            # Always collect title-based candidates as fallback
+            if overlap >= 0.4:
+                title_candidates.append((overlap, pdf))
+
+    # Prefer number-matched PDFs with reasonable title overlap
+    if number_candidates:
+        number_candidates.sort(key=lambda x: -x[0])
+        best_overlap, best_pdf = number_candidates[0]
+        if best_overlap >= 0.3:
+            return best_pdf
+        # Number matched but title didn't — flag this, still return
+        # but only if no better title candidate exists
+        if not title_candidates:
+            return best_pdf
+
+    # Fall back to best title match (any number)
+    if title_candidates:
+        title_candidates.sort(key=lambda x: -x[0])
+        best_overlap, best_pdf = title_candidates[0]
+        if best_overlap >= 0.5:
+            return best_pdf
+
     return None
 
 
 # ---------------------------------------------------------------------------
 # API call (structured output)
 # ---------------------------------------------------------------------------
-def _call_api(title: str, year, text: str, model: str, client) -> dict:
+def _call_api(title: str, year, text: str, model: str, client,
+              source_category: str = "peer_reviewed_research") -> dict:
     from pydantic import BaseModel
 
     class IndicatorResult(BaseModel):
@@ -206,7 +243,8 @@ def _call_api(title: str, year, text: str, model: str, client) -> dict:
         q3_school_clustering: IndicatorResult
         q4_validation_beyond_estimation: IndicatorResult
 
-    prompt = EXTRACTION_PROMPT_TEMPLATE.format(title=title, year=year, text=text)
+    prompt = EXTRACTION_PROMPT_TEMPLATE.format(
+        title=title, year=year, text=text, source_category=source_category)
     response = client.beta.chat.completions.parse(
         model=model,
         messages=[
@@ -306,9 +344,11 @@ def cmd_extract(args):
             n_no_text += 1
             continue
 
-        print(f"[EXTRACT] {num}. {title[:60]} ({year})")
+        source_cat = meta.get("source_category", "peer_reviewed_research")
+        print(f"[EXTRACT] {num}. {title[:60]} ({year})  [{source_cat}]")
         try:
-            fields = _call_api(title, year, excerpts, args.model, client)
+            fields = _call_api(title, year, excerpts, args.model, client,
+                               source_category=source_cat)
             fields["_status"] = "extracted"
             fields["_pdf_matched"] = pdf_path.name
         except Exception as e:
@@ -526,7 +566,7 @@ def cmd_summarise(args):
         "q4": "Q4 Validation Beyond Sample",
     }
     for q, label in labels.items():
-        print(f"{label}:")
+        print(f"\n{label}:")
         for k in ["met", "not_met", "not_reported", "not_applicable", "missing"]:
             v = counts[q].get(k, 0)
             if v:
