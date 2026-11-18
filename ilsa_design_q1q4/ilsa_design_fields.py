@@ -510,7 +510,7 @@ def parse_args():
     p.add_argument("--json-dir", required=True)
     p.add_argument("--out", required=True)
     p.add_argument("--only", default=None, help="File with one ID per line")
-    p.add_argument("--model", default="gpt-4.1-nano")
+    p.add_argument("--model", default="gpt-4o-mini")
 
     p = sub.add_parser("review")
     p.add_argument("--out", required=True)
