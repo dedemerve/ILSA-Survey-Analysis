@@ -26,6 +26,7 @@
     "q2_rationale": "Prior extraction indicates sampling weights applied.",
     "q3_rationale": "Study across 62 countries with proper multilevel/country-level analysis of PISA data.",
     "q4_rationale": "Cross-country comparison is study design, not external model validation.",
-    "_status": "manual_from_json"
+    "_status": "manual_from_json",
+    "_source": "web_abstract_not_fulltext"
   }
 }

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "file_name": "137. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study.pdf",
-    "title": "Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study",
+    "file_name": "137. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders' computational thinking performance in ICILS 2023 study.pdf",
+    "title": "Using machine learning approaches to predict Taiwanese eighth graders' computational thinking performance in ICILS 2023 study",
     "authors": [
       "Nitesh Kumar Jha",
       "Meng-Jung Tsai"
@@ -22,6 +22,7 @@
     "q2_rationale": "No information on sampling weights in available metadata.",
     "q3_rationale": "Student-level ML prediction without school clustering.",
     "q4_rationale": "Internal ML train/test validation only.",
-    "_status": "manual_from_json"
+    "_status": "manual_from_json",
+    "_source": "web_abstract_not_fulltext"
   }
 }
