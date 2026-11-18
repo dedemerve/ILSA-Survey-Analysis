@@ -545,6 +545,14 @@ def parse_args():
 
 
 if __name__ == "__main__":
+    # httpx2 encodes headers as ASCII; force UTF-8 mode if not already set
+    import os, sys
+    if not sys.flags.utf8_mode:
+        import subprocess
+        sys.exit(subprocess.call(
+            [sys.executable, "-X", "utf8"] + sys.argv,
+            env={**os.environ, "PYTHONUTF8": "1"}
+        ))
     args = parse_args()
     {"extract": cmd_extract, "review": cmd_review, "apply": cmd_apply,
      "merge": cmd_merge, "summarise": cmd_summarise}[args.cmd](args)
