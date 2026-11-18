@@ -178,39 +178,8 @@ def find_pdf_for_json(json_name: str, pdf_dir: Path) -> Optional[Path]:
 # ---------------------------------------------------------------------------
 # API call (structured output)
 # ---------------------------------------------------------------------------
-_HTTPX2_PATCHED = False
-
-
-def _patch_httpx2_header_encoding():
-    """httpx2 encodes header values as ASCII and crashes on non-ASCII.
-    Strip non-ASCII instead, and report the offending value once."""
-    global _HTTPX2_PATCHED
-    if _HTTPX2_PATCHED:
-        return
-    try:
-        import httpx2._models as _m
-    except ImportError:
-        return
-    _orig = _m._normalize_header_value
-    reported = set()
-
-    def _patched(value, encoding=None):
-        try:
-            return _orig(value, encoding)
-        except UnicodeEncodeError:
-            if isinstance(value, str) and value not in reported:
-                reported.add(value)
-                print(f"  [header sanitised] {value!r}")
-            clean = value.encode("ascii", errors="ignore") if isinstance(value, str) else value
-            return clean
-
-    _m._normalize_header_value = _patched
-    _HTTPX2_PATCHED = True
-
-
 def _call_api(title: str, year, text: str, model: str, client) -> dict:
     from pydantic import BaseModel
-    _patch_httpx2_header_encoding()
 
     class IndicatorResult(BaseModel):
         label: str
@@ -253,9 +222,16 @@ def cmd_extract(args):
         from openai import OpenAI
     except ImportError:
         sys.exit("openai not installed.")
-    api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
     if not api_key:
         sys.exit("OPENAI_API_KEY not set.")
+    if not api_key.startswith("sk-"):
+        sys.exit("OPENAI_API_KEY does not start with 'sk-'. Check for stray characters.")
+    try:
+        api_key.encode("ascii")
+    except UnicodeEncodeError:
+        sys.exit("OPENAI_API_KEY contains non-ASCII characters (e.g. ç, ü). "
+                 "Re-export the key without extra characters.")
     client = OpenAI(api_key=api_key)
 
     pdf_dir = Path(args.pdf_dir)
@@ -576,14 +552,6 @@ def parse_args():
 
 
 if __name__ == "__main__":
-    # httpx2 encodes headers as ASCII; force UTF-8 mode if not already set
-    import os, sys
-    if not sys.flags.utf8_mode:
-        import subprocess
-        sys.exit(subprocess.call(
-            [sys.executable, "-X", "utf8"] + sys.argv,
-            env={**os.environ, "PYTHONUTF8": "1"}
-        ))
     args = parse_args()
     {"extract": cmd_extract, "review": cmd_review, "apply": cmd_apply,
      "merge": cmd_merge, "summarise": cmd_summarise}[args.cmd](args)
