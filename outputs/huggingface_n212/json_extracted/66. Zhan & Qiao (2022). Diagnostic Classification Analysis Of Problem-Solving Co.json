@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "file_name": "66. Zhan & Qiao (2022). Diagnostic Classification Analysis Of Problem-Solving Competence Using Process Data: An Item Expansion Method.pdf",
+    "title": "DIAGNOSTIC CLASSIFICATION ANALYSIS OF PROBLEM-SOLVING COMPETENCE USING PROCESS DATA: AN ITEM EXPANSION METHOD",
+    "authors": [
+      "Peida Zhan",
+      "Xin Qiao"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s11336-022-09855-9",
+    "venue": "Psychometrika",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2012 problem-solving process-log data for a single CBA item (TICKETS task 2, CP038Q01) and constructs a formatted process-data matrix by coding whether specific action sequences (“phantom items”) appear for each respondent. The analytic sample is restricted to respondents from the USA, Singapore, Austria, and Turkey with non-missing IDs and reached item responses (final N=3,760). The manuscript does not report applying PISA complex survey weights (e.g., student/sampling weights) or any replicate-weight procedure; therefore, weighting strategy is not documented for these diagnostic classification analyses. Missingness is handled at the outcome level via FIML, while the process-data matrix is reported as having no missing data after preprocessing and action-sequence filtering."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are diagnostic-classification latent classes/attribute patterns and higher-order latent ability estimates derived from a diagnostic classification model (GDINA/HO-DINA) and a partial credit model for the single item, rather than PV-based achievement scores. Missing data handling is described as full information maximum likelihood (FIML) with EM for the outcome (item response) dataset; in the provided mapping, FIML/EM corresponds to multiple_imputation in this schema. The paper does not provide a detailed missing-data mechanism or an explicit imputation model for the outcome categories, so the exact statistical assumptions behind the FIML treatment are not fully documented.",
+    "sample_details": {
+      "total_students": 3760,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "AUT",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Selected respondents from the USA, Singapore, Austria, and Turkey from the provided PISA 2012 CBA process-log file (CBA_cp038q01_logs12_SPSS.csv). Excluded respondents with missing IDs and those with not-reached item responses, yielding an analytic sample of 3,760. For process data, unformatted action-sequence logs were preprocessed to remove irrelevant/noisy actions and to dichotomize repeated actions (nonzero counts set to 1). Phantom items (action sequences) were retained only if their appearance rate was between 5% and 95%, and further filtered using theory and DCM identifiability requirements; the final formatted process-data matrix coded 1/0 for the presence of each of 14 phantom items. For outcome data (item response categories 0/1/2), missing outcome responses were handled using FIML with EM."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 Problem Solving (TICKETS task 2, CP038Q01) — action-level process data",
+        "target_variable": "Diagnostic classification of problem-solving skills (latent attribute patterns / latent classes)",
+        "top_predictors": [],
+        "performance_metrics": "Model fit: HO-GDINA test-level RMSEA2=0.032 (90% CI [0.025, 0.041]) and SRMSR=0.033; relative fit favored HO-DINA over HO-GDINA (AIC/BIC/CAIC/SABIC; likelihood ratio test p=0.180).",
+        "standardized_conclusion": "Using PISA 2012 Problem Solving (TICKETS task 2, CP038Q01) action-level process data, the study leveraged a GDINA-based diagnostic classification framework with phantom items derived from action sequences to estimate latent attribute patterns for five problem-solving skills, finding that the estimated latent classes provided more detailed diagnoses than the observed 0/1/2 outcome score categories. This indicates that process-data-informed diagnostic classification can support more fine-grained identification of which specific skills students have mastered or missed, beyond coarse score categories, though the study is limited to one item and relies on expert-driven Q-matrix construction."
+      },
+      {
+        "dataset_used": "PISA 2012 Problem Solving (TICKETS task 2, CP038Q01) — outcome vs process-based latent ability",
+        "target_variable": "Problem-solving ability estimates (higher-order latent ability from HO-DINA vs unidimensional ability from PCM)",
+        "top_predictors": [],
+        "performance_metrics": "Correlation between θ1 (HO-DINA) and θ2 (PCM)=0.826 (p<0.001); average standard errors: θ1s significantly smaller than θ2s (one-tailed t(3759)=-115.58, p<0.001).",
+        "standardized_conclusion": "Using PISA 2012 Problem Solving (TICKETS task 2, CP038Q01) the study leveraged HO-DINA higher-order latent ability estimated from action-sequence phantom items and compared it to a PCM unidimensional latent ability estimated from the single item’s 0/1/2 outcome categories, finding that the higher-order latent ability reflected problem-solving ability more accurately and with smaller standard errors. This indicates that incorporating action-level process information can yield more precise estimates of students’ targeted problem-solving competence, suggesting that assessment programs could move toward process-informed scoring/diagnostics, while noting that the comparison is within a single-item demonstration."
+      },
+      {
+        "dataset_used": "PISA 2012 Problem Solving (TICKETS task 2, CP038Q01) — skill interaction structure",
+        "target_variable": "Interaction structure among problem-solving skills (condensation rule)",
+        "top_predictors": [],
+        "performance_metrics": "Relative model fit favored HO-DINA (conjunctive condensation rule) over HO-DINO (disjunctive) and HO-ACDM (compensatory); HO-DINA vs HO-GDINA likelihood ratio test p=0.180.",
+        "standardized_conclusion": "Using PISA 2012 Problem Solving (TICKETS task 2, CP038Q01) the study leveraged competing higher-order DCM condensation rules within the GDINA family and found that the interactions among problem-solving skills followed the conjunctive condensation rule (specific action sequences appeared only when all required skills were mastered). This indicates that diagnostic models for process data can capture theoretically meaningful “all-skills-required” dependencies, supporting instructional interventions that target missing skills jointly, while recognizing that the phantom-item set and Q-matrix were constructed with expert judgment."
+      }
+    ],
+    "outcome_summary": "This Psychometrika study proposes an item-expansion method that applies diagnostic classification modeling to action-level process data from a single PISA 2012 problem-solving CBA item (TICKETS task 2, CP038Q01). Respondents from the USA, Singapore, Austria, and Turkey were restricted to those with non-missing IDs and reached item responses (final N=3,760). The authors transformed unformatted action logs into a formatted binary matrix of 14 “phantom items” (action sequences) and estimated higher-order GDINA/HO-DINA models, selecting the best-fitting reduced model using RMSEA2/SRMSR and information criteria (AIC/BIC/CAIC/SABIC). They report that latent classes diagnose skill mastery patterns more finely than the observed 0/1/2 outcome categories, and that higher-order latent ability estimates correlate strongly with PCM estimates (r=0.826) while having significantly smaller standard errors (t(3759)=-115.58, p<0.001). Limitations include reliance on expert judgment for Q-matrix retrofitting and the use of only one item; additionally, the paper does not document survey-weight application for PISA sampling design.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

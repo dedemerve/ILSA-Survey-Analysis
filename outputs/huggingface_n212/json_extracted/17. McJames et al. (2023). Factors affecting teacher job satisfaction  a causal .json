@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "file_name": "17. McJames et al. (2023). Factors affecting teacher job satisfaction  a causal inference machine learning approach using data from TALIS 2018.pdf",
+    "title": "Factors affecting teacher job satisfaction: a causal inference machine learning approach using data from TALIS 2018",
+    "authors": [
+      "Nathan McJames",
+      "Andrew Parnell",
+      "others"
+    ],
+    "year": 2023,
+    "doi": "10.1080/00131911.2023.2200594",
+    "venue": "Educational Review",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": true,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the English subset of TALIS 2018, restricting the full international teacher/principal dataset to England and to primary and lower-secondary teachers (total n=4385). To obtain population-representative estimates and correct standard errors, the authors applied TALIS sampling weights and used the Balanced Repeated Replication (BRR) procedure described in the TALIS technical report. This indicates complex survey design handling rather than a simple unweighted analysis. Missingness in questionnaire variables was addressed via missRanger imputation before fitting the causal BART models, but the authors note that imputation uncertainty is not fully propagated into the main analysis, implying slightly optimistic confidence intervals."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable is a continuous teacher job satisfaction scale constructed from eight Likert items using confirmatory factor analysis by TALIS organisers, rather than a PV-based cognitive achievement score. Missing data handling is reported: the authors imputed missing responses using missRanger (a single imputation approach) to retain cases, but they explicitly state that uncertainty from imputation is not captured in the main analysis, which may widen true intervals.",
+    "sample_details": {
+      "total_students": 4385,
+      "countries": [
+        {
+          "country_code": "GBR",
+          "n_students": 4385
+        }
+      ],
+      "sample_filtering_criteria": "Used the TALIS 2018 dataset restricted to England only, including primary and lower-secondary teachers (2009 primary teachers and 2376 lower-secondary teachers). The outcome is teacher job satisfaction measured from eight Likert items combined into a continuous scale by TALIS organisers. The analytic sample includes teachers with missingness in used variables imputed via missRanger rather than deleted, and treatment/control indicators are defined as binary thresholds (e.g., CPD participation in the past year, part-time contract <90% hours)."
+    },
+    "ml_techniques": {
+      "primary": "BART",
+      "all_techniques": [
+        "BART"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "year_of_qualification",
+        "variable_name": "Year of qualification",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "degree_type",
+        "variable_name": "Degree type",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "self_efficacy",
+        "variable_name": "Self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "participation_cpd",
+        "variable_name": "CPD participation",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_cooperation",
+        "variable_name": "Teacher cooperation",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "school_level",
+        "variable_name": "School level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "qualification_years_experience",
+        "variable_name": "Years of experience",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "class_size",
+        "variable_name": "Class size",
+        "category": "school"
+      },
+      {
+        "variable_code": "out_of_field",
+        "variable_name": "Out-of-field teaching",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "public_school",
+        "variable_name": "Public school",
+        "category": "school"
+      },
+      {
+        "variable_code": "part_time_contract",
+        "variable_name": "Part-time contract",
+        "category": "teacher"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2018 (England) Teacher job satisfaction scale",
+        "target_variable": "Teacher job satisfaction (continuous scale)",
+        "top_predictors": [
+          "participation_cpd",
+          "induction",
+          "part_time_contract",
+          "team_teaching",
+          "observing"
+        ],
+        "performance_metrics": "Causal BART (bartCause) estimated ATEs with 95% confidence intervals; no single global predictive metric reported. CPD (>=4 CPD events): ATE 0.172 (95% CI [0.035, 0.309]); Induction: ATE 0.218 (95% CI [0.107, 0.329]); Part-time contract (<90% hours): ATE -0.216 (95% CI [-0.388, -0.044]). Team teaching and Observing: positive direction but wide CIs including zero (exact ATE values not reported in text).",
+        "standardized_conclusion": "Using TALIS 2018 (England) the study leveraged participation in CPD, induction, and part-time contract status (plus other covariates via a causal BART with propensity-score adjustment) to estimate average treatment effects on teacher job satisfaction, finding that CPD participation and induction have positive effects while part-time contracts reduce job satisfaction. This indicates that school leaders and education authorities should prioritize removing barriers to CPD and expanding induction supports for teachers, while investigating job-security and workload implications of part-time employment arrangements, though the estimates rely on causal assumptions and single-imputation of missing data."
+      }
+    ],
+    "outcome_summary": "The study applies causal inference machine learning using the bartCause package with Bayesian Additive Regression Trees (BART) to estimate average treatment effects on a continuous teacher job satisfaction scale in the English subset of TALIS 2018 (n=4385 teachers; 2009 primary, 2376 lower-secondary). The authors define multiple binary “treatments” (e.g., CPD participation in the past year, induction at a new school, observing other teachers, team teaching, mentoring, public school, class size threshold, out-of-field teaching, and part-time contracts) and estimate each treatment’s ATE independently while controlling for a common covariate set and including a propensity score estimated via BART. Key results show CPD (>=4 events) increases job satisfaction (ATE 0.172; 95% CI [0.035, 0.309]) and induction has the largest positive effect (ATE 0.218; 95% CI [0.107, 0.329]), while part-time contracts reduce job satisfaction (ATE -0.216; 95% CI [-0.388, -0.044]). Team teaching and observing show positive directions but wide uncertainty (CIs include zero). Limitations include reliance on causal identification assumptions (SUTVA, ignorability, overlap), single imputation of missing values via missRanger without propagating imputation uncertainty, and the fact that treatment effects are estimated from cross-sectional TALIS data.",
+    "research_design_type": "causal_observational",
+    "null_fields_interpretation": null
+  }
+}

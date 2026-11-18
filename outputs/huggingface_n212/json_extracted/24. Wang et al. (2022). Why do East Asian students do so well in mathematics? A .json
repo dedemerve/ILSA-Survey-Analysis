@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "file_name": "24. Wang et al. (2022). Why do East Asian students do so well in mathematics? A machine learning study.pdf",
+    "title": "Why do East Asian students do so well in mathematics? A machine learning study",
+    "authors": [
+      "F. Wang",
+      "Ronnel B. King"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s10763-022-10262-w",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS 2019 eighth-grade mathematics achievement and associated student, teacher, and principal questionnaire variables for five East Asian economies (Chinese Taipei, Hong Kong, Japan, Korea, Singapore). The manuscript reports handling of plausible values by running separate random-forest regressions for each of the five mathematics plausible values and averaging the results, but it does not report applying TIMSS complex-sample student/school weights or any replicate-weight procedure. Because the analysis is implemented with the R randomForest package and the paper does not mention weight-aware estimation tools (e.g., IEA IDB Analyzer, bifiesurvey, WeMix, intsvy), survey weights are not documented as being incorporated. Analysts using TIMSS microdata should consider whether to apply TIMSS sampling weights and replicate weights when estimating uncertainty, especially given the nested structure (students within classes/schools within economies)."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 21340,
+      "countries": [
+        {
+          "country_code": "TWN",
+          "n_students": 4915
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 3265
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 4446
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 3861
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 4853
+        }
+      ],
+      "sample_filtering_criteria": "Used TIMSS 2019 eighth-grade mathematics data for five East Asian economies only (Chinese Taipei, Hong Kong, Japan, Korea, Singapore). The analytic sample comprises 21,340 eighth-grade students, with associated mathematics teachers (n=1242) and principals (n=802) to supply classroom and school-level predictors. Mathematics achievement was modeled using the TIMSS mathematics achievement scale (number, algebra, geometry, data/probability) and handled missing questionnaire/scale inputs via MCMC multiple imputation in SPSS 26.0; the paper reports missingness was small (0–5.7%) and described as missing completely at random."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "students_confident_in_mathematics",
+        "variable_name": "confident in mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "students_like_learning_mathematics",
+        "variable_name": "like learning mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "students_value_mathematics",
+        "variable_name": "value mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "student_absenteeism",
+        "variable_name": "absenteeism",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "student_gender",
+        "variable_name": "gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "student_age",
+        "variable_name": "age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "student_ses",
+        "variable_name": "SES",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "instructional_clarity_in_mathematics_lessons",
+        "variable_name": "Instructional clarity in math",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "percent_of_students_taught_algebra_topics",
+        "variable_name": "Percent taught algebra topics",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "percent_of_students_taught_data_probability_topics",
+        "variable_name": "Percent taught data/prob topics",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "teaching_limited_by_student_needs",
+        "variable_name": "Teaching limited by student needs",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "disorderly_behavior_during_mathematics_lessons",
+        "variable_name": "Disorderly behavior in math",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "instructional_time_in_mathematics",
+        "variable_name": "Instructional time in mathematics",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "percent_of_students_taught_number_topics",
+        "variable_name": "Percent taught number topics",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "percent_of_students_taught_geometry_topics",
+        "variable_name": "Percent taught geometry topics",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "school_emphasis_on_academic_success",
+        "variable_name": "School emphasis on academic success",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_composition_by_socioeconomic_background",
+        "variable_name": "School composition by SES",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "students_sense_of_school_belonging",
+        "variable_name": "sense of school belonging",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_discipline_problems",
+        "variable_name": "School discipline problems",
+        "category": "school"
+      },
+      {
+        "variable_code": "safe",
+        "variable_name": "Safe",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "orderly_school",
+        "variable_name": "orderly school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "instruction_affected_by_mathematics_resource_shortages",
+        "variable_name": "Resource shortages for math instruction",
+        "category": "school"
+      },
+      {
+        "variable_code": "student_bullying",
+        "variable_name": "bullying",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (five East Asian economies: TWN, HKG, JPN, KOR, SGP)",
+        "target_variable": "Mathematics achievement (TIMSS scale; modeled via five plausible values)",
+        "top_predictors": [
+          "Students confident in mathematics",
+          "Student SES",
+          "School emphasis on academic success",
+          "Teaching limited by student needs",
+          "Students value mathematics"
+        ],
+        "performance_metrics": "Random forest regression with 22 predictors; tenfold cross-validation with five repeats. Whole East Asian sample: top 11 variables explained 49% of variance (R2=0.49) with RMSE=0.71; candidate sets: mean decreased MSE (Top 1: 0.78; Top 3: 0.66; Top 6: 0.59; Top 11: 0.53; Top 22: 0.52). Variable importance via mean decrease in accuracy (MDA).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics the study leveraged students’ confidence in mathematics, student SES, and school emphasis on academic success (plus teaching limitation by student needs and students’ value of mathematics) to predict mathematics achievement, finding that the top three predictors were students’ confidence in mathematics, socioeconomic status, and school emphasis on academic success. This indicates that mathematics improvement strategies in East Asian contexts may yield the largest returns by combining expectancy/engagement supports with SES-sensitive learning supports and school-level goal/expectation reforms, though the study is cross-sectional and does not establish causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes TIMSS 2019 eighth-grade mathematics achievement for five East Asian economies (Chinese Taipei, Hong Kong, Japan, Korea, Singapore; N=21,340 students) using a random-forest regression model with 22 socio-ecological predictors drawn from student, teacher, and principal questionnaires. Mathematics achievement was modeled on the TIMSS mathematics scale (number, algebra, geometry, data/probability) and handled plausible values by running separate random-forest regressions for each of the five plausible values and averaging the results. Missing data were addressed with MCMC multiple imputation in SPSS 26.0 (missingness 0–5.7%, described as missing completely at random). Model performance showed that the top 11 predictors explained 49% of variance (R2=0.49) with RMSE=0.71, and cross-validation indicated diminishing returns after the 11th variable (mean decreased MSE=0.53 for top 11 vs 0.52 for all 22). The paper does not report applying TIMSS complex-sample weights, and the cross-sectional TIMSS design limits causal interpretation of predictor importance.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

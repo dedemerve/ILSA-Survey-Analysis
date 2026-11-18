@@ -1,0 +1,327 @@
+{
+  "metadata": {
+    "file_name": "46. Peng et al. (2023). Examining ICT attitudes, use and support in blended learning settings for students’ reading performance_ Approaches of artificial intelligence and multilevel model.pdf",
+    "title": "Examining ICT attitudes, use and support in blended learning settings for students’ reading performance: Approaches of artificial intelligence and multilevel model",
+    "authors": [
+      "Y. Peng",
+      "et al."
+    ],
+    "year": 2023,
+    "doi": "10.1016/j.compedu.2023.104846",
+    "venue": "Computers & Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 reading literacy microdata for 15-year-olds from 32 OECD countries, restricted to students in blended test language classes based on questionnaire item IC152Q01HA (including cases where teachers and/or students used ICT). For the multilevel (HLM) stage, the authors explicitly implemented student weights to account for the complex design effects of PISA. The manuscript does not report a specific weight variable name, but it states that student weights were used in HLM to reflect PISA’s sampling design. For the RF feature-selection stage, the paper does not describe weight application; the reported RF performance is based on 10-fold cross-validation, while the HLM stage is the one that explicitly incorporates PISA weights."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 152218,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": 10554
+        },
+        {
+          "country_code": "AUT",
+          "n_students": 3519
+        },
+        {
+          "country_code": "BEL",
+          "n_students": 5416
+        },
+        {
+          "country_code": "CHL",
+          "n_students": 4263
+        },
+        {
+          "country_code": "CZE",
+          "n_students": 4722
+        },
+        {
+          "country_code": "DNK",
+          "n_students": 6207
+        },
+        {
+          "country_code": "EST",
+          "n_students": 3610
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 4410
+        },
+        {
+          "country_code": "FRA",
+          "n_students": 3884
+        },
+        {
+          "country_code": "DEU",
+          "n_students": 2198
+        },
+        {
+          "country_code": "GRC",
+          "n_students": 2933
+        },
+        {
+          "country_code": "HUN",
+          "n_students": 3251
+        },
+        {
+          "country_code": "ISL",
+          "n_students": 2358
+        },
+        {
+          "country_code": "IRL",
+          "n_students": 4306
+        },
+        {
+          "country_code": "ISR",
+          "n_students": 3284
+        },
+        {
+          "country_code": "ITA",
+          "n_students": 6646
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 1580
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 5035
+        },
+        {
+          "country_code": "LVA",
+          "n_students": 3212
+        },
+        {
+          "country_code": "LTU",
+          "n_students": 4657
+        },
+        {
+          "country_code": "LUX",
+          "n_students": 2845
+        },
+        {
+          "country_code": "MEX",
+          "n_students": 3635
+        },
+        {
+          "country_code": "NZL",
+          "n_students": 5416
+        },
+        {
+          "country_code": "POL",
+          "n_students": 3789
+        },
+        {
+          "country_code": "SVK",
+          "n_students": 3481
+        },
+        {
+          "country_code": "SVN",
+          "n_students": 3732
+        },
+        {
+          "country_code": "ESP",
+          "n_students": 20913
+        },
+        {
+          "country_code": "SWE",
+          "n_students": 4354
+        },
+        {
+          "country_code": "CHE",
+          "n_students": 3727
+        },
+        {
+          "country_code": "TUR",
+          "n_students": 4208
+        },
+        {
+          "country_code": "GBR",
+          "n_students": 6166
+        },
+        {
+          "country_code": "USA",
+          "n_students": 3907
+        }
+      ],
+      "sample_filtering_criteria": "Students from 32 OECD countries who completed the optional ICT familiarity questionnaires in PISA 2018 were selected. The analytic sample includes students in blended test language classes, operationalized using questionnaire item IC152Q01HA: students selecting ICT use by teachers alone (1), students alone (2), or both teachers and students (3) were included; cases where neither teachers nor students used ICT (4) were excluded. The dependent variable uses the 10 plausible values for PISA 2018 reading performance, and missing questionnaire variables were imputed using multiple imputation (m=10) before modeling."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School size",
+        "category": "school"
+      },
+      {
+        "variable_code": "CLSIZE",
+        "variable_name": "Class size",
+        "category": "school"
+      },
+      {
+        "variable_code": "STRATIO",
+        "variable_name": "Student-teacher ratio",
+        "category": "school"
+      },
+      {
+        "variable_code": "lnGDP",
+        "variable_name": "Log GDP per capita",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "INTICT",
+        "variable_name": "Interest in ICT",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COMPICT",
+        "variable_name": "Perceived ICT competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "AUTICT",
+        "variable_name": "Perceived ICT autonomy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SOIAICT",
+        "variable_name": "ICT as social interaction topic",
+        "category": "ict"
+      },
+      {
+        "variable_code": "DIGIPRE",
+        "variable_name": "Preference for digital reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PAPERPRE",
+        "variable_name": "Preference for paper reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EQUAFORM",
+        "variable_name": "Equal interest in formats",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "USESCH",
+        "variable_name": "ICT use at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUTSIDE",
+        "variable_name": "Subject ICT use outside lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTCLASS",
+        "variable_name": "Subject ICT use during lessons",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use outside for entertainment",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use outside for schoolwork",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT available at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT available at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "RATCMP1",
+        "variable_name": "Computers per student",
+        "category": "ict"
+      },
+      {
+        "variable_code": "RATCMP2",
+        "variable_name": "Internet-connected computers share",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTSKIT",
+        "variable_name": "ICT skills taught by teachers",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SCHICTQUA",
+        "variable_name": "Quality of school ICT resources",
+        "category": "ict"
+      },
+      {
+        "variable_code": "TEACHICT",
+        "variable_name": "Teacher ICT use support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "school_ict_promotion",
+        "variable_name": "School ICT promotion",
+        "category": "ict"
+      },
+      {
+        "variable_code": "regulation",
+        "variable_name": "regulation",
+        "category": "student_behavior"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (15-year-olds, 32 OECD countries; blended test language classes; PV_1–PV_10)",
+        "target_variable": "Reading performance (PISA 2018 plausible values)",
+        "top_predictors": [
+          "Socioeconomic status (ESCS)",
+          "ICT use at school",
+          "Interest in ICT",
+          "ICT use outside for schoolwork",
+          "ICT use outside for entertainment"
+        ],
+        "performance_metrics": "Random Forest (10-fold cross-validation): MSE=6319.33, MAE=63.19, R²=0.38; optimal feature set retained 27 ICT-related factors; feature importance via Gini; HLM used f² effect sizes (small/medium/large thresholds).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for 15-year-olds in blended test language classes, the study leveraged ESCS, ICT use at school, interest in ICT, ICT use outside for schoolwork, and ICT use outside for entertainment to predict reading performance, finding that the combined ICT-related feature set collectively predicted reading outcomes with moderate explanatory power (RF R²=0.38) and that student-level ICT factors were most important in the feature ranking. This indicates that blended-reading improvement strategies should prioritize student ICT attitudes and appropriate ICT use patterns (not only access), while also accounting for socioeconomic differences, though the cross-sectional design limits causal interpretation."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 reading literacy for 15-year-olds from 32 OECD countries, restricted to blended test language classes based on IC152Q01HA and using the 10 plausible values for reading performance (PV_1–PV_10). In Stage 1, a Random Forest regression with 10-fold cross-validation (100 trees; 27 retained ICT-related factors) achieved MSE=6319.33, MAE=63.19, and R²=0.38, and produced a relative importance ranking (Gini importance). In Stage 2, hierarchical linear modeling (HLM 8) incorporated the nested student–school–country structure and used student weights plus multiple imputation (m=10) for missing variables; the authors report ICCs and f² effect sizes to support multilevel modeling. Key results show positive associations for perceived ICT competence/autonomy and reading-format preferences, negative associations for ICT as a social-interaction topic, and curvilinear (inverted U / diminishing returns) effects for several ICT attitudes, uses, and resources. Limitations include cross-sectional inference and the fact that RF feature importance is predictive rather than causal.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

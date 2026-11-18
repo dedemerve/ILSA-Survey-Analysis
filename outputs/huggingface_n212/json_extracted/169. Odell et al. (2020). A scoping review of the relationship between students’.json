@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "file_name": "169. Odell et al. (2020). A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data.pdf",
+    "title": "A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data",
+    "authors": [
+      "Maria Cutumisu",
+      "Bryce Odell",
+      "Mark Gierl"
+    ],
+    "year": 2020,
+    "doi": "10.1007/s11218-020-09591-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article is a scoping literature review that synthesizes secondary quantitative studies using PISA data (2000–2015) rather than re-analyzing a student-level dataset. Because no original PISA microdata are analyzed in this review, there is no reported application of PISA sampling weights or replicate-weight procedures (e.g., BRR/jackknife) within the review’s own analyses. The included studies vary in their analytic approaches (e.g., HLM, MLR, SEM, propensity score matching), and the review does not standardize or re-compute weighted estimates across studies. For interpreting the synthesized findings, readers should consult each primary study’s documentation for how PISA’s complex survey design and plausible-value scaling were handled."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because this work is a scoping review that does not conduct an original empirical analysis of PISA achievement scores. Instead, it summarizes results reported in 25 secondary publications that used PISA ICT Familiarity Questionnaire variables as predictors and mathematics/science outcomes as reported by those studies. Missing-data handling is not reported at the review level because the review does not fit models to a pooled dataset; it only aggregates conclusions from prior papers.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "CHN",
+          "n_students": null
+        },
+        {
+          "country_code": "CZE",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        },
+        {
+          "country_code": "DEU",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "CHE",
+          "n_students": null
+        },
+        {
+          "country_code": "THA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "No analytic subsample is defined by the review itself because it does not analyze PISA microdata. Instead, the review applies inclusion criteria to identify secondary studies: quantitative studies using PISA data from any iteration between 2000 and 2015; ICT Familiarity Questionnaire items/subscales as predictor variables; plausible mathematics and/or science values as outcomes; and exclusion of studies that did not conduct quantitative statistics on PISA numerical data. The review also organizes ICT constructs into nine PISA ICT Familiarity Questionnaire contexts (e.g., ICT use at home for schoolwork, ICT availability at school, interest in ICT, perceived competence/autonomy, and ICT use in social interactions)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA",
+        "target_variable": "science performance",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA the study leveraged the reported predictors to predict science performance, finding that This scoping review synthesizes 25 secondary quantitative studies that used PISA data (2000–2015) and the PISA ICT Familiarity Questionnaire to examine how students’ ICT interactions relate to mathematics and science performance for 15-year-olds. The review reports mixed and context-dependent associations: some ICT contexts show positive relationships (notably perceived autonomy and, in many studies, ICT interest/competence), while other contexts show negative or null relationships depending on subject and country. The review emphasizes that the ICT–achievement relationship varies by ICT type (use vs availability vs interest vs autonomy vs social inclusion) and by country context, and it notes that all included studies are correlational and cross-sectional, limiting causal interpretation. Methodologically, the included studies use a range of approaches (e.g., multiple linear regression, HLM, SEM, logistic regression, propensity score matching, instrumental variables), but the review does not re-estimate effects or harmonize weighting/PV handling across studies. The main practical takeaway is that “moderate” ICT use and autonomy-oriented ICT engagement may be more beneficial than very low or very high use, though the evidence base remains heterogeneous. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This scoping review synthesizes 25 secondary quantitative studies that used PISA data (2000–2015) and the PISA ICT Familiarity Questionnaire to examine how students’ ICT interactions relate to mathematics and science performance for 15-year-olds. The review reports mixed and context-dependent associations: some ICT contexts show positive relationships (notably perceived autonomy and, in many studies, ICT interest/competence), while other contexts show negative or null relationships depending on subject and country. The review emphasizes that the ICT–achievement relationship varies by ICT type (use vs availability vs interest vs autonomy vs social inclusion) and by country context, and it notes that all included studies are correlational and cross-sectional, limiting causal interpretation. Methodologically, the included studies use a range of approaches (e.g., multiple linear regression, HLM, SEM, logistic regression, propensity score matching, instrumental variables), but the review does not re-estimate effects or harmonize weighting/PV handling across studies. The main practical takeaway is that “moderate” ICT use and autonomy-oriented ICT engagement may be more beneficial than very low or very high use, though the evidence base remains heterogeneous.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is a scoping literature review rather than an empirical ML/predictive study. Therefore, there is no single student-level dataset, no model training/evaluation, no reported PV-handling or missing-data strategy at the review level, and no per-country sample sizes for the review itself. The review’s results are qualitative syntheses of prior studies’ reported directions of association (positive/negative/null) across ICT constructs and mathematics/science outcomes."
+  }
+}

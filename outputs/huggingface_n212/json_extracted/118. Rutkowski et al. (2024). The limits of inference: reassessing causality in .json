@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "file_name": "118. Rutkowski et al. (2024). The limits of inference: reassessing causality in international assessments.pdf",
+    "title": "The limits of inference: reassessing causality in international assessments",
+    "authors": [
+      "David Rutkowski",
+      "Leslie Rutkowski",
+      "Greg Thompson",
+      "Yusuf Canbolat"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00197-9",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article is a conceptual and methodological critique of causal inference claims using international large-scale assessment (ILSA) data, not an empirical analysis of ILSA microdata. As such, it does not define an analytic sample from PIRLS/PISA/TIMSS microdata, does not report any sampling or replicate-weighting scheme, and does not specify weight variables (e.g., W_FSTUWT, TOTWGT) for estimation. The discussion instead focuses on design assumptions in randomized controlled trials and quasi-experimental approaches (e.g., potential outcomes framework, SUTVA, parallel trends) and how ILSA features (cross-country heterogeneity, standardization, country-level treatment measures, and limited longitudinal linkage) constrain causal validity. Therefore, there are no weight-based data preparation steps to apply for model estimation in this paper."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This paper does not conduct an empirical ILSA-based estimation with a cognitive achievement dependent variable; instead, it reviews and critiques causal inference approaches and discusses limitations of quasi-experimental designs when applied to ILSA data. Because there is no PV-based outcome modeling (and no reported PV estimation pipeline), plausible values handling is not applicable. Missing-data handling is also not reported because the paper is not fitting statistical models to an ILSA dataset with item nonresponse or PV generation.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No analytic sample is constructed from ILSA microdata. The paper synthesizes and critiques prior studies (including examples using PIRLS and other quasi-experimental designs) rather than estimating models on a newly defined student-level dataset."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [],
+    "outcome_summary": "This article does not estimate predictive or causal effects using ILSA microdata; instead, it reassesses the validity of causal claims made with ILSA data. It contrasts randomized controlled trials with quasi-experimental designs grounded in the potential outcomes framework, emphasizing that quasi-experimental identification relies on strong, often untestable assumptions. Using illustrative examples, it argues that ILSA-specific features—cross-country heterogeneity, assessment standardization, limited ability to define exogenous treatments, and frequent reliance on country-level treatment measures—undermine key causal conditions such as equivalence of groups in expectation (parallel trends) and the stability/no-hidden-variation assumptions. The paper concludes with a framework for critically evaluating quasi-experimental designs using ILSAs and recommends caution in translating statistical associations into policy-relevant causal interpretations.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The extraction yields null sample and ML fields because the manuscript is a conceptual/methodological review and critique rather than an empirical study with an analytic dataset, model training, or reported performance metrics. It discusses causal inference frameworks and evaluates the plausibility of causal assumptions in prior quasi-experimental studies that use ILSA data, so there is no student-level PV handling, missing-data strategy, or weighting scheme to extract."
+  }
+}

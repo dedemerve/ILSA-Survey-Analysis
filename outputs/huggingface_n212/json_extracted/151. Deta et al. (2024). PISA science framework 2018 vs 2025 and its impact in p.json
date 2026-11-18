@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "file_name": "151. Deta et al. (2024). PISA science framework 2018 vs 2025 and its impact in physics education: Literature review.pdf",
+    "title": "PISA science framework 2018 vs 2025 and its impact in physics education: Literature review",
+    "authors": null,
+    "year": 2024,
+    "doi": "10.21067/mpej.v8i1.9215",
+    "venue": "Momentum: Physics Education Journal",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This paper is a descriptive literature review (SLR) combined with bibliometric analysis, not an analysis of student microdata from PISA. Therefore, there is no sampling frame of students/schools and no application of PISA sampling weights or replicate weights (e.g., BRR/jackknife). The study does not generate or scale achievement scores (PVs) from respondents; instead, it synthesizes and maps the conceptual structure of the PISA science frameworks (2018/2015–2018 vs 2025). As a result, weighting variables from PISA databases are not relevant to the reported findings."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values (PVs) are not applicable because the study does not estimate or model PISA achievement outcomes from student responses; it compares framework components (contexts, knowledge, competencies, and science identity) and summarizes literature trends. Missing-data handling is not reported because there is no respondent-level dataset with item nonresponse or PV generation; the analysis is based on article collection and bibliometric visualization rather than statistical estimation on microdata.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "Used a systematic literature review (SLR) approach with bibliometric analysis. Articles were collected from Google Scholar and Scopus using keywords related to 'PISA Science Framework', 'Science Literacy', or combinations thereof; the paper does not report an analytic student sample because it does not analyze PISA microdata."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2025 science framework through a systematic li",
+        "target_variable": "science literacy",
+        "top_predictors": [
+          "building on the 2015 science literacy structure"
+        ],
+        "performance_metrics": "2018 (building on the 2015 science literacy structure)",
+        "standardized_conclusion": "Using PISA 2025 science framework through a systematic li data, the document summarizes science literacy in relation to building on the 2015 science literacy structure, reporting that This article compares the PISA science literacy framework used in 2018 (building on the 2015 science literacy structure) with the newer PISA 2025 science framework through a systematic literature review (SLR) and bibliometric analysis. This indicates that The study’s implication is curricular and instructional: physics education should align learning activities with the 2025 emphasis on applying scientific information for decision-making and action, while also supporting ."
+      }
+    ],
+    "outcome_summary": "This article compares the PISA science literacy framework used in 2018 (building on the 2015 science literacy structure) with the newer PISA 2025 science framework through a systematic literature review (SLR) and bibliometric analysis. Rather than estimating student achievement, it synthesizes how the framework’s components change: PISA 2018 is organized around contexts, competencies, and knowledge (including procedural and epistemic knowledge), while PISA 2025 reorganizes competencies and adds science identity (science capital/epistemic beliefs, attitudes/dispositions, and environmental awareness/agency). The bibliometric network visualizations (e.g., VOSviewer) are used to identify clusters and research trends linking scientific literacy, nature of science, and physics learning. The study’s implication is curricular and instructional: physics education should align learning activities with the 2025 emphasis on applying scientific information for decision-making and action, while also supporting inquiry design and critical interpretation of evidence.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The extraction contains no student-level sample sizes, PV handling, missing-data strategy, or ML model evaluation because the paper is a literature review and bibliometric mapping rather than an empirical predictive/causal analysis of PISA microdata. Consequently, fields such as total_students, countries, and main_findings (structured predictive outcomes) are intentionally empty."
+  }
+}

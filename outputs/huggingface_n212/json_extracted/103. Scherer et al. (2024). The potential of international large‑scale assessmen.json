@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "file_name": "103. Scherer et al. (2024). The potential of international large‑scale assessments for meta‑analyses in education.pdf",
+    "title": "The potential of international large-scale assessments for meta-analyses in education",
+    "authors": [
+      "Ronny Scherer",
+      "Tobias Nilsen",
+      "Felix Scherer"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00191-1",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article is a methodological review of how meta-analysts can include international large-scale assessment (ILSA) data in education meta-analyses; it does not estimate student-level outcomes from an ILSA micro-dataset. Consequently, there is no analytic sample drawn from PISA/TIMSS/PIRLS/ICILS microdata for which student or replicate weights would be applied. The paper instead discusses, at a conceptual level, that correct effect-size extraction from ILSA primary studies requires accounting for complex survey design features (e.g., multistage clustering, sampling weights, variance estimation via replicate/jackknife methods, and plausible value-based achievement estimation). For practitioners implementing the recommended approaches, the weighting and variance-estimation steps should follow the ILSA technical documentation and the effect-size computation guidance cited in the review (e.g., Rutkowski et al., 2010; Rust, 2014)."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This is a methodological review (and systematic review of existing meta-analyses) rather than an empirical analysis predicting student outcomes from ILSA microdata. Therefore, plausible values (PVs) and missing-data handling strategies are not implemented or reported as part of the study’s own estimation pipeline. The paper discusses PV-based achievement estimation and complex survey design considerations as requirements for future meta-analytic implementations, but it does not execute those computations on a new PV-based dataset.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "Systematic review of meta-analyses: searched ERIC and PsycINFO (plus hand-searching key journals and PsyArXiv), screened meta-analyses published in English between 1995 and 2020, required full-text availability, and applied topic- and eligibility-based inclusion/exclusion criteria (e.g., correlational/observational relations for gender/SES vs achievement; excluded effectiveness/intervention meta-analyses; excluded outcomes not assessed in ILSAs; excluded non-ILSA-eligible samples such as primary-school-only or medically selected groups)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [],
+    "outcome_summary": "This methodological review synthesizes principles and practices for integrating international large-scale assessment (ILSA) data into education meta-analyses, focusing on two substantive contexts: gender differences and socioeconomic status (SES) gaps in student achievement. It proposes an analytic framework with four effect-size inclusion approaches: separate meta-analyses, indirect inclusion via Bayesian meta-analysis, one-stage direct inclusion, and two-stage direct inclusion. Across the systematic review of existing meta-analyses, the authors report that ILSA data were not eligible for all meta-analyses and that inclusion was limited, with only one gender meta-analysis explicitly addressing dependence structures via multilevel meta-analysis. The paper emphasizes that correct effect-size extraction from ILSA requires accounting for complex survey design (weights, clustering, variance estimation) and plausible-value achievement estimation, and that meta-analytic data structures can introduce secondary clustering that may require multilevel meta-analysis or robust variance estimation. Limitations include that the framework’s performance is not evaluated via simulations or large-scale meta-analytic benchmarking.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is not an empirical ML study and does not train or evaluate predictive models on ILSA microdata. It is a methodological and systematic review of how ILSA data have been included in prior meta-analyses, so there is no student-level target variable, no analytic sample of students, and no PV/missing-data handling implemented by the authors’ own estimation pipeline."
+  }
+}

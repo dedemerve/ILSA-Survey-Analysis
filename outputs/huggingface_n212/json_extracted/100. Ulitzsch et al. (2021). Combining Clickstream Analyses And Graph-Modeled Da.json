@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "file_name": "100. Ulitzsch et al. (2021). Combining Clickstream Analyses And Graph-Modeled Data Clustering For Identifying Common Response Processes.pdf",
+    "title": "Combining Clickstream Analyses and Graph-Modeled Data Clustering for Identifying Common Response Processes",
+    "authors": [
+      "Esther Ulitzsch",
+      "et al."
+    ],
+    "year": 2021,
+    "doi": "10.1007/s11336-020-09743-0",
+    "venue": "Psychometrika",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PIAAC 2012 PSTRE interactive task process data (item U01a) and constructs action-pattern similarity graphs from time-stamped action sequences. The analytic sample is restricted to examinees with a correct response and further reduced to a randomly chosen subset (N=225) because solving the cluster-editing ILP for the full set was computationally infeasible. The manuscript does not report applying PIAAC complex survey weights (e.g., student/sampling weights) or replicate-weight procedures; therefore, population-representativeness of the discovered response-process cliques cannot be assumed. Weighting is not discussed as part of the clustering/ILP workflow, which focuses on graph structure derived from observed action sequences and action-level times."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper uses PSTRE plausible values (PV) to relate discovered response-process cliques to external performance, but it does not describe a PV-combining rule (e.g., Rubin’s rules) or the exact PV aggregation strategy used in the reported summaries. Missing-data handling is also not documented for the PVs or for the process-log variables used to build action patterns, which is a reporting gap because PV-based analyses in ILSA typically require explicit handling of missingness and PV replication/combining.",
+    "sample_details": {
+      "total_students": 225,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": 225
+        }
+      ],
+      "sample_filtering_criteria": "Uses the PIAAC 2012 US sample process data for a single PSTRE item (U01a). The analysis includes only examinees with a correct response (678 correct in total) and then restricts to a randomly chosen subset of N=225 (about one third) because the ILP-based cluster edge deletion could not be solved for the full correct sample within a reasonable time (<3 days). The item’s initial 'start' action is dropped (time-to-action would be zero by definition), and non-essential actions are aggregated into higher-level action categories, yielding 36 aggregated actions for constructing action sequences and action-level times."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "age",
+        "variable_name": "Age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "PSTRE_PV",
+        "variable_name": "PSTRE plausible values",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (US) Item U01a process data",
+        "target_variable": "Dominant response processes (clique structure from action patterns)",
+        "top_predictors": [
+          "Age",
+          "PSTRE plausible values"
+        ],
+        "performance_metrics": "Not reported (graph-based clustering outputs: number of edges deleted and number of cliques; no predictive accuracy metric). Action-based similarity: 15,385 edges with 60.57% deleted; modified time-related similarity: 4,577 edges with 70.48% deleted; original similarity: 1,006 edges with 73.06% deleted. Edited graphs yield 30, 73, and 140 cliques (action-based, modified, original).",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE (US) Item U01a process data, the study leveraged Age and PSTRE plausible values as external covariates to interpret the discovered dominant response processes, finding that incorporating action-level times into the action-pattern similarity substantially increased edge deletions and produced more, smaller, and more differentiated cliques than action-only similarity. This indicates that fine-grained timing information can improve the granularity and interpretability of response-process typologies for interactive assessment design, though the clustering is exploratory and not a supervised predictive model."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (US) Item U01a process data",
+        "target_variable": "PSTRE performance differentiation across response-process cliques",
+        "top_predictors": [
+          "Age",
+          "PSTRE plausible values"
+        ],
+        "performance_metrics": "Not reported as a single model metric; reported descriptive PV summaries by clique. The paper states: action-only dominant processes were not predictive of proficiency levels, while within-strategy groups, lower time on the most common LCS tended to correspond to higher PSTRE PVs; age showed a similar pattern (older examinees typically required more time on the most common LCS, and Clique 4b had the highest mean age and highest median time on the most common LCS).",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE (US) Item U01a process data, the study leveraged Age and PSTRE plausible values to examine whether the discovered response-process cliques carry information about proficiency, finding that action-only dominant strategies did not predict PSTRE proficiency levels but that adding action-level timing supported further differentiation within strategies. This indicates that assessment analytics should incorporate action-level timing (not just action types or total time) when using process data to support validity arguments about proficiency-related response processes, while causality cannot be inferred from these descriptive associations."
+      }
+    ],
+    "outcome_summary": "The paper proposes an exploratory two-step workflow for identifying common response processes in interactive tasks: (1) compute similarity between examinees’ time-stamped action patterns using an LCS-based measure that can be made sensitive or less sensitive to action-level timing, and (2) apply cluster edge deletion (a cluster-editing/ILP graph clustering method) to obtain homogeneous cliques representing dominant and idiosyncratic response processes. The empirical illustration uses PIAAC 2012 PSTRE process data for the US sample, focusing on item U01a and a correct-response subset (N=225) due to computational constraints. Incorporating action-level times increased edge deletions and produced substantially more cliques (e.g., 30 vs 73 vs 140 depending on similarity sensitivity), indicating greater differentiation of response processes. When relating cliques to PSTRE plausible values, action-only dominant processes were not predictive of proficiency, whereas timing-informed cliques supported differentiation within strategies; age showed related patterns. Limitations include the exploratory nature, lack of reported survey-weight usage, and no single supervised predictive performance metric.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is an exploratory process-data clustering paper rather than a supervised predictive ML study: it does not train a predictive model with accuracy/AUC/RMSE metrics. Consequently, ml_techniques are left empty (no supervised learner is evaluated), and the main outputs are graph-clustering results (edge deletions, clique counts, and descriptive PV differentiation)."
+  }
+}

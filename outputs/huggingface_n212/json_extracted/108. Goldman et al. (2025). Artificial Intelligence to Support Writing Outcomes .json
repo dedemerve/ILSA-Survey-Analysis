@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "file_name": "108. Goldman et al. (2025). Artificial Intelligence to Support Writing Outcomes for Students With Disabilities.pdf",
+    "title": "Artificial Intelligence to Support Writing Outcomes for Students With Disabilities",
+    "authors": [
+      "Samantha R. Goldman",
+      "Sean J. Smith",
+      "Adam Carreon"
+    ],
+    "year": 2025,
+    "doi": "10.1177/01626434251326328",
+    "venue": "Journal of Special Education Technology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This article does not analyze NAEP microdata or any ILSA student-level dataset; instead, it provides a conceptual crosswalk between NAEP writing criteria and examples of AI tools used in preK-12 writing instruction. Because no student assessment dataset is modeled, there is no sampling frame, no complex survey design, and no application of NAEP/PV survey weights (e.g., student weights or replicate weights). The discussion is instructional and descriptive (tool categories, AI literacy, and step-by-step integration aligned to NAEP domains), so weighting guidance is not applicable to estimation. Any interpretation of “benchmarks” is therefore limited to the NAEP criteria described, not to model-based, weight-adjusted performance estimates from this paper."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This paper is not an empirical ILSA/NAEP microdata analysis predicting or estimating student achievement scores; it is a narrative review/crosswalk describing AI tool types and how they could support writing skills aligned to NAEP criteria. Because there is no dependent variable constructed from NAEP Plausible Values (PV) and no statistical model estimating PV-based outcomes, PV handling is not applicable. Similarly, the paper does not report any missing-data strategy because it does not fit an analytic model to a dataset with missing observations.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No analytic sample is defined because the article does not conduct an empirical study with student-level data; it synthesizes NAEP writing domains and provides a crosswalk to illustrative AI tools and implementation guidance."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset)",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset) the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that The article does not estimate effects of AI on student writing outcomes using NAEP or any other large-scale assessment microdata. Instead, it describes NAEP writing criteria (development of ideas, organization of ideas, and language facility/conventions) and maps these criteria to categories of AI tools (e.g., generative pre-trained transformers, intelligent tutoring systems, and natural language tools) with examples such as Book Creator, Text Buddy, Ahrefs, QuillBot, Co:Writer, Grammarly, Ginger, WonderAI, and EditGPT. It also provides an implementation sequence (brainstorming/planning, drafting/development, and editing/revising) and emphasizes AI literacy, including privacy, accessibility, and safe/critical use. The main limitation is that the paper’s conclusions are not based on model-based performance metrics (e.g., accuracy/RMSE) or causal identification; therefore, it cannot quantify how much AI improves writing benchmarks for students with disabilities. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "The article does not estimate effects of AI on student writing outcomes using NAEP or any other large-scale assessment microdata. Instead, it describes NAEP writing criteria (development of ideas, organization of ideas, and language facility/conventions) and maps these criteria to categories of AI tools (e.g., generative pre-trained transformers, intelligent tutoring systems, and natural language tools) with examples such as Book Creator, Text Buddy, Ahrefs, QuillBot, Co:Writer, Grammarly, Ginger, WonderAI, and EditGPT. It also provides an implementation sequence (brainstorming/planning, drafting/development, and editing/revising) and emphasizes AI literacy, including privacy, accessibility, and safe/critical use. The main limitation is that the paper’s conclusions are not based on model-based performance metrics (e.g., accuracy/RMSE) or causal identification; therefore, it cannot quantify how much AI improves writing benchmarks for students with disabilities.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The extraction yields no empirical ML outputs because the manuscript is a narrative review/crosswalk rather than a dataset-driven predictive or causal study. As a result, there is no student-level sample, no PV-based outcome modeling, no missing-data handling procedure, and no reported ML algorithm evaluation metrics."
+  }
+}

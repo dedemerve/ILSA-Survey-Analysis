@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "file_name": "69. Hernández‑Torrano & Courtney. (2021). Modern international large‑scale assessment in education: an integrative review and mapping of the literature.pdf",
+    "title": "Modern international large-scale assessment in education: an integrative review and mapping of the literature",
+    "authors": [
+      "Hernández-Torrano",
+      "Courtney"
+    ],
+    "year": 2021,
+    "doi": "10.1186/s40536-021-00109-1",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This integrative bibliometric review does not analyze student-level ILSA microdata (e.g., PISA/TIMSS/PIRLS/ICCS/ICILS response data) and therefore does not implement ILSA sampling, plausible-value (PV) estimation, or complex survey weighting. Instead, the study constructs a corpus of publications using Web of Science metadata and then applies bibliometric and social-network mapping techniques (e.g., Bibliometrix and VOSviewer). Because no student responses or scaled scores are modeled, there are no ILSA weight variables (e.g., TOTWGT, W_FSTUWT) to apply. Consequently, weighting considerations are not applicable to the reported analyses; the “unit of analysis” is the publication record (journal/article/citations/authors/country affiliations), not a survey sample."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the paper does not estimate any cognitive achievement scales from ILSA student responses; it analyzes bibliographic metadata (publication counts, citations, keywords, and collaboration networks). Missing-data handling is not reported because there is no statistical modeling of missing questionnaire/test items or PVs; the only filtering described is document-type selection and duplicate removal in the Web of Science corpus.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "DEU",
+          "n_students": null
+        },
+        {
+          "country_code": "CHN",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "FIN",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The study builds a bibliometric corpus from Web of Science (SCI-Expanded, SSCI, A&HCI, ESCI) using six Topic-field searches conducted on April 22, 2021: five program-specific searches for PISA, TIMSS, PIRLS, ICCS, and ICILS (including wildcard year patterns) and one general search for ILSA/International Large Scale Assessment AND Education. The initial retrieval was 2,477 records, reduced to 2,287 after removing duplicates, and then filtered to include only document types 'articles' and 'reviews' (no language or year restrictions), yielding 2,233 publications. For each publication, the authors extract bibliographic metadata (title/abstract/keywords, year, journal, citations, references, and author affiliation country/territory)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper is a bibliometric mapping study of modern international large-scale assessment (ILSA) research in education. Using Web of Science metadata, the authors retrieved 2,477 records across SCI-Expanded, SSCI, A&HCI, and ESCI, removed duplicates, and retained 2,233 items restricted to document types 'articles' and 'reviews' (no language or year filters). They then applied descriptive bibliometric indicators (e.g., publication/citation trajectories, Standard Competition Ranking) and social-network mapping (co-authorship, co-citation, and keyword co-occurrence) with Bibliometrix and VOSviewer to address five research questions about growth, impact, collaboration structure, intellectual foundations, and thematic evolution. The results show an emerging field with exponential growth (1997–2020), strong concentration around PISA, and identifiable clusters of disciplines and research themes (e.g., measurement/testing, policy/reform, equity, interpersonal relationships, motivation). Because the unit of analysis is publications rather than student responses, the findings describe research patterns rather than causal or predictive effects on achievement. This indicates that quity, interpersonal relationships, motivation). Because the unit of analysis is publications rather than student responses, the findings describe research patterns rather than causal or predictive effects on achievement."
+      }
+    ],
+    "outcome_summary": "This paper is a bibliometric mapping study of modern international large-scale assessment (ILSA) research in education. Using Web of Science metadata, the authors retrieved 2,477 records across SCI-Expanded, SSCI, A&HCI, and ESCI, removed duplicates, and retained 2,233 items restricted to document types 'articles' and 'reviews' (no language or year filters). They then applied descriptive bibliometric indicators (e.g., publication/citation trajectories, Standard Competition Ranking) and social-network mapping (co-authorship, co-citation, and keyword co-occurrence) with Bibliometrix and VOSviewer to address five research questions about growth, impact, collaboration structure, intellectual foundations, and thematic evolution. The results show an emerging field with exponential growth (1997–2020), strong concentration around PISA, and identifiable clusters of disciplines and research themes (e.g., measurement/testing, policy/reform, equity, interpersonal relationships, motivation). Because the unit of analysis is publications rather than student responses, the findings describe research patterns rather than causal or predictive effects on achievement.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This extraction is intentionally sparse for student-level assessment fields because the article is a bibliometric review/mapping of published research rather than an empirical analysis of ILSA student microdata. As a result, there is no analytic sample of students, no PV-based achievement outcome, no survey weighting, and no ML predictive modeling of educational performance. The methodological core is corpus construction from Web of Science and subsequent bibliometric/network analyses, so fields related to PV handling, missing item responses, and predictive model performance are not applicable."
+  }
+}

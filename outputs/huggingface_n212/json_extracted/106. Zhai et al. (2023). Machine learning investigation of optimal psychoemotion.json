@@ -1,0 +1,139 @@
+{
+  "metadata": {
+    "file_name": "106. Zhai et al. (2023). Machine learning investigation of optimal psychoemotional well-being factors for students’ reading literacy.pdf",
+    "title": "Machine learning investigation of optimal psychoemotional well-being factors for students’ reading literacy",
+    "authors": null,
+    "year": 2024,
+    "doi": "10.1007/s10639-024-12580-8",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the publicly available PISA 2018 student questionnaire dataset for the B-S-J-Z (China) regions and constructs an analytic sample of 3497 students after excluding missing/invalid records. The dependent variable is a binary indicator of reading literacy (high vs low) derived from PISA reading cut scores, while the predictors are psychoemotional well-being factors operationalized from PISA questionnaire items and scales. The manuscript does not report applying PISA sampling weights or replicate weights (e.g., BRR/jackknife) in the ML training/evaluation pipeline; instead, it describes preprocessing (one-hot encoding, Min-Max scaling), a train/test split, and SVM-RFE-CV with accuracy as the optimization metric. Because the analysis is implemented with standard scikit-learn-style ML workflows and does not mention complex survey design adjustments, the results should be interpreted as predictive classification performance on the selected sample rather than fully population-representative estimates."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 3497,
+      "countries": [
+        {
+          "country_code": "CHN",
+          "n_students": 3497
+        }
+      ],
+      "sample_filtering_criteria": "Used the PISA 2018 public dataset and restricted to the B-S-J-Z (Beijing, Shanghai, Jiangsu, Zhejiang) regions within China. The analytic sample includes 3497 students after excluding rows with missing values or invalid data. Reading literacy was dichotomized using PISA cut scores: high-level corresponds to scores at or above 625.61 (Level 5+), and low-level corresponds to scores below 407.47 (Level 2 or below)."
+    },
+    "ml_techniques": {
+      "primary": "SVM",
+      "all_techniques": [
+        "Logistic Regression",
+        "Decision Tree",
+        "Random Forest",
+        "Gradient Boosting",
+        "SVM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "Gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "DISCLIMA",
+        "variable_name": "Disciplinary climate",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "SBHL",
+        "variable_name": "behavior hindering learning",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "DIRINS",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Teacher feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "STIMREAD",
+        "variable_name": "Reading engagement stimulation",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ATTLNACT",
+        "variable_name": "Value of school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "STULS",
+        "variable_name": "Life satisfaction",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EUDMO",
+        "variable_name": "Meaning in life",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MASTGOAL",
+        "variable_name": "Learning goals",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COMPETE",
+        "variable_name": "Attitudes toward competition",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMOSUPS",
+        "variable_name": "Parents emotional support",
+        "category": "parent_home"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (B-S-J-Z, China; 15-year-olds)",
+        "target_variable": "Reading literacy level (high vs low; binary)",
+        "top_predictors": [
+          "ESCS",
+          "EUDMO",
+          "MASTGOAL",
+          "DISCLIMA",
+          "TEACHSUP"
+        ],
+        "performance_metrics": "Model comparison: SVM achieved accuracy 0.90 (training) and 0.871 (test). Feature selection: best SVM-RFE-CV accuracy peaked at 0.905 with 15 selected features (cross-validation).",
+        "standardized_conclusion": "Using PISA 2018 Reading data from the B-S-J-Z regions in China, the study leveraged socioeconomic status (ESCS), meaning in life (EUDMO), learning goals (MASTGOAL), disciplinary climate (DISCLIMA), and teacher support (TEACHSUP) to predict a binary reading literacy outcome (high Level 5+ vs low Level 2 or below), finding that an SVM model with an RFE-CV-selected set of 15 psychoemotional well-being factors achieved high classification accuracy (test accuracy 0.871; peak CV accuracy 0.905). This indicates that strengthening psychoemotional well-being components—especially family socioeconomic resources, students’ life meaning, and learning goals—may be a practical pathway for improving reading literacy among higher-performing students, though the study’s SHAP-based interpretation is predictive rather than causal and the analysis does not report survey-weighted population inference."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 reading literacy for students in Beijing, Shanghai, Jiangsu, and Zhejiang (B-S-J-Z), restricting to 3497 students after excluding missing/invalid records. Reading literacy is dichotomized using PISA cut scores (Level 5+ as high; Level 2 or below as low) and the authors use a single plausible value (PV1) to represent reading. They train and compare six ML classifiers (Logistic Regression, Perceptron, CART, Random Forest, GBM, and SVM) and then apply SVM-RFE-CV with an expanded fold search (5–15) to select an optimal feature subset, achieving peak cross-validation accuracy of 0.905 with 15 features and test accuracy of 0.871 for the SVM. Feature interpretation is provided via SHAP values, identifying ESCS as the most important factor. Limitations include the lack of reported complex-survey weighting/replicate-weight handling and the fact that SHAP explains predictive contribution rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

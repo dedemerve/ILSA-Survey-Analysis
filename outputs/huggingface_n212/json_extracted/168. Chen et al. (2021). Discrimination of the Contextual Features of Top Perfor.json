@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "file_name": "168. Chen et al. (2021). Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach.pdf",
+    "title": "Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach",
+    "authors": [
+      "Jie Hu"
+    ],
+    "year": 2021,
+    "doi": "10.1007/s11165-019-9835-y",
+    "venue": "Research in Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 science scores and questionnaire responses for 15-year-old students, restricted to countries/economies that administered the computer-based science assessment components. The analytic sample is further restricted to students with available student and principal questionnaire responses, and the authors report cleaning to remove a large proportion of missing values. For the binary target (top performers vs non-top performers), the authors explicitly state that PISA student sampling weights were fully considered to obtain unbiased population estimates. The manuscript does not report replicate-weight methods (e.g., BRR/jackknife), and the ML pipeline (SVM with SVM-RFE and 10-fold cross-validation) is implemented in Python/scikit-learn; thus, the paper’s handling of complex-survey variance estimation for ML metrics is not fully specified beyond the use of PISA weights."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 380771,
+      "countries": [],
+      "sample_filtering_criteria": "Used PISA 2015 science domain data for 15-year-old students from 58 countries/economies that administered the computer-based assessment mode for the science components. The target is defined using PV1SCIE (first plausible value for science) with a proficiency cutoff at PV > 633.33 to classify top performers (levels 5–6) vs non-top performers (below level 5). Only student and principal questionnaires were required across countries; optional parent/teacher questionnaires were not used. The authors report cleaning and then imputing missing values (school-level imputation using student responses within the same school; remaining school-level missing imputed via nearest-neighbor mean; remaining student-level missing imputed via nearest-neighbor), followed by normalization."
+    },
+    "ml_techniques": {
+      "primary": "SVM",
+      "all_techniques": [
+        "SVM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "PARED",
+        "variable_name": "Parental education (highest ISCED)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BMMJ1",
+        "variable_name": "Mother occupational status (ISEI)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ADINST",
+        "variable_name": "Adaptation of instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TDTEACH",
+        "variable_name": "Teacher-directed science instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher support of student choices",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "IBTEACH",
+        "variable_name": "Inquiry-based science teaching",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BFMJ2",
+        "variable_name": "Father occupational status (ISEI)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "DISCLISCI",
+        "variable_name": "Disciplinary climate in science",
+        "category": "school"
+      },
+      {
+        "variable_code": "OUTHOURS",
+        "variable_name": "Out-of-school study time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "RATCMP2",
+        "variable_name": "Internet-connected computers",
+        "category": "school"
+      },
+      {
+        "variable_code": "RATCMP1",
+        "variable_name": "Computers per student (education)",
+        "category": "school"
+      },
+      {
+        "variable_code": "TOTAT",
+        "variable_name": "Total teachers in school",
+        "category": "school"
+      },
+      {
+        "variable_code": "TOTST",
+        "variable_name": "Total science teachers in school",
+        "category": "school"
+      },
+      {
+        "variable_code": "STRATIO",
+        "variable_name": "Student-teacher ratio",
+        "category": "school"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Science learning time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TMINS",
+        "variable_name": "Total learning time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Early childhood education duration",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SCIEACT",
+        "variable_name": "Science activities index",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SCIEEFF",
+        "variable_name": "Science self-efficacy",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Science (computer-based), secondary students (15-year-olds), 58 countries/economies",
+        "target_variable": "Top performer in science literacy (PV1SCIE levels 5–6 vs below level 5)",
+        "top_predictors": [
+          "Perceived feedback",
+          "Parental education (highest ISCED)",
+          "Disciplinary climate in science",
+          "Out-of-school study time",
+          "Science self-efficacy"
+        ],
+        "performance_metrics": "SVM with SVM-RFE feature selection; optimal top-20 feature set. Candidate sets: Top-10 accuracy 64.02% ± 4.34%, Top-20 accuracy 69.52% ± 4.40%, Top-30 accuracy 69.06% ± 3.72%. Two follow-up 10-fold CV rounds (top-20): Round 1 accuracy 77.50%, recall 78.48%; Round 2 accuracy 75.80%, recall 76.39%.",
+        "standardized_conclusion": "Using PISA 2015 Science the study leveraged perceived feedback, parental education/occupational status, disciplinary climate, learning time/involvement, school ICT resources, teacher quantity, and science self-efficacy to classify top performers (PV1SCIE levels 5–6) versus non-top performers, finding that teacher instructional practices, family socioeconomic status, classroom disciplinary climate, learning time/involvement, school media/ICT resources, teacher quantity, and student self-efficacy were the most predictive contextual features. This indicates that science excellence policies should prioritize classroom-level instructional feedback/adaptation and supportive learning environments alongside family-support and early learning investments, while recognizing that the results are predictive (not causal) and rely on questionnaire-based contextual measures."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2015 science literacy for 380,771 secondary students from 58 countries/economies, restricting to those using the computer-based science assessment components and using only student and principal questionnaires. The dependent variable is a binary indicator of “top performers” defined by PV1SCIE (first plausible value for science) with a cutoff at PV > 633.33 (levels 5–6). The authors apply SVM with SVM-RFE to rank 141 contextual variables and select an optimal top-20 feature set, then evaluate classification via 10-fold cross-validation. The top-20 set achieves about 69.52% accuracy in the initial selection stage and 77.50% (recall 78.48%) and 75.80% (recall 76.39%) in two follow-up 10-fold CV rounds. Limitations include reliance on self-reported questionnaire/contextual variables, imputation/normalization steps, and the fact that predictive feature importance does not establish causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

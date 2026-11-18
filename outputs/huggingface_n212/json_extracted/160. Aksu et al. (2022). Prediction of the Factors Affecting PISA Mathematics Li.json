@@ -1,0 +1,217 @@
+{
+  "metadata": {
+    "file_name": "160. Aksu et al. (2022). Prediction of the Factors Affecting PISA Mathematics Literacy of Students from Different Countries by Using Data Mining Methods.pdf",
+    "title": "Prediction of the Factors Affecting PISA Mathematics Literacy of Students from Different Countries by Using Data Mining Methods",
+    "authors": [
+      "Nurşah Aksu",
+      "Gökhan Aksu",
+      "Seda Saracaloğlu"
+    ],
+    "year": 2022,
+    "doi": "10.26822/iejee.2022.267",
+    "venue": "International Electronic Journal of Elementary Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata for mathematics literacy and constructs an analytic sample restricted to six countries (Singapore, Japan, Norway, the USA, Turkey, and the Dominican Republic). The dependent variable is PV2MATH (a PISA mathematics plausible value) and the authors report using WEKA (M5P decision-tree regression) and MATLAB (feed-forward artificial neural network) with a hold-out validation scheme (70% train, 15% test, 15% validation) within each country. The manuscript does not report applying PISA sampling weights or replicate weights (e.g., BRR/jackknife) and does not name any weight variables, so weighting strategy is unclear. Because the models are implemented in WEKA/MATLAB and the paper does not discuss complex survey design adjustments, the analysis should be treated as potentially unweighted and may not fully account for PISA’s clustered sampling design."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper specifies that the dependent variable is PV2MATH, but it does not describe how missing questionnaire or predictor values were handled (e.g., imputation vs. complete-case filtering) in the WEKA/MATLAB pipeline. Although the authors mention that M5P can deal with missing data, they do not report the exact missing-data rule used (and whether it was applied consistently across countries and train/test splits), which is a reporting gap for reproducibility.",
+    "sample_details": {
+      "total_students": 34565,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 6115
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 6647
+        },
+        {
+          "country_code": "NOR",
+          "n_students": 5456
+        },
+        {
+          "country_code": "USA",
+          "n_students": 5712
+        },
+        {
+          "country_code": "TUR",
+          "n_students": 5895
+        },
+        {
+          "country_code": "DOM",
+          "n_students": 4740
+        }
+      ],
+      "sample_filtering_criteria": "The analytic sample is restricted to students from six countries that the authors selected based on different proficiency levels in PISA 2015: Singapore (Level 4), Japan (Level 3), Norway (Level 3), the USA (Level 2), Turkey (Level 1), and the Dominican Republic (below Level 1). The dependent variable is PISA mathematics literacy taken as a continuous outcome using PV2MATH. The study then runs separate country-specific models and evaluates external validity using a hold-out split within each country (70% training, 15% test, 15% validation)."
+    },
+    "ml_techniques": {
+      "primary": "Neural Network",
+      "all_techniques": [
+        "Decision Tree",
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ST004D01T",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST011Q02TA",
+        "variable_name": "Own room",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MISCED",
+        "variable_name": "Mother education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "FISCED",
+        "variable_name": "Father education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "OUTHOURS",
+        "variable_name": "Out-of-school learning time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MMINS",
+        "variable_name": "Mathematics learning time",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TMINS",
+        "variable_name": "Total learning time",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Feeling belonging to school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXTEST",
+        "variable_name": "Exam anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MOTIVAT",
+        "variable_name": "Motivation level",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COOPERATE",
+        "variable_name": "Willingness to cooperate",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "EMOSUPS",
+        "variable_name": "Emotional support of family",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "unfairteacher",
+        "variable_name": "Teacher fairness",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socio-economic status (ESCS)",
+        "category": "socioeconomic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Mathematics literacy (PV2MATH), Singapore",
+        "target_variable": "Mathematics literacy (PV2MATH)",
+        "top_predictors": [
+          "Socio-economic status (ESCS)",
+          "Teacher fairness",
+          "Mathematics learning time",
+          "Total learning time"
+        ],
+        "performance_metrics": "M5P (WEKA): Matthews correlation coefficient = 0.464; average absolute error = 64.58; RMSE (reported as square root of average errors) = 87.72. ANN (MATLAB): Training R2 = 0.927, Test R2 = 0.861, Validation R2 = 0.861; Overall R2 = 0.861; regression equation y=0.86x+78; RMSE = 17.57; correct prediction ≈ 92.8% (93.18% train, 91.96% test, 91.86% validation).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics literacy (PV2MATH) data for Singapore, the study leveraged Socio-economic status (ESCS), Teacher fairness, Mathematics learning time, and Total learning time to predict mathematics literacy, finding that socio-economic status was the root driver and that the ANN achieved high overall fit (Overall R2 = 0.861) with low prediction error (RMSE = 17.57). This indicates that strengthening equity-oriented supports (reducing socioeconomic disadvantages) alongside improving perceived teacher fairness and sustaining mathematics learning time may be especially important for high-proficiency contexts, though causality cannot be inferred from predictive modeling."
+      },
+      {
+        "dataset_used": "PISA 2015 Mathematics literacy (PV2MATH), Japan",
+        "target_variable": "Mathematics literacy (PV2MATH)",
+        "top_predictors": [
+          "Mathematics learning time",
+          "Father education",
+          "Socio-economic status (ESCS)"
+        ],
+        "performance_metrics": "M5P (WEKA): Matthews correlation coefficient = 0.502; average absolute error = 60.16; RMSE (square root of average errors) = 75.84. ANN (MATLAB): Training R2 = 0.561, Test R2 = 0.315, Validation R2 = 0.315; Overall R2 = 0.315; regression equation y=0.31x+367; RMSE = 40.26; correct prediction ≈ 56.10% (57.56% train, 55.33% test, 50.34% validation).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics literacy (PV2MATH) data for Japan, the study leveraged Mathematics learning time and Father education (with limited additional contribution from socio-economic status) to predict mathematics literacy, finding that the ANN’s predictive consistency was modest (Overall R2 = 0.315; RMSE = 40.26). This indicates that, in Japan, time-on-mathematics learning and parental educational background may be more informative than broader socioeconomic indices for forecasting achievement, though the results reflect predictive associations rather than causal effects."
+      },
+      {
+        "dataset_used": "PISA 2015 Mathematics literacy (PV2MATH), Norway",
+        "target_variable": "Mathematics literacy (PV2MATH)",
+        "top_predictors": [
+          "Socio-economic status (ESCS)",
+          "Total learning time",
+          "Out-of-school learning time",
+          "Teacher fairness",
+          "Motivation level"
+        ],
+        "performance_metrics": "M5P (WEKA): Matthews correlation coefficient = 0.343; average absolute error = 62.26; RMSE (square root of average errors) = 88.49. ANN (MATLAB): Training R2 = 0.549, Test R2 = 0.301, Validation R2 = 0.301; Overall R2 = 0.301; regression equation y=0.29x+353; RMSE = 37.78; correct prediction ≈ 54.90% (57.05% train, 51.73% test, 47.91% validation).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics literacy (PV2MATH) data for Norway, the study leveraged Socio-economic status (ESCS), Total learning time, Out-of-school learning time, Teacher fairness, and Motivation level to predict mathematics literacy, finding that the ANN produced moderate predictive performance (Overall R2 = 0.301; RMSE = 37.78). This indicates that both socioeconomic gradients and learning-time regulation (including out-of-school time) are relevant for achievement forecasting in Norway, suggesting that policy should consider student motivation and perceived instructional fairness alongside time-on-task supports, while recognizing that predictive fit does not establish causality."
+      },
+      {
+        "dataset_used": "PISA 2015 Mathematics literacy (PV2MATH), United States",
+        "target_variable": "Mathematics literacy (PV2MATH)",
+        "top_predictors": [
+          "Socio-economic status (ESCS)",
+          "Total learning time"
+        ],
+        "performance_metrics": "M5P (WEKA): Matthews correlation coefficient = 0.566; average absolute error = 58.20; RMSE (square root of average errors) = 73.61. ANN (MATLAB): Training R2 = 0.626, Test R2 = 0.392, Validation R2 = 0.392; Overall R2 = 0.392; regression equation y=0.39x+288; RMSE = 43.20; correct prediction ≈ 62.58% (64.83% train, 57.05% test, 57.94% validation).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics literacy (PV2MATH) data for the United States, the study leveraged Socio-economic status (ESCS) and Total learning time to predict mathematics literacy, finding that the ANN achieved moderate predictive accuracy (Overall R2 = 0.392; RMSE = 43.20) and that socioeconomic status was the root driver in the decision-tree model. This indicates that interventions targeting socioeconomic disadvantage and increasing effective total learning time may be particularly relevant for improving mathematics achievement in the US context, though the study’s design supports prediction rather than causal inference."
+      },
+      {
+        "dataset_used": "PISA 2015 Mathematics literacy (PV2MATH), Turkey",
+        "target_variable": "Mathematics literacy (PV2MATH)",
+        "top_predictors": [
+          "Socio-economic status (ESCS)",
+          "Mathematics learning time",
+          "Total learning time"
+        ],
+        "performance_metrics": "M5P (WEKA): Matthews correlation coefficient = 0.458; average absolute error = 57.24; RMSE (square root of average errors) = 71.98. ANN (MATLAB): Training R2 = 0.513, Test R2 = 0.264, Validation R2 = 0.264; Overall R2 = 0.264; regression equation y=0.28x+298; RMSE = 37.74; correct prediction ≈ 51.42% (53.80% train, 46.31% test, 45.58% validation).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics literacy (PV2MATH) data for Turkey, the study leveraged Socio-economic status (ESCS), Mathematics learning time, and Total learning time to predict mathematics literacy, finding that predictive consistency was relatively low-to-moderate (Overall R2 = 0.264; RMSE = 37.74). This indicates that reducing socioeconomic barriers and supporting sustained mathematics and overall learning time may be key levers for Turkey, but the findings should be interpreted as correlational predictors rather than evidence of program effectiveness."
+      },
+      {
+        "dataset_used": "PISA 2015 Mathematics literacy (PV2MATH), Dominican Republic",
+        "target_variable": "Mathematics literacy (PV2MATH)",
+        "top_predictors": [
+          "Socio-economic status (ESCS)",
+          "Belonging to school",
+          "Willingness to cooperate",
+          "Teacher fairness",
+          "Total learning time"
+        ],
+        "performance_metrics": "M5P (WEKA): Matthews correlation coefficient = 0.491; average absolute error = 46.03; RMSE (square root of average errors) = 58.18. ANN (MATLAB): Training R2 = 0.542, Test R2 = 0.294, Validation R2 = 0.294; Overall R2 = 0.294; regression equation y=0.29x+235; RMSE = 30.09; correct prediction ≈ 54.27% (56.01% train, 51.06% test, 49.54% validation).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics literacy (PV2MATH) data for the Dominican Republic, the study leveraged Socio-economic status (ESCS), Belonging to school, Willingness to cooperate, Teacher fairness, and Total learning time to predict mathematics literacy, finding that the ANN achieved moderate predictive performance (Overall R2 = 0.294; RMSE = 30.09). This indicates that, in lower-proficiency contexts, school belonging and cooperative engagement alongside socioeconomic supports and perceived teacher fairness may be important for improving mathematics outcomes, while noting that predictive modeling does not establish causal pathways."
+      }
+    ],
+    "outcome_summary": "The study predicts PISA 2015 mathematics literacy using a single plausible value (PV2MATH) as a continuous target and 15 student questionnaire variables, estimating models separately for six countries (Singapore, Japan, Norway, the USA, Turkey, and the Dominican Republic). In the first stage, it trains a regression-based decision tree (M5P in WEKA) and reports country-specific decision-tree rules and fit (e.g., Matthews correlation coefficients). In the second stage, it uses a feed-forward artificial neural network in MATLAB (TRAINLM and LEARNGDM) and evaluates external validity via a hold-out split (70% training, 15% test, 15% validation). Predictive performance varies substantially by country: ANN overall R2 ranges from 0.861 (Singapore) to 0.264 (Turkey), with RMSE values from 17.57 to 43.20. The paper does not report survey-weight usage or a detailed missing-data procedure, so results may be sensitive to unweighted estimation and undocumented preprocessing choices; moreover, the findings are predictive associations rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

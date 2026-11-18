@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "file_name": "7. Alas & Tezer. (2024). Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singapore and Hong Kong.pdf",
+    "title": "Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singaporeand Hong Kong",
+    "authors": [
+      "D.K. Alas",
+      "M. Tezer"
+    ],
+    "year": 2024,
+    "doi": "10.3390/su16177806",
+    "venue": "Sustainability",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This study does not analyze student microdata from PISA; instead, it performs document/content analysis of national curricula for Singapore and Hong Kong and then uses those content-derived counts as inputs to ANN and ANFIS models with PISA 2018 mathematics/reading scores as outputs. Because the modeling is based on curriculum-theme frequencies and country-level PISA scores (not a student-level complex survey sample), standard PISA sampling weights and replicate weights are not applicable in the way they would be for microdata estimation. The manuscript does not report applying any PISA student/sampling weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight procedures (e.g., BRR/jackknife). Therefore, the results should be interpreted as model-based associations between curriculum-theme frequencies and country-level PISA scores rather than as population-representative estimates from a weighted survey design."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables used in the ANN/ANFIS modeling are PISA 2018 mathematics/reading scores at the country level (e.g., Singapore 569/548; Hong Kong 551/524), not student-level plausible-value (PV) achievement scores. As a result, PV-specific handling (Rubin’s rules, PV averaging, etc.) is not applicable. The paper also does not describe any missing-data strategy for the curriculum-theme coding counts or the country-level score inputs, representing a reporting gap for transparency about how incomplete or missing coded elements were treated.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "No student-level sampling is performed. The analytic inputs are (i) curriculum documents retrieved from official ministry sources for Singapore and Hong Kong (English language and mathematics syllabi/guides) and (ii) PISA 2018 country-level mathematics and reading scores. The study applies content analysis to identify themes related to the four language skills (listening, speaking, reading, writing) and maps mathematics-curriculum themes to language-skill themes via coding and frequency counts; these coded frequencies are then used as ANN/ANFIS inputs. The paper does not report any additional inclusion/exclusion rules for student records because no student microdata are used."
+    },
+    "ml_techniques": {
+      "primary": "ANFIS",
+      "all_techniques": [
+        "Neural Network",
+        "ANFIS"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "listening_outcomes",
+        "variable_name": "Listening outcomes (curriculum)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "speaking_outcomes",
+        "variable_name": "Speaking outcomes (curriculum)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "reading_outcomes",
+        "variable_name": "Reading outcomes (curriculum)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "writing_outcomes",
+        "variable_name": "Writing outcomes (curriculum)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "language_themes_in_math",
+        "variable_name": "Language themes in math",
+        "category": "curriculum"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 (country-level) Mathematics and Reading; Singapore & Hong Kong",
+        "target_variable": "Language skills (PISA-based output used in ANN Model 1)",
+        "top_predictors": [
+          "Listening outcomes (curriculum)",
+          "Speaking outcomes (curriculum)",
+          "Reading outcomes (curriculum)",
+          "Writing outcomes (curriculum)"
+        ],
+        "performance_metrics": "ANN Model 1: RMSE = 17.6385; R² = 0.353954",
+        "standardized_conclusion": "Using PISA 2018 country-level mathematics/reading scores together with curriculum-derived language-skill outcome frequencies for Singapore and Hong Kong, the study leveraged listening, speaking, reading, and writing outcomes to predict language skills in the ANN Model 1, finding that the relationship was insufficient (R² ≈ 0.35 with RMSE ≈ 17.64). This indicates that curriculum-theme frequencies alone may not strongly explain cross-country variation in language-related achievement signals, so curriculum integration efforts should be complemented with broader instructional and learner-context factors, while noting that the study is not a weighted student-level PV analysis."
+      },
+      {
+        "dataset_used": "PISA 2018 (country-level) Mathematics and Reading; Singapore & Hong Kong",
+        "target_variable": "Language skills (PISA-based output used in ANFIS Model 2)",
+        "top_predictors": [
+          "Listening outcomes (curriculum)",
+          "Speaking outcomes (curriculum)",
+          "Reading outcomes (curriculum)",
+          "Writing outcomes (curriculum)"
+        ],
+        "performance_metrics": "ANFIS Model 2: RMSE = 12.42771; R² = 0.397867",
+        "standardized_conclusion": "Using PISA 2018 country-level mathematics/reading scores together with curriculum-derived language-skill outcome frequencies for Singapore and Hong Kong, the study leveraged listening, speaking, reading, and writing outcomes to predict language skills in the ANFIS Model 2, finding that the relationship remained insufficient but improved slightly (R² ≈ 0.40 with RMSE ≈ 12.43). This indicates that hybrid fuzzy-logic modeling can capture some non-linear curriculum–achievement associations, but the explanatory power is still limited, suggesting that policy should not rely on curriculum content mapping alone and should incorporate implementation quality and student/teacher factors."
+      }
+    ],
+    "outcome_summary": "The paper examines how language skills relate to mathematics success by combining (1) content analysis of national English-language and mathematics curricula for Singapore and Hong Kong and (2) predictive modeling using ANN and ANFIS in MATLAB (2019a). The dependent variable in both models is based on PISA 2018 country-level mathematics/reading scores, while the inputs are curriculum-derived frequencies for the four language skills and language-related themes identified within mathematics curricula. ANN (Model 1) achieved RMSE = 17.6385 and R² = 0.353954, indicating an insufficient relationship. ANFIS (Model 2) slightly outperformed ANN with RMSE = 12.42771 and R² = 0.397867, but explanatory power remained low. Limitations include the use of only two countries, the absence of student-level PV/weighting procedures, and limited reporting on missing-data handling and how curriculum coding uncertainty may affect model inputs.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

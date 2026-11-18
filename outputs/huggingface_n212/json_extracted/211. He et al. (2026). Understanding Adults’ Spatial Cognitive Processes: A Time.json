@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "file_name": "211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time-Embedded N-Grams Model with Machine Learning.pdf",
+    "title": "Understanding Adults’ Spatial Cognitive Processes: A Time-Embedded N-Grams Model with Machine Learning",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/jintelligence14060105",
+    "venue": "Journal of Intelligence",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses restricted PIAAC Cycle 1 microdata for the U.S. and restricts the analytic sample to adults who completed the numeracy “Map” interactive item, yielding N=596 after excluding 100 unmatched cases. The manuscript does not report applying PIAAC complex survey weights or any replicate-weight procedure in the ML training/evaluation pipeline. Because the models are Random Forest and XGBoost, the authors do not describe a weight-aware estimation approach; thus weighting strategy is unclear from the text. Analysts should treat the results as conditional on the modeled sample and consider whether population-representative inference requires applying PIAAC sampling weights (and replicate weights if used) when generalizing beyond the analytic subset."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables in this study are derived from the Map item’s correctness and the PIAAC numeracy proficiency level categories (e.g., incorrect–low/high and correct–low/high), rather than PV-based cognitive achievement scores. As a result, plausible-value generation/combining is not part of the modeling target. The manuscript reports missing counts for some background variables (e.g., ICT familiarity) but does not describe a missing-data handling method for the ML predictors/feature set, representing a reporting gap for reproducibility.",
+    "sample_details": {
+      "total_students": 596,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": 596
+        }
+      ],
+      "sample_filtering_criteria": "Used the U.S. PIAAC 2012 Cycle 1 dataset and restricted to adults who completed the numeracy “Map” interactive numeracy item. From 696 respondents who completed the Map item, 100 cases were excluded because process and response files could not be matched, resulting in a final analytic sample of N=596. The study further defines outcome groups using PIAAC numeracy proficiency levels (lower: Level 2 and below; higher: Level 3–5) and Map item correctness (correct vs incorrect)."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest",
+        "XGBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "numeracy_proficiency_level",
+        "variable_name": "Numeracy proficiency level",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "age_years",
+        "variable_name": "Age (years)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "race_ethnicity",
+        "variable_name": "Race/ethnicity",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ict_at_home",
+        "variable_name": "ICT familiarity at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_at_work",
+        "variable_name": "ICT familiarity at work",
+        "category": "ict"
+      },
+      {
+        "variable_code": "total_response_time",
+        "variable_name": "Total response time",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "time_to_first_action",
+        "variable_name": "Time to first action",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "time_to_last_action_before_exit",
+        "variable_name": "Time to last action",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "total_number_of_actions",
+        "variable_name": "Total number of actions",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_final_response_actions",
+        "variable_name": "Final-response actions count",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_help_function_uses",
+        "variable_name": "Help function uses count",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_deselections",
+        "variable_name": "Deselections count",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "number_of_off_map_clicks",
+        "variable_name": "Off-map clicks count",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "redundancy_ratio",
+        "variable_name": "Redundancy ratio",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PIAAC 2012 Cycle 1 (U.S.) Numeracy “Map” interactive item (spatial navigation process data)",
+        "target_variable": "Numeracy performance category (IL/IH/CL/CH)",
+        "top_predictors": [
+          "Total response time",
+          "Time to first action",
+          "Time to last action",
+          "Redundancy ratio",
+          "Final-response actions count"
+        ],
+        "performance_metrics": "Random Forest (time-embedded n-grams): Accuracy 0.718 (0.028), Precision 0.774 (0.045), Recall 0.612 (0.048), F1 0.682 (0.034). XGBoost (time-embedded n-grams): Accuracy 0.708 (0.042), Precision 0.720 (0.059), Recall 0.683 (0.046), F1 0.699 (0.037). Validation: 10-fold cross-validation; mean (SD) reported across folds.",
+        "standardized_conclusion": "Using PIAAC 2012 Cycle 1 (U.S.) Numeracy “Map” interactive item process data, the study leveraged total response time, time to first action, time to last action, redundancy ratio, and final-response actions count to classify respondents into incorrect–low/high and correct–low/high numeracy categories, finding that time-related and direction-related sequential features were the most predictive. This indicates that incorporating temporal spacing and efficient navigation behaviors into digital numeracy assessment analytics may improve identification of adults who need targeted spatial-numeracy support, though the study is predictive (not causal) and does not document survey-weight or missing-data handling for the ML pipeline."
+      }
+    ],
+    "outcome_summary": "The study analyzes sequential log (process) data from the PIAAC 2012 Cycle 1 U.S. numeracy “Map” interactive item, restricting to adults who completed the item and excluding 100 unmatched cases (final N=596). It predicts a four-category outcome combining Map correctness (correct vs incorrect) and numeracy proficiency level (lower: Level 2 and below; higher: Level 3–5) using Random Forest and XGBoost on (i) standard n-grams and (ii) time-embedded n-grams that discretize elapsed pauses using local action-pair time distributions, plus nine aggregate process indicators. Across 10-fold cross-validation, both models achieved accuracy above 0.70; Random Forest with time-embedded n-grams reached Accuracy=0.718 (SD=0.028) and Precision=0.774 (SD=0.045), with XGBoost showing slightly lower accuracy but comparable F1 (0.699). The most informative predictors were time-related indicators (total response time, time to first action, time to last action) and efficient action patterns (redundancy ratio). Limitations include unclear survey-weight use and a lack of documented missing-data handling for the ML features, and the interpretation of pauses as cognitive load remains ambiguous.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "file_name": "119. Cortes et al. (2025). Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA.pdf",
+    "title": "Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA",
+    "authors": [
+      "Diego Cortes",
+      "D. Hastedt",
+      "S. Martin"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00246-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "methodology_paper"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": true,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PIRLS 2016 data and explicitly relies on PIRLS-provided estimation weights that combine inclusion probabilities and nonresponse adjustments (school-level and within-school nonresponse factors). For sampling variance, the paper describes the Jackknife Repeated Replications (JRR) approach used in PIRLS, which approximates the sampling distribution of the estimator under the complex stratified multistage design. The authors’ design-effect calculations therefore require both the base sampling weights and the JRR replicate structure to reflect clustering (students within classes within schools) and stratification. The manuscript does not report a specific weight variable name in the excerpt, but it states that PIRLS weights and JRR are used as the basis for quantifying sampling-design uncertainty."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values are central to the assessment-design uncertainty in PIRLS: the paper uses the random multiple imputation framework (Rubin) where measurement variance is derived from variability across plausible-value replications. However, the excerpt does not specify a concrete missing-data handling rule for any additional missingness beyond the by-design item missingness (e.g., item nonresponse or student nonresponse), so the missing-data handling for those cases is not documented here. This is a reporting gap for secondary-analysis users who need to know how any non-PV missingness was treated.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "BGR",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "MAC",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "FRA",
+          "n_students": null
+        },
+        {
+          "country_code": "BEL",
+          "n_students": null
+        },
+        {
+          "country_code": "MLT",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": null
+        },
+        {
+          "country_code": "ARG",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The paper uses PIRLS 2016 to compute design effects for multiple populations (countries/participating populations) and multiple target parameters. It does not describe an analytic subsample restriction (e.g., grade filtering beyond PIRLS grade four, domain restriction beyond reading achievement, or exclusions for incomplete cases) in the provided excerpt; instead, it treats the PIRLS-provided data and its by-design missingness structure as the basis for the assessment-design uncertainty. The sampling-design uncertainty is quantified using PIRLS’ JRR variance estimation framework, which implicitly depends on the PIRLS sampling strata and variance strata (paired schools within variance strata). For assessment-design uncertainty, the paper uses the plausible-values framework corresponding to PIRLS’ reading proficiency scaling, treating item missingness by design as the mechanism generating measurement variance."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PIRLS 2016 to compute design effects for multiple po",
+        "target_variable": "reading achievement",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PIRLS 2016 to compute design effects for multiple po the study leveraged the reported predictors to predict reading achievement, finding that This paper is a design-effect and uncertainty quantification study rather than a predictive modeling paper. Using PIRLS 2016 reading achievement data for grade four, it decomposes total uncertainty into sampling variance (complex stratified multistage sampling with clustering) and assessment variance (matrix sampling of items and plausible-values measurement). For sampling variance, it relies on PIRLS’ Jackknife Repeated Replications (JRR) to approximate the sampling distribution of estimators under the complex design. For assessment variance, it uses the random multiple imputation framework underlying plausible values, treating variability across plausible-value replications as measurement variance. Across 57 participating populations, the authors find that when estimating the mean achievement, the sampling design effect is often larger than the assessment design effect, but this is context dependent (e.g., assessment design effects exceed sampling effects in Macao and Malta). For other parameters—benchmark exceedance/probabilities and an OLS regression coefficient—the relative dominance of sampling vs assessment design effects attenuates and becomes less predictable, implying that credible inference requires accounting for both sources of design-based uncertainty. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This paper is a design-effect and uncertainty quantification study rather than a predictive modeling paper. Using PIRLS 2016 reading achievement data for grade four, it decomposes total uncertainty into sampling variance (complex stratified multistage sampling with clustering) and assessment variance (matrix sampling of items and plausible-values measurement). For sampling variance, it relies on PIRLS’ Jackknife Repeated Replications (JRR) to approximate the sampling distribution of estimators under the complex design. For assessment variance, it uses the random multiple imputation framework underlying plausible values, treating variability across plausible-value replications as measurement variance. Across 57 participating populations, the authors find that when estimating the mean achievement, the sampling design effect is often larger than the assessment design effect, but this is context dependent (e.g., assessment design effects exceed sampling effects in Macao and Malta). For other parameters—benchmark exceedance/probabilities and an OLS regression coefficient—the relative dominance of sampling vs assessment design effects attenuates and becomes less predictable, implying that credible inference requires accounting for both sources of design-based uncertainty.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is not an empirical ML prediction/classification study: it develops and applies a design-effect framework to quantify how sampling and assessment designs affect confidence intervals for multiple PIRLS-derived parameters. Consequently, there are no ML algorithms, no predictive target variable, and no model performance metrics (e.g., accuracy/RMSE) to extract; the main empirical outputs are design-effect comparisons and confidence-interval implications. The excerpt also does not provide per-country sample sizes or a single analytic N, so total_students and n_students cannot be populated reliably from the provided text."
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "metadata": {
+    "file_name": "189. Bernardo et al. (2026). Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach.pdf",
+    "title": "Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach",
+    "authors": [
+      "Bernardo",
+      "Presbitero",
+      "M.O.C.II",
+      "J.G.E.R.",
+      "A.B.I.B."
+    ],
+    "year": 2026,
+    "doi": "10.3390/educsci16071076",
+    "venue": "Educ. Sci.",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": false,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the Philippine sample from PISA 2018, which is based on a two-stage stratified random sampling design (schools selected first, then students within schools). Although PISA provides sampling and replicate weights, the authors explicitly did not use student weights or replicate weights in the machine-learning analysis because the models were trained for prediction and feature-importance interpretation rather than population-parameter estimation. Consequently, all observations were treated with equal weight during training, cross-validation, hold-out testing, and SHAP-based ranking. For preprocessing, the authors standardized predictors and applied k-nearest neighbors (k=5) imputation within each cross-validation fold to avoid using validation/test information during preprocessing."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "knn_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variables are three Warm likelihood estimate (WLE) indices derived from self-report questionnaire items (perspective taking, cognitive flexibility/adaptability, and intercultural communication ability), rather than PV-based cognitive achievement scores produced by PISA. Missing data handling is reported: outcome values were not imputed and cases with missing target index values were excluded, while missing predictor values were imputed using k-nearest neighbors (k=5) within the cross-validation pipeline.",
+    "sample_details": {
+      "total_students": 7233,
+      "countries": [
+        {
+          "country_code": "PHL",
+          "n_students": 7233
+        }
+      ],
+      "sample_filtering_criteria": "The analytic data come from the Philippine PISA 2018 sample (15-year-old students). For each outcome-specific model, the authors excluded predictors that were used to construct the target index and also excluded the other global competence indexes to avoid mechanical prediction. Observations with missing values in the target outcome index were excluded (no outcome imputation). Missing predictor values were imputed within the machine-learning pipeline using k-nearest neighbors (k=5), with preprocessing (standardization and imputation) fitted only on the training portion of each cross-validation fold."
+    },
+    "ml_techniques": {
+      "primary": "XGBoost",
+      "all_techniques": [
+        "XGBoost",
+        "SVM",
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ST216Q01HA",
+        "variable_name": "Unusual situations coping",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST216Q02HA",
+        "variable_name": "Change behavior for new situations",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST216Q05HA",
+        "variable_name": "Resolve difficult intercultural situations",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST216Q03HA",
+        "variable_name": "Adapt under stress",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST216Q06HA",
+        "variable_name": "Overcome difficulties interacting",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST217Q05HA",
+        "variable_name": "Value opinions of other cultures",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST217Q03HA",
+        "variable_name": "Give space to other cultures",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST217Q04HA",
+        "variable_name": "Respect values of other cultures",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST217Q02HA",
+        "variable_name": "Respect regardless of cultural background",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST217Q01HA",
+        "variable_name": "Respect people as equal humans",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST215Q02HA",
+        "variable_name": "Look at both sides",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST215Q05HA",
+        "variable_name": "Take others' perspective when upset",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST215Q01HA",
+        "variable_name": "Consider all sides before deciding",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST215Q04HA",
+        "variable_name": "Imagine feelings before criticizing",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST215Q03HA",
+        "variable_name": "Understand friends' perspectives",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST214Q03HA",
+        "variable_name": "Interest in how cultures see world",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST214Q01HA",
+        "variable_name": "Learn how people live abroad",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST214Q02HA",
+        "variable_name": "Learn religions of the world",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST222Q06HA",
+        "variable_name": "Boycott for ethical/environmental reasons",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST222Q03HA",
+        "variable_name": "Sign online petitions",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST204Q02HA",
+        "variable_name": "Equal education opportunities for immigrants",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "immigrants_keep_customs",
+        "variable_name": "Immigrants keep customs",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "lifestyle",
+        "variable_name": "lifestyle",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST204Q05HA",
+        "variable_name": "Equal rights for immigrants",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST219Q02HA",
+        "variable_name": "Responsibility for global poverty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST219Q01HA",
+        "variable_name": "Citizen of the world identity",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST219Q03HA",
+        "variable_name": "Behavior impacts other countries",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST197Q01HA",
+        "variable_name": "Awareness of climate change",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST197Q09HA",
+        "variable_name": "Knowledge of causes of poverty",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Philippines (15-year-olds) - Cognitive flexibility/adaptability (COGFLEX) index",
+        "target_variable": "Cognitive flexibility/adaptability (COGFLEX) index (WLE)",
+        "top_predictors": [
+          "ST215Q02HA",
+          "ST215Q05HA",
+          "ST214Q03HA",
+          "ST222Q06HA",
+          "ST216Q01HA"
+        ],
+        "performance_metrics": "XGBoost: R2 train = 0.5084; R2 test = 0.4029; MSE/MAE lowest among compared models (exact values not reported in text). Training R2 range across targets: 0.4953–0.5394; test R2 range: 0.3896–0.4469.",
+        "standardized_conclusion": "Using PISA 2018 Philippines the study leveraged perspective-taking items (e.g., ST215Q02HA, ST215Q05HA), interest in other cultures (e.g., ST214Q03HA), and pro-environmental engagement (e.g., ST222Q06HA) to predict the cognitive flexibility/adaptability (COGFLEX) WLE index, finding that XGBoost achieved the highest test R2 (0.4029) among candidate regressors. This indicates that strengthening perspective-taking and culturally oriented interests alongside civic/pro-environmental activities may be a practical route to improving students’ cognitive flexibility, though the results are model-based patterns without population-weighted inference."
+      },
+      {
+        "dataset_used": "PISA 2018 Philippines (15-year-olds) - Intercultural communication ability (AWACOM) index",
+        "target_variable": "Intercultural communication ability (AWACOM) index (WLE)",
+        "top_predictors": [
+          "ST204Q02HA",
+          "ST219Q01HA",
+          "ST197Q01HA",
+          "ST215Q04HA",
+          "ST215Q03HA"
+        ],
+        "performance_metrics": "XGBoost: R2 train = 0.5003; R2 test = 0.4141; MSE/MAE lowest among compared models (exact values not reported in text). Training R2 range across targets: 0.4953–0.5394; test R2 range: 0.3896–0.4469.",
+        "standardized_conclusion": "Using PISA 2018 Philippines the study leveraged attitudes toward immigrants (e.g., ST204Q02HA), global-mindedness/values (e.g., ST219Q01HA), and awareness of global issues (e.g., ST197Q01HA) to predict the intercultural communication ability (AWACOM) WLE index, finding that XGBoost produced the highest test R2 (0.4141) and lowest error among compared models. This indicates that intercultural communication may be more strongly linked to global/cultural experience and values than to generic cognitive flexibility alone, suggesting that policy and practice should prioritize structured intercultural exposure and global-issue learning rather than relying only on general perspective-taking activities."
+      },
+      {
+        "dataset_used": "PISA 2018 Philippines (15-year-olds) - Perspective taking (PERSPECT) index",
+        "target_variable": "Perspective taking (PERSPECT) index (WLE)",
+        "top_predictors": [
+          "ST216Q01HA",
+          "ST216Q02HA",
+          "ST217Q05HA",
+          "ST217Q04HA",
+          "ST215Q04HA"
+        ],
+        "performance_metrics": "XGBoost: R2 train = 0.5411; R2 test = 0.3900; MSE/MAE lowest among compared models (exact values not reported in text). Training R2 range across targets: 0.4953–0.5394; test R2 range: 0.3896–0.4469.",
+        "standardized_conclusion": "Using PISA 2018 Philippines the study leveraged cognitive flexibility items (e.g., ST216Q01HA, ST216Q02HA) and respect for other cultures (e.g., ST217Q05HA, ST217Q04HA) to predict the perspective taking (PERSPECT) WLE index, finding that XGBoost achieved the highest testing R2 (0.3900) among candidate regressors. This indicates that perspective taking may function as a connecting cognitive skill across global competence components, supporting education practice that integrates empathy/perspective-taking exercises with explicit respect-for-diversity content, while noting that SHAP-based importance reflects predictive association rather than causal effects."
+      }
+    ],
+    "outcome_summary": "The study analyzes the Philippine PISA 2018 dataset (15-year-olds; N=7233) to predict three self-report cognitive skill indices underlying global competence: perspective taking (PERSPECT), cognitive flexibility/adaptability (COGFLEX), and intercultural communication ability (AWACOM). For each target, the authors used an outcome-specific modeling approach with kNN imputation for missing predictors (k=5) inside a cross-validation pipeline and excluded predictors that overlapped with the target index construction. Among three candidate regression algorithms (support vector regression, XGBoost, and multilayer perceptron), XGBoost consistently outperformed the others, with training R2 between 0.4953 and 0.5394 and test R2 between 0.3896 and 0.4469. SHAP was used to rank influential predictors, showing strong overlap between perspective taking and cognitive flexibility, while intercultural communication relied more on immigrant attitudes, global values, and global-issue knowledge. Limitations include the absence of survey-weighted inference and the fact that SHAP explains predictive contribution rather than causal impact.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

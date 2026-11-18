@@ -1,0 +1,348 @@
+{
+  "metadata": {
+    "file_name": "54. Soares. (2024). Combining Statistical and Machine Learning Methods to Identify Predictors of Brazilian Students’ Pro ciency in PISA 2018.pdf",
+    "title": "Combining Statistical and Machine Learning Methods to Identify Predictors of Brazilian Students’ Proficiency in PISA 2018",
+    "authors": [
+      "Pedro San Martin Soares"
+    ],
+    "year": 2024,
+    "doi": "10.1177/07342829241262861",
+    "venue": "Journal of Psychoeducational Assessment",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study analyzed PISA 2018 public-use microdata for Brazil, using a cross-sectional complex survey design with multistage sampling, unequal sampling probabilities, and stratification (as described for PISA). The manuscript does not report applying any student/sampling weights or replicate weights in the Python modeling workflow, and it does not name any PISA weight variables (e.g., W_FSTUWT/TOTWGT) for the analytic models. Because the main predictive step uses RandomForestClassifier and the subsequent inference uses multilevel logistic regression, the paper’s weighting strategy is unclear; the safest interpretation is that weights were not explicitly incorporated. The analytic sample was split into two random subsamples for the random forest (A1) and multilevel logistic regression (A2), and missingness was handled via multiple imputation by chained equations separately within each subsample."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": "PISA plausible values are not applicable here because the dependent variables are dichotomized proficiency categories (Low Proficiency vs Proficient at Level 2) rather than PV-based continuous achievement scores. The paper instead models a classification outcome derived from PISA proficiency levels, so PV handling is not part of the analysis pipeline. Missing data handling is reported via multiple imputation by chained equations (MICE), so the missing-data strategy is documented.",
+    "sample_details": {
+      "total_students": 10691,
+      "countries": [
+        {
+          "country_code": "BRA",
+          "n_students": 10691
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2018 public-use data for Brazil, targeting the population of 15-year-old students and their schools. The analytic dataset was randomly split into two subsamples for the two-step pipeline: A1 for random forest (n = 5345) and A2 for multilevel logistic regression (n = 5346). Missing responses were imputed using multiple imputation by chained equations to create complete datasets for each subsample; analyses were then run separately for mathematics, science, and reading proficiency."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "sex",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "age",
+        "variable_name": "Age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "annual_household_income",
+        "variable_name": "Annual household income",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "household_possessions",
+        "variable_name": "Household possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "parents_highest_occupational_status",
+        "variable_name": "Parents’ occupational status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "mother_highest_education",
+        "variable_name": "Mother’s education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "father_highest_education",
+        "variable_name": "Father’s education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "early_childhood_education_care",
+        "variable_name": "Early childhood education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "grade_relative_to_modal",
+        "variable_name": "Grade relative to modal",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "grade_repetition",
+        "variable_name": "Grade repetition",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "educational_transitions",
+        "variable_name": "Educational transitions",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "skipped_entire_days",
+        "variable_name": "Skipped entire school days",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "skipped_school_classes",
+        "variable_name": "Skipped school classes",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "school_lateness_frequency",
+        "variable_name": "School lateness frequency",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "additional_instruction",
+        "variable_name": "Additional instruction",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "learning_time",
+        "variable_name": "Learning time at school",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ict_use_outside_leisure",
+        "variable_name": "ICT use outside leisure",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_use_outside_learning",
+        "variable_name": "ICT use outside learning",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_use_at_school",
+        "variable_name": "ICT use at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_interest",
+        "variable_name": "Interest in ICT",
+        "category": "ict"
+      },
+      {
+        "variable_code": "perceived_ict_competence",
+        "variable_name": "Perceived ICT competence",
+        "category": "ict"
+      },
+      {
+        "variable_code": "perceived_autonomy_ict",
+        "variable_name": "Perceived ICT autonomy",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_topic_social_interaction",
+        "variable_name": "ICT as social interaction topic",
+        "category": "ict"
+      },
+      {
+        "variable_code": "career_information_school",
+        "variable_name": "Career information from school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "career_information_outside_school",
+        "variable_name": "Career information outside school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "expected_occupational_status",
+        "variable_name": "Expected occupational status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "disciplinary_climate",
+        "variable_name": "Disciplinary climate",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "teacher_support",
+        "variable_name": "Teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_directed_instruction",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "perceived_feedback",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "parents_emotional_support",
+        "variable_name": "Parents’ emotional support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "teacher_stimulation_reading",
+        "variable_name": "Teacher reading engagement",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "instruction_adaptation",
+        "variable_name": "Adaptation of instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_interest",
+        "variable_name": "Perceived teacher interest",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "joy_like_reading",
+        "variable_name": "Joy/liking for reading",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "reading_competence_perception",
+        "variable_name": "Perceived reading competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "reading_difficulty_perception",
+        "variable_name": "Perceived reading difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "competitiveness_school",
+        "variable_name": "Competitiveness at school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "cooperation_school",
+        "variable_name": "Cooperation at school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "attitude_school_learning",
+        "variable_name": "Attitude toward learning activities",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "competitiveness_dispositional",
+        "variable_name": "Competitiveness (dispositional)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "work_mastery",
+        "variable_name": "Work mastery",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "general_fear_of_failure",
+        "variable_name": "Fear of failure",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "eudaemonia",
+        "variable_name": "Eudaemonia",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "positive_affect",
+        "variable_name": "Positive affect",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "resilience",
+        "variable_name": "Resilience",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "mastery_goal_orientation",
+        "variable_name": "Mastery goal orientation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "sense_of_belonging",
+        "variable_name": "Sense of belonging to school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "being_bullied",
+        "variable_name": "Experience of being bullied",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "metacognition_understanding",
+        "variable_name": "Metacognition: understanding",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "remembering",
+        "variable_name": "remembering",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "UNDREM",
+        "variable_name": "Metacognition (understanding, remembering)",
+        "category": "student_behavior"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Mathematics (Brazil, proficiency Level 2 threshold)",
+        "target_variable": "Mathematics proficiency (Low vs Proficient)",
+        "top_predictors": [
+          "Annual household income",
+          "Metacognition: summarizing",
+          "Metacognition: assessing credibility",
+          "Parents’ occupational status",
+          "Metacognition: understanding & remembering"
+        ],
+        "performance_metrics": "Random Forest (A1): out-of-bag accuracy = 87.2% (95% CI: 87.2%–87.3%); ntree = 10, mtry = 800. Multilevel logistic regression (A2): AUC-ROC = 92.5% (95% CI: 91.7%–93.3%).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for Brazil, the study leveraged annual household income, metacognition (summarizing and assessing credibility), parents’ occupational status, and metacognition (understanding & remembering) to predict mathematics proficiency (Low vs Proficient). It found that higher household income and higher parental occupational status were positively associated with being proficient, while grade repetition and additional instruction were negatively associated with proficiency. This indicates that strengthening early childhood education and care and reducing grade repetition may improve baseline mathematics proficiency, though the cross-sectional design limits causal interpretation."
+      },
+      {
+        "dataset_used": "PISA 2018 Science (Brazil, proficiency Level 2 threshold)",
+        "target_variable": "Science proficiency (Low vs Proficient)",
+        "top_predictors": [
+          "Metacognition: assessing credibility",
+          "Additional instruction",
+          "Metacognition: summarizing",
+          "Annual household income",
+          "Metacognition: understanding & remembering"
+        ],
+        "performance_metrics": "Random Forest (A1): out-of-bag accuracy = 86.7% (95% CI: 86.6%–86.8%); ntree = 10, mtry = 200. Multilevel logistic regression (A2): AUC-ROC = 91.7% (95% CI: 90.9%–92.6%).",
+        "standardized_conclusion": "Using PISA 2018 Science data for Brazil, the study leveraged metacognition (assessing credibility and summarizing), additional instruction, annual household income, and metacognition (understanding & remembering) to predict science proficiency (Low vs Proficient). It found that higher household income and higher parental occupational status were positively associated with being proficient, while grade repetition and additional instruction were negatively associated with proficiency. This indicates that policies should prioritize early childhood education and care and interventions that prevent grade repetition, while also re-examining how “additional instruction” is implemented for students who may be receiving it because they are already struggling."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (Brazil, proficiency Level 2 threshold)",
+        "target_variable": "Reading proficiency (Low vs Proficient)",
+        "top_predictors": [
+          "Metacognition: assessing credibility",
+          "Additional instruction",
+          "Metacognition: summarizing",
+          "Annual household income",
+          "Metacognition: understanding & remembering"
+        ],
+        "performance_metrics": "Random Forest (A1): out-of-bag accuracy = 86.9% (95% CI: 86.8%–87.0%); ntree = 7, mtry = 800. Multilevel logistic regression (A2): AUC-ROC = 92.8% (95% CI: 92.1%–93.5%).",
+        "standardized_conclusion": "Using PISA 2018 Reading data for Brazil, the study leveraged metacognition (assessing credibility and summarizing), additional instruction, annual household income, and metacognition (understanding & remembering) to predict reading proficiency (Low vs Proficient). It found that higher household income and higher parental occupational status were positively associated with being proficient, while grade repetition and additional instruction were negatively associated with proficiency. This indicates that strengthening early childhood education and care and supporting students’ metacognitive reading strategies may raise the share of students reaching baseline reading proficiency, though causality cannot be inferred from cross-sectional associations."
+      }
+    ],
+    "outcome_summary": "The study used PISA 2018 public-use data for Brazil (15-year-olds; N = 10,691 students across 597 schools) and dichotomized PISA proficiency into “Low Proficiency” vs “Proficient” (Level 2 threshold) for mathematics, science, and reading. A two-step pipeline was applied: Random Forest classification to rank predictors (A1 subsample n = 5,345) and then multilevel logistic regression to estimate odds ratios while accounting for nesting of students within schools (A2 subsample n = 5,346). Random Forest out-of-bag accuracy was high across domains (87.2% math, 86.7% science, 86.9% reading), and multilevel models achieved strong discrimination (AUC-ROC 92.5%, 91.7%, and 92.8%, respectively). Across outcomes, annual household income and parents’ occupational status were positively associated with proficiency, while grade repetition and additional instruction were negatively associated. Limitations include cross-sectional design, self-report measures, substantial missingness requiring MICE, and unclear use of PISA sampling weights.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

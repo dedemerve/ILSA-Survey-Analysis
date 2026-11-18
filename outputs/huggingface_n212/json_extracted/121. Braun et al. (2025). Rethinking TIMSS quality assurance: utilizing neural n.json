@@ -1,0 +1,377 @@
+{
+  "metadata": {
+    "file_name": "121. Braun et al. (2025). Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores.pdf",
+    "title": "Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores",
+    "authors": [
+      "Henry Isaiah Braun",
+      "Matthias von Davier",
+      "Jihang Chen"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00262-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS microdata from the 2011, 2015, and 2019 administrations and constructs country-level mean predictions by first predicting student-level scores and then aggregating to country means. The manuscript describes TIMSS as using probability samples and discusses TIMSS quality control and paradata, but it does not report applying TIMSS sampling weights or any replicate-weight variance estimation in the neural-network/regression pipeline. Because the core models are feedforward neural networks followed by regression-based bias mitigation, the paper does not specify any weight-aware estimation approach, suggesting an unweighted (or at least not weight-documented) analysis. The analytic sample is restricted by design pairing rules (e.g., Grade 4 from one administration with Grade 8 from the next) and by the set of countries contributing to each component analysis (Table 1), rather than by an explicit missing-data or weight-based filtering rule."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper states that TIMSS cognitive achievement scores are derived using latent regression analysis and that plausible values are available for each student, but it does not document how plausible values were combined when training the neural networks and when aggregating to country-level means. It also does not report a missing-data strategy (e.g., complete-case restriction or imputation) for the background variables used as inputs. Given the absence of explicit PV-combining and missing-data documentation, this represents a reporting gap that limits reproducibility and may affect uncertainty quantification.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "ITA",
+          "n_students": null
+        },
+        {
+          "country_code": "NZL",
+          "n_students": null
+        },
+        {
+          "country_code": "KWT",
+          "n_students": null
+        },
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "IRN",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        },
+        {
+          "country_code": "QAT",
+          "n_students": null
+        },
+        {
+          "country_code": "HKG",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        },
+        {
+          "country_code": "ZAF",
+          "n_students": null
+        },
+        {
+          "country_code": "AUS",
+          "n_students": null
+        },
+        {
+          "country_code": "MYS",
+          "n_students": null
+        },
+        {
+          "country_code": "GEO",
+          "n_students": null
+        },
+        {
+          "country_code": "KAZ",
+          "n_students": null
+        },
+        {
+          "country_code": "BHR",
+          "n_students": null
+        },
+        {
+          "country_code": "JOR",
+          "n_students": null
+        },
+        {
+          "country_code": "LBN",
+          "n_students": null
+        },
+        {
+          "country_code": "MAR",
+          "n_students": null
+        },
+        {
+          "country_code": "SWE",
+          "n_students": null
+        },
+        {
+          "country_code": "SAU",
+          "n_students": null
+        },
+        {
+          "country_code": "RUS",
+          "n_students": null
+        },
+        {
+          "country_code": "ESP",
+          "n_students": null
+        },
+        {
+          "country_code": "KEN",
+          "n_students": null
+        },
+        {
+          "country_code": "QAT",
+          "n_students": null
+        },
+        {
+          "country_code": "TWN",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "CAN",
+          "n_students": null
+        },
+        {
+          "country_code": "NOR",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "EGY",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "The study uses TIMSS administrations 2011, 2015, and 2019 and constructs four component analyses for Method 1 (RQ1): Grade 4 from one administration paired with Grade 8 from the succeeding administration, separately for mathematics and science. Method 1 residuals are computed by predicting Grade 8 student scores using Grade 4 background/context inputs (with the grade indicator modified) and then aggregating to country-level mean predictions; residuals are then formed as observed country means minus predicted country means. Method 2 (RQ2) uses Grade 8 data from one administration to predict Grade 8 outcomes in the succeeding administration (different cohorts). For each component analysis, the set of contributing countries is restricted to those participating in both administrations in the relevant pair (Table 1 reports 34/25/29/22 countries for the four components). Background variables are restricted to those common across the paired administrations and recoded to harmonize response formats (e.g., one-hot encoding for ordinal/numeric categories and recoding of Likert items)."
+    },
+    "ml_techniques": {
+      "primary": "Neural Network",
+      "all_techniques": [
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "country_indicator",
+        "variable_name": "Country indicator",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "language_of_test_at_home",
+        "variable_name": "Language spoken at home",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "books_at_home",
+        "variable_name": "Books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "home_computer_tablet",
+        "variable_name": "Home computer/tablet",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "study_desk",
+        "variable_name": "Study desk",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "own_room",
+        "variable_name": "own room",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "internet_connection",
+        "variable_name": "Internet connection at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "computer_use_schoolwork_home",
+        "variable_name": "Computer use for schoolwork (home)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "computer_use_schoolwork_school",
+        "variable_name": "Computer use for schoolwork (school)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "computer_use_schoolwork_other",
+        "variable_name": "Computer use for schoolwork (other)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "peer_made_fun",
+        "variable_name": "Peer teasing/bullying",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "peer_left_out",
+        "variable_name": "Peer exclusion",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "peer_spread_lies",
+        "variable_name": "Peer rumor spreading",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "peer_stole_something",
+        "variable_name": "Peer theft",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "peer_hit_hurt",
+        "variable_name": "Peer hitting/hurting",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "peer_made_do_unwanted",
+        "variable_name": "Peer coercion",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "school_belonging",
+        "variable_name": "Belonging at school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "school_safety",
+        "variable_name": "Feeling safe at school",
+        "category": "school"
+      },
+      {
+        "variable_code": "school_liking",
+        "variable_name": "Enjoying being in school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "enjoy_learning_math",
+        "variable_name": "Enjoyment of learning math",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "math_boring",
+        "variable_name": "Math is boring",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "math_interests",
+        "variable_name": "Interest in mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "math_self_confidence",
+        "variable_name": "Self-confidence in math",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "math_difficulty_relative",
+        "variable_name": "Math difficulty vs classmates",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "math_not_strength",
+        "variable_name": "Math not a strength",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "learn_things_quickly_math",
+        "variable_name": "Learning math quickly",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "working_out_difficult_math",
+        "variable_name": "Working out difficult problems",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "teacher_expectations_understanding",
+        "variable_name": "Teacher expectations clarity",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_easy_to_understand",
+        "variable_name": "Teacher easy to understand",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_interesting_things",
+        "variable_name": "Teacher gives interesting tasks",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "teacher_interested_in_student",
+        "variable_name": "Teacher is easy to understand",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "grade_indicator",
+        "variable_name": "Grade indicator (4 vs 8)",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2011→2015 Grade 8 Mathematics (Method 1 and Method 2 components)",
+        "target_variable": "Math achievement (country-level mean; residual screening)",
+        "top_predictors": [
+          "Country indicator",
+          "Books at home",
+          "Gender",
+          "Belonging at school",
+          "Self-confidence in math"
+        ],
+        "performance_metrics": "Residual screening: countries with positive residuals above the 80th percentile (no RMSE/accuracy reported). For 2015 Grade 8 Math (29 countries in both pairs): Method 1 (2011–2015) median residual −0.2, IQR 7.7; Method 2 (2015–2019) median residual 0.6, IQR 7.6; 5 countries above 80th percentile in each pair (2011–2015: Dubai, Italy, New Zealand, Kuwait, Chile; 2015–2019: Iran, Ireland, Chile, Italy, Turkey).",
+        "standardized_conclusion": "Using TIMSS 2011→2015 and 2015→2019 Grade 8 Mathematics the study leveraged country indicator and student background/context variables (e.g., books at home, gender, school belonging, and math self-confidence) to predict country-level mean math achievement and compute residuals for screening. It found that residual distributions were generally well-behaved and that only a small set of countries fell into the upper tail (above the 80th percentile), suggesting the composite residual indicator can flag potentially unusual outcomes without producing widespread false alarms. This indicates that neural-network-based prediction with regression-based bias mitigation could strengthen TIMSS quality assurance by providing an additional, model-based screening signal for follow-up investigations, though the paper does not establish causal validity or provide uncertainty metrics for the screening threshold."
+      },
+      {
+        "dataset_used": "TIMSS 2011→2015 Grade 8 Science (Method 1 and Method 2 components)",
+        "target_variable": "Science achievement (country-level mean; residual screening)",
+        "top_predictors": [
+          "Country indicator",
+          "Internet connection at home",
+          "Peer teasing/bullying",
+          "Feeling safe at school",
+          "Teacher expectations clarity"
+        ],
+        "performance_metrics": "Residual screening: countries with positive residuals above the 80th percentile (no RMSE/accuracy reported). For 2015 Grade 8 Science (22 countries in both pairs): Method 1 (2011–2015) median residual 0.0, IQR 7.5; Method 2 (2015–2019) median residual 0.1, IQR 7.8; 4 countries above 80th percentile in each pair (2011–2015: Qatar, Kuwait, Chile, New Zealand; 2015–2019: Hong Kong, England, Italy, US).",
+        "standardized_conclusion": "Using TIMSS 2011→2015 and 2015→2019 Grade 8 Science the study leveraged country indicator and student background/context variables (e.g., home ICT access, peer climate, school safety, and teacher expectations) to predict country-level mean science achievement and compute residuals for screening. It found that science residual distributions were again approximately centered near zero with a limited number of upper-tail countries, indicating that the approach can identify a small set of potentially unusual country outcomes. This indicates that adding residual-based, model-prediction QC indicators may help TIMSS adjudication teams prioritize costly investigations, while still requiring triangulation with sampling/implementation evidence because the method’s overlap with documented sample-quality/population-definition issues was modest."
+      },
+      {
+        "dataset_used": "TIMSS Grade 8 Mathematics and Science (RQ3 composite indicator across Method 1 and Method 2)",
+        "target_variable": "Composite QC indicator correspondence (screened set vs sample-quality/population-definition flags)",
+        "top_predictors": [
+          "Residual screening from Method 1",
+          "Residual screening from Method 2",
+          "Upper quintile threshold"
+        ],
+        "performance_metrics": "Correspondence: modest overlap between screened set (union of countries in top quintiles from either method) and countries flagged in TIMSS documentation for substantial changes in sample quality and/or population definition. Examples reported: TIMSS 2015 Grade 8—Kazakhstan, Saudi Arabia, Turkey had exclusion rates >10%; Turkey, Quebec, US flagged for low participation; overlap only for Kazakhstan, Iran, Turkey in math and Georgia, New Zealand in science. TIMSS 2019 Grade 8—Saudi Arabia, Kazakhstan, Russia had notable exclusion rates; Hong Kong, Norway, US flagged for participation concerns; overlap only for Iran, Italy, Turkey in math and Hong Kong, Italy, US in science.",
+        "standardized_conclusion": "Using TIMSS Grade 8 Mathematics and Science the study combined residual-based screening from two neural-network/regression QC methods (union of top-quintile countries) and compared the screened set to TIMSS documentation about sample-quality and population-definition changes. It found only modest correspondence, implying that large positive residuals sometimes reflect broader workflow anomalies not captured by the documented sampling-quality indicators. This indicates that residual-based QC should be treated as a complementary screening tool rather than a definitive adjudication criterion, and that future TIMSS QC research should triangulate residual signals with paradata and implementation indicators to improve specificity."
+      }
+    ],
+    "outcome_summary": "The paper proposes a TIMSS quality-assurance enhancement that uses supervised neural networks plus regression-based bias mitigation to predict country-level Grade 8 mean achievement from background/context variables, then flags countries with unusually large positive residuals for follow-up. It applies two related methods: Method 1 predicts 8th-grade outcomes using the prior administration’s Grade 4 context (same cohort linkage), while Method 2 predicts 8th-grade outcomes using the prior administration’s Grade 8 outcomes (different cohorts). For 2015 Grade 8 mathematics (29 countries in both pairs), residual distributions were approximately symmetric with medians of −0.2 (IQR 7.7) and 0.6 (IQR 7.6), and only 5 countries per pair exceeded the 80th percentile. For 2015 Grade 8 science (22 countries), medians were 0.0 (IQR 7.5) and 0.1 (IQR 7.8) with 4 upper-tail countries per pair. The composite indicator’s overlap with TIMSS-documented sample-quality/population-definition issues was modest, and the manuscript does not report how plausible values and missing data were handled, limiting uncertainty quantification and reproducibility.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "file_name": "112. Zhang et al. (2023). Accurate Assessment via Process Data.pdf",
+    "title": "Accurate Assessment via Process Data",
+    "authors": [
+      "Susu Zhang",
+      "Zhi Wang",
+      "Jitong Qi",
+      "Jingchen Liu",
+      "Zhiliang Ying"
+    ],
+    "year": 2023,
+    "doi": "10.1007/s11336-022-09880-8",
+    "venue": "Psychometrika",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The empirical component uses OECD PIAAC 2012 PSTRE process data for five countries/regions (UK/England and Northern Ireland, Ireland, Japan, the Netherlands, and the USA) and restricts the analytic sample to respondents who completed all 14 PSTRE items (two 7-item blocks). The manuscript does not report the use of PIAAC sampling/survey weights or any replicate-weight variance estimation (e.g., BRR/jackknife), and the described estimation procedure focuses on item-parameter calibration (2PL/Rasch for simulations; generalized partial credit model for PSTRE) and regression-based conditional expectations for process-incorporated scoring. Because the paper’s core method is a model-based score refinement rather than a survey-mean estimation, it does not specify a weight variable to apply; thus, the analysis should be treated as unweighted unless weights were applied implicitly in the provided PSTRE data. For replication, analysts should verify whether the OECD-provided PSTRE microdata include sampling weights and whether the authors used them during item calibration and regression fitting; if weights are available, they may be needed to support population-representative inference."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": "The extraction pipeline detected that plausible_values_handling is 'not_applicable' and/or missing_data_handling is 'listwise_deletion', but the LLM did not provide a diagnostic explanation. This may indicate a reporting gap in the original manuscript.",
+    "sample_details": {
+      "total_students": 2304,
+      "countries": [
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "IRL",
+          "n_students": null
+        },
+        {
+          "country_code": "JPN",
+          "n_students": null
+        },
+        {
+          "country_code": "NLD",
+          "n_students": null
+        },
+        {
+          "country_code": "USA",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used OECD PIAAC 2012 PSTRE process data for respondents assigned to PSTRE for both blocks. Each PSTRE block contained 7 items (14 total across both blocks). Excluded individuals who omitted any of the 14 PSTRE items (i.e., any item with an omission-type action sequence such as 'Start, Next, Next_OK' was treated as an omission and removed), yielding an analytic sample of 2304 respondents who responded to all 14 PSTRE items."
+    },
+    "ml_techniques": {
+      "primary": "Ridge Regression",
+      "all_techniques": [
+        "Ridge Regression",
+        "Ordinary Least Squares"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "process_feature_dimension",
+        "variable_name": "Process feature dimension (K)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "generalized_partial_credit_model",
+        "variable_name": "Final response item model",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "scoring_set_size",
+        "variable_name": "Scoring set item count",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "reference_set_size",
+        "variable_name": "Reference set item count",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "studentized_residual_decile",
+        "variable_name": "Residual discrepancy decile",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (process data) — 5 countries/regions",
+        "target_variable": "PSTRE latent proficiency estimate reliability (MSE vs reference set)",
+        "top_predictors": [
+          "Process feature dimension (K)",
+          "Scoring set item count",
+          "Reference set item count",
+          "Final response item model"
+        ],
+        "performance_metrics": "Process-incorporated scoring (θX) consistently produced smaller MSE than response-based scoring (θY) across scoring-set lengths from 2 to 7 items; with 2 items, process-incorporated median MSE was comparable to response-based scoring using 5 items; with 4+ items, process-incorporated MSE was similar to or lower than response-based scoring using all 7 items. Exact numeric MSE values are not reported in the text.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data from five countries/regions, the study leveraged process-derived features (embedded action-sequence representations) together with response-based latent estimates to predict latent proficiency reliability measured as MSE against a reference-set latent estimate, finding that process-incorporated scoring consistently reduced MSE relative to response-only scoring across all test lengths (2–7 items). This indicates that incorporating problem-solving process information can substantially improve measurement precision and allow shorter assessments to reach the reliability of longer response-only tests, though the evaluation is based on split-half agreement with an external reference set rather than true latent θ."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (process data) — 5 countries/regions",
+        "target_variable": "PSTRE latent proficiency estimate reliability (Kendall’s τ vs reference set)",
+        "top_predictors": [
+          "Process feature dimension (K)",
+          "Scoring set item count",
+          "Reference set item count",
+          "Final response item model"
+        ],
+        "performance_metrics": "Kendall’s τ between scoring-set estimates and reference-set performance was consistently larger for process-incorporated scoring than for response-based scoring for all test lengths (2–7 items). With 4 items, process-incorporated scoring achieved similar or higher Kendall’s τ than response-based scoring using all 7 items; absolute τ values were mostly below 0.5 due to attenuation from reference-set measurement error.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data from five countries/regions, the study leveraged process-derived features to predict latent proficiency reliability measured as Kendall’s τ agreement with reference-set performance, finding that process-incorporated scoring produced consistently higher rank agreement than response-only scoring across all scoring-set lengths. This indicates that process-aware scoring can better preserve ordering of examinees by proficiency, supporting more dependable norm-referenced interpretation for short, low-stakes computer-based assessments, while noting that τ is attenuated because the reference-set latent estimate is itself measured with error."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PSTRE (process data) — 5 countries/regions",
+        "target_variable": "Robustness to response–process score discrepancies (MSE by residual decile)",
+        "top_predictors": [
+          "Residual discrepancy decile",
+          "Final response item model",
+          "Process feature dimension (K)"
+        ],
+        "performance_metrics": "When response-based and process-incorporated estimates disagreed most (extreme residual deciles), the process-incorporated estimator showed markedly lower MSE than the response-based estimator; when they agreed (middle deciles), MSEs were similar. Exact MSE values by decile are not reported in the text.",
+        "standardized_conclusion": "Using PIAAC 2012 PSTRE process data from five countries/regions, the study leveraged process features to predict latent proficiency accuracy specifically under conditions of large response–process disagreement, finding that the process-incorporated estimator substantially outperformed the response-only estimator in the extreme residual deciles while showing similar performance in middle deciles. This indicates that process-aware scoring can reduce random measurement error arising from inefficient strategies, partial completion, or careless mistakes that still yield plausible final outcomes, improving fairness and interpretability for examinees whose final responses alone are misleading."
+      }
+    ],
+    "outcome_summary": "This paper proposes a process-incorporated latent trait scoring method that refines IRT-based ability estimates using features extracted from students’ problem-solving action sequences. The empirical evaluation uses OECD PIAAC 2012 PSTRE process data for respondents in five countries/regions who completed all 14 PSTRE items; the authors exclude omissions and split the 14 items into scoring (Bs) and reference (Br) sets to evaluate reliability via split-half agreement. Across scoring-set lengths from 2 to 7 items, the process-incorporated estimator achieved consistently lower MSE against the reference-set latent estimate and higher Kendall’s τ rank agreement than response-only scoring; notably, with 2 items it matched the response-only performance of using about 5 items, and with 4+ items it matched or exceeded response-only scoring using all 7 items. The method uses regression-based conditional expectations (with ridge regression for the first conditional expectation) and relies on feature extraction via multidimensional scaling of action sequences. Limitations include the absence of reported survey-weight usage, reliance on split-half reference estimates rather than true θ, and the fact that the paper’s theoretical guarantees depend on regularity assumptions about local independence and monotonicity.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "file_name": "105. Stiff et al. (2023). Research engagement in the Progress in International Reading Literacy Study: A systematic review.pdf",
+    "title": "Research engagement in the Progress in International Reading Literacy Study: A systematic review",
+    "authors": [
+      "Jamie Stiff",
+      "Jenny Lenkeit",
+      "Therese Hopfenbeck",
+      "Heather Kayton",
+      "Joshua McGrane"
+    ],
+    "year": 2023,
+    "doi": "10.1016/j.edurev.2023.100547",
+    "venue": "Educational Research Review",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This paper is a systematic review of PIRLS-related peer-reviewed journal articles rather than an analysis of PIRLS microdata. As such, there is no student-level sampling frame, no plausible-value (PV) scaling step, and no application of PIRLS/TIMSS/OECD complex survey weights (e.g., student or replicate weights). The review’s “sample” consists of bibliographic records identified through database searches (ERIC, PsycINFO, Scopus, Web of Science, Zetoc) and then screened using inclusion/exclusion criteria (English-language, peer-reviewed journal, PIRLS as a main data source/topic). Therefore, weighting variables and replicate-weight variance estimation are not applicable to the review’s descriptive counts and qualitative synthesis."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This is a systematic review that does not estimate student-level PIRLS achievement scores or any PV-based outcomes. The dependent information is bibliographic and thematic coding of included studies (e.g., article nature, cycle focus, topic categories), so PV handling is not part of the methodology. Missing-data handling for PVs is therefore not applicable to the review’s design, and the paper does not report a PV/missing-data strategy because no PV-based modeling is conducted.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "The review constructed a bibliographic database starting from Lenkeit et al. (2004–2015; 113 articles). It searched five digital databases (ERIC, PsycINFO, Scopus, Web of Science, Zetoc) for PIRLS-related terms in all fields, restricting the date range to January 2015–May 2022 to reduce overlap. Records were screened to retain only peer-reviewed, English-language journal articles with PIRLS as a main data source or topic (checked via abstract and then full-text keyword presence). Conference proceedings and articles where PIRLS was not the focus were excluded; additionally, studies using PIRLS materials on smaller independent samples and commentaries on other PIRLS-related research were excluded. Reliability checks were performed on randomly selected subsets of newly located articles (25 for 2015–2018; 25 for 2019–2022), followed by plausibility/completeness checks across all 221 included PIRLS-related articles."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PIRLS",
+        "target_variable": "reading performance",
+        "top_predictors": [
+          "See outcome_summary (descriptive associations not coded as predictors)"
+        ],
+        "performance_metrics": "Descriptive statistics only (no ML performance metrics; see outcome_summary)",
+        "standardized_conclusion": "Using PIRLS data, the document summarizes reading performance in relation to See outcome_summary (descriptive associations not coded as predictors), reporting that This systematic review synthesizes 221 PIRLS-related peer-reviewed journal articles published between 2004 and 2022, building on a prior database of 113 articles (2004–2015) and adding 108 newly identified articles (2015–2022). This indicates that Because this is not an empirical ML study, there are no predictive metrics (e.g., accuracy/AUC) and no PV-based modeling; the main contribution is mapping how PIRLS data are used in the research community and where gaps ."
+      }
+    ],
+    "outcome_summary": "This systematic review synthesizes 221 PIRLS-related peer-reviewed journal articles published between 2004 and 2022, building on a prior database of 113 articles (2004–2015) and adding 108 newly identified articles (2015–2022). The review’s descriptive results show an overall increase in research engagement with PIRLS, particularly after the 2011 cycle, and a shift toward secondary data analyses rather than critiques or policy/impact studies. Across the included literature, most articles focus on overall reading performance rather than specific reading purposes or comprehension processes, and only a small number address subscales such as literary vs. informational purposes or the four comprehension processes. Qualitatively, the review highlights recurring themes: teacher characteristics and instruction practices, socioeconomic predictors of reading outcomes, and critiques of PIRLS scaling/IRT practices (e.g., measurement invariance and DIF). Because this is not an empirical ML study, there are no predictive metrics (e.g., accuracy/AUC) and no PV-based modeling; the main contribution is mapping how PIRLS data are used in the research community and where gaps remain.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This record is a systematic review rather than an empirical study using PIRLS microdata. Consequently, there is no student-level analytic sample, no country-level per-country N table for the review itself, no PV handling or missing-data strategy for achievement modeling, and no ML training/evaluation pipeline. The extraction therefore leaves ML and weighting fields empty/null by design, while still capturing the review’s bibliographic search and screening methodology."
+  }
+}

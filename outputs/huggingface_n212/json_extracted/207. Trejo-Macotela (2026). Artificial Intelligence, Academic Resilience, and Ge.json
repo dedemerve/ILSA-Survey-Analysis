@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "file_name": "207. Trejo-Macotela (2026). Artificial Intelligence, Academic Resilience, and Gender Equity in Education Systems: Ethical Challenges, Predictive Bias, and Governance Implications.pdf",
+    "title": "Artificial Intelligence, Academic Resilience, and Gender Equity in Education Systems: Ethical Challenges, Predictive Bias, and Governance Implications",
+    "authors": [
+      "F.R. Trejo-Macotela",
+      "G.C. González-Flores",
+      "M.O.-E. (author name not fully specified in provided text)",
+      "M.F. González-Pérez"
+    ],
+    "year": 2026,
+    "doi": "10.3390/educsci16040605",
+    "venue": "Education Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 student-level microdata and constructs a binary academic resilience target using country-relative ESCS and PV1MATH quartiles. The analytic sample is defined after removing incomplete observations for the selected variables, yielding 613,744 students across 80 educational systems. Although PISA provides sampling weights, the authors explicitly do not incorporate sampling weights into the modelling process, aligning with a predictive/pattern-recognition objective rather than population-level inference. As a result, the reported performance and fairness diagnostics reflect relationships within the observed sample and may not generalize perfectly to the underlying national populations represented by PISA’s complex survey design."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "mean_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 613744,
+      "countries": [],
+      "sample_filtering_criteria": "Used the PISA 2022 student dataset and retained students with complete information on the selected variables (gender, immigration status, grade repetition, ESCS, PV1READ, PV1SCIE, and PV1MATH). The dependent variable (academic resilience) was constructed within each country using ESCS and PV1MATH country-specific quartiles; missing values in selected variables were imputed using median-based imputation. The final analytic sample after removing incomplete observations comprised 613,744 students across 80 educational systems."
+    },
+    "ml_techniques": {
+      "primary": "CatBoost",
+      "all_techniques": [
+        "Logistic Regression",
+        "Random Forest",
+        "Gradient Boosting",
+        "XGBoost",
+        "LightGBM",
+        "CatBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "FEMALE",
+        "variable_name": "Gender (FEMALE)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration status (IMMIG)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "REPEAT",
+        "variable_name": "Grade repetition (REPEAT)",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PV1READ",
+        "variable_name": "Reading achievement (PV1READ)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SCIE",
+        "variable_name": "Science achievement (PV1SCIE)",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 (15-year-olds) Mathematics resilience classification (PV1MATH; country-relative ESCS quartiles)",
+        "target_variable": "Academic resilience (binary: ESCS bottom quartile & PV1MATH top quartile)",
+        "top_predictors": [
+          "Immigration status (IMMIG)",
+          "Socioeconomic status (ESCS)",
+          "Grade repetition (REPEAT)",
+          "Science achievement (PV1SCIE)",
+          "Reading achievement (PV1READ)"
+        ],
+        "performance_metrics": "Model comparison (hold-out 80/20 + 5-fold CV for best model): CatBoost AUC=0.941, F1=0.275, PR-AUC=0.332; XGBoost AUC=0.941, F1=0.276, PR-AUC=0.332; LightGBM AUC=0.941, F1=0.278, PR-AUC=0.334; Gradient Boosting AUC=0.940, F1=0.270, PR-AUC=0.321; Random Forest AUC=0.931, F1=0.310, PR-AUC=0.249; Logistic Regression AUC=0.930, F1=0.239, PR-AUC=0.253. Best model (CatBoost) 5-fold CV average ROC-AUC=0.949.",
+        "standardized_conclusion": "Using PISA 2022 the study leveraged immigration status, socioeconomic status (ESCS), grade repetition, and reading/science achievement (PV1READ/PV1SCIE) to predict academic resilience defined by ESCS bottom-quartile and PV1MATH top-quartile, finding that ensemble boosting models (especially CatBoost) achieved the highest discrimination (AUC≈0.941; CV AUC≈0.949). This indicates that non-linear ensemble models can effectively identify resilient students under socioeconomic disadvantage, but the reliance on PV1MATH (single plausible value), median imputation, and omission of PISA sampling weights means results should be treated as predictive associations rather than population-representative estimates."
+      },
+      {
+        "dataset_used": "PISA 2022 (gender-disaggregated fairness diagnostics for resilience classification; CatBoost)",
+        "target_variable": "Academic resilience positive prediction rate disparity by gender",
+        "top_predictors": [
+          "Gender (FEMALE)",
+          "Immigration status (IMMIG)",
+          "Socioeconomic status (ESCS)",
+          "Grade repetition (REPEAT)"
+        ],
+        "performance_metrics": "CatBoost fairness metrics by gender: Male—Precision=0.128, TPR=0.850, FPR=0.138, AUC=0.938, Positive Rate=0.155 (N=61,389); Female—Precision=0.216, TPR=0.797, FPR=0.089, AUC=0.949, Positive Rate=0.110 (N=61,360). Demographic parity ratio=1.40; equality of opportunity gap (TPR difference)=0.053.",
+        "standardized_conclusion": "Using PISA 2022 the study evaluated gender-group differences in CatBoost predictions for academic resilience, finding that positive prediction rates were higher for males (positive rate 0.155 vs 0.110; demographic parity ratio≈1.40) alongside higher male false positive rates (FPR 0.138 vs 0.089) and a TPR gap of 0.053. This indicates that even when overall discrimination is high (AUC≈0.94), predictive systems may produce measurable equity-relevant disparities, implying that governance should require routine fairness diagnostics and threshold/operational decisions aligned to equity goals, while avoiding causal interpretations."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2022 student microdata (613,744 students across 80 educational systems) to predict a binary academic resilience indicator defined within each country as ESCS in the bottom quartile and mathematics achievement in the top quartile using PV1MATH. After median-based imputation for missing values and SMOTE applied only to the training set, six supervised classifiers were compared using hold-out evaluation (80/20) and 5-fold cross-validation for the best model. Ensemble boosting models performed best: CatBoost achieved AUC=0.941 (CV AUC=0.949) with F1=0.275 and PR-AUC=0.332. Fairness diagnostics for CatBoost showed gender disparities: males had a higher positive prediction rate (0.155 vs 0.110) and higher false positive rates (0.138 vs 0.089), with demographic parity ratio≈1.40 and equality-of-opportunity gap≈0.053. Limitations include omission of PISA sampling weights, use of a single plausible value (PV1MATH), and the fact that SHAP/feature importance support interpretability but do not establish causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

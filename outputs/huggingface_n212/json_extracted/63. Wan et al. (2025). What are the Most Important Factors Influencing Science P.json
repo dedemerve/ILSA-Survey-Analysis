@@ -1,0 +1,288 @@
+{
+  "metadata": {
+    "file_name": "63. Wan et al. (2025). What are the Most Important Factors Influencing Science Performance? A Machine Learning Study of Singaporean and Finish PISA Data.pdf",
+    "title": "What are the Most Important Factors Influencing Science Performance? A Machine Learning Study of Singaporean and Finish PISA Data",
+    "authors": [
+      "Z. H. Wan",
+      "Yanan Zhang"
+    ],
+    "year": 2025,
+    "doi": "10.1007/s10763-025-10596-1",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 science microdata for 15-year-olds from Singapore and Finland and models science performance using ten plausible values (PVs) as the dependent variable. The authors state that PISA-derived scales were transformed using weighted likelihood estimates (WLEs) and standardized with equal weighting for each country/economy, but they do not report applying PISA sampling weights (e.g., student/school weights) or replicate weights in the machine-learning estimation. Because the analysis is implemented with Random Forest regression in SPSS/R, the manuscript does not specify a complex-survey-weighted ML procedure; therefore, it is unclear whether population-representative weighting was incorporated beyond PISA’s internal scaling (WLE). The analytic sample is restricted to the two specified countries and to the set of 39 questionnaire-derived predictors used in the RF models, with missing data handled via MCMC multiple imputation."
+    },
+    "plausible_values_handling": "all_pv",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 11997,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 6115
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 5882
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2015 science-focused dataset for 15-year-olds from Singapore and Finland. The dependent variable is science performance represented by all 10 PISA science plausible values (PVs). The predictor set is restricted to 39 variables derived from the PISA 2015 student questionnaire (contextual, family, and individual-level factors) as listed in Table S1, and missing values among these variables were handled via MCMC multiple imputation (five imputed datasets) before fitting Random Forest regression."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "GENDER",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "DISCLISCI",
+        "variable_name": "Disciplinary climate (science)",
+        "category": "peer_effects"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Teacher support (science)",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "TDTEACH",
+        "variable_name": "Teacher-directed instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "JOYSCIE",
+        "variable_name": "Enjoyment of science",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "INSTSCIE",
+        "variable_name": "Instrumental motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCIEEFF",
+        "variable_name": "Science self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SCIEACT",
+        "variable_name": "Index science activities",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupational status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "IMMIG",
+        "variable_name": "Immigration status index",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use outside school (work)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ENTUSE",
+        "variable_name": "ICT use outside school (leisure)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HISEI",
+        "variable_name": "Highest parental occupational status",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "PARED",
+        "variable_name": "Highest parental education (years)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "DURECEC",
+        "variable_name": "Duration in early education",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Science learning time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging to school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXTEST",
+        "variable_name": "Test anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MOTIVAT",
+        "variable_name": "Achieving motivation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COOPERA",
+        "variable_name": "Enjoy cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CPSVALUE",
+        "variable_name": "Value cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EMOSUPS",
+        "variable_name": "Parents emotional support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "PERFEED",
+        "variable_name": "Perceived feedback",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ADINST",
+        "variable_name": "Adaptation of instruction",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "USESCH",
+        "variable_name": "Use of ICT at school (general)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "INTICT",
+        "variable_name": "ICT interest",
+        "category": "ict"
+      },
+      {
+        "variable_code": "COMPICT",
+        "variable_name": "Perceived ICT competence",
+        "category": "ict"
+      },
+      {
+        "variable_code": "AUTICT",
+        "variable_name": "Perceived autonomy related to ICT",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SOIAICT",
+        "variable_name": "Enjoyment of social interaction around ICT",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT available at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTSCH",
+        "variable_name": "ICT available at school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "UNFAIR",
+        "variable_name": "Teacher fairness",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "CULTPOSS",
+        "variable_name": "Cultural possessions at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HEDRES",
+        "variable_name": "Home educational resources",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "WEALTH",
+        "variable_name": "Family wealth",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "MINDSINQ",
+        "variable_name": "Minds-on inquiry in science",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "HANDSINQ",
+        "variable_name": "Hands-on inquiry in science",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SUBBLF",
+        "variable_name": "Development in epistemological beliefs",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "OBJBLF",
+        "variable_name": "Justification in epistemological beliefs",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Science (15-year-olds) — Singapore and Finland",
+        "target_variable": "Science performance (all 10 plausible values)",
+        "top_predictors": [
+          "Science learning time (minutes/week)",
+          "Justification in epistemological beliefs",
+          "Enjoyment of science",
+          "Science self-efficacy",
+          "ICT use or availability (ICTHOME/ICTSCH/USESCH)"
+        ],
+        "performance_metrics": "Random Forest regression (500 trees) with 10-fold cross-validation (five repeats): explained variance R² = 0.538 (Singapore; RMSE = 27.710) and R² = 0.511 (Finland; RMSE = 25.902). Sparse RF with top-10 variables: R² = 0.482 (Singapore; RMSE = 32.268) and R² = 0.463 (Finland; RMSE = 29.604). Variable importance ranked by %IncMSE; cross-validation error stabilized when using the 10 most important factors.",
+        "standardized_conclusion": "Using PISA 2015 Science data for Singapore and Finland, the study leveraged science learning time, justification in epistemological beliefs, enjoyment of science, science self-efficacy, and ICT use/availability to predict students’ science performance (all 10 plausible values), finding that these motivational and ICT-related factors were the shared top drivers in both countries. This indicates that strengthening science motivation (self-efficacy, enjoyment, and epistemic justification) alongside expanding effective ICT-supported learning opportunities may be a cross-cultural strategy for improving science achievement, though the study is correlational and does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2015 Science (15-year-olds) — Finland",
+        "target_variable": "Science performance (all 10 plausible values)",
+        "top_predictors": [
+          "Expected occupational status",
+          "Test anxiety",
+          "Value cooperation",
+          "Science learning time (minutes/week)",
+          "Justification in epistemological beliefs"
+        ],
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (five repeats): explained variance R² = 0.511 (Finland; RMSE = 25.902). Top-10 factor selection based on %IncMSE and stabilized cross-validation error; minimum cross-validation error occurred with 26 factors, and the curve stabilized with the 10 most important factors.",
+        "standardized_conclusion": "Using PISA 2015 Science data for Finland, the study leveraged expected occupational status, test anxiety, value cooperation, science learning time, and justification in epistemological beliefs to predict science performance (all 10 plausible values), finding that additional individual factors beyond the shared motivational/ICT set were among the most important for Finnish students. This indicates that Finnish science improvement efforts may benefit from addressing career-related expectations and reducing test anxiety while supporting cooperative learning dispositions, though causality cannot be inferred from the correlational ML results."
+      },
+      {
+        "dataset_used": "PISA 2015 Science (15-year-olds) — Singapore",
+        "target_variable": "Science performance (all 10 plausible values)",
+        "top_predictors": [
+          "Family wealth",
+          "Highest parental occupational status",
+          "Home educational resources",
+          "Science learning time (minutes/week)",
+          "Disciplinary climate in science classes"
+        ],
+        "performance_metrics": "Random Forest regression with 10-fold cross-validation (five repeats): explained variance R² = 0.538 (Singapore; RMSE = 27.710). Top-10 factor selection based on %IncMSE and stabilized cross-validation error; minimum cross-validation error occurred with 26 factors, and the curve stabilized with the 10 most important factors.",
+        "standardized_conclusion": "Using PISA 2015 Science data for Singapore, the study leveraged family wealth, highest parental occupational status, home educational resources, science learning time, and disciplinary climate in science classes to predict science performance (all 10 plausible values), finding that family resources were prominent among the top drivers for Singaporean students and that disciplinary climate was the key school-level factor. This indicates that Singapore’s science policy and practice may need to pair motivational/ICT initiatives with measures that mitigate home-resource disparities and improve classroom discipline to sustain high achievement, while recognizing the study’s correlational design limits causal claims."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2015 science performance for 15-year-olds in Singapore (n=6115) and Finland (n=5882) using Random Forest regression with 500 trees and 10-fold cross-validation repeated five times. Science achievement is modeled using all 10 PISA science plausible values as the dependent variable, while 39 questionnaire-derived predictors spanning individual, family, and school contexts are used as inputs. Model fit is moderate: R² is 0.538 (Singapore; RMSE=27.710) and 0.511 (Finland; RMSE=25.902), and a sparse top-10-variable model yields R² of 0.482 (Singapore; RMSE=32.268) and 0.463 (Finland; RMSE=29.604). Variable importance is ranked via %IncMSE, and cross-validation error stabilizes when the 10 most important factors are included. The authors handle missing data with MCMC multiple imputation (five datasets) but do not report applying PISA sampling/replicate weights in the ML estimation; additionally, the correlational design means the results identify predictive associations rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

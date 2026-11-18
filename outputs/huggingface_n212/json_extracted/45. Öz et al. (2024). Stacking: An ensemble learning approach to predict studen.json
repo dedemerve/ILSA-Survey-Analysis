@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "file_name": "45. Öz et al. (2024). Stacking: An ensemble learning approach to predict student performance in PISA 2022.pdf",
+    "title": "Stacking: An ensemble learning approach to predict student performance in PISA 2022",
+    "authors": null,
+    "year": 2024,
+    "doi": "10.1007/s10639-024-13110-2",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata (student questionnaire plus achievement outcomes) and constructs separate subject-specific datasets by removing identifiers (e.g., student/school IDs), birth-month, country-specific items, non-subject variables, and variables with 100% missingness within each country. The authors then convert special missing codes (valid skip, not applicable, invalid, no response) to NaN and perform country-by-country modeling. The manuscript does not report applying PISA sampling weights or replicate weights in the ML training/evaluation pipeline; instead, it uses train/validation/test splits and fivefold cross-validation for hyperparameter tuning. Because the models are tree-based boosting/ensemble methods and ridge regression meta-learning, the paper does not describe any complex-survey-weighted estimation, implying an unweighted ML analysis."
+    },
+    "plausible_values_handling": "all_pv",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper states that it does not impute missing observations for the level-0 learners (“without imputing any missing observations”) and that stacking/blending can handle missing values, but it does not explicitly document the exact missing-data strategy used inside each algorithm (e.g., whether missingness is treated via native split directions, surrogate splits, or explicit missing indicators). This is a reporting gap because PISA datasets contain non-trivial missingness and the handling mechanism can materially affect predictive performance and comparability across countries and PVs.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "Used PISA 2022 data from all countries participating in the administration (80 countries). For each subject (mathematics, reading, science), the authors removed irrelevant variables (student/school IDs, birth-month, country-specific items, variables not subject-specific) and removed variables with 100% missing values within each country. They converted codes for valid skip, not applicable, invalid, and no response to NaN (missing) and then performed the modeling separately for each country. For stacking, they split each country dataset into 80% training and 20% testing; for blending, they used 60% training, 20% validation, and 20% testing. Hyperparameters were optimized using fivefold cross-validation."
+    },
+    "ml_techniques": {
+      "primary": "Stacking",
+      "all_techniques": [
+        "Stacking",
+        "XGBoost",
+        "Histogram GBR",
+        "LightGBM",
+        "Blending"
+      ]
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Mathematics (Plausible Values)",
+        "target_variable": "Mathematics achievement (PVs) predicted via regression",
+        "top_predictors": [],
+        "performance_metrics": "Stacking lowest mean error across countries: lowest mean MAPE for 72/80 countries (90.00%), lowest mean MAE for 74/80 (92.50%), lowest mean MSE for 75/80 (93.75%). Robust linear mixed-effects models: stacking reference; other algorithms significantly increased MAPE/MAE/MSE vs stacking (e.g., MAPE mathematics intercept β=0.10; XGBoost/HGB/LightGBM/Blending effects significant).",
+        "standardized_conclusion": "Using PISA 2022 mathematics data (with ten plausible values per student), the study leveraged an ensemble stacking meta-model (level-1 ridge regression) to predict mathematics achievement, finding that stacking produced the lowest mean MAPE, MAE, and MSE for the vast majority of countries compared with XGBoost, HGB, LightGBM, and blending. This indicates that stacking-based ensemble learning may improve the accuracy and stability of cross-country achievement prediction for identifying where students are underperforming, though the paper does not document a fully transparent missing-data mechanism and does not apply survey-weighted estimation."
+      },
+      {
+        "dataset_used": "PISA 2022 Reading (Plausible Values)",
+        "target_variable": "Reading achievement (PVs) predicted via regression",
+        "top_predictors": [],
+        "performance_metrics": "Stacking lowest mean error across countries: lowest mean MAPE for 64/80 countries (80.00%), lowest mean MAE for 69/80 (86.25%), lowest mean MSE for 70/80 (87.50%). Robust linear mixed-effects models: other algorithms significantly increased MAPE/MAE/MSE vs stacking (e.g., MAPE reading intercept β=0.12; XGBoost/HGB/LightGBM/Blending effects significant).",
+        "standardized_conclusion": "Using PISA 2022 reading data (with ten plausible values per student), the study leveraged an ensemble stacking meta-model (level-1 ridge regression) to predict reading achievement, finding that stacking achieved the lowest mean MAPE, MAE, and MSE for most countries relative to boosting and blending alternatives. This indicates that stacking may be a strong default modeling choice for producing more accurate reading-performance predictions across diverse education systems, while cautioning that the missing-data handling details and the lack of explicit survey-weighted ML estimation limit direct policy generalization."
+      },
+      {
+        "dataset_used": "PISA 2022 Science (Plausible Values)",
+        "target_variable": "Science achievement (PVs) predicted via regression",
+        "top_predictors": [],
+        "performance_metrics": "Stacking lowest mean error across countries: lowest mean MAPE for 65/80 countries (81.25%), lowest mean MAE for 71/80 (88.75%), lowest mean MSE for 71/80 (88.75%). Robust linear mixed-effects models: other algorithms significantly increased MAPE/MAE/MSE vs stacking (e.g., MAPE science intercept β=0.11; XGBoost/HGB/LightGBM/Blending effects significant).",
+        "standardized_conclusion": "Using PISA 2022 science data (with ten plausible values per student), the study leveraged stacking (level-1 ridge regression) to predict science achievement, finding that stacking delivered the lowest mean MAPE, MAE, and MSE for the majority of countries compared with XGBoost, HGB, LightGBM, and blending. This indicates that stacking-based ensembles can enhance predictive accuracy for science performance mapping across countries, supporting more reliable targeting of instructional improvement efforts, though causality cannot be inferred and the paper’s missing-data strategy is not fully specified."
+      }
+    ],
+    "outcome_summary": "The study predicts PISA 2022 mathematics, reading, and science achievement using ensemble machine learning. For each subject, the authors create subject-specific datasets from the PISA 2022 student questionnaire and achievement outcomes, remove identifiers and non-subject variables, and convert special missing codes to NaN; they then train models separately for each of 80 participating countries. The dependent variables are the ten plausible values per subject, and performance is evaluated using MAPE, MAE, MSE, and RMSE, with robust linear mixed-effects models treating countries as random effects. Across countries, stacking most often yields the lowest mean MAPE/MAE/MSE (e.g., MAPE lowest for 72/80 in mathematics, 64/80 in reading, 65/80 in science). Limitations include lack of explicit documentation of the internal missing-data handling mechanism and no reported use of PISA sampling/replicate weights, so results reflect predictive accuracy rather than population-representative causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

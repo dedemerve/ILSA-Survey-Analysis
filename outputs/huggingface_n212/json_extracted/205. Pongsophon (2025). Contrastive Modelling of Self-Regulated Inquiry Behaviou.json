@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "file_name": "205. Pongsophon (2025). Contrastive Modelling of Self-Regulated Inquiry Behaviours Across Nations: Evidence from TIMSS 2023 Earth Science.pdf",
+    "title": "Contrastive modelling of self‐regulated inquiry behaviours across nations: Evidence from TIMSS 2023 Earth Science",
+    "authors": [
+      "Pongprapan Pongsophon"
+    ],
+    "year": 2026,
+    "doi": "10.1002/berj.70095",
+    "venue": "British Educational Research Journal",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses TIMSS 2023 International Database Grade 8 Earth Science process files and the corresponding Earth Science plausible values, restricted to five countries (Chile, the United Arab Emirates, England, Korea, Turkey) and to a final analytic sample of 25,234 students after preprocessing. The manuscript lists sampling/adjustment weights (e.g., TOTWGT and WGTFAC1–WGTFAC3) in the key-variable table, but it does not explicitly state whether these complex survey weights were applied in the contrastive learning, clustering, and cross-national statistical tests. Because the core modeling is contrastive self-supervised representation learning followed by K-means clustering (and UMAP visualization), the paper does not describe a weight-aware estimation strategy; therefore, weighting usage is unclear from the text. Analysts should consult the TIMSS IDB Analyzer documentation and the authors’ analysis code (if available) to confirm whether TOTWGT/WGTFAC* were used when estimating embedding-cluster differences and country-wise tests."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "mean_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 25234,
+      "countries": [
+        {
+          "country_code": "CHL",
+          "n_students": null
+        },
+        {
+          "country_code": "ARE",
+          "n_students": null
+        },
+        {
+          "country_code": "GBR",
+          "n_students": null
+        },
+        {
+          "country_code": "KOR",
+          "n_students": null
+        },
+        {
+          "country_code": "TUR",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "Used TIMSS 2023 Grade 8 Earth Science digital process data (BSPM8 process files) and corresponding Earth Science plausible values. Preprocessing extracted 1176 standardized process indicators (screen visit frequency F, first-visit time R, total time on screen S) and applied mean imputation for missing process indicators, then z-standardized features. For contrastive pair construction, achievement quartiles were used only to create proxy extremes: students in the top 25% and bottom 25% of Earth Science achievement were retained as anchors, while the middle 50% were excluded to maximize behavioral contrast; the final analytic sample comprised 25,234 students across Chile, the UAE, England, Korea, and Turkey."
+    },
+    "ml_techniques": {
+      "primary": "Neural Network",
+      "all_techniques": [
+        "Neural Network"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "CTY",
+        "variable_name": "Country",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "ITSEX",
+        "variable_name": "Sex",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "BSDAGE",
+        "variable_name": "Age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ITLANG_SA",
+        "variable_name": "Language of assessment",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ME72002_F",
+        "variable_name": "Screen visit frequency (F)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "ME72002_R",
+        "variable_name": "First-visit time (R)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "ME72002_S",
+        "variable_name": "Total time on screen (S)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "BSSEAR01–BSSEAR05",
+        "variable_name": "Earth Science plausible values",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "ITADMINI",
+        "variable_name": "Administration quality flag",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ILRELIAB",
+        "variable_name": "Reliability/participation flag",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "FLAGPT1",
+        "variable_name": "Participation quality flag 1",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "FLAGPT2",
+        "variable_name": "Participation quality flag 2",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "WGTFAC1",
+        "variable_name": "Weight factor 1 (WGTFAC1)",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "WGTFAC2",
+        "variable_name": "Weight factor 2 (WGTFAC2)",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "WGTFAC3",
+        "variable_name": "Weight factor 3 (WGTFAC3)",
+        "category": "system_level"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS 2023 Grade 8 Earth Science process data (BSPM8) across Chile, UAE, England, Korea, Turkey",
+        "target_variable": "Strategic vs non-strategic inquiry profile (cluster membership)",
+        "top_predictors": [
+          "Screen visit frequency (F)",
+          "First-visit time (R)",
+          "Total time on screen (S)",
+          "Language of assessment"
+        ],
+        "performance_metrics": "Contrastive training: NT-Xent loss plateau ~0.14 by final epoch; clustering separability: K-means silhouette score = 0.85 (k=2); cross-country clustering by country labels: silhouette score = -0.2399; Kruskal-Wallis on embedding norms across countries: H = 2.2673, p = 0.6867. Additional analysis (Earth Science achievement (Plausible Values) difference between clusters): Cluster-level achievement gap: average Earth Science mean plausible value in the higher-achieving cluster is ~150 points higher than the lower-achieving cluster; distributional evidence: higher-achieving cluster shows narrower interquartile range than the lower-achieving cluster (exact PV summary statistics not numerically reported beyond the ~150-point difference).",
+        "standardized_conclusion": "Using TIMSS 2023 Grade 8 Earth Science process data, the study leveraged screen visit frequency (F), first-visit time (R), total time on screen (S), and language of assessment to derive a latent strategic vs non-strategic inquiry profile via contrastive representation learning followed by K-means clustering, finding two well-separated clusters (silhouette = 0.85) that align with SRL-interpretable monitoring-oriented vs surface/fast navigation patterns. This indicates that embedding-based process profiling can support adaptive assessment and real-time scaffolding that targets metacognitive regulation behaviors, while the negative country-label separability suggests these behavioral structures generalize across diverse education systems (though the strategic/non-strategic labels were anchored using achievement quartiles, limiting causal interpretation)."
+      }
+    ],
+    "outcome_summary": "The study analyzes TIMSS 2023 Grade 8 Earth Science digital process data (BSPM8) from five countries (Chile, UAE, England, Korea, Turkey), extracting 1176 standardized screen-level indicators capturing screen visit frequency (F), first-visit time (R), and total time on screen (S). Missing process indicators were handled with mean imputation and features were z-standardized; students were retained only from the top and bottom 25% of Earth Science achievement to form proxy extremes, excluding the middle 50% to maximize contrast. A SimCLR-style contrastive representation learning model (MLP encoder with a 128-dimensional projection head; NT-Xent loss) produced embeddings that were clustered with K-means (k=2), yielding strong separability (silhouette = 0.85). Cross-national tests showed no systematic differences in embedding norms across countries (Kruskal–Wallis p = 0.6867) and poor country-based clustering (negative silhouette), suggesting generalizable inquiry structures. The higher-achieving cluster showed an average Earth Science mean plausible value about 150 points higher than the lower-achieving cluster, but the strategic/non-strategic profile construction used achievement quartiles as anchors, so results are correlational rather than causal.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": null
+  }
+}

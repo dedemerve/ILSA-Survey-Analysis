@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "file_name": "41. Immekus et al. (2022). Machine learning procedures for predictor variable selection for schoolwork‑related anxiety: evidence from PISA 2015 mathematics, reading, and science assessments.pdf",
+    "title": "Machine learning procedures for predictor variable selection for schoolwork‑related anxiety: evidence from PISA 2015 mathematics, reading, and science assessments",
+    "authors": [
+      "Immekus",
+      "Yoo",
+      "Rho"
+    ],
+    "year": 2022,
+    "doi": "10.1186/s40536-022-00150-8",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "W_FSTUWT",
+      "weight_fields_interpretation": "The study uses PISA 2015 microdata restricted to US students (final analytic sample 5593 who completed the schoolwork-related anxiety items). The authors trimmed the dataset to retain the final trimmed student weight W_FSTUWT and used it as the sampling weight to account for PISA’s complex sampling design in the penalized regression analyses. No replicate-weight method (e.g., BRR/jackknife) is reported, so replicate-weight variance estimation cannot be confirmed from the provided text. Prior to modeling, the authors removed irrelevant variables, retained only the response variable ANXTEST plus 188 candidate predictors, retained the first plausible value per subject for PV-based predictors, standardized predictors within glmnet, and excluded specific variables from imputation due to logical validity constraints."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "knn_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 5593,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": 5593
+        }
+      ],
+      "sample_filtering_criteria": "Analyses are based on US students participating in PISA 2015 (5712 total), then restricted to those who completed the schoolwork-related anxiety items: 5593 students (97.92%) completed the five items used to derive ANXTEST. The authors started from 948 PISA student variables, removed IDs/administration variables, retained ANXTEST as the sole response and 188 candidate predictors, and excluded five predictors measuring additional learning hours (ST071Q01–ST071Q05) due to highest missingness. They also removed variables from imputation and subsequent analyses when imputation would be logically invalid (e.g., ST064 and related science-course variables for students marked as valid skip). Finally, missing values for remaining predictors were imputed using k-nearest neighbors, after inspecting missingness patterns."
+    },
+    "ml_techniques": {
+      "primary": "LASSO",
+      "all_techniques": [
+        "LASSO",
+        "Elastic Net",
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ST004D01T",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST011Q01TA",
+        "variable_name": "Books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST012Q05NA",
+        "variable_name": "Cell phones with internet",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST119Q01NA",
+        "variable_name": "Want top grades (courses)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST119Q02NA",
+        "variable_name": "Best opportunities after graduation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "top_grades",
+        "variable_name": "Top grades",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "perfecting_tasks",
+        "variable_name": "perfecting tasks",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST034Q01NA",
+        "variable_name": "Feeling like an outsider",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "awkward",
+        "variable_name": "Awkward",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "out_of_place",
+        "variable_name": "out of place",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST039Q01NA",
+        "variable_name": "Teachers call on me less",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ST039Q03NA",
+        "variable_name": "Teachers think I'm less smart",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ST039Q05NA",
+        "variable_name": "Teachers ridiculed me",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ST032Q01NA",
+        "variable_name": "Moderate physical activity (60+ min)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST032Q02NA",
+        "variable_name": "Vigorous physical activity (20+ min)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST078Q02NA",
+        "variable_name": "Study after leaving school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST076Q02NA",
+        "variable_name": "Study before school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST078Q07NA",
+        "variable_name": "Talk to friends on phone",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST078Q11NA",
+        "variable_name": "Exercising/practicing sport after school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST016Q01NA",
+        "variable_name": "Life satisfaction",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST131Q08NA",
+        "variable_name": "Explain phenomena scientifically",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "ST129Q08NA",
+        "variable_name": "Science knowledge (acid rain item)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1MATH",
+        "variable_name": "Mathematics achievement (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1READ",
+        "variable_name": "Reading achievement (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1FLIT",
+        "variable_name": "Financial literacy (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SCED",
+        "variable_name": "Science subscale (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SKCO",
+        "variable_name": "Science knowledge (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SCEP",
+        "variable_name": "Explain phenomena (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SSLI",
+        "variable_name": "Living system (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SCIE",
+        "variable_name": "Science (PV1)",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "PV1SSPH",
+        "variable_name": "Physical science (PV1)",
+        "category": "prior_achievement"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Grade 10 (US) Schoolwork-related anxiety (ANXTEST)",
+        "target_variable": "Schoolwork-related anxiety (ANXTEST)",
+        "top_predictors": [
+          "Gender",
+          "Want top grades (courses)",
+          "Feeling like an outsider",
+          "Mathematics achievement (PV1)",
+          "Reading achievement (PV1)"
+        ],
+        "performance_metrics": "RMSE (100 iterations): LASSO mean=0.866 (SD=0.014), Enet mean=0.866 (SD=0.014), Random Forest mean=0.881 (SD=0.014). Selection counts across 100 iterations: LASSO selected 27 variables in all 100 iterations; Enet selected 27 variables in all 100 iterations; 187/188 variables selected at least once.",
+        "standardized_conclusion": "Using PISA 2015 Grade 10 (US) the study leveraged gender, achievement goals/belonging indicators, and mathematics/reading achievement (PV1) to predict schoolwork-related anxiety (ANXTEST), finding that LASSO and elastic net outperformed random forest in RMSE while producing comparable variable-selection patterns across 100 split-iterations. This indicates that penalized linear models can provide stable, interpretable predictor sets for schoolwork-related anxiety in large-scale assessments, supporting policy/practice efforts to target achievement-goal and belonging-related supports rather than relying on less stable nonlinear selection from random forests, though the results are predictive (not causal) and depend on kNN imputation and the specific PISA anxiety operationalization."
+      }
+    ],
+    "outcome_summary": "The study analyzes US students from PISA 2015 (final N=5593; 97.92% completed the five schoolwork-related anxiety items) and predicts ANXTEST using 188 candidate predictors. Three ML/selection procedures were compared for variable selection: LASSO, elastic net (Enet), and random forest (RF), with forward stepwise (FS) used as a traditional benchmark. Performance was evaluated via repeated 7:3 train/test splits and 10-fold cross-validation within training to tune λ, iterated 100 times; RMSE was essentially identical for LASSO and Enet (mean=0.866, SD=0.014) and slightly worse for RF (mean=0.881, SD=0.014). Variable selection stability was assessed using selection counts (e.g., 27 predictors selected in all 100 iterations). The authors used sampling weights (W_FSTUWT) and kNN imputation for missing predictors, but the dependent variable is a PISA-derived anxiety scale (not a clinical anxiety measure), so findings should be interpreted as predictive associations rather than causal effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

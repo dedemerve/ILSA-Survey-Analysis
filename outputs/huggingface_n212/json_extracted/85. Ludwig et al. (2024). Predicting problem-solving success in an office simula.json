@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "file_name": "85. Ludwig et al. (2024). Predicting problem-solving success in an office simulation applying N-grams and a random forest to behavioral process data.pdf",
+    "title": "Predicting problem-solving success in an office simulation applying N-grams and a random forest to behavioral process data",
+    "authors": [
+      "Sabrina Ludwig",
+      "Andreas Rausch",
+      "Viola Deutscher",
+      "Jürgen Seifried"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.compedu.2024.105093",
+    "venue": "Computers & Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses a single-subject experimental/assessment setting (VET students working in the Luca office simulation) rather than an ILSA-style multi-stage sampling frame. The methods section describes voluntary participation, onboarding, and a fixed 55-minute scenario, but it does not report any sampling/survey weights or complex survey design adjustments. Because the analysis is based on ML classification using log-derived n-gram features, the manuscript does not indicate the use of any weight variables (e.g., W_FSTUWT/TOTWGT) and no replicate-weight scheme is described. The main preprocessing steps are log export (JSON), transformation to CSV, removal of off-platform work, aggregation of subsequent events, and exclusion of low-information events; these steps define the analytic dataset used for model training/testing."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variable is a rubric-based problem-solving success score that is dichotomized into two balanced classes using a cut score, not a PV-based cognitive achievement outcome. As a result, plausible values are not generated or required for the outcome. The manuscript also does not describe any explicit missing-data handling procedure for predictors or outcomes (e.g., imputation or case deletion rules), which is a reporting gap given that log-derived features can be affected by incomplete early windows or event aggregation.",
+    "sample_details": {
+      "total_students": 234,
+      "countries": [],
+      "sample_filtering_criteria": "Used a sample of 234 VET students who completed a single in-person Luca web-based office simulation scenario. Participants received a 15-minute onboarding scenario and then worked on a complex supplier-selection task for up to 55 minutes (with flexibility to end early). For modeling, early clickstream/keystroke data were restricted to the first 5, 10, and 20 minutes of the scenario; log preprocessing removed participants who worked outside the web-based simulation, aggregated subsequent events of the same kind into single activities, and removed events deemed uninformative due to simulation design (e.g., double clicks, tool closing). For the classification target, rubric sum scores were dichotomized using a cut at 53 points, and borderline cases (n=10) were excluded to create balanced classes."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "problem_solving_success_score",
+        "variable_name": "Problem-solving success score",
+        "category": "prior_achievement"
+      },
+      {
+        "variable_code": "age_years",
+        "variable_name": "Age",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "time_window_minutes",
+        "variable_name": "Early window length",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "Luca office simulation (VET) — early process data (first 5 minutes)",
+        "target_variable": "Problem-solving success (binary class; more vs less successful)",
+        "top_predictors": [
+          "time_window_minutes",
+          "problem_solving_success_score",
+          "gender",
+          "age_years"
+        ],
+        "performance_metrics": "Random forest (M1, <5 min): accuracy = 0.53; F1 (less successful) = 0.53; F1 (more successful) = 0.53; ROC AUC = 0.61. Feature selection (robust features only) improved AUC from 0.61 to 0.65.",
+        "standardized_conclusion": "Using Luca office simulation data (VET) with early process information from the first 5 minutes, the study leveraged early-window behavioral indicators (n-gram features) to predict binary problem-solving success, finding that predictive discrimination was limited (ROC AUC = 0.61; accuracy = 0.53). This indicates that very early behavioral traces contain insufficient information for reliable success prediction, so adaptive scaffolding should be delayed until more diagnostic evidence accumulates, while still using feature selection to improve robustness."
+      },
+      {
+        "dataset_used": "Luca office simulation (VET) — early process data (first 10 minutes)",
+        "target_variable": "Problem-solving success (binary class; more vs less successful)",
+        "top_predictors": [
+          "time_window_minutes",
+          "problem_solving_success_score",
+          "gender",
+          "age_years"
+        ],
+        "performance_metrics": "Random forest (M2, <10 min): accuracy = 0.60; F1 (less successful) = 0.64; F1 (more successful) = 0.56; ROC AUC = 0.63. With feature selection (M2 robust): AUC improved from 0.63 to 0.66.",
+        "standardized_conclusion": "Using Luca office simulation data (VET) with early process information from the first 10 minutes, the study leveraged early-window behavioral indicators (n-gram features) to predict binary problem-solving success, finding improved but still moderate performance (ROC AUC = 0.63; accuracy = 0.60). This indicates that extending the observation window to around 10 minutes can support earlier identification of at-risk learners, enabling timely prompts while recognizing that prediction remains imperfect."
+      },
+      {
+        "dataset_used": "Luca office simulation (VET) — early process data (first 20 minutes)",
+        "target_variable": "Problem-solving success (binary class; more vs less successful)",
+        "top_predictors": [
+          "time_window_minutes",
+          "problem_solving_success_score",
+          "gender",
+          "age_years"
+        ],
+        "performance_metrics": "Random forest (M3, <20 min): accuracy = 0.60; F1 (less successful) = 0.63; F1 (more successful) = 0.57; ROC AUC = 0.67. With feature selection (M3 robust): AUC increased to almost 0.70.",
+        "standardized_conclusion": "Using Luca office simulation data (VET) with early process information from the first 20 minutes, the study leveraged early-window behavioral indicators (n-gram features) to predict binary problem-solving success, finding the best discrimination among the tested windows (ROC AUC = 0.67; accuracy = 0.60; AUC ≈ 0.70 with robust feature selection). This indicates that adaptive support in office-simulation learning can be triggered by around the 20-minute mark to more effectively target learners likely to struggle, though the study’s exploratory design and lack of survey-weight handling limit generalization."
+      }
+    ],
+    "outcome_summary": "The study predicts rubric-based problem-solving success in a Luca web-based office simulation using behavioral process data represented as uni- and bi-grams derived from time-stamped log files. Success was dichotomized into two balanced classes using a cut score of 53, excluding borderline cases (n=10), and models were trained on early windows of the first 5, 10, and 20 minutes. A random forest classifier was evaluated with accuracy, F1, and ROC AUC, using a train/test split (70/30) and 10-fold cross-validation for AUC. Performance improved as the early window expanded: ROC AUC increased from 0.61 (first 5 min) to 0.63 (first 10 min) and 0.67 (first 20 min), with feature selection raising AUC to almost 0.70 for the 20-minute window. The paper does not report any explicit missing-data handling strategy and does not use survey weights; additionally, the model is trained and tested within a single simulation context, so external validity to other tasks/environments remains uncertain.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

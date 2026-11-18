@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "file_name": "109. Fink et al. (2024). Methodological aspects of the highly adaptive testing design for PISA.pdf",
+    "title": "Methodological aspects of the highly adaptive testing design for PISA",
+    "authors": [
+      "Fink, A.",
+      "König, C.",
+      "Frey, A."
+    ],
+    "year": 2024,
+    "doi": "10.3389/fpsyg.2024.1446799",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This methods paper does not analyze a student micro-dataset from a specific PISA administration; instead, it formalizes the highly adaptive testing (HAT) algorithm for PISA item routing and test assembly. Because no empirical estimation of population parameters is reported, the paper does not specify the use of PISA sampling weights (e.g., student weights) or replicate weights (e.g., BRR/jackknife) for inference. For operational PISA implementation, the HAT design is intended to be compatible with PISA’s existing scaling and reporting pipeline, but the manuscript focuses on test-design constraints (shadow testing, item exposure control, item position effects) rather than survey-weighted outcome estimation. Analysts using HAT in practice should apply the standard PISA complex-survey weighting and replication procedures in the downstream scoring/reporting stage, while treating the HAT algorithm as the test-administration mechanism."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible values handling is not applicable because the paper is a methodological design paper that specifies how items are adaptively selected and assembled (shadow testing, constraints, exposure control) rather than estimating achievement outcomes from PV-based PISA scores. The manuscript also does not report a missing-data strategy because it does not conduct an empirical analysis with an analytic sample containing missing responses; it instead describes algorithmic components and constraints for operational test administration.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No empirical student sample is analyzed. The paper specifies the HAT design for PISA 2018 reading and the extension to mathematics/science clusters, including operational constraints such as fixed spiraling for early units to ensure a minimum response count per item (250 responses per country) and constraint-based shadow-test assembly (test length, number of units/items per unit, content/cognitive-process bounds, human vs. machine-coded items, and item position effects via continuous calibration)."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 reading and the extension to mathematics",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using PISA 2018 reading and the extension to mathematics the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This methods paper formalizes the highly adaptive testing (HAT) design for PISA, building on computerized adaptive testing principles with shadow testing and incorporating PISA-specific constraints. It describes how unit-level within-unit adaptivity is combined with multidimensional IRT modeling (M2PL for dichotomous items and GPCM for polytomous items) and how correlations across reading, mathematics, and science are used while keeping test-taking experience stable via domain-homogeneous clusters. The paper specifies constraint management through mixed-integer programming shadow tests, including fixed test length and bounds on cognitive processes/content categories, item exposure control via progressive item exposure, and item position effects via continuous calibration constraints. Although it reports simulation evidence in the conclusion (e.g., ~30% increase in test information vs. PISA 2018 MST reading and improved RMSE in ability estimates, with fewer constraint violations), the present article itself is primarily an algorithmic and methodological specification rather than an empirical ML prediction study. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This methods paper formalizes the highly adaptive testing (HAT) design for PISA, building on computerized adaptive testing principles with shadow testing and incorporating PISA-specific constraints. It describes how unit-level within-unit adaptivity is combined with multidimensional IRT modeling (M2PL for dichotomous items and GPCM for polytomous items) and how correlations across reading, mathematics, and science are used while keeping test-taking experience stable via domain-homogeneous clusters. The paper specifies constraint management through mixed-integer programming shadow tests, including fixed test length and bounds on cognitive processes/content categories, item exposure control via progressive item exposure, and item position effects via continuous calibration constraints. Although it reports simulation evidence in the conclusion (e.g., ~30% increase in test information vs. PISA 2018 MST reading and improved RMSE in ability estimates, with fewer constraint violations), the present article itself is primarily an algorithmic and methodological specification rather than an empirical ML prediction study.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The extraction yields no student-level ML targets, PV handling, or analytic-sample statistics because the article is a methodology paper that specifies and formalizes an adaptive test-administration algorithm (HAT) for PISA rather than estimating predictive models from student microdata. Consequently, fields such as total_students, countries with per-country n, and main_findings for ML prediction are intentionally left empty because the manuscript does not conduct an original empirical predictive analysis within this text."
+  }
+}

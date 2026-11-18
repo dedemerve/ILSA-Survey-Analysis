@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "file_name": "77. Shin et al. (2024). An engagement‑aware predictive model to evaluate problem‑solving performance from the study of adult skills’ (PIAAC 2012) process data.pdf",
+    "title": "An engagement‑aware predictive model to evaluate problem‑solving performance from the study of adult skills’ (PIAAC 2012) process data",
+    "authors": [
+      "Jinnie Shin",
+      "B. W.",
+      "W. P.",
+      "M. G."
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00194-y",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses OECD PIAAC 2012 PS-TRE process-log data from the first round of the PIAAC Main Study (2011–2012) and restricts analyses to a single PS-TRE booklet (PS1) and to three countries (United States, South Korea, United Kingdom). The manuscript does not report applying PIAAC sampling weights or replicate weights, nor does it name any weight variables (e.g., TOTWGT/W_FSTUWT) or describe complex-survey variance estimation. Because the models are deep-learning sequence models (LSTM with attention) trained on process-derived graph/network statistics, the paper does not document whether weights were incorporated; this omission suggests an unweighted or weight-agnostic estimation approach. Analysts using the same log dataset should verify whether PIAAC-provided weights are available for the restricted booklet/country subset and whether the authors’ training/evaluation pipeline accounted for the complex sampling design."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables in this study are engagement status (binary) and task/problem performance categories derived from PS-TRE item/task scoring, predicted from process-log-derived sequence representations. Plausible Values are typically used for cognitive achievement scales in ILSA reporting, but here the outcomes are modeled as classification targets from process data rather than PV-based achievement scores, so PV handling is not applicable. The manuscript does not describe any missing-data strategy for predictors or labels (e.g., how incomplete sequences, missing timestamps, or absent graph statistics were handled), which is a reporting gap given that log-based sequences can vary in length and completeness.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": 1329
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 1434
+        },
+        {
+          "country_code": "GBR",
+          "n_students": 2358
+        }
+      ],
+      "sample_filtering_criteria": "Used PIAAC 2012 PS-TRE process-log data from the first round of the PIAAC Main Study (Aug 2011–Nov 2012) and restricted the analysis to the cognitive domain PS-TRE booklet PS1. The analytic dataset includes only the three countries explicitly analyzed (United States, South Korea, United Kingdom) and uses the PS1 items/tasks (14 tasks total in PS-TRE overall; the study reports experimenting with items included in booklet PS1). Engagement labels were created at the item/task level using the T-disengagement method based on item-specific response-time thresholds, and the model was trained to predict both performance and engagement for each task."
+    },
+    "ml_techniques": {
+      "primary": "LSTM",
+      "all_techniques": [
+        "LSTM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "VOTAT",
+        "variable_name": "VOTAT navigation behavior",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "total_time_on_task",
+        "variable_name": "Total time on task",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "action_sequence_length",
+        "variable_name": "Action sequence length",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "response_time",
+        "variable_name": "Response time",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "network_centralization",
+        "variable_name": "Network centralization",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "network_density",
+        "variable_name": "Network density",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "flow_hierarchy",
+        "variable_name": "Flow hierarchy",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "shortest_path",
+        "variable_name": "Shortest path",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "total_nodes",
+        "variable_name": "Total number of nodes",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PIAAC 2012 PS-TRE (Booklet PS1) process data",
+        "target_variable": "Problem-solving performance (task/category scores)",
+        "top_predictors": [
+          "Network centralization",
+          "Network density",
+          "Flow hierarchy",
+          "Shortest path",
+          "Total number of nodes"
+        ],
+        "performance_metrics": "Effort-Aware Attention-LSTM vs Attention-LSTM (3 countries; 3-fold CV averages). Overall performance: US ACC 0.802 vs 0.779, AUC 0.821 vs 0.751, F1 0.875 vs 0.824; SK ACC 0.859 vs 0.751, AUC 0.824 vs 0.700, F1 0.886 vs 0.828; GB ACC 0.883 vs 0.778, AUC 0.835 vs 0.771, F1 0.900 vs 0.816. Task-level: largest F1 improvement reported for Task 5 (+0.21 to +0.28) and accuracy improvement (+0.20 to +0.23).",
+        "standardized_conclusion": "Using PIAAC 2012 PS-TRE (Booklet PS1) process-log the study leveraged directed-graph network statistics (centralization, density, flow hierarchy, shortest path, total nodes) to predict problem-solving performance categories, finding that the Effort-Aware Attention-LSTM improved performance across all three countries and metrics relative to Attention-LSTM. This indicates that explicitly modeling test-taking engagement alongside sequential process information can yield more accurate estimates of adult problem-solving performance in low-stakes digital assessments, though the paper does not report survey-weight use or a missing-data strategy."
+      },
+      {
+        "dataset_used": "PIAAC 2012 PS-TRE (Booklet PS1) process data",
+        "target_variable": "Task engagement status (engaged vs disengaged)",
+        "top_predictors": [
+          "Response time",
+          "Total time on task",
+          "Action sequence length",
+          "Network centralization",
+          "Network density"
+        ],
+        "performance_metrics": "Overall engagement prediction (Effort-Aware Attention-LSTM): F1 0.92–0.94, AUC 0.86–0.88, ACC 0.84–0.87 across US/SK/GB. Task-level engagement prediction shows high accuracy across Tasks 1–5 in each country (e.g., US Task 5 ACC 0.949, F1 0.938; UK Task 4 ACC 0.879, F1 0.998).",
+        "standardized_conclusion": "Using PIAAC 2012 PS-TRE (Booklet PS1) process-log the study leveraged response-time-based engagement labeling (T-disengagement) together with sequence-derived graph/network statistics to predict task engagement status, finding that the engagement-aware model achieved high classification performance (F1 about 0.92–0.94; AUC about 0.86–0.88). This indicates that engagement can be reliably detected from process traces in adult digital problem-solving tasks, supporting validity-focused score interpretation and enabling engagement-aware feedback or adaptive assessment designs, while causality cannot be inferred from predictive accuracy."
+      }
+    ],
+    "outcome_summary": "The study develops an engagement-aware deep-learning framework for PIAAC 2012 PS-TRE process-log data restricted to booklet PS1 and three countries (United States, South Korea, United Kingdom). It converts each examinee’s action sequence into a directed graph, summarizes the graph with five network statistics, and feeds these into an LSTM with a global attention layer. Two model variants are compared: Attention-LSTM (performance only) and Effort-Aware Attention-LSTM (jointly predicts performance and binary engagement status labeled via T-disengagement thresholds). Across countries, the engagement-aware model improves performance prediction (overall F1 roughly 0.88–0.90 vs ~0.82–0.83; AUC ~0.82–0.84 vs ~0.70–0.75; accuracy ~0.80–0.88 vs ~0.75–0.78). Engagement prediction is also strong (F1 ~0.92–0.94; AUC ~0.86–0.88). Limitations include lack of reported survey-weight usage and no documented missing-data handling for log-derived sequences.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

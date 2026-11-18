@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "file_name": "68. Peters et al. (2025). Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments.pdf",
+    "title": "Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments",
+    "authors": [
+      "Sydney Peters",
+      "Nan Zhang",
+      "Hong Jiao",
+      "Ming Li",
+      "Tianyi Zhou"
+    ],
+    "year": 2025,
+    "doi": null,
+    "venue": "Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con) – Volume 3: Coordinated Session Papers",
+    "publication_type": "conference",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This paper is a literature review that synthesizes 37 articles (46 studies) on automated item difficulty prediction; it does not analyze a specific ILSA micro-dataset with a defined student sampling frame. Because no student-level assessment administration, scaling, or plausible-value estimation is performed in this review, there are no survey weights (e.g., W_FSTUWT/TOTWGT) or replicate-weight schemes to apply. For future empirical implementations of the reviewed approaches, analysts should use the official ILSA sampling weights provided in the international database when estimating population-representative relationships, and should apply replicate weights (e.g., BRR/jackknife) when variance estimation is required. The review also notes that model performance outcomes are not directly comparable across studies due to differences in domains and difficulty-parameter scales, which further limits any attempt to standardize weighting or scaling across the synthesized literature."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "This is a review article synthesizing results from prior studies rather than estimating cognitive achievement scores from ILSA plausible values. The dependent variables in the reviewed work are item difficulty parameters (e.g., p-values or IRT b-parameters) and the review itself does not perform PV-based scoring or PV combining. Therefore, plausible-value handling is not applicable to the review’s own analysis, and missing-data handling is not reported because no original dataset is analyzed here.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "No ILSA student sample is analyzed in this review. Instead, the authors conduct a literature search and apply inclusion/exclusion criteria to select 37 articles (46 studies) where the item difficulty parameter was obtained from item responses from human test-takers and the assessment was large-scale; they excluded studies focused on text complexity/readability, non-large-scale assessments, studies not using automated prediction from item text, and other reviews."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [],
+    "outcome_summary": "This paper is a systematic review of text-based approaches to automated item difficulty prediction in large-scale assessments, synthesizing 37 articles (46 studies) published through May 2025. It does not train or evaluate a single ML model on an original dataset; instead, it aggregates reported modeling choices across studies, including difficulty parameter type (continuous vs categorical), subject domain, item type, input composition, feature families (hand-crafted linguistic/metadata, LLM-generated, static embeddings, contextualized embeddings), and model families (classical ML, neural networks, transformer-based language models). Across the reviewed studies, the most common difficulty targets were IRT b-parameters and transformed/standard p-values, and the most frequent regression metrics were RMSE and Pearson correlation. Reported performance ranges are summarized descriptively (e.g., RMSE ranges by difficulty parameter type), but the authors caution that metrics are not directly comparable across studies due to different domains and difficulty scales. Limitations include overrepresentation of BEA shared-task papers and limited reporting/variability in difficulty-parameter scales, which constrains cross-study benchmarking.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This record is a review article rather than an empirical ML study using ILSA micro-data. As a result, there is no country-level student sample, no survey-weighted estimation, no plausible-value generation, and no single predictive model with measurable performance on a unified dataset. The absence of main_findings rows and ML technique entries reflects that the paper synthesizes existing studies rather than producing new predictive estimates."
+  }
+}

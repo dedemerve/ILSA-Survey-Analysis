@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "file_name": "213. Kuang (2026).  Evaluating Neural Networks Architectures for Competency Prediction from Process Data Using PISA Computer-Based Mathematics Assessment.pdf",
+    "title": "Evaluating Neural Networks Architectures for Competency Prediction from Process Data Using PISA Computer-Based Mathematics Assessment",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/jintelligence14040070",
+    "venue": "J. Intell.",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the U.S. sample from the PISA 2012 computer-based mathematics assessment (CBMA) and constructs an analytic dataset from process logs for 10 mathematics items within CBMA units. The analytic sample is restricted to students with complete data across all ten items for the assessment-level latent proficiency model (n=376), while item-level models use item-specific samples (n=378–402) after excluding missing/invalid responses. The manuscript does not report applying PISA complex survey weights (e.g., student/sampling weights) or replicate-weight procedures; instead, it focuses on model comparison via stratified student-level cross-validation. Because the models are neural networks trained on process sequences, the paper does not describe any weight-aware estimation, so results should be interpreted as predictive performance on the analyzed U.S. CBMA sample rather than population-representative estimates."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 402,
+      "countries": [
+        {
+          "country_code": "USA",
+          "n_students": 402
+        }
+      ],
+      "sample_filtering_criteria": "Used the U.S. PISA 2012 CBMA process-data sample for computer-based mathematics. Item-level models were trained on item-specific samples with missing or invalid responses excluded (item-level n ranges from 378 to 402). Assessment-level latent proficiency models used only students with complete data across all ten items (n=376, 95%). Sequential inputs were padded with zeros to equal length per item, and cross-validation splits were performed at the student level to prevent leakage."
+    },
+    "ml_techniques": {
+      "primary": "Neural Network",
+      "all_techniques": [
+        "Neural Network",
+        "RNN",
+        "LSTM",
+        "GRU"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "grade_level",
+        "variable_name": "Grade level",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "birth_year",
+        "variable_name": "Birth year",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "action_variability_average_actions",
+        "variable_name": "Average actions per item",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "action_variability_unique_actions",
+        "variable_name": "Unique actions count",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "action_variability_predominant_action_prop",
+        "variable_name": "Predominant action proportion",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "score_variability_predominant_score_prop",
+        "variable_name": "Predominant score proportion",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "expert_engineered_features",
+        "variable_name": "Expert-engineered features",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "sequence_length",
+        "variable_name": "Sequence length",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "architectural_complexity_model_type",
+        "variable_name": "Model type (RNN/GRU/LSTM)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "architectural_complexity_layers",
+        "variable_name": "Number of layers",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "architectural_complexity_nodes",
+        "variable_name": "Number of hidden nodes",
+        "category": "process_data"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 Computer-Based Mathematics Assessment (CBMA), U.S. sample (10 items; assessment-level latent proficiency from PV1)",
+        "target_variable": "Assessment-level latent proficiency prediction (PV1)",
+        "top_predictors": [
+          "Expert-engineered features",
+          "Model type (RNN/GRU/LSTM)",
+          "Number of layers",
+          "Number of hidden nodes",
+          "Predominant action proportion"
+        ],
+        "performance_metrics": "Neural networks (RNN/GRU/LSTM) with sequential features vs sequential+expert features. Correlation with PV1: 0.28–0.62 (Table 3). Best improvement: two-layer LSTM with 100 nodes correlation increased from 0.36 to 0.62. RMSE decreased in most configurations (e.g., one-layer RNN with 100 nodes RMSE 1.16→0.93). Training time increased when adding expert features (e.g., one-layer LSTM 50 nodes 94.3→1189.32 s).",
+        "standardized_conclusion": "Using PISA 2012 CBMA U.S. the study leveraged expert-engineered features together with action-sequence inputs (and varied RNN/GRU/LSTM architecture, layers, and nodes) to predict assessment-level latent proficiency (PV1). It found that adding expert-engineered features improved predictive accuracy (correlations up to 0.62 and lower RMSE in most configurations) but increased training time. This indicates that combining domain-informed process summaries with sequence models can improve early proficiency estimation for adaptive testing, though computational cost may rise and results are based on a single PV (PV1) rather than combined PV inference."
+      },
+      {
+        "dataset_used": "PISA 2012 Computer-Based Mathematics Assessment (CBMA), U.S. sample (item-level correctness; binary/categorical items)",
+        "target_variable": "Item-level correctness prediction",
+        "top_predictors": [
+          "Expert-engineered features",
+          "Model type (RNN/GRU/LSTM)",
+          "Number of layers",
+          "Number of hidden nodes",
+          "Average actions per item"
+        ],
+        "performance_metrics": "Item-level AUC: average >0.6 for most items; exception CM038Q06 around 0.5 (Figure 5). Cohen’s Kappa: average >0.25 for most items; CM038Q06 around 0 (Figures 7). Adding expert-engineered features produced slightly higher AUC across most conditions and minor Kappa changes; training time generally decreased when using both feature types (e.g., average training time across ten items: 308 s with sequential-only vs 267 s with expert+sequential).",
+        "standardized_conclusion": "Using PISA 2012 CBMA U.S. the study leveraged expert-engineered features alongside action-sequence inputs (while varying RNN/GRU/LSTM architecture and hyperparameters) to predict item-level correctness. It found that expert features yielded small or inconsistent gains in discrimination (AUC and Kappa) but generally improved computational efficiency by reducing training time while maintaining comparable performance. This indicates that for item-level scoring, simpler sequence models may suffice and that adding lightweight domain summaries can reduce compute without materially changing predictive quality, supporting more practical deployment in computer-based assessment pipelines."
+      },
+      {
+        "dataset_used": "PISA 2012 Computer-Based Mathematics Assessment (CBMA), U.S. sample (item-level correctness; action/score variability analysis)",
+        "target_variable": "Relationship between action/score variability and item-level predictive accuracy",
+        "top_predictors": [
+          "Average actions per item",
+          "Unique actions count",
+          "Predominant action proportion",
+          "Predominant score proportion"
+        ],
+        "performance_metrics": "No clear relationship between average number of actions and performance; however, an average of ~2 actions appeared as a threshold where AUC>0.5 and Kappa>0. For unique actions, models required >2 unique actions for meaningful predictive performance (AUC>0.5 and Kappa>0); items with only two unique actions (CM038Q05/CM038Q06) performed near chance (AUC≈0.5; Kappa≈0.15 or 0). No clear pattern between predominant action proportion and performance, and no clear pattern between predominant score category proportion and performance (Figures 17–24).",
+        "standardized_conclusion": "Using PISA 2012 CBMA U.S. the study leveraged item-level action and score variability measures (average actions, unique actions, predominant-action proportion, and predominant-score proportion) to explain differences in item-level predictive accuracy. It found that items with very limited behavioral diversity (e.g., only two unique actions) provide insufficient signal for learning, while having more than two unique actions supports above-chance prediction; other variability measures showed weaker or no clear monotonic relationships. This indicates that assessment designers should include interactive, multi-step behaviors that generate diverse action traces to enable reliable process-data-based competency prediction, especially when sample sizes are limited."
+      }
+    ],
+    "outcome_summary": "The study uses the U.S. sample of the PISA 2012 computer-based mathematics assessment (CBMA) process data to compare recurrent neural network architectures (RNN, GRU, LSTM) for predicting (i) item-level correctness and (ii) assessment-level latent proficiency. For assessment-level prediction, the dependent variable is PV1 (a single plausible value) derived from the full 30-item mathematics assessment; the analytic sample for this model includes students with complete data across 10 items (n=376). Across item-level models, most items achieved AUC > 0.6 and Kappa > 0.25, with CM038Q06 near chance (AUC≈0.5; Kappa≈0). At the assessment level, adding expert-engineered process features to action-sequence inputs improved accuracy (correlations up to 0.62; RMSE reductions in most configurations) but increased training time. The paper uses student-level stratified 5-fold cross-validation to reduce leakage and applies SHAP for interpretability; however, it does not report survey-weighted inference and uses only PV1, so generalization and causal interpretation are limited.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

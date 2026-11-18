@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "file_name": "13. Bu & Chen. (2023). What key contextual factors contribute to students’ reading literacy among top-performing countries and economies? Statistical and machine learning analyses.pdf",
+    "title": "What key contextual factors contribute to students’ reading literacy among top-performing countries and economies? Statistical and machine learning analyses",
+    "authors": [
+      "Y. Bu",
+      "F. Chen"
+    ],
+    "year": 2023,
+    "doi": "10.1016/j.ijer.2023.102267",
+    "venue": "International Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for reading literacy and constructs an analytic sample consisting of students from B-S-J-Z (China), Singapore, and Macau, plus a comparison analysis using all 79 participating countries/economies. The authors report using PV1READ (first plausible value for reading) as the outcome and exclude students with reading scores below 262. For missing values, they impute missing factor values using the median of each factor. The manuscript does not report applying PISA sampling weights or replicate weights; given the use of ML (GBDT) and PV-based outcomes, the analysis appears to be conducted without explicit complex-survey weighting, which may affect population-representativeness and uncertainty estimates."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "mean_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 612058,
+      "countries": [
+        {
+          "country_code": "CHN",
+          "n_students": 12058
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 6676
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 3775
+        }
+      ],
+      "sample_filtering_criteria": "Analytic samples were drawn from PISA 2018: (1) a combined subset of students from the top three high-performing countries/economies—B-S-J-Z (China), Singapore, and Macau—for the main joint analysis; (2) separate analyses for each of the three economies; and (3) an additional analysis using the full PISA 2018 dataset across all 79 participating countries/economies. The outcome was PV1READ (first plausible value for reading). Students with reading scores below 262 were excluded. Missing values in contextual factors were imputed using the median of each factor."
+    },
+    "ml_techniques": {
+      "primary": "Gradient Boosting",
+      "all_techniques": [
+        "Gradient Boosting"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "reading_time",
+        "variable_name": "Reading time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "work_mastery",
+        "variable_name": "Work mastery",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "understanding",
+        "variable_name": "Understanding",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "remembering",
+        "variable_name": "remembering",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "summarizing_information",
+        "variable_name": "Summarizing information",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "assessing_credibility",
+        "variable_name": "Assessing credibility",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "reading_interest",
+        "variable_name": "Reading interest",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "self_efficacy",
+        "variable_name": "Sense of self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "self_education_expectations",
+        "variable_name": "Self-education expectations",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "perceived_competence",
+        "variable_name": "Self-concept: perceived competence",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "perceived_difficulty",
+        "variable_name": "Self-concept: perceived difficulty",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Reading (PV1READ), top-performing subset: B-S-J-Z (CHN), Singapore (SGP), Macau (MAC)",
+        "target_variable": "Reading literacy (PV1READ)",
+        "top_predictors": [
+          "Assessing credibility",
+          "Summarizing information",
+          "Socioeconomic status (ESCS)",
+          "Reading interest",
+          "Understanding and remembering"
+        ],
+        "performance_metrics": "Shapley value decomposition: relative contribution—Student background 18.87%, Metacognitive strategies 53.83%, Reading motivation/attitude 27.30%. GBDT: R² = 0.499; RMSE = 68.34 (for the combined top-performing subset).",
+        "standardized_conclusion": "Using PISA 2018 Reading data (PV1READ) for the combined top-performing subset (B-S-J-Z, Singapore, and Macau), the study leveraged assessing credibility, summarizing information, ESCS, reading interest, and understanding/remembering to predict reading literacy, finding that metacognitive strategies (especially assessing credibility) contributed the largest share of explained variance and that the GBDT model achieved R² = 0.499. This indicates that reading-improvement policies in high-performing contexts should prioritize metacognitive instruction—particularly credibility evaluation and information summarization—alongside socioeconomic and motivational supports, while noting the analysis is cross-sectional and does not report complex-survey weighting."
+      },
+      {
+        "dataset_used": "PISA 2018 Reading (PV1READ), all 79 participating countries/economies",
+        "target_variable": "Reading literacy (PV1READ)",
+        "top_predictors": [
+          "Assessing credibility",
+          "Socioeconomic status (ESCS)",
+          "Summarizing information",
+          "Self-concept: perceived difficulty",
+          "Reading interest"
+        ],
+        "performance_metrics": "GBDT: R² = 0.48; RMSE = 73.26 (all 79 countries/economies). Table 4 top five factors: assessing credibility; ESCS; summarizing information; self-concept: perceived difficulty; reading interest.",
+        "standardized_conclusion": "Using PISA 2018 Reading data (PV1READ) across all 79 participating countries/economies, the study leveraged assessing credibility, ESCS, summarizing information, perceived difficulty self-concept, and reading interest to predict reading literacy, finding that the top predictors differ from the high-performing Asian subset—especially with perceived difficulty becoming more prominent globally. This indicates that system-wide reading interventions may need to combine metacognitive credibility/summarization training with explicit attention to students’ perceived reading difficulty, while recognizing that causal claims cannot be made from cross-sectional ML prediction."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 reading literacy using PV1READ as the dependent variable, focusing first on students from the top three high-performing economies (B-S-J-Z/CHN, Singapore/SGP, Macau/MAC) and then comparing results with the full PISA 2018 dataset across all 79 countries/economies. For contextual-factor decomposition, it applies Shapley value decomposition and reports that metacognitive strategies account for the largest relative contribution (53.83%), with assessing credibility and summarizing information among the most influential factors. For prediction, it trains a gradient boosting decision tree (GBDT) using a random 80/20 train-test split and 10-fold cross-validation for tuning; the combined top-performing subset achieves R² = 0.499 (RMSE = 68.34), while all 79 countries achieve R² = 0.48 (RMSE = 73.26). Missing factor values are imputed via median imputation, and students with reading scores below 262 are excluded. The paper does not report using PISA sampling/replicate weights, and the cross-sectional design limits causal interpretation of the ML-derived importance patterns.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

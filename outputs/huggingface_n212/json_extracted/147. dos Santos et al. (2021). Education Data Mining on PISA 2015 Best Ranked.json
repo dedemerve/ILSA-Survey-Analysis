@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "file_name": "194. dos Santos et al. (2021). Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well.pdf",
+    "title": "Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well",
+    "authors": [
+      "Roberta Alvarenga dos Santos"
+    ],
+    "year": 2021,
+    "doi": "10.1007/s10758-021-09572-9",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2015 student questionnaire and achievement information for a restricted set of “best-ranked” countries by discipline. The analytic sample is created by extracting country-level subsets (top 5 countries per domain) and then preprocessing each knowledge field separately, including computing grade averages from PV items and discretizing into quartiles. The manuscript does not report the use of PISA sampling weights or any replicate-weight procedure; instead, it applies WEKA’s J48 decision trees with ten-fold cross-validation. Because the analysis is implemented in WEKA without any stated complex-survey weighting variables (e.g., W_FSTUWT/TOTWGT), the results should be interpreted as unweighted patterns within the extracted country subsets rather than population-representative estimates."
+    },
+    "plausible_values_handling": "average_pv",
+    "missing_data_handling": "listwise_deletion",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": null,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 6115
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 5359
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 6647
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 4476
+        },
+        {
+          "country_code": "CAN",
+          "n_students": 20058
+        },
+        {
+          "country_code": "EST",
+          "n_students": 5587
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 7708
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 5882
+        },
+        {
+          "country_code": "IRL",
+          "n_students": 5741
+        }
+      ],
+      "sample_filtering_criteria": "The authors use PISA 2015 data and extract only the five best-ranked countries in each knowledge field (Mathematics, Reading, Sciences) according to OECD (2016c). They then analyze each knowledge field separately by computing grade averages from the corresponding PV items (PV1–PV10 for each domain), excluding the PV attributes after averaging, discretizing the resulting averages into quartiles (Q1–Q4), and excluding attributes with missing values. The final outcome for each domain is the quartile category of the domain-specific average achievement."
+    },
+    "ml_techniques": {
+      "primary": "Decision Tree",
+      "all_techniques": [
+        "Decision Tree"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ST111Q01TA",
+        "variable_name": "Educational aspiration level",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXTEST",
+        "variable_name": "Anxiety index",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MOTIVAT",
+        "variable_name": "motivation index",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HOMEPOS",
+        "variable_name": "Household goods index",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISCED",
+        "variable_name": "Parents’ highest education",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupational position",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST013Q01TA",
+        "variable_name": "Books at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ST012Q09NA",
+        "variable_name": "Musical instruments at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "REPEAT",
+        "variable_name": "School year repetition",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST076Q10NA",
+        "variable_name": "Paid work before school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST078Q10NA",
+        "variable_name": "Paid work after school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST078Q02NA",
+        "variable_name": "Homework after leaving school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST076Q11NA",
+        "variable_name": "Physical activity before school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST078Q11NA",
+        "variable_name": "Physical activity after school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST032Q01NA",
+        "variable_name": "Moderate physical activity days",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MMINS",
+        "variable_name": "Math learning time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "LMINS",
+        "variable_name": "Reading learning time (minutes/week)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SMINS",
+        "variable_name": "Science learning time (minutes/week)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST059Q02TA",
+        "variable_name": "Math classes per week",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST063Q02NA",
+        "variable_name": "Chemistry class attendance",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "HADDINST",
+        "variable_name": "Additional study hours index",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "collaboration",
+        "variable_name": "Collaboration",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "teamwork",
+        "variable_name": "teamwork",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST082Q13NA",
+        "variable_name": "Belief teamwork improves efficiency",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST076Q07NA",
+        "variable_name": "Talk with friends before school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST076Q09NA",
+        "variable_name": "House chores before school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ISCEDD",
+        "variable_name": "Special study program flow",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "PA006Q02TA",
+        "variable_name": "School reputation as reason",
+        "category": "school"
+      },
+      {
+        "variable_code": "ST039Q01NA",
+        "variable_name": "Teacher calls fewer times",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "UNFAIRTEACHER",
+        "variable_name": "Teacher impartiality index",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ST001D01T",
+        "variable_name": "School year enrolled",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "IC002Q01NA",
+        "variable_name": "Age first used digital device",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC007Q01TA",
+        "variable_name": "Internet-using time outside school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC008Q02TA",
+        "variable_name": "Collaborative games online frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC008Q03TA",
+        "variable_name": "Email access outside school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC008Q12TA",
+        "variable_name": "Sharing student-produced content",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC009Q08TA",
+        "variable_name": "School provides pen drive",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC011Q01TA",
+        "variable_name": "Chat online at school frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC013Q04NA",
+        "variable_name": "Internet is excellent information source",
+        "category": "ict"
+      },
+      {
+        "variable_code": "SOIAICT",
+        "variable_name": "ICT in everyday social life index",
+        "category": "ict"
+      },
+      {
+        "variable_code": "USESCH",
+        "variable_name": "ICT use at school index",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST092Q01TA",
+        "variable_name": "Ozone layer environmental knowledge",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST092Q05TA",
+        "variable_name": "Deforestation environmental knowledge",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST093Q01TA",
+        "variable_name": "Belief pollution will worsen",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "JOYSCIE",
+        "variable_name": "Science appreciation index",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EPIST",
+        "variable_name": "Opinions on scientific approaches",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "APIST",
+        "variable_name": "Scientific approach trust index",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST129Q02TA",
+        "variable_name": "Explain why earthquakes happen",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST131Q04NA",
+        "variable_name": "Good answers based on experiments",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ST131Q06NA",
+        "variable_name": "Do experiments more than once",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "IC001Q08TA",
+        "variable_name": "Portable music player at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC008Q11TA",
+        "variable_name": "Download songs/movies frequency",
+        "category": "ict"
+      },
+      {
+        "variable_code": "IC010Q01TA",
+        "variable_name": "Navigate internet for homework",
+        "category": "ict"
+      },
+      {
+        "variable_code": "HOMESCH",
+        "variable_name": "ICT use for homework index",
+        "category": "ict"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2015 Mathematics (PV1MATH–PV10MATH quartiles)",
+        "target_variable": "Mathematics achievement quartile (Q1–Q4)",
+        "top_predictors": [
+          "Educational aspiration level",
+          "Socioeconomic status (ESCS)",
+          "Anxiety index",
+          "Student motivation index",
+          "Internet-using time outside school"
+        ],
+        "performance_metrics": "Not reported (J48 decision trees with ten-fold cross-validation; success rates by quartile reported as percentages, but no accuracy/AUC/RMSE reported).",
+        "standardized_conclusion": "Using PISA 2015 Mathematics the study leveraged educational aspiration level, socioeconomic status (ESCS), anxiety, motivation, and ICT-related variables to classify students into mathematics achievement quartiles, finding that higher aspirations and motivation with lower anxiety were associated with higher quartiles while repetition and some forms of paid work before school were associated with lower quartiles. This indicates that education systems in high-performing countries may benefit from policies that strengthen student goal-setting and motivation while reducing anxiety and supporting equitable learning opportunities tied to socioeconomic resources, though the decision-tree results are correlational and not causal."
+      },
+      {
+        "dataset_used": "PISA 2015 Reading (PV1READ–PV10READ quartiles)",
+        "target_variable": "Reading achievement quartile (Q1–Q4)",
+        "top_predictors": [
+          "Educational aspiration level",
+          "Books at home",
+          "Collaboration and teamwork index",
+          "Email access outside school",
+          "Internet is excellent information source"
+        ],
+        "performance_metrics": "Not reported (J48 decision trees with ten-fold cross-validation; quartile success rates reported as percentages by country).",
+        "standardized_conclusion": "Using PISA 2015 Reading the study leveraged educational aspiration level, books at home, collaboration/teamwork indicators, and ICT use beliefs/behaviors (e.g., email access and viewing the internet as an excellent information source) to classify students into reading achievement quartiles, finding that students with higher aspirations and richer home resources tended to reach higher quartiles and that some ICT uses were linked to lower quartiles when ICT usage was high in ways captured by the model. This indicates that reading improvement strategies may need to combine aspiration- and motivation-oriented supports with home-resource and ICT-use guidance, while recognizing that the quartile classification is based on discretized PV averages and does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2015 Sciences (PV1SCIE–PV10SCIE quartiles)",
+        "target_variable": "Science achievement quartile (Q1–Q4)",
+        "top_predictors": [
+          "Educational aspiration level",
+          "Science appreciation index",
+          "Scientific approach trust index",
+          "Ozone layer environmental knowledge",
+          "Teacher impartiality index"
+        ],
+        "performance_metrics": "Not reported (J48 decision trees with ten-fold cross-validation; quartile success rates reported as percentages by country).",
+        "standardized_conclusion": "Using PISA 2015 Sciences the study leveraged educational aspiration level, science appreciation, scientific approach trust, environmental knowledge items, and teacher impartiality indicators to classify students into science achievement quartiles, finding that students with stronger science epistemic beliefs (trust in scientific approaches and agreement with experiment-based reasoning) and higher science appreciation tended to reach higher quartiles, while paid work and some ICT patterns were associated with lower quartiles. This indicates that science education policies in top-performing systems may prioritize epistemic-cognition supports (how students think science works) alongside motivation and equitable learning conditions, though the findings remain predictive/correlational rather than causal."
+      }
+    ],
+    "outcome_summary": "The study applies educational data mining to PISA 2015 by extracting the five best-ranked countries in each domain (Mathematics, Reading, Sciences) and building WEKA J48 decision trees. For each domain, the authors compute an average achievement score from the ten plausible-value items (PV1–PV10), exclude the PV attributes afterward, discretize the averaged scores into quartiles (Q1–Q4), and exclude attributes with missing values. The decision trees are trained using ten-fold cross-validation, and the paper reports domain-specific quartile success rates by country (e.g., Mathematics quartile success rates up to ~56% in the top quartile for Chinese Taipei; Sciences up to ~60.9% for Singapore), but it does not provide standard predictive metrics such as accuracy, AUC, or RMSE. Key predictors repeatedly include educational aspiration, socioeconomic resources (ESCS/HOMEPOS/books), motivation/anxiety, ICT use patterns, and domain-specific epistemic/science knowledge. Because the analysis is unweighted and uses discretized PV averages, the results should be interpreted as correlational patterns rather than causal policy effects.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

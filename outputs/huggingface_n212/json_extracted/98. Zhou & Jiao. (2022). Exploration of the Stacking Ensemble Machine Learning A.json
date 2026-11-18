@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "file_name": "98. Zhou & Jiao. (2022). Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment.pdf",
+    "title": "Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment",
+    "authors": [
+      "Zhou",
+      "Jiao"
+    ],
+    "year": 2022,
+    "doi": "10.1177/00131644221117193",
+    "venue": "Educational and Psychological Measurement",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses a publicly available licensure-test dataset (two test forms) with item responses, response time, and an augmented summary feature set for 1,636 test-takers. The manuscript does not describe any complex survey sampling design or the use of sampling/replicate weights, and the analysis is framed as standard supervised ML with k-fold cross-validation and resampling applied within training folds. Because the models are scikit-learn classifiers (including Random Forest, Gradient Boosting, SVM, and stacking meta-models), the paper does not report applying any weight variable (e.g., no W_FSTUWT/TOTWGT-style weights). Preprocessing includes coding missing item responses as 0s in the scored response matrix (while noting 141 NA values in raw response options) and excluding 10 field-test items from analyses."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variable is a cheating/non-cheating classification label derived from flagged likely cheaters in a licensure-test dataset, not a cognitive achievement score with plausible values. The paper reports that scored item responses contain no missing values because missing values were coded as 0s, but it does not provide a formal missing-data handling method (e.g., listwise/pairwise deletion or an imputation procedure) for the analytic features beyond this coding rule. Therefore, missing-data handling is treated as not reported in the schema because the ML pipeline’s missingness strategy is not documented as a standard missing-data method.",
+    "sample_details": {
+      "total_students": 1636,
+      "countries": [],
+      "sample_filtering_criteria": "Used the full available dataset from a large-scale licensure test with cheating cases flagged (two test forms). Included 170 dichotomously scored operational items per form and excluded 10 field-test items from analyses. The analytic dataset contains item responses, response time, and number of attempts for 1,636 test-takers, with 46 flagged as likely cheaters; no additional country/grade filtering is described."
+    },
+    "ml_techniques": {
+      "primary": "Discriminant Analysis",
+      "all_techniques": [
+        "Decision Tree",
+        "SVM",
+        "Logistic Regression",
+        "Naive Bayes",
+        "Discriminant Analysis",
+        "Neural Network",
+        "Random Forest",
+        "Gradient Boosting",
+        "Stacking"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "cheating_flag",
+        "variable_name": "Cheating status (flagged)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "iraw",
+        "variable_name": "Item response scores",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "idur",
+        "variable_name": "Item response time",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "OEF",
+        "variable_name": "Other effective features (OEF)",
+        "category": "process_data"
+      },
+      {
+        "variable_code": "resampling_method",
+        "variable_name": "Resampling method",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "resampling_ratio",
+        "variable_name": "Non-cheater:cheater ratio",
+        "category": "student_behavior"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "Large-scale licensure test (two forms), operational items (170), cheating detection dataset (Cizek & Wollack 2017)",
+        "target_variable": "Cheating detection (cheater vs non-cheater classification)",
+        "top_predictors": [
+          "Item response scores",
+          "Other effective features (OEF)",
+          "Resampling method",
+          "Non-cheater:cheater ratio",
+          "Item response time"
+        ],
+        "performance_metrics": "Best stacking meta-model: Discriminant Analysis as meta-model on top two base models (Gradient Boosting and Random Forest) using item responses + augmented summary statistics with under-sampling ratio 10:1; Recall=0.638, Precision=0.551, F1=0.586, FP rate=0.014. Level-1 base model comparison (dual resampling 10:1, item responses + summary statistics): Gradient Boosting highest F1=0.573; Random Forest highest Precision=0.838; Naive Bayes highest Recall=0.525.",
+        "standardized_conclusion": "Using the large-scale licensure test dataset with cheating flags, the study leveraged item response scores, augmented summary statistics (OEF), and response-time information together with class rebalancing via under-sampling to predict cheating status. It found that stacking with a Discriminant Analysis meta-model (trained on the top two base models, Gradient Boosting and Random Forest) generally performed best when item responses and augmented summary statistics were used with an under-sampling ratio of 10:1, achieving Recall=0.638, Precision=0.551, F1=0.586, and FP rate=0.014. This indicates that combining product-level item information with test-level aggregated timing/attempt summaries—while explicitly addressing extreme class imbalance—can improve the practical trade-off between detecting cheaters and limiting false flags in high-stakes assessment security, though the results are based on resampled training and cross-validation rather than causal identification."
+      }
+    ],
+    "outcome_summary": "The study develops and evaluates a stacking ensemble for cheating detection using a large-scale licensure-test dataset (two forms; 170 operational dichotomous items per form; 10 field-test items excluded) with item responses, response time, and augmented summary features (OEF) for 1,636 test-takers (46 flagged cheaters; 2.81% prevalence). Models are trained and evaluated with 4-fold cross-validation, applying resampling only to the training folds to address extreme class imbalance (SMOTE oversampling, random under-sampling, and dual resampling) and comparing multiple feature sets. Across conditions, the best-performing configuration uses stacking with a Discriminant Analysis meta-model on the top two base models (Gradient Boosting and Random Forest), using item responses plus augmented summary statistics with under-sampling ratio 10:1, yielding Recall=0.638, Precision=0.551, F1=0.586, and FP rate=0.014. The paper does not use survey weights (not described) and does not provide a formal missing-data method beyond coding missing item responses as 0s, so generalization to other testing contexts should be made cautiously.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

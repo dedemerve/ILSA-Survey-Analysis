@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "file_name": "186. Wei et al. (2026). Identifying Key Predictors of Resilience in Mathematics Engagement: Global Evidence From PISA 2022 Using Machine Learning.pdf",
+    "title": "Identifying Key Predictors of Resilience in Mathematics Engagement: Global Evidence From PISA 2022 Using Machine Learning",
+    "authors": [
+      "Xu Wei",
+      "Yuxin Liu",
+      "Kan Guo"
+    ],
+    "year": 2026,
+    "doi": "10.1002/berj.70228",
+    "venue": "British Educational Research Journal",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "W_FSTUWT",
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata and restricts the analytic sample to students whose ESCS is in the bottom quartile within each of 80 economies, yielding 153,412 students. The dependent variable is a binary resilience indicator based on ESCS quartile membership and top-quartile mathematics engagement (MATHPERS) within each economy. For model training and evaluation, the authors report applying final student weights (W_FSTUWT) to account for PISA’s complex sampling design, and they stratify the sample by the dependent-variable category before splitting into training and test sets. In addition, missing values were imputed prior to modeling using iterative imputation by chained equations; the paper also notes that Table 1 means/SDs were calculated without applying weights, but the predictive modeling used weights."
+    },
+    "plausible_values_handling": "single_pv",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 153412,
+      "countries": [],
+      "sample_filtering_criteria": "Used PISA 2022 student and school questionnaire data and restricted to students whose ESCS falls in the bottom quartile within each economy (socioeconomically disadvantaged). Engagement resilience was then defined within each economy as ESCS bottom-quartile students whose mathematics engagement (MATHPERS) ranks in the top 25% among all students in that economy; these were coded as resilient (1). The remaining students from the bottom ESCS quartile were coded as non-resilient (0). Missing values were imputed via iterative chained equations before training/testing; the paper does not report additional grade/school-type restrictions beyond the PISA 15-year-old target population."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest",
+        "XGBoost",
+        "LightGBM"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "PERSEVAGR",
+        "variable_name": "Perseverance",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "CURIOAGR",
+        "variable_name": "Curiosity",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Mathematics self-efficacy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "self_efficacy_reasoning",
+        "variable_name": "Self-efficacy (reasoning)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "21st",
+        "variable_name": "21st",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ANXMAT",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "FAMCON",
+        "variable_name": "Familiarity with math concepts",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Mathematics teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "COGACRCO",
+        "variable_name": "Cognitive activation (reasoning)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "COGACMCO",
+        "variable_name": "Cognitive activation (thinking)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "DISCLIM",
+        "variable_name": "Disciplinary climate in math",
+        "category": "school"
+      },
+      {
+        "variable_code": "SCHSIZE",
+        "variable_name": "School size (sum)",
+        "category": "school"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Mathematics (15-year-olds), 80 economies",
+        "target_variable": "Mathematics engagement resilience (binary; ESCS bottom quartile & MATHPERS top quartile within economy)",
+        "top_predictors": [
+          "Perseverance",
+          "Curiosity",
+          "Mathematics self-efficacy",
+          "Mathematics anxiety",
+          "Familiarity with math concepts"
+        ],
+        "performance_metrics": "Random Forest (best): AUC = 0.7616; XGBoost: AUC = 0.7396; LightGBM: AUC = 0.7480. Logistic regression baseline (12 predictors): AUC = 0.7384. Cross-validation: 5-fold; train/test split: 7:3; class imbalance ratio ~1:3.69; performance primarily evaluated via AUC.",
+        "standardized_conclusion": "Using PISA 2022 the study leveraged perseverance, curiosity, mathematics self-efficacy, mathematics anxiety, and familiarity with mathematical concepts (among other multi-level predictors) to predict mathematics engagement resilience, finding that higher perseverance/curiosity/self-efficacy/familiarity and lower mathematics anxiety were associated with a higher probability of being classified as engagement-resilient. This indicates that equity-oriented interventions for disadvantaged students should prioritize socioemotional supports and math-related beliefs (e.g., anxiety reduction and self-efficacy building), while recognizing the analysis is predictive (not causal) and relies on cross-sectional PISA data."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2022 mathematics engagement resilience among socioeconomically disadvantaged students (ESCS bottom quartile within each economy), defining resilience as those whose mathematics engagement (MATHPERS) is in the top quartile within the same economy. Using 153,412 students from 80 economies, the authors trained three tree-based ensemble classifiers—Random Forest, XGBoost, and LightGBM—on 115 predictors (including PV1MATH as a candidate feature) with 5-fold cross-validation and a 7:3 train/test split. Model discrimination was assessed primarily with AUC due to class imbalance (~1:3.69): Random Forest achieved the highest AUC (0.7616), outperforming XGBoost (0.7396) and LightGBM (0.7480), and exceeding a logistic regression baseline (AUC 0.7384). Accumulated local effects (ALE) plots from Random Forest revealed non-linear/threshold patterns, including diminishing returns for key predictors and a non-linear school-size effect. The paper is explicitly predictive rather than causal, and it uses imputation for missing values and applies PISA sampling weights (W_FSTUWT) for the modeling stage.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

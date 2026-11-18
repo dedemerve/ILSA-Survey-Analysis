@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "file_name": "191. Mao (2026). AI-related measures and self-reported lesson-aim attainment: an explainable machine-learning analysis of TALIS 2024.pdf",
+    "title": "AI-related measures and self-reported lesson-aim attainment: an explainable machine-learning analysis of TALIS 2024",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3389/fpubh.2026.1911565",
+    "venue": "Frontiers in Public Health",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": false,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses the TALIS 2024 teacher public-use file and constructs an analytic sample of teachers with valid AI-module routing responses and valid outcome/grouping fields (country/economy, ISCED stratum, and school identifier). For the primary conditional prediction models, the authors fit LightGBM models without final teacher weights, explicitly stating that the models are not design-based population estimates. As a sensitivity analysis, they recalculated evaluation metrics using the final teacher weights at test/evaluation time while leaving model fitting unchanged, showing that weighted AUROC/AUPRC increments differ from unweighted results. Because the primary models are tree-based ML methods (LightGBM) and the manuscript does not report a weight variable used during training, the main findings should be interpreted as conditional prediction for the analytic sample rather than fully design-based inference for TALIS populations."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": "Plausible values are not applicable because the dependent variable (SLAA) is constructed from TALIS self-report items and then dichotomized/treated as a continuous mean, rather than using PV-based cognitive achievement scales. Missing data handling is implemented via train-only median imputation for numerical predictors and mode imputation (plus one-hot encoding) for categorical predictors, while outcomes are never imputed; the paper also uses missingness/routing indicators for AI task breadth. The manuscript reports the extent of missingness by construct and explains that multiple imputation was not used because most task-breadth missingness follows questionnaire routing rather than ordinary item nonresponse.",
+    "sample_details": {
+      "total_students": 88991,
+      "countries": [],
+      "sample_filtering_criteria": "Secondary cross-sectional analysis of TALIS 2024 teacher public-use data. Starting from 278,383 raw teacher records, the authors retained only teachers with a valid AI-module routing response (AI-eligible records: 89,833) and then further excluded records lacking a valid SLAA outcome or grouping fields (country/economy, ISCED stratum, and school identifier), yielding 88,991 teachers in the final analytic sample. SLAA was constructed from TALIS item 58 (seven lesson-aim items) using only valid 1–4 responses and requiring at least four valid items; AI benefit/risk/stress items were restricted to valid ranges, while AI task-use breadth and AI-use barriers were recoded with special/invalid codes set to missing. For modeling, preprocessing parameters were learned on training data only, and numerical predictors were median-imputed with missingness indicators while categorical predictors were mode-imputed and one-hot encoded; outcomes were never imputed."
+    },
+    "ml_techniques": {
+      "primary": "LightGBM",
+      "all_techniques": [
+        "LightGBM",
+        "Random Forest",
+        "XGBoost",
+        "CatBoost",
+        "Extra Trees",
+        "Logistic Regression"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "country_economy",
+        "variable_name": "Country/economy context",
+        "category": "system_level"
+      },
+      {
+        "variable_code": "ISCED_stratum",
+        "variable_name": "ISCED education stratum",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "teacher_background",
+        "variable_name": "Teacher background indicators",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "broad_work_stress_index",
+        "variable_name": "Work-related stress index",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "perceived_ai_benefits",
+        "variable_name": "Perceived AI benefits",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "perceived_ai_risks",
+        "variable_name": "Perceived AI risks",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "ai_task_breadth",
+        "variable_name": "Breadth of AI task use",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ai_use_barriers",
+        "variable_name": "AI-use barriers",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "workload",
+        "variable_name": "Workload",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "employment_work_time_status",
+        "variable_name": "Employment/work-time status",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "age_group",
+        "variable_name": "Age group",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "overwhelmed_new_tech",
+        "variable_name": "Overwhelmed by new tech",
+        "category": "student_attitude"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "TALIS 2024 teacher data (ISCED 1-3), lesson-aim attainment (SLAA) from item 58",
+        "target_variable": "Relatively high SLAA (top quartile within CNTRY×IDPOP)",
+        "top_predictors": [
+          "Country/economy context",
+          "Work-related stress index",
+          "Perceived AI benefits",
+          "Gender",
+          "Breadth of AI task use"
+        ],
+        "performance_metrics": "Matched nested LightGBM (Model 2 minus Model 1): AUROC +0.0277 (95% CI 0.0215–0.0334), AUPRC +0.0338 (95% CI 0.0262–0.0411); Brier score –0.0042 and log loss –0.0097 (both CI fully below 0). Final test AUROC: 0.6021 (Model 1) vs 0.6299 (Model 2); AUPRC: 0.4138 vs 0.4476; Brier: 0.2114 vs 0.2071; log loss: 0.6126 vs 0.6029.",
+        "standardized_conclusion": "Using TALIS 2024 teacher the study leveraged country/economy context, work-related stress, perceived AI benefits, gender, and breadth of AI task use to predict relatively high SLAA (top quartile within CNTRY×IDPOP), finding that adding AI-related measures produced statistically stable but modest improvements in discrimination and probability quality (AUROC +0.0277; AUPRC +0.0338; lower Brier and log loss). This indicates that teachers’ perceived benefits/risks and breadth of AI task use contain incremental predictive information beyond background and stress, suggesting that professional development and policy discussions should consider AI perceptions and integration breadth as measurable correlates—while noting that the design is cross-sectional and SHAP attribution is predictive rather than causal."
+      }
+    ],
+    "outcome_summary": "This secondary cross-sectional study uses TALIS 2024 teacher public-use data (ISCED 1–3) and constructs SLAA from seven self-report lesson-aim items (item 58), aggregating to a continuous mean and then defining a binary “relatively high” outcome as teachers at or above the 75th percentile within each country/economy × ISCED stratum. The primary model is a matched nested LightGBM contrast: Model 1 predicts SLAA from teacher background, country/economy, and a broad work-related stress index, while Model 2 adds AI-related predictors (perceived AI benefits/risks, breadth of AI task use, and AI-use barriers). On the independent test set, AI-added information improved AUROC from 0.6021 to 0.6299 (+0.0277) and AUPRC from 0.4138 to 0.4476 (+0.0338), with Brier score and log loss also improving. Calibration curves were close to the diagonal, supporting descriptive group-level probability assessment. The authors report that weighted evaluation changes the magnitude of increments and that SHAP provides fitted-model attribution rather than causal or actionable effects; additionally, task-breadth missingness is largely routing-related, which can confound attribution.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

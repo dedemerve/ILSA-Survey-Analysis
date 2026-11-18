@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "file_name": "153. Wu et al. (2020). A new perspective on memorization practices among East Asian students based on PISA 2012.pdf",
+    "title": "A new perspective on memorization practices among East Asian students based on PISA 2012",
+    "authors": [
+      "Yi-Jhen Wu",
+      "et al."
+    ],
+    "year": 2020,
+    "doi": "10.1080/01443410.2019.1648766",
+    "venue": "Educational Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses PISA 2012 microdata for seven East Asian educational systems and relies on PISA’s two-stage complex survey design (schools sampled with probabilities proportional to size, then students sampled within schools). The manuscript describes the complex design and the questionnaire rotation/booklet design, but it does not report applying any explicit student/sampling weight variable (e.g., W_FSTUWT/TOTWGT) or replicate-weight variance estimation. Instead, it uses full information maximum likelihood (FIML) to address questionnaire missingness induced by the rotation design and uses all five plausible values for mathematics achievement in the regression analyses. Because no survey-weight variable is named, the weighting approach for population-representative estimation is not transparent in the text."
+    },
+    "plausible_values_handling": "all_pv",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 27332,
+      "countries": [
+        {
+          "country_code": "HKG",
+          "n_students": 4670
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 6351
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 5033
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 5335
+        },
+        {
+          "country_code": "CHN",
+          "n_students": 5177
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 5546
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 6046
+        }
+      ],
+      "sample_filtering_criteria": "Used PISA 2012 Student Questionnaire and mathematics achievement for 15-year-old students in seven East Asian educational systems (Hong Kong, Japan, South Korea, Macau, Shanghai of China, Singapore, Taiwan). The study addresses questionnaire missingness due to the PISA rotation design for learning-strategy items (each student answered only a subset), using full information maximum likelihood (FIML). For the regression stage, it reports no missing data on class membership, gender, ESCS, and mathematics scores; the Macau regression did not converge, so Macau coefficients were not reported."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "economic",
+        "variable_name": "Economic",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "social",
+        "variable_name": "social",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "cultural_status",
+        "variable_name": "cultural status",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2012 Mathematics (15-year-olds; seven East Asian systems)",
+        "target_variable": "Learning strategy class membership (LCA-derived classes)",
+        "top_predictors": [
+          "Economic, social, cultural status",
+          "Gender"
+        ],
+        "performance_metrics": "Not reported (LCA model selection via BIC/a_BIC/LMR; class proportions: 17.49%, 50.70%, 10.33%, 16.47%).",
+        "standardized_conclusion": "Using PISA 2012 Mathematics the study leveraged Economic, social, cultural status and Gender to contextualize learning-strategy class membership derived via latent class analysis, finding four distinct learning-strategy classes with the largest class being metacognitive strategies with memorization (50.70%). This indicates that East Asian students’ mathematics learning is commonly characterized by combined metacognitive and memorization practices rather than memorization alone."
+      },
+      {
+        "dataset_used": "PISA 2012 Mathematics (15-year-olds; seven East Asian systems)",
+        "target_variable": "Mathematics achievement (Plausible Values; regression on LCA class membership)",
+        "top_predictors": [
+          "Economic, social, cultural status",
+          "Gender",
+          "Learning strategy class (LCA classes)"
+        ],
+        "performance_metrics": "Standardized regression coefficients reported by system (Macau regression did not converge). Example (relative to Class 1): Class 2 coefficients are positive in all systems (e.g., Hong Kong 0.159; Taiwan 0.169); Class 4 positive in all systems except Singapore (e.g., Hong Kong 0.122; Taiwan 0.188).",
+        "standardized_conclusion": "Using PISA 2012 Mathematics the study leveraged Economic, social, cultural status, Gender, and LCA-derived learning-strategy class membership to predict mathematics achievement using all five plausible values, finding that students in the metacognitive-with-memorization class (Class 2) had significantly higher mathematics scores than the memorization-with-metacognitive class (Class 1) across all reported systems. This indicates that policy and practice should emphasize metacognitive strategy instruction alongside memorization routines, since memorization paired with metacognitive regulation is associated with higher achievement, while memorization-dominant profiles are linked to lower performance."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2012 mathematics learning strategies among 15-year-olds in seven East Asian educational systems using the PISA Student Questionnaire and mathematics achievement scores. Learning strategies (memorization, elaboration, metacognition) were measured with a forced-choice format and modeled with latent class analysis, yielding four strategy profiles: memorization+metacognitive (17.49%), metacognitive+memorization (50.70%), elaboration only (10.33%), and metacognitive+elaboration (16.47%). Mathematics achievement was modeled via regression using all five plausible values (scaled to mean 500, SD 100) and covariates ESCS and gender; the Macau regression did not converge, so coefficients were not reported there. The results show that Class 2 is positively associated with mathematics performance in all systems, and Class 4 is positively associated in all systems except Singapore. A key limitation is that learning strategies are self-reported and the study is correlational (no causal identification), so the findings should not be interpreted as proving that metacognitive instruction causes higher achievement.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The paper does not train predictive machine-learning models; instead, it uses latent class analysis to identify strategy profiles and then runs regressions to compare mathematics achievement across profiles. Therefore, ml_techniques are intentionally left empty and the research design is classified as exploratory rather than predictive."
+  }
+}

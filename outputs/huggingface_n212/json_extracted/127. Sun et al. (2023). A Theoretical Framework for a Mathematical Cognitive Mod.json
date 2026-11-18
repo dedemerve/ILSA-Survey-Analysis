@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "file_name": "127. Sun et al. (2023). A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems.pdf",
+    "title": "A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems",
+    "authors": [
+      "S. Sun",
+      "X. Wang",
+      "T. Xu"
+    ],
+    "year": 2023,
+    "doi": "10.3390/bs13050406",
+    "venue": "Behavioral Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "methodology_paper"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": null,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "This paper does not use an ILSA/PISA/TIMSS micro-dataset for achievement scoring; instead, it constructs a mathematical cognitive model using expert questionnaires, interviews, and student verbal reports. Because the study is based on expert calibration (52 experts) and a small validation activity (one fourth-grade student), there is no complex survey sampling frame and no student-level sampling weights to apply. The ISM procedure uses expert judgments to build a structural self-interaction matrix (SSIM) and then derives adjacency/reachability matrices; these steps are not population-representative estimation. Therefore, standard ILSA weight variables (e.g., student sampling weights or BRR/jackknife replicate weights) are not applicable to the reported model-construction workflow."
+    },
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "Plausible Values are not applicable because the study does not estimate cognitive achievement scores from an ILSA assessment; it develops and validates a theoretical cognitive attribute model using interpretive structural modeling (ISM) and expert/student judgments. The paper also does not report a missing-data strategy because the core inputs are expert questionnaire responses and qualitative/verbal-report validation rather than a PV-based scoring dataset with item nonresponse handled via PV procedures.",
+    "sample_details": {
+      "total_students": null,
+      "countries": [],
+      "sample_filtering_criteria": "The study uses a two-stage cognitive model construction process: (1) 52 experts in Shanghai (33 primary school mathematics teachers, 15 graduate students, and 4 mathematics education specialists) completed a questionnaire to judge pairwise relationships among 16 TIMSS cognitive attributes; (2) six mathematics education professors revised the preliminary model, and a single fourth-grade child was randomly selected to provide an oral verbal report to verify the model’s effectiveness on two extracted TIMSS item types. The paper does not describe any country-level sampling frame or grade-wide student sampling beyond this small validation activity."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [],
+    "main_findings": [
+      {
+        "dataset_used": "TIMSS",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using TIMSS the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper proposes a theoretical framework for constructing a mathematical cognitive model intended for cognitive diagnostic assessment and adaptive learning systems. Using TIMSS’s cognitive framework as a starting point, the authors list 16 cognitive attributes (S1–S16) and apply interpretive structural modeling (ISM) to derive hierarchical relationships among attributes via expert judgments. Specifically, 52 experts completed a “cognitive attribute relationship” questionnaire, which was converted into a structural self-interaction matrix (SSIM) using a 50% threshold (more than 25 experts indicating a relationship), followed by adjacency and reachability matrix construction in MATLAB. The preliminary five-level model is then revised using interviews/discussion with six mathematics education professors and validated through verbal reports from one randomly selected fourth-grade student on two TIMSS item types. No predictive performance metrics (e.g., accuracy/RMSE) are reported because the study’s contribution is model construction and conceptual validation rather than ML-based prediction. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This paper proposes a theoretical framework for constructing a mathematical cognitive model intended for cognitive diagnostic assessment and adaptive learning systems. Using TIMSS’s cognitive framework as a starting point, the authors list 16 cognitive attributes (S1–S16) and apply interpretive structural modeling (ISM) to derive hierarchical relationships among attributes via expert judgments. Specifically, 52 experts completed a “cognitive attribute relationship” questionnaire, which was converted into a structural self-interaction matrix (SSIM) using a 50% threshold (more than 25 experts indicating a relationship), followed by adjacency and reachability matrix construction in MATLAB. The preliminary five-level model is then revised using interviews/discussion with six mathematics education professors and validated through verbal reports from one randomly selected fourth-grade student on two TIMSS item types. No predictive performance metrics (e.g., accuracy/RMSE) are reported because the study’s contribution is model construction and conceptual validation rather than ML-based prediction.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "This is a non-empirical methodology/theory paper focused on constructing a cognitive model using ISM and expert elicitation, not on training/evaluating predictive ML models or estimating PV-based achievement outcomes. As a result, there are no target variables with reported predictive metrics, no PV handling or missing-data handling procedures tied to PV scoring, and no survey-weighted large-scale sampling design to extract."
+  }
+}

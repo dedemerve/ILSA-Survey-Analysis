@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "file_name": "217. Lee & Lee (2026). Explaining gender differences in mathematics achievement: Cross-country evidence from PISA.pdf",
+    "title": "Explaining gender differences in mathematics achievement: Cross-country evidence from PISA",
+    "authors": [
+      "Hanol Lee",
+      "Jong-Wha Lee"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.ijedudev.2026.103648",
+    "venue": "International Journal of Educational Development",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "senate weights (rescaled PISA student sampling weights)",
+      "weight_fields_interpretation": "The study uses PISA 2018 microdata for mathematics and applies senate weights throughout both the ML (CatBoost) and regression stages. Senate weights are described as rescaled student sampling weights that are normalized so each participating country contributes equally to the pooled analysis, rather than proportionally to its student population size. The ML stage retains students with incomplete covariate information (CatBoost can handle missing values), while the regression stage uses a restricted complete-case subsample of 43 countries and 173,059 students. Country fixed effects are included in regression specifications, and the authors interpret results as pooled internal validation within the observed multinational sample under the senate-weighted framework."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The paper explicitly states that CatBoost can handle missing data without requiring imputation, but it does not provide a formal missing-data handling label for the overall analytic pipeline (e.g., whether any additional missingness filtering or complete-case restrictions were applied beyond the regression stage). For the regression stage, the authors do report a complete-case subsample, but the manuscript does not clearly specify the missing-data handling strategy for the full ML stage in a way that maps to the schema’s missing-data categories. This is a reporting gap because the PV pooling is described (OECD/Rubin), yet the missing-data treatment is only partially operationalized across stages.",
+    "sample_details": {
+      "total_students": 597345,
+      "countries": [],
+      "sample_filtering_criteria": "Uses PISA 2018 mathematics microdata pooled across 77 countries/economies (597,345 students). For the ML stage, the full 77-country pooled sample is used and missing covariates are retained because CatBoost can handle missing values without imputation. For the regression stage, analyses are restricted to a complete-case subsample with available observations for at least 43 countries and 173,059 students (complete-case restriction is explicitly stated). High-performance is defined as mathematics proficiency Level 5 or 6 (>=607 points), and the ML models are estimated separately for PV1MATH–PV10MATH and then averaged."
+    },
+    "ml_techniques": {
+      "primary": "CatBoost",
+      "all_techniques": [
+        "CatBoost"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "EOS",
+        "variable_name": "Expected occupational status (EOS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "perceived_test_difficulty",
+        "variable_name": "Perceived test difficulty",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "cultural_possessions_home",
+        "variable_name": "Cultural possessions at home",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "eudaemonia",
+        "variable_name": "Eudaemonia",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "reading_self_concept_competence",
+        "variable_name": "Reading self-concept (competence)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ict_autonomy",
+        "variable_name": "Perceived autonomy in ICT use",
+        "category": "ict"
+      },
+      {
+        "variable_code": "bullying_experience",
+        "variable_name": "Experience of being bullied",
+        "category": "school"
+      },
+      {
+        "variable_code": "perceived_ict_competence",
+        "variable_name": "Perceived ICT competence",
+        "category": "ict"
+      },
+      {
+        "variable_code": "reading_self_concept_difficulty",
+        "variable_name": "Reading self-concept (difficulty)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "sense_of_belonging_school",
+        "variable_name": "Sense of belonging to school",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ict_use_outside_school",
+        "variable_name": "ICT use outside of school",
+        "category": "ict"
+      },
+      {
+        "variable_code": "interest_in_ict",
+        "variable_name": "Interest in ICT",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ESCS",
+        "variable_name": "Parental ESCS",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "parental_emotional_support",
+        "variable_name": "Parents' emotional support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "ict_available_at_home",
+        "variable_name": "ICT available at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "family_wealth",
+        "variable_name": "Family wealth",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "mathematics_learning_time",
+        "variable_name": "Mathematics learning time",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "gender",
+        "variable_name": "Gender indicator (girl/boy)",
+        "category": "demographic"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2018 Mathematics (PV1MATH–PV10MATH), pooled across 77 countries/economies",
+        "target_variable": "Mathematics achievement (continuous; PV-based)",
+        "top_predictors": [
+          "Expected occupational status (EOS)",
+          "Perceived test difficulty",
+          "Cultural possessions at home",
+          "Eudaemonia",
+          "Reading self-concept (competence)"
+        ],
+        "performance_metrics": "CatBoost (PV-specific models averaged): RMSE=65.07, MAE=51.52, R-squared=0.62",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data (PV1MATH–PV10MATH) pooled across 77 countries/economies, the study leveraged gender-specific interaction components of Expected occupational status (EOS), Perceived test difficulty, Cultural possessions at home, Eudaemonia, and Reading self-concept (competence) to predict continuous mathematics achievement, finding that EOS is the most salient gender-differentiated correlate and that perceived test difficulty and ICT-related perceptions also show systematic gender-specific association patterns. This indicates that strengthening girls’ STEM-related career expectations and addressing perceived test difficulty/anxiety in learning environments may be key levers for reducing gender disparities in high-stakes mathematics performance, though the study remains descriptive and does not establish causal effects."
+      },
+      {
+        "dataset_used": "PISA 2018 Mathematics (Level 5/6 indicator; PV1MATH–PV10MATH), pooled across 77 countries/economies",
+        "target_variable": "High mathematics performance (Level 5 or 6; binary)",
+        "top_predictors": [
+          "Expected occupational status (EOS)",
+          "Perceived test difficulty",
+          "Perceived ICT competence",
+          "Perceived autonomy in ICT use",
+          "ICT use outside of school"
+        ],
+        "performance_metrics": "CatBoost (PV-specific models averaged): Accuracy=0.924, ROC AUC=0.899, F1=0.356, PR AUC=0.482, Balanced Accuracy=0.618",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data (PV1MATH–PV10MATH) pooled across 77 countries/economies, the study leveraged gender-specific interaction components of Expected occupational status (EOS), Perceived test difficulty, Perceived ICT competence, Perceived autonomy in ICT use, and ICT use outside of school to predict high mathematics performance (Level 5/6), finding that EOS again receives the largest average absolute attribution and that the model’s ranking performance is strong (high ROC AUC) while identifying high-performing students at a fixed threshold is more limited (low F1 and moderate balanced accuracy). This indicates that policies targeting girls’ STEM career aspirations and supportive learning/ICT experiences may improve the likelihood of reaching top proficiency levels, while also highlighting that predictive classification performance should be interpreted cautiously due to class imbalance and the non-causal, correlational nature of SHAP-based importance."
+      }
+    ],
+    "outcome_summary": "The study analyzes PISA 2018 mathematics microdata for 15-year-olds pooled across 77 countries/economies (597,345 students) and models two outcomes: continuous mathematics achievement using PV1MATH–PV10MATH and a binary indicator of high performance at Levels 5–6 (>=607 points). The main ML approach is CatBoost with gender-specific cross-features (covariate × girl/boy indicators), estimated separately for each plausible value and then averaged; senate weights are applied so each country contributes equally to pooled estimates. Predictive performance is reasonably strong for the continuous outcome (R²=0.62; RMSE=65.07; MAE=51.52) and strong for ranking the binary outcome (ROC AUC=0.899; Accuracy=0.924) but more modest for identifying the high-performing class at a threshold (F1=0.356; balanced accuracy=0.618). The most salient gender-differentiated correlates include expected occupational status (EOS), perceived test difficulty, and several learning-environment/ICT and home-experience variables. The authors emphasize that results are descriptive/predictive rather than causal, and regression follow-ups use a complete-case subsample (173,059 students across 43 countries), so differences across stages may reflect both functional-form restrictions and sample composition.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "file_name": "31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient Student.pdf",
+    "title": "Predicting the Mathematics Literacy of Resilient Students from High‐performing Economies: A Machine Learning Approach",
+    "authors": [
+      "Yimei Zhang",
+      "Maria Cutumisu"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.stueduc.2024.101412",
+    "venue": "Studies in Educational Evaluation",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": "W_FSTUWT",
+      "weight_fields_interpretation": "The study uses PISA 2022 microdata for selected high-performing mathematics economies and defines resilient students via within-country ESCS bottom-quarter status and mathematics literacy top-quarter status. The analytic sample is then split into two culture-group datasets (Eastern vs Western) and modeled separately. The authors explicitly incorporate final student weights (W_FSTUWT) into the ML training and validation process to adjust for PISA’s complex survey design (stratification, clustering, and unequal selection probabilities), aiming for representativeness of the target student population. Missing values are imputed prior to modeling using missForest, and the paper does not report replicate-weight methods (e.g., BRR/jackknife), so uncertainty quantification is not described via replicate designs."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "single_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 4654,
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": 330
+        },
+        {
+          "country_code": "AUT",
+          "n_students": 133
+        },
+        {
+          "country_code": "BEL",
+          "n_students": 165
+        },
+        {
+          "country_code": "CAN",
+          "n_students": 707
+        },
+        {
+          "country_code": "CZE",
+          "n_students": 128
+        },
+        {
+          "country_code": "DNK",
+          "n_students": 130
+        },
+        {
+          "country_code": "EST",
+          "n_students": 167
+        },
+        {
+          "country_code": "FIN",
+          "n_students": 272
+        },
+        {
+          "country_code": "IRL",
+          "n_students": 162
+        },
+        {
+          "country_code": "LVA",
+          "n_students": 159
+        },
+        {
+          "country_code": "NLD",
+          "n_students": 126
+        },
+        {
+          "country_code": "NZL",
+          "n_students": 100
+        },
+        {
+          "country_code": "POL",
+          "n_students": 146
+        },
+        {
+          "country_code": "SVN",
+          "n_students": 165
+        },
+        {
+          "country_code": "SWE",
+          "n_students": 151
+        },
+        {
+          "country_code": "CHE",
+          "n_students": 133
+        },
+        {
+          "country_code": "GBR",
+          "n_students": 417
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 146
+        },
+        {
+          "country_code": "HKG",
+          "n_students": 248
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 162
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 163
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 183
+        },
+        {
+          "country_code": "SGP",
+          "n_students": 161
+        }
+      ],
+      "sample_filtering_criteria": "Resilient students are selected following OECD guidance: (1) within each economy, students in the bottom quarter of ESCS are identified; (2) within that ESCS-disadvantaged group, students whose mathematics literacy is in the top quarter within the same economy are selected. To define the top quarter of mathematics literacy, the authors compute an average of 10 mathematics plausible values (PVs), rank students by the average PVs, and select the top 25% (and bottom 25% for ESCS) within each economy. The final analytic sample is restricted to high-performing mathematics economies (average mathematics literacy exceeding 472) and then split into Eastern-culture and Western-culture datasets based on Triandis’ cultural classification."
+    },
+    "ml_techniques": {
+      "primary": "Random Forest",
+      "all_techniques": [
+        "Random Forest",
+        "LASSO"
+      ]
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "EXERPRAC",
+        "variable_name": "Exercise/practice before or after school",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "WORKPAY",
+        "variable_name": "Working for pay",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "WORKHOME",
+        "variable_name": "Working in household",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "FAMSUP",
+        "variable_name": "Family support",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "DISCLIM",
+        "variable_name": "Disciplinary climate in math",
+        "category": "school"
+      },
+      {
+        "variable_code": "HOMEPOS",
+        "variable_name": "Home possessions",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "EXPOFA",
+        "variable_name": "Exposure to formal/app math tasks",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "EXPO21ST",
+        "variable_name": "Exposure to 21st-century math tasks",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "MATHEASE",
+        "variable_name": "Math easier than other subjects",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHPREF",
+        "variable_name": "Preference for mathematics",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHMOT",
+        "variable_name": "Motivation relative to other subjects",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BULLIED",
+        "variable_name": "Being bullied",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "MATHEFF",
+        "variable_name": "Math self-efficacy (formal/applied)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEF21",
+        "variable_name": "Math self-efficacy (21st-century)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ANXMAT",
+        "variable_name": "Mathematics anxiety",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COGACRCO",
+        "variable_name": "Cognitive activation: foster reasoning",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "COGACMCO",
+        "variable_name": "Cognitive activation: encourage thinking",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "effort",
+        "variable_name": "Effort",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "persistence_in_math",
+        "variable_name": "persistence in math",
+        "category": "student_behavior"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Mathematics literacy (PVs), resilient students in Eastern cultures (Triandis grouping)",
+        "target_variable": "Mathematics literacy (Plausible Values 1–10)",
+        "top_predictors": [
+          "MATHEF21",
+          "MATHEFF",
+          "ANXMAT",
+          "MATHPERS",
+          "WORKHOME"
+        ],
+        "performance_metrics": "Random Forest (Eastern): Validation RMSE avg 47.06, Test RMSE avg 44.47; Validation R² avg 0.01, Test R² avg 0.01; Validation MAE avg 36.26, Test MAE avg 35.40. Lasso (Eastern): Validation RMSE avg 45.96, Test RMSE avg 45.96; Validation R² avg 0.00, Test R² avg 0.00; Validation MAE avg 36.44, Test MAE avg 36.44. Cross-model comparison (Kruskal-Wallis across four models): RMSE H(3)=61.54, p<.001; R² H(3)=41.25, p<.001; MAE H(3)=59.32, p<.001.",
+        "standardized_conclusion": "Using PISA 2022 mathematics literacy PVs for resilient students in Eastern cultures, the study leveraged MATHEF21, MATHEFF, ANXMAT, MATHPERS, and WORKHOME to predict mathematics literacy, finding that both Random Forest and Lasso achieved lower predictive performance in Eastern cultures than in Western cultures (e.g., higher RMSE and lower R² in Eastern). This indicates that culturally tailored supports—especially those targeting mathematics self-efficacy and anxiety management—may be more important for improving resilient students’ mathematics literacy in Eastern contexts, though the results are predictive rather than causal."
+      },
+      {
+        "dataset_used": "PISA 2022 Mathematics literacy (PVs), resilient students in Western cultures (Triandis grouping)",
+        "target_variable": "Mathematics literacy (Plausible Values 1–10)",
+        "top_predictors": [
+          "MATHEFF",
+          "FAMSUP",
+          "HOMEPOS",
+          "COGACMCO",
+          "ANXMAT"
+        ],
+        "performance_metrics": "Random Forest (Western): Validation RMSE avg 41.95, Test RMSE avg 42.27; Validation R² avg 0.06, Test R² avg 0.06; Validation MAE avg 33.21, Test MAE avg 32.65. Lasso (Western): Validation RMSE avg 41.76, Test RMSE avg 40.25; Validation R² avg 0.08, Test R² avg 0.11; Validation MAE avg 33.19, Test MAE avg 31.76. Cross-model comparison (Kruskal-Wallis across four models): RMSE H(3)=61.54, p<.001; R² H(3)=41.25, p<.001; MAE H(3)=59.32, p<.001.",
+        "standardized_conclusion": "Using PISA 2022 mathematics literacy PVs for resilient students in Western cultures, the study leveraged MATHEFF, FAMSUP, HOMEPOS, COGACMCO, and ANXMAT to predict mathematics literacy, finding that both Random Forest and Lasso performed better in Western cultures than in Eastern cultures (lower RMSE and higher R²/MAE advantage). This indicates that strengthening mathematics self-efficacy and leveraging supportive home resources and classroom cognitive activation may improve resilient students’ mathematics literacy in Western contexts, though causality cannot be inferred from the predictive ML models."
+      },
+      {
+        "dataset_used": "PISA 2022 Mathematics literacy (PVs), resilient students across Eastern vs Western cultures",
+        "target_variable": "Key-feature importance for predicting mathematics literacy (Random Forest feature importance)",
+        "top_predictors": [
+          "MATHEF21",
+          "MATHEFF",
+          "ANXMAT",
+          "WORKHOME",
+          "COGACMCO"
+        ],
+        "performance_metrics": "Eastern RF feature importance (avg across 10 RF models): MATHEF21 91.03, MATHEFF 90.85, ANXMAT 83.18, MATHPERS 78.07, WORKHOME 77.99. Western RF feature importance (avg across 10 RF models): MATHEFF 100, MATHEFF21 63.84, FAMSUP 58.88, ANXMAT 56.61, HOMEPOS 56.39. Cultural difference tests: Kruskal-Wallis across model performance metrics showed significant differences across the four model/culture combinations (RMSE, R², MAE all p<.001).",
+        "standardized_conclusion": "Using PISA 2022 mathematics literacy PVs, the study compared Random Forest feature importance across Eastern and Western culture groups and found that the most important predictors differed by culture (e.g., mathematics anxiety and 21st-century self-efficacy were top in Eastern cultures, while mathematics self-efficacy was predominant in Western cultures). This indicates that interventions for resilient students should be culturally differentiated—prioritizing anxiety reduction and 21st-century self-efficacy supports in Eastern contexts, and boosting mathematics self-efficacy alongside supportive home/classroom practices in Western contexts—while recognizing that feature importance reflects prediction utility, not causal effects."
+      }
+    ],
+    "outcome_summary": "The study uses PISA 2022 mathematics literacy plausible values (10 PVs) to predict mathematics literacy among resilient students defined within each economy as ESCS bottom-quarter and mathematics literacy top-quarter. It trains two supervised ML models—Random Forest and Lasso regression—separately for Eastern vs Western culture groupings (Triandis), using 19 questionnaire/well-being features and imputing missing values with missForest (0–26% missingness). The authors incorporate final student weights (W_FSTUWT) during ML training/validation and evaluate performance with nested cross-validation, reporting RMSE, MAE, and R². Across cultures, both models show better predictive performance in Western cultures than Eastern cultures (significant differences in RMSE, R², and MAE via Kruskal–Wallis, all p<.001). Key predictors also differ by culture: Eastern models emphasize mathematics self-efficacy for 21st-century skills and mathematics anxiety, whereas Western models emphasize mathematics self-efficacy for formal/applied mathematics. Limitations include predictive (not causal) interpretation and reliance on imputed inputs prior to modeling.",
+    "research_design_type": "predictive",
+    "null_fields_interpretation": null
+  }
+}

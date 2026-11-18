@@ -1,0 +1,226 @@
+{
+  "metadata": {
+    "file_name": "148. Wu (2025). Analyzing Scientific Literacy in Asia’s Top Five PISA 2022 Performers Using Hierarchical Linear Modeling and Bourdieu’s Theory of Practice.pdf",
+    "title": "Analyzing Scientific Literacy in Asia’s Top Five PISA 2022 Performers Using Hierarchical Linear Modeling and Bourdieu’s Theory of Practice",
+    "authors": [
+      "Yi Wu"
+    ],
+    "year": 2025,
+    "doi": "10.1163/23641177-bja10091",
+    "venue": "ASIA-PACIFIC SCIENCE EDUCATION",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "data": {
+    "survey_design": {
+      "student_weights_used": true,
+      "replicate_weights_used": null,
+      "weight_variable_name": null,
+      "weight_fields_interpretation": "The study uses OECD PISA 2022 microdata for scientific literacy and restricts the analysis to five top-performing education systems (Singapore, Japan, Macau, Taiwan/Chinese Taipei, and South Korea). The dependent variable is the PISA science plausible values (PVSCIE), and the authors report applying student sample weights using SAS 9.1 to improve representativeness under PISA’s multi-stage sampling design. Missing values were addressed via imputation before model estimation. The paper does not report replicate-weight methodology (e.g., BRR/jackknife), but it does describe complex sampling elements (stratification and PPS) and uses weights to account for the survey design when estimating multilevel models."
+    },
+    "plausible_values_handling": "rubin_rules",
+    "missing_data_handling": "multiple_imputation",
+    "handling_not_reported_explanation": null,
+    "sample_details": {
+      "total_students": 13295,
+      "countries": [
+        {
+          "country_code": "SGP",
+          "n_students": 6606
+        },
+        {
+          "country_code": "JPN",
+          "n_students": 5760
+        },
+        {
+          "country_code": "MAC",
+          "n_students": 4384
+        },
+        {
+          "country_code": "TWN",
+          "n_students": 5857
+        },
+        {
+          "country_code": "KOR",
+          "n_students": 6454
+        }
+      ],
+      "sample_filtering_criteria": "Used OECD PISA 2022 publicly available data and restricted the analytic sample to 15-year-old students in the five top-performing education systems in science literacy: Singapore, Japan, Macau, Taiwan (reported as Chinese Taipei in PISA), and South Korea. The study includes students who completed the scientific literacy assessment and corresponding student questionnaires, and it incorporates school principal questionnaire data for school-level variables. The paper reports that missing values were addressed through imputation, and it applies student sample weights to support representativeness under PISA’s multi-stage sampling. No additional grade-level restriction is described beyond using the PISA 15-year-old target population."
+    },
+    "ml_techniques": {
+      "primary": null,
+      "all_techniques": []
+    },
+    "confounders_identified": [
+      {
+        "variable_code": "ST004D01T",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "economic",
+        "variable_name": "Economic",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "social",
+        "variable_name": "Social",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "cultural_status",
+        "variable_name": "Cultural Status",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST034",
+        "variable_name": "Sense of belonging (BELONG)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "ST267",
+        "variable_name": "Student-teacher relationships",
+        "category": "school"
+      },
+      {
+        "variable_code": "ST343",
+        "variable_name": "Cooperation (COOPAGR)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST301",
+        "variable_name": "Curiosity (CURIOAGR)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST313",
+        "variable_name": "Emotional control (EMOCOAGR)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST307",
+        "variable_name": "Perseverance (PERSEVAGR)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST345",
+        "variable_name": "Stress resistance (STRESAGR)",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ST263",
+        "variable_name": "Growth mindset (GROSAGR)",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SC014",
+        "variable_name": "School location (urban/rural)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC013",
+        "variable_name": "School type (public/private)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC016",
+        "variable_name": "School funding (proportions)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC018Q02TA01-02",
+        "variable_name": "Certified teachers proportion",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SC018Q08JA01-02",
+        "variable_name": "Bachelor’s degree teachers proportion",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SC018Q08JA01-02",
+        "variable_name": "Master’s degree teachers proportion",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SC018Q08JA01-02",
+        "variable_name": "Doctoral degree teachers proportion",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SC002_SC018",
+        "variable_name": "Student-teacher ratio (STRATIO)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC017",
+        "variable_name": "Educational materials shortage",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC172",
+        "variable_name": "Negative school climate (NEGSCLIM)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC061",
+        "variable_name": "Student-related learning hindrance",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC061",
+        "variable_name": "Teacher-related learning hindrance",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SC015",
+        "variable_name": "Schooling competition (options)",
+        "category": "school"
+      },
+      {
+        "variable_code": "SC205",
+        "variable_name": "Creative school environment",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SC207",
+        "variable_name": "Creative activities availability",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SC204",
+        "variable_name": "Beliefs about creativity (BCREATSC)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "CREACTIV",
+        "variable_name": "Extracurricular activities (CREACTIV)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SC208",
+        "variable_name": "Openness culture/climate (OPENCUL)",
+        "category": "curriculum"
+      }
+    ],
+    "main_findings": [
+      {
+        "dataset_used": "PISA 2022 Science (PVSCIE), 15-year-olds, top five economies (Singapore, Japan, Macau, Taiwan/Chinese Taipei, South Korea)",
+        "target_variable": "Scientific literacy (PVSCIE)",
+        "top_predictors": [
+          "Economic, Social, and Cultural Status (ESCS)",
+          "Doctoral teachers",
+          "Curiosity",
+          "Emotional control",
+          "Stress resistance"
+        ],
+        "performance_metrics": "Hierarchical linear modeling (HLM); reported unstandardized coefficients and t-ratios by country (no overall ML accuracy/R²). Model fit reported via AIC/BIC and likelihood ratio test (final model AIC=12,305.4; BIC=12,487.2; χ²=42.7, p<0.001). Intraclass correlation coefficient=0.192.",
+        "standardized_conclusion": "Using PISA 2022 Science (PVSCIE) data for 15-year-olds in Singapore, Japan, Macau, Taiwan/Chinese Taipei, and South Korea, the study leveraged ESCS, doctoral teacher qualification, curiosity, emotional control, and stress resistance (among other student- and school-level variables) to model scientific literacy, finding that ESCS and highly qualified teachers were consistently positive predictors while the effects of stress resistance and other psychosocial traits varied by system. This indicates that equity-oriented science improvement should combine socioeconomic-support strategies with sustained teacher qualification and school climate supports, while recognizing that student well-being traits may require context-specific buffering rather than uniform interventions."
+      }
+    ],
+    "outcome_summary": "This study analyzes PISA 2022 scientific literacy (PVSCIE) for 15-year-old students in the five top-performing economies: Singapore, Japan, Macau, Taiwan (Chinese Taipei in PISA), and South Korea. The authors use two-level hierarchical linear modeling (students at Level 1; schools at Level 2) with student sample weights and report model fit using AIC/BIC and a likelihood ratio test (final model AIC=12,305.4; BIC=12,487.2; χ²=42.7, p<0.001). The intraclass correlation coefficient is 0.192, supporting the multilevel approach. Results show ESCS as a strong positive predictor across systems and teacher qualification (notably doctoral-level teachers) as a key school-level factor, while psychosocial variables (e.g., stress resistance, perseverance, cooperation) show heterogeneous directions across countries. Limitations include correlational interpretation due to cross-sectional PISA data and reliance on self-reported questionnaire measures for many predictors.",
+    "research_design_type": "exploratory",
+    "null_fields_interpretation": "The paper does not train or evaluate machine learning algorithms; it applies hierarchical linear modeling (HLM) to estimate multilevel regression relationships. Therefore, ML technique fields are intentionally empty (no predictive ML model comparison), and the extraction focuses on multilevel statistical findings rather than ML performance metrics."
+  }
+}
