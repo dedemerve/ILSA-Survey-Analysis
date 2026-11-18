@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "66. Zhan & Qiao (2022). Diagnostic Classification Analysis Of Problem-Solving Competence Using Process Data: An Item Expansion Method.pdf",
+    "title": "DIAGNOSTIC CLASSIFICATION ANALYSIS OF PROBLEM-SOLVING COMPETENCE USING PROCESS DATA: AN ITEM EXPANSION METHOD",
+    "authors": [
+      "Peida Zhan",
+      "Xin Qiao"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s11336-022-09855-9",
+    "venue": "Psychometrika",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are diagnostic-classification latent classes rather than ILSA achievement scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but makes no mention of whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses student-level models without addressing school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and only describes internal validation strategies.",
+    "_status": "extracted",
+    "_pdf_matched": "66. Zhan & Qiao (2022). Diagnostic Classification Analysis Of Problem-Solving Competence Using Process Data: An Item Expansion Method.pdf"
+  }
+}

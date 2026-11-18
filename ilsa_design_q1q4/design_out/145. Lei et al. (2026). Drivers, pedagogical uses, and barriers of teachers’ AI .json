@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "145. Lei et al. (2026). Drivers, pedagogical uses, and barriers of teachers’ AI adoption: Cross-national evidence from TALIS 2024.pdf",
+    "title": "Drivers, pedagogical uses, and barriers of teachers’ AI adoption: Cross-national evidence from TALIS 2024",
+    "authors": [
+      "Yaxian Lei",
+      "Zhenjie Lu",
+      "Yunkai Deng"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tate.2026.105595",
+    "venue": "Teaching and Teacher Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study uses TALIS data, which does not provide plausible values in the same way as PISA/TIMSS, making PV handling not applicable.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that teacher sampling weights were applied in both descriptive statistics and regression analyses.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study adjusted standard errors for clustering at the school level, ensuring robust statistical inference.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation through regression models and did not mention any external validation strategies.",
+    "_status": "extracted",
+    "_pdf_matched": "145. Lei et al. (2026). Drivers, pedagogical uses, and barriers of teachers’ AI adoption: Cross-national evidence from TALIS 2024.pdf"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "116. Ye & Yuan. (2022). Using a machine learning approach to explore non-cognitive factors affecting reading, mathematics, and science literacy in china and the united states.pdf",
+    "title": "USING A MACHINE LEARNING APPROACH TO EXPLORE NON-COGNITIVE FACTORS AFFECTING READING, MATHEMATICS, AND SCIENCE LITERACY IN CHINA AND THE UNITED STATES",
+    "authors": [
+      "Lu Ye",
+      "Yuqing Yuan"
+    ],
+    "year": 2022,
+    "doi": "10.33225/jbse/22.21.575",
+    "venue": "Journal of Baltic Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for the analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "116. Ye & Yuan. (2022). Using a machine learning approach to explore non-cognitive factors affecting reading, mathematics, and science literacy in china and the united states.pdf"
+  }
+}

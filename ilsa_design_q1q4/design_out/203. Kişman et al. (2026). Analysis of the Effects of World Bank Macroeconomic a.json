@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "file_name": "203. Kişman et al. (2026). Analysis of the Effects of World Bank Macroeconomic and Management Indicators on Sustainable Education Quality on PISA Scores Using the SHAP Explainable Artificial Intelligence Method.pdf",
+    "title": "Analysis of the Effects of World Bank Macroeconomic and Management Indicators on Sustainable Education Quality on PISA Scores Using the SHAP Explainable Artificial Intelligence Method",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/su18031415",
+    "venue": "Sustainability",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study constructs country-level datasets and does not analyze student-level ILSA microdata, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights, treating the data as an aggregate country/region-level dataset.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it focuses on country-level data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using bootstrap confidence intervals for internal validation but does not validate findings on external datasets or different countries.",
+    "_status": "extracted",
+    "_pdf_matched": "203. Şengür (2026). Explaining the Links Between School Administrator Leadership, Job Satisfaction, and Participatory School Climate: A Machine Learning-Enhanced Multilevel Analysis of TALIS 2024 School Administrator Data.pdf"
+  }
+}

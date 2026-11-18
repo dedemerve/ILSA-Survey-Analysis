@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "34. Şengür (2026). Explaining the Links Between School Administrator Leadership, Job Satisfaction, and Participatory School Climate: A Machine Learning-Enhanced Multilevel Analysis of TALIS 2024 School Administrator Data.pdf",
+    "title": "Explaining the Links Between School Administrator Leadership, Job Satisfaction, and Participatory School Climate: A Machine Learning-Enhanced Multilevel Analysis of TALIS 2024 School Administrator Data",
+    "authors": [
+      "Şengür"
+    ],
+    "year": 2026,
+    "doi": "10.3390/bs16071062",
+    "venue": "Behavioral Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variable is a TALIS composite scale score rather than a PV-based cognitive achievement score.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that TALIS survey weights and the full complex sampling design were not incorporated, indicating that the analysis was not weighted.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study used multilevel linear mixed models, which consider clustering at the national level.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using bootstrap confidence intervals, indicating that it did not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "34. Şengür (2026). Explaining the Links Between School Administrator Leadership, Job Satisfaction, and Participatory School Climate: A Machine Learning-Enhanced Multilevel Analysis of TALIS 2024 School Administrator Data.pdf"
+  }
+}

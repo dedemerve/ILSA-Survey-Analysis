@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "169. Odell et al. (2020). A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data.pdf",
+    "title": "A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data",
+    "authors": [
+      "Maria Cutumisu",
+      "Bryce Odell",
+      "Mark Gierl"
+    ],
+    "year": 2020,
+    "doi": "10.1007/s11218-020-09591-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values handling is not applicable because this work is a scoping review that does not conduct an original empirical analysis of PISA achievement scores.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study synthesizes secondary quantitative studies using PISA data rather than analyzing original student-level datasets, so there is no application of sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a scoping review of existing literature.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategies beyond the synthesis of secondary studies, leaving validation information unclear.",
+    "_status": "extracted",
+    "_pdf_matched": "169. Odell et al. (2020). A scoping review of the relationship between students’ ICT and performance in mathematics and science in the PISA data.pdf"
+  }
+}

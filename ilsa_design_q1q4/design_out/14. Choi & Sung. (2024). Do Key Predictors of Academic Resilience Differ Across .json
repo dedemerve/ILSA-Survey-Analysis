@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "14. Choi & Sung. (2024). Do Key Predictors of Academic Resilience Differ Across Cultures? Evidence From Korea and the US.pdf",
+    "title": "Do Key Predictors of Academic Resilience Differ Across Cultures? Evidence From Korea and the US",
+    "authors": [
+      "Yeseul Choi",
+      "JeeHun Sung"
+    ],
+    "year": 2024,
+    "doi": "10.1177/0044118X241227563",
+    "venue": "Youth & Society",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used 10 plausible values and applied Rubin's rules for analysis.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA microdata but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use individual-level models without addressing school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using random forest but does not indicate any validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "14. Choi & Sung. (2024). Do Key Predictors of Academic Resilience Differ Across Cultures? Evidence From Korea and the US.pdf"
+  }
+}

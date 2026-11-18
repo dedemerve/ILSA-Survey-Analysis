@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "182. Liu & Wang (2022). The mediating moderating model of inquiry-based learning and science self-efficacy  evidence from PISA 2015.pdf",
+    "title": "The mediating–moderating model of inquiry-based learning and science self-efficacy: evidence from PISA 2015",
+    "authors": [
+      "Y. Liu",
+      "J. Wang"
+    ],
+    "year": 2022,
+    "doi": "10.1080/09500693.2022.2067364",
+    "venue": "International Journal of Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used weighted likelihood estimates (WLE) for scaling, which does not meet the criteria for using multiple plausible values and applying Rubin's rules.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not mention the application of sampling weights in the analysis, indicating that it likely treated the data as unweighted.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not indicate the use of multilevel modeling or any methods that account for school clustering, suggesting that it used student-level models without considering school-level effects.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using bootstrapping and mediation analysis, but there is no mention of validation on external datasets or different contexts.",
+    "_status": "extracted",
+    "_pdf_matched": "182. Liu & Wang (2022). The mediating moderating model of inquiry-based learning and science self-efficacy  evidence from PISA 2015.pdf"
+  }
+}

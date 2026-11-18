@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "58. Tahri et al. (2026). Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022.pdf",
+    "title": "Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022",
+    "authors": [
+      "Dahman Tahri",
+      "Ji Liu",
+      "Millicent Aziku"
+    ],
+    "year": 2026,
+    "doi": "10.1007/s40647-026-00459-6",
+    "venue": "Fudan Journal of the Humanities and Social Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not mention the application of sampling weights, indicating that the analysis was likely unweighted.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods but does not indicate any validation on external datasets or different contexts.",
+    "_status": "extracted",
+    "_pdf_matched": "58. Tahri et al. (2026). Machine-Learning Applications in Predicting Students’ Non-Cognitive Skills: Evidence from PISA 2022.pdf"
+  }
+}

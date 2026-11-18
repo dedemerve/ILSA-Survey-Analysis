@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "110. Ang et al. (2020). Big Educational Data & Analytics: Survey, Architecture and Challenges.pdf",
+    "title": "Big Educational Data & Analytics: Survey, Architecture and Challenges",
+    "authors": [
+      "Kenneth Li-Minn Ang",
+      "Feng Lu",
+      "Kah Phooi Seng"
+    ],
+    "year": 2020,
+    "doi": "10.1109/ACCESS.2020.2994561",
+    "venue": "IEEE Access",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because this paper does not conduct an empirical ILSA-style achievement analysis with PV-based dependent variables.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use student-level survey data as it is a literature review rather than an empirical analysis.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a review article.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy, as the study is a literature review and does not present empirical findings.",
+    "_status": "extracted",
+    "_pdf_matched": "110. Ang et al. (2020). Big Educational Data & Analytics: Survey, Architecture and Challenges.pdf"
+  }
+}

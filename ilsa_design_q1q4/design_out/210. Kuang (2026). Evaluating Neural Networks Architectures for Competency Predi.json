@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "file_name": "210. Kuang (2026). Evaluating Neural Networks Architectures for Competency Prediction from Process Data Using PISA Computer-Based Mathematics Assessment.pdf",
+    "title": "Evaluating Neural Networks Architectures for Competency Prediction from Process Data Using PISA Computer-Based Mathematics Assessment",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/jintelligence14040070",
+    "venue": "J. Intell.",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_reported",
+    "q2_sampling_weights": "not_reported",
+    "q3_school_clustering": "not_reported",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q1_rationale": "No PDF found.",
+    "q2_rationale": "No PDF found.",
+    "q3_rationale": "No PDF found.",
+    "q4_rationale": "No PDF found.",
+    "_status": "no_pdf"
+  }
+}

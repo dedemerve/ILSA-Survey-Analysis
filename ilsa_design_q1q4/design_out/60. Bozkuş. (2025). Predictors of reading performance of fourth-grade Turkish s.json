@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "60. Bozkuş. (2025). Predictors of reading performance of fourth-grade Turkish students.pdf",
+    "title": "Predictors of reading performance of fourth-grade Turkish students",
+    "authors": [
+      "K. Bozkuş"
+    ],
+    "year": 2025,
+    "doi": "10.19128/turje.1431545",
+    "venue": "Turkish Journal of Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for the analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as splitting the data for model training, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "60. Bozkuş. (2025). Predictors of reading performance of fourth-grade Turkish students.pdf"
+  }
+}

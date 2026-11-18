@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "39. Zheng et al. (2025). Unfolding key factors of resilience in ICT cognitive-motivational engagement: Global evidence from machine learning techniques.pdf",
+    "title": "Unfolding key factors of resilience in ICT cognitive-motivational engagement: Global evidence from machine learning techniques",
+    "authors": [
+      "Jia-qi Zheng",
+      "Kwok-cheung Cheung",
+      "Pou-seong Sit",
+      "Chi-chio Lam"
+    ],
+    "year": 2025,
+    "doi": "10.1016/j.ijer.2025.102607",
+    "venue": "International Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variable is a binary classification derived from ICT engagement questionnaire responses, not a PV-based cognitive achievement score.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA 2018 microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study models individual students without using multilevel modelling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods but does not provide evidence of validation on data from another country, another cycle, or an entirely external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "39. Zheng et al. (2025). Unfolding key factors of resilience in ICT cognitive-motivational engagement: Global evidence from machine learning techniques.pdf"
+  }
+}

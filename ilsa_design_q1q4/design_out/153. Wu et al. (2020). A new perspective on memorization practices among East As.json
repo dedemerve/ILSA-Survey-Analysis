@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "153. Wu et al. (2020). A new perspective on memorization practices among East Asian students based on PISA 2012.pdf",
+    "title": "A new perspective on memorization practices among East Asian students based on PISA 2012",
+    "authors": [
+      "Yi-Jhen Wu",
+      "et al."
+    ],
+    "year": 2020,
+    "doi": "10.1080/01443410.2019.1648766",
+    "venue": "Educational Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it relies on PISA’s two-stage complex survey design, indicating that sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study used latent class analysis on individual students without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "153. Wu et al. (2020). A new perspective on memorization practices among East Asian students based on PISA 2012.pdf"
+  }
+}

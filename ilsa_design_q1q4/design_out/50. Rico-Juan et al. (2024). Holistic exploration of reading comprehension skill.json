@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "50. Rico-Juan et al. (2024). Holistic exploration of reading comprehension skills, technology and socioeconomic factors in Spanish teenagers.pdf",
+    "title": "Holistic exploration of reading comprehension skills, technology and socioeconomic factors in Spanish teenagers",
+    "authors": [
+      "J.R. Rico-Juan",
+      "Beatriz Pe\u001fna-Acu\u001fna",
+      "Oscar Navarro-Martinez"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.heliyon.2024.e32637",
+    "venue": "Heliyon",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used weighted likelihood estimation (WLE) for scaling numerical variables, which indicates that it did not use multiple plausible values or apply Rubin's rules.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights in its analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy, such as cross-validation or external validation, in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "50. Rico-Juan et al. (2024). Holistic exploration of reading comprehension skills, technology and socioeconomic factors in Spanish teenagers.pdf"
+  }
+}

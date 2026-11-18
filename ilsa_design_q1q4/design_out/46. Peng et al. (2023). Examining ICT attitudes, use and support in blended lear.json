@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "46. Peng et al. (2023). Examining ICT attitudes, use and support in blended learning settings for students’ reading performance_ Approaches of artificial intelligence and multilevel model.pdf",
+    "title": "Examining ICT attitudes, use and support in blended learning settings for students’ reading performance: Approaches of artificial intelligence and multilevel model",
+    "authors": [
+      "Y. Peng",
+      "et al."
+    ],
+    "year": 2023,
+    "doi": "10.1016/j.compedu.2023.104846",
+    "venue": "Computers & Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed hierarchical linear modeling (HLM), which accounts for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "46. Peng et al. (2023). Examining ICT attitudes, use and support in blended learning settings for students’ reading performance_ Approaches of artificial intelligence and multilevel model.pdf"
+  }
+}

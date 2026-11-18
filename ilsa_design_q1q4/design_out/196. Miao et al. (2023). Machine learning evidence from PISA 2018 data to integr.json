@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "196. Miao et al. (2023). Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools.pdf",
+    "title": "Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools",
+    "authors": [
+      "Xin Miao",
+      "Ali Nadaf",
+      "Zhuotong Zhou"
+    ],
+    "year": 2023,
+    "doi": "10.1007/s11159-023-10026-w",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for combining them.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it uses publicly available PISA microdata without mentioning the application of sampling weights.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study models individual students without using multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and only discusses internal validation strategies.",
+    "_status": "extracted",
+    "_pdf_matched": "196. Miao et al. (2023). Machine learning evidence from PISA 2018 data to integrate global competence intervention in UAE K–12 public schools.pdf"
+  }
+}

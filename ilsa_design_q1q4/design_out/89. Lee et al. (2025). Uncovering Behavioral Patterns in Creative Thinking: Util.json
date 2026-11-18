@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "89. Lee et al. (2025). Uncovering Behavioral Patterns in Creative Thinking: Utilizing and Interpreting PISA 2022 Process Data.pdf",
+    "title": "Uncovering Behavioral Patterns in Creative Thinking: Utilizing and Interpreting PISA 2022 Process Data",
+    "authors": [
+      "Juyeon Lee",
+      "Sue Hyeon Paek",
+      "Yoonsun Jang"
+    ],
+    "year": 2025,
+    "doi": "10.1002/jocb.70069",
+    "venue": "The Journal of Creative Behavior",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not conduct an empirical student-level predictive analysis with a cognitive achievement outcome that would require Plausible Values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The article does not specify whether student-level sampling/survey weights or replicate weights were applied, leaving it unclear if weights were used.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it focuses on process data.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy, such as cross-validation or external validation, in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "89. Lee et al. (2025). Uncovering Behavioral Patterns in Creative Thinking: Utilizing and Interpreting PISA 2022 Process Data.pdf"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "35. Nguyen et al. (2023). An evaluation of tiered machine learning framework to predict science achievement among Singapore students.pdf",
+    "title": "An evaluation of tiered machine learning framework to predict science achievement among Singapore students",
+    "authors": [
+      "Khanh Linh Nguyen",
+      "Ta’Rhonda Mayberry",
+      "Yang Liu",
+      "Myint Swe Khine",
+      "Vivek K. Pallipuram"
+    ],
+    "year": 2023,
+    "doi": "10.1109/CSCI62032.2023.00037",
+    "venue": "2023 International Conference on Computational Science and Computational Intelligence (CSCI)",
+    "publication_type": "conference",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study does not use TIMSS plausible values for modeling the dependent variable, instead assigning students to achievement classes based on percentile thresholds.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses TIMSS data but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not employ multilevel modeling or account for school clustering, as it models individual students without considering the school-level structure.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performs internal validation through a train/evaluation split but does not validate the model on external data.",
+    "_status": "extracted",
+    "_pdf_matched": "35. Nguyen et al. (2023). An evaluation of tiered machine learning framework to predict science achievement among Singapore students.pdf"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "144. Buyukatak & Anil (2022). An investigation of data mining classification methods in classifying students according to 2018 PISA reading scores.pdf",
+    "title": "An investigation of data mining classification methods in classifying students according to 2018 PISA reading scores",
+    "authors": [
+      "Emrah Buyukatak",
+      "Duygu Anıl"
+    ],
+    "year": 2022,
+    "doi": "10.21449/ijate.1208809",
+    "venue": "Int. J. Assess. Tools Educ.",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study averaged plausible values to create a single score, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not mention the application of sampling weights in the analysis, indicating that it likely ran unweighted analyses.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions classification accuracy but does not provide any information about validation on external datasets or different cycles, indicating only internal validation methods were used.",
+    "_status": "extracted",
+    "_pdf_matched": "144. Buyukatak & Anil (2022). An investigation of data mining classification methods in classifying students according to 2018 PISA reading scores.pdf"
+  }
+}

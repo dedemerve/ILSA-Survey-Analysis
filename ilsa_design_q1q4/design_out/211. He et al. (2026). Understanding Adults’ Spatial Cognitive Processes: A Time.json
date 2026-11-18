@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "file_name": "211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time-Embedded N-Grams Model with Machine Learning.pdf",
+    "title": "Understanding Adults’ Spatial Cognitive Processes: A Time-Embedded N-Grams Model with Machine Learning",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/jintelligence14060105",
+    "venue": "Journal of Intelligence",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values for cognitive achievement scores as the dependent variables are based on correctness and proficiency level categories.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it does not report applying PIAAC complex survey weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual adults without accounting for school clustering, indicating a flat model approach.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as 10-fold cross-validation and train/test splits, which do not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "211. He et al. (2026). Understanding Adults’ Spatial Cognitive Processes: A Time-Embedded N-Grams Model with Machine Learning.pdf"
+  }
+}

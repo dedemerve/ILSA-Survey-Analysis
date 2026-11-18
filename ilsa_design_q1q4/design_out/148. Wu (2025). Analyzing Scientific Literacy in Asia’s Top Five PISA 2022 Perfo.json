@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "148. Wu (2025). Analyzing Scientific Literacy in Asia’s Top Five PISA 2022 Performers Using Hierarchical Linear Modeling and Bourdieu’s Theory of Practice.pdf",
+    "title": "Analyzing Scientific Literacy in Asia’s Top Five PISA 2022 Performers Using Hierarchical Linear Modeling and Bourdieu’s Theory of Practice",
+    "authors": [
+      "Yi Wu"
+    ],
+    "year": 2025,
+    "doi": "10.1163/23641177-bja10091",
+    "venue": "ASIA-PACIFIC SCIENCE EDUCATION",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for analysis.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed hierarchical linear modeling, which accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "148. Wu (2025). Analyzing Scientific Literacy in Asia’s Top Five PISA 2022 Performers Using Hierarchical Linear Modeling and Bourdieu’s Theory of Practice.pdf"
+  }
+}

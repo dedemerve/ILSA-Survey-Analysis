@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "83. Murchan & Siddiq. (2021). A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment.pdf",
+    "title": "A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment",
+    "authors": [
+      "Murchan",
+      "Siddiq"
+    ],
+    "year": 2021,
+    "doi": "10.1186/s40536-021-00115-3",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level large-scale assessment datasets and thus does not handle plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level survey data and therefore does not apply sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies, as it is a systematic review and does not conduct empirical analysis.",
+    "_status": "extracted",
+    "_pdf_matched": "83. Murchan & Siddiq. (2021). A call to action: a systematic review of ethical and regulatory issues in using process data in educational assessment.pdf"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "200. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study.pdf",
+    "title": "Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study",
+    "authors": [
+      "Nitesh Kumar Jha",
+      "Meng-Jung Tsai"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.chbr.2025.100896",
+    "venue": "Computers in Human Behavior Reports",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study mentions a two-stage sampling design but does not explicitly state whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and only discusses internal validation strategies.",
+    "_status": "extracted",
+    "_pdf_matched": "200. Jha & Tsai (2026). Using machine learning approaches to predict Taiwanese eighth graders’ computational thinking performance in ICILS 2023 study.pdf"
+  }
+}

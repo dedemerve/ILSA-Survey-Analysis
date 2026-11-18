@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "173. Mang et al. (2026). Sampling Weights in Multilevel Modelling: An Investigation Using PISA Sampling Structures.pdf",
+    "title": "Sampling weights in multilevel modelling: an investigation using PISA sampling structures",
+    "authors": [
+      "Julia Mang"
+    ],
+    "year": 2021,
+    "doi": "10.1186/s40536-021-00099-0",
+    "venue": "Large-Scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level ILSA microdata as it focuses on methodology regarding sampling weights.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level survey data; it is a methodology paper discussing sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data; it is a methodology paper focused on sampling weights in multilevel modeling.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies beyond the simulation context.",
+    "_status": "extracted",
+    "_pdf_matched": "173. Mang et al. (2021). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA survey.pdf"
+  }
+}

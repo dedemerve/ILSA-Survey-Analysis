@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "38. Hernández-Ramos & Araya. (2025). Do School Activities Foster Creative Thinking? An Analysis of PISA Results.pdf",
+    "title": "Do School Activities Foster Creative Thinking? An Analysis of PISA Results",
+    "authors": [
+      "Hernández-Ramos",
+      "Araya"
+    ],
+    "year": 2025,
+    "doi": "10.3390/educsci15020133",
+    "venue": "Education Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzed data at the country level and did not use multilevel modeling or account for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation without mentioning any external validation strategies.",
+    "_status": "extracted",
+    "_pdf_matched": "38. Hernández-Ramos & Araya. (2025). Do School Activities Foster Creative Thinking? An Analysis of PISA Results.pdf"
+  }
+}

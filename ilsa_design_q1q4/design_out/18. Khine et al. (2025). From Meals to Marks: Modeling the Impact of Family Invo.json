@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "18. Khine et al. (2025). From Meals to Marks: Modeling the Impact of Family Involvement on Reading Performance with Counterfactual Explainable AI.pdf",
+    "title": "From Meals to Marks: Modeling the Impact of Family Involvement on Reading Performance with Counterfactual Explainable AI",
+    "authors": [
+      "M.S. Khine",
+      "N.A.",
+      "O.A.K."
+    ],
+    "year": 2025,
+    "doi": "10.3390/educsci15070928",
+    "venue": "Education Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study used student-level models without accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation using cross-validation and train/test splits.",
+    "_status": "extracted",
+    "_pdf_matched": "18. Khine et al. (2025). From Meals to Marks: Modeling the Impact of Family Involvement on Reading Performance with Counterfactual Explainable AI.pdf"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "64. Constante-Amores et al. (2024). Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data.pdf",
+    "title": "Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data",
+    "authors": [
+      "A. Constante-Amores",
+      "D. Arroyo-Resino",
+      "M. Sánchez-Munilla",
+      "I. Asensio-Muñoz"
+    ],
+    "year": 2024,
+    "doi": "10.22550/2174-0909.4014",
+    "venue": "Revista Española de Pedagogía",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values handling is not applicable because the dependent variables are dichotomous self-reports of grade repetition, not PV-based cognitive achievement scores.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study reports both unweighted and weighted grade-repetition rates, indicating that the authors applied sampling weights in their analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study used multilevel logistic regression, which accounts for the clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using a training/validation split in the machine-learning workflow, indicating that it performed only internal validation.",
+    "_status": "extracted",
+    "_pdf_matched": "64. Constante-Amores et al. (2024). Contribution of machine learning to the analysis of grade repetition in Spain: A study based on PISA data.pdf"
+  }
+}

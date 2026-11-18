@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "file_name": "197. Kan et al. (2026). Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles.pdf",
+    "title": "Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles",
+    "authors": [
+      "A.Ü. Kan",
+      "Z.A. Kan",
+      "H. A.",
+      "M.A. Kan",
+      "S. Uzun",
+      "C. A.",
+      "G. Yıldırım",
+      "B. A."
+    ],
+    "year": 2026,
+    "doi": "10.3390/systems14060620",
+    "venue": "Systems",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level microdata from PISA, so plausible values handling is not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study uses country-average PISA performance profiles and does not analyze student-level survey data, making sampling weights not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, so school clustering is not applicable.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and focuses solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "197. Kan et al. (2026). Economic Freedom Index and Educational Performance: An Explainable AI Analysis of Cross-Country PISA Profiles.pdf"
+  }
+}

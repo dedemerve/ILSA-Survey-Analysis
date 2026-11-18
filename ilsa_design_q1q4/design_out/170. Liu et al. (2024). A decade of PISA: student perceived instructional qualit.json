@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "170. Liu et al. (2024). A decade of PISA: student perceived instructional quality and mathematics achievement across European countries.pdf",
+    "title": "A decade of PISA: student perceived instructional quality and mathematics achievement across European countries",
+    "authors": [
+      "Xin Liu",
+      "Kajsa Yang Hansen",
+      "Martin Valcke",
+      "Jan De Neve"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s11858-024-01630-7",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but makes no mention of whether sampling weights were applied.",
+    "q3_school_clustering": "not_reported",
+    "q3_rationale": "There is no information provided about whether the study accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "170. Liu et al. (2024). A decade of PISA: student perceived instructional quality and mathematics achievement across European countries.pdf"
+  }
+}

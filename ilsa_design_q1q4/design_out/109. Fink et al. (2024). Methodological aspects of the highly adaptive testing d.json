@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "109. Fink et al. (2024). Methodological aspects of the highly adaptive testing design for PISA.pdf",
+    "title": "Methodological aspects of the highly adaptive testing design for PISA",
+    "authors": [
+      "Fink, A.",
+      "König, C.",
+      "Frey, A."
+    ],
+    "year": 2024,
+    "doi": "10.3389/fpsyg.2024.1446799",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a methodology paper that does not analyze student-level ILSA microdata or estimate achievement outcomes from plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level survey data, as it focuses on the methodological design of adaptive testing.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a methodology paper.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategies beyond the methodological framework presented.",
+    "_status": "extracted",
+    "_pdf_matched": "109. Fink et al. (2024). Methodological aspects of the highly adaptive testing design for PISA.pdf"
+  }
+}

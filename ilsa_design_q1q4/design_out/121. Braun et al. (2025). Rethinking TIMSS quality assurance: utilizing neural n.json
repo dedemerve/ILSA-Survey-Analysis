@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "121. Braun et al. (2025). Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores.pdf",
+    "title": "Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores",
+    "authors": [
+      "Henry Isaiah Braun",
+      "Matthias von Davier",
+      "Jihang Chen"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00262-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_reported",
+    "q1_rationale": "The study mentions that plausible values are available for each student but does not document how they were combined when training the neural networks.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that student weights were not used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study describes predicting student-level scores and aggregating them to country-level means without mentioning any multilevel modeling or consideration of school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and focuses solely on internal validation through model predictions and comparisons.",
+    "_status": "extracted",
+    "_pdf_matched": "121. Braun et al. (2025). Rethinking TIMSS quality assurance: utilizing neural network models with regression‑based bias mitigation strategies for validating country‑level math and science achievement scores.pdf"
+  }
+}

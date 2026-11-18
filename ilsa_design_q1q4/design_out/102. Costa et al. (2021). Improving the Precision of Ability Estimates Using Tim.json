@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "102. Costa et al. (2021). Improving the Precision of Ability Estimates Using Time-On-Task Variables: Insights From the PISA 2012 Computer-Based Assessment of Mathematics.pdf",
+    "title": "Improving the Precision of Ability Estimates Using Time-On-Task Variables: Insights From the PISA 2012 Computer-Based Assessment of Mathematics",
+    "authors": [
+      "Reis Costa",
+      "D. Reis Costa",
+      "M. B. (not specified in provided text)",
+      "J. T. (not specified in provided text)",
+      "B. A. (not specified in provided text)"
+    ],
+    "year": 2021,
+    "doi": "10.3389/fpsyg.2021.579128",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values handling is not applicable because the study estimates latent proficiency directly via an IRT-style graded response model.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study uses PISA data but does not mention applying any sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "102. Costa et al. (2021). Improving the Precision of Ability Estimates Using Time-On-Task Variables: Insights From the PISA 2012 Computer-Based Assessment of Mathematics.pdf"
+  }
+}

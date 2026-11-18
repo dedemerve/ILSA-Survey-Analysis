@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "69. Hernández‑Torrano & Courtney. (2021). Modern international large‑scale assessment in education: an integrative review and mapping of the literature.pdf",
+    "title": "Modern international large-scale assessment in education: an integrative review and mapping of the literature",
+    "authors": [
+      "Hernández-Torrano",
+      "Courtney"
+    ],
+    "year": 2021,
+    "doi": "10.1186/s40536-021-00109-1",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level ILSA microdata and therefore does not implement plausible-value estimation.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level ILSA microdata and therefore does not apply sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies or external validation beyond the literature review.",
+    "_status": "extracted",
+    "_pdf_matched": "69. Hernández‑Torrano & Courtney. (2021). Modern international large‑scale assessment in education: an integrative review and mapping of the literature.pdf"
+  }
+}

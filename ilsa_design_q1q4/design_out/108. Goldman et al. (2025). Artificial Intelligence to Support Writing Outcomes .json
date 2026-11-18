@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "108. Goldman et al. (2025). Artificial Intelligence to Support Writing Outcomes for Students With Disabilities.pdf",
+    "title": "Artificial Intelligence to Support Writing Outcomes for Students With Disabilities",
+    "authors": [
+      "Samantha R. Goldman",
+      "Sean J. Smith",
+      "Adam Carreon"
+    ],
+    "year": 2025,
+    "doi": "10.1177/01626434251326328",
+    "venue": "Journal of Special Education Technology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level ILSA microdata or any achievement scores, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The article does not analyze any ILSA student-level dataset, so sampling weights are not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, thus school clustering is not applicable.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies or external validation, indicating no validation information is provided.",
+    "_status": "extracted",
+    "_pdf_matched": "108. Goldman et al. (2025). Artificial Intelligence to Support Writing Outcomes for Students With Disabilities.pdf"
+  }
+}

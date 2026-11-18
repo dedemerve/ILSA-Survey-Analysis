@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "127. Sun et al. (2023). A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems.pdf",
+    "title": "A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems",
+    "authors": [
+      "S. Sun",
+      "X. Wang",
+      "T. Xu"
+    ],
+    "year": 2023,
+    "doi": "10.3390/bs13050406",
+    "venue": "Behavioral Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not estimate cognitive achievement scores from an ILSA assessment, so plausible values are not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use an ILSA/PISA/TIMSS micro-dataset for achievement scoring, thus sampling weights are not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it constructs a cognitive model based on expert evaluations and student reports.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategy beyond the small validation activity described, making it unclear if any external validation was performed.",
+    "_status": "extracted",
+    "_pdf_matched": "127. Sun et al. (2023). A Theoretical Framework for a Mathematical Cognitive Model for Adaptive Learning Systems.pdf"
+  }
+}

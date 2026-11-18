@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "36. Alvarez-Garcia et al. (2024). Uncovering student profiles. An explainable cluster analysis approach to PISA 2022.pdf",
+    "title": "Uncovering student profiles. An explainable cluster analysis approach to PISA 2022",
+    "authors": [
+      "Miguel Alvarez-Garcia",
+      "Mar Arenas-Parra",
+      "Raquel Ibar-Alonso"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.compedu.2024.105166",
+    "venue": "Computers & Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on clustering student profiles.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not report the use of PISA sampling/student weights, indicating that the analysis was likely unweighted.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study employs clustering methods without mentioning any multilevel modeling or consideration of school-level clustering.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not provide any information about validation strategies beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "36. Alvarez-Garcia et al. (2024). Uncovering student profiles. An explainable cluster analysis approach to PISA 2022.pdf"
+  }
+}

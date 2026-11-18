@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye.pdf",
+    "title": "Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye",
+    "authors": [
+      "T. Yılmaz",
+      "K. Atalay Kabasakal"
+    ],
+    "year": 2025,
+    "doi": "10.21031/epod.1782727",
+    "venue": "Journal of Measurement and Evaluation in Education and Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used an average of plausible values for the dependent variable, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in its analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using 10-fold cross-validation for model evaluation, indicating that it performed only internal validation.",
+    "_status": "extracted",
+    "_pdf_matched": "142. Yılmaz & Atalay-Kabasakal (2025). Comparison of Statistical and Machine Learning Approaches for Predicting Mathematical Literacy: Evidence from PISA 2022 Türkiye.pdf"
+  }
+}

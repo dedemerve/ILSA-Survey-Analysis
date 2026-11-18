@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "53. Tin et al. (2024). Educational Big Data Mining: Comparison of Multiple Machine Learning Algorithms in Predictive Modelling of Student Academic Performance.pdf",
+    "title": "Educational Big Data Mining: Comparison of Multiple Machine Learning Algorithms in Predictive Modelling of Student Academic Performance",
+    "authors": [
+      "Ting Tin Tin",
+      "Lee Shi Hock",
+      "Omolayo M. Ikumapayi"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s11165-019-9835-y",
+    "venue": "International Journal of Advanced Computer Science and Applications (IJACSA)",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any method that accounts for school clustering, indicating that it likely used student-level models.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as training and testing but does not report any validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "53. Tin et al. (2024). Educational Big Data Mining: Comparison of Multiple Machine Learning Algorithms in Predictive Modelling of Student Academic Performance.pdf"
+  }
+}

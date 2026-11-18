@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "63. Wan et al. (2025). What are the Most Important Factors Influencing Science Performance? A Machine Learning Study of Singaporean and Finish PISA Data.pdf",
+    "title": "What are the Most Important Factors Influencing Science Performance? A Machine Learning Study of Singaporean and Finish PISA Data",
+    "authors": [
+      "Z. H. Wan",
+      "Yanan Zhang"
+    ],
+    "year": 2025,
+    "doi": "10.1007/s10763-025-10596-1",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used ten plausible values as the dependent variable and applied proper handling as indicated by the prior extraction.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that multilevel modeling or any clustering methods were used, suggesting that it likely used student-level models ignoring school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "63. Wan et al. (2025). What are the Most Important Factors Influencing Science Performance? A Machine Learning Study of Singaporean and Finish PISA Data.pdf"
+  }
+}

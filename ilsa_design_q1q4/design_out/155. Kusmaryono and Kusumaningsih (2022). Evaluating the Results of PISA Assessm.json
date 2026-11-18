@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "155. Kusmaryono and Kusumaningsih (2022). Evaluating the Results of PISA Assessment: Are There Gaps Between the Teaching of Mathematical Literacy at Schools and in PISA Assessment?.pdf",
+    "title": "Evaluating the Results of PISA Assessment: Are There Gaps Between the Teaching of Mathematical Literacy at Schools and in PISA Assessment?",
+    "authors": [
+      "Imam Kusmaryono",
+      "Kusumaningsih"
+    ],
+    "year": 2023,
+    "doi": "10.12973/eu-jer.12.3.1479",
+    "venue": "European Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use PISA-provided plausible values as outcomes or predictors, focusing instead on a locally administered test.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study used a purposive sample and did not apply sampling weights, treating the data as a convenience sample.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or accounting for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the internal analysis of the collected data.",
+    "_status": "extracted",
+    "_pdf_matched": "155. Kusmaryono and Kusumaningsih (2022). Evaluating the Results of PISA Assessment: Are There Gaps Between the Teaching of Mathematical Literacy at Schools and in PISA Assessment?.pdf"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "212. Cai et al. (2026). Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective.pdf",
+    "title": "Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective",
+    "authors": [
+      "Cai X",
+      "Bi Y",
+      "Feng Y"
+    ],
+    "year": 2026,
+    "doi": "10.3389/fpsyg.2025.1655731",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values for the analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without addressing school clustering, which is necessary for proper analysis of ILSA data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as model training and feature analysis but does not indicate any validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "212. Cai et al. (2026). Exploring the impact of ICT interaction on students’ creative thinking across performance levels: an explainable AI perspective.pdf"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "13. Bu & Chen. (2023). What key contextual factors contribute to students’ reading literacy among top-performing countries and economies? Statistical and machine learning analyses.pdf",
+    "title": "What key contextual factors contribute to students’ reading literacy among top-performing countries and economies? Statistical and machine learning analyses",
+    "authors": [
+      "Y. Bu",
+      "F. Chen"
+    ],
+    "year": 2023,
+    "doi": "10.1016/j.ijer.2023.102267",
+    "venue": "International Journal of Educational Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value (PV1READ) for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without addressing school clustering, which is typical in ILSA data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using internal validation methods such as Shapley decomposition and gradient boosting decision trees, but does not report any validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "13. Bu & Chen. (2023). What key contextual factors contribute to students’ reading literacy among top-performing countries and economies? Statistical and machine learning analyses.pdf"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "97. Chen et al. (2023). Using learners’ problem‑solving processes in computer‑based assessments for enhanced learner modeling: A deep learning approach.pdf",
+    "title": "Using learners’ problem‑solving processes in computer‑based assessments for enhanced learner modeling: A deep learning approach",
+    "authors": [
+      "Fu Chen"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s10639-023-12389-x",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze ILSA cognitive achievement scores with plausible values, as it focuses on a learner log dataset.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights, treating the dataset as a real-world learner log rather than a nationally representative survey.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it uses a log dataset from a tutoring system.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy such as cross-validation or external validation in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "97. Chen et al. (2023). Using learners’ problem‑solving processes in computer‑based assessments for enhanced learner modeling: A deep learning approach.pdf"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "file_name": "126. He et al. (2024). The relationship between personal‑collaborative motivation profiles and students’ performance in collaborative problem solving.pdf",
+    "title": "The relationship between personal‑collaborative motivation profiles and students’ performance in collaborative problem solving",
+    "authors": null,
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00219-6",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student-level and school-level sample weights were used to account for unequal probability of selection and nonresponse bias.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study utilized multilevel modeling by considering both student-level and school-level factors in the analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, such as external validation or cross-validation.",
+    "_status": "extracted",
+    "_pdf_matched": "126. He et al. (2024). The relationship between personal‑collaborative motivation profiles and students’ performance in collaborative problem solving.pdf"
+  }
+}

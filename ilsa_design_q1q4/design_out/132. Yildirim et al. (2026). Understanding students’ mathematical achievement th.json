@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "132. Yildirim et al. (2026). Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018.pdf",
+    "title": "Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018",
+    "authors": [
+      "U.H. Yildirim",
+      "Y. Kayhan Atilgan",
+      "D. Turfan"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.psicod.2026.500187",
+    "venue": "Revista de Psicodidáctica",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used all plausible values and applied proper combination techniques as indicated by the mention of evaluating model performance across plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using repeated stratified cross-validation, which indicates internal validation only, and does not report any validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "132. Yildirim et al. (2026). Understanding students’ mathematical achievement through feature selection and machine learning: Evidence from PISA 2018.pdf"
+  }
+}

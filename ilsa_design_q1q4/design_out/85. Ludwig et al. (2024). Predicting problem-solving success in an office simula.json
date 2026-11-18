@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "85. Ludwig et al. (2024). Predicting problem-solving success in an office simulation applying N-grams and a random forest to behavioral process data.pdf",
+    "title": "Predicting problem-solving success in an office simulation applying N-grams and a random forest to behavioral process data",
+    "authors": [
+      "Sabrina Ludwig",
+      "Andreas Rausch",
+      "Viola Deutscher",
+      "Jürgen Seifried"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.compedu.2024.105093",
+    "venue": "Computers & Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as the dependent variable is a rubric-based problem-solving success score, not a PV-based cognitive achievement outcome.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights, treating the data as a single-subject experimental setting rather than an ILSA-style multi-stage sampling frame.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it focuses on a single-subject experimental setting.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as train/test split, indicating that it did not validate its findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "85. Ludwig et al. (2024). Predicting problem-solving success in an office simulation applying N-grams and a random forest to behavioral process data.pdf"
+  }
+}

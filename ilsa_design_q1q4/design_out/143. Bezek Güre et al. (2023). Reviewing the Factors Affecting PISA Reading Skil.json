@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "143. Bezek Güre et al. (2023). Reviewing the Factors Affecting PISA Reading Skills by Using Random Forest and MARS Methods.pdf",
+    "title": "Özlem Bezek Güre1, Hikmet Şevgin2, Murat Kayri3",
+    "authors": [
+      "Özlem Bezek Güre",
+      "Hikmet Şevgin",
+      "Murat Kayri"
+    ],
+    "year": 2023,
+    "doi": "10.33200/ijcer.1192590",
+    "venue": "IJCER (International Journal of Contemporary Educational Research)",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA microdata but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without addressing school clustering, which is typical in ILSA data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as train/test splits, indicating that it did not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "143. Bezek Güre et al. (2023). Reviewing the Factors Affecting PISA Reading Skills by Using Random Forest and MARS Methods.pdf"
+  }
+}

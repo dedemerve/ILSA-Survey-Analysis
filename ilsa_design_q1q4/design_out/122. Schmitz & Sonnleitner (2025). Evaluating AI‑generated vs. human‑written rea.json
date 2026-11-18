@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "122. Schmitz & Sonnleitner (2025). Evaluating AI‑generated vs. human‑written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large‑scale assessment.pdf",
+    "title": "Evaluating AI-generated vs. human-written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large-scale assessment",
+    "authors": [
+      "Ripoll Y. Schmitz",
+      "Philipp Sonnleitner"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00255-w",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze ILSA-style cognitive achievement outcomes with Plausible Values; instead, it uses Likert-scale human judgments.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states it did not apply complex survey sampling weights and used a snowball-recruited sample.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "122. Schmitz & Sonnleitner (2025). Evaluating AI‑generated vs. human‑written reading comprehension passages: an expert SWOT analysis and comparative study for an educational large‑scale assessment.pdf"
+  }
+}

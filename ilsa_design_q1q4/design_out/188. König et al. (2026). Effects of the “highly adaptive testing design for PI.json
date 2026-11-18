@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "188. König et al. (2026). Effects of the “highly adaptive testing design for PISA” on plausible value-based population estimates.pdf",
+    "title": "Effects of the “highly adaptive testing design for PISA” on plausible value-based population estimates",
+    "authors": [
+      "König et al."
+    ],
+    "year": 2026,
+    "doi": "10.1186/s40536-026-00309-7",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for combining them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The excerpts do not indicate that the study used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies, only internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "109. Fink et al. (2024). Methodological aspects of the highly adaptive testing design for PISA.pdf"
+  }
+}

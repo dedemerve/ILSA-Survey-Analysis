@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "62. Wang et al. (2022). Understanding Chinese Students’ Well‑Being: A Machine Learning Study.pdf",
+    "title": "Understanding Chinese Students’ Well‑Being: A Machine Learning Study",
+    "authors": [
+      "Y. Wang",
+      "Ronnel King"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s12187-022-09997-3",
+    "venue": "Child Indicators Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are well-being dimensions measured via questionnaire Likert items, not PV-based cognitive achievement scores.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not report applying PISA sampling weights or replicate weights in the analyses, indicating that it ran unweighted analyses.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study used random forest regression without mentioning any multilevel modeling or cluster-robust standard errors, indicating that it ignored school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using tenfold cross-validation, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "62. Wang et al. (2022). Understanding Chinese Students’ Well‑Being: A Machine Learning Study.pdf"
+  }
+}

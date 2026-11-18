@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "195. Çelik et al. (2026). Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods.pdf",
+    "title": "Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods",
+    "authors": [
+      "Emel Şaşmaz",
+      "Sadullah Çelik",
+      "Bilge Doğanlı"
+    ],
+    "year": 2026,
+    "doi": "10.1007/s11135-026-02915-7",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use PISA student microdata; instead, it uses OECD-published country-level aggregated average scores, making plausible value handling not applicable.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it does not use PISA student microdata and therefore does not apply any sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study analyzes country-level aggregated data rather than student-level data, so school clustering is not applicable.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using stratified k-fold cross-validation for internal validation, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "195. Çelik et al. (2026). Comparative analysis of global education performances based on PISA 2022 results: an assessment with statistical and machine learning methods.pdf"
+  }
+}

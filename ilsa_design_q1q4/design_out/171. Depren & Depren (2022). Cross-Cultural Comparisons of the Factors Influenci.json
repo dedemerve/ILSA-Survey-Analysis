@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "171. Depren & Depren (2022). Cross-Cultural Comparisons of the Factors Influencing the High Reading Achievement in Turkey and China: Evidence from PISA 2018.pdf",
+    "title": "Cross-Cultural Comparisons of the Factors Influencing the High Reading Achievement in Turkey and China: Evidence from PISA 2018",
+    "authors": [
+      "S. Kılıç Depren",
+      "Ö. Depren"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s40299-021-00584-8",
+    "venue": "Asia-Pacific Education Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study describes the sampling procedure but does not explicitly mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not indicate the use of multilevel modeling or any method that accounts for school clustering, suggesting that it likely used student-level models.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "171. Depren & Depren (2022). Cross-Cultural Comparisons of the Factors Influencing the High Reading Achievement in Turkey and China: Evidence from PISA 2018.pdf"
+  }
+}

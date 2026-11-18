@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "59. Schwerter et al. (2025). Metropolitan, Urban, and Rural Regions: How Regional Differences Affect Elementary School Students in Germany.pdf",
+    "title": "Metropolitan, Urban, and Rural Regions: How Regional Differences Affect Elementary School Students in Germany",
+    "authors": [
+      "Jakob Schwerter",
+      "Johannes Bleher",
+      "Philipp Doebler",
+      "Nele McElvany"
+    ],
+    "year": 2025,
+    "doi": "10.1177/23328584251331453",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are not PIRLS achievement PV scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but makes no mention of whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that multilevel modeling or cluster-robust standard errors were used, suggesting that school clustering was ignored.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using internal validation methods such as bootstrapping and LASSO, indicating that only internal validation was performed.",
+    "_status": "extracted",
+    "_pdf_matched": "59. Schwerter et al. (2025). Metropolitan, Urban, and Rural Regions: How Regional Differences Affect Elementary School Students in Germany.pdf"
+  }
+}

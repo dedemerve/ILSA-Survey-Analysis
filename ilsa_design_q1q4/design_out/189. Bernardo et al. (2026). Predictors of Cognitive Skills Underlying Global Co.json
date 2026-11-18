@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "189. Bernardo et al. (2026). Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach.pdf",
+    "title": "Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach",
+    "authors": [
+      "Bernardo",
+      "Presbitero",
+      "M.O.C.II",
+      "J.G.E.R.",
+      "A.B.I.B."
+    ],
+    "year": 2026,
+    "doi": "10.3390/educsci16071076",
+    "venue": "Educ. Sci.",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are Warm likelihood estimate (WLE) indices derived from self-report questionnaire items, rather than PV-based cognitive achievement.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use student weights or replicate weights despite the availability of sampling and replicate weights from PISA.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses individual-level models without mentioning any multilevel modeling or consideration of school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as train/test splits, indicating that it did not validate its findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "189. Bernardo et al. (2026). Predictors of Cognitive Skills Underlying Global Competences of Filipino Students in PISA 2018: A Machine-Learning Approach.pdf"
+  }
+}

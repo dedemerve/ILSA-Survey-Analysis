@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "98. Zhou & Jiao. (2022). Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment.pdf",
+    "title": "Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment",
+    "authors": [
+      "Zhou",
+      "Jiao"
+    ],
+    "year": 2022,
+    "doi": "10.1177/00131644221117193",
+    "venue": "Educational and Psychological Measurement",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on a cheating detection classification.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights and treats the dataset as a convenience sample.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it uses a licensure-test dataset.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using k-fold cross-validation for model evaluation, indicating only internal validation.",
+    "_status": "extracted",
+    "_pdf_matched": "98. Zhou & Jiao. (2022). Exploration of the Stacking Ensemble Machine Learning Algorithm for Cheating Detection in Large-Scale Assessment.pdf"
+  }
+}

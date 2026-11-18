@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "40. Kim et al. (2024). Exploring Influencing Factors at Student and Teacher:School levels on Science Self-efficacy Using Machine Learning and Multilevel Latent Profile Analysis.pdf",
+    "title": "Exploring Influencing Factors at Student and Teacher/School levels on Science Self-efficacy Using Machine Learning and Multilevel Latent Profile Analysis",
+    "authors": [
+      "JiYoon Kim",
+      "Sehee Hong"
+    ],
+    "year": 2024,
+    "doi": "10.1177/21582440241284915",
+    "venue": "SAGE Open",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used WLE scores, which do not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not mention the application of sampling weights in the analysis of student-level data.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed multilevel latent profile analysis, which accounts for the hierarchical structure of the data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation through various regression algorithms without mentioning any external validation.",
+    "_status": "extracted",
+    "_pdf_matched": "40. Kim et al. (2024). Exploring Influencing Factors at Student and Teacher:School levels on Science Self-efficacy Using Machine Learning and Multilevel Latent Profile Analysis.pdf"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "125. Huang & Keller (2025). Working with missing data in large‑scale assessments.pdf",
+    "title": "Working with missing data in large-scale assessments",
+    "authors": [
+      "Huang",
+      "Keller"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00248-9",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a methodology paper and does not analyze student-level ILSA microdata where plausible values would be relevant.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study is a methodology paper and does not analyze student-level survey data where sampling weights would be applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study is a methodology paper and does not analyze student-level survey data where school clustering would be relevant.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategies beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "125. Huang & Keller (2025). Working with missing data in large‑scale assessments.pdf"
+  }
+}

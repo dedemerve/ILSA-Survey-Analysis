@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "107. Tan et al. (2025). Using machine learning algorithms to predict students’ general self-efficacy in PISA 2018.pdf",
+    "title": "Using machine learning algorithms to predict students’ general self-efficacy in PISA 2018",
+    "authors": [
+      "Bin Tan",
+      "Hao-Yue Jin",
+      "Maria Cutumisu"
+    ],
+    "year": 2025,
+    "doi": "10.1016/j.appdev.2025.101828",
+    "venue": "Journal of Applied Developmental Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study does not use PISA achievement plausible values for the outcome, which indicates that it does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study uses publicly available PISA 2018 microdata but does not mention applying any sampling or replicate weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "107. Tan et al. (2025). Using machine learning algorithms to predict students’ general self-efficacy in PISA 2018.pdf"
+  }
+}

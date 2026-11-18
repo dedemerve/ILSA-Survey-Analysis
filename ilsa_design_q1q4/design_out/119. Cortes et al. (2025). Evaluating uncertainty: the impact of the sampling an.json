@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "119. Cortes et al. (2025). Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA.pdf",
+    "title": "Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA",
+    "authors": [
+      "Diego Cortes",
+      "D. Hastedt",
+      "S. Martin"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00246-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study uses Rubin's rules for handling plausible values, indicating proper combination of multiple plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it uses PIRLS-provided estimation weights that combine inclusion probabilities and nonresponse adjustments.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study is a methodology paper and does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategy beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "119. Cortes et al. (2025). Evaluating uncertainty: the impact of the sampling and assessment design on statistical inference in the context of ILSA.pdf"
+  }
+}

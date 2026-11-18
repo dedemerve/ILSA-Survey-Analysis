@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "187. Delpatro (2026). Cognitive and non-cognitive efficiency gaps between private and public schools and their determinants in the Latin America region a hybrid data envelo.pdf",
+    "title": "Cognitive and non-cognitive efficiency gaps between private and public schools and their determinant",
+    "authors": [
+      "Marcos Delprato"
+    ],
+    "year": 2026,
+    "doi": "10.1080/2331186X.2026.2684391",
+    "venue": "Cogent Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to analyze school efficiency at the school level without using multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as stratified 5-fold cross-validation, indicating that it did not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "187. Delpatro (2026). Cognitive and non-cognitive efficiency gaps between private and public schools and their determinants in the Latin America region a hybrid data envelo.pdf"
+  }
+}

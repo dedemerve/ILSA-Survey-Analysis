@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "118. Rutkowski et al. (2024). The limits of inference: reassessing causality in international assessments.pdf",
+    "title": "The limits of inference: reassessing causality in international assessments",
+    "authors": [
+      "David Rutkowski",
+      "Leslie Rutkowski",
+      "Greg Thompson",
+      "Yusuf Canbolat"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00197-9",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level ILSA microdata or use achievement scores as outcomes.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not conduct an empirical analysis of ILSA microdata and therefore does not apply sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies or external validation of findings.",
+    "_status": "extracted",
+    "_pdf_matched": "118. Rutkowski et al. (2024). The limits of inference: reassessing causality in international assessments.pdf"
+  }
+}

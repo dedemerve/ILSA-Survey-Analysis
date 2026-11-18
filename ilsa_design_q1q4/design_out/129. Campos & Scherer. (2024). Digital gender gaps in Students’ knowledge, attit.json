@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "129. Campos & Scherer. (2024). Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries.pdf",
+    "title": "Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries",
+    "authors": [
+      "Diego G. Campos",
+      "Ronny Scherer"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s10639-023-12272-9",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used Rubin's rules for handling multiple plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study estimates multigroup SEMs with complex sampling survey characteristics, indicating the use of multilevel modeling.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies, only internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "129. Campos & Scherer. (2024). Digital gender gaps in Students’ knowledge, attitudes and skills: an integrative data analysis across 32 Countries.pdf"
+  }
+}

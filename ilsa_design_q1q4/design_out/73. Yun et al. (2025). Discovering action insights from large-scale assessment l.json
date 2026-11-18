@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "file_name": "73. Yun et al. (2025). Discovering action insights from large-scale assessment log data using machine learning.pdf",
+    "title": "Discovering action insights from large-scale assessment log data using machine learning",
+    "authors": null,
+    "year": 2025,
+    "doi": "10.1038/s41598-025-14802-6",
+    "venue": "Scientific Reports",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values for achievement scores as it focuses on performance groups derived from action-sequence logs.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not mention the application of sampling weights and treats the data as a convenience sample without weighting.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, focusing instead on log data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as clustering and classification accuracy checks but does not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "73. Yun et al. (2025). Discovering action insights from large-scale assessment log data using machine learning.pdf"
+  }
+}

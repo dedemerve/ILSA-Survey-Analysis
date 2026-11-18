@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "68. Peters et al. (2025). Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments.pdf",
+    "title": "Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments",
+    "authors": [
+      "Sydney Peters",
+      "Nan Zhang",
+      "Hong Jiao",
+      "Ming Li",
+      "Tianyi Zhou"
+    ],
+    "year": 2025,
+    "doi": null,
+    "venue": "Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con) – Volume 3: Coordinated Session Papers",
+    "publication_type": "conference",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a review article that does not analyze student-level ILSA microdata or use plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use student-level survey data as it is a literature review synthesizing prior studies.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_applicable",
+    "q4_rationale": "The study does not perform any validation as it is a review of existing literature rather than an empirical study.",
+    "_status": "extracted",
+    "_pdf_matched": "68. Peters et al. (2025). Review of Text-Based Approaches to Item Difficulty Modeling in Large-Scale Assessments.pdf"
+  }
+}

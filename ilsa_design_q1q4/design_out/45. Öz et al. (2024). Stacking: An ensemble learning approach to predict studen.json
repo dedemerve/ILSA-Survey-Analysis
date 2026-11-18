@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "file_name": "45. Öz et al. (2024). Stacking: An ensemble learning approach to predict student performance in PISA 2022.pdf",
+    "title": "Stacking: An ensemble learning approach to predict student performance in PISA 2022",
+    "authors": null,
+    "year": 2024,
+    "doi": "10.1007/s10639-024-13110-2",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used all plausible values (PVs) from the PISA 2022 dataset and applied appropriate handling as indicated.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights in its analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to model individual students without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as cross-validation, indicating that it did not validate its findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "45. Öz et al. (2024). Stacking: An ensemble learning approach to predict student performance in PISA 2022.pdf"
+  }
+}

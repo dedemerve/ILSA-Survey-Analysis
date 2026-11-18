@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "1. Lee & Lee. (2025). An Extended Dataset of Educational Quality Across Countries (1970–2023) 3.pdf",
+    "title": "An Extended Dataset of Educational Quality Across Countries (1970–2023)",
+    "authors": [
+      "Lee",
+      "Lee"
+    ],
+    "year": 2025,
+    "doi": "10.5281/zenodo.16778072",
+    "venue": "Data",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a methodology paper that constructs a dataset and does not analyze student-level ILSA microdata or use plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use student-level survey data, focusing instead on constructing a cross-country panel dataset.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it constructs a dataset based on country-year observations.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as train/test split and cross-validation, indicating that it did not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "1. Lee & Lee. (2025). An Extended Dataset of Educational Quality Across Countries (1970–2023) 3.pdf"
+  }
+}

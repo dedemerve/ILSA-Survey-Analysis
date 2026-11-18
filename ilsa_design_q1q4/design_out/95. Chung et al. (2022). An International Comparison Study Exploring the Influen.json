@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "95. Chung et al. (2022). An International Comparison Study Exploring the Influential Variables Affecting Students’ Reading Literacy and Life Satisfaction.pdf",
+    "title": "An International Comparison Study Exploring the Influential Variables Affecting Students’ Reading Literacy and Life Satisfaction",
+    "authors": [
+      "Hyewon Chung",
+      "Jung-In Kim",
+      "Eunjin (EJ) Jung",
+      "Soyoung Park"
+    ],
+    "year": 2022,
+    "doi": "10.17583/ijep.8924",
+    "venue": "IJEP – International Journal of Educational Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used all plausible values and handled them appropriately as indicated in the prior extraction.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed multilevel modeling, which accounts for the clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using a train/test split but did not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "95. Chung et al. (2022). An International Comparison Study Exploring the Influential Variables Affecting Students’ Reading Literacy and Life Satisfaction.pdf"
+  }
+}

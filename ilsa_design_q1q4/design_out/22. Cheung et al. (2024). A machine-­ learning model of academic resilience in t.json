@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "22. Cheung et al. (2024). A machine-­ learning model of academic resilience in the times of the COVID-­ 19 pandemic: Evidence drawn from 79 countries:economies in the PISA 2022 mathematics study.pdf",
+    "title": "A machine‐learning model of academic resilience in the times of the COVID‐19 pandemic: Evidence drawn from 79 countries/economies in the PISA 2022 mathematics study",
+    "authors": [
+      "Kwok-cheung Cheung",
+      "Pou-seong Sit",
+      "Jia-qi Zheng",
+      "Chi-chio Lam",
+      "Soi-kei Mak",
+      "Man-kai Ieong"
+    ],
+    "year": 2024,
+    "doi": "10.1111/bjep.12715",
+    "venue": "British Journal of Educational Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for mathematics literacy instead of multiple plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any method that accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation using 10-fold cross-validation, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "22. Cheung et al. (2024). A machine-­ learning model of academic resilience in the times of the COVID-­ 19 pandemic: Evidence drawn from 79 countries:economies in the PISA 2022 mathematics study.pdf"
+  }
+}

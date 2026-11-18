@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "140. Shen & Zhou (2026). Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024.pdf",
+    "title": "Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024",
+    "authors": [
+      "Huayu Shen",
+      "Tong Zhou"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tate.2026.105735",
+    "venue": "Teaching and Teacher Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze cognitive achievement plausible values, focusing instead on teacher survey microdata.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it used TALIS 2024 teacher survey microdata and applied sampling weights in the analysis.",
+    "q3_school_clustering": "not_reported",
+    "q3_rationale": "There is no information provided about whether the study used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategies such as cross-validation or external validation, leaving this information unclear.",
+    "_status": "extracted",
+    "_pdf_matched": "140. Shen & Zhou (2026). Tools as well-being? AI teaching applications and teacher work stress: Evidence from TALIS 2024.pdf"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "44. Lezhnina & Kismihók. (2021). Combining statistical and machine learning methods to explore German students  attitudes towards ICT in PISA.pdf",
+    "title": "Combining statistical and machine learning methods to explore German students’ attitudes towards ICT",
+    "authors": [
+      "Olga Lezhnina",
+      "Gábor Kismihók"
+    ],
+    "year": 2021,
+    "doi": "10.1080/1743727X.2021.1963226",
+    "venue": "International Journal of Research & Method in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study explicitly states that Rubin's rules were applied for handling plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study used hierarchical linear models (HLM), which account for the nested structure of the data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and focuses solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "44. Lezhnina & Kismihók. (2021). Combining statistical and machine learning methods to explore German students  attitudes towards ICT in PISA.pdf"
+  }
+}

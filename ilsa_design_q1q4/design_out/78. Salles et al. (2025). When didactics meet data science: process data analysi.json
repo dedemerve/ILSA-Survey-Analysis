@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "78. Salles et al. (2025). When didactics meet data science: process data analysis in large‑scale mathematics assessment in France.pdf",
+    "title": "When didactics meet data science: process data analysis in large‑scale mathematics assessment in France",
+    "authors": [
+      "Salles",
+      "et al."
+    ],
+    "year": 2020,
+    "doi": "10.1186/s40536-020-00085-y",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study focuses on item-level correctness rather than using plausible values for cognitive achievement scales.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it does not report the use of complex survey weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study analyzes log data rather than student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as supervised learning and clustering but does not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "78. Salles et al. (2020). When didactics meet data science: process data analysis in large‑scale mathematics assessment in France.pdf"
+  }
+}

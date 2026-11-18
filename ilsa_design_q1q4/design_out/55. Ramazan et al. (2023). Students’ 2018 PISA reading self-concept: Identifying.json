@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "55. Ramazan et al. (2023). Students’ 2018 PISA reading self-concept: Identifying predictors and examining model generalizability for emergent bilinguals.pdf",
+    "title": "Students’ 2018 PISA reading self-concept: Identifying predictors and examining model generalizability for emergent bilinguals",
+    "authors": [
+      "O. Ramazan",
+      "et al."
+    ],
+    "year": 2023,
+    "doi": "10.1016/j.jsp.2023.101254",
+    "venue": "Journal of School Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variable is students’ reading self-concept rather than a cognitive achievement score for which PISA generates plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student sampling weights (scaled) were included in each analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study used multilevel modeling, which accounts for the clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "55. Ramazan et al. (2023). Students’ 2018 PISA reading self-concept: Identifying predictors and examining model generalizability for emergent bilinguals.pdf"
+  }
+}

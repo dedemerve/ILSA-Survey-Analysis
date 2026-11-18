@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "52. Hu et al. (2023). Decoding Contextual Factors Differentiating Adolescents’ High, Average, and Low Digital Reading Performance Through Machine-Learning Methods .pdf",
+    "title": "Decoding Contextual Factors Differentiating Adolescents’ High, Average, and Low Digital Reading Performance Through Machine-Learning Methods",
+    "authors": [
+      "Jie Hu",
+      "Yi Peng",
+      "Xiao Chen"
+    ],
+    "year": 2023,
+    "doi": "10.1109/TLT.2023.3281056",
+    "venue": "IEEE Transactions on Learning Technologies",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value (PV1READ) for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to model individual students without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions model evaluation but does not indicate any validation on external datasets or different countries, only internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "52. Hu et al. (2023). Decoding Contextual Factors Differentiating Adolescents’ High, Average, and Low Digital Reading Performance Through Machine-Learning Methods .pdf"
+  }
+}

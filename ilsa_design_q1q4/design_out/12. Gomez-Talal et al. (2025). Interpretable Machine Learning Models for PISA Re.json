@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "12. Gomez-Talal et al. (2025). Interpretable Machine Learning Models for PISA Results in Mathematics.pdf",
+    "title": "Interpretable Machine Learning Models for PISA Results in Mathematics",
+    "authors": [
+      "Ismael Gómez-Talal",
+      "Luis Bote-Curiel",
+      "José Luis Rojo-Álvarez"
+    ],
+    "year": 2025,
+    "doi": "10.1109/ACCESS.2025.3538585",
+    "venue": "IEEE Access",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_reported",
+    "q1_rationale": "The study does not mention how plausible values are handled, leaving it unclear whether they were used or not.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not mention the application of sampling weights, indicating that the analysis likely treated the data as unweighted.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use individual student-level models without accounting for school clustering, as no multilevel modeling or cluster-robust methods are mentioned.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as cross-validation and hyperparameter tuning, indicating that it did not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "12. Gomez-Talal et al. (2025). Interpretable Machine Learning Models for PISA Results in Mathematics.pdf"
+  }
+}

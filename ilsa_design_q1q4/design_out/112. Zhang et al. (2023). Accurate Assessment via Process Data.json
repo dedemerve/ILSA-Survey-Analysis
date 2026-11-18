@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "112. Zhang et al. (2023). Accurate Assessment via Process Data.pdf",
+    "title": "Accurate Assessment via Process Data",
+    "authors": [
+      "Susu Zhang",
+      "Zhi Wang",
+      "Jitong Qi",
+      "Jingchen Liu",
+      "Zhiliang Ying"
+    ],
+    "year": 2023,
+    "doi": "10.1007/s11336-022-09880-8",
+    "venue": "Psychometrika",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level ILSA microdata as it focuses on process data.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that student weights were not used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention any multilevel modeling or consideration of school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as cross-validation, indicating that it did not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "112. Zhang et al. (2023). Accurate Assessment via Process Data.pdf"
+  }
+}

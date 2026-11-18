@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "104. Jung et al. (2022). Automated Scoring of Constructed- Response Items Using Artificial Neural Networks in International Large-scale Assessment.pdf",
+    "title": "Automated Scoring of Constructed-Response Items Using Artificial Neural Networks in International Large-scale Assessment",
+    "authors": [
+      "Ji Yoon Jung",
+      "L. Tyack",
+      "M. v. Davier"
+    ],
+    "year": 2022,
+    "doi": "10.3389/feduc.2020.00149",
+    "venue": "Frontiers in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on automated scoring of constructed-response items.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not use sampling weights in its analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses a holdout validation approach and does not mention any multilevel modeling or consideration of school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation using a simple holdout validation method, indicating no validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "104. Jung et al. (2022). Automated Scoring of Constructed- Response Items Using Artificial Neural Networks in International Large-scale Assessment.pdf"
+  }
+}

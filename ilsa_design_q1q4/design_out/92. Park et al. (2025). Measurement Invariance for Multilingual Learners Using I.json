@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "92. Park et al. (2025). Measurement Invariance for Multilingual Learners Using Item Response and Response Time in PISA 2018.pdf",
+    "title": "Measurement Invariance for Multilingual Learners Using Item Response and Response Time in PISA 2018",
+    "authors": [
+      "Sean Joo",
+      "Zikun Li"
+    ],
+    "year": 2025,
+    "doi": "10.1111/emip.12640",
+    "venue": "Educational Measurement: Issues and Practice",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as it focuses on measurement invariance using item-fit statistics and response-time functioning.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual student responses without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "92. Park et al. (2025). Measurement Invariance for Multilingual Learners Using Item Response and Response Time in PISA 2018.pdf"
+  }
+}

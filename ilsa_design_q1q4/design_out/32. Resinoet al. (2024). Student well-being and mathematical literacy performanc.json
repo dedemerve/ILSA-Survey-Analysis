@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "32. Resinoet al. (2024). Student well-being and mathematical literacy performance in PISA 2018  a machine-learning approach.pdf",
+    "title": "Student well-being and mathematical literacy performance in PISA 2018: a machine-learning approach",
+    "authors": [
+      "Delia Arroyo Resino",
+      "Alexander Constante-Amores",
+      "Pedro Gil Madrona",
+      "Pedro José Carrillo López"
+    ],
+    "year": 2024,
+    "doi": "10.1080/01443410.2024.2359104",
+    "venue": "Educational Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used ten plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed hierarchical linear models, indicating that it accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using techniques such as train/test split and cross-validation, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "32. Resinoet al. (2024). Student well-being and mathematical literacy performance in PISA 2018  a machine-learning approach.pdf"
+  }
+}

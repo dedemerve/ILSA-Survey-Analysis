@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "77. Shin et al. (2024). An engagement‑aware predictive model to evaluate problem‑solving performance from the study of adult skills’ (PIAAC 2012) process data.pdf",
+    "title": "An engagement‑aware predictive model to evaluate problem‑solving performance from the study of adult skills’ (PIAAC 2012) process data",
+    "authors": [
+      "Jinnie Shin",
+      "B. W.",
+      "W. P.",
+      "M. G."
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00194-y",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on process log data.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The manuscript explicitly states that it does not report applying PIAAC sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study analyzes process log data rather than student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods but does not report any validation on external datasets or different cycles.",
+    "_status": "extracted",
+    "_pdf_matched": "77. Shin et al. (2024). An engagement‑aware predictive model to evaluate problem‑solving performance from the study of adult skills’ (PIAAC 2012) process data.pdf"
+  }
+}

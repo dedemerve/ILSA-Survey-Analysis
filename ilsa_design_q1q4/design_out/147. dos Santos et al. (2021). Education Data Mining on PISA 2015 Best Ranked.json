@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "194. dos Santos et al. (2021). Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well.pdf",
+    "title": "Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well",
+    "authors": [
+      "Roberta Alvarenga dos Santos"
+    ],
+    "year": 2021,
+    "doi": "10.1007/s10758-021-09572-9",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using internal validation methods but does not report any validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "194. dos Santos et al. (2021). Education Data Mining on PISA 2015 Best Ranked Countries: What Makes the Students go Well.pdf"
+  }
+}
