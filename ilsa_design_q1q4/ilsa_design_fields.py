@@ -135,7 +135,11 @@ IMPORTANT REMINDERS:
   If it says rubin_rules or all_pv → met. If it says not_applicable → not_applicable.
 - Q3: If the study models individual students from ILSA data (which is cluster-sampled
   by schools) using flat models (no multilevel, no cluster-robust SE, no school-level
-  split), the answer is **not_met**, not not_reported."""
+  split), the answer is **not_met**, not not_reported.
+- Q2: If the study analyses student-level ILSA microdata (PISA, TIMSS, PIRLS) and
+  never mentions sampling weights, the answer is **not_met** (they clearly ran
+  unweighted analysis), NOT not_reported. Use not_reported only when it is genuinely
+  ambiguous whether weights were applied."""
 
 
 # ---------------------------------------------------------------------------
