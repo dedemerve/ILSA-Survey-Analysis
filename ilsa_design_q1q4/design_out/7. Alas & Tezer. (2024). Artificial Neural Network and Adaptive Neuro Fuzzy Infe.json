@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "7. Alas & Tezer. (2024). Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singapore and Hong Kong.pdf",
+    "title": "Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singaporeand Hong Kong",
+    "authors": [
+      "D.K. Alas",
+      "M. Tezer"
+    ],
+    "year": 2024,
+    "doi": "10.3390/su16177806",
+    "venue": "Sustainability",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student-level data from ILSA but instead uses country-level PISA scores as outputs.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level survey data from ILSA; it focuses on document analysis and country-level data.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it uses country-level data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions a train/test split for model validation, indicating only internal validation methods were used.",
+    "_status": "extracted",
+    "_pdf_matched": "7. Alas & Tezer. (2024). Artificial Neural Network and Adaptive Neuro Fuzzy Inference System Hybridized Models in the Sustainable Integration of Language and Mathematics Skills: The Case of Singapore and Hong Kong.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): The study uses PISA 2018 country-level mathematics/reading scores for Singapore and Hong Kong and reports overall ANN/ANFIS performance (RMSE and R²) but does not provide separate per-country model results or a formal cross-system comparison.",
+    "_source": "no_pdf_fallback"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "25. Anersen et al. (2025). Algorithmic Fairness in Automatic Short Answer Scoring.pdf",
+    "title": "Algorithmic Fairness in Automatic Short Answer Scoring",
+    "authors": [
+      "Nico Andersen",
+      "Julia Mang",
+      "Frank Goldhammer",
+      "Fabian Zehner"
+    ],
+    "year": 2025,
+    "doi": "10.1007/s40593-025-00495-5",
+    "venue": "International Journal of Artificial Intelligence in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variable is dichotomous item scoring (correct/incorrect) derived from human ratings, not PV-based achievement scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but makes no mention of whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses models that do not account for school clustering, focusing instead on individual student-level analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation through cross-validation and bootstrapping, with no mention of validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "25. Anersen et al. (2025). Algorithmic Fairness in Automatic Short Answer Scoring.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “We tested various combinations… on responses to reading comprehension items from the 2015 German PISA assessment.” (Germany only; no separate per-country/system analyses reported.)"
+  }
+}

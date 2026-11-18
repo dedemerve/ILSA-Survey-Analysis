@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "17. McJames et al. (2023). Factors affecting teacher job satisfaction  a causal inference machine learning approach using data from TALIS 2018.pdf",
+    "title": "Factors affecting teacher job satisfaction: a causal inference machine learning approach using data from TALIS 2018",
+    "authors": [
+      "Nathan McJames",
+      "Andrew Parnell",
+      "others"
+    ],
+    "year": 2023,
+    "doi": "10.1080/00131911.2023.2200594",
+    "venue": "Educational Review",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variable is a continuous teacher job satisfaction scale rather than a PV-based cognitive achievement score.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that TALIS sampling weights were applied to obtain population-representative estimates and correct standard errors.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering, indicating that it likely used student-level models ignoring school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "17. McJames et al. (2023). Factors affecting teacher job satisfaction  a causal inference machine learning approach using data from TALIS 2018.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “We apply our methodology to the English subset of the data from TALIS 2018.”"
+  }
+}

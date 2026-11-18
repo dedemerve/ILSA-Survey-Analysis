@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "192. Murillo (2026). Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024.pdf",
+    "title": "Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024",
+    "authors": [
+      "F. Javier Murillo",
+      "Angel C. Herrero"
+    ],
+    "year": 2026,
+    "doi": "10.15388/infedu.2605.036",
+    "venue": "Informatics Education (infedu)",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not measure cognitive achievement scores with Plausible Values, as it focuses on teachers' self-reported participation in AI-related professional learning.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it incorporates teacher sampling weights in all multilevel models.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study uses three-level multilevel linear probability models, which account for the clustering of teachers within schools.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "192. Murillo (2026). Can Teacher AI Literacy Reach Those Who Need It Most? Professional Learning, Realised Access, and Cumulative Advantage in TALIS 2024.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “TALIS 2024 lower-secondary teacher and principal questionnaires across 55 education systems… The study finds large cross-system heterogeneity in access (weighted prevalence from 8.86% in France to 75.69% in Singapore)… uses linear probability multilevel models…”",
+    "_source": "no_pdf_fallback"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "84. Gong et al. (2023). Using process features to investigate scientific problem-solving in large-scale assessments.pdf",
+    "title": "Using process features to investigate scientific problem-solving in large-scale assessments",
+    "authors": [
+      "Tao Gong",
+      "L. Shuai",
+      "Y. Jiang",
+      "B. Arslan"
+    ],
+    "year": 2023,
+    "doi": "10.3389/fpsyg.2023.1131019",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as the dependent variables are rubric-based item scores, not PV-based cognitive achievement scales.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study explicitly states that it does not report the use of NAEP sampling/survey weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual student-level data without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, such as external validation or cross-validation.",
+    "_status": "extracted",
+    "_pdf_matched": "84. Gong et al. (2023). Using process features to investigate scientific problem-solving in large-scale assessments.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

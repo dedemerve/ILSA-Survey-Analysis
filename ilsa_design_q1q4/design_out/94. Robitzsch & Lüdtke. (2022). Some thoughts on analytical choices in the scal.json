@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "94. Robitzsch & Lüdtke. (2022). Some thoughts on analytical choices in the scaling model for test scores in international large‑scale assessment studies.pdf",
+    "title": "Some thoughts on analytical choices in the scaling model for test scores in international large-scale assessment studies",
+    "authors": [
+      "Robitzsch",
+      "Lüdtke"
+    ],
+    "year": 2022,
+    "doi": "10.1186/s42409-022-00039-w",
+    "venue": "Measurement Instruments for the Social Sciences",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "methodology_paper"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a methodological discussion and does not analyze student-level ILSA microdata.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use student-level survey data as it is a methodological paper.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data, focusing instead on methodological discussions.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies or external validation of findings.",
+    "_status": "extracted",
+    "_pdf_matched": "94. Robitzsch & Lüdtke. (2022). Some thoughts on analytical choices in the scaling model for test scores in international large‑scale assessment studies.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

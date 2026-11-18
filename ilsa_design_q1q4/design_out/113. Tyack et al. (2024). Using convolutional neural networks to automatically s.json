@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "113. Tyack et al. (2024). Using convolutional neural networks to automatically score eight TIMSS 2019 graphical response items.pdf",
+    "title": "Using convolutional neural networks to automatically score eight TIMSS 2019 graphical response items",
+    "authors": [
+      "Lillian Tyack",
+      "Lale Khorramdel",
+      "Matthias von Davier"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.caeai.2024.100249",
+    "venue": "Computers and Education: Artificial Intelligence",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used IRT-based expected scores (IRT_theta) for data cleaning and sample assignment, which does not meet the criteria for using multiple plausible values with Rubin's rules.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual student responses without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using hold-out samples and cross-validation, indicating that it did not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "113. Tyack et al. (2024). Using convolutional neural networks to automatically score eight TIMSS 2019 graphical response items.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that student weights were not used in the analysis."
+  }
+}

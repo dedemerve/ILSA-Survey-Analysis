@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "15. Damiani et al. (2024). Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016.pdf",
+    "title": "Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016",
+    "authors": [
+      "Damiani",
+      "et al."
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00229-4",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for analysis.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it applied student/sampling weights in all analyses.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The excerpts do not indicate that the study used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies, only internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "15. Damiani et al. (2024). Young people’s civic engagement in Italy: evidence on grade 8 students from the international civic and citizenship education study (ICCS) 2016.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

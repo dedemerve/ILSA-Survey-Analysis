@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "123. Jewsbury & Johnson (2025). Principal component analysis on the covariance matrix for data reduction in large‑scale assessments.pdf",
+    "title": "Principal component analysis on the covariance matrix for data reduction in large‑scale assessments",
+    "authors": [
+      "Paul A. Jewsbury",
+      "Matthew S. Johnson"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00264-9",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study uses multiple plausible values and applies Rubin's rules for proficiency estimation.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The paper does not report the use of NAEP complex survey sampling handling, indicating that sampling weights were not applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any method that accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies, only discussing internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "123. Jewsbury & Johnson (2025). Principal component analysis on the covariance matrix for data reduction in large‑scale assessments.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “We demonstrate … using data from the 2022 National Assessment of Educational Progress (NAEP).” (USA only; no separate per-country/system analyses or comparisons reported.)",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

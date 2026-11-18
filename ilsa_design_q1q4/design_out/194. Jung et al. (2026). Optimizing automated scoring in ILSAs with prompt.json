@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "214. Jung et al. (2026). Optimizing automated scoring in ILSAs with prompt compression.pdf",
+    "title": "Optimizing automated scoring in ILSAs with prompt compression",
+    "authors": [
+      "J.Y. Jung",
+      "Ummugul Bezirhan",
+      "Matthias von Davier"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.caeai.2026.100558",
+    "venue": "Computers and Education: Artificial Intelligence",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are binary constructed-response scores, not PV-based cognitive achievement scales.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not report applying PIRLS sampling weights or any replicate-weight variance estimation, indicating that it did not apply weights in the analysis.",
+    "q3_school_clustering": "not_reported",
+    "q3_rationale": "There is no information provided about whether the study accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as accuracy and kappa scores but does not report any validation on external datasets or different countries.",
+    "_status": "extracted",
+    "_pdf_matched": "214. Jung et al. (2026). Optimizing automated scoring in ILSAs with prompt compression.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “Across items, Model 3 achieves the highest average accuracy (92.87%)… across 27 countries/29 languages… using a randomly selected 20% subset per country for exploratory analysis.”",
+    "_source": "no_pdf_fallback",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

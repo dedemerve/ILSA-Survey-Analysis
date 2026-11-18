@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "76. Guo et al. (2024). Human-Centered AI for Discovering Student Engagement Profiles on Large-Scale Educational Assessments.pdf",
+    "title": "Human-Centered AI for Discovering Student Engagement Profiles on Large-Scale Educational Assessments",
+    "authors": [
+      "Guo, H.",
+      "Johnson, M.",
+      "Saldivia, L.",
+      "Worthington, M.",
+      "Ercikan, K."
+    ],
+    "year": 2024,
+    "doi": "10.21031/epod.1532846",
+    "venue": "Journal of Measurement and Evaluation in Education and Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA achievement scores as outcomes or predictors, focusing instead on engagement profiles derived from process/log data.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level survey data, as it uses process/log data from a digital assessment.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, focusing instead on process data.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The excerpts do not mention any validation strategies beyond the estimation sample, such as external validation or cross-validation.",
+    "_status": "extracted",
+    "_pdf_matched": "76. Guo et al. (2024). Human-Centered AI for Discovering Student Engagement Profiles on Large-Scale Educational Assessments.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “data from the National Assessment of Educational Progress (NAEP) Grade 8 Mathematics assessment were used for illustration… has provided meaningful results… in the US.”"
+  }
+}

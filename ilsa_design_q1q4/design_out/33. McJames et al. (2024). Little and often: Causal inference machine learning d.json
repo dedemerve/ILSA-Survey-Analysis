@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "33. McJames et al. (2024). Little and often: Causal inference machine learning demonstrates the benefits of homework for improving achievement in mathematics and science.pdf",
+    "title": "Little and often: Causal inference machine learning demonstrates the benefits of homework for improving achievement in mathematics and science",
+    "authors": [
+      "Nathan McJames",
+      "Andrew Parnell",
+      "Ann O’Shea"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.learninstruc.2024.101968",
+    "venue": "Learning and Instruction",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules in the analysis.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly stated that sampling weights were fully accounted for in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed a hierarchical model which accounts for school-level clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and focuses solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "33. McJames et al. (2024). Little and often: Causal inference machine learning demonstrates the benefits of homework for improving achievement in mathematics and science.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): The study analyzes TIMSS 2019 seventh-cycle data for Ireland… using homework frequency and duration… The study does not mention any external validation strategies…"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "174. Courtney et al. (2022). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys.pdf",
+    "title": "The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys",
+    "authors": [
+      "Matthew Courtney",
+      "Mehmet Karakus",
+      "Ersozlu",
+      "Nurumov"
+    ],
+    "year": 2022,
+    "doi": "10.1186/s40536-022-00128-6",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed a three-level hierarchical linear modeling approach, which accounts for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "174. Courtney et al. (2022). The influence of ICT use and related attitudes on students’ math and science performance: multilevel analyses of the last decade’s PISA surveys.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

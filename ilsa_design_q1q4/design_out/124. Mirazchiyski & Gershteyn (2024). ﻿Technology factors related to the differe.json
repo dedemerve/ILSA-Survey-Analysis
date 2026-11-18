@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "124. Mirazchiyski & Gershteyn (2024). ﻿Technology factors related to the differences in paper and online reading scores in PIRLS 2016.pdf",
+    "title": "Technology factors related to the differences in paper and online reading scores in PIRLS 2016",
+    "authors": [
+      "Plamen Mirazchiyski",
+      "Vladimir Gershteyn"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00224-9",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study used linear regression models and did not apply multilevel modeling, indicating that school clustering was ignored.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "124. Mirazchiyski & Gershteyn (2024). ﻿Technology factors related to the differences in paper and online reading scores in PIRLS 2016.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “This study investigates the … ICT factors … in six European countries … The results … show … only in Italy… in Italy and Portugal… in Portugal and Slovenia… in Denmark … and Italy… In addition, socio-economic status … is a significant predictor in half of the countries.”"
+  }
+}

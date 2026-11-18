@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "184. Sırgancı (2023). A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire.pdf",
+    "title": "A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire",
+    "authors": [
+      "Sırgancı"
+    ],
+    "year": 2023,
+    "doi": "10.3758/s13428-019-01224-2",
+    "venue": "International Journal of Curriculum and Instruction (IJCI)",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as the dependent variables are DIF indicators for questionnaire items, not PV-based cognitive achievement scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study employs a model that does not account for school clustering, as it focuses on individual student-level analysis without multilevel modeling.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using cross-validation techniques for model selection, indicating that validation was performed only within the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "184. Sırgancı (2023). A Machine Learning Approach to Assess Differential Item Functioning of PISA 2018 ICT Engagement Questionnaire.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “DIF was assessed at the item level across four ICT engagement subscales… using… GPCMlasso… Country (dummy-coded)… DIF is pervasive by country… present for gender… comparatively rare for ESCS.”",
+    "_source": "no_pdf_fallback"
+  }
+}

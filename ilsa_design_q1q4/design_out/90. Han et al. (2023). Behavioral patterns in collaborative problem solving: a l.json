@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "90. Han et al. (2023). Behavioral patterns in collaborative problem solving: a latent profile analysis based on response times and actions in PISA 2015.pdf",
+    "title": "Han et al. Large-scale Assessments in Education (2023) 11:35",
+    "authors": [
+      "Areum Han",
+      "Florian Krieger",
+      "Francesca Borgonovi",
+      "Samuel Greiff"
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40536-023-00185-5",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly stated that it used sampling weights in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study incorporated PISA’s sampling hierarchy, indicating that it accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "90. Han et al. (2023). Behavioral patterns in collaborative problem solving: a latent profile analysis based on response times and actions in PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “The current study examined the PISA 2015 ColPS assessment participants… Out of the total of 3,065 students belonging to 11 education systems… In addition… the final sample consisted of 2,520 students.”"
+  }
+}

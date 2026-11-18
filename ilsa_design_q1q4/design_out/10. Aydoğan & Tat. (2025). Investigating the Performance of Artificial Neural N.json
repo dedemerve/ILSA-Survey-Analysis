@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "10. Aydoğan & Tat. (2025). Investigating the Performance of Artificial Neural Networks in Predicting Affective Responses .pdf",
+    "title": "Investigating the Performance of Artificial Neural Networks in Predicting Affective Responses",
+    "authors": [
+      "İ. Aydoğan",
+      "O. Tat"
+    ],
+    "year": 2025,
+    "doi": "10.21031/epod.1525454",
+    "venue": "Journal of Measurement and Evaluation in Education and Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are affective/intercultural communicative awareness Likert items rather than PV-based cognitive achievement scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The manuscript does not report the use of PISA complex survey weights, indicating that the analysis was likely unweighted.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering, suggesting that it used student-level models ignoring school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as analyzing the overlap of predicted and actual responses, but does not report any validation on external datasets or different cycles.",
+    "_status": "extracted",
+    "_pdf_matched": "10. Aydoğan & Tat. (2025). Investigating the Performance of Artificial Neural Networks in Predicting Affective Responses .pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

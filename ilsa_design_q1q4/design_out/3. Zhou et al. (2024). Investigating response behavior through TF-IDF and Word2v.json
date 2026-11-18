@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "file_name": "3. Zhou et al. (2024). Investigating response behavior through TF-IDF and Word2vec text analysis_ A case study of PISA 2012 problem-solving process data.pdf",
+    "title": "Investigating response behavior through TF-IDF and Word2vec text analysis: A case study of PISA 2012 problem-solving process data",
+    "authors": [
+      "Jing Zhou",
+      "Zhanliang Ye",
+      "Sheng Zhang",
+      "Zhao Geng",
+      "Ning Han",
+      "Tao Yang"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.heliyon.2024.e35945",
+    "venue": "Heliyon",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as it focuses on a binary correctness label derived from process data, not on achievement scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Local matching Zhou PDF text: no discussion of sampling/student/survey weights found; claimed explicit statement is unsupported.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual response behavior sequences without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as supervised and unsupervised machine learning but does not report any validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "3. Zhou et al. (2023). Investigating response behavior through TF-IDF and Word2vec text analysis: A case study of PISA 2012 problem-solving process data.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “An analysis of the PISA 2012 computer-based problem-solving dataset revealed…” and “Word2vec-based models outperformed TF-IDF-based ones in the F1-score, accuracy, and recall…” (no separate per-country/system analyses or comparisons reported).",
+    "_q2_audit": "Corrected after matching source text check; original rationale: The study explicitly states that it did not apply PISA sampling/student weights in its analysis."
+  }
+}

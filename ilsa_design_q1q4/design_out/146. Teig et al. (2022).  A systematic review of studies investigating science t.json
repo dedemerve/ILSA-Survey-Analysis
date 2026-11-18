@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "146. Teig et al. (2022).  A systematic review of studies investigating science teaching and learning  over two decades of TIMSS and PISA.pdf",
+    "title": "A systematic review of studies investigating science teaching and learning: over two decades of TIMSS and PISA",
+    "authors": [
+      "Nani Teig",
+      "Ronny Scherer",
+      "Rolf Vegar Olsen"
+    ],
+    "year": 2022,
+    "doi": "10.1080/09500693.2022.2109075",
+    "venue": "International Journal of Science Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a systematic review and does not analyze student-level ILSA microdata, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not conduct its own statistical modeling on TIMSS/PISA microdata, so the application of sampling weights is not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, thus school clustering is not applicable.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies, as it is a review of existing studies rather than an empirical analysis.",
+    "_status": "extracted",
+    "_pdf_matched": "146. Teig et al. (2022).  A systematic review of studies investigating science teaching and learning  over two decades of TIMSS and PISA.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

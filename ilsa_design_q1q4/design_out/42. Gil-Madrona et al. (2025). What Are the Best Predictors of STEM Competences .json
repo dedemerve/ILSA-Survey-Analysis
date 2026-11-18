@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "42. Gil-Madrona et al. (2025). What Are the Best Predictors of STEM Competences in PISA 2018? An Analysis of the Spanish Context Using Data Mining.pdf",
+    "title": "What Are the Best Predictors of STEM Competences in PISA 2018? An Analysis of the Spanish Context Using Data Mining",
+    "authors": [
+      "Pedro Gil-Madrona",
+      "Ashly Mercedes Guerrero-Muguerza",
+      "Álvaro Infantes-Paniagua",
+      "María Martínez-López"
+    ],
+    "year": 2025,
+    "doi": "10.1111/ssm.18363",
+    "venue": "School Science and Mathematics",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_reported",
+    "q1_rationale": "The study does not specify how plausible values were handled, leaving it unclear whether they were used correctly.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without addressing school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and focuses solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "42. Gil-Madrona et al. (2025). What Are the Best Predictors of STEM Competences in PISA 2018? An Analysis of the Spanish Context Using Data Mining.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “identify the PISA 2018 variables that predict the achievement in STEM competences in Spanish students… based on 35,943 Spanish students”"
+  }
+}

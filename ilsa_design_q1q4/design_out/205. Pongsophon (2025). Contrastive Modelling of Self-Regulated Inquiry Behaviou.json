@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "205. Pongsophon (2025). Contrastive Modelling of Self-Regulated Inquiry Behaviours Across Nations: Evidence from TIMSS 2023 Earth Science.pdf",
+    "title": "Contrastive modelling of self‐regulated inquiry behaviours across nations: Evidence from TIMSS 2023 Earth Science",
+    "authors": [
+      "Pongprapan Pongsophon"
+    ],
+    "year": 2026,
+    "doi": "10.1002/berj.70095",
+    "venue": "British Educational Research Journal",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not mention the application of sampling weights, indicating that it likely ran unweighted analyses.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as clustering validation but does not indicate any external validation on different datasets or countries.",
+    "_status": "extracted",
+    "_pdf_matched": "205. Pongsophon (2025). Contrastive Modelling of Self-Regulated Inquiry Behaviours Across Nations: Evidence from TIMSS 2023 Earth Science.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “Cross-national tests showed no systematic differences in embedding norms across countries (Kruskal–Wallis p = 0.6867) and poor country-based clustering (negative silhouette)”",
+    "_source": "no_pdf_fallback",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

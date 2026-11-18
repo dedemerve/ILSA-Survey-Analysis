@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "111. Bernardo et al. (2023). Profiling low-proficiency science students in the Philippines using machine learning.pdf",
+    "title": "Profiling low-proficiency science students in the Philippines using machine learning",
+    "authors": null,
+    "year": 2023,
+    "doi": "10.1057/s41599-023-01705-y",
+    "venue": "Humanities and Social Sciences Communications",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value (PV1SCIE) for modeling, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that multilevel modeling or any clustering methods were used, suggesting that student-level models were employed without accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "111. Bernardo et al. (2023). Profiling low-proficiency science students in the Philippines using machine learning.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

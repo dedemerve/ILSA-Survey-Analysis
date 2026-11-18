@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "131. Wu et al. (2026). Predicting Key Factors Influencing Students’ Creative Thinking: A Machine Learning Analysis Based on PISA 2022 Data from East Asia.pdf",
+    "title": "Predicting Key Factors Influencing Students’ Creative Thinking: A Machine Learning Analysis Based on PISA 2022 Data from East Asia",
+    "authors": [
+      "Jiheng Wu",
+      "Wenjun Zhang",
+      "Shuai Zhang",
+      "Bowen Fang",
+      "Na Yu"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tsc.2026.102224",
+    "venue": "Thinking Skills and Creativity",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used the average of the 10 plausible values as the outcome, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering, indicating that it likely used student-level models.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "131. Wu et al. (2026). Predicting Key Factors Influencing Students’ Creative Thinking: A Machine Learning Analysis Based on PISA 2022 Data from East Asia.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “To reach these goals, the data analyses encompassed a latent profile analysis and a logistic regression model… The latent profile analysis allowed the identification of three groups of Italian students”"
+  }
+}

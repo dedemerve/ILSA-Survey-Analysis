@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "103. Scherer et al. (2024). The potential of international large‑scale assessments for meta‑analyses in education.pdf",
+    "title": "The potential of international large-scale assessments for meta-analyses in education",
+    "authors": [
+      "Ronny Scherer",
+      "Tobias Nilsen",
+      "Felix Scherer"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-024-00191-1",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a methodological review and does not estimate student-level outcomes from ILSA microdata, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use student-level survey data as it is a methodological review, thus sampling weights are not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a review article.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies or external validation, focusing instead on methodological guidance.",
+    "_status": "extracted",
+    "_pdf_matched": "103. Scherer et al. (2024). The potential of international large‑scale assessments for meta‑analyses in education.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

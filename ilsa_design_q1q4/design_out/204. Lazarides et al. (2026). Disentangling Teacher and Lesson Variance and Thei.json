@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "204. Lazarides et al. (2026). Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior.pdf",
+    "title": "Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior",
+    "authors": [
+      "Lazarides",
+      "et al."
+    ],
+    "year": 2026,
+    "doi": "10.17616/R3M30D",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values because the dependent variables are teacher nonverbal immediacy scores, not ILSA cognitive achievement plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, such as external validation or cross-validation.",
+    "_status": "extracted",
+    "_pdf_matched": "204. Lazarides et al. (2026). Disentangling Teacher and Lesson Variance and Their Relations to Supportive Learning Environments: A Machine Learning Assessment of Teacher Nonverbal Behavior.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "162.Teig et al. (2020). Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data.pdf",
+    "title": "Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data",
+    "authors": [
+      "Nani Teig",
+      "Svenja Scherer",
+      "Nilsen"
+    ],
+    "year": 2020,
+    "doi": "10.1002/tea.21657",
+    "venue": "Journal of Research in Science Teaching",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study explicitly states that it used Rubin's rules for handling plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes student-level data but does not indicate the use of multilevel modeling or any method that accounts for school clustering.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "162.Teig et al. (2020). Identifying patterns of students' performance on simulated inquiry tasks using PISA 2015 log-file data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

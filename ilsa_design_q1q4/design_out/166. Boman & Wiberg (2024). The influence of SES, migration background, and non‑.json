@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "166. Boman & Wiberg (2024). The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden.pdf",
+    "title": "The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden",
+    "authors": [
+      "Björn Boman",
+      "Marie Wiberg"
+    ],
+    "year": 2024,
+    "doi": "10.1007/s10212-024-00805-w",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it applied student weights in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study utilized a two-level multilevel modeling approach, which accounts for the clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "166. Boman & Wiberg (2024). The influence of SES, migration background, and non‑cognitive abilities on PISA reading and mathematics achievement: evidence from Sweden.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

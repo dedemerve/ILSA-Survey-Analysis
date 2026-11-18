@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "178. Bernardo & Mante-Estacio (2023). Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data.pdf",
+    "title": "Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data",
+    "authors": null,
+    "year": 2023,
+    "doi": "10.1057/s41599-023-01886-6",
+    "venue": "Humanities and Social Sciences Communications",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that sampling weights were applied in the analysis, indicating proper use of weights.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that multilevel modeling or cluster-robust standard errors were used, suggesting that school clustering was ignored.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, making it unclear if any external validation was conducted.",
+    "_status": "extracted",
+    "_pdf_matched": "178. Bernardo & Mante-Estacio (2023). Metacognitive reading strategies and its relationship with Filipino high school students’ reading proficiency: insights from the PISA 2018 data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “The study analyzes the Philippines’ PISA 2018 reading data… Using hierarchical regression… the authors report…” (Only Philippines/PISA 2018; no separate per-country/system analyses or comparisons reported.)"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "99. Jiao et al. (2021). Editorial: Process Data in Educational and Psychological Measurement.pdf",
+    "title": "Editorial: Process Data in Educational and Psychological Measurement",
+    "authors": [
+      "Jiao",
+      "He",
+      "Veldkamp"
+    ],
+    "year": 2021,
+    "doi": "10.3389/fpsyg.2021.793399",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "technical_report"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The editorial does not analyze student achievement outcomes from ILSA instruments and therefore does not generate or model plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The editorial does not conduct a new empirical analysis of ILSA microdata, so there are no student-level sampling weights applied.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy in the editorial.",
+    "_status": "extracted",
+    "_pdf_matched": "99. Jiao et al. (2021). Editorial: Process Data in Educational and Psychological Measurement.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

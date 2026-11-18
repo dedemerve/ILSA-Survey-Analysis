@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "199. López-Meneses et al. (2025). Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge.pdf",
+    "title": "Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge",
+    "authors": [
+      "López-Meneses",
+      "P.C.M.-M.",
+      "L.L.-C.",
+      "N.P.-P."
+    ],
+    "year": 2025,
+    "doi": "10.3390/app15020772",
+    "venue": "Applied Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze student achievement outcomes from an ILSA dataset, so plausible values handling is not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The article is a bibliometric analysis and does not analyze student-level survey data, making sampling weights not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, so school clustering is not applicable.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies such as cross-validation or hold-out, nor does it provide information about validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "199. López-Meneses et al. (2025). Artificial Intelligence in Educational Data Mining and Human-in-the-Loop Machine Learning and Machine Teaching: Analysis of Scientific Knowledge.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

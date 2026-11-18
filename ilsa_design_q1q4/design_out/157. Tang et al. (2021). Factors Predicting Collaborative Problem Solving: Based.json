@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "157. Tang et al. (2021). Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015.pdf",
+    "title": "Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015",
+    "authors": null,
+    "year": 2021,
+    "doi": "10.3389/feduc.2021.619450",
+    "venue": "Frontiers in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for proper combination.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly stated that it used student-level sampling weights in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study utilized hierarchical linear modeling, which accounts for the nested structure of the data.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "157. Tang et al. (2021). Factors Predicting Collaborative Problem Solving: Based on the Data From PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "86. Pejic et al. (2022). Improving math proficiency prediction in computer- based international large-scale assessments with data augmentation.pdf",
+    "title": "Improving math proficiency prediction in computer-based international large-scale assessments with data augmentation",
+    "authors": [
+      "Aleksandar Pejić",
+      "Piroska Stanić Molcer",
+      "Dávid Fa"
+    ],
+    "year": 2022,
+    "doi": "10.1109/SISY56759.2022.10036295",
+    "venue": "2022 IEEE 20th Jubilee International Symposium on Intelligent Systems and Informatics (SISY)",
+    "publication_type": "conference",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as it focuses on a discretized three-class math proficiency outcome derived from the PISA 2012 overall mathematics result.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses a flat model for prediction without accounting for school clustering, as it analyzes individual student records directly.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation through a train/test split and does not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "86. Pejic et al. (2022). Improving math proficiency prediction in computer- based international large-scale assessments with data augmentation.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “The original training dataset was based on the publicly released PISA 2012 computer-based database.” “The goal of this research was to compare the effect … on the math proficiency prediction in PISA 2012 dataset.”",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not use sampling weights in the analysis."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "217. Lee & Lee (2026). Explaining gender differences in mathematics achievement: Cross-country evidence from PISA.pdf",
+    "title": "Explaining gender differences in mathematics achievement: Cross-country evidence from PISA",
+    "authors": [
+      "Hanol Lee",
+      "Jong-Wha Lee"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.ijedudev.2026.103648",
+    "venue": "International Journal of Educational Development",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it applied senate weights throughout the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employs machine learning methods that account for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "217. Lee & Lee (2026). Explaining gender differences in mathematics achievement: Cross-country evidence from PISA.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “PISA 2018 mathematics microdata for 15-year-olds pooled across 77 countries/economies… senate weights are applied so each country contributes equally to pooled estimates.”"
+  }
+}

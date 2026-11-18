@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "183. Büyükkıdık (2023). Influential Factors on Mathematical Literacy of Turkish Students: An Educational Data Mining Study Using PISA 2015 Data.pdf",
+    "title": "Influential factors on mathematical literacy of Turkish students: An educational data mining study using PISA 2015 data.",
+    "authors": [
+      "S. Büyükkıdık"
+    ],
+    "year": 2023,
+    "doi": "10.52963/PERR_Biruni_V12.N2.10",
+    "venue": "Psycho-Educational Research Reviews",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use plausible values as the dependent variable is a binary classification of students rather than a PV-based achievement score.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study does not report applying any sampling weights and treats the data as a convenience sample.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses data mining methods on individual student data without accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study employs 10-fold cross-validation for internal validation, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "183. Büyükkıdık (2023). Influential Factors on Mathematical Literacy of Turkish Students: An Educational Data Mining Study Using PISA 2015 Data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

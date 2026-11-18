@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "51. Jewsbury et al. (2025). Irt‑latent regression with many predictors: limits and solutions.pdf",
+    "title": "Irt‑latent regression with many predictors: limits and solutions",
+    "authors": [
+      "Paul A. Jewsbury",
+      "J. R. Lockwood",
+      "Matthew S. Johnson"
+    ],
+    "year": 2025,
+    "doi": "10.1186/s40536-025-00266-7",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study explicitly states that it used Rubin's rules for handling plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze an operational ILSA micro-dataset with a complex sampling design, as it uses simulation data.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data, as it uses simulation data generated for test takers.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and focuses solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "51. Jewsbury et al. (2025). Irt‑latent regression with many predictors: limits and solutions.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): The study is a simulation-based methodological study of an IRT-latent regression pipeline; it varies design conditions (J, missingness, 2PL/3PL, predictor dimensionality) but does not mention any external validation strategies or separate analyses across countries/education systems."
+  }
+}

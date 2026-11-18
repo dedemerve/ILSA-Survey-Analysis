@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "176. Michael & Kyriakides (2023). Mediating effects of motivation and socioeconomic status on reading achievement: a secondary analysis of PISA 2018.pdf",
+    "title": "Mediating effects of motivation and socioeconomic status on reading achievement: a secondary analysis of PISA 2018",
+    "authors": [
+      "Michael",
+      "Kyriakides"
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40536-023-00181-9",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used ten plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it used student weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study ran uni-level SEM models without accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "176. Michael & Kyriakides (2023). Mediating effects of motivation and socioeconomic status on reading achievement: a secondary analysis of PISA 2018.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): \"mediation is estimated separately by country using uni-level SEM in EQS 6.4\" and \"expected occupational status mediates the SES–reading relationship in all countries, enjoyment of reading in 37/38\"",
+    "_source": "no_pdf_fallback"
+  }
+}

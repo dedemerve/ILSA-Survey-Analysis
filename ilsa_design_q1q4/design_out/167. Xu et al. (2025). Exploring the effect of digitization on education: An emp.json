@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "167. Xu et al. (2025). Exploring the effect of digitization on education: An empirical analysis based on PISA 2022.pdf",
+    "title": "Exploring the effect of digitization on education: An empirical analysis based on PISA 2022",
+    "authors": [
+      "Fang Xu"
+    ],
+    "year": 2025,
+    "doi": "10.1007/s10639-025-13414-x",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables in this study are questionnaire-based constructs, not PISA cognitive achievement scores.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA 2022 microdata but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "167. Xu et al. (2025). Exploring the effect of digitization on education: An empirical analysis based on PISA 2022.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

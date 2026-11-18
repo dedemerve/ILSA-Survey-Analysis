@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "160. Aksu et al. (2022). Prediction of the Factors Affecting PISA Mathematics Literacy of Students from Different Countries by Using Data Mining Methods.pdf",
+    "title": "Prediction of the Factors Affecting PISA Mathematics Literacy of Students from Different Countries by Using Data Mining Methods",
+    "authors": [
+      "Nurşah Aksu",
+      "Gökhan Aksu",
+      "Seda Saracaloğlu"
+    ],
+    "year": 2022,
+    "doi": "10.26822/iejee.2022.267",
+    "venue": "International Electronic Journal of Elementary Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value (PV2MATH) for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses PISA microdata but does not mention whether sampling weights were applied, leaving it unclear.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without addressing school clustering, which is necessary given the sampling design.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using a hold-out method, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "160. Aksu et al. (2022). Prediction of the Factors Affecting PISA Mathematics Literacy of Students from Different Countries by Using Data Mining Methods.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "LLM (gpt-5.4-nano): “estimating models separately for six countries (Singapore, Japan, Norway, the USA, Turkey, and the Dominican Republic)… Predictive performance varies substantially by country: ANN overall R2 ranges from 0.861 (Singapore) to 0.264 (Turkey), with RMSE values from 17.57 to 43.20.”",
+    "_source": "no_pdf_fallback"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "185. Resino et al. (2024). School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach.pdf",
+    "title": "School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach",
+    "authors": [
+      "Arroyo Resino et al."
+    ],
+    "year": 2024,
+    "doi": "10.5944/educxx1.38634",
+    "venue": "Educación XX1",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed multilevel logistic regression, which accounts for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any validation strategy beyond internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "185. Resino et al. (2024). School effectiveness and high reading achievement of Spanish students in PISA 2018: a machine learning approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

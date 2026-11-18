@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "163. Jerrim (2024). Has Peak PISA passed? An investigation of interest in International Large-Scale Assessments across countries and over time.pdf",
+    "title": "Has Peak PISA passed? An investigation of interest in International Large-Scale Assessments across countries and over time",
+    "authors": [
+      "John Jerrim"
+    ],
+    "year": 2024,
+    "doi": "10.1177/14749041231151793",
+    "venue": "European Educational Research Journal",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA student microdata and instead analyzes Google Trends data, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not use ILSA student microdata and therefore does not apply ILSA sampling or replicate weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it focuses on Google Trends data.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies such as cross-validation or external validation, nor does it provide any information on validation.",
+    "_status": "extracted",
+    "_pdf_matched": "163. Jerrim (2024). Has Peak PISA passed? An investigation of interest in International Large-Scale Assessments across countries and over time.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): It compares attention globally and across countries over broader periods (e.g., January 2006–December 2018/2020) and over time (2006–2022), including country-specific trend plots for OECD members.",
+    "_source": "no_pdf_fallback"
+  }
+}

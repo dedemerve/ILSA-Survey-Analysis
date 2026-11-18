@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "74. Ding et al. (2025). Evaluating test-taking motivation based on process data and its influence on academic performance.pdf",
+    "title": "Evaluating test-taking motivation based on process data and its influence on academic performance",
+    "authors": [
+      "Jimei Ding",
+      "Ting Li",
+      "Yuan Liu",
+      "Jieyu Sang"
+    ],
+    "year": 2025,
+    "doi": "10.1016/j.actpsy.2025.105525",
+    "venue": "Acta Psychologica",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed multilevel analysis, which accounts for school clustering in the data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation by comparing behavioral effort to traditional measures, indicating no validation on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "74. Ding et al. (2025). Evaluating test-taking motivation based on process data and its influence on academic performance.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “We used data from the Programme for International Student Assessment (PISA) 2018… and it was used to predict academic performance through multilevel analysis.”"
+  }
+}

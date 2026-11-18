@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "88. Park et al. (2023). Understanding students’ problem-solving patterns: Evidence from an allotted response time in a PISA 2012 item.pdf",
+    "title": "Understanding students’ problem-solving patterns: Evidence from an allotted response time in a PISA 2012 item",
+    "authors": [
+      "Hyemin Park",
+      "D. Lee",
+      "H. Park"
+    ],
+    "year": 2023,
+    "doi": "10.3389/fpsyg.2022.1050435",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze ILSA achievement outcomes for which plausible values would be generated or combined.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study uses student-level data but does not mention applying any sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual students without using multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the internal analysis of the dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "88. Park et al. (2023). Understanding students’ problem-solving patterns: Evidence from an allotted response time in a PISA 2012 item.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): We analyzed log data from the PISA CPS item Ticket encompassing 30,453 students ... from 42 countries. We found that students with the correct answer are categorized into four clusters.",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

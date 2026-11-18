@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "172. Ho & Gan (2023). Instructional practices and students’ reading performance: a comparative study of 10 top performing regions in PISA 2018.pdf",
+    "title": "Instructional practices and students’ reading performance: a comparative study of 10 top performing regions in PISA 2018",
+    "authors": [
+      "Soi Kei Ho",
+      "Zhengdong Gan"
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40468-023-00261-1",
+    "venue": "Language Testing in Asia",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "172. Ho & Gan (2023). Instructional practices and students’ reading performance: a comparative study of 10 top performing regions in PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): Using PISA 2018 questionnaire and reading assessment data to compare 10 top-performing regions... Using hierarchical linear regression... The model explained 12.8% of variance in PVREAD... associations were largely consistent across Asian and Western region groupings.",
+    "_source": "no_pdf_fallback"
+  }
+}

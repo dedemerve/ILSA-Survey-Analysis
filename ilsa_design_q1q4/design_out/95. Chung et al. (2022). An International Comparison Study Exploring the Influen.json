@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "95. Chung et al. (2022). An International Comparison Study Exploring the Influential Variables Affecting Students’ Reading Literacy and Life Satisfaction.pdf",
+    "title": "An International Comparison Study Exploring the Influential Variables Affecting Students’ Reading Literacy and Life Satisfaction",
+    "authors": [
+      "Hyewon Chung",
+      "Jung-In Kim",
+      "Eunjin (EJ) Jung",
+      "Soyoung Park"
+    ],
+    "year": 2022,
+    "doi": "10.17583/ijep.8924",
+    "venue": "IJEP – International Journal of Educational Psychology",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used all plausible values and handled them appropriately as indicated in the prior extraction.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Manual ERIC full-text review, methods p. 270: SENWT country weight makes countries contribute equally; student-level PISA sampling weights are not reported. Country weight is not evidence of student sampling weighting.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed multilevel modeling, which accounts for the clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using a train/test split but did not validate findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "95. Chung et al. (2022). An International Comparison Study Exploring the Influential Variables Affecting Students’ Reading Literacy and Life Satisfaction.pdf",
+    "q4b_cross_system_replication": "met",
+    "q4b_note": "Manual primary-source review: Chung et al. (2022) compare separate U.S. and South Korea random-forest and multilevel results; ERIC full text pp. 263–264, 283.",
+    "_q4b_source_url": "https://files.eric.ed.gov/fulltext/EJ1369123.pdf"
+  }
+}

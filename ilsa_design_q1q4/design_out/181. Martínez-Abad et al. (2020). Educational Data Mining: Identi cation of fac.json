@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "181. Martínez-Abad et al. (2020). Educational Data Mining: Identi cation of factors associated with school e ectiveness in PISA assessment.pdf",
+    "title": "Educational Data Mining: Identi cation of factors associated with school e ectiveness in PISA assessment",
+    "authors": [
+      "F. Martínez-Abad",
+      "Adriana Gamazo",
+      "M.-J. Rodríguez-Conde"
+    ],
+    "year": 2020,
+    "doi": "10.1016/j.stueduc.2020.100875",
+    "venue": "Studies in Educational Evaluation",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research",
+    "_duplicate_of": 135,
+    "_exclude": true
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for handling them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it used student weights in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study employed multilevel modeling, which accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "181. Martínez-Abad et al. (2020). Educational Data Mining: Identi cation of factors associated with school e ectiveness in PISA assessment.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

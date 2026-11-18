@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "4. Zheng et al. (2023). Identifying key features of resilient students in digital reading: Insights from a machine learning approach.pdf",
+    "title": "Identifying key features of resilient students in digital reading: Insights from a machine learning approach",
+    "authors": [
+      "Jia‑qi Zheng",
+      "Kwok‑cheung Cheung",
+      "Pou‑seong Sit"
+    ],
+    "year": 2023,
+    "doi": "10.1007/s10639-023-11908-0",
+    "venue": "Education and Information Technologies",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for reading achievement, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA microdata but does not mention whether sampling weights were applied in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that it used multilevel modeling or accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as SVM-RFE but does not indicate any validation on external datasets or different cycles.",
+    "_status": "extracted",
+    "_pdf_matched": "4. Zheng et al. (2023). Identifying key features of resilient students in digital reading: Insights from a machine learning approach.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “train a linear-kernel SVM… In ten-fold cross-validation… Accuracy=87.51% and AUC=94.86%… across seven high-performing Asian economies (CHN, HKG, MAC, TWN, JPN, KOR, SGP).”",
+    "_source": "no_pdf_fallback"
+  }
+}

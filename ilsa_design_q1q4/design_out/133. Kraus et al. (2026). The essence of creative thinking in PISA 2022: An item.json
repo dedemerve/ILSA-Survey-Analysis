@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "133. Kraus et al. (2026). The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level.pdf",
+    "title": "The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level",
+    "authors": [
+      "Elisabeth Barbara Kraus",
+      "Benjamin Goecke",
+      "Ann-Kathrin Jaggy"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.tsc.2026.102205",
+    "venue": "Thinking Skills and Creativity",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for modeling, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study employed a multi-level predictive modeling approach but does not indicate that it accounted for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods but does not provide evidence of validation on external datasets or different cycles.",
+    "_status": "extracted",
+    "_pdf_matched": "133. Kraus et al. (2026). The essence of creative thinking in PISA 2022: An item-level machine learning approach to construct validity at the facet level.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

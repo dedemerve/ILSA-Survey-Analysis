@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient Student.pdf",
+    "title": "Predicting the Mathematics Literacy of Resilient Students from High‐performing Economies: A Machine Learning Approach",
+    "authors": [
+      "Yimei Zhang",
+      "Maria Cutumisu"
+    ],
+    "year": 2024,
+    "doi": "10.1016/j.stueduc.2024.101412",
+    "venue": "Studies in Educational Evaluation",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study explicitly states that it applied Rubin's rules for handling plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly mentions that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide information indicating that multilevel modeling or cluster-robust standard errors were used, suggesting that school clustering was ignored.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "31. Zhang & Cutumisu. (2024). Predicting the Mathematics Literacy of Resilient Student.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): applied two machine learning algorithms, Lasso Regression (LR) and Random Forest (RF), to predict the mathematics literacy of resilient students from high-performing economies across cultures in PISA 2022. The findings indicated both RF and LR performed better in Western cultures than in Eastern cultures."
+  }
+}

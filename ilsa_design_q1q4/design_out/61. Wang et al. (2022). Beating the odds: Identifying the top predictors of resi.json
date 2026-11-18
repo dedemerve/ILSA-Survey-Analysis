@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "61. Wang et al. (2022). Beating the odds: Identifying the top predictors of resilience among Hong Kong students.pdf",
+    "title": "Beating the odds: Identifying the top predictors of resilience among Hong Kong students",
+    "authors": [
+      "Faming Wang",
+      "Ronnel B. King",
+      "Shing On Leung"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s12187-022-09939-z",
+    "venue": "Child Indicators Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study used logistic regression models at the student level without accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation using methods like ROC and AUC but did not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "61. Wang et al. (2022). Beating the odds: Identifying the top predictors of resilience among Hong Kong students.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): “Using PISA 2018 Reading data for Hong Kong students… A random forest classifier… evaluated with ten-fold cross-validation… AUC=0.81 and accuracy=0.83.” (Only Hong Kong data; no separate country/system analyses or comparisons.)"
+  }
+}

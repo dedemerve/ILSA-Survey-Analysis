@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "177. Suárez‑Mesa & Gómez (2024). Does teachers’ motivation have an impact on students’ scientific literacy and motivation? An empirical study in Colombia with data from PISA 2015.pdf",
+    "title": "Does teachers’ motivation have an impact on students’ scientific literacy and motivation? An empirical study in Colombia with data from PISA 2015",
+    "authors": [
+      "Suárez‑Mesa",
+      "Gómez"
+    ],
+    "year": 2024,
+    "doi": "10.1186/s40536-023-00190-8",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used all ten plausible values for science and applied Rubin's rules for analysis.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly applied the final school weights at level two in the multilevel modeling framework.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study utilized a multilevel modeling framework, which accounts for the clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "177. Suárez‑Mesa & Gómez (2024). Does teachers’ motivation have an impact on students’ scientific literacy and motivation? An empirical study in Colombia with data from PISA 2015.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "70. Maia et al. (2023). Applications of Artificial Intelligence Models in Educational Analytics and Decision Making: A Systematic Review.pdf",
+    "title": "Applications of Artificial Intelligence Models in Educational Analytics and Decision Making: A Systematic Review",
+    "authors": [
+      "J.R.S.",
+      "J.d.S.Z.M.",
+      "A.P.A.B."
+    ],
+    "year": 2023,
+    "doi": "10.3390/world4020019",
+    "venue": "World",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study is a systematic review and does not analyze student-level cognitive achievement scores from ILSA-style plausible values.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study does not analyze student-level survey data, as it synthesizes findings from multiple studies rather than using a single dataset.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a systematic review.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies such as cross-validation or external validation.",
+    "_status": "extracted",
+    "_pdf_matched": "70. Maia et al. (2023). Applications of Artificial Intelligence Models in Educational Analytics and Decision Making: A Systematic Review.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): This PRISMA-based systematic review … reports descriptive synthesis rather than a single predictive model… Limitations include the absence of a unified dataset, no re-estimation of performance metrics across studies.",
+    "_source": "no_pdf_fallback"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "file_name": "43. Hu et al. (2025). Predicting adolescents’ environmental action: From individual to national-level factors using an explainable machine learning approach.pdf",
+    "title": "Predicting adolescents’ environmental action: From individual to national-level factors using an explainable machine learning approach",
+    "authors": [
+      "Bo Hu",
+      "Jing Gao",
+      "Yannuo Feng",
+      "Ziqian Xia",
+      "Kun Wang",
+      "Liuna Geng"
+    ],
+    "year": 2025,
+    "doi": "10.1016/j.jenvman.2025.126398",
+    "venue": "Journal of Environmental Management",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The dependent variables are behavioral/action items rather than PISA cognitive achievement scales with Plausible Values, making PV handling not applicable.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study uses PISA 2018 microdata with a two-stage stratified probability-proportional-to-size design and reports weighted response rates, indicating that sampling weights were applied.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study examines factors at individual, school, and national levels, suggesting that it appropriately accounts for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "43. Hu et al. (2025). Predicting adolescents’ environmental action: From individual to national-level factors using an explainable machine learning approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_source": "no_pdf_fallback"
+  }
+}

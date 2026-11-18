@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "82. Costa & Chen. (2023). Exploring the relationship between process data and contextual variables among Scandinavian students on PISA 2012 mathematics tasks.pdf",
+    "title": "Exploring the relationship between process data and contextual variables among Scandinavian students on PISA 2012 mathematics tasks",
+    "authors": [
+      "Denise Reis Costa",
+      "Chia-Wen Chen"
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40536-023-00155-x",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are item-level response accuracy and other process data indicators, not PV-based achievement scores.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it used student weights in the analysis, acknowledging the two-stage sampling design of PISA.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering, indicating that it likely used student-level models.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "82. Costa & Chen. (2023). Exploring the relationship between process data and contextual variables among Scandinavian students on PISA 2012 mathematics tasks.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “we apply a latent regression model… among Scandinavian students (i.e., Norway, Sweden, and Denmark)… evaluate whether measurement invariance holds for the three analysed countries.”"
+  }
+}

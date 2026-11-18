@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "26. Bencomo-Mesa et al. (2025). Inequality of Opportunity in Education in Spanish Regions: A Machine Learning Approach.pdf",
+    "title": "Inequality of Opportunity in Education in Spanish Regions: A Machine Learning Approach",
+    "authors": [
+      "Pablo Bencomo-Mesa",
+      "Gustavo A. Marrero",
+      "Gabriela Sicilia"
+    ],
+    "year": 2025,
+    "doi": "10.7866/HPE-RPE.25.1.4",
+    "venue": null,
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used average plausible values, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not mention the application of sampling weights, indicating that it likely ran an unweighted analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using bootstrapping for internal validation but does not validate its findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "26. Bencomo-Mesa et al. (2025). Inequality of Opportunity in Education in Spanish Regions: A Machine Learning Approach.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “Using PISA 2018, we estimate the IOpE for Spanish regions using conditional inference tree (CIT) and forest (CIF).”",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

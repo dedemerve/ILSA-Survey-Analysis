@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "151. Deta et al. (2024). PISA science framework 2018 vs 2025 and its impact in physics education: Literature review.pdf",
+    "title": "PISA science framework 2018 vs 2025 and its impact in physics education: Literature review",
+    "authors": null,
+    "year": 2024,
+    "doi": "10.21067/mpej.v8i1.9215",
+    "venue": "Momentum: Physics Education Journal",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not estimate or model PISA achievement outcomes from student responses, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The study is a literature review and does not analyze student microdata from PISA, so there is no application of sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a literature review.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies, such as cross-validation or external validation, making it unclear if any validation was performed.",
+    "_status": "extracted",
+    "_pdf_matched": "151. Deta et al. (2024). PISA science framework 2018 vs 2025 and its impact in physics education: Literature review.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

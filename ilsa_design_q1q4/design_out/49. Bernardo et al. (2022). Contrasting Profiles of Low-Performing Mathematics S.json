@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "49. Bernardo et al. (2022). Contrasting Profiles of Low-Performing Mathematics Students in Public and Private Schools in the Philippines: Insights from Machine Learning.pdf",
+    "title": "Contrasting Profiles of Low-Performing Mathematics Students in Public and Private Schools in the Philippines: Insights from Machine Learning",
+    "authors": null,
+    "year": 2022,
+    "doi": "10.3390/jintelligence10030061",
+    "venue": "Journal of Intelligence",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses ILSA student-level data but does not mention whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study appears to use student-level models without accounting for school clustering, as there is no mention of multilevel modeling or cluster-robust standard errors.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions using cross-validation and other internal validation methods, indicating that it did not validate its findings on an external dataset.",
+    "_status": "extracted",
+    "_pdf_matched": "49. Bernardo et al. (2022). Contrasting Profiles of Low-Performing Mathematics Students in Public and Private Schools in the Philippines: Insights from Machine Learning.pdf",
+    "q4b_cross_system_replication": "met",
+    "_source": "no_pdf_fallback",
+    "q4b_note": "LLM (gpt-5.4-nano): \"train separate classifiers for private and public schools using SCHLTYPE... reporting validation Precision/Recall/F1/Accuracy; for private schools Accuracy=0.79... and for public schools Accuracy=0.79... SHAP is used to rank influential predictors\""
+  }
+}

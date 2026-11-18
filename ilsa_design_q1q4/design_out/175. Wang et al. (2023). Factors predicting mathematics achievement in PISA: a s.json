@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "file_name": "175. Wang et al. (2023). Factors predicting mathematics achievement in PISA: a systematic review.pdf",
+    "title": "Factors predicting mathematics achievement in PISA: a systematic review",
+    "authors": [
+      "Sarah Wang",
+      "L. P.",
+      "A. M.",
+      "T. I."
+    ],
+    "year": 2023,
+    "doi": "10.1186/s40536-023-00174-8",
+    "venue": "Large-scale Assessments in Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values handling is not applicable because this paper does not estimate PISA mathematics achievement from student-level plausible values; it synthesizes results from previously published studies.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "This study is a systematic literature review and does not conduct a new student-level analysis of PISA microdata, thus there is no application of PISA sampling weights.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, as it is a systematic review of existing literature.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "The study does not mention any validation strategies such as cross-validation or external validation, nor does it provide information on validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "175. Wang et al. (2023). Factors predicting mathematics achievement in PISA: a systematic review.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "file_name": "209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction.pdf",
+    "title": "Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction",
+    "authors": null,
+    "year": 2026,
+    "doi": "10.3390/info17040377",
+    "venue": "Information",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible values are not applicable because the dependent variables are derived satisfaction indices rather than using PV-based achievement outcomes.",
+    "q2_sampling_weights": "not_met",
+    "q2_rationale": "The study explicitly states that it did not apply weights in the analysis of the teacher data.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study uses individual teacher-level models without accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation using train/test splits and did not validate findings on external datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "209. Qabliyane et al. (2026). Supervised Machine Learning-Based Multiclass Classification and Interpretable Feature Importance Analysis of Teacher Job Satisfaction.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

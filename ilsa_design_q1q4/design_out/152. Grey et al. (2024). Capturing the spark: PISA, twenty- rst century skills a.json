@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "152. Grey et al. (2024). Capturing the spark: PISA, twenty- rst century skills and the reconstruction of creativity.pdf",
+    "title": "Capturing the spark: PISA, twenty-first century skills and the reconstruction of creativity",
+    "authors": [
+      "Sue Grey",
+      "Paul Morris"
+    ],
+    "year": 2024,
+    "doi": "10.1080/14767724.2022.2100981",
+    "venue": "Globalisation, Societies and Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "review_article"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not analyze PISA achievement outcomes at the student level, making plausible values handling not applicable.",
+    "q2_sampling_weights": "not_applicable",
+    "q2_rationale": "The article does not conduct a student-level empirical analysis of PISA microdata, so sampling weights are not applicable.",
+    "q3_school_clustering": "not_applicable",
+    "q3_rationale": "The study does not analyze student-level survey data where schools are the sampling unit, thus school clustering is not applicable.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy, such as cross-validation or external validation, in the provided excerpts.",
+    "_status": "extracted",
+    "_pdf_matched": "152. Grey et al. (2024). Capturing the spark: PISA, twenty- rst century skills and the reconstruction of creativity.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

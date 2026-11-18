@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "150. Liu et al. (2023). How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018.pdf",
+    "title": "How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018",
+    "authors": [
+      "A.L.",
+      "Q.X.",
+      "Y.W.",
+      "H.Y.",
+      "J.L."
+    ],
+    "year": 2023,
+    "doi": "10.3390/bs13030237",
+    "venue": "Behaviours Sciences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for combining them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly stated that it used sampling weights assigned to both schools and students in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study utilized multilevel modeling, which accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation methods such as OLS regression and did not mention any external validation on different datasets.",
+    "_status": "extracted",
+    "_pdf_matched": "150. Liu et al. (2023). How Learning Time Allocation Make Sense on Secondary School Students' Academic Performance: A Chinese Evidence Based on PISA 2018.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

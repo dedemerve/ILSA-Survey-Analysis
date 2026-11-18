@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "file_name": "159. Alnahdi & Schwab (2023). The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data.pdf",
+    "title": "The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data",
+    "authors": [
+      "Ghaleb Hamad Alnahdi",
+      "Susanne Schwab"
+    ],
+    "year": 2023,
+    "doi": "10.3389/fpsyg.2023.1066843",
+    "venue": "Frontiers in Psychology",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_reported",
+    "q1_rationale": "The study does not mention whether TIMSS plausible values were used or how they were handled.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study uses TIMSS data but does not provide information on whether sampling weights were applied.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not indicate the use of multilevel modeling or any method that accounts for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation.",
+    "_status": "extracted",
+    "_pdf_matched": "159. Alnahdi & Schwab (2023). The impact of gender differences in teachers’ teaching practices and attitudes on students’ math and science achievement in Saudi Arabia: Evidence from TIMSS 2019 data.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

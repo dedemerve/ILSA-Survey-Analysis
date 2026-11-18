@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "file_name": "93. Liang et al. (2023). Using Process Data to Improve Classification Accuracy of Cognitive Diagnosis Model.pdf",
+    "title": "Using Process Data to Improve Classification Accuracy of Cognitive Diagnosis Model",
+    "authors": null,
+    "year": 2023,
+    "doi": "10.1080/00273171.2022.2157788",
+    "venue": "Multivariate Behavioral Research",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use PISA plausible values as it focuses on modeling dichotomous item responses and process data.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study explicitly states that it does not report the use of PISA sampling weights in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study analyzes individual student data without employing multilevel modeling or accounting for school clustering.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "93. Liang et al. (2023). Using Process Data to Improve Classification Accuracy of Cognitive Diagnosis Model.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

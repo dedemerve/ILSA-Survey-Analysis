@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "198. Wei & Guo (2026). Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data.pdf",
+    "title": "Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data",
+    "authors": [
+      "Xu Wei",
+      "Kan Guo"
+    ],
+    "year": 2026,
+    "doi": "10.1016/j.paid.2026.113952",
+    "venue": "Personality and Individual Differences",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for mathematics achievement, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation methods and appears to rely solely on internal validation techniques.",
+    "_status": "extracted",
+    "_pdf_matched": "198. Wei & Guo (2026). Understanding mathematics anxiety among high-achieving East Asian students: A machine learning analysis of PISA 2022 data.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “train an XGBoost model on a pooled dataset with a 70/30 train-test split… Predictive performance is moderate (testing R²=27.75%, RMSE=0.9724)”",
+    "_source": "no_pdf_fallback"
+  }
+}

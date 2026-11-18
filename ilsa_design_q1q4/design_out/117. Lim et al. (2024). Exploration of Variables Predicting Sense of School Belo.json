@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "117. Lim et al. (2024). Exploration of Variables Predicting Sense of School Belonging Using the Machine Learning Method—Group Mnet.pdf",
+    "title": "Exploration of Variables Predicting Sense of School Belonging Using the Machine Learning Method—Group Mnet",
+    "authors": [
+      "Jin Eun Yoo",
+      "Minjeong Rho"
+    ],
+    "year": 2024,
+    "doi": "10.1177/00332941221133005",
+    "venue": "Psychological Reports",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Matching text-readable full PDF has no explicit statement that ILSA sampling weights were omitted; weight references concern model parameters, outcome scaling, data variables or class/pixel weighting, not demonstrated sample-weight use.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any method that accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed internal validation through random data splitting and cross-validation, which does not qualify as validation beyond the estimation sample.",
+    "_status": "extracted",
+    "_pdf_matched": "117. Lim et al. (2024). Exploration of Variables Predicting Sense of School Belonging Using the Machine Learning Method—Group Mnet.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study",
+    "_q2_audit": "Source checked; original extraction rationale: The study explicitly states that it did not apply sampling weights during the analysis."
+  }
+}

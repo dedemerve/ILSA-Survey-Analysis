@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "56. Wang et al. (2022). What explains Macau students’ achievement? An integrative perspective using a machine learning approach.pdf",
+    "title": "What explains Macau students’ achievement? An integrative perspective using a machine learning approach",
+    "authors": [
+      "Y. Wang",
+      "Ronnel King",
+      "Shing on Leung"
+    ],
+    "year": 2023,
+    "doi": "10.1080/02103702.2022.2149120",
+    "venue": "Journal for the Study of Education and Development / Infancia y Aprendizaje",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used multiple plausible values and applied Rubin's rules for combining them.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "The study mentions that sampling weights were considered but does not explicitly state whether they were applied in the analysis.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study used Hierarchical Linear Modelling, which accounts for school clustering in the analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study performed only internal validation using the Random Forest algorithm without mentioning any external validation strategies.",
+    "_status": "extracted",
+    "_pdf_matched": "56. Wang et al. (2022). What explains Macau students’ achievement? An integrative perspective using a machine learning approach.pdf",
+    "q4b_cross_system_replication": "not_met",
+    "q4b_note": "LLM (gpt-5.4-nano): “identify factors that could best predict Macau students’ reading achievement using PISA 2018 data… (2,979 15-year-old students)… Random Forest… A supplementary analysis using Hierarchical Linear Modelling”"
+  }
+}

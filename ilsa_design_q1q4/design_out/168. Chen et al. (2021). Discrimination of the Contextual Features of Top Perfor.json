@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "file_name": "168. Chen et al. (2021). Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach.pdf",
+    "title": "Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach",
+    "authors": [
+      "Jie Hu"
+    ],
+    "year": 2021,
+    "doi": "10.1007/s11165-019-9835-y",
+    "venue": "Research in Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_met",
+    "q1_rationale": "The study used a single plausible value for analysis, which does not meet the criteria for proper handling of plausible values.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that student weights were used in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not provide evidence of using multilevel modeling or accounting for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and appears to rely solely on internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "168. Chen et al. (2021). Discrimination of the Contextual Features of Top Performers in Scientific Literacy Using a Machine Learning Approach.pdf",
+    "q4b_cross_system_replication": "not_applicable",
+    "q4b_note": "single-country study"
+  }
+}

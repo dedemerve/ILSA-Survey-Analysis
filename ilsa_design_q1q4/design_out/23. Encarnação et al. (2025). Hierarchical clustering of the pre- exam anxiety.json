@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "file_name": "23. Encarnação et al. (2025). Hierarchical clustering of the pre- exam anxiety levels in physically inactive and active adolescent students from 56 countries: an observational study using PISA program data.pdf",
+    "title": "Hierarchical clustering of the pre-exam anxiety levels in physically inactive and active adolescent students from 56 countries: an observational study using PISA program data",
+    "authors": [
+      "SE",
+      "JT",
+      "PF",
+      "LL",
+      "AS",
+      "LB",
+      "RF",
+      "PA",
+      "PV",
+      "AM"
+    ],
+    "year": 2025,
+    "doi": "10.3389/fspor.2025.1509959",
+    "venue": "Frontiers in Sports and Active Living",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "The study does not use ILSA achievement data as an outcome or predictor, focusing instead on country-level anxiety percentages.",
+    "q2_sampling_weights": "not_reported",
+    "q2_rationale": "Recorded evidence does not explicitly establish an unweighted analysis. Original extraction rationale: The study does not report applying PISA sampling weights or replicate-weight procedures in the analysis.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not use multilevel modeling or account for school clustering, as it analyzes country-level data rather than individual student data.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study mentions internal validation methods such as silhouette scores and within-cluster sum of squares, indicating only internal validation was performed.",
+    "_status": "extracted",
+    "_pdf_matched": "23. Encarnação et al. (2025). Hierarchical clustering of the pre- exam anxiety levels in physically inactive and active adolescent students from 56 countries: an observational study using PISA program data.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “Using data from the Programme for International Student Assessment (PISA) 2018, a hierarchical clustering method was applied to identify four clusters based on stratified country groups by the students’ pre-exam anxiety levels.”",
+    "_q2_audit": "Corrected not_met to not_reported because original rationale reports absence of weight information or an inference, not direct evidence of unweighted analysis; source verification still required."
+  }
+}

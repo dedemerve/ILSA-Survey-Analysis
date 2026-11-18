@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "file_name": "156. Veletić & Olsen (2024). Exploring school leadership profiles across the world  a cluster analysis approach to TALIS 2018.pdf",
+    "title": "Exploring school leadership profiles across the world: a cluster analysis approach to TALIS 2018",
+    "authors": [
+      "Jelena Veletić",
+      "Rolf Vegar Olsen"
+    ],
+    "year": 2024,
+    "doi": "10.1080/13603124.2021.1953612",
+    "venue": "International Journal of Leadership in Education",
+    "publication_type": "journal",
+    "open_access": true,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "not_applicable",
+    "q1_rationale": "Plausible Values are not applicable because the dependent variables are leadership-for-learning scale factor scores, not cognitive achievement outcomes with PVs.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it used TALIS 2018 school- and teacher-level data collected via a two-stage sampling design and applied sampling weights.",
+    "q3_school_clustering": "not_met",
+    "q3_rationale": "The study does not mention using multilevel modeling or any methods that account for school clustering in its analysis.",
+    "q4_validation_beyond_estimation": "not_reported",
+    "q4_rationale": "There is no mention of any validation strategy beyond the estimation sample, such as external validation or cross-validation.",
+    "_status": "extracted",
+    "_pdf_matched": "156. Veletić & Olsen (2024). Exploring school leadership profiles across the world  a cluster analysis approach to TALIS 2018.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): Variance decomposition showed that most variability lay between schools rather than between countries, leading to a school-level clustering solution. The study reports that country-level cluster membership does not align with geographic/linguistic/political proximity.",
+    "_source": "no_pdf_fallback"
+  }
+}

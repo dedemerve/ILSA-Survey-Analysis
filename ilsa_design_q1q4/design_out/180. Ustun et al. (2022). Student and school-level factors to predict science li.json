@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "file_name": "180. Ustun et al. (2022). Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015  Finland and Singapore.pdf",
+    "title": "Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015 Finland and Singapore",
+    "authors": [
+      "Ulas Ustun",
+      "Mustafa Cansiz",
+      "Ertugrul Ozdemir",
+      "Nurcan Cansiz"
+    ],
+    "year": 2022,
+    "doi": "10.1080/09500693.2022.2037167",
+    "venue": "International Journal of Science Education",
+    "publication_type": "journal",
+    "open_access": null,
+    "source_category": "peer_reviewed_research"
+  },
+  "design_fields": {
+    "q1_plausible_values": "met",
+    "q1_rationale": "The study used 10 plausible values for the dependent variable and applied Rubin's rules for combining them.",
+    "q2_sampling_weights": "met",
+    "q2_rationale": "The study explicitly states that it applies sampling weights due to the two-stage stratified random sampling design of PISA.",
+    "q3_school_clustering": "met",
+    "q3_rationale": "The study utilized Hierarchical Linear Modeling (HLM) to account for the hierarchical clustering of students within schools.",
+    "q4_validation_beyond_estimation": "not_met",
+    "q4_rationale": "The study does not mention any external validation strategies and only discusses internal validation methods.",
+    "_status": "extracted",
+    "_pdf_matched": "180. Ustun et al. (2022). Student and school-level factors to predict science literacy for two top-performing countries in PISA 2015  Finland and Singapore.pdf",
+    "q4b_cross_system_replication": "not_reported",
+    "q4b_note": "LLM (gpt-5.4-nano): “using a multilevel (HLM) framework… models explain about 43% (Finland) and 40% (Singapore) of within-school variance… ICC = 0.38… compared with Finland (ICC = 0.13).”",
+    "_source": "no_pdf_fallback"
+  }
+}
