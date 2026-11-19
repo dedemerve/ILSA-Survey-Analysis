@@ -4,7 +4,7 @@
     "title": "Big Educational Data & Analytics: Survey, Architecture and Challenges",
     "authors": [
       "Kenneth Li-Minn Ang",
-      "Feng Lu Ge",
+      "Feng Lu",
       "Kah Phooi Seng"
     ],
     "year": 2020,
@@ -19,24 +19,37 @@
       "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "This article is a comprehensive literature review/survey of big educational data and learning analytics paradigms, architectures, data sources, and challenges. It does not analyze a student-level ILSA/NAEP/PISA-style micro-dataset with an explicit sampling frame, nor does it report an analytic sample drawn from a defined assessment cycle. Because there is no primary empirical estimation on a survey-designed student dataset, complex survey weights (e.g., W_FSTUWT/TOTWGT) and replicate-weight procedures (e.g., BRR/jackknife) are not applicable. The only empirical-like material described is an illustrative cross-institution web-scraping scenario, which is not presented as a weighted, population-representative survey analysis."
+      "weight_fields_interpretation": "This article is a comprehensive literature review of big educational data sources, architectures, and analytics approaches, rather than an empirical analysis of ILSA microdata. As such, it does not define an assessment sampling frame, student-level analytic sample, or any survey-weight variables (e.g., TOTWGT, W_FSTUWT) for population-representative estimation. The review discusses predictive analytics and learning analytics methods in general, but it does not report how any complex survey design would be handled for achievement scaling or plausible-value estimation. Therefore, no weight variable can be specified for replication; any future empirical study using ILSA microdata should apply the official ILSA student weights and replicate weights (if provided) when estimating population-representative effects."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "not_reported",
-    "handling_not_reported_explanation": "This is a survey/review paper without an original student-level cognitive achievement outcome that would require plausible values (PVs) handling. The paper discusses learning analytics and big-data architectures conceptually and reviews prior studies; it does not report a PV-based dependent variable (e.g., PISA/TIMSS achievement scales) nor a missing-data strategy for PV estimation. Therefore, PV and missing-data handling are not applicable to the review’s own analysis, and missing-data handling is not reported because no original PV-based estimation is conducted.",
+    "handling_not_reported_explanation": "Plausible values are not applicable because this paper does not conduct an empirical ILSA-style achievement analysis with PV-based dependent variables. Instead, it synthesizes prior work on big educational data sources and analytics paradigms, including predictive analytics and learning analytics, without estimating PV-based achievement scores from an ILSA dataset. As a result, there is no PV generation/combining or PV-specific missing-data strategy to document.",
     "sample_details": {
       "total_students": null,
-      "countries": [],
-      "sample_filtering_criteria": "No ILSA-style student analytic sample is constructed. The paper is a literature review; it also includes an illustrative cross-institution data collection example in Australia based on web scraping from three universities, but it is not described as a weighted, population-representative student assessment sample."
+      "countries": [
+        {
+          "country_code": "AUS",
+          "n_students": null
+        }
+      ],
+      "sample_filtering_criteria": "No ILSA/NAEP/CEDRE/INVALSI microdata analytic sample is constructed. The paper is a narrative literature review and includes illustrative examples (e.g., cross-institution web scraping in Australia) but does not define a student assessment sample with inclusion/exclusion criteria comparable to large-scale assessment microdata."
     },
     "ml_techniques": {
       "primary": null,
       "all_techniques": []
     },
     "confounders_identified": [],
-    "main_findings": [],
-    "outcome_summary": "This paper provides a comprehensive survey of big educational data and analytics, covering data sources (e.g., LMS, MOOC, OER, social media, linked data), data collection/mining/database topics, big-data platforms/architectures (e.g., Hadoop, Spark, Samza), and analytics approaches (predictive analytics, learning analytics, recommendation systems, graph analytics, visual/immersive analytics). It does not conduct an original ML prediction study on an ILSA-style student dataset with a defined outcome, training/validation protocol, or reported performance metrics for a single unified model. Instead, it synthesizes findings from prior works and highlights technological and social challenges (privacy/ethics, interoperability, scalability). As a result, there are no extractable PV-handling, missing-data-handling, or model-performance results for the review itself.",
+    "main_findings": [
+      {
+        "dataset_used": "ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset)",
+        "target_variable": "Literature synthesis outcome (not student-level prediction)",
+        "top_predictors": [],
+        "performance_metrics": "Not reported",
+        "standardized_conclusion": "Using ILSA literature synthesis (systematic review; no single student-level analytic micro-dataset) the study leveraged the reported predictors to predict Literature synthesis outcome (not student-level prediction), finding that This paper is a review article that synthesizes the landscape of big educational data and analytics, covering data sources (e.g., LMS, MOOC, OER, social media, linked data, mobile learning), data collection approaches (e.g., xAPI), and technological architectures (e.g., Hadoop, Spark, Samza). It organizes analytics approaches into predictive analytics, learning analytics (collaborative/interactive, behavioral, personalized, social/network-based, and assessment analytics), recommendation systems, graph analytics, visual analytics, social media analytics, and immersive learning analytics. While it mentions performance metrics from cited studies (e.g., accuracy, AUC, MAP) and provides an illustrative cross-institution graph-analytics scenario using web scraping and Bag of Words features, it does not estimate a unified predictive model on a single ILSA-style dataset. Consequently, there are no PV-based achievement benchmarks, no ILSA sampling/weighting scheme, and no single set of effect sizes attributable to this paper itself. The main contribution is conceptual and methodological synthesis rather than empirical causal or predictive estimation. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+      }
+    ],
+    "outcome_summary": "This paper is a review article that synthesizes the landscape of big educational data and analytics, covering data sources (e.g., LMS, MOOC, OER, social media, linked data, mobile learning), data collection approaches (e.g., xAPI), and technological architectures (e.g., Hadoop, Spark, Samza). It organizes analytics approaches into predictive analytics, learning analytics (collaborative/interactive, behavioral, personalized, social/network-based, and assessment analytics), recommendation systems, graph analytics, visual analytics, social media analytics, and immersive learning analytics. While it mentions performance metrics from cited studies (e.g., accuracy, AUC, MAP) and provides an illustrative cross-institution graph-analytics scenario using web scraping and Bag of Words features, it does not estimate a unified predictive model on a single ILSA-style dataset. Consequently, there are no PV-based achievement benchmarks, no ILSA sampling/weighting scheme, and no single set of effect sizes attributable to this paper itself. The main contribution is conceptual and methodological synthesis rather than empirical causal or predictive estimation.",
     "research_design_type": "exploratory",
-    "null_fields_interpretation": "The record is a systematic-style literature review/survey (IEEE Access) rather than an empirical large-scale assessment analysis. Consequently, there is no original student-level dataset with a defined analytic sample size, no PV-based cognitive outcome, no missing-data strategy for an estimation model, and no single ML model trained/evaluated by the authors. The ML-related content is discussed at the level of reviewed approaches and illustrative scenarios, so fields like total_students, countries with per-country Ns, and main_findings for a predictive pipeline are not applicable."
+    "null_fields_interpretation": "Because this is a review article, it does not report an original student-level dataset, PV handling, missing-data handling, or a single ML training/evaluation pipeline. The absence of sample sizes, country-level Ns, and model performance metrics is expected for a synthesis paper that aggregates findings from heterogeneous prior studies and illustrative examples rather than conducting one coherent large-scale assessment analysis."
   }
 }

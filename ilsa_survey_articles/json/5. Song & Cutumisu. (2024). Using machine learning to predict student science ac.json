@@ -15,340 +15,47 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": true,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": "SCIWGT",
-      "weight_fields_interpretation": "The study uses TIMSS 2019 Grade 8 Science microdata and extracts student, teacher, and curriculum variables using the IEA IDB Analyzer and SPSS. The analytic sample is restricted to 44 countries/regions after data cleaning, yielding 309,511 remaining entries. For weighting, the authors explicitly use the science teacher weight (SCIWGT) because the key process-dimension variables (e.g., instructional clarity, instructional strategies, homework and experiment-related items) are reported by science teachers, and the focus is on curriculum effects from an instructional perspective. The manuscript does not report the use of replicate weights (e.g., BRR/jackknife), and it does not state that student weights were applied; instead, teacher weights are used to reduce sampling bias for teacher-reported covariates."
+      "weight_fields_interpretation": "The study uses TIMSS 2019 Grade 8 Science microdata and extracts variables via IEA IDB Analyzer and SPSS, then merges and cleans the dataset before analysis. The analytic sample is restricted to 44 countries and to the Grade 8 Science assessment context, yielding 309,511 remaining entries after cleaning. For weighting, the authors explicitly use the science teacher weight (SCIWGT) because the key process-dimension variables (e.g., instructional clarity, instructional strategies, homework and experiment-related items) are reported by science teachers; they argue this reduces sampling bias for curriculum-to-achievement comparisons from an instructional perspective. The manuscript does not report applying student sampling weights or replicate-weight procedures for the ML prediction stage, so the weighting approach appears to focus on teacher-level weighting rather than full complex-survey student-weighted estimation."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
     "handling_not_reported_explanation": null,
     "sample_details": {
       "total_students": 309511,
-      "countries": [
-        {
-          "country_code": "AFG",
-          "n_students": null
-        },
-        {
-          "country_code": "ALB",
-          "n_students": null
-        },
-        {
-          "country_code": "DZA",
-          "n_students": null
-        },
-        {
-          "country_code": "ARG",
-          "n_students": null
-        },
-        {
-          "country_code": "AUS",
-          "n_students": null
-        },
-        {
-          "country_code": "AUT",
-          "n_students": null
-        },
-        {
-          "country_code": "AZE",
-          "n_students": null
-        },
-        {
-          "country_code": "BHR",
-          "n_students": null
-        },
-        {
-          "country_code": "BEL",
-          "n_students": null
-        },
-        {
-          "country_code": "BWA",
-          "n_students": null
-        },
-        {
-          "country_code": "BRA",
-          "n_students": null
-        },
-        {
-          "country_code": "BGR",
-          "n_students": null
-        },
-        {
-          "country_code": "CAN",
-          "n_students": null
-        },
-        {
-          "country_code": "CHL",
-          "n_students": null
-        },
-        {
-          "country_code": "CHN",
-          "n_students": null
-        },
-        {
-          "country_code": "COL",
-          "n_students": null
-        },
-        {
-          "country_code": "CRI",
-          "n_students": null
-        },
-        {
-          "country_code": "CZE",
-          "n_students": null
-        },
-        {
-          "country_code": "DNK",
-          "n_students": null
-        },
-        {
-          "country_code": "DOM",
-          "n_students": null
-        },
-        {
-          "country_code": "EGY",
-          "n_students": null
-        },
-        {
-          "country_code": "EST",
-          "n_students": null
-        },
-        {
-          "country_code": "FIN",
-          "n_students": null
-        },
-        {
-          "country_code": "FRA",
-          "n_students": null
-        },
-        {
-          "country_code": "DEU",
-          "n_students": null
-        },
-        {
-          "country_code": "GHA",
-          "n_students": null
-        },
-        {
-          "country_code": "GRC",
-          "n_students": null
-        },
-        {
-          "country_code": "HKG",
-          "n_students": null
-        },
-        {
-          "country_code": "HUN",
-          "n_students": null
-        },
-        {
-          "country_code": "ISL",
-          "n_students": null
-        },
-        {
-          "country_code": "IND",
-          "n_students": null
-        },
-        {
-          "country_code": "IDN",
-          "n_students": null
-        },
-        {
-          "country_code": "IRN",
-          "n_students": null
-        },
-        {
-          "country_code": "IRL",
-          "n_students": null
-        },
-        {
-          "country_code": "ISR",
-          "n_students": null
-        },
-        {
-          "country_code": "ITA",
-          "n_students": null
-        },
-        {
-          "country_code": "JPN",
-          "n_students": null
-        },
-        {
-          "country_code": "JOR",
-          "n_students": null
-        },
-        {
-          "country_code": "KOR",
-          "n_students": null
-        },
-        {
-          "country_code": "KWT",
-          "n_students": null
-        },
-        {
-          "country_code": "LVA",
-          "n_students": null
-        },
-        {
-          "country_code": "LTU",
-          "n_students": null
-        },
-        {
-          "country_code": "LUX",
-          "n_students": null
-        },
-        {
-          "country_code": "MAC",
-          "n_students": null
-        },
-        {
-          "country_code": "MYS",
-          "n_students": null
-        },
-        {
-          "country_code": "MEX",
-          "n_students": null
-        },
-        {
-          "country_code": "MAR",
-          "n_students": null
-        },
-        {
-          "country_code": "NLD",
-          "n_students": null
-        },
-        {
-          "country_code": "NZL",
-          "n_students": null
-        },
-        {
-          "country_code": "NOR",
-          "n_students": null
-        },
-        {
-          "country_code": "OMN",
-          "n_students": null
-        },
-        {
-          "country_code": "PAK",
-          "n_students": null
-        },
-        {
-          "country_code": "PER",
-          "n_students": null
-        },
-        {
-          "country_code": "PHL",
-          "n_students": null
-        },
-        {
-          "country_code": "POL",
-          "n_students": null
-        },
-        {
-          "country_code": "PRT",
-          "n_students": null
-        },
-        {
-          "country_code": "QAT",
-          "n_students": null
-        },
-        {
-          "country_code": "ROU",
-          "n_students": null
-        },
-        {
-          "country_code": "RUS",
-          "n_students": null
-        },
-        {
-          "country_code": "SAU",
-          "n_students": null
-        },
-        {
-          "country_code": "SGP",
-          "n_students": null
-        },
-        {
-          "country_code": "SVK",
-          "n_students": null
-        },
-        {
-          "country_code": "SVN",
-          "n_students": null
-        },
-        {
-          "country_code": "ZAF",
-          "n_students": null
-        },
-        {
-          "country_code": "ESP",
-          "n_students": null
-        },
-        {
-          "country_code": "SWE",
-          "n_students": null
-        },
-        {
-          "country_code": "CHE",
-          "n_students": null
-        },
-        {
-          "country_code": "TWN",
-          "n_students": null
-        },
-        {
-          "country_code": "TUR",
-          "n_students": null
-        },
-        {
-          "country_code": "ARE",
-          "n_students": null
-        },
-        {
-          "country_code": "GBR",
-          "n_students": null
-        },
-        {
-          "country_code": "USA",
-          "n_students": null
-        },
-        {
-          "country_code": "VNM",
-          "n_students": null
-        }
-      ],
-      "sample_filtering_criteria": "Used TIMSS 2019 Grade 8 Science data. Curriculum type was operationalized from ITCOURSE: students with ITCOURSE=6 were classified as integrated science; students with ITCOURSE in {2,3,4,5} were classified as separated science. Variables were extracted and merged using IEA IDB Analyzer and SPSS; after data cleaning, 309,511 entries from 44 countries remained. For the dependent variable, all five plausible values (BSSSCI01–BSSSCI05) were used with separate analyses per PV. The manuscript states that Appendix A details missing-data procedures, and it reports that missing data were imputed prior to model training (including in the propensity-score estimation pipeline)."
+      "countries": [],
+      "sample_filtering_criteria": "Used TIMSS 2019 Grade 8 Science data; extracted variables of interest with IEA IDB Analyzer and merged in SPSS. After data cleaning, 309,511 entries from 44 countries remained. Curriculum type was defined using TIMSS ITCOURSE: students with ITCOURSE=6 were classified as integrated science; students with ITCOURSE in {2,3,4,5} were classified as separated science. The dependent variable was the science achievement plausible values (BSSSCI01–BSSSCI05), with separate analyses conducted for each PV."
     },
     "ml_techniques": {
       "primary": "Random Forest",
       "all_techniques": [
-        "Linear Regression",
+        "Random Forest",
         "LASSO",
         "Decision Tree",
-        "Random Forest",
         "Neural Network",
-        "KNN",
+        "Linear Regression",
         "Naive Bayes",
-        "Logistic Regression"
+        "k-NN",
+        "Stacking"
       ]
     },
     "confounders_identified": [
       {
-        "variable_code": "BSBGHER",
-        "variable_name": "Socioeconomic background (SES)",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "ITSEX",
-        "variable_name": "Gender",
-        "category": "demographic"
+        "variable_code": "ITCOURSE",
+        "variable_name": "Curriculum type (integrated vs separated)",
+        "category": "curriculum"
       },
       {
         "variable_code": "IDCNTRY",
-        "variable_name": "Country identity",
+        "variable_name": "Country identity (IDCNTRY)",
         "category": "system_level"
+      },
+      {
+        "variable_code": "BSBGHER",
+        "variable_name": "Socio-economic background (BSBGHER)",
+        "category": "socioeconomic"
       },
       {
         "variable_code": "BSBGSLS",
@@ -357,7 +64,7 @@
       },
       {
         "variable_code": "BSBGSCS",
-        "variable_name": "Feel confident about science",
+        "variable_name": "Confidence about science",
         "category": "student_attitude"
       },
       {
@@ -371,11 +78,6 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "BSBGICS",
-        "variable_name": "Instructional clarity",
-        "category": "teacher"
-      },
-      {
         "variable_code": "BTBS18A",
         "variable_name": "Homework frequency assigned",
         "category": "teacher"
@@ -387,12 +89,12 @@
       },
       {
         "variable_code": "BTBS18CA",
-        "variable_name": "Homework feedback: correcting",
+        "variable_name": "Homework feedback: correcting assignments",
         "category": "teacher"
       },
       {
         "variable_code": "BTBS18CB",
-        "variable_name": "Homework feedback: student correction",
+        "variable_name": "Homework feedback: students correct",
         "category": "teacher"
       },
       {
@@ -411,8 +113,13 @@
         "category": "teacher"
       },
       {
+        "variable_code": "BSBGICS",
+        "variable_name": "Instructional clarity",
+        "category": "teacher"
+      },
+      {
         "variable_code": "BTBS14",
-        "variable_name": "Instructional time (principals)",
+        "variable_name": "Instructional time (principals/teachers)",
         "category": "curriculum"
       },
       {
@@ -422,12 +129,12 @@
       },
       {
         "variable_code": "BTBG09D",
-        "variable_name": "Needs more time to assist",
+        "variable_name": "Needs more time to prepare",
         "category": "teacher"
       },
       {
         "variable_code": "BTBG09E",
-        "variable_name": "Needs more time to prepare",
+        "variable_name": "Needs more time to assist",
         "category": "teacher"
       },
       {
@@ -437,7 +144,7 @@
       },
       {
         "variable_code": "BTBG12B",
-        "variable_name": "Instructional strategy: explain answers",
+        "variable_name": "Instructional strategy: ask explain answers",
         "category": "teacher"
       },
       {
@@ -457,7 +164,7 @@
       },
       {
         "variable_code": "BTBG12F",
-        "variable_name": "Instructional strategy: problem-solving procedures",
+        "variable_name": "Instructional strategy: find problem-solving procedures",
         "category": "teacher"
       },
       {
@@ -471,27 +178,40 @@
         "category": "teacher"
       },
       {
-        "variable_code": "ITCOURSE",
-        "variable_name": "Curriculum type (Integrated vs Separated)",
-        "category": "curriculum"
+        "variable_code": "ITSEX",
+        "variable_name": "Gender",
+        "category": "demographic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "TIMSS 2019 Grade 8 Science (44 countries/regions)",
+        "dataset_used": "TIMSS 2019 Grade 8 Science (44 countries) — science achievement (BSSSCI01–BSSSCI05)",
         "target_variable": "Science achievement (Plausible Values BSSSCI01–BSSSCI05)",
         "top_predictors": [
-          "Socioeconomic background (SES)",
-          "Feel confident about science",
-          "Instructional time (teachers)",
-          "Science experiment frequency",
-          "Curriculum type (Integrated vs Separated)"
+          "Socio-economic background (BSBGHER)",
+          "Confidence about science (BSBGSCS)",
+          "Instructional time (principals/teachers) (BTBS14)",
+          "Science experiment frequency (BSBS21)",
+          "Curriculum type (integrated vs separated) (ITCOURSE)"
         ],
-        "performance_metrics": "Random Forest — R² (testing) averaged across PVs: 0.51; RMSE (testing) averaged across PVs: 74.92. Propensity score matching — integrated group significantly higher than separated after controlling covariates (Mann–Whitney U with Bonferroni correction); effect sizes small (Cohen’s d ≈ 0.20–0.24 across PVs).",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science the study leveraged socioeconomic background, science confidence, instructional time, and science experiment frequency (with curriculum type as a key comparison variable) to predict science achievement using Random Forest, finding that Random Forest outperformed linear regression, lasso regression, decision trees, and neural networks and that curriculum type had only a weak direct predictive role while integrated curricula showed a small positive advantage after propensity score matching. This indicates that gression, lasso regression, decision trees, and neural networks and that curriculum type had only a weak direct predictive role while integrated curricula showed a small positive advantage after propensity score matching."
+        "performance_metrics": "Model comparison using RMSE and R² on train/test splits (70%/30%) averaged across PVs. Random Forest: Testing R²=0.51, RMSE=74.92; Linear regression: Testing R²=0.21, RMSE=94.43; Lasso: Testing R²=0.22, RMSE=94.24; Decision tree: Testing R²=0.29, RMSE=89.88; Neural networks: Testing R²=0.22, RMSE=94.34. Feature importance (RF) indicates curriculum type has the smallest average coefficient (0.010) relative to SES (0.215) and confidence (0.094).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science the study leveraged socio-economic background, students’ confidence about science, instructional time, and science experiment frequency (with curriculum type as a covariate) to predict science achievement plausible values, finding that Random Forest outperformed linear regression, lasso, decision trees, and neural networks and that curriculum type was a weak direct predictor compared with SES and instructional/process variables. This indicates that curriculum structure may influence science literacy indirectly through instructional conditions and student attitudes, so policy should prioritize implementation quality (e.g., instructional time and experiment practices) rather than assuming integrated curricula automatically yield large achievement gains, though causality cannot be inferred from predictive feature importance alone."
+      },
+      {
+        "dataset_used": "TIMSS 2019 Grade 8 Science (44 countries) — science achievement (Plausible Values BSSSCI01–BSSSCI05)",
+        "target_variable": "Curriculum effect on science achievement (Average Treatment Effect via propensity score matching)",
+        "top_predictors": [
+          "Curriculum type (integrated vs separated) (ITCOURSE)",
+          "Socio-economic background (BSBGHER)",
+          "Like to learn science (BSBGSLS)",
+          "Confidence about science (BSBGSCS)",
+          "Instructional clarity (BSBGICS)"
+        ],
+        "performance_metrics": "Propensity score estimation via stacked ensemble (base learners: k-NN, Random Forest, Naive Bayes; meta-learner: logistic regression) with KNN matching. Propensity score prediction accuracy on test set: 0.9998. After matching, Mann–Whitney U tests with Bonferroni correction show integrated curricula have significantly higher science achievement than separated curricula for each PV (Cohen’s d around 0.2; e.g., PV1 d=0.22 with integrated mean 546.62 vs separated mean 515.68; PV2 d=0.20; PV3 d=0.24; PV4 d=0.23; PV5 d=0.20).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Science the study leveraged propensity score matching based on socio-economic background, student attitudes, and instructional clarity to estimate the average treatment effect of integrated versus separated science curricula on science achievement plausible values, finding that integrated curricula produced a statistically significant but small advantage (Cohen’s d ≈0.2 across PVs). This indicates that integrated curricula may be beneficial in practice, but the magnitude is modest, so education systems should treat curriculum integration as one component within a broader package that ensures instructional prerequisites and high-quality implementation, while recognizing that matching on observed covariates cannot fully eliminate unobserved confounding."
       }
     ],
-    "outcome_summary": "The study analyzes TIMSS 2019 Grade 8 Science data from 44 countries/regions (N=309,511 after cleaning) to compare integrated vs separated science curricula and to predict science achievement (PVs BSSSCI01–BSSSCI05). For the curriculum-effect comparison, propensity score matching (propensity scores estimated via stacked ensemble learning; matching via KNN) showed that the integrated curriculum group had significantly higher science achievement than the separated group for each PV, but with small effects (Cohen’s d around 0.20–0.24). For prediction, Random Forest achieved the best performance, with testing R² ≈ 0.51 and testing RMSE ≈ 74.92, outperforming linear regression (R²≈0.21), lasso (≈0.22), decision trees (≈0.29), and neural networks (≈0.22). Feature importance indicated socioeconomic background as the strongest predictor, followed by science confidence and instructional time/experiment frequency. The manuscript uses SHAP for interaction interpretation (predictive explanation, not causal proof) and does not report replicate-weight variance estimation; hierarchical sampling structure is not explicitly modeled beyond using teacher weights for teacher-reported covariates.",
+    "outcome_summary": "The study analyzes TIMSS 2019 Grade 8 Science data from 44 countries, classifying students as integrated or separated science using TIMSS ITCOURSE (ITCOURSE=6 vs 2/3/4/5). For the curriculum effect, it estimates propensity scores using a stacked ensemble (k-NN, Random Forest, Naive Bayes as base learners; logistic regression as meta-learner) and matches integrated to separated students using KNN; after matching, Mann–Whitney U tests with Bonferroni correction show integrated curricula have significantly higher science achievement across all five plausible values, with small effect sizes (Cohen’s d around 0.2). For prediction, it compares linear regression, lasso, decision trees, Random Forest, and neural networks using RMSE and R² on a 70/30 train/test split averaged across PVs; Random Forest performs best (testing R²=0.51, RMSE=74.92). Feature importance indicates socio-economic background, confidence, instructional time, and experiment frequency dominate, while curriculum type has a small coefficient. Limitations include reliance on predictive associations (not causal identification) and limited reporting of full complex-survey weighting beyond teacher weights.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

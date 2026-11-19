@@ -15,10 +15,10 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses TIMSS 2019 eighth-grade mathematics data for five East Asian economies (Chinese Taipei, Hong Kong, Japan, Korea, Singapore), with student-, teacher-, and principal-level questionnaire variables. The analytic sample is restricted to 21,340 eighth-grade students and corresponding teacher/principal respondents, and missing values are handled via MCMC multiple imputation in SPSS 26.0. The manuscript does not report applying TIMSS sampling weights or any replicate-weight procedure (e.g., BRR/jackknife) in the random-forest regression analyses. Because the authors fit a single-level random forest regression in R (randomForest package) and do not discuss complex-survey weighting, the analysis is treated as unweighted for the purposes of this extraction."
+      "weight_fields_interpretation": "The study uses TIMSS 2019 eighth-grade mathematics achievement and associated student, teacher, and principal questionnaire variables for five East Asian economies (Chinese Taipei, Hong Kong, Japan, Korea, Singapore). The manuscript reports handling of plausible values by running separate random-forest regressions for each of the five mathematics plausible values and averaging the results, but it does not report applying TIMSS complex-sample student/school weights or any replicate-weight procedure. Because the analysis is implemented with the R randomForest package and the paper does not mention weight-aware estimation tools (e.g., IEA IDB Analyzer, bifiesurvey, WeMix, intsvy), survey weights are not documented as being incorporated. Analysts using TIMSS microdata should consider whether to apply TIMSS sampling weights and replicate weights when estimating uncertainty, especially given the nested structure (students within classes/schools within economies)."
     },
     "plausible_values_handling": "rubin_rules",
     "missing_data_handling": "multiple_imputation",
@@ -47,7 +47,7 @@
           "n_students": 4853
         }
       ],
-      "sample_filtering_criteria": "Used TIMSS 2019 eighth-grade mathematics assessment data for the five selected East Asian economies (Singapore, Chinese Taipei, Korea, Japan, and Hong Kong). The dependent variable is mathematics achievement (number, algebra, geometry, and data/probability domains) on the TIMSS reporting scale. The model includes 22 independent variables drawn from TIMSS student, teacher, and principal questionnaires, and the authors report that missingness was small (0–5.7%) and handled via MCMC multiple imputation; no additional grade/school-type restrictions are described."
+      "sample_filtering_criteria": "Used TIMSS 2019 eighth-grade mathematics data for five East Asian economies only (Chinese Taipei, Hong Kong, Japan, Korea, Singapore). The analytic sample comprises 21,340 eighth-grade students, with associated mathematics teachers (n=1242) and principals (n=802) to supply classroom and school-level predictors. Mathematics achievement was modeled using the TIMSS mathematics achievement scale (number, algebra, geometry, data/probability) and handled missing questionnaire/scale inputs via MCMC multiple imputation in SPSS 26.0; the paper reports missingness was small (0–5.7%) and described as missing completely at random."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -87,8 +87,8 @@
         "category": "demographic"
       },
       {
-        "variable_code": "student_SES",
-        "variable_name": "socioeconomic status (SES)",
+        "variable_code": "student_ses",
+        "variable_name": "SES",
         "category": "socioeconomic"
       },
       {
@@ -113,8 +113,8 @@
       },
       {
         "variable_code": "disorderly_behavior_during_mathematics_lessons",
-        "variable_name": "Disorderly behavior during math",
-        "category": "teacher"
+        "variable_name": "Disorderly behavior in math",
+        "category": "process_data"
       },
       {
         "variable_code": "instructional_time_in_mathematics",
@@ -139,11 +139,11 @@
       {
         "variable_code": "school_composition_by_socioeconomic_background",
         "variable_name": "School composition by SES",
-        "category": "school"
+        "category": "socioeconomic"
       },
       {
         "variable_code": "students_sense_of_school_belonging",
-        "variable_name": "Students’ sense of school belonging",
+        "variable_name": "sense of school belonging",
         "category": "school"
       },
       {
@@ -174,20 +174,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (five East Asian economies; student/teacher/principal questionnaires)",
-        "target_variable": "Mathematics achievement (Plausible Values; mean across five PV regressions)",
+        "dataset_used": "TIMSS 2019 Grade 8 Mathematics (five East Asian economies: TWN, HKG, JPN, KOR, SGP)",
+        "target_variable": "Mathematics achievement (TIMSS scale; modeled via five plausible values)",
         "top_predictors": [
           "Students confident in mathematics",
-          "Student socioeconomic status (SES)",
+          "Student SES",
           "School emphasis on academic success",
           "Teaching limited by student needs",
           "Students value mathematics"
         ],
-        "performance_metrics": "Random forest regression with tenfold cross-validation (five repeats). Top 11-variable model: R²=0.49, RMSE=0.71 (MSE decreased to 0.53 for top-11 set).",
-        "standardized_conclusion": "Using TIMSS 2019 Grade 8 mathematics the study leveraged students’ confidence in mathematics, student SES, and school emphasis on academic success (among other socio-ecological factors) to predict mathematics achievement, finding that the top 11 predictors explained 49% of the variance (R²=0.49; RMSE=0.71) and that the three most important variables were students’ confidence, SES, and school academic emphasis. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random forest regression with 22 predictors; tenfold cross-validation with five repeats. Whole East Asian sample: top 11 variables explained 49% of variance (R2=0.49) with RMSE=0.71; candidate sets: mean decreased MSE (Top 1: 0.78; Top 3: 0.66; Top 6: 0.59; Top 11: 0.53; Top 22: 0.52). Variable importance via mean decrease in accuracy (MDA).",
+        "standardized_conclusion": "Using TIMSS 2019 Grade 8 Mathematics the study leveraged students’ confidence in mathematics, student SES, and school emphasis on academic success (plus teaching limitation by student needs and students’ value of mathematics) to predict mathematics achievement, finding that the top three predictors were students’ confidence in mathematics, socioeconomic status, and school emphasis on academic success. This indicates that mathematics improvement strategies in East Asian contexts may yield the largest returns by combining expectancy/engagement supports with SES-sensitive learning supports and school-level goal/expectation reforms, though the study is cross-sectional and does not establish causal effects."
       }
     ],
-    "outcome_summary": "The study analyzed TIMSS 2019 Grade 8 mathematics achievement for 21,340 students from Chinese Taipei, Hong Kong, Japan, Korea, and Singapore, using random forest regression to rank 22 socio-ecological predictors spanning individual, microsystem, and mesosystem levels. Mathematics achievement was modeled using five TIMSS plausible values, with separate random-forest regressions per PV and then averaging the five estimates. Missing data (0–5.7%) were handled with MCMC multiple imputation in SPSS 26.0. Using tenfold cross-validation with five repeats, the top-11-variable model achieved R²=0.49 and RMSE=0.71 (with MSE=0.53 for the top-11 set). The most important predictors were students’ confidence in mathematics, family/student SES, and school emphasis on academic success; the authors also report cross-economy divergences. Limitations include the cross-sectional nature of TIMSS (no causal claims) and the use of single-level random forest despite the nested TIMSS structure (students within classes/schools within economies).",
+    "outcome_summary": "The study analyzes TIMSS 2019 eighth-grade mathematics achievement for five East Asian economies (Chinese Taipei, Hong Kong, Japan, Korea, Singapore; N=21,340 students) using a random-forest regression model with 22 socio-ecological predictors drawn from student, teacher, and principal questionnaires. Mathematics achievement was modeled on the TIMSS mathematics scale (number, algebra, geometry, data/probability) and handled plausible values by running separate random-forest regressions for each of the five plausible values and averaging the results. Missing data were addressed with MCMC multiple imputation in SPSS 26.0 (missingness 0–5.7%, described as missing completely at random). Model performance showed that the top 11 predictors explained 49% of variance (R2=0.49) with RMSE=0.71, and cross-validation indicated diminishing returns after the 11th variable (mean decreased MSE=0.53 for top 11 vs 0.52 for all 22). The paper does not report applying TIMSS complex-sample weights, and the cross-sectional TIMSS design limits causal interpretation of predictor importance.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

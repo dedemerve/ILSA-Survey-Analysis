@@ -16,14 +16,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PIRLS 2016 Morocco grade-4 student, teacher, and school data merged via IEA IDB Analyzer (v5.0). The authors report dropping variables related to weights (e.g., total school weight, total class weight) during preprocessing, and they do not describe applying any complex survey weights in the ML training/evaluation pipeline. Because the models are standard supervised classifiers (e.g., Gradient Boosting, Random Forest, SVM) implemented in typical ML workflows, the manuscript does not indicate weight-aware estimation. The analytic sample is defined after removing tie cases in the majority-vote reading proficiency benchmark and after excluding variables with missing rates >10%, while retaining all 5446 observations via mode-based imputation."
+      "weight_fields_interpretation": "The study uses PIRLS 2016 Morocco grade-4 microdata merged across student, teacher, and school files via IEA IDB Analyzer (v5.0). The manuscript describes extensive variable cleaning (dropping ID/weight/maintenance variables, removing benchmark/PV variables, and excluding variables with >10% missingness) and then trains supervised classifiers on the resulting dataset (n=5446). No PIRLS sampling/replicate weight variables (e.g., TOTWGT/W_FSTUWT) or replicate-weight procedures (BRR/jackknife) are reported as being applied in model estimation. Given the use of standard ML classifiers (e.g., Gradient Boosting, Random Forest, SVM), the paper does not document a complex-survey-weighted estimation strategy, so results should be interpreted as conditional on the analytic sample rather than explicitly population-representative estimates."
     },
     "plausible_values_handling": "not_applicable",
     "missing_data_handling": "mean_imputation",
-    "handling_not_reported_explanation": "The dependent variable is not a PIRLS achievement score based on plausible values. Instead, the authors construct a binary outcome from PIRLS benchmark variables using a majority vote across the five PV-based benchmark items (ASRIBM), then collapse levels into “Low” vs “Others”. Because the paper does not analyze PVs directly as continuous achievement outcomes, PV handling is not applicable. For missing data, the authors explicitly state using sklearn SimpleImputer that substitutes mode values for missing entries; however, the schema only provides mean_imputation as the closest available option, so the missing-data category is set accordingly.",
+    "handling_not_reported_explanation": "Plausible values are not used as the dependent variable: PIRLS provides 5 plausible values for reading, but the authors convert them into a single majority-vote benchmark-based reading proficiency class (Low vs Others) and then model that binary outcome. Missing data handling is implemented via SimpleImputer, which replaces missing values with mode values for categorical variables (and effectively mean/mode-style imputation depending on variable type), so a PV-specific missing-data strategy is not applicable to the outcome construction.",
     "sample_details": {
       "total_students": 5446,
       "countries": [
@@ -32,12 +32,12 @@
           "n_students": 5446
         }
       ],
-      "sample_filtering_criteria": "Used PIRLS 2016 Morocco grade-4 student files merged with teacher and school data in IDB Analyzer (v5.0). After merging, 5489 entries were created; 43 cases with ties in the majority-vote benchmark were removed, yielding 5446 students. The response variable was derived from the PIRLS benchmark ASRIBM (majority vote across ASRIBM01–ASRIBM05) and then recoded to a binary target: Low (coded 0) vs Levels 2–5 (coded 1). In preprocessing, 192 variables were dropped (IDs/weights/maintenance/redundant variables; scale-score indices removed; and benchmark/PVs removed except the constructed ASRIBM). Variables with missing rates >10% were removed, and remaining missing values were imputed."
+      "sample_filtering_criteria": "Used PIRLS 2016 Morocco grade-4 student, teacher, and school data merged in IDB Analyzer (v5.0). Started from 5489 entries, removed 43 tied cases after combining PV-based benchmark variables via majority vote, yielding 5446 students. Dropped 192 of 486 initial merged variables (IDs/weights/maintenance/redundant variables; removed 22 numerical scale index variables; removed 30 benchmark variables and PVs except the newly created ASRIBM response benchmark). Excluded variables with missing rates >10% and then imputed remaining missing values using SimpleImputer while retaining all 5446 observations."
     },
     "ml_techniques": {
       "primary": "Gradient Boosting",
       "all_techniques": [
-        "SVM",
+        "Support Vector Machine",
         "Naive Bayes",
         "k-NN",
         "Logistic Regression",
@@ -50,7 +50,7 @@
       {
         "variable_code": "ASDRLOWP",
         "variable_name": "Reading achievement too low",
-        "category": "prior_achievement"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ASDGSCR",
@@ -59,8 +59,8 @@
       },
       {
         "variable_code": "ASDHELT",
-        "variable_name": "Early literacy tasks performance",
-        "category": "prior_achievement"
+        "variable_name": "Early literacy tasks",
+        "category": "student_behavior"
       },
       {
         "variable_code": "ASDAGE",
@@ -69,7 +69,7 @@
       },
       {
         "variable_code": "ASBR06C",
-        "variable_name": "Reading is boring attitude",
+        "variable_name": "Reading is boring",
         "category": "student_attitude"
       },
       {
@@ -85,12 +85,12 @@
       {
         "variable_code": "ASBH07A",
         "variable_name": "Recognize letters",
-        "category": "prior_achievement"
+        "category": "student_behavior"
       },
       {
         "variable_code": "ASBG03",
-        "variable_name": "Often speaks Arabic at home",
-        "category": "parent_home"
+        "variable_name": "Often speak Arabic at home",
+        "category": "demographic"
       },
       {
         "variable_code": "ATBG07G",
@@ -115,20 +115,20 @@
     ],
     "main_findings": [
       {
-        "dataset_used": "PIRLS 2016 Morocco Grade 4 Reading (student/teacher/school merged)",
-        "target_variable": "Reading proficiency (Low vs Others)",
+        "dataset_used": "PIRLS 2016 Grade 4 Reading (Morocco)",
+        "target_variable": "Reading proficiency class (Low vs Others)",
         "top_predictors": [
           "Reading achievement too low",
           "Students confident in reading",
-          "Early literacy tasks performance",
+          "Early literacy tasks",
           "Student age",
-          "Reading is boring attitude"
+          "Reading is boring"
         ],
-        "performance_metrics": "Gradient Boosting (best): Accuracy = 80.97%, F1-score = 63.80% (other models: Random Forest Accuracy = 79.38%, F1 = 56.40%; Logistic Regression Accuracy = 78.79%, F1 = 62.76%; SVM Accuracy = 70.20%, F1 = 0.00).",
-        "standardized_conclusion": "Using PIRLS 2016 Morocco Grade 4 Reading the study leveraged reading achievement too low, students’ reading confidence, early literacy tasks performance, student age, and reading attitudes to predict whether students were in the Low reading proficiency group versus Others, finding that Gradient Boosting achieved the highest classification performance (Accuracy 80.97%, F1 63.80%) and identified 12 key contextual variables overall. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Gradient Boosting (best): Accuracy=80.97, F1=63.80. Other models: Random Forest Accuracy=79.38 F1=56.40; Logistic Regression Accuracy=78.79 F1=62.76; KNN Accuracy=75.89 F1=48.70; Naive Bayes Accuracy=73.01 F1=60.73; Decision Tree Accuracy=73.50 F1=52.37; SVM Accuracy=70.20 (F1 not reported/0.00).",
+        "standardized_conclusion": "Using PIRLS 2016 Grade 4 Reading (Morocco) the study leveraged Reading achievement too low, Students confident in reading, Early literacy tasks, Student age, and Reading is boring to predict whether students fall in the Low reading proficiency class versus Others, finding that Gradient Boosting achieved the highest classification performance (Accuracy=80.97, F1=63.80). This indicates that combining early literacy competence with students’ reading self-beliefs and classroom/school learning climate variables may improve identification of students at risk of low reading achievement, though the study’s binary outcome is derived from PV-based benchmarks and the paper does not document survey-weighted estimation or causal identification."
       }
     ],
-    "outcome_summary": "The study analyzed PIRLS 2016 Morocco grade-4 reading data (n=5446) after merging student, teacher, and school files in IDB Analyzer and removing 43 tie cases in the majority-vote benchmark. The outcome was a binary reading proficiency indicator derived from PIRLS benchmark levels (Low vs Levels 2–5), and the authors compared seven supervised classifiers. Gradient Boosting performed best, with Accuracy = 80.97% and F1-score = 63.80%, outperforming Random Forest (Accuracy = 79.38%, F1 = 56.40%) and Logistic Regression (Accuracy = 78.79%, F1 = 62.76%). The top predictors highlighted include early literacy tasks, students’ reading confidence, parental commitment, school emphasis on academic success, and a safe/orderly school-teacher environment. The manuscript does not report applying PIRLS complex survey weights in the ML models, and the PVs are not modeled directly as achievement outcomes (the target is benchmark-based and recoded).",
+    "outcome_summary": "The study uses PIRLS 2016 Morocco grade-4 reading data (n=5446) and constructs a binary outcome indicating whether a student is at the “Low” reading benchmark level versus “Others,” derived from PIRLS PV-based benchmark variables using majority vote. After merging student, teacher, and school questionnaires in IDB Analyzer, the authors reduce the variable set (dropping IDs/weights/maintenance, removing most benchmark/PV variables, and excluding variables with >10% missingness) and impute remaining missing values with SimpleImputer. Seven supervised classifiers are compared using a 7:3 train/test split with stratification by the response benchmark; Gradient Boosting performs best with Accuracy=80.97 and F1=63.80 (Random Forest: Accuracy=79.38, F1=56.40). The top predictors highlighted by Gradient Boosting feature importance include early literacy tasks, reading confidence, parental commitment, and school emphasis on academic success. Limitations include lack of reported complex-survey weighting/replicate-weight use and the fact that the model is predictive rather than causal.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

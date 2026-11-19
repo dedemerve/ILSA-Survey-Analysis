@@ -16,14 +16,14 @@
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses PISA 2022 Spanish student data and reports using the entire student sample (n = 30,800) with 74 variables, followed by preprocessing and dimensionality reduction. The manuscript does not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), nor does it name a weight variable (such as W_FSTUWT/TOTWGT). Because the analysis relies on k-means clustering and supervised classification pipelines with SHAP-based interpretability, the paper does not indicate any complex-survey-weight-aware estimation. Therefore, the weighting strategy is not documented and is treated as unweighted/weight-omitted for the ML components."
+      "weight_fields_interpretation": "The study uses PISA 2022 Spanish student microdata and constructs an analytic dataset with 74 student-context variables, then applies preprocessing and dimensionality reduction before clustering and subsequent cluster classification. The manuscript does not report the use of PISA sampling/student weights or any replicate-weight scheme, and it does not name any weight variable (e.g., TOTWGT or W_FSTUWT). Because the core predictive step uses ML models (k-means for clustering and supervised classification with SHAP-based interpretability), the paper’s weighting strategy is unclear; if weights were omitted, this would imply estimates are not fully adjusted for PISA’s complex sampling design. Analysts using the PISA database should apply the official PISA student weights and replicate weights when estimating population-representative relationships, and should document whether the ML pipeline was run with or without weight-aware resampling."
     },
-    "plausible_values_handling": "rubin_rules",
-    "missing_data_handling": "multiple_imputation",
-    "handling_not_reported_explanation": null,
+    "plausible_values_handling": "not_applicable",
+    "missing_data_handling": "not_reported",
+    "handling_not_reported_explanation": "The dependent variables in the supervised stage are student-cluster membership labels derived from clustering, rather than cognitive achievement scores expressed as PISA plausible values. As a result, plausible-value combining rules are not directly applicable to the target used for prediction. The manuscript reports variable-level missingness rates for many inputs but does not specify the missing-data handling method used in the preprocessing stage (e.g., listwise deletion, imputation type), which is a reporting gap because missingness can affect both dimensionality reduction and clustering/classification stability.",
     "sample_details": {
       "total_students": 30800,
       "countries": [
@@ -32,48 +32,58 @@
           "n_students": 30800
         }
       ],
-      "sample_filtering_criteria": "Used the full available PISA 2022 Spanish student sample (15-year-olds) with n = 30,800. The analytic dataset was constructed from 74 student contextual variables spanning socio-economic/cultural, psychological, cognitive/academic, and ICT domains, then preprocessed for data completeness/quality and reduced to 16 derived variables prior to k-means clustering. PISA test scores were not used for clustering, but academic performance differences across clusters were later examined."
+      "sample_filtering_criteria": "Used the entire PISA 2022 Spanish student sample (n = 30,800) and selected 74 student contextual variables spanning socio-economic/cultural, psychological, cognitive/academic, and ICT domains. The pipeline includes a data pre-processing stage intended to ensure data completeness and quality, but the specific inclusion/exclusion rules (e.g., complete-case threshold, imputation vs. deletion) are not explicitly stated; therefore the analytic sample is described as the full available sample after the authors’ preprocessing."
     },
     "ml_techniques": {
-      "primary": "XGBoost",
+      "primary": "k-means",
       "all_techniques": [
-        "XGBoost",
-        "Random Forest",
-        "SVM",
-        "Logistic Regression",
-        "Decision Tree",
-        "Gradient Boosting"
+        "k-means"
       ]
     },
     "confounders_identified": [
-      {
-        "variable_code": "ST004D01T",
-        "variable_name": "Gender",
-        "category": "demographic"
-      },
-      {
-        "variable_code": "AGE",
-        "variable_name": "age",
-        "category": "demographic"
-      },
       {
         "variable_code": "ESCS",
         "variable_name": "Socioeconomic status (ESCS)",
         "category": "socioeconomic"
       },
       {
-        "variable_code": "HISEI",
-        "variable_name": "Highest parental occupational status",
-        "category": "socioeconomic"
+        "variable_code": "ict_availability",
+        "variable_name": "ICT availability",
+        "category": "ict"
       },
       {
-        "variable_code": "HOMEPOS",
-        "variable_name": "Home possessions",
+        "variable_code": "usage_at_home",
+        "variable_name": "usage at home",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "usage_at_school",
+        "variable_name": "usage at school",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "ST004D01T",
+        "variable_name": "Gender",
+        "category": "demographic"
+      },
+      {
+        "variable_code": "EXPECEDU",
+        "variable_name": "Expected educational level",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "HISCED",
+        "variable_name": "Parents' highest education (ISCED)",
         "category": "socioeconomic"
       },
       {
         "variable_code": "PAREDINT",
-        "variable_name": "Highest parental education",
+        "variable_name": "Highest parental education (years)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "HISEI",
+        "variable_name": "Highest parental occupational status",
         "category": "socioeconomic"
       },
       {
@@ -87,34 +97,69 @@
         "category": "socioeconomic"
       },
       {
-        "variable_code": "IMMIG",
-        "variable_name": "Immigrant background",
-        "category": "demographic"
+        "variable_code": "HOMEPOS",
+        "variable_name": "Home possessions",
+        "category": "socioeconomic"
       },
       {
-        "variable_code": "LANGN",
-        "variable_name": "Language spoken at home",
-        "category": "demographic"
+        "variable_code": "ICTEFFIC",
+        "variable_name": "Digital self-efficacy",
+        "category": "ict"
       },
       {
-        "variable_code": "EXPECEDU",
-        "variable_name": "Expected educational level",
-        "category": "student_attitude"
+        "variable_code": "ICTSUBJ",
+        "variable_name": "Subject-related ICT use",
+        "category": "ict"
       },
       {
-        "variable_code": "MATHMOT",
-        "variable_name": "Math motivation to do well",
-        "category": "student_attitude"
+        "variable_code": "ICTREG",
+        "variable_name": "Regulated ICT use views",
+        "category": "ict"
       },
       {
-        "variable_code": "MATHPREF",
-        "variable_name": "Preference for mathematics",
-        "category": "student_attitude"
+        "variable_code": "ICTWKDY",
+        "variable_name": "ICT frequency (weekday)",
+        "category": "ict"
       },
       {
-        "variable_code": "BELONG",
-        "variable_name": "Sense of belonging",
-        "category": "student_attitude"
+        "variable_code": "ICTWKEND",
+        "variable_name": "ICT frequency (weekend)",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTOUT",
+        "variable_name": "ICT use for school activities",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTENQ",
+        "variable_name": "ICT use in enquiry learning",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTINFO",
+        "variable_name": "Online information practices",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ICTQUAL",
+        "variable_name": "Quality of ICT access",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ict_feedback",
+        "variable_name": "ICT feedback",
+        "category": "ict"
+      },
+      {
+        "variable_code": "support",
+        "variable_name": "support",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "ICTHOME",
+        "variable_name": "ICT availability outside school",
+        "category": "ict"
       },
       {
         "variable_code": "ANXMAT",
@@ -122,8 +167,8 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "BODYIMA",
-        "variable_name": "Body image",
+        "variable_code": "BELONG",
+        "variable_name": "Sense of belonging",
         "category": "student_attitude"
       },
       {
@@ -152,64 +197,19 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "PERSEVAGR",
-        "variable_name": "Perseverance",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "COGACMCO",
-        "variable_name": "Cognitive activation (math)",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "COGACRCO",
-        "variable_name": "Cognitive activation (reasoning)",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "CURIOAGR",
-        "variable_name": "Curiosity",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "EMPATAGR",
-        "variable_name": "Empathy",
-        "category": "student_attitude"
-      },
-      {
         "variable_code": "SOCCON",
         "variable_name": "Social connections",
         "category": "student_attitude"
       },
       {
         "variable_code": "SOCONPA",
-        "variable_name": "Social connection to parents",
+        "variable_name": "Connection to parents",
         "category": "student_attitude"
       },
       {
         "variable_code": "RELATST",
-        "variable_name": "Perceived relationships quality",
+        "variable_name": "Student-teacher relationships",
         "category": "student_attitude"
-      },
-      {
-        "variable_code": "RELATST",
-        "variable_name": "Quality of student-teacher relationships",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "TEACHSUP",
-        "variable_name": "Teacher support (math)",
-        "category": "teacher"
-      },
-      {
-        "variable_code": "DISCLIM",
-        "variable_name": "Disciplinary climate (math)",
-        "category": "school"
-      },
-      {
-        "variable_code": "SCHSUST",
-        "variable_name": "School actions to sustain learning",
-        "category": "school"
       },
       {
         "variable_code": "FAMSUP",
@@ -220,11 +220,6 @@
         "variable_code": "FAMSUPSL",
         "variable_name": "Family support for self-learning",
         "category": "parent_home"
-      },
-      {
-        "variable_code": "FAMCON",
-        "variable_name": "Subjective familiarity (math)",
-        "category": "student_behavior"
       },
       {
         "variable_code": "STUDYHMW",
@@ -242,13 +237,8 @@
         "category": "student_behavior"
       },
       {
-        "variable_code": "EXERPRAC",
-        "variable_name": "Exercise/practice sport",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "TARDYSD",
-        "variable_name": "Arriving late for school",
+        "variable_code": "DURECEC",
+        "variable_name": "Duration in early childhood education",
         "category": "student_behavior"
       },
       {
@@ -262,134 +252,29 @@
         "category": "demographic"
       },
       {
-        "variable_code": "SISCO",
-        "variable_name": "Clear idea about future job",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "DURECEC",
-        "variable_name": "Duration in early childhood education",
+        "variable_code": "TARDYSD",
+        "variable_name": "Arriving late for school",
         "category": "student_behavior"
       },
       {
-        "variable_code": "BULLIED",
-        "variable_name": "Being bullied",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "HOMEPOS",
-        "variable_name": "Home possessions (WLE)",
-        "category": "socioeconomic"
-      },
-      {
-        "variable_code": "ict_availability",
-        "variable_name": "ICT availability",
-        "category": "ict"
-      },
-      {
-        "variable_code": "usage_at_home",
-        "variable_name": "usage at home",
+        "variable_code": "IMMIG",
+        "variable_name": "Immigrant background",
         "category": "demographic"
       },
       {
-        "variable_code": "usage_at_school",
-        "variable_name": "usage at school",
+        "variable_code": "LANGN",
+        "variable_name": "Language spoken at home",
         "category": "demographic"
       },
       {
-        "variable_code": "ICTHOME",
-        "variable_name": "ICT availability outside school",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTSCH",
-        "variable_name": "ICT availability at school",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTSUBJ",
-        "variable_name": "Subject-related ICT use",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTENQ",
-        "variable_name": "ICT use in enquiry learning",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTOUT",
-        "variable_name": "ICT use for school activities outside class",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTWKDY",
-        "variable_name": "ICT activity frequency (weekday)",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTWKEND",
-        "variable_name": "ICT activity frequency (weekend)",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTQUAL",
-        "variable_name": "Quality of ICT access",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTREG",
-        "variable_name": "Regulated ICT use in school",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTEFFIC",
-        "variable_name": "Self-efficacy in digital competencies",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTFEED",
-        "variable_name": "ICT feedback/support",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ICTINFO",
-        "variable_name": "Online information practices",
-        "category": "ict"
-      },
-      {
-        "variable_code": "LEARRES",
-        "variable_name": "Learning resources during closure",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "EXPO21ST",
-        "variable_name": "Exposure to 21st-century math tasks",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "EXPOFA",
-        "variable_name": "Exposure to formal/applied tasks",
-        "category": "curriculum"
-      },
-      {
-        "variable_code": "COOPAGR",
-        "variable_name": "Cooperation",
+        "variable_code": "MATHMOT",
+        "variable_name": "Motivation to do well in math",
         "category": "student_attitude"
       },
       {
-        "variable_code": "ASSERAGR",
-        "variable_name": "Assertiveness",
+        "variable_code": "MATHPREF",
+        "variable_name": "Preference of mathematics",
         "category": "student_attitude"
-      },
-      {
-        "variable_code": "PROBSELF",
-        "variable_name": "Problems with self-directed learning",
-        "category": "student_behavior"
-      },
-      {
-        "variable_code": "SDLEFF",
-        "variable_name": "Self-directed learning self-efficacy",
-        "category": "student_behavior"
       },
       {
         "variable_code": "MATHEFF",
@@ -398,7 +283,7 @@
       },
       {
         "variable_code": "MATHEF21",
-        "variable_name": "Math self-efficacy (21st skills)",
+        "variable_name": "Math self-efficacy (21st century)",
         "category": "student_attitude"
       },
       {
@@ -412,43 +297,136 @@
         "category": "student_behavior"
       },
       {
+        "variable_code": "FAMCON",
+        "variable_name": "Subjective familiarity with math",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "COGACMCO",
+        "variable_name": "Cognitive activation (math thinking)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "COGACRCO",
+        "variable_name": "Cognitive activation (reasoning)",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "DISCLIM",
+        "variable_name": "Disciplinary climate in math",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "TEACHSUP",
+        "variable_name": "Mathematics teacher support",
+        "category": "teacher"
+      },
+      {
+        "variable_code": "SCHSUST",
+        "variable_name": "School actions to sustain learning",
+        "category": "school"
+      },
+      {
+        "variable_code": "EXERPRAC",
+        "variable_name": "Exercise or sport before/after school",
+        "category": "student_behavior"
+      },
+      {
         "variable_code": "STUBMI",
         "variable_name": "Body mass index (BMI)",
         "category": "student_behavior"
       },
       {
-        "variable_code": "ICTDISTR",
-        "variable_name": "Distress from online content",
-        "category": "ict"
+        "variable_code": "EMPATAGR",
+        "variable_name": "Empathy",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "CURIOAGR",
+        "variable_name": "Curiosity",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "COOPAGR",
+        "variable_name": "Cooperation",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PERSEVAGR",
+        "variable_name": "Perseverance",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "PROBSELF",
+        "variable_name": "Problems with self-directed learning",
+        "category": "student_behavior"
+      },
+      {
+        "variable_code": "SOCCONPA",
+        "variable_name": "Social connection to parents",
+        "category": "parent_home"
+      },
+      {
+        "variable_code": "BSMJ",
+        "variable_name": "Expected occupation status",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "SISCO",
+        "variable_name": "Clear idea about future job",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "MATHEASE",
+        "variable_name": "Perception of math easiness",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "EXPOFA",
+        "variable_name": "Exposure to formal math tasks",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "EXPO21ST",
+        "variable_name": "Exposure to 21st-century math tasks",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "ASSERAGR",
+        "variable_name": "Assertiveness",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "BODYIMA",
+        "variable_name": "Body image",
+        "category": "student_attitude"
+      },
+      {
+        "variable_code": "LEARRES",
+        "variable_name": "Learning resources during closure",
+        "category": "curriculum"
+      },
+      {
+        "variable_code": "SDLEFF",
+        "variable_name": "Self-directed learning self-efficacy",
+        "category": "student_attitude"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2022 Spain (15-year-olds) — student contextual variables (74 variables; 16 derived factors)",
-        "target_variable": "Student cluster membership (7 clusters)",
+        "dataset_used": "PISA 2022 Spain (15-year-old students), student contextual profiles",
+        "target_variable": "Student cluster membership (profile labels)",
         "top_predictors": [
           "Socioeconomic status (ESCS)",
           "ICT availability and usage at home",
           "ICT availability and usage at school",
           "Gender"
         ],
-        "performance_metrics": "Best classification pipeline — global accuracy: 0.8643 (test set); precision: 0.8401–0.9321; recall: 0.8055–0.9406. Cluster interpretability via global and local SHAP values.",
-        "standardized_conclusion": "Using PISA 2022 Spain the study leveraged socioeconomic status (ESCS), ICT use at home and school, and gender to classify students into 7 explainable clusters, finding that ESCS and ICT-use variables had the highest predictive power for cluster membership and that the best model achieved 0.8643 test accuracy. The interpretability relied on SHAP (predictive importance, not causal effects), and the paper does not document complex-survey weight application for the ML models. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
-      },
-      {
-        "dataset_used": "PISA 2022 Spain (15-year-olds) — cluster profiles",
-        "target_variable": "Academic performance differences across clusters (Math/Science/Reading)",
-        "top_predictors": [
-          "Socioeconomic status (ESCS)",
-          "Gender",
-          "ICT availability and usage at home",
-          "Family support"
-        ],
-        "performance_metrics": "Not reported as a single predictive metric; reported observed/expected performance by cluster (Table B.5) and qualitative differences across clusters.",
-        "standardized_conclusion": "Using PISA 2022 Spain cluster profiles, the study examined how clusters differed in academic performance across Mathematics, Science, and Reading, finding substantial between-cluster disparities even though PISA test scores were not used for clustering. The results suggest that support networks and ICT-related factors are associated with achievement patterns, with stronger ESCS-related effects among higher-SES students. Because the clustering was unsupervised and SHAP was used for interpretability of the classification step, the findings should be interpreted as associations rather than causal impacts. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "k-means clustering (optimal k=7); best supervised classification model reported as global accuracy = 0.8643 (test set), precision = 0.8401–0.9321, recall = 0.8055–0.9406; interpretability via global and local SHAP; SHAP indicates ESCS and ICT-use variables as highest predictive-power features.",
+        "standardized_conclusion": "Using PISA 2022 Spain the study leveraged socioeconomic status (ESCS), ICT use at home and school, and gender to form and then classify student profile clusters, finding that ESCS and ICT-use variables had the highest predictive power for categorizing students. This indicates that strengthening equitable access to and regulation of ICT use—alongside targeted socioeconomic supports—may improve the identification and design of differentiated educational interventions for distinct student profiles, though the study’s clustering-to-classification pipeline is not causal and survey-weight handling is not reported."
       }
     ],
-    "outcome_summary": "The paper proposes an explainable cluster-analysis pipeline for PISA 2022 Spanish students, using the full student sample (n = 30,800) and 74 contextual variables reduced to 16 derived factors. Students were clustered with k-means into an optimal 7-cluster solution, and cluster interpretability was supported by a supervised classification stage using SHAP (global and local) to identify which variables best characterize each cluster. The best-performing classification pipeline achieved 0.8643 global accuracy on the test set, with precision between 0.8401 and 0.9321 and recall between 0.8055 and 0.9406. ESCS and ICT use at home and school were identified as the strongest predictive features for cluster membership. The study reports meaningful differences in academic performance across clusters (Math/Science/Reading) despite not using test scores for clustering, but the paper does not document complex-survey weighting for the ML models and SHAP-based importance should not be treated as causal evidence.",
+    "outcome_summary": "The study applies an explainable cluster analysis pipeline to PISA 2022 Spanish student data, using the full sample of 15-year-olds (n = 30,800) and 74 contextual variables. After preprocessing and dimensionality reduction, the authors derive 16 variables and run k-means clustering, selecting an optimal solution with 7 student clusters. They then compare supervised classification pipelines to predict cluster membership and report a best test-set global accuracy of 0.8643, with precision between 0.8401 and 0.9321 and recall between 0.8055 and 0.9406. Cluster interpretability is provided using global and local SHAP values, showing ESCS and ICT use at home and school as the most predictive features, while PISA test scores were not used for clustering. The paper is limited to a single country and does not clearly document missing-data handling or whether PISA sampling weights were incorporated, and SHAP-based importance should not be interpreted as causal effects.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

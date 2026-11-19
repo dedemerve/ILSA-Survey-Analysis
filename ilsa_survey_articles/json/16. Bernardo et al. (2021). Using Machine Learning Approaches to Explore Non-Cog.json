@@ -12,17 +12,17 @@
     ],
     "year": 2021,
     "doi": "10.3390/educsci11100628",
-    "venue": "Education Sciences (MDPI)",
+    "venue": "Education Sciences",
     "publication_type": "journal",
     "open_access": true,
     "source_category": "peer_reviewed_research"
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses the Philippine nationally representative PISA 2018 student sample (15-year-olds) downloaded as a public-use file from the OECD. The original sampling was a two-stage stratified design (187 schools selected across 17 regions, then students sampled within schools). In the manuscript, the authors do not report applying PISA sampling weights or any replicate-weight procedure (e.g., BRR/jackknife), and they do not name any weight variables. Because the analysis is based on standard ML classifiers (SVM, logistic regression, neural network, gradient boosting, random forest, AdaBoost, kNN) and the paper does not describe weight-aware estimation, the ML models were treated as unweighted; this may leave residual effects of the complex sampling design and clustering."
+      "weight_fields_interpretation": "The study uses the Philippines national sample from PISA 2018 (15-year-olds) downloaded as a public-use file from OECD. The original PISA design is described as a two-stage stratified random selection of schools (187 schools across 17 regions) followed by random sampling of students within schools, but the manuscript does not report applying PISA sampling weights or replicate weights in the ML training/testing pipeline. For modeling, the authors rescaled variables to 0–1, imputed missing values using k-nearest neighbors (k=7), and then trained multiple classifiers on an 80/20 random split with five-fold cross-validation for training performance. Because the paper does not state weight usage, the safest interpretation is that complex survey weighting was not incorporated into the ML estimation, which may limit population-representativeness and under/over-estimate uncertainty under the nested school design."
     },
     "plausible_values_handling": "single_pv",
     "missing_data_handling": "knn_imputation",
@@ -35,7 +35,7 @@
           "n_students": 7233
         }
       ],
-      "sample_filtering_criteria": "Used the Philippine PISA 2018 nationally representative student sample (15-year-olds). For modeling, students were dichotomized into low vs high reading proficiency groups using Plausible Value 1 (PV1READ) for reading; low = Levels 1b and below, high = Levels 1a and better. From the 122 candidate variables, variables with 100% missingness were dropped; remaining variables with missing values were imputed using k-nearest neighbors (k=7). The paper also rescales variable ranges to 0–1 and converts PISA missing tags ('M'/'N') to nulls in Python prior to imputation."
+      "sample_filtering_criteria": "Used the complete nationally representative PISA 2018 Philippines student sample (7233 15-year-olds) selected via two-stage stratified sampling (187 schools across 17 regions). For ML, students were labeled into low vs high reading proficiency groups using PV1 for reading (low = Levels 1b and below; high = Levels 1a and above). From the 122 candidate variables, variables with 100% missingness were dropped; remaining variables with missing values were imputed using k-nearest neighbors with k=7 after converting PISA missing tags (\"M\"/\"N\") to nulls. Variables were rescaled to 0–1 prior to model training."
     },
     "ml_techniques": {
       "primary": "SVM",
@@ -51,24 +51,34 @@
     },
     "confounders_identified": [
       {
+        "variable_code": "ESCS",
+        "variable_name": "Socioeconomic status (ESCS)",
+        "category": "socioeconomic"
+      },
+      {
+        "variable_code": "ICTRES",
+        "variable_name": "ICT resources at home",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST176Q05IA",
+        "variable_name": "Online search to learn",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST176Q021A",
+        "variable_name": "Chat online for learning",
+        "category": "ict"
+      },
+      {
+        "variable_code": "ST176Q01IA",
+        "variable_name": "Reading emails on ICT",
+        "category": "ict"
+      },
+      {
         "variable_code": "SCREADDIFF",
         "variable_name": "Perceived reading difficulty",
         "category": "student_attitude"
-      },
-      {
-        "variable_code": "BEINGBULLIED",
-        "variable_name": "Exposure to bullying",
-        "category": "peer_effects"
-      },
-      {
-        "variable_code": "mastery_motivation",
-        "variable_name": "Mastery motivation",
-        "category": "student_attitude"
-      },
-      {
-        "variable_code": "persistence",
-        "variable_name": "persistence",
-        "category": "student_behavior"
       },
       {
         "variable_code": "METASUM",
@@ -92,7 +102,7 @@
       },
       {
         "variable_code": "ST153Q04HA",
-        "variable_name": "Teacher asks for personal thoughts",
+        "variable_name": "Teacher asks personal thoughts",
         "category": "teacher"
       },
       {
@@ -101,29 +111,14 @@
         "category": "teacher"
       },
       {
-        "variable_code": "ICTRES",
-        "variable_name": "ICT resources at home",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ST176Q05IA",
-        "variable_name": "Online searching to learn",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ST176Q021A",
-        "variable_name": "Chat online for learning",
-        "category": "ict"
-      },
-      {
-        "variable_code": "ST176Q01IA",
-        "variable_name": "Reading emails on ICT",
-        "category": "ict"
+        "variable_code": "WORKMAST",
+        "variable_name": "Mastery persistence motivation",
+        "category": "student_behavior"
       },
       {
         "variable_code": "MASTGOAL",
-        "variable_name": "Mastery learning goal",
-        "category": "student_attitude"
+        "variable_name": "Mastery learning goals",
+        "category": "student_behavior"
       },
       {
         "variable_code": "ATTLNACT",
@@ -137,41 +132,41 @@
       },
       {
         "variable_code": "ST184Q01HA",
-        "variable_name": "Fixed mindset (reversed growth)",
+        "variable_name": "Fixed vs growth mindset item",
         "category": "student_attitude"
       },
       {
+        "variable_code": "BEINGBULLIED",
+        "variable_name": "Exposure to bullying",
+        "category": "peer_effects"
+      },
+      {
         "variable_code": "BELONG",
-        "variable_name": "Sense of belonging at school",
+        "variable_name": "Sense of belonging",
         "category": "student_attitude"
       },
       {
         "variable_code": "PERCOOP",
         "variable_name": "Perceived school cooperation",
         "category": "peer_effects"
-      },
-      {
-        "variable_code": "ESCS",
-        "variable_name": "Socioeconomic status (ESCS)",
-        "category": "socioeconomic"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Reading (Philippines, 15-year-olds)",
-        "target_variable": "Reading proficiency group (low vs high) using PV1READ",
+        "dataset_used": "PISA 2018 Philippines (15-year-olds) Reading — PV1READ-based low vs high proficiency",
+        "target_variable": "Reading proficiency group (low Levels 1b and below vs high Levels 1a and above) using PV1READ",
         "top_predictors": [
-          "Perceived reading difficulty",
-          "Exposure to bullying",
-          "Mastery motivation and persistence",
-          "Reading enjoyment",
-          "Socioeconomic status (ESCS)"
+          "SCREADDIFF",
+          "BEINGBULLIED",
+          "WORKMAST",
+          "ICTRES",
+          "JOYREAD"
         ],
-        "performance_metrics": "SVM (best classifier): Test accuracy = 81.20%; AUC-ROC = 0.89. Five-fold cross-validation training performance reported as up to 0.78 average accuracy across models; worst AUC-ROC = 0.5, best AUC-ROC = 1.0.",
-        "standardized_conclusion": "Using PISA 2018 Reading data for the Philippines, the study leveraged perceived reading difficulty, exposure to bullying, mastery motivation/persistence, reading enjoyment, and socioeconomic status (ESCS) to classify students into low vs high reading proficiency groups (based on PV1READ), finding that the SVM achieved 81.20% test accuracy and AUC-ROC of 0.89; SHAP was used to identify the most influential variables, but the paper does not claim causal effects and does not report survey-weighted ML estimation. This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "SVM (RBF kernel) — best average test accuracy: 81.20%; AUC-ROC: 0.89. Worst AUC-ROC reported: 0.5; best AUC-ROC reported: 1.0. Five-fold cross-validation used for training performance; hyperparameters selected via grid search.",
+        "standardized_conclusion": "Using PISA 2018 Philippines reading the study leveraged SCREADDIFF, BEINGBULLIED, WORKMAST, ICTRES, and JOYREAD to classify students into low vs high reading proficiency groups, finding that the SVM achieved the best test performance (accuracy 81.20%, AUC-ROC 0.89) and that higher perceived reading difficulty and bullying exposure were associated with low proficiency while mastery motivation was associated with higher proficiency. This indicates that interventions targeting reading self-beliefs (reducing perceived difficulty), school social climate (bullying reduction and belonging/cooperation), and mastery-oriented motivation may be high-leverage for improving English reading outcomes among Filipino students, though the results are predictive and not causal and may be sensitive to the unreported use of PISA sampling weights."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 Reading data for Filipino 15-year-olds (n=7233) and dichotomized reading proficiency into low (Levels 1b and below) vs high (Levels 1a and better) using PV1READ. After preprocessing (dropping variables with 100% missingness and imputing remaining missing values with kNN, k=7, plus rescaling to 0–1), the authors compared seven ML classifiers using an 80/20 train-test split and five-fold cross-validation for training. The SVM was the best-performing model on the test set, reaching 81.20% accuracy and AUC-ROC of 0.89. SHAP was used to rank the top 20 non-cognitive predictors, with key variables spanning reading-related beliefs (e.g., perceived difficulty, enjoyment, metacognitive summarizing), teacher feedback/enthusiasm, ICT resources and use, motivation/mastery goals, mindset, bullying/belonging/cooperation, and ESCS. Limitations include unweighted ML (no PISA weight application reported) and interpretability via SHAP that supports predictive importance rather than causal inference.",
+    "outcome_summary": "The study uses PISA 2018 Philippines data (7233 students) and predicts a binary reading proficiency label derived from PV1READ: low proficiency corresponds to Levels 1b and below, while high corresponds to Levels 1a and above. After converting PISA missing tags to nulls, the authors dropped variables with 100% missingness and imputed remaining missing values using k-nearest neighbors (k=7), then rescaled variables to 0–1. Multiple classifiers were trained and tuned via grid search, with five-fold cross-validation for training performance and an 80/20 random split for testing. The SVM with an RBF kernel performed best, reaching 81.20% test accuracy and AUC-ROC of 0.89, outperforming other models including logistic regression, random forest, gradient boosting, AdaBoost, and kNN. Interpretation relies on SHAP for feature importance, but the paper’s predictive focus and the lack of explicit reporting on survey-weight use mean results should be treated as correlational and potentially limited in generalizability under the nested PISA design.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }

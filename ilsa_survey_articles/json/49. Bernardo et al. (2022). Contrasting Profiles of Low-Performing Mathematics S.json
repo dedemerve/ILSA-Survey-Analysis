@@ -2,27 +2,20 @@
   "metadata": {
     "file_name": "49. Bernardo et al. (2022). Contrasting Profiles of Low-Performing Mathematics Students in Public and Private Schools in the Philippines: Insights from Machine Learning.pdf",
     "title": "Contrasting Profiles of Low-Performing Mathematics Students in Public and Private Schools in the Philippines: Insights from Machine Learning",
-    "authors": [
-      "Bernardo",
-      "M.O.C.II",
-      "J.M.M.T",
-      "S.A.Y",
-      "U.C.C",
-      "M.R.C.L"
-    ],
+    "authors": null,
     "year": 2022,
     "doi": "10.3390/jintelligence10030061",
     "venue": "Journal of Intelligence",
     "publication_type": "journal",
-    "open_access": true,
+    "open_access": null,
     "source_category": "peer_reviewed_research"
   },
   "data": {
     "survey_design": {
-      "student_weights_used": false,
+      "student_weights_used": null,
       "replicate_weights_used": null,
       "weight_variable_name": null,
-      "weight_fields_interpretation": "The study uses the Philippines sample from PISA 2018, drawn via a two-stage stratified random sampling design (schools selected first, then students within schools). The authors report downloading the public-use PISA 2018 database and then applying additional preprocessing: removing three variables with 100% missingness, excluding students with >50% missing values, imputing remaining missing values with kNN (k=7), transforming the PV1MATH plausible value into a binary low- vs better-performing outcome, and normalizing variables (except SCHLTYPE). The manuscript does not mention applying PISA sampling weights or replicate weights (e.g., BRR/jackknife), and the ML models (logistic regression, MLP, SVM, decision tree, random forest) are trained on the processed dataset without any stated complex-survey weighting. Therefore, the analysis is treated as unweighted with respect to PISA’s complex sampling design."
+      "weight_fields_interpretation": "The study uses the Philippines sample from PISA 2018, drawn via a two-stage stratified random sampling design (187 schools selected across 17 regions, then students sampled within schools). The authors report downloading the publicly released PISA 2018 database and constructing an analytic dataset by excluding variables with 100% missingness and removing students with more than 50% missing values. Missing questionnaire variables in the reduced dataset were imputed using k-nearest neighbors (k=7), followed by normalization of variables to [0,1] (except SCHLTYPE) and correlation-based feature condensation. The manuscript does not report applying PISA sampling weights or replicate weights in the ML training/evaluation; given the use of standard ML classifiers (e.g., Random Forest) and the absence of any weight-variable mention, weighting is likely omitted or not discussed, which may affect population-representativeness and uncertainty estimates."
     },
     "plausible_values_handling": "single_pv",
     "missing_data_handling": "knn_imputation",
@@ -35,7 +28,7 @@
           "n_students": 7091
         }
       ],
-      "sample_filtering_criteria": "Used the Philippines PISA 2018 student sample (7233 students initially). Excluded three questionnaire variables with 100% missingness (ICTSCH, ICTHOME, ST225Q03HA). Further excluded students with more than 50% missing values, reducing the analytic dataset to 7091 students. Imputed remaining missing values in the reduced dataset using k-nearest neighbor imputation with k=7. Transformed PVMATH1 (PV1MATH) into a binary target: set to 1 for low proficiency (PVMATH1 < 357.7, below Level 1) and 0 for better performance (PVMATH1 ≥ 357.7, Levels 1–6)."
+      "sample_filtering_criteria": "Used the Philippines PISA 2018 student questionnaire and school questionnaire data. Excluded three variables with 100% missingness (ICTSCH, ICTHOME, ST225Q03HA) and excluded students with more than 50% missing values, reducing the sample to 7091 students. Imputed remaining missing values in the reduced dataset using k-nearest neighbor imputation with k=7. Defined the binary target using PVMATH1 (PV1MATH): students with PVMATH1 < 357.7 (below Level 1) were coded as 1 (poor performers) and those with PVMATH1 ≥ 357.7 (Levels 1–6) were coded as 0 (better performers). Then analyzed public and private school students separately using SCHLTYPE (private: SCHLTYPE=1 or 2; public: SCHLTYPE=3)."
     },
     "ml_techniques": {
       "primary": "Random Forest",
@@ -55,22 +48,22 @@
       },
       {
         "variable_code": "ST012Q05NA",
-        "variable_name": "Mobile phones with internet at home",
+        "variable_name": "Internet mobile phones at home",
         "category": "ict"
       },
       {
         "variable_code": "ST225Q05HA",
-        "variable_name": "Expectation to complete vocational degree",
+        "variable_name": "Expect vocational degree",
         "category": "student_attitude"
       },
       {
         "variable_code": "ST166Q02HA",
-        "variable_name": "Appropriate response to spam email",
+        "variable_name": "Spam email response appropriateness",
         "category": "student_behavior"
       },
       {
         "variable_code": "HISEI",
-        "variable_name": "Parents’ occupational status (HISEI)",
+        "variable_name": "Parents occupational status (HISEI)",
         "category": "socioeconomic"
       },
       {
@@ -79,38 +72,33 @@
         "category": "student_attitude"
       },
       {
-        "variable_code": "motivation",
-        "variable_name": "Motivation",
+        "variable_code": "WORKMAST",
+        "variable_name": "Mastery motivation (WORKMAST)",
         "category": "student_attitude"
       },
       {
-        "variable_code": "persistence_to_master_tasks",
-        "variable_name": "persistence to master tasks",
-        "category": "student_behavior"
-      },
-      {
         "variable_code": "ATTLNACT",
-        "variable_name": "Value of schooling for future success",
+        "variable_name": "Value of schooling (ATTLNACT)",
         "category": "student_attitude"
       },
       {
         "variable_code": "ST188Q02HA",
-        "variable_name": "Proud of accomplishments (self-efficacy)",
+        "variable_name": "Proud of accomplishments (ST188Q02HA)",
         "category": "student_attitude"
       },
       {
         "variable_code": "REPEAT",
-        "variable_name": "Previously repeated a grade",
+        "variable_name": "Grade repetition (REPEAT)",
         "category": "demographic"
       },
       {
         "variable_code": "ST062Q01TA",
-        "variable_name": "Skipped school days in past two weeks",
+        "variable_name": "Skipping school days (ST062Q01TA)",
         "category": "student_behavior"
       },
       {
         "variable_code": "PERCOOP",
-        "variable_name": "Perceived cooperation encouraged at school",
+        "variable_name": "Cooperation encouraged (PERCOOP)",
         "category": "school"
       },
       {
@@ -125,44 +113,44 @@
       },
       {
         "variable_code": "ICTRES",
-        "variable_name": "ICT resources at home",
+        "variable_name": "ICT resources at home (ICTRES)",
         "category": "ict"
       },
       {
-        "variable_code": "ST059Q02TA",
-        "variable_name": "Required math class periods per week",
+        "variable_code": "ST05902TA",
+        "variable_name": "Math class periods per week",
         "category": "curriculum"
       }
     ],
     "main_findings": [
       {
-        "dataset_used": "PISA 2018 Philippines (public schools) — Mathematics proficiency (PV1MATH) binary classification",
-        "target_variable": "Low math performance (PV1MATH below Level 1)",
-        "top_predictors": [
-          "ST012Q05NA",
-          "ST225QQ05HA",
-          "ST166Q02HA",
-          "HISEI",
-          "WORKMAST"
-        ],
-        "performance_metrics": "Random Forest (best): Precision 0.69, Recall 0.61, F1-score 0.65, Accuracy 0.79; ROC-AUC reported as strong separation (exact AUC value not provided in text).",
-        "standardized_conclusion": "Using PISA 2018 Philippines public-school the study leveraged mobile/internet access at home, vocational-degree expectations, metacognitive email-response judgment, parents’ occupational status, and motivation/persistence to master tasks to classify students as low vs better mathematics performers, finding that Random Forest achieved the highest validation accuracy (0.79) and that resource-constraint and aspiration-related variables were among the most influential predictors (as indicated by SHAP). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
-      },
-      {
-        "dataset_used": "PISA 2018 Philippines (private schools) — Mathematics proficiency (PV1MATH) binary classification",
-        "target_variable": "Low math performance (PV1MATH below Level 1)",
+        "dataset_used": "PISA 2018 Mathematics (Philippines) — private schools (SCHLTYPE=1/2), PV1MATH-based Level 1 threshold",
+        "target_variable": "Poor mathematics performance (PVMATH1 < 357.7 vs ≥ 357.7)",
         "top_predictors": [
           "ST012Q05NA",
           "ST225Q05HA",
           "ST166Q02HA",
           "HISEI",
-          "PERCOOP"
+          "BSMJ"
         ],
-        "performance_metrics": "Random Forest (best): Precision 0.81, Recall 0.78, F1-score 0.79, Accuracy 0.79; ROC-AUC reported as strong separation (exact AUC value not provided in text).",
-        "standardized_conclusion": "Using PISA 2018 Philippines private-school the study leveraged mobile/internet access at home, vocational-degree expectations, metacognitive email-response judgment, parents’ occupational status, and perceived cooperation at school to classify students as low vs better mathematics performers, finding that Random Forest achieved the highest validation accuracy (0.79) and that SHAP-identified top variables differed in direction across school types (e.g., some aspiration/ICT-related indicators). This indicates that these patterns have implications for educational policy and instructional practice, though cross-sectional ILSA designs cannot establish causality."
+        "performance_metrics": "Random Forest (best): Precision=0.69, Recall=0.61, F1=0.65, Accuracy=0.79; ROC-AUC reported in Figure 2 (exact AUC value not provided in text).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for the Philippines private-school students, the study leveraged internet mobile-phone access (ST012Q05NA), expectations of completing a vocational degree (ST225Q05HA), metacognitive-like email-safety judgment (ST166Q02HA), parents’ occupational status (HISEI), and expected job at age 30 (BSMJ) to classify poor versus better mathematics performers based on PV1MATH. It found that the Random Forest achieved the highest validation accuracy (0.79) and that lower values on these resource/aspiration-related variables were associated with identifying poor performers (with SHAP indicating inverse relationships for the shared top features). This indicates that interventions for low-performing private-school students should prioritize reducing digital access and strengthening realistic postsecondary/occupational expectations, while also addressing students’ ability to handle misinformation in online contexts, though the results are predictive and not causal."
+      },
+      {
+        "dataset_used": "PISA 2018 Mathematics (Philippines) — public schools (SCHLTYPE=3), PV1MATH-based Level 1 threshold",
+        "target_variable": "Poor mathematics performance (PVMATH1 < 357.7 vs ≥ 357.7)",
+        "top_predictors": [
+          "ST012Q05NA",
+          "ST225Q05HA",
+          "ST166Q02HA",
+          "HISEI",
+          "WORKMAST"
+        ],
+        "performance_metrics": "Random Forest (best): Precision=0.81, Recall=0.78, F1=0.79, Accuracy=0.79; ROC-AUC reported in Figure 2 (exact AUC value not provided in text).",
+        "standardized_conclusion": "Using PISA 2018 Mathematics data for the Philippines public-school students, the study leveraged internet mobile-phone access (ST012Q05NA), expectations of completing a vocational degree (ST225Q05HA), email-safety judgment (ST166Q02HA), parents’ occupational status (HISEI), and mastery motivation (WORKMAST) to classify poor versus better mathematics performers based on PV1MATH. It found that the Random Forest achieved the highest validation accuracy (0.79) and that lower values on shared resource/aspiration/metacognitive-related variables were associated with identifying poor performers, alongside public-school-specific motivational and engagement indicators (e.g., WORKMAST and ATTLNACT). This indicates that public-school mathematics support should target motivational persistence and value of schooling, alongside addressing socioeconomic constraints and students’ vulnerability to misinformation, while recognizing that SHAP-based importance reflects prediction rather than causal effects."
       }
     ],
-    "outcome_summary": "The study analyzed PISA 2018 Philippines student data (analytic sample N=7091) and trained ML classifiers to distinguish low mathematics performers (PV1MATH below Level 1) from better performers, separately for public and private schools. After preprocessing (variable removal, kNN imputation with k=7, normalization, and binary recoding of PV1MATH), the Random Forest classifier was the best-performing model for both school types. For public schools, Random Forest achieved Precision=0.69, Recall=0.61, F1=0.65, and Accuracy=0.79; for private schools, it achieved Precision=0.81, Recall=0.78, F1=0.79, and Accuracy=0.79. SHAP-based feature importance highlighted consistent top predictors across both groups (e.g., mobile phones with internet access, vocational-degree expectations, email-response judgment, and parents’ occupational status), while additional key variables differed by school type (e.g., motivation/persistence and absenteeism for public schools; emotional support, fixed mindset, and ICT resources for private schools). Methodologically, the paper uses SHAP for interpretability (predictive importance, not causal effects) and does not report applying PISA sampling weights in the ML training/evaluation.",
+    "outcome_summary": "The study uses the Philippines sample from PISA 2018 and constructs a binary mathematics outcome from PV1MATH (PVMATH1): students below Level 1 (PVMATH1 < 357.7) are coded as poor performers and those at Level 1 or higher as better performers. After excluding variables with 100% missingness and removing students with >50% missing values, the authors impute remaining missing questionnaire data using k-nearest neighbors (k=7), normalize predictors, and then train separate classifiers for private and public schools using SCHLTYPE. Across both school types, Random Forest is selected as the best model via exhaustive hyperparameter search with five-fold cross-validation, reporting validation Precision/Recall/F1/Accuracy; for private schools Accuracy=0.79 (F1=0.65) and for public schools Accuracy=0.79 (F1=0.79). SHAP is used to rank influential predictors, highlighting shared resource/aspiration and email-safety judgment variables, plus school-type-specific motivational/engagement factors. Limitations include the lack of reported PISA sampling-weight usage and the fact that SHAP importance supports prediction, not causal inference.",
     "research_design_type": "predictive",
     "null_fields_interpretation": null
   }
